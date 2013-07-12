@@ -15,6 +15,12 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time I can devote. To be informed about the features that gradually will be released you can follow <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where As I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be inserted after the latest that will affect this plugin.
 
+= Widgets available in plugin =
+* Widget for google+ profile badge.
+* Widget for google+ page badge.
+* Widget for google+ community badge.
+* Widget for google+ comments system.
+
 = Shortcodes available in plugin =
 * `[sz-gplus-profile]` - insert google+ badge for profile
 * `[sz-gplus-page]` - insert google+ badge for business page
@@ -23,7 +29,23 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `[sz-gplus-share]` - insert google+ button for sharing
 * `[sz-gplus-follow]` - insert google+ button for follow
 
+= Plugin module Google+ =
 
+**Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the dedicated widget. At the commenting system has been added to the reference date for activation, for example, if someone has the need to maintain the old system to the old posts and activate it only for new ones can enter a date for when the new system is only activated if the date of the post and greater than or equal to this date.
+
+**Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin-google sz we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
+
+= Functions in the plugin to use in the themes  =
+* `szgoogle_get_gplus_badge_profile()`
+* `szgoogle_get_gplus_badge_page()`
+* `szgoogle_get_gplus_badge_community()`
+* `szgoogle_get_gplus_button_one()`
+* `szgoogle_get_gplus_button_share()`
+* `szgoogle_get_gplus_button_follow()`
+* `szgoogle_get_gplus_comments()`
+
+= Plugin and general performance =
+Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly requested function.
 
 == Installation ==
 
