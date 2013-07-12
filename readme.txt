@@ -15,12 +15,12 @@ Plugin to integrate Google's products in WordPress with particular attention for
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote. 
 
-To be informed about the features that gradually will be released you can follow <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where As I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be inserted after the latest that will affect this plugin.
+To be informed about the features that gradually will be released you can follow this link page <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where As I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be inserted after the latest that will affect this plugin.
 
 = Widgets available in plugin =
 * Widget for google+ profile badge.
 * Widget for google+ page badge.
-* Widget for google+ community badge.
+* Widget for google+ community badget
 * Widget for google+ comments system.
 
 = Shortcodes available in plugin =
