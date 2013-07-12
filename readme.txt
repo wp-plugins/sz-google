@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
 Tags: google, google+, google badge, google community, google page, google plus, google profile, google widgets, widgets, sidebar, shortcodes
 
-Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. 
+Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
 == Description ==
 <a href="http://wordpress.org/extend/plugins/sz-google/">English</a> - <a href="http://goo.gl/czjnz">Italiano</a> - <a href="http://goo.gl/Jt0YN">Español</a>
