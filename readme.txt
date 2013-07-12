@@ -11,7 +11,7 @@ Tags: google, google+, google badge, google community, google page, google plus,
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. 
 
 == Description ==
-<a href="http://wordpress.org/extend/plugins/sz-google/">English</a> - <a href="">Italiano</a> - <a href="">Español</a>
+<a href="http://wordpress.org/extend/plugins/sz-google/">English</a> - <a href="http://goo.gl/czjnz">Italiano</a> - <a href="http://goo.gl/Jt0YN">Español</a>
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time I can devote. To be informed about the features that gradually will be released you can follow <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where As I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be inserted after the latest that will affect this plugin.
 
@@ -26,6 +26,8 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 
 == Installation ==
+
+<a href="http://wordpress.org/plugins/sz-google/installation/">English</a> - <a href="http://goo.gl/dBkcS">Italiano</a> - <a href="http://goo.gl/BbxQa">Español</a>
 
 = Automatic installation =
 1. Administration Panel plugins and option `add new`.
@@ -47,7 +49,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 == Frequently Asked Questions ==
 
-<a href="http://wordpress.org/plugins/sz-google/faq/">English</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=it&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Ffaq%2F">Italiano</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=es&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Ffaq%2F">Español</a>
+<a href="http://wordpress.org/plugins/sz-google/faq/">English</a> - <a href="http://goo.gl/2co5W">Italiano</a> - <a href="http://goo.gl/SJIhR">Español</a>
 
 = You can see a demo before the installation? =
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the page <a href="https://startbyzero.com/demos/wordpress/plugin-google/">SZ-Google Demo</a>.
