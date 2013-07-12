@@ -54,14 +54,16 @@ Yes, we have made available demonstration of the pages where the plugin installe
 
 == Changelog ==
 
-= Versione 0.2 =
+<a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=it&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Fchangelog%2F">Italiano</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=es&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Fchangelog%2F">Español</a>
+
+= Version 0.2 =
 * Feature: Add Google+ shortcode button plus one.
 * Feature: Add Google+ shortcode button share.
 * Feature: Add Google+ shortcode button follow.
 * Feature: Add Google+ custom URL redirect.
 * Feature: Add Google+ select language widgets.
 
-= Versione 0.1 =
+= Version 0.1 =
 * Feature: First version of the plugin and initial functions.
 * Feature: Add Google+ shortcode badges profile.
 * Feature: Add Google+ shortcode badges page.
