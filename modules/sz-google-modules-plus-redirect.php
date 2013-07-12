@@ -43,7 +43,7 @@ function sz_google_modules_plus_rewrite_rules()
 	{
 		$options['plus_redirect_flush'] = '1';    
 		update_option('sz_google_options_plus',$options);
-		add_action('wp_loaded','sz_google_plugin_flush_rules');
+		add_action('wp_loaded','sz_google_modules_flush_rules');
 	}
 
 	// Aggiungo variabile QUERY URL e controllo personalizzato di redirect
