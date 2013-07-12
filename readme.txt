@@ -47,6 +47,8 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 == Frequently Asked Questions ==
 
+<a href="http://wordpress.org/plugins/sz-google/faq/">English</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=it&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Ffaq%2F">Italiano</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=es&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Ffaq%2F">Español</a>
+
 = You can see a demo before the installation? =
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the page <a href="https://startbyzero.com/demos/wordpress/plugin-google/">SZ-Google Demo</a>.
 
@@ -68,9 +70,9 @@ Yes, we have made available demonstration of the pages where the plugin installe
 * Feature: Add Google+ shortcode badges profile.
 * Feature: Add Google+ shortcode badges page.
 * Feature: Add Google+ shortcode badges community.
-* Feature: Add Google+ widgets badge profile.
-* Feature: Add Google+ widgets badge business page.
-* Feature: Add Google+ widgets badge community.
+* Feature: Add Google+ widget badge profile.
+* Feature: Add Google+ widget badge business page.
+* Feature: Add Google+ widget badge community.
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
