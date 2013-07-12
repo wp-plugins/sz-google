@@ -139,7 +139,7 @@ register_activation_hook( __FILE__,'sz_google_plugin_activate');
 /* ************************************************************************** */
 
 function sz_google_plugin_deactivate() {
-	sz_google_plugin_flush_rules();
+	sz_google_modules_flush_rules();
 }
 
 register_deactivation_hook( __FILE__,'sz_google_plugin_deactivate');
