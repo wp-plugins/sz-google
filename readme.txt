@@ -38,6 +38,7 @@ To be informed about the features that gradually will be released you can follow
 **Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin-google sz we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
 
 = Functions in the plugin to use in the themes  =
+** **
 * `szgoogle_get_gplus_badge_profile()`
 * `szgoogle_get_gplus_badge_page()`
 * `szgoogle_get_gplus_badge_community()`
