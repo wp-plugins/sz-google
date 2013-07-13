@@ -64,7 +64,7 @@ Given that in the plugin will be implemented different function that will not be
 
 == Installation ==
 
-<a href="http://wordpress.org/plugins/sz-google/installation/">English</a> - <a href="http://goo.gl/dBkcS">Italiano</a> - <a href="http://goo.gl/BbxQa">Español</a>
+<a href="http://wordpress.org/plugins/sz-google/installation/">English</a> - <a href="http://goo.gl/dBkcS">Italiano</a> - <a href="http://goo.gl/BbxQa">Español</a> - <a href="http://goo.gl/K6yRB">Français</a> - <a href="http://goo.gl/uSoJ1">Deutsch</a>
 
 = Automatic installation =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -97,7 +97,7 @@ If you have problems during the installation of this plugin please contact us di
 
 == Frequently Asked Questions ==
 
-<a href="http://wordpress.org/plugins/sz-google/faq/">English</a> - <a href="http://goo.gl/2co5W">Italiano</a> - <a href="http://goo.gl/SJIhR">Español</a>
+<a href="http://wordpress.org/plugins/sz-google/faq/">English</a> - <a href="http://goo.gl/2co5W">Italiano</a> - <a href="http://goo.gl/SJIhR">Español</a> - <a href="http://goo.gl/hDYgZ">Français</a> - <a href="http://goo.gl/wz6ZV">Deutsch</a>
 
 = You can see a demo before the installation? =
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the page <a href="https://startbyzero.com/demos/wordpress/plugin-google/">SZ-Google Demo</a>.
@@ -109,7 +109,7 @@ Yes, we have made available demonstration of the pages where the plugin installe
 
 == Changelog ==
 
-<a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a>
+<a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
 = Version 0.2 =
 * Feature: Add Google+ shortcode button plus one.
