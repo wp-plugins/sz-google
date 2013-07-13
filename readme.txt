@@ -18,18 +18,22 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 To be informed about the features that gradually will be released you can follow this link page <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where As I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be inserted after the latest that will affect this plugin.
 
 = Widgets available in plugin =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
 * `Widget for google+ profile badge.`
 * `Widget for google+ page badge.`
 * `Widget for google+ community badget`
 * `Widget for google+ comments system.`
 
 = Shortcodes available in plugin =
-* `[sz-gplus-profile]` - insert google+ badge for profile
-* `[sz-gplus-page]` - insert google+ badge for business page
-* `[sz-gplus-community]` - insert google+ badge for community
-* `[sz-gplus-one]` - insert google+ button plus one
-* `[sz-gplus-share]` - insert google+ button for sharing
-* `[sz-gplus-follow]` - insert google+ button for follow
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+* `[sz-gplus-profile] - insert google+ badge for profile`
+* `[sz-gplus-page] - insert google+ badge for business page`
+* `[sz-gplus-community] - insert google+ badge for community`
+* `[sz-gplus-one] - insert google+ button plus one`
+* `[sz-gplus-share] - insert google+ button for sharing`
+* `[sz-gplus-follow] - insert google+ button for follow`
 
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
