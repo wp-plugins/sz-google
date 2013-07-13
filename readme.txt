@@ -104,7 +104,7 @@ Yes, we have made available demonstration of the pages where the plugin installe
 
 == Changelog ==
 
-<a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=it&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Fchangelog%2F">Italiano</a> - <a href="http://translate.google.com/translate?hl=it&sl=en&tl=es&u=http%3A%2F%2Fwordpress.org%2Fplugins%2Fsz-google%2Fchangelog%2F">Español</a>
+<a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a>
 
 = Version 0.2 =
 * Feature: Add Google+ shortcode button plus one.
