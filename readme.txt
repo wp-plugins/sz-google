@@ -18,10 +18,10 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 To be informed about the features that gradually will be released you can follow this link page <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where As I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be inserted after the latest that will affect this plugin.
 
 = Widgets available in plugin =
-* Widget for google+ profile badge.
-* Widget for google+ page badge.
-* Widget for google+ community badget
-* Widget for google+ comments system.
+* `Widget for google+ profile badge.`
+* `Widget for google+ page badge.`
+* `Widget for google+ community badget`
+* `Widget for google+ comments system.`
 
 = Shortcodes available in plugin =
 * `[sz-gplus-profile]` - insert google+ badge for profile
@@ -38,7 +38,7 @@ To be informed about the features that gradually will be released you can follow
 **Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin-google sz we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
 
 = Functions in the plugin to use in the themes  =
-** **
+**<a href="http://wordpress.org/plugins/sz-google/"> </a**
 * `szgoogle_get_gplus_badge_profile()`
 * `szgoogle_get_gplus_badge_page()`
 * `szgoogle_get_gplus_badge_community()`
