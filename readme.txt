@@ -38,7 +38,7 @@ To be informed about the features that gradually will be released you can follow
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-**Google+ Badge:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badeg for profiles, one for the pages or the one dedicated to the community.
+**Google+ Badge:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These components can be used as a widget for use in or as a sidebar and as shortcode to use in the articles. You can also use the php functions to customize your own theme directly with programming code.
 
 **Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin-google sz we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
 
@@ -104,6 +104,7 @@ Yes, we have made available demonstration of the pages where the plugin installe
 
 == Screenshots ==
 
+1. Plugin SZ-Google and administrator panel
 2. Google+ social network module
 
 == Changelog ==
