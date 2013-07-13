@@ -50,7 +50,7 @@ To be informed about the features that gradually will be released you can follow
 `<?php echo szgoogle_get_gplus_button_follow(); ?>`
 
 = Plugin and general performance =
-Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly requested function.
+Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly requested function. For this reason, activated only the functions you use.
 
 == Installation ==
 
