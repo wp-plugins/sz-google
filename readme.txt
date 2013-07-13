@@ -102,6 +102,8 @@ Yes, we have made available demonstration of the pages where the plugin installe
 
 == Screenshots ==
 
+2. Google+ social network module
+
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a>
