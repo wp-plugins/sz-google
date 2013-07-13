@@ -32,6 +32,7 @@ To be informed about the features that gradually will be released you can follow
 * `[sz-gplus-follow]` - insert google+ button for follow
 
 = Plugin module Google+ =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
 **Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the dedicated widget. At the commenting system has been added to the reference date for activation, for example, if someone has the need to maintain the old system to the old posts and activate it only for new ones can enter a date for when the new system is only activated if the date of the post and greater than or equal to this date.
 
@@ -51,6 +52,8 @@ To be informed about the features that gradually will be released you can follow
 `<?php echo szgoogle_get_gplus_button_follow(); ?>`
 
 = Plugin and general performance =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
 Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly requested function. For this reason, activated only the functions you use.
 
 == Installation ==
