@@ -20,10 +20,10 @@ To be informed about the features that gradually will be released you can follow
 = Widgets available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-* `Widget for google+ profile badge.`
-* `Widget for google+ page badge.`
+* `Widget for google+ profile badge`
+* `Widget for google+ page badge`
 * `Widget for google+ community badget`
-* `Widget for google+ comments system.`
+* `Widget for google+ comments system`
 
 = Shortcodes available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
