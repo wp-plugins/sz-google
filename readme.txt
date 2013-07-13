@@ -6,7 +6,7 @@ Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: badge, buttons, comments, comments system, custom url, google, google+, google badge, google buttons, google comments, google community, google custom url, google page, google plus, google profile, google share, google follow, widgets, widgets google, rediretc, sidebar, social network, shortcodes
+Tags: badge, buttons, comments, comments system, custom url, follow, google, google+, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ page, google plus, google+ profile, google+ share, google+ follow, widgets, widgets google+, redirect, sidebar, share, social network, shortcodes
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
