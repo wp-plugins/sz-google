@@ -91,7 +91,7 @@ Given that in the plugin will be implemented different function that will not be
 = Troubleshoot problems during installation =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-if you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>.
+If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>. Remember to specify exactly the problem, the version of the plugin that tsai installing or updating, the version of wordpress and uses the operating system that manages the site hosting.
 
 == Frequently Asked Questions ==
 
