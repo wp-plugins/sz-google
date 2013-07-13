@@ -1,0 +1,604 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sz-google\n"
+"POT-Creation-Date: 2013-07-09 06:35-0500\n"
+"PO-Revision-Date: 2013-07-09 06:35-0500\n"
+"Last-Translator: massimo <webmaster@startbyzero.com>\n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /home/massimo/Scaricati/sz-google\n"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:192
+msgid "same language theme"
+msgstr "stessa lingua del tema"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:193
+msgid "afrikaans"
+msgstr "africano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:194
+msgid "amharic"
+msgstr "amarico"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:195
+msgid "arabic"
+msgstr "arabo"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:196
+msgid "basque"
+msgstr "basco"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:197
+msgid "bengali"
+msgstr "bengali"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:198
+msgid "bulgarian"
+msgstr "bulgaro"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:199
+msgid "catalan"
+msgstr "catalano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:200
+msgid "chinese (Hong Kong)"
+msgstr "cinese (Hong Kong)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:201
+msgid "chinese (Simplified)"
+msgstr "cinese (Semplificato)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:202
+msgid "chinese (Traditional)"
+msgstr "cinese (Tradizionale)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:203
+msgid "croatian"
+msgstr "croato"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:204
+msgid "czech"
+msgstr "ceco"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:205
+msgid "danish"
+msgstr "danese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:206
+msgid "dutch"
+msgstr "olandese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:207
+msgid "english (UK)"
+msgstr "inglese (UK)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:208
+msgid "english (US)"
+msgstr "inglese (US)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:209
+msgid "estonian"
+msgstr "ettone"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:210
+msgid "filipino"
+msgstr "filippino"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:211
+msgid "finnish"
+msgstr "finlandese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:212
+msgid "french"
+msgstr "francese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:213
+msgid "french (Canadian)"
+msgstr "francese (Canada)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:214
+msgid "galician"
+msgstr "galiziano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:215
+msgid "german"
+msgstr "tedesco"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:216
+msgid "greek"
+msgstr "greco"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:217
+msgid "gujarati"
+msgstr "gujarati"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:218
+msgid "hebrew"
+msgstr "ebraico"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:219
+msgid "hindi"
+msgstr "hindi"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:220
+msgid "hungarian"
+msgstr "ungherese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:221
+msgid "icelandic"
+msgstr "islandese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:222
+msgid "indonesian"
+msgstr "indonesiano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:223
+msgid "italian"
+msgstr "italiano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:224
+msgid "japanese"
+msgstr "giapponese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:225
+msgid "kannada"
+msgstr "kannada"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:226
+msgid "korean"
+msgstr "coreano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:227
+msgid "latvian"
+msgstr "lettone"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:228
+msgid "lithuanian"
+msgstr "lituano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:229
+msgid "malay"
+msgstr "malese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:230
+msgid "malayalam"
+msgstr "malayalam"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:231
+msgid "marathi"
+msgstr "marathi"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:232
+msgid "norwegian"
+msgstr "norvegese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:233
+msgid "persian"
+msgstr "persiano"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:234
+msgid "polish"
+msgstr "polonia"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:235
+msgid "portuguese (Brazil)"
+msgstr "portoghese (Brasile)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:236
+msgid "portuguese (Portugal)"
+msgstr "portoghese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:237
+msgid "romanian"
+msgstr "rumeno"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:238
+msgid "russian"
+msgstr "russo"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:239
+msgid "serbian"
+msgstr "serbo"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:240
+msgid "slovak"
+msgstr "slovacco"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:241
+msgid "slovenian"
+msgstr "sloveno"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:242
+msgid "spanish"
+msgstr "spagnolo"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:243
+msgid "spanish (Latin America)"
+msgstr "spagnolo (America latina)"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:244
+msgid "swahili"
+msgstr "swahili"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:245
+msgid "swedish"
+msgstr "svedese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:246
+msgid "tamil"
+msgstr "tamil"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:247
+msgid "telugu"
+msgstr "telegu"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:248
+msgid "thai"
+msgstr "thailandese"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:249
+msgid "turkish"
+msgstr "turco"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:250
+msgid "ukrainian"
+msgstr "ucraino"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:251
+msgid "urdu"
+msgstr "urdu"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:252
+msgid "vietnamese"
+msgstr "vietnamita"
+
+#: /home/massimo/Scaricati/sz-google/sz-google.php:253
+msgid "zulu"
+msgstr "zulu"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:19
+msgid "widget for google+ page"
+msgstr "widget per google+ pagina"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:21
+msgid "SZ-Google - G+ Page"
+msgstr "SZ-Google - G+ Pagina"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:197
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:197
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:186
+msgid "title"
+msgstr "titolo"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:203
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:203
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:192
+msgid "configuration ID"
+msgstr "ID di configurazione"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:204
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:204
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:193
+msgid "specific ID"
+msgstr "ID specifico"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:210
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:210
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:199
+msgid "insert specific ID"
+msgstr "inserire ID specifico"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:249
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:249
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:238
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-comments.php:142
+msgid "width"
+msgstr "larghezza"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:251
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:251
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:240
+msgid "default"
+msgstr "default"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:262
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:262
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:251
+msgid "layout"
+msgstr "layout"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:263
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:263
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:252
+msgid "portrait"
+msgstr "verticale"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:264
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:264
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:253
+msgid "landscape"
+msgstr "orizzontale"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:273
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:273
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:262
+msgid "theme"
+msgstr "tema"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:274
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:274
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:263
+msgid "light"
+msgstr "chiaro"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:275
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:275
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:264
+msgid "dark"
+msgstr "scuro"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:283
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:283
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:272
+msgid "cover"
+msgstr "copertina"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:284
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:295
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:306
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:284
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:295
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:306
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:273
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:284
+msgid "enabled"
+msgstr "abilitato"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:285
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:296
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:307
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:285
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:296
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:307
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:274
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:285
+msgid "disabled"
+msgstr "disabilitato"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:294
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:294
+msgid "tagline"
+msgstr "descrizione"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-page.php:305
+msgid "publisher"
+msgstr "publisher"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:19
+msgid "widget for google+ profile"
+msgstr "widget per google+ profilo"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:21
+msgid "SZ-Google - G+ Profile"
+msgstr "SZ-Google - G+ Profilo"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-profile.php:305
+msgid "author"
+msgstr "autore"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:19
+msgid "widget for google+ community"
+msgstr "widget per google+ community"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:21
+msgid "SZ-Google - G+ Community"
+msgstr "SZ-Google - G+ Community"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-community.php:283
+msgid "owner"
+msgstr "proprietario"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-comments.php:19
+msgid "widget for google+ comments"
+msgstr "widget per google+ commenti"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-comments.php:21
+msgid "SZ-Google - G+ Comments"
+msgstr "SZ-Google - G+ Commenti"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-comments.php:136
+msgid "url"
+msgstr "url"
+
+#: /home/massimo/Scaricati/sz-google/widgets/sz-google-widgets-plus-comments.php:144
+msgid "responsive"
+msgstr "responsive"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin.php:22
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin.php:53
+msgid "configuration"
+msgstr "configurazione"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin.php:36
+msgid "activation modules"
+msgstr "attivazione moduli"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin.php:37
+msgid "activation"
+msgstr "attivazione"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin.php:92
+msgid "overriding the default settings with your own specific preferences"
+msgstr "modifica le impostazione predefinite secondo le tue esigenze"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin.php:99
+msgid "save changes"
+msgstr "salva modifiche"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:28
+msgid "google+ ID"
+msgstr "google+ ID"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:29
+msgid "google+ Profile"
+msgstr "google+ Profilo"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:30
+msgid "google+ Page"
+msgstr "google+ Pagina"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:31
+msgid "google+ Community"
+msgstr "google+ Community"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:35
+msgid "google+ language"
+msgstr "google+ lingua"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:36
+msgid "select language"
+msgstr "seleziona lingua"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:40
+msgid "google+ badge widget"
+msgstr "google+ badge widget"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:41
+msgid "widget G+ profile"
+msgstr "widget G+ profilo"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:42
+msgid "widget G+ page"
+msgstr "widget G+ pagina"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:43
+msgid "widget G+ community"
+msgstr "widget G+ community"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:44
+msgid "widget width portrait"
+msgstr "widget larghezza verticale"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:45
+msgid "widget width landscape"
+msgstr "widget larghezza orizzontale"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:49
+msgid "google+ badge shortcodes"
+msgstr "google+ G+ shortcodes"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:50
+msgid "shortcode G+ profile"
+msgstr "shortcode G+ profilo"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:51
+msgid "shortcode G+ page"
+msgstr "shortcode G+ pagina"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:52
+msgid "shortcode G+ community"
+msgstr "shortcode G+ community"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:53
+msgid "shortcode width portrait"
+msgstr "shortcode larghezza verticale"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:54
+msgid "shortcode width landscape"
+msgstr "shortcode larghezza orizzontale"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:58
+msgid "google+ comment system"
+msgstr "google+ sistema commenti"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:59
+msgid "enable G+ comments"
+msgstr "abilitare G+ commenti"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:60
+msgid "enable WP comments"
+msgstr "abilitare WP commenti"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:61
+msgid "comments after content"
+msgstr "commenti dopo contenuto"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:62
+msgid "comments after WP system"
+msgstr "commenti dopo WP commenti"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:63
+msgid "G+ comments widget"
+msgstr "G+ commenti shortcodes"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:64
+msgid "G+ comments shortcode"
+msgstr "G+ commenti data selezione"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:65
+msgid "G+ comments date switch"
+msgstr "G+ commenti data selezione"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:68
+msgid "google+ custom URL"
+msgstr "google+ URL personalizzato"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:69
+msgid "enable redirect /+"
+msgstr "abilita redirect per /+"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:70
+msgid "enable redirect /plus"
+msgstr "abilita redirect per /plus"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:71
+msgid "enable redirect URL"
+msgstr "abilita redirect per URL"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:87
+msgid "google+ configuration"
+msgstr "configurazione google+"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:101
+msgid "insert ID your profile"
+msgstr "inserisci ID profilo"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:108
+msgid "insert ID your page"
+msgstr "inserisci ID pagina"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:115
+msgid "insert ID your community"
+msgstr "inserisci ID community"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:260
+msgid "MDA"
+msgstr "DMA"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:268
+msgid "(month / day / year)"
+msgstr "(mese /giorno / anno)"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:275
+msgid "(day / month / year)"
+msgstr "(giorno / mese / anno)"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:282
+msgid "(year / month / day)"
+msgstr "(anno / mese / giorno)"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:357
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:367
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:393
+msgid "destination URL"
+msgstr "URL di destinazione"
+
+#: /home/massimo/Scaricati/sz-google/admin/sz-google-admin-plus.php:380
+msgid "source path URL for redirect"
+msgstr "percorso URL origine per redirect"
