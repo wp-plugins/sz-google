@@ -65,22 +65,33 @@ Given that in the plugin will be implemented different function that will not be
 <a href="http://wordpress.org/plugins/sz-google/installation/">English</a> - <a href="http://goo.gl/dBkcS">Italiano</a> - <a href="http://goo.gl/BbxQa">Español</a>
 
 = Automatic installation =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
 1. Administration Panel plugins and option `add new`.
 2. Search text box `sz-google`.
 3. Placed on the description of this plugin and select install.
 4. Activate the plugin from the admin panel of WordPress.
 
 = Manually installing from ZIP file =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
 1. Download the ZIP file from this screen.
 2. Select option add plugin from the admin panel.
 3. Select top option `upload` and select the file you downloaded.
 4. Confirm installation and activation plugin from the admin panel.
 
 = Manually installing from FTP =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
 1. Download the ZIP file from this screen and unzip.
 2. Sign in to your FTP folder on the web server.
 3. Copy the entire folder `sz-google` in directory `/wp-content/plugins/`
 4. Activate the plugin from the admin panel of WordPress.
+
+= Troubleshoot problems during installation =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+if you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>.
 
 == Frequently Asked Questions ==
 
