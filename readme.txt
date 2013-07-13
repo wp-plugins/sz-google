@@ -6,14 +6,14 @@ Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: badge, buttons, comments, comments system, custom url, follow, google, google+, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ page, google plus, google+ profile, google+ share, google+ follow, widgets, widgets google+, redirect, sidebar, share, social network, shortcodes
+Tags: badge, buttons, comments, comments system, custom url, follow, google, google+, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ page, google plus, google+ profile, google+ share, google+ follow, post sharing, post comments, widgets, widgets google+, redirect, sidebar, share, social network, shortcodes
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
 == Description ==
 <a href="http://wordpress.org/extend/plugins/sz-google/">English</a> - <a href="http://goo.gl/czjnz">Italiano</a> - <a href="http://goo.gl/Jt0YN">Español</a>
 
-Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote. 
+Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote. In any case, we will always be willing to consider new requests for anyone who wants to ask for a new feature to be developed in the plugin.
 
 To be informed about the features that gradually will be released you can follow this link page <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be included the latest news that will affect this plugin.
 
@@ -104,7 +104,7 @@ Yes, we have made available demonstration of the pages where the plugin installe
 
 == Screenshots ==
 
-1. Plugin SZ-Google and administrator panel
+1. Plugin SZ-Google and administration panel
 2. Google+ social network module
 
 == Changelog ==
