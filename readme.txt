@@ -28,12 +28,12 @@ To be informed about the features that gradually will be released you can follow
 = Shortcodes available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-* `[sz-gplus-profile] g+ badge for profile`
-* `[sz-gplus-page] g+ badge for business page`
-* `[sz-gplus-community] g+ badge for community`
-* `[sz-gplus-one] g+ button plus one`
-* `[sz-gplus-share] g+ button for sharing`
-* `[sz-gplus-follow] g+ button for follow`
+* `[sz-gplus-profile] ..: g+ badge for profile`
+* `[sz-gplus-page] .....: g+ badge for business page`
+* `[sz-gplus-community] : g+ badge for community`
+* `[sz-gplus-one] ......: g+ button plus one`
+* `[sz-gplus-share] ....: g+ button for sharing`
+* `[sz-gplus-follow] ...: g+ button for follow`
 
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
