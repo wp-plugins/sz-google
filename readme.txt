@@ -31,7 +31,7 @@ To be informed about the features that gradually will be released you can follow
 * `[sz-gplus-share]` - insert google+ button for sharing
 * `[sz-gplus-follow]` - insert google+ button for follow
 
-= Plugin module Google+ =
+= Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
 **Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the dedicated widget. At the commenting system has been added to the reference date for activation, for example, if someone has the need to maintain the old system to the old posts and activate it only for new ones can enter a date for when the new system is only activated if the date of the post and greater than or equal to this date.
