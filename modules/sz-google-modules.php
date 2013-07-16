@@ -15,10 +15,14 @@ define('SZ_PLUGIN_GOOGLE_MODULES_BASENAME',basename(__FILE__));
 /* Controllo le opzioni generali per sapere i moduli da caricare              */
 /* ************************************************************************** */ 
 
-$options = sz_google_modules_options();
+$options_modules = sz_google_modules_options();
 
-if ($options['plus']=='1') {
+if ($options_modules['plus'] == '1') {
 	@require_once(dirname(__FILE__).'/sz-google-modules-plus.php');
+}
+
+if ($options_modules['analytics'] == '1') {
+	@require_once(dirname(__FILE__).'/sz-google-modules-analytics.php');
 }
 
 /* ************************************************************************** */ 
@@ -29,7 +33,8 @@ function sz_google_modules_options()
 {
 	$options = get_option('sz_google_options_base');
 
-	if (!isset($options['plus'])) $options['plus'] = '0';
+	if (!isset($options['plus']))      $options['plus']      = '0';
+	if (!isset($options['analytics'])) $options['analytics'] = '0';
 
 	return $options;
 }

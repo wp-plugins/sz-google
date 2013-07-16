@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.2
+Stable tag: 0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -103,9 +103,9 @@ If you have problems during the installation of this plugin please contact us di
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://startbyzero.com/demos/wordpress/plugin-google/">SZ-Google Demo</a> to display many components in live demo.
 
 = You can use the functions of the plugin with PHP? =
-Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code.
+Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the official documentation.
 
-== Screenshots ==
+== Screenshots ==.
 
 1. Plugin SZ-Google and administration panel
 2. Google+ social network module
@@ -113,6 +113,11 @@ Yes, many operations of the plugin are also accessible via the specific function
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 0.3 =
+* Feature: Add Google+ switch for loading javascript code.
+* Feature: Add stylesheet for personalized admin panel.
+* Feature: Add module for Google Analytics.
 
 = Version 0.2 =
 * Feature: Add Google+ shortcode button plus one.
@@ -132,6 +137,9 @@ Yes, many operations of the plugin are also accessible via the specific function
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 0.3 =
+Some changes to the first release, added a stylesheet for the admin panel and the ability to disable javascript to google+ so as to avoid conflicts with other social plugins.
 
 = 0.2 =
 Have been added new features that relate to the social buttons and operations redirects as custom URL google+. We have also released some PHP functions that can be used in the development of the themes.

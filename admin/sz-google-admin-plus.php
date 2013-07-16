@@ -25,56 +25,64 @@ function sz_google_admin_plus_fields()
 
 	// Definizione sezione per configurazione GOOGLE+
 
-	add_settings_section('sz_google_plus_section',ucfirst(__('google+ ID','szvgoogleadmin')),'sz_google_admin_plus_section','sz-google-admin-plus.php');
-	add_settings_field('plus_profile',ucfirst(__('google+ Profile','szgoogleadmin')),'sz_google_admin_plus_profile','sz-google-admin-plus.php','sz_google_plus_section');
-	add_settings_field('plus_page',ucfirst(__('google+ Page','szgoogleadmin')),'sz_google_admin_plus_page','sz-google-admin-plus.php','sz_google_plus_section');
-	add_settings_field('plus_community',ucfirst(__('google+ Community','szgoogledmin')),'sz_google_admin_plus_community','sz-google-admin-plus.php','sz_google_plus_section');
+	add_settings_section('sz_google_plus_section','','sz_google_admin_plus_section','sz-google-admin-plus.php');
+	add_settings_field('plus_profile',ucwords(__('google+ Profile','szgoogleadmin')),'sz_google_admin_plus_profile','sz-google-admin-plus.php','sz_google_plus_section');
+	add_settings_field('plus_page',ucwords(__('google+ Page','szgoogleadmin')),'sz_google_admin_plus_page','sz-google-admin-plus.php','sz_google_plus_section');
+	add_settings_field('plus_community',ucwords(__('google+ Community','szgoogledmin')),'sz_google_admin_plus_community','sz-google-admin-plus.php','sz_google_plus_section');
 
 	// Definizione sezione per configurazione GOOGLE+ LANGUAGE
 
-	add_settings_section('sz_google_plus_language',ucfirst(__('google+ language','szgoogleadmin')),'sz_google_admin_plus_section','sz-google-admin-plus.php');
-	add_settings_field('plus_language',ucfirst(__('select language','szgoogleadmin')),'sz_google_admin_plus_language','sz-google-admin-plus.php','sz_google_plus_language');
+	add_settings_section('sz_google_plus_language','','sz_google_admin_plus_section','sz-google-admin-plus-language.php');
+	add_settings_field('plus_language',ucwords(__('select language','szgoogleadmin')),'sz_google_admin_plus_language','sz-google-admin-plus-language.php','sz_google_plus_language');
 
 	// Definizione sezione per configurazione GOOGLE+ BADGE WIDGETS
 
-	add_settings_section('sz_google_plus_widgets',ucfirst(__('google+ badge widget','szgoogleadmin')),'sz_google_admin_plus_section','sz-google-admin-plus.php');
-	add_settings_field('plus_widget_pr_enable',ucfirst(__('widget G+ profile','szgoogleadmin')),'sz_google_admin_plus_widget_profile','sz-google-admin-plus.php','sz_google_plus_widgets');
-	add_settings_field('plus_widget_pa_enable',ucfirst(__('widget G+ page','szgoogleadmin')),'sz_google_admin_plus_widget_page','sz-google-admin-plus.php','sz_google_plus_widgets');
-	add_settings_field('plus_widget_co_enable',ucfirst(__('widget G+ community','szgoogleadmin')),'sz_google_admin_plus_widget_community','sz-google-admin-plus.php','sz_google_plus_widgets');
-	add_settings_field('plus_widget_size_portrait',ucfirst(__('widget width portrait','szgoogleadmin')),'sz_google_admin_plus_widget_size_portrait','sz-google-admin-plus.php','sz_google_plus_widgets');
-	add_settings_field('plus_widget_size_landscape',ucfirst(__('widget width landscape','szgoogleadmin')),'sz_google_admin_plus_widget_size_landscape','sz-google-admin-plus.php','sz_google_plus_widgets');
+	add_settings_section('sz_google_plus_widgets','','sz_google_admin_plus_section','sz-google-admin-plus-widgets.php');
+	add_settings_field('plus_widget_pr_enable',ucwords(__('widget G+ profile','szgoogleadmin')),'sz_google_admin_plus_widget_profile','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
+	add_settings_field('plus_widget_pa_enable',ucwords(__('widget G+ page','szgoogleadmin')),'sz_google_admin_plus_widget_page','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
+	add_settings_field('plus_widget_co_enable',ucwords(__('widget G+ community','szgoogleadmin')),'sz_google_admin_plus_widget_community','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
+	add_settings_field('plus_widget_size_portrait',ucwords(__('widget width portrait','szgoogleadmin')),'sz_google_admin_plus_widget_size_portrait','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
+	add_settings_field('plus_widget_size_landscape',ucwords(__('widget width landscape','szgoogleadmin')),'sz_google_admin_plus_widget_size_landscape','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
 
 	// Definizione sezione per configurazione GOOGLE+ BADGE SHORTCODE
 
-	add_settings_section('sz_google_plus_shortcodes',ucfirst(__('google+ badge shortcodes','szgoogleadmin')),'sz_google_admin_plus_section','sz-google-admin-plus.php');
-	add_settings_field('plus_shortcode_pr_enable',ucfirst(__('shortcode G+ profile','szgoogleadmin')),'sz_google_admin_plus_shortcode_profile','sz-google-admin-plus.php','sz_google_plus_shortcodes');
-	add_settings_field('plus_shortcode_pa_enable',ucfirst(__('shortcode G+ page','szgoogleadmin')),'sz_google_admin_plus_shortcode_page','sz-google-admin-plus.php','sz_google_plus_shortcodes');
-	add_settings_field('plus_shortcode_co_enable',ucfirst(__('shortcode G+ community','szgoogleadmin')),'sz_google_admin_plus_shortcode_community','sz-google-admin-plus.php','sz_google_plus_shortcodes');
-	add_settings_field('plus_shortcode_size_portrait',ucfirst(__('shortcode width portrait','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_portrait','sz-google-admin-plus.php','sz_google_plus_shortcodes');
-	add_settings_field('plus_shortcode_size_landscape',ucfirst(__('shortcode width landscape','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_landscape','sz-google-admin-plus.php','sz_google_plus_shortcodes');
+	add_settings_section('sz_google_plus_shortcodes','','sz_google_admin_plus_section','sz-google-admin-plus-shortcodes.php');
+	add_settings_field('plus_shortcode_pr_enable',ucwords(__('shortcode G+ profile','szgoogleadmin')),'sz_google_admin_plus_shortcode_profile','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
+	add_settings_field('plus_shortcode_pa_enable',ucwords(__('shortcode G+ page','szgoogleadmin')),'sz_google_admin_plus_shortcode_page','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
+	add_settings_field('plus_shortcode_co_enable',ucwords(__('shortcode G+ community','szgoogleadmin')),'sz_google_admin_plus_shortcode_community','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
+	add_settings_field('plus_shortcode_size_portrait',ucwords(__('shortcode width portrait','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_portrait','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
+	add_settings_field('plus_shortcode_size_landscape',ucwords(__('shortcode width landscape','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_landscape','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 
 	// Definizione sezione per configurazione GOOGLE+ BUTTON SHORTCODE
-	add_settings_section('sz_google_plus_buttons',ucfirst(__('google+ button shortcodes','szgoogleadmin')),'sz_google_admin_plus_section','sz-google-admin-plus.php');
-	add_settings_field('plus_button_enable_plusone',ucfirst(__('shortcode G+ plusone','szgoogleadmin')),'sz_google_admin_plus_button_plusone','sz-google-admin-plus.php','sz_google_plus_buttons');
-	add_settings_field('plus_button_enable_sharing',ucfirst(__('shortcode G+ sharing','szgoogleadmin')),'sz_google_admin_plus_button_sharing','sz-google-admin-plus.php','sz_google_plus_buttons');
-	add_settings_field('plus_button_enable_follow' ,ucfirst(__('shortcode G+ follow' ,'szgoogleadmin')),'sz_google_admin_plus_button_follow' ,'sz-google-admin-plus.php','sz_google_plus_buttons');
+	add_settings_section('sz_google_plus_buttons','','sz_google_admin_plus_section','sz-google-admin-plus-buttons.php');
+	add_settings_field('plus_button_enable_plusone',ucwords(__('shortcode g+ plusone','szgoogleadmin')),'sz_google_admin_plus_button_plusone','sz-google-admin-plus-buttons.php','sz_google_plus_buttons');
+	add_settings_field('plus_button_enable_sharing',ucwords(__('shortcode g+ sharing','szgoogleadmin')),'sz_google_admin_plus_button_sharing','sz-google-admin-plus-buttons.php','sz_google_plus_buttons');
+	add_settings_field('plus_button_enable_follow' ,ucwords(__('shortcode g+ follow' ,'szgoogleadmin')),'sz_google_admin_plus_button_follow' ,'sz-google-admin-plus-buttons.php','sz_google_plus_buttons');
 
 	// Definizione sezione per configurazione GOOGLE+ COMMENTS
 
-	add_settings_section('sz_google_plus_comments',ucfirst(__('google+ comment system','szgoogleadmin')),'sz_google_admin_plus_section','sz-google-admin-plus.php');
-	add_settings_field('plus_comments_gp_enable',ucfirst(__('enable G+ comments','szgoogleadmin')),'sz_google_admin_plus_comments_gp','sz-google-admin-plus.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_wp_enable',ucfirst(__('enable WP comments','szgoogleadmin')),'sz_google_admin_plus_comments_wp','sz-google-admin-plus.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_ac_enable',ucfirst(__('comments after content','szgoogleadmin')),'sz_google_admin_plus_comments_ac','sz-google-admin-plus.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_aw_enable',ucfirst(__('comments after WP system','szgoogleadmin')),'sz_google_admin_plus_comments_aw','sz-google-admin-plus.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_wd_enable',ucfirst(__('G+ comments widget','szgoogleadmin')),'sz_google_admin_plus_comments_wd','sz-google-admin-plus.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_sh_enable',ucfirst(__('G+ comments shortcode','szgoogleadmin')),'sz_google_admin_plus_comments_sh','sz-google-admin-plus.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_dt_enable',ucfirst(__('G+ comments date switch','szgoogleadmin')),'sz_google_admin_plus_comments_dt','sz-google-admin-plus.php','sz_google_plus_comments');
+	add_settings_section('sz_google_plus_comments','','sz_google_admin_plus_section','sz-google-admin-plus-comments.php');
+	add_settings_field('plus_comments_gp_enable',ucwords(__('enable G+ comments','szgoogleadmin')),'sz_google_admin_plus_comments_gp','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_wp_enable',ucwords(__('enable WP comments','szgoogleadmin')),'sz_google_admin_plus_comments_wp','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_ac_enable',ucwords(__('comments after content','szgoogleadmin')),'sz_google_admin_plus_comments_ac','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_aw_enable',ucwords(__('comments after WP system','szgoogleadmin')),'sz_google_admin_plus_comments_aw','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_wd_enable',ucwords(__('g+ comments widget','szgoogleadmin')),'sz_google_admin_plus_comments_wd','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_sh_enable',ucwords(__('g+ comments shortcode','szgoogleadmin')),'sz_google_admin_plus_comments_sh','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_dt_enable',ucwords(__('g+ comments date switch','szgoogleadmin')),'sz_google_admin_plus_comments_dt','sz-google-admin-plus-comments.php','sz_google_plus_comments');
 
 	// Definizione sezione per configurazione GOOGLE+ REDIRECT
-	add_settings_section('sz_google_plus_redirect',ucfirst(__('google+ custom URL','szgoogleadmin')),'sz_google_admin_plus_section','sz-google-admin-plus.php');
-	add_settings_field('plus_redirect_sign',ucfirst(__('enable redirect /+'   ,'szgoogleadmin')),'sz_google_admin_plus_redirect_sign','sz-google-admin-plus.php','sz_google_plus_redirect');
-	add_settings_field('plus_redirect_plus',ucfirst(__('enable redirect /plus','szgoogleadmin')),'sz_google_admin_plus_redirect_plus','sz-google-admin-plus.php','sz_google_plus_redirect');
-	add_settings_field('plus_redirect_curl',ucfirst(__('enable redirect URL'  ,'szgoogleadmin')),'sz_google_admin_plus_redirect_curl','sz-google-admin-plus.php','sz_google_plus_redirect');
+	add_settings_section('sz_google_plus_redirect','','sz_google_admin_plus_section','sz-google-admin-plus-redirect.php');
+	add_settings_field('plus_redirect_sign',ucwords(__('enable redirect /+','szgoogleadmin')),'sz_google_admin_plus_redirect_sign','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
+	add_settings_field('plus_redirect_sign_url',ucwords(__('enable redirect /+ URL','szgoogleadmin')),'sz_google_admin_plus_redirect_sign_url','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
+	add_settings_field('plus_redirect_plus',ucwords(__('enable redirect /plus','szgoogleadmin')),'sz_google_admin_plus_redirect_plus','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
+	add_settings_field('plus_redirect_plus_url',ucwords(__('enable redirect /plus URL','szgoogleadmin')),'sz_google_admin_plus_redirect_plus_url','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
+	add_settings_field('plus_redirect_curl',ucwords(__('enable redirect URL','szgoogleadmin')),'sz_google_admin_plus_redirect_curl','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
+	add_settings_field('plus_redirect_curl_source',ucwords(__('enable redirect URL source','szgoogleadmin')),'sz_google_admin_plus_redirect_curl_source','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
+	add_settings_field('plus_redirect_curl_target',ucwords(__('enable redirect URL target','szgoogleadmin')),'sz_google_admin_plus_redirect_curl_target','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
+
+	// Definizione sezione per configurazione GOOGLE+ SYSTEM
+	add_settings_section('sz_google_plus_system','','sz_google_admin_plus_section','sz-google-admin-plus-system.php');
+	add_settings_field('plus_system_javascript',ucwords(__('disable file javascript','szgoogleadmin')),'sz_google_admin_plus_system_javascript','sz-google-admin-plus-system.php','sz_google_plus_system');
 }
 
 /* ************************************************************************** */
@@ -88,11 +96,27 @@ add_action('admin_init','sz_google_admin_plus_fields');
 /* Funzioni per SEZIONE Configurazione Google+                                */
 /* ************************************************************************** */
 
-function sz_google_admin_plus_callback() {
+function sz_google_admin_plus_callback() 
+{
+	// Definizione delle sezioni che devono essere composte in HTML
+	// le sezioni devono essere passate come un array con nome => titolo
+
+	$sections = array(
+		'sz-google-admin-plus.php'            => ucwords(__('google+ ID','szvgoogleadmin')),
+		'sz-google-admin-plus-language.php'   => ucwords(__('google+ language','szgoogleadmin')),
+		'sz-google-admin-plus-widgets.php'    => ucwords(__('google+ badge widget','szgoogleadmin')),
+		'sz-google-admin-plus-shortcodes.php' => ucwords(__('google+ badge shortcodes','szgoogleadmin')),
+		'sz-google-admin-plus-buttons.php'    => ucwords(__('google+ button shortcodes','szgoogleadmin')), 
+		'sz-google-admin-plus-comments.php'   => ucwords(__('google+ comment system','szgoogleadmin')), 
+		'sz-google-admin-plus-redirect.php'   => ucwords(__('google+ custom URL','szgoogleadmin')),
+		'sz-google-admin-plus-system.php'     => ucwords(__('google+ system','szgoogleadmin')),
+	);
+
+	// Chiamata alla funzione generale per la creazione del form generale
+	// le sezioni devono essere passate come un array con nome => titolo
+
 	sz_google_common_form(
-		ucfirst(__('google+ configuration','szgoogleadmin')),
-		'sz_google_options_plus',
-		'sz-google-admin-plus.php'
+		ucfirst(__('google+ configuration','szgoogleadmin')),'sz_google_options_plus',$sections
 	); 
 }
 
@@ -101,132 +125,129 @@ function sz_google_admin_plus_callback() {
 /* ************************************************************************** */
 
 function sz_google_admin_plus_profile() {
-	echo '<input type="hidden" name="sz_google_options_plus[plus_redirect_flush]" value="0">';
-	sz_google_common_form_text_medium(
-		'sz_google_options_plus','plus_profile',
+	sz_google_common_form_text(
+		'sz_google_options_plus','plus_profile','medium',
 		__('insert ID your profile','szgoogleadmin')
 	);
 }
 
 function sz_google_admin_plus_page() {
-	sz_google_common_form_text_medium(
-		'sz_google_options_plus','plus_page',
+	sz_google_common_form_text(
+		'sz_google_options_plus','plus_page','medium',
 		__('insert ID your page','szgoogleadmin')
 	);
 }
 
 function sz_google_admin_plus_community() {
-	sz_google_common_form_text_medium(
-		'sz_google_options_plus','plus_community',
+	sz_google_common_form_text(
+		'sz_google_options_plus','plus_community','medium',
 		__('insert ID your community','szgoogleadmin')
 	);
 }
 
+/* ************************************************************************** */
+/* Funzioni per SEZIONE Configurazione Google+ LANGUAGE                       */
+/* ************************************************************************** */
+
 function sz_google_admin_plus_language() 
 {
-	$options = get_option('sz_google_options_plus');
+	$values = sz_google_get_languages(); 
 
-	if (!isset($options['plus_language'])) $options['plus_language'] = '99';
-
-	echo '<select name="sz_google_options_plus[plus_language]">';
-
-	foreach (sz_google_get_languages() as $key=>$value) {
-		$selected = ($options['plus_language'] == $key) ? ' selected = "selected"' : '';
-		echo '<option value="'.$key.'"'.$selected.'>'.$value.'</option>';
-	}
-
-	echo '</select>';
+	sz_google_common_form_select(
+		'sz_google_options_plus','plus_language',$values,'medium',''
+	);
 }
 
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione Google+ Widgets                        */
+/* Funzioni per SEZIONE Configurazione Google+ WIDGETS                        */
 /* ************************************************************************** */
 
 function sz_google_admin_plus_widget_profile() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_widget_pr_enable'
 	);
 }
 
 function sz_google_admin_plus_widget_page() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_widget_pa_enable'
 	);
 }
 
 function sz_google_admin_plus_widget_community() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_widget_co_enable'
 	);
 }
 
 function sz_google_admin_plus_widget_size_portrait() {
 	sz_google_common_form_number_step_1(
-		'sz_google_options_plus','plus_widget_size_portrait',
+		'sz_google_options_plus','plus_widget_size_portrait','medium',
 		SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT
 	);
 }
 
 function sz_google_admin_plus_widget_size_landscape() {
 	sz_google_common_form_number_step_1(
-		'sz_google_options_plus','plus_widget_size_landscape',
+		'sz_google_options_plus','plus_widget_size_landscape','medium',
 		SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE
 	);
 }
 
 /* ************************************************************************** */
-/* Funzioni per la definizione dei campi legati a G+ shortcodes               */
+/* Funzioni per la definizione dei campi legati a G+ SHORTCODES               */
 /* ************************************************************************** */
 
 function sz_google_admin_plus_shortcode_profile() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_shortcode_pr_enable'
 	);
 }
 
 function sz_google_admin_plus_shortcode_page() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_shortcode_pa_enable'
 	);
 }
 
 function sz_google_admin_plus_shortcode_community() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_shortcode_co_enable'
 	);
 }
 
 function sz_google_admin_plus_shortcode_size_portrait() {
 	sz_google_common_form_number_step_1(
-		'sz_google_options_plus','plus_shortcode_size_portrait',
+		'sz_google_options_plus','plus_shortcode_size_portrait','medium',
 		SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT
 	);
 }
 
 function sz_google_admin_plus_shortcode_size_landscape() {
 	sz_google_common_form_number_step_1(
-		'sz_google_options_plus','plus_shortcode_size_landscape',
+		'sz_google_options_plus','plus_shortcode_size_landscape','medium',
 		SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE
 	);
 }
+
 /* ************************************************************************** */
 /* Funzioni per la definizione dei campi legati a G+ BUTTONS                  */
 /* ************************************************************************** */
 
 function sz_google_admin_plus_button_plusone() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_button_enable_plusone'
 	);
 }
 
 function sz_google_admin_plus_button_sharing() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_button_enable_sharing'
 	);
 }
 
 function sz_google_admin_plus_button_follow() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_button_enable_follow'
 	);
 }
@@ -236,37 +257,37 @@ function sz_google_admin_plus_button_follow() {
 /* ************************************************************************** */
 
 function sz_google_admin_plus_comments_gp() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_comments_gp_enable'
 	);
 }
 
 function sz_google_admin_plus_comments_wp() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_comments_wp_enable'
 	);
 }
 
 function sz_google_admin_plus_comments_ac() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_comments_ac_enable'
 	);
 }
 
 function sz_google_admin_plus_comments_aw() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_comments_aw_enable'
 	);
 }
 
 function sz_google_admin_plus_comments_wd() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_comments_wd_enable'
 	);
 }
 
 function sz_google_admin_plus_comments_sh() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_comments_sh_enable'
 	);
 }
@@ -277,13 +298,12 @@ function sz_google_admin_plus_comments_sh() {
 
 function sz_google_admin_plus_comments_dt() 
 {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_comments_dt_enable'
 	);
 
 	// Creazione delle select per l'indicazione della data
 	
-	echo '&nbsp;';
 	$date_format = __('MDA','szgoogleadmin');
 
 	// Creazione delle select per l'indicazione della data
@@ -292,21 +312,21 @@ function sz_google_admin_plus_comments_dt()
 		sz_google_admin_plus_comments_dt_month(); 
 		sz_google_admin_plus_comments_dt_day(); 
 		sz_google_admin_plus_comments_dt_year(); 
-		echo '&nbsp;'.__('(month / day / year)','szgoogleadmin');
+		echo '<span class="fieldtext">'.__('(month / day / year)','szgoogleadmin').'</span>';
 	}
 
 	if ($date_format == 'DMA') {
 		sz_google_admin_plus_comments_dt_day(); 
 		sz_google_admin_plus_comments_dt_month(); 
 		sz_google_admin_plus_comments_dt_year(); 
-		echo '&nbsp;'.__('(day / month / year)','szgoogleadmin');
+		echo '<span class="fieldtext">'.__('(day / month / year)','szgoogleadmin').'</span>';
 	}
 
 	if ($date_format == 'AMD') {
 		sz_google_admin_plus_comments_dt_year(); 
 		sz_google_admin_plus_comments_dt_month(); 
 		sz_google_admin_plus_comments_dt_day(); 
-		echo '&nbsp;'.__('(year / month / day)','szgoogleadmin');
+		echo '<span class="fieldtext">'.__('(year / month / day)','szgoogleadmin').'</span>';
 	}
 
 }
@@ -376,65 +396,64 @@ function sz_google_admin_plus_comments_dt_year()
 /* ************************************************************************** */
 
 function sz_google_admin_plus_redirect_sign() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_redirect_sign'
 	);
-	sz_google_admin_plus_redirect_text(
-		'sz_google_options_plus','plus_redirect_sign_url',
+} 
+
+function sz_google_admin_plus_redirect_sign_url() {
+	sz_google_common_form_text(
+		'sz_google_options_plus','plus_redirect_sign_url','large',
 		__('destination URL','szgoogleadmin')	
 	);
 } 
 
 function sz_google_admin_plus_redirect_plus() {
-	sz_google_common_form_checkbox(
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_redirect_plus'
 	);
-	sz_google_admin_plus_redirect_text(
-		'sz_google_options_plus','plus_redirect_plus_url',
+} 
+
+function sz_google_admin_plus_redirect_plus_url() {
+	sz_google_common_form_text(
+		'sz_google_options_plus','plus_redirect_plus_url','large',
 		__('destination URL','szgoogleadmin')	
 	);
 } 
 
-function sz_google_admin_plus_redirect_curl() 
-{
-
-	sz_google_common_form_checkbox(
+function sz_google_admin_plus_redirect_curl() {
+	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_redirect_curl'
 	);
+} 
 
-	sz_google_admin_plus_redirect_text(
-		'sz_google_options_plus','plus_redirect_curl_dir',
+function sz_google_admin_plus_redirect_curl_source() {
+	sz_google_common_form_text(
+		'sz_google_options_plus','plus_redirect_curl_dir','large',
 		__('source path URL for redirect','szgoogleadmin')	
 	);
+} 
 
-	echo '<br/><span style="visibility:hidden">';
-
-	sz_google_common_form_checkbox(
-		'sz_google_options_plus','plus_redirect_curl_fix'
-	);
-
-	echo '</span>';
-
-	sz_google_admin_plus_redirect_text(
-		'sz_google_options_plus','plus_redirect_curl_url',
+function sz_google_admin_plus_redirect_curl_target() {
+	sz_google_common_form_text(
+		'sz_google_options_plus','plus_redirect_curl_url','large',
 		__('destination URL','szgoogleadmin')	
 	);
-
 } 
 
 /* ************************************************************************** */
-/* Funzioni per la definizione dei campi legati a G+ REDIRECT                 */
+/* Funzioni per la definizione dei campi legati a G+ SYSTEM                   */
 /* ************************************************************************** */
 
-function sz_google_admin_plus_redirect_text($set,$name,$placeholder) 
+function sz_google_admin_plus_system_javascript() 
 {
-	$options = get_option($set);
-	if (!isset($options[$name])) $options[$name] = '';
-	echo '&nbsp;<input type="text" size="50" name="'.$set.'['.$name.']" value="'.trim($options[$name]).'" placeholder="'.$placeholder.'">';
+	sz_google_common_form_checkbox_yesno(
+		'sz_google_options_plus','plus_system_javascript'
+	);
 } 
- 
+
 /* ************************************************************************** */
-/* Funzioni per la definizione dei campi legati a G+ controlli generali       */
+/* Funzioni per la definizione dei campi legati al modulo                     */
 /* ************************************************************************** */
 
 function sz_google_admin_plus_validate($plugin_options) {
