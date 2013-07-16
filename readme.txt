@@ -103,9 +103,9 @@ If you have problems during the installation of this plugin please contact us di
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://startbyzero.com/demos/wordpress/plugin-google/">SZ-Google Demo</a> to display many components in live demo.
 
 = You can use the functions of the plugin with PHP? =
-Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code.
+Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the official documentation.
 
-== Screenshots ==
+== Screenshots ==.
 
 1. Plugin SZ-Google and administration panel
 2. Google+ social network module
