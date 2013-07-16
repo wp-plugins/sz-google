@@ -167,6 +167,16 @@ function sz_google_common_form($title,$setting,$sections)
 	echo '<div class="metabox-holder">';
 	echo '<div class="meta-box-sortables ui-sortable" id="sz-google-side">';
 
+	// Sezione su sidebar per "pagina ufficiale"
+
+	echo '<div id="authors-plugin" class="postbox">';
+	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
+	echo '<h3 class="hndle"><span><strong>'.ucwords(__('official page','szgoogleadmin')).'</strong></span></h3>';
+	echo '<div class="inside">';
+	echo '<a target="_blank" href="https://plus.google.com/u/0/117259631219963935481/"><img src="'.SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE.'wordpress-italy.jpg'.'" alt="WordPress Italy+" style="width:100%;height:auto"></a>';
+	echo '</div>';
+	echo '</div>';
+
 	// Sezione su sidebar per "Dacci un piccolo aiuto"
 
 	echo '<div id="help-us" class="postbox">';
