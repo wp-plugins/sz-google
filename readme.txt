@@ -1,5 +1,5 @@
 === SZ - Google for WordPress ===
-Contributors: massimodellarovere,iGenius,pr0v4
+Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.5
 Stable tag: 0.4
