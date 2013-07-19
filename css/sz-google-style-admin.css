@@ -1,3 +1,18 @@
+#sz-google-admin-options {
+	width:70%;
+	margin-right:1em;
+}
+#sz-google-admin-options,
+#sz-google-admin-options .postbox {
+	min-width:420px;
+}
+#sz-google-admin-sidebar {
+	width:15%;
+}
+#sz-google-admin-sidebar, 
+#sz-google-admin-sidebar .postbox {
+	min-width:230px;
+}
 #sz-google-icon-gplus {
 	background-image:url(images/google-32x32.png);
 }
@@ -75,5 +90,5 @@
 #sz-google-wrap select.large,
 #sz-google-wrap input[type=text].large,
 #sz-google-wrap input[type=number].large {
-	width:45em;
+	width:80%;
 }

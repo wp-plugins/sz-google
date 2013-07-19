@@ -102,7 +102,7 @@ function sz_google_admin_plus_callback()
 	// le sezioni devono essere passate come un array con nome => titolo
 
 	$sections = array(
-		'sz-google-admin-plus.php'            => ucwords(__('google+ ID','szvgoogleadmin')),
+		'sz-google-admin-plus.php'            => ucwords(__('google+ ID','szgoogleadmin')),
 		'sz-google-admin-plus-language.php'   => ucwords(__('google+ language','szgoogleadmin')),
 		'sz-google-admin-plus-widgets.php'    => ucwords(__('google+ badge widget','szgoogleadmin')),
 		'sz-google-admin-plus-shortcodes.php' => ucwords(__('google+ badge shortcodes','szgoogleadmin')),

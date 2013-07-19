@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 0.3
+Version: 0.4
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -30,7 +30,7 @@ if (!defined('ABSPATH')) die("Accesso diretto al file non permesso");
 /* ************************************************************************** */
 
 define('SZ_PLUGIN_GOOGLE',true);
-define('SZ_PLUGIN_GOOGLE_VERSION','0.3');
+define('SZ_PLUGIN_GOOGLE_VERSION','0.4');
 define('SZ_PLUGIN_GOOGLE_REPOSITORY','http://wordpress.org/plugins/sz-google/');
 define('SZ_PLUGIN_GOOGLE_PATH',plugin_dir_url(__FILE__));
 define('SZ_PLUGIN_GOOGLE_PATH_CSS',SZ_PLUGIN_GOOGLE_PATH.'css/');
@@ -70,6 +70,14 @@ function sz_google_language_init()
 }
 
 add_action('init','sz_google_language_init');
+
+/* ************************************************************************** */
+/* Carico il file pluggable se nessuno ha definito le funzioni utente         */
+/* ************************************************************************** */
+
+if (!function_exists('is_user_logged_in()')) {
+	require_once (ABSPATH.WPINC.'/pluggable.php');
+}
 
 /* ************************************************************************** */
 /* Funzione creazione delle opzioni in attivazione                            */
@@ -135,6 +143,8 @@ function sz_google_plugin_activate()
 		'ga_uacode'                      => '',
 		'ga_position'                    => 'H',
 		'ga_enable_admin'                => '0',
+		'ga_enable_administrator'        => '0',
+		'ga_enable_logged'               => '0',
 	);
 
 	// Controllo formale delle opzioni e memorizzazione sul database

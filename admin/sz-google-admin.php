@@ -46,7 +46,12 @@ function sz_google_admin_add_stylesheet()
 {
 	wp_register_style('sz-google-style-admin',SZ_PLUGIN_GOOGLE_PATH_CSS.'sz-google-style-admin.css');
 	wp_enqueue_style('sz-google-style-admin');
+
 	wp_enqueue_script('jquery-ui-sortable');
+	wp_enqueue_script('postbox');
+	wp_enqueue_script('utils');
+	wp_enqueue_script('dashboard');
+	wp_enqueue_script('thickbox');
 }
 
 /* ************************************************************************** */
@@ -134,7 +139,7 @@ function sz_google_common_form($title,$setting,$sections)
 	// Contenitore principale con zona dedicata ai parametri di configurazione
 	// definiti tramite le chiamate dei singoli moduli attivati da pannello ammnistrativo
 
-	echo '<div class="postbox-container" style="width:60%;margin-right:1em">';
+	echo '<div class="postbox-container" id="sz-google-admin-options">';
 	echo '<div class="metabox-holder">';
 	echo '<div class="meta-box-sortables ui-sortable" id="sz-google-box">';
 
@@ -163,19 +168,9 @@ function sz_google_common_form($title,$setting,$sections)
 	// Contenitore secondario con informazioni degli autori e alcuni link
 	// come ad esempio la community di  wordpress italiana for ever :)
 
-	echo '<div class="postbox-container" style="width:250px;">';
+	echo '<div class="postbox-container" id="sz-google-admin-sidebar">';
 	echo '<div class="metabox-holder">';
-	echo '<div class="meta-box-sortables ui-sortable" id="sz-google-side">';
-
-	// Sezione su sidebar per "pagina ufficiale"
-
-	echo '<div id="authors-plugin" class="postbox">';
-	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
-	echo '<h3 class="hndle"><span><strong>'.ucwords(__('official page','szgoogleadmin')).'</strong></span></h3>';
-	echo '<div class="inside">';
-	echo '<a target="_blank" href="https://plus.google.com/u/0/117259631219963935481/"><img src="'.SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE.'wordpress-italy.jpg'.'" alt="WordPress Italy+" style="width:100%;height:auto"></a>';
-	echo '</div>';
-	echo '</div>';
+	echo '<div class="meta-box-sortables ui-sortable">';
 
 	// Sezione su sidebar per "Dacci un piccolo aiuto"
 
@@ -190,17 +185,13 @@ function sz_google_common_form($title,$setting,$sections)
 	echo '</div>';
 	echo '</div>';
 
-	// Sezione su sidebar per "Informazioni sul plugin"
+	// Sezione su sidebar per "pagina ufficiale"
 
-	echo '<div id="info-plugin" class="postbox">';
+	echo '<div id="authors-plugin" class="postbox">';
 	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
-	echo '<h3 class="hndle"><span><strong>'.ucwords(__('latest news on the plugin','szgoogleadmin')).'</strong></span></h3>';
+	echo '<h3 class="hndle"><span><strong>'.ucwords(__('official page','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
-	echo '<ul>';
-	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('community WordPress','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="https://plus.google.com/117259631219963935481/">'.ucfirst(__('official page','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">'.ucfirst(__('official documentation','szgoogleadmin')).'</a></li>';
-	echo '</ul>';
+	echo '<a target="_blank" href="https://plus.google.com/117259631219963935481/"><img src="'.SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE.'wordpress-italy.jpg'.'" alt="WordPress Italy+" style="width:100%;height:auto"></a>';
 	echo '</div>';
 	echo '</div>';
 
@@ -214,6 +205,20 @@ function sz_google_common_form($title,$setting,$sections)
 	echo '<li><a target="_blank" href="https://plus.google.com/106567288702045182616/">Massimo Della Rovere</a></li>';
 	echo '<li><a target="_blank" href="https://plus.google.com/101045287591082507791/">Eugenio Petullà</a></li>';
 	echo '<li><a target="_blank" href="https://plus.google.com/106445867693191019124/">Andrea Barghigiani</a></li>';
+	echo '</ul>';
+	echo '</div>';
+	echo '</div>';
+
+	// Sezione su sidebar per "Informazioni sul plugin"
+
+	echo '<div id="info-plugin" class="postbox">';
+	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
+	echo '<h3 class="hndle"><span><strong>'.ucwords(__('latest news on the plugin','szgoogleadmin')).'</strong></span></h3>';
+	echo '<div class="inside">';
+	echo '<ul>';
+	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('community WordPress','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/117259631219963935481/">'.ucfirst(__('official page','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">'.ucfirst(__('official documentation','szgoogleadmin')).'</a></li>';
 	echo '</ul>';
 	echo '</div>';
 	echo '</div>';

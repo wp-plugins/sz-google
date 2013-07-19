@@ -8,12 +8,22 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 /* Controllo le opzioni generali per saper i moduli che devo essere caricati  */
 /* ************************************************************************** */ 
 
+$jactive = true;
 $options = sz_google_modules_analytics_options();
 
-// Se sono sul pannello di amministrazione devo controlla se è stata
+// Controllo se sono loggato come amministratore o utente registrato
+// e disattivo il caricamento del codice se le opzioni sono disattivate 
+
+if (current_user_can('manage_options')) {
+	if ($options['ga_enable_administrator'] == '0') $jactive = false;
+} else {
+	if (is_user_logged_in() and $options['ga_enable_logged'] == '0') $jactive = false;   
+}
+
+// Se sono sul pannello di amministrazione devo controllare se è stata
 // attivata l'opzione per abilitare il modulo su amministrazione 
 
-if (is_admin() and $options['ga_enable_admin'] == '1') 
+if (is_admin() and $jactive and $options['ga_enable_admin'] == '1') 
 {
 	if ($options['ga_position'] == 'H') add_action('admin_head'  ,'sz_google_modules_analytics_add_script');
 	if ($options['ga_position'] == 'F') add_action('admin_footer','sz_google_modules_analytics_add_script');
@@ -43,8 +53,13 @@ function sz_google_admin_analytics_fields()
 	add_settings_section('sz_google_analytics_section','','sz_google_admin_analytics_section','sz-google-admin-analytics.php');
 	add_settings_field('ga_uacode',ucfirst(__('UA code','szgoogleadmin')),'sz_google_admin_analytics_uacode','sz-google-admin-analytics.php','sz_google_analytics_section');
 	add_settings_field('ga_position',ucfirst(__('position','szgoogleadmin')),'sz_google_admin_analytics_position','sz-google-admin-analytics.php','sz_google_analytics_section');
-	add_settings_field('ga_enable_admin',ucfirst(__('enable admin','szgoogleadmin')),'sz_google_admin_analytics_enable_admin','sz-google-admin-analytics.php','sz_google_analytics_section');
 
+	// Definizione sezione per configurazione GOOGLE ANALYTICS ENABLED
+
+	add_settings_section('sz_google_analytics_enabled','','sz_google_admin_analytics_section','sz-google-admin-analytics-enabled.php');
+	add_settings_field('ga_enable_admin',ucfirst(__('enable admin panel','szgoogleadmin')),'sz_google_admin_analytics_enable_admin','sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
+	add_settings_field('ga_enable_admin_administrator',ucfirst(__('enable administrator','szgoogleadmin')),'sz_google_admin_analytics_enable_administrator','sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
+	add_settings_field('ga_enable_admin_logged',ucfirst(__('enable user logged','szgoogleadmin')),'sz_google_admin_analytics_enable_logged','sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
 }
 
 /* ************************************************************************** */
@@ -64,7 +79,8 @@ function sz_google_admin_analytics_callback()
 	// le sezioni devono essere passate come un array con nome => titolo
 
 	$sections = array(
-		'sz-google-admin-analytics.php' => ucwords(__('google analytics settings','szvgoogleadmin')),
+		'sz-google-admin-analytics.php'         => ucwords(__('google analytics settings','szgoogleadmin')),
+		'sz-google-admin-analytics-enabled.php' => ucwords(__('google analytics enabled' ,'szgoogleadmin')),
 	);
 
 	// Chiamata alla funzione generale per la creazione del form generale
@@ -76,7 +92,7 @@ function sz_google_admin_analytics_callback()
 }
 
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione Google analytics                       */
+/* Funzioni per SEZIONE Configurazione GOOGLE ANALYTICS                       */
 /* ************************************************************************** */
 
 function sz_google_admin_analytics_uacode() {
@@ -99,9 +115,25 @@ function sz_google_admin_analytics_position()
 	);
 }
 
+/* ************************************************************************** */
+/* Funzioni per SEZIONE Configurazione GOOGLE ANALYTICS                       */
+/* ************************************************************************** */
+
 function sz_google_admin_analytics_enable_admin() { 
 	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_ga','ga_enable_admin'
+	);
+}
+
+function sz_google_admin_analytics_enable_administrator() { 
+	sz_google_common_form_checkbox_yesno(
+		'sz_google_options_ga','ga_enable_administrator'
+	);
+}
+
+function sz_google_admin_analytics_enable_logged() { 
+	sz_google_common_form_checkbox_yesno(
+		'sz_google_options_ga','ga_enable_logged'
 	);
 }
 

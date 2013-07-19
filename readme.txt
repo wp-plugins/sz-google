@@ -1,8 +1,8 @@
 === SZ - Google for WordPress ===
-Contributors: massimodellarovere,iGenius
+Contributors: massimodellarovere,iGenius,pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.3
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -114,10 +114,17 @@ Yes, many operations of the plugin are also accessible via the specific function
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 0.4 =
+* Fix: Function sortables for admin panel and plugin options.
+* Feature: Add option for remove google analytics if administrator.
+* Feature: Add option for remove google analytics if user logged.
+
 = Version 0.3 =
 * Feature: Add Google+ switch for loading javascript code.
 * Feature: Add stylesheet for personalized admin panel.
 * Feature: Add module for Google Analytics.
+* Feature: Add sidebar in admin panel for link about plugin.
+* Feature: Remove code Analytics for admin area.
 
 = Version 0.2 =
 * Feature: Add Google+ shortcode button plus one.
@@ -137,6 +144,9 @@ Yes, many operations of the plugin are also accessible via the specific function
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 0.4 =
+This release has been issued for the fixes small bugs and adding new parameters regarding google analytics. Have been improved on some aspects the badges for google plus.
 
 = 0.3 =
 Some changes to the first release, added a stylesheet for the admin panel and the ability to disable javascript to google+ so as to avoid conflicts with other social plugins.
