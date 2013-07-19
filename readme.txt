@@ -32,14 +32,14 @@ To be informed about the features that gradually will be released you can follow
 
 **Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the dedicated widget. At the commenting system has been added to the reference date for activation, for example, if someone has the need to maintain the old system to the old posts and activate it only for new ones can enter a date for when the new system is only activated if the date of the post and greater than or equal to this date.
 
-**Google+ Widgets:**
+**Google+ Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website.
 
 * `Widget google+ profile badge`
 * `Widget google+ page badge`
 * `Widget google+ community badget`
 * `Widget google+ comments system`
 
-**Google+ Shortcodes:**
+**Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
 
 * `[sz-gplus-profile] ..: g+ badge for profile`
 * `[sz-gplus-page] .....: g+ badge for business page`
