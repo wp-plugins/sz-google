@@ -6,7 +6,7 @@ Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: badge, buttons, comments, comments system, custom url, follow, google, google+, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ page, google plus, google+ profile, google+ share, google+ follow, post sharing, post comments, widgets, widgets google+, redirect, sidebar, share, social network, shortcodes
+Tags: analytics, badge, buttons, comments, comments system, custom url, follow, google, google+, google analytics, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ page, google plus, google+ profile, google+ share, google+ follow, post sharing, post comments, widgets, widgets google+, redirect, sidebar, share, social network, shortcodes
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -17,23 +17,11 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 To be informed about the features that gradually will be released you can follow this link page <a href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">Plugin SZ-Google</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
 
-= Widgets available in plugin =
+= Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-* `Widget google+ profile badge`
-* `Widget google+ page badge`
-* `Widget google+ community badget`
-* `Widget google+ comments system`
-
-= Shortcodes available in plugin =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
-
-* `[sz-gplus-profile] ..: g+ badge for profile`
-* `[sz-gplus-page] .....: g+ badge for business page`
-* `[sz-gplus-community] : g+ badge for community`
-* `[sz-gplus-one] ......: g+ button plus one`
-* `[sz-gplus-share] ....: g+ button for sharing`
-* `[sz-gplus-follow] ...: g+ button for follow`
+* `Module Google+`
+* `Module Google Analytics`
 
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -44,8 +32,23 @@ To be informed about the features that gradually will be released you can follow
 
 **Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the dedicated widget. At the commenting system has been added to the reference date for activation, for example, if someone has the need to maintain the old system to the old posts and activate it only for new ones can enter a date for when the new system is only activated if the date of the post and greater than or equal to this date.
 
-= Functions in the plugin to use in the themes  =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**Google+ Widgets:**
+
+* `Widget google+ profile badge`
+* `Widget google+ page badge`
+* `Widget google+ community badget`
+* `Widget google+ comments system`
+
+**Google+ Shortcodes:**
+
+* `[sz-gplus-profile] ..: g+ badge for profile`
+* `[sz-gplus-page] .....: g+ badge for business page`
+* `[sz-gplus-community] : g+ badge for community`
+* `[sz-gplus-one] ......: g+ button plus one`
+* `[sz-gplus-share] ....: g+ button for sharing`
+* `[sz-gplus-follow] ...: g+ button for follow`
+
+**Google+ Functions:**
 
 * `szgoogle_get_gplus_badge_profile()`
 * `szgoogle_get_gplus_badge_page()`
