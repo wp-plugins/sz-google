@@ -48,7 +48,7 @@ To be informed about the features that gradually will be released you can follow
 * `[sz-gplus-share] ....: g+ button for sharing`
 * `[sz-gplus-follow] ...: g+ button for follow`
 
-**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not eguono a predefined standard.
+**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_get_gplus_badge_profile()`
 * `szgoogle_get_gplus_badge_page()`
@@ -59,6 +59,11 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_gplus_comments()`
 
 `<?php echo szgoogle_get_gplus_button_follow(); ?>`
+
+= Google Analytics module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+**Generate code:** Once activated the module from the admin panel and entered your code UA plugin will insert on your web page code needed to google analytics to generate statitiche access your website.
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -106,7 +111,7 @@ If you have problems during the installation of this plugin please contact us di
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://startbyzero.com/demos/wordpress/plugin-google/">SZ-Google Demo</a> to display many components in live demo.
 
 = You can use the functions of the plugin with PHP? =
-Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the official documentation.
+Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
 
 == Screenshots ==.
 
