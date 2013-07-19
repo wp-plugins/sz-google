@@ -32,7 +32,7 @@ To be informed about the features that gradually will be released you can follow
 
 **Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the dedicated widget. At the commenting system has been added to the reference date for activation, for example, if someone has the need to maintain the old system to the old posts and activate it only for new ones can enter a date for when the new system is only activated if the date of the post and greater than or equal to this date.
 
-**Google+ Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website.
+**Google+ Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google+ profile badge`
 * `Widget google+ page badge`
@@ -48,7 +48,7 @@ To be informed about the features that gradually will be released you can follow
 * `[sz-gplus-share] ....: g+ button for sharing`
 * `[sz-gplus-follow] ...: g+ button for follow`
 
-**Google+ Functions:**
+**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not eguono a predefined standard.
 
 * `szgoogle_get_gplus_badge_profile()`
 * `szgoogle_get_gplus_badge_page()`
