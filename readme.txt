@@ -135,6 +135,9 @@ Yes, many operations of the plugin are also accessible via the specific function
 * Fix: Function sortables for admin panel and plugin options.
 * Feature: Add option for remove google analytics if administrator.
 * Feature: Add option for remove google analytics if user logged.
+* Feature: Add option for remove google analytics if frontend.
+* Feature: Add function for analytics szgoogle_get_ga_ID().
+* Feature: Add function for analytics szgoogle_get_ga_code().
 
 = Version 0.3 =
 * Feature: Add Google+ switch for loading javascript code.
