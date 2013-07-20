@@ -16,6 +16,7 @@ define('SZ_PLUGIN_GOOGLE_FUNCTIONS_BASENAME',basename(__FILE__));
 /* ************************************************************************** */
 
 @require_once(dirname(__FILE__).'/sz-google-functions-plus.php');
+@require_once(dirname(__FILE__).'/sz-google-functions-analytics.php');
 
 /* ************************************************************************** */
 /* Funzione per i controllo dei parametri in maniera singola e default        */
