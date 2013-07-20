@@ -63,7 +63,7 @@ To be informed about the features that gradually will be released you can follow
 = Google Analytics module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-**Generate code:** Once activated the module from the admin panel and entered your code UA plugin will insert on your web page code needed to google analytics to generate statitiche access your website.
+**Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statitiche access your website.
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
