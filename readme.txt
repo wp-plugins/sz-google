@@ -67,10 +67,12 @@ To be informed about the features that gradually will be released you can follow
 
 **Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function directly `szgoogle_get_ga_code()` in your theme manually.
 
-**Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
 
 * `szgoogle_get_ga_ID()`
 * `szgoogle_get_ga_code()`
+
+`<?php echo szgoogle_get_ga_code(); ?>`
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
