@@ -142,6 +142,7 @@ function sz_google_plugin_activate()
 	$settings_ga = array(
 		'ga_uacode'                      => '',
 		'ga_position'                    => 'H',
+		'ga_enable_front'                => '1',
 		'ga_enable_admin'                => '0',
 		'ga_enable_administrator'        => '0',
 		'ga_enable_logged'               => '0',
