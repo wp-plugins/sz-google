@@ -1,5 +1,5 @@
 === SZ - Google for WordPress ===
-Contributors: massimodellarovere,iGenius
+Contributors: massimodellarovere,iGenius,pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
 Stable tag: 0.4
@@ -65,7 +65,7 @@ To be informed about the features that gradually will be released you can follow
 
 **Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website. You can choose to hide the code when using the administration panel, or when a user is connected to both as a normal user or as an administrator. For more informations see <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-modulo-google-analytics/">official documentation</a>.
 
-**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function directly `szgoogle_get_ga_code()` in your theme manually.
+**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enterhttp://startbyzero.com/webmaster/wordpress-come-eseguire-le-traduzione-di-temi-e-plugin/#comment-97345745 the function directly `szgoogle_get_ga_code()` in your theme manually.
 
 **Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
 
