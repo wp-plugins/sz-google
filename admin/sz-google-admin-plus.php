@@ -33,7 +33,7 @@ function sz_google_admin_plus_fields()
 	// Definizione sezione per configurazione GOOGLE+ LANGUAGE
 
 	add_settings_section('sz_google_plus_language','','sz_google_admin_plus_section','sz-google-admin-plus-language.php');
-	add_settings_field('plus_language',ucwords(__('select language','szgoogleadmin')),'sz_google_admin_plus_language','sz-google-admin-plus-language.php','sz_google_plus_language');
+	add_settings_field('plus_language',ucfirst(__('select language','szgoogleadmin')),'sz_google_admin_plus_language','sz-google-admin-plus-language.php','sz_google_plus_language');
 
 	// Definizione sezione per configurazione GOOGLE+ BADGE WIDGETS
 
@@ -124,24 +124,39 @@ function sz_google_admin_plus_callback()
 /* Funzioni per SEZIONE Configurazione Google+ ID                             */
 /* ************************************************************************** */
 
-function sz_google_admin_plus_profile() {
+function sz_google_admin_plus_profile() 
+{
 	sz_google_common_form_text(
 		'sz_google_options_plus','plus_profile','medium',
 		__('insert ID your profile','szgoogleadmin')
 	);
+
+	sz_google_common_form_description(
+		__('enter the code that identifies the profile on google+, get to know the code of a profile just look at the profile link and copy the 21 digit number located on the URL string. For example if the link is <a target="_blank" href="https://plus.google.com/106567288702045182616/posts">https://plus.google.com/106567288702045182616/posts</a> the profile ID is 106567288702045182616.','szgoogleadmin')
+	);
 }
 
-function sz_google_admin_plus_page() {
+function sz_google_admin_plus_page() 
+{
 	sz_google_common_form_text(
 		'sz_google_options_plus','plus_page','medium',
 		__('insert ID your page','szgoogleadmin')
 	);
+
+	sz_google_common_form_description(
+		__('enter the code that identifies the page on google+, get to know the code of a profile just look at the page link and copy the 21 digit number located on the URL string. For example if the link is <a target="_blank" href="https://plus.google.com/117259631219963935481">https://plus.google.com/117259631219963935481</a> the page ID is 117259631219963935481.','szgoogleadmin')
+	);
 }
 
-function sz_google_admin_plus_community() {
+function sz_google_admin_plus_community() 
+{
 	sz_google_common_form_text(
 		'sz_google_options_plus','plus_community','medium',
 		__('insert ID your community','szgoogleadmin')
+	);
+
+	sz_google_common_form_description(
+		__('enter the code that identifies the community, get to know the code of a community just look at the link and copy the 21 digit number located on the URL string. For example if the link is <a target="_blank" href="https://plus.google.com/communities/109254048492234113886">https://plus.google.com/communities/109254048492234113886</a> the community ID is 109254048492234113886.','szgoogleadmin')
 	);
 }
 
@@ -156,41 +171,70 @@ function sz_google_admin_plus_language()
 	sz_google_common_form_select(
 		'sz_google_options_plus','plus_language',$values,'medium',''
 	);
+
+	sz_google_common_form_description(
+		__('specify the language code associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress. Supported languages ​​can be found on <a target="_blank" href="https://developers.google.com/+/web/api/supported-languages">Supported languages for the Google+ plugins</a>.','szgoogleadmin')
+	);
 }
 
 /* ************************************************************************** */
 /* Funzioni per SEZIONE Configurazione Google+ WIDGETS                        */
 /* ************************************************************************** */
 
-function sz_google_admin_plus_widget_profile() {
+function sz_google_admin_plus_widget_profile() 
+{
 	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_widget_pr_enable'
 	);
+
+	sz_google_common_form_description(
+		__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the user profiles present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin')
+	);
 }
 
-function sz_google_admin_plus_widget_page() {
+function sz_google_admin_plus_widget_page() 
+{
 	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_plus','plus_widget_pa_enable'
 	);
-}
 
-function sz_google_admin_plus_widget_community() {
-	sz_google_common_form_checkbox_yesno(
-		'sz_google_options_plus','plus_widget_co_enable'
+	sz_google_common_form_description(
+		__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the pages present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin')
 	);
 }
 
-function sz_google_admin_plus_widget_size_portrait() {
+function sz_google_admin_plus_widget_community() 
+{
+	sz_google_common_form_checkbox_yesno(
+		'sz_google_options_plus','plus_widget_co_enable'
+	);
+
+	sz_google_common_form_description(
+		__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin')
+	);
+}
+
+function sz_google_admin_plus_widget_size_portrait() 
+{
 	sz_google_common_form_number_step_1(
 		'sz_google_options_plus','plus_widget_size_portrait','medium',
 		SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT
 	);
+
+	sz_google_common_form_description(
+		__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 180px and height will be calculated automatically.','szgoogleadmin')
+	);
 }
 
-function sz_google_admin_plus_widget_size_landscape() {
+function sz_google_admin_plus_widget_size_landscape() 
+{
 	sz_google_common_form_number_step_1(
 		'sz_google_options_plus','plus_widget_size_landscape','medium',
 		SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE
+	);
+
+	sz_google_common_form_description(
+		__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 275px and height will be calculated automatically.','szgoogleadmin')
 	);
 }
 

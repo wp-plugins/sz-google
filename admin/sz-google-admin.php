@@ -88,21 +88,36 @@ function sz_google_admin_base_callback()
 /* Funzioni per SEZIONE Configurazione Generale BASE                          */
 /* ************************************************************************** */
 
-function sz_google_admin_base_plus() {
+function sz_google_admin_base_plus() 
+{
 	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_base','plus'
 	);
-}
 
-function sz_google_admin_base_analytics() {
-	sz_google_common_form_checkbox_yesno(
-		'sz_google_options_base','analytics'
+	sz_google_common_form_description(
+		__('with this module you can manage some widgets in the social network google+, for example, we can insert the badge of the profiles, the badge of the pages, the badge of the community, the buttons follow, the buttons share, the buttons +1, the comments system and much more.','szgoogleadmin')
 	);
 }
 
-function sz_google_admin_base_translate() {
+function sz_google_admin_base_analytics() 
+{
+	sz_google_common_form_checkbox_yesno(
+		'sz_google_options_base','analytics'
+	);
+
+	sz_google_common_form_description(
+		__('activating this module can handle the tracking code present in google analytics, so as to store the access statistics related to our website. Once you have entered the tracking code, you can view hundreds of statistics from the admin panel of google analytics.','szgoogleadmin')
+	);
+}
+
+function sz_google_admin_base_translate() 
+{
 	sz_google_common_form_checkbox_yesno(
 		'sz_google_options_base','translate'
+	);
+
+	sz_google_common_form_description(
+		__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. For more information I recommend the official documentation on this link <a href="https://support.google.com/translate/">https://support.google.com/translate/</a>.','szgoogleadmin')
 	);
 }
 

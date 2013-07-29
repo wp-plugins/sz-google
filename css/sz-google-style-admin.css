@@ -17,6 +17,7 @@
 	background-image:url(images/google-32x32.png);
 }
 #sz-google-wrap th {
+	font-weight:bold;
 	vertical-align:middle;
 }
 #sz-google-wrap input[type=checkbox] {
