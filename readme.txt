@@ -2,11 +2,11 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: analytics, badge, buttons, comments, comments system, custom url, follow, google, google+, google analytics, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ page, google plus, google+ profile, google+ share, google+ follow, post sharing, post comments, widgets, widgets google+, redirect, sidebar, share, social network, shortcodes
+Tags: analytics, badge, buttons, comments, comments system, custom url, follow, google, google+, google analytics, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ follow, google+ page, google plus, google+ profile, google+ share, post sharing, post comments, widgets, widgets google+, widget translate, redirect, sidebar, share, social network, shortcodes, translate
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -22,6 +22,7 @@ To be informed about the features that gradually will be released you can follow
 
 * `Module Google+`
 * `Module Google Analytics`
+* `Module Google Translate`
 
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -65,7 +66,7 @@ To be informed about the features that gradually will be released you can follow
 
 **Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website. You can choose to hide the code when using the administration panel, or when a user is connected to both as a normal user or as an administrator. For more informations see <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-modulo-google-analytics/">official documentation</a>.
 
-**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enterhttp://startbyzero.com/webmaster/wordpress-come-eseguire-le-traduzione-di-temi-e-plugin/#comment-97345745 the function directly `szgoogle_get_ga_code()` in your theme manually.
+**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function directly `szgoogle_get_ga_code()` in your theme manually.
 
 **Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
 
@@ -131,6 +132,12 @@ Yes, many operations of the plugin are also accessible via the specific function
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 0.5 =
+* Feature: Add module for google translate widget.
+* Feature: Add option for google translate mode.
+* Feature: Add option for google translate widget.
+* Feature: Add option for google translate shortcode.
+
 = Version 0.4 =
 * Fix: Function sortables for admin panel and plugin options.
 * Feature: Add option for remove google analytics if administrator.
@@ -164,6 +171,9 @@ Yes, many operations of the plugin are also accessible via the specific function
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 0.5 =
+This release add module for google translate and improves some aspects of previous modules. To use the google translate module must register your site on google account and get the information about the destination code.
 
 = 0.4 =
 This release has been issued for the fixes small bugs and adding new parameters regarding google analytics. Have been improved on some aspects the badges for google plus.

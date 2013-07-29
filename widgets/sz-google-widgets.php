@@ -15,8 +15,12 @@ define('SZ_PLUGIN_GOOGLE_WIDGETS_BASENAME',basename(__FILE__));
 /* Controllo opzioni generale per sapere quali moduli caricare                */
 /* ************************************************************************** */
 
-$options = sz_google_modules_options();
+$widgets_options = sz_google_modules_options();
 
-if ($options['plus']=='1') {
+if ($widgets_options['plus']=='1') {
 	@require_once(dirname(__FILE__).'/sz-google-widgets-plus.php');
+}
+
+if ($widgets_options['translate']=='1') {
+	@require_once(dirname(__FILE__).'/sz-google-widgets-translate.php');
 }

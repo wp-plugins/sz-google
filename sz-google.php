@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 0.4
+Version: 0.5
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -91,6 +91,7 @@ function sz_google_plugin_activate()
 	$settings_base = array(
 		'plus'      => '1',
 		'analytics' => '0',
+		'translate' => '0',
 	);
 
 	// Impostazione valori di default che riguardano  
@@ -148,12 +149,30 @@ function sz_google_plugin_activate()
 		'ga_enable_logged'               => '0',
 	);
 
+	// Impostazione valori di default che riguardano  
+	// il modulo collegato alle funzione di Google Analytics 
+
+	$settings_translate = array(
+		'translate_meta'                 => '',
+		'translate_mode'                 => 'I1',
+		'translate_language'             => '99',
+		'translate_to'                   => '0',
+		'translate_to_array'             => array(),
+		'translate_widget'               => '1',
+		'translate_shortcode'            => '1',
+		'translate_automatic'            => '0',
+		'translate_multiple'             => '0',
+		'translate_analytics'            => '0',
+		'translate_analytics_ua'         => '',
+	);
+
 	// Controllo formale delle opzioni e memorizzazione sul database
 	// in base ad una prima installazione o update del plugin 
 
-	sz_google_check_options('sz_google_options_base',$settings_base); 
-	sz_google_check_options('sz_google_options_plus',$settings_plus); 
-	sz_google_check_options('sz_google_options_ga'  ,$settings_ga); 
+	sz_google_check_options('sz_google_options_base'     ,$settings_base); 
+	sz_google_check_options('sz_google_options_plus'     ,$settings_plus); 
+	sz_google_check_options('sz_google_options_ga'       ,$settings_ga);
+	sz_google_check_options('sz_google_options_translate',$settings_translate);
 
 	// Esecuzione flush rules per regole di rewrite personalizzate
 

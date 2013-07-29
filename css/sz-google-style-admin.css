@@ -16,6 +16,9 @@
 #sz-google-icon-gplus {
 	background-image:url(images/google-32x32.png);
 }
+#sz-google-wrap th {
+	vertical-align:middle;
+}
 #sz-google-wrap input[type=checkbox] {
 	display:none;
 }

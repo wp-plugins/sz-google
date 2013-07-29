@@ -25,6 +25,10 @@ if ($options_modules['analytics'] == '1') {
 	@require_once(dirname(__FILE__).'/sz-google-modules-analytics.php');
 }
 
+if ($options_modules['translate'] == '1') {
+	@require_once(dirname(__FILE__).'/sz-google-modules-translate.php');
+}
+
 /* ************************************************************************** */ 
 /* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
 /* ************************************************************************** */ 

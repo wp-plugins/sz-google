@@ -36,6 +36,7 @@ function sz_google_admin_fields()
 	add_settings_section('sz_google_base_section','','sz_google_admin_base_section',basename(__FILE__));
 	add_settings_field('plus',ucfirst(__('google+','szgoogleadmin')),'sz_google_admin_base_plus',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),'sz_google_admin_base_analytics',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
 }
 
 /* ************************************************************************** */
@@ -99,6 +100,12 @@ function sz_google_admin_base_analytics() {
 	);
 }
 
+function sz_google_admin_base_translate() {
+	sz_google_common_form_checkbox_yesno(
+		'sz_google_options_base','translate'
+	);
+}
+
 /* ************************************************************************** */
 /* Funzioni per SEZIONE Configurazione Generale BASE                          */
 /* ************************************************************************** */
@@ -124,6 +131,10 @@ if ($options_admin['analytics'] == '1') {
 	@require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
 }
 
+if ($options_admin['translate'] == '1') {
+	@require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
+}
+
 /* ************************************************************************** */
 /* Funzioni per disegno parte del form (esecuzione generale)                  */
 /* ************************************************************************** */
@@ -133,7 +144,7 @@ function sz_google_common_form($title,$setting,$sections)
 
 	echo '<div id="sz-google-wrap" class="wrap">';
 	echo '<div id="sz-google-icon-gplus" class="icon32"><br></div>';
-	echo '<h2>'.$title.'</h2>';
+	echo '<h2>'.ucwords($title).'</h2>';
 	echo '<p>'.ucfirst(__('overriding the default settings with your own specific preferences','szgoogleadmin')).'</p>';
 
 	// Contenitore principale con zona dedicata ai parametri di configurazione
@@ -230,6 +241,17 @@ function sz_google_common_form($title,$setting,$sections)
 	echo '</div>';
 
 	echo '</div>';
+}
+
+/* ************************************************************************** */
+/* Funzioni per disegno descrizione aggiuntiva sotto i campi opzione          */
+/* ************************************************************************** */
+
+function sz_google_common_form_description($description) 
+{
+	echo '<tr valign="top"><td colspan="2"><small>';
+	echo ucfirst(trim($description));
+	echo '</small></td></tr>';
 }
 
 /* ************************************************************************** */
