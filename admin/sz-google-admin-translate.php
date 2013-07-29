@@ -90,6 +90,7 @@ function sz_google_admin_translate_meta()
 		'sz_google_options_translate','translate_meta','large',
 		__('insert your META code','szgoogleadmin')
 	);
+
 	sz_google_common_form_description(
 		__('before you use the google translate module must register the site that you want to manage on their google account using the following official link <a target="_blank" href="https://translate.google.com/manager/website/">Google Translate Tools</a>. Once inserit your site to perform the action "get code", display meta code and insert this in the field.','szgoogleadmin')
 	);
