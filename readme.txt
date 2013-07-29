@@ -76,6 +76,7 @@ To be informed about the features that gradually will be released you can follow
 `<?php echo szgoogle_get_ga_code(); ?>`
 
 = Google Translate module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
 **Google Translate Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -139,6 +140,9 @@ Yes, we have made available demonstration of the pages where the plugin installe
 = You can use the functions of the plugin with PHP? =
 Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
 
+= How to find the code meta google translate? =
+Before you use the google translate module must register the site that you want to manage on their google account using the following official link <a href="https://translate.google.com/manager/website/">Google Translate Tools</a>. Once inserit your site to perform the action "get code", display meta code and insert this in the field.
+
 == Screenshots ==.
 
 1. Plugin SZ-Google and administration panel
@@ -149,6 +153,7 @@ Yes, many operations of the plugin are also accessible via the specific function
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
 = Version 0.5 =
+* Fix: Translate more string for language italiano.
 * Feature: Add module for google translate widget.
 * Feature: Add option for google translate mode.
 * Feature: Add option for google translate widget.
