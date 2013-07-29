@@ -75,6 +75,22 @@ To be informed about the features that gradually will be released you can follow
 
 `<?php echo szgoogle_get_ga_code(); ?>`
 
+= Google Translate module =
+
+**Google Translate Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget google translate tools`
+
+**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+
+* `[sz-gtranslate] ..: google translate widget`
+
+**Google Translate Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+
+* `szgoogle_get_translate_code()`
+* `szgoogle_get_translate_meta()`
+* `szgoogle_get_translate_meta_ID()`
+
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
