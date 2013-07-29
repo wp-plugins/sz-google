@@ -91,6 +91,7 @@ function sz_google_plugin_activate()
 	$settings_base = array(
 		'plus'      => '1',
 		'analytics' => '0',
+		'groups'    => '0',
 		'translate' => '0',
 	);
 

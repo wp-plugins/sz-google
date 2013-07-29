@@ -39,6 +39,8 @@ function sz_google_modules_options()
 
 	if (!isset($options['plus']))      $options['plus']      = '0';
 	if (!isset($options['analytics'])) $options['analytics'] = '0';
+	if (!isset($options['groups']))    $options['groups']    = '0';
+	if (!isset($options['translate'])) $options['translate'] = '0';
 
 	return $options;
 }
