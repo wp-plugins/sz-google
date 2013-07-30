@@ -20,6 +20,7 @@ function sz_unistall_google_delete_options()
 	delete_option('sz_google_options_base');
 	delete_option('sz_google_options_plus');
 	delete_option('sz_google_options_ga');
+	delete_option('sz_google_options_groups');
 	delete_option('sz_google_options_translate');
 }
 

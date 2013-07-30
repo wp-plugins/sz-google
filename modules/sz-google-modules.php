@@ -17,17 +17,10 @@ define('SZ_PLUGIN_GOOGLE_MODULES_BASENAME',basename(__FILE__));
 
 $options_modules = sz_google_modules_options();
 
-if ($options_modules['plus'] == '1') {
-	@require_once(dirname(__FILE__).'/sz-google-modules-plus.php');
-}
-
-if ($options_modules['analytics'] == '1') {
-	@require_once(dirname(__FILE__).'/sz-google-modules-analytics.php');
-}
-
-if ($options_modules['translate'] == '1') {
-	@require_once(dirname(__FILE__).'/sz-google-modules-translate.php');
-}
+if ($options_modules['plus']      == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-modules-plus.php');
+if ($options_modules['analytics'] == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-modules-analytics.php');
+if ($options_modules['groups']    == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-modules-groups.php');
+if ($options_modules['translate'] == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-modules-translate.php');
 
 /* ************************************************************************** */ 
 /* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
@@ -37,10 +30,10 @@ function sz_google_modules_options()
 {
 	$options = get_option('sz_google_options_base');
 
-	if (!isset($options['plus']))      $options['plus']      = '0';
-	if (!isset($options['analytics'])) $options['analytics'] = '0';
-	if (!isset($options['groups']))    $options['groups']    = '0';
-	if (!isset($options['translate'])) $options['translate'] = '0';
+	if (!isset($options['plus']))      $options['plus']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['analytics'])) $options['analytics'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['groups']))    $options['groups']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate'])) $options['translate'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	return $options;
 }

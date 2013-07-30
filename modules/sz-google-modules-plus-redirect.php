@@ -15,22 +15,22 @@ function sz_google_modules_plus_rewrite_rules()
 
 	// Controllo REDIRECT per url con la stringa "+"
 
-	if ($options['plus_redirect_sign'] == '1') {
+	if ($options['plus_redirect_sign'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 		add_rewrite_rule('^\+$','index.php?szgoogleplusredirectsign=1','top');		
 		$wp->add_query_var('szgoogleplusredirectsign');
 	}   
 
 	// Controllo REDIRECT per url con la stringa "plus"
 
-	if ($options['plus_redirect_plus'] == '1') {
+	if ($options['plus_redirect_plus'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 		add_rewrite_rule('^plus$','index.php?szgoogleplusredirectplus=1','top');		
 		$wp->add_query_var('szgoogleplusredirectplus');
 	}   
 
 	// Controllo REDIRECT per url con la stringa "URL"
 
-	if ($options['plus_redirect_curl'] == '1') {
-		if (trim($options['plus_redirect_curl_dir']) <> '' and trim($options['plus_redirect_curl_url']) <> '') {
+	if ($options['plus_redirect_curl'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+		if (trim($options['plus_redirect_curl_dir']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL and trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {
 			add_rewrite_rule('^'. preg_quote(trim($options['plus_redirect_curl_dir'])).'$','index.php?szgoogleplusredirectcurl=1','top');		
 			$wp->add_query_var('szgoogleplusredirectcurl');
 		}
@@ -39,9 +39,9 @@ function sz_google_modules_plus_rewrite_rules()
 	// Se opzione di flush è disattivata eseguo il flush_rules ed eseguo
 	// la modifica dell'opzione al valore "1" per non ripetere l'operazione
 
-	if ($options['plus_redirect_flush'] == '0') 
+	if ($options['plus_redirect_flush'] == SZ_PLUGIN_GOOGLE_VALUE_NO) 
 	{
-		$options['plus_redirect_flush'] = '1';    
+		$options['plus_redirect_flush'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
 		update_option('sz_google_options_plus',$options);
 		add_action('wp_loaded','sz_google_modules_flush_rules');
 	}
@@ -64,7 +64,7 @@ function sz_google_modules_plus_parse_query(&$wp)
 	// Controllo REDIRECT per url con la stringa "+"
 
 	if (array_key_exists('szgoogleplusredirectsign',$wp->query_vars)) {
-		if (trim($options['plus_redirect_sign_url']) <> '') {   
+		if (trim($options['plus_redirect_sign_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
 			header("location:".trim($options['plus_redirect_sign_url'])); exit();
 		}
 	}
@@ -72,7 +72,7 @@ function sz_google_modules_plus_parse_query(&$wp)
 	// Controllo REDIRECT per url con la stringa "plus"
 	
 	if (array_key_exists('szgoogleplusredirectplus',$wp->query_vars)) {
-		if (trim($options['plus_redirect_plus_url']) <> '') {   
+		if (trim($options['plus_redirect_plus_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
 			header("location:".trim($options['plus_redirect_plus_url'])); exit();
 		}
 	}
@@ -80,7 +80,7 @@ function sz_google_modules_plus_parse_query(&$wp)
 	// Controllo REDIRECT per url con la stringa "URL"
 	
 	if (array_key_exists('szgoogleplusredirectcurl',$wp->query_vars)) {
-		if (trim($options['plus_redirect_curl_url']) <> '') {   
+		if (trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
 			header("location:".trim($options['plus_redirect_curl_url'])); exit();
 		}
 	}

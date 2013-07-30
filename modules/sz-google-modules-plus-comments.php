@@ -42,7 +42,7 @@ function sz_google_modules_comments_system($include)
 
 	// Calcolo la data di confronto per la funzione dei commenti
 
-	if ($options['plus_comments_dt_enable']=='1') 
+	if ($options['plus_comments_dt_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
 	{
 		$checkdt  = sprintf('%04d',$options['plus_comments_dt_year']);
 		$checkdt .= sprintf('%02d',$options['plus_comments_dt_month']);
@@ -59,7 +59,7 @@ function sz_google_modules_comments_system($include)
 	// Controllo se devo mantenere i commenti standard di wordpress		 
 	// in caso affermativo eseguo il file prima dei commenti di google plus
 
-	if ($options['plus_comments_wp_enable']=='1' and $options['plus_comments_aw_enable']=='1') {   
+	if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and $options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {   
 		if (file_exists($include)) @require($include);
 		echo '<div id="sz-google-comments-margin" style="margin-bottom:1em"></div>';
 	}
@@ -81,7 +81,7 @@ function sz_google_modules_comments_system($include)
 	// Ritorno stesso template passato alla funzione nel caso in cui
 	// devo mantenere i commenti standard dopo quelli di google plus
 	
-	if ($options['plus_comments_wp_enable']=='1' and $options['plus_comments_aw_enable']=='0') {   
+	if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and $options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_NO) {   
 		return $include;
 	}
 

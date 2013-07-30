@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 0.5
+Version: 0.6
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -36,12 +36,25 @@ define('SZ_PLUGIN_GOOGLE_PATH',plugin_dir_url(__FILE__));
 define('SZ_PLUGIN_GOOGLE_PATH_CSS',SZ_PLUGIN_GOOGLE_PATH.'css/');
 define('SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE',SZ_PLUGIN_GOOGLE_PATH.'css/images/');
 define('SZ_PLUGIN_GOOGLE_PATH_IMAGE',SZ_PLUGIN_GOOGLE_PATH.'images/');
-define('SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT','180');
-define('SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE','275');
+
+/* ************************************************************************** */
+/* Definizione delle costanti da usare nel plugin uso generale                */
+/* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_VALUE_NO'   ,'0');
+define('SZ_PLUGIN_GOOGLE_VALUE_YES'  ,'1');
+define('SZ_PLUGIN_GOOGLE_VALUE_NULL' ,'');
+define('SZ_PLUGIN_GOOGLE_VALUE_LANG' ,'99');
+define('SZ_PLUGIN_GOOGLE_VALUE_DAY'  ,sprintf('%02d',date('d')));
+define('SZ_PLUGIN_GOOGLE_VALUE_MONTH',sprintf('%02d',date('m')));
+define('SZ_PLUGIN_GOOGLE_VALUE_YEAR' ,sprintf('%04d',date('Y')));
 
 /* ************************************************************************** */
 /* Definizione delle costanti da usare nel plugin G+                          */
 /* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT','180');
+define('SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE','275');
 
 define('SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE','106567288702045182616');
 define('SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE','117259631219963935481');
@@ -58,6 +71,22 @@ define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER','false');
 define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER','false');
 define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT','350');
 define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE','350');
+
+/* ************************************************************************** */
+/* Definizione delle costanti da usare nel modulo GOOGLE ANALYTICS            */
+/* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_GA_HEADER','H');
+define('SZ_PLUGIN_GOOGLE_GA_FOOTER','F');
+define('SZ_PLUGIN_GOOGLE_GA_MANUAL','M');
+
+/* ************************************************************************** */
+/* Definizione delle costanti da usare nel modulo GOOGLE GROUPS               */
+/* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_GROUPS_NAME'  ,'adsense-api');
+define('SZ_PLUGIN_GOOGLE_GROUPS_WIDTH' ,'0');
+define('SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT','700');
 
 /* ************************************************************************** */
 /* Caricamento della lingua per il plugin SZ-Google                           */
@@ -89,82 +118,97 @@ function sz_google_plugin_activate()
 	// parametri di base come l'attivazione dei moduli 
 
 	$settings_base = array(
-		'plus'      => '1',
-		'analytics' => '0',
-		'groups'    => '0',
-		'translate' => '0',
+		'plus'                           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'analytics'                      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'groups'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'translate'                      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 	);
 
 	// Impostazione valori di default che riguardano  
 	// il modulo collegato alle funzione di Google PLus 
 
 	$settings_plus = array(
-		'plus_page'                      => '',
-		'plus_profile'                   => '',
-		'plus_community'                 => '',
-		'plus_language'                  => '99',
-		'plus_widget_pr_enable'          => '1',
-		'plus_widget_pa_enable'          => '1',		
-		'plus_widget_co_enable'          => '1',		
+		'plus_page'                      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_profile'                   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_community'                 => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_language'                  => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+		'plus_widget_pr_enable'          => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'plus_widget_pa_enable'          => SZ_PLUGIN_GOOGLE_VALUE_YES,		
+		'plus_widget_co_enable'          => SZ_PLUGIN_GOOGLE_VALUE_YES,		
 		'plus_widget_size_portrait'      => SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT,
 		'plus_widget_size_landscape'     => SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE,
-		'plus_shortcode_pr_enable'       => '1',
-		'plus_shortcode_pa_enable'       => '1',		
-		'plus_shortcode_co_enable'       => '1',		
+		'plus_shortcode_pr_enable'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'plus_shortcode_pa_enable'       => SZ_PLUGIN_GOOGLE_VALUE_YES,		
+		'plus_shortcode_co_enable'       => SZ_PLUGIN_GOOGLE_VALUE_YES,		
 		'plus_shortcode_size_portrait'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT,
 		'plus_shortcode_size_landscape'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE,
-		'plus_button_enable_plusone'     => '1',
-		'plus_button_enable_sharing'     => '1',
-		'plus_button_enable_follow'      => '1',
-		'plus_comments_gp_enable'        => '0',
-		'plus_comments_wp_enable'        => '0',
-		'plus_comments_ac_enable'        => '0',
-		'plus_comments_aw_enable'        => '0',
-		'plus_comments_wd_enable'        => '0',
-		'plus_comments_sh_enable'        => '0',
-		'plus_comments_dt_enable'        => '0',
-		'plus_comments_dt_day'           => sprintf('%02d',date('d')),
-		'plus_comments_dt_month'         => sprintf('%02d',date('m')),
-		'plus_comments_dt_year'          => sprintf('%04d',date('Y')),
-		'plus_redirect_sign'             => '0',
-		'plus_redirect_plus'             => '0',
-		'plus_redirect_curl'             => '0',
-		'plus_redirect_sign_url'         => '',
-		'plus_redirect_plus_url'         => '',
-		'plus_redirect_curl_fix'         => '',
-		'plus_redirect_curl_url'         => '',
-		'plus_redirect_curl_dir'         => '',
-		'plus_redirect_flush'            => '0',
-		'plus_system_javascript'         => '0',
+		'plus_button_enable_plusone'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'plus_button_enable_sharing'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'plus_button_enable_follow'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'plus_comments_gp_enable'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_comments_wp_enable'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_comments_ac_enable'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_comments_aw_enable'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_comments_wd_enable'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_comments_sh_enable'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_comments_dt_enable'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_comments_dt_day'           => SZ_PLUGIN_GOOGLE_VALUE_DAY,
+		'plus_comments_dt_month'         => SZ_PLUGIN_GOOGLE_VALUE_MONTH,
+		'plus_comments_dt_year'          => SZ_PLUGIN_GOOGLE_VALUE_YEAR,
+		'plus_redirect_sign'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_redirect_plus'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_redirect_curl'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_redirect_sign_url'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_redirect_plus_url'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_redirect_curl_fix'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_redirect_curl_url'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_redirect_curl_dir'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_redirect_flush'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'plus_system_javascript'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 	);
 
 	// Impostazione valori di default che riguardano  
 	// il modulo collegato alle funzione di Google Analytics 
 
 	$settings_ga = array(
-		'ga_uacode'                      => '',
-		'ga_position'                    => 'H',
-		'ga_enable_front'                => '1',
-		'ga_enable_admin'                => '0',
-		'ga_enable_administrator'        => '0',
-		'ga_enable_logged'               => '0',
+		'ga_uacode'                      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'ga_position'                    => SZ_PLUGIN_GOOGLE_GA_HEADER,
+		'ga_enable_front'                => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'ga_enable_admin'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'ga_enable_administrator'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'ga_enable_logged'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+	);
+
+	// Impostazione valori di default che riguardano  
+	// il modulo collegato alle funzione di Google Groups
+
+	$settings_groups = array(
+		'groups_widget'                  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'groups_shortcode'               => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'groups_language'                => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+		'groups_name'                    => SZ_PLUGIN_GOOGLE_GROUPS_NAME,
+		'groups_showsearch'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'groups_showtabs'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'groups_hidetitle'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'groups_hidesubject'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'groups_width'                   => SZ_PLUGIN_GOOGLE_GROUPS_WIDTH,
+		'groups_height'                  => SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT,
 	);
 
 	// Impostazione valori di default che riguardano  
 	// il modulo collegato alle funzione di Google Analytics 
 
 	$settings_translate = array(
-		'translate_meta'                 => '',
+		'translate_meta'                 => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'translate_mode'                 => 'I1',
-		'translate_language'             => '99',
-		'translate_to'                   => '0',
-		'translate_to_array'             => array(),
-		'translate_widget'               => '1',
-		'translate_shortcode'            => '1',
-		'translate_automatic'            => '0',
-		'translate_multiple'             => '0',
-		'translate_analytics'            => '0',
-		'translate_analytics_ua'         => '',
+		'translate_language'             => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+		'translate_to'                   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'translate_widget'               => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'translate_shortcode'            => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'translate_automatic'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'translate_multiple'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'translate_analytics'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'translate_analytics_ua'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	);
 
 	// Controllo formale delle opzioni e memorizzazione sul database
@@ -173,6 +217,7 @@ function sz_google_plugin_activate()
 	sz_google_check_options('sz_google_options_base'     ,$settings_base); 
 	sz_google_check_options('sz_google_options_plus'     ,$settings_plus); 
 	sz_google_check_options('sz_google_options_ga'       ,$settings_ga);
+	sz_google_check_options('sz_google_options_groups'   ,$settings_groups);
 	sz_google_check_options('sz_google_options_translate',$settings_translate);
 
 	// Esecuzione flush rules per regole di rewrite personalizzate

@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.5
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -22,6 +22,7 @@ To be informed about the features that gradually will be released you can follow
 
 * `Module Google+`
 * `Module Google Analytics`
+* `Module Google Groups`
 * `Module Google Translate`
 
 = Google+ social network module =
@@ -48,6 +49,7 @@ To be informed about the features that gradually will be released you can follow
 * `[sz-gplus-one] ......: g+ button plus one`
 * `[sz-gplus-share] ....: g+ button for sharing`
 * `[sz-gplus-follow] ...: g+ button for follow`
+* `[sz-gplus-comments] .: g+ comments system`
 
 **Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
@@ -75,16 +77,31 @@ To be informed about the features that gradually will be released you can follow
 
 `<?php echo szgoogle_get_ga_code(); ?>`
 
+= Google Groups module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+**Google Groups Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget google groups embed`
+
+**Google Groups Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+
+* `[sz-ggroups] ........: google translate widget`
+
+**Google Groups Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+
+* `szgoogle_get_groups_code()`
+
 = Google Translate module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-**Google Translate Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Google Translate Widgets:** In this plugin are available to google translate widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google translate tools`
 
-**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
 
-* `[sz-gtranslate] ..: google translate widget`
+* `[sz-gtranslate] .....: google translate widget`
 
 **Google Translate Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
@@ -152,6 +169,14 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 0.6 =
+* Fix: Translate more string for language italiano.
+* Feature: Add module for google groups embed.
+* Feature: Add widget for google groups embed.
+* Feature: Add shortcode for google groups embed.
+* Feature: Add administration panel for google groups embed.
+* Feature: Add help description for field in admin panel.
+
 = Version 0.5 =
 * Fix: Translate more string for language italiano.
 * Feature: Add module for google translate widget.
@@ -192,6 +217,9 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 0.6 =
+This release add module for google groups and improves some aspects of previous modules. Several have been added tightens translation and improved help description on the fields of administration panel.
 
 = 0.5 =
 This release add module for google translate and improves some aspects of previous modules. To use the google translate module must register your site on google account and get the information about the destination code.

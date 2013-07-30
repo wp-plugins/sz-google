@@ -17,6 +17,7 @@ define('SZ_PLUGIN_GOOGLE_FUNCTIONS_BASENAME',basename(__FILE__));
 
 @require_once(dirname(__FILE__).'/sz-google-functions-plus.php');
 @require_once(dirname(__FILE__).'/sz-google-functions-analytics.php');
+@require_once(dirname(__FILE__).'/sz-google-functions-groups.php');
 @require_once(dirname(__FILE__).'/sz-google-functions-translate.php');
 
 /* ************************************************************************** */

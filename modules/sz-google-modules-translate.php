@@ -27,27 +27,26 @@ function sz_google_modules_translate_options()
 
 	// Controllo delle opzioni in caso di valori non validi
 
-	if (!isset($options['translate_meta']))         $options['translate_meta']         = '';
+	if (!isset($options['translate_meta']))         $options['translate_meta']         = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 	if (!isset($options['translate_mode']))         $options['translate_mode']         = 'I1';
-	if (!isset($options['translate_language']))     $options['translate_language']     = '99';
-	if (!isset($options['translate_to']))           $options['translate_to']           = '0';
-	if (!isset($options['translate_to_array']))     $options['translate_to_array']     = array();
-	if (!isset($options['translate_widget']))       $options['translate_widget']       = '0';
-	if (!isset($options['translate_shortcode']))    $options['translate_shortcode']    = '0';
-	if (!isset($options['translate_automatic']))    $options['translate_automatic']    = '0';
-	if (!isset($options['translate_multiple']))     $options['translate_multiple']     = '0';
-	if (!isset($options['translate_analytics']))    $options['translate_analytics']    = '0';
-	if (!isset($options['translate_analytics_ua'])) $options['translate_analytics_ua'] = '';
+	if (!isset($options['translate_language']))     $options['translate_language']     = SZ_PLUGIN_GOOGLE_VALUE_LANG;
+	if (!isset($options['translate_to']))           $options['translate_to']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate_widget']))       $options['translate_widget']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate_shortcode']))    $options['translate_shortcode']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate_automatic']))    $options['translate_automatic']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate_multiple']))     $options['translate_multiple']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate_analytics']))    $options['translate_analytics']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate_analytics_ua'])) $options['translate_analytics_ua'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
 	// Controllo delle opzioni in caso di valori non validi
 
-	if (trim($options['translate_language']) == '') 
-		$options['translate_language'] = '99';   
+	if (trim($options['translate_language']) == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+		$options['translate_language'] = SZ_PLUGIN_GOOGLE_VALUE_LANG;
 
 	// Controllo opzione di codice GA-UA nel caso debba pendere il valore
 	// specificato nel modulo corrispondente se risulta attivo.
 
-	if (function_exists('sz_google_modules_analytics_options') and $options['translate_analytics_ua'] == '') 
+	if (function_exists('sz_google_modules_analytics_options') and $options['translate_analytics_ua'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
 	{
 		$options_ga = sz_google_modules_analytics_options();
 		$options['translate_analytics_ua'] = $options_ga['ga_uacode'];   
@@ -72,7 +71,7 @@ function sz_google_modules_translate_get_meta_ID()
 
 function sz_google_modules_translate_get_meta()
 {
-	if (sz_google_modules_translate_get_meta_ID() <> '') {
+	if (sz_google_modules_translate_get_meta_ID() <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {
 		$HTML  = '<meta name="google-translate-customization" ';
 		$HTML .= 'content="'.sz_google_modules_translate_get_meta_ID().'">';
 		$HTML .= '</meta>';
@@ -91,7 +90,7 @@ function sz_google_modules_translate_get_code()
 
 	$options = sz_google_modules_translate_options();
 
-	if ($options['translate_language']=='99') $language = substr(get_bloginfo('language'),0,2);	
+	if ($options['translate_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
 		else $language = trim($options['translate_language']);
 
 	// Creazione codice HTML per inserimento javascript di google 

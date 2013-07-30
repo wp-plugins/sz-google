@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sz-google\n"
-"POT-Creation-Date: 2013-07-29 00:49-0500\n"
-"PO-Revision-Date: 2013-07-29 01:02-0500\n"
+"POT-Creation-Date: 2013-07-30 00:20-0500\n"
+"PO-Revision-Date: 2013-07-30 00:20-0500\n"
 "Last-Translator: massimo <webmaster@startbyzero.com>\n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -15,251 +15,251 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: /home/massimo/Common/svn/sz-google/trunk\n"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:62
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:63
 msgid "same language theme"
 msgstr "stessa lingua del tema"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:63
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:64
 msgid "afrikaans"
 msgstr "africano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:64
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:65
 msgid "amharic"
 msgstr "amarico"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:65
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:66
 msgid "arabic"
 msgstr "arabo"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:66
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:67
 msgid "basque"
 msgstr "basco"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:67
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:68
 msgid "bengali"
 msgstr "bengali"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:68
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:69
 msgid "bulgarian"
 msgstr "bulgaro"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:69
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:70
 msgid "catalan"
 msgstr "catalano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:70
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:71
 msgid "chinese (Hong Kong)"
 msgstr "cinese (Hong Kong)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:71
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:72
 msgid "chinese (Simplified)"
 msgstr "cinese (Semplificato)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:72
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:73
 msgid "chinese (Traditional)"
 msgstr "cinese (Tradizionale)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:73
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:74
 msgid "croatian"
 msgstr "croato"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:74
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:75
 msgid "czech"
 msgstr "ceco"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:75
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:76
 msgid "danish"
 msgstr "danese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:76
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:77
 msgid "dutch"
 msgstr "olandese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:77
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:78
 msgid "english (UK)"
 msgstr "inglese (UK)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:78
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:79
 msgid "english (US)"
 msgstr "inglese (US)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:79
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:80
 msgid "estonian"
 msgstr "ettone"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:80
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:81
 msgid "filipino"
 msgstr "filippino"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:81
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:82
 msgid "finnish"
 msgstr "finlandese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:82
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:83
 msgid "french"
 msgstr "francese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:83
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:84
 msgid "french (Canadian)"
 msgstr "francese (Canada)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:84
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:85
 msgid "galician"
 msgstr "galiziano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:85
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:86
 msgid "german"
 msgstr "tedesco"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:86
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:87
 msgid "greek"
 msgstr "greco"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:87
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:88
 msgid "gujarati"
 msgstr "gujarati"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:88
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:89
 msgid "hebrew"
 msgstr "ebraico"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:89
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:90
 msgid "hindi"
 msgstr "hindi"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:90
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:91
 msgid "hungarian"
 msgstr "ungherese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:91
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:92
 msgid "icelandic"
 msgstr "islandese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:92
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:93
 msgid "indonesian"
 msgstr "indonesiano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:93
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:94
 msgid "italian"
 msgstr "italiano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:94
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:95
 msgid "japanese"
 msgstr "giapponese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:95
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:96
 msgid "kannada"
 msgstr "kannada"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:96
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:97
 msgid "korean"
 msgstr "coreano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:97
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:98
 msgid "latvian"
 msgstr "lettone"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:98
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:99
 msgid "lithuanian"
 msgstr "lituano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:99
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:100
 msgid "malay"
 msgstr "malese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:100
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:101
 msgid "malayalam"
 msgstr "malayalam"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:101
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:102
 msgid "marathi"
 msgstr "marathi"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:102
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:103
 msgid "norwegian"
 msgstr "norvegese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:103
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:104
 msgid "persian"
 msgstr "persiano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:104
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:105
 msgid "polish"
 msgstr "polonia"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:105
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:106
 msgid "portuguese (Brazil)"
 msgstr "portoghese (Brasile)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:106
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:107
 msgid "portuguese (Portugal)"
 msgstr "portoghese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:107
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:108
 msgid "romanian"
 msgstr "rumeno"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:108
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:109
 msgid "russian"
 msgstr "russo"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:109
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:110
 msgid "serbian"
 msgstr "serbo"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:110
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:111
 msgid "slovak"
 msgstr "slovacco"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:111
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:112
 msgid "slovenian"
 msgstr "sloveno"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:112
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:113
 msgid "spanish"
 msgstr "spagnolo"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:113
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:114
 msgid "spanish (Latin America)"
 msgstr "spagnolo (America latina)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:114
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:115
 msgid "swahili"
 msgstr "swahili"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:115
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:116
 msgid "swedish"
 msgstr "svedese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:116
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:117
 msgid "tamil"
 msgstr "tamil"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:117
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:118
 msgid "telugu"
 msgstr "telegu"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:118
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:119
 msgid "thai"
 msgstr "thailandese"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:119
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:120
 msgid "turkish"
 msgstr "turco"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:120
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:121
 msgid "ukrainian"
 msgstr "ucraino"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:121
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:122
 msgid "urdu"
 msgstr "urdu"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:122
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:123
 msgid "vietnamese"
 msgstr "vietnamita"
 
-#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:123
+#: /home/massimo/Common/svn/sz-google/trunk/functions/sz-google-functions.php:124
 msgid "zulu"
 msgstr "zulu"
 
@@ -590,15 +590,15 @@ msgstr "google+ URL personalizzato"
 msgid "google+ system"
 msgstr "google+ sistema"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:119
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:118
 msgid "google+ configuration"
 msgstr "configurazione google+"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:131
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:127
 msgid "insert ID your profile"
 msgstr "inserisci ID profilo"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:135
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:128
 msgid ""
 "enter the code that identifies the profile on google+, get to know the code "
 "of a profile just look at the profile link and copy the 21 digit number "
@@ -607,12 +607,17 @@ msgid ""
 "google.com/106567288702045182616/posts</a> the profile ID is "
 "106567288702045182616."
 msgstr ""
+"inserisci il codice che identifica il profilo su goole+, per sapere il "
+"codice basta guardare il link URL del profilo e copiare il numero di 21 "
+"cifre presente in esso. Ad esempio se il link è <a target=\"_blank\" href="
+"\"https://plus.google.com/106567288702045182616/posts\">https://plus.google."
+"com/106567288702045182616/posts</a> il profilo ID è 106567288702045182616."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:143
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:133
 msgid "insert ID your page"
 msgstr "inserisci ID pagina"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:147
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:134
 msgid ""
 "enter the code that identifies the page on google+, get to know the code of "
 "a profile just look at the page link and copy the 21 digit number located on "
@@ -620,12 +625,17 @@ msgid ""
 "\"https://plus.google.com/117259631219963935481\">https://plus.google."
 "com/117259631219963935481</a> the page ID is 117259631219963935481."
 msgstr ""
+"inserisci il codice che identifica la pagina su google+, per sapere il "
+"codice basta guardare il link URL della pagina e copiare il numero di 21 "
+"cifre presente in esso. Ad esempio se il link è <a target=\"_blank\" href="
+"\"https://plus.google.com/117259631219963935481\">https://plus.google."
+"com/117259631219963935481</a> la paginaID è 117259631219963935481."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:155
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:139
 msgid "insert ID your community"
 msgstr "inserisci ID community"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:159
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:140
 msgid ""
 "enter the code that identifies the community, get to know the code of a "
 "community just look at the link and copy the 21 digit number located on the "
@@ -634,8 +644,14 @@ msgid ""
 "communities/109254048492234113886</a> the community ID is "
 "109254048492234113886."
 msgstr ""
+"inserisci il codice che identifica la community, per sapere il codice basta "
+"guardare il link URL della community e copiar il numero di 21 cifre presente "
+"in esso. Ad esempio se il link è <a target=\"_blank\" href=\"https://plus."
+"google.com/communities/109254048492234113886\">https://plus.google.com/"
+"communities/109254048492234113886</a> la community ID è "
+"109254048492234113886."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:176
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:152
 msgid ""
 "specify the language code associated with your website, if you do not "
 "specify any value will be called the get_bloginfo('language') and set the "
@@ -645,11 +661,11 @@ msgid ""
 msgstr ""
 "specificare la lingua associata al sito web, se non viene specificato "
 "nessuna valore per questo campo verrà richiamata la funzione nativa di "
-"wordpress <code>get_bloginfo('language')</code> che imposta la stessa lingua "
-"associata al tema. I linguaggi supportati li trovate su <a target=\"_blank\" "
-"href=\"http://translate.google.com/about/\">Translate About</a>. "
+"wordpress chiamata <code>get_bloginfo('language')</code> che imposta la "
+"stessa lingua associata al tema. I linguaggi supportati sono: <a target="
+"\"_blank\" href=\"http://translate.google.com/about/\">Translate About</a>. "
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:191
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:162
 msgid ""
 "enabling this option will be included in the admin panel a new widget that "
 "will allow the insertion of a badge for the user profiles present on google"
@@ -657,8 +673,13 @@ msgid ""
 "the <a target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
 "\">official documentation</a> of developers."
 msgstr ""
+"Abilitando questa opzione verrà aggiunto un nuovo widget che permette "
+"l'inserimento del badge google+ per i profili. Se vuoi vedere i risultati "
+"grafici dei vari badge e le varie opzioni di visualizzazione leggi la <a "
+"target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+"\">documentazione ufficiale</a> dei sviluppatori."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:202
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:168
 msgid ""
 "enabling this option will be included in the admin panel a new widget that "
 "will allow the insertion of a badge for the pages present on google+. If you "
@@ -666,8 +687,13 @@ msgid ""
 "target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
 "\">official documentation</a> of developers."
 msgstr ""
+"Abilitando questa opzione verrà aggiunto un nuovo widget che permette "
+"l'inserimento del badge google+ per le pagine. Se vuoi vedere i risultati "
+"grafici dei vari badge  e le varie opzioni di visualizzazione leggi la <a "
+"target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+"\">documentazione ufficiale</a> dei sviluppatori."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:213
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:174
 msgid ""
 "enabling this option will be included in the admin panel a new widget that "
 "will allow the insertion of a badge for the community present on google+. If "
@@ -675,48 +701,324 @@ msgid ""
 "target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
 "\">official documentation</a> of developers."
 msgstr ""
+"Abilitando questa opzione verrà aggiunto un nuovo widget che permette "
+"l'inserimento del badge google+ per le community. Se vuoi vedere i risultati "
+"grafici dei vari badge e le varie opzioni di visualizzazione  leggi la <a "
+"target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+"\">documentazione ufficiale</a> dei sviluppatori."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:225
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:180
 msgid ""
 "this option is used to set a default width for use in widget when no size is "
 "set manually and is selected as the display mode portrait. If you do not "
 "specify a value for this field will be used the standard width of 180px and "
 "height will be calculated automatically."
 msgstr ""
+"questa opzione è usata per impostare la larghezza di default da utilizzare "
+"per il widget quando nessuna dimensione è stata specificata per la modalità "
+"portrait. Se non specifichi nessun valore per questo campo sarà utilizzata "
+"la dimensione di 180px mentre l'altezza sarà calcolata automaticamente."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:237
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:186
 msgid ""
 "this option is used to set a default width for use in widget when no size is "
 "set manually and is selected as the display mode landscape. If you do not "
 "specify a value for this field will be used the standard width of 275px and "
 "height will be calculated automatically."
 msgstr ""
+"questa opzione è usata per impostare la larghezza di default da utilizzare "
+"per il widget quando nessuna dimensione è stata specificata per la modalità "
+"landscape. Se non specifichi nessun valore per questo campo sarà utilizzata "
+"la dimensione di 275px mentre l'altezza sarà calcolata automaticamente."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:351
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:196
+msgid ""
+"enabling this option will be included in the admin panel a new shortcode "
+"that will allow the insertion of a badge for the user profiles present on "
+"google+. If you want to see the graphic result of badges provided by google "
+"read the <a target=\"_blank\" href=\"https://developers.google.com/+/web/"
+"badge/\">official documentation</a> of developers."
+msgstr ""
+"abilitando questa opzione sarà incluso un nuovo shortcode che permette "
+"l'inserimento di un badge google+ per i profili utente. Se vuoi vedere "
+"maggiori dettagli sull'aspetto grafico e i parametri di personalizzazione "
+"leggi la <a target=\"_blank\" href=\"https://developers.google.com/+/web/"
+"badge/\">documentazione ufficiale</a> degli sviluppatori."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:202
+msgid ""
+"enabling this option will be included in the admin panel a new shortcode "
+"that will allow the insertion of a badge for the pages present on google+. "
+"If you want to see the graphic result of badges provided by google read the "
+"<a target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+"\">official documentation</a> of developers."
+msgstr ""
+"abilitando questa opzione sarà incluso un nuovo shortcode che permette "
+"l'inserimento di un badge google+ per le pagine. Se vuoi vedere maggiori "
+"dettagli sull'aspetto grafico e i parametri di personalizzazione leggi la <a "
+"target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+"\">documentazione ufficiale</a> degli sviluppatori."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:208
+msgid ""
+"enabling this option will be included in the admin panel a new shortcode "
+"that will allow the insertion of a badge for the community present on google"
+"+. If you want to see the graphic result of badges provided by google read "
+"the <a target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+"\">official documentation</a> of developers."
+msgstr ""
+"abilitando questa opzione sarà incluso un nuovo shortcode che permette "
+"l'inserimento di un badge google+ per le community. Se vuoi vedere maggiori "
+"dettagli sull'aspetto grafico e i parametri di personalizzazione leggi la <a "
+"target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+"\">documentazione ufficiale</a> degli sviluppatori."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:214
+msgid ""
+"this option is used to set a default width for use in widget when no size is "
+"set manually and is selected as the display mode portrait. If you do not "
+"specify a value for this field will be used the standard width of 350px and "
+"height will be calculated automatically."
+msgstr ""
+"questa opzione è usata per impostare la larghezza di default usata dai "
+"widgets portrait quando non viene specificata nessuna dimensione specifica. "
+"Se non viene impostato nessun valore per questo campo sarà usato il valore "
+"di 350px e l'altezza sarà calcolata automaticamente."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:220
+msgid ""
+"this option is used to set a default width for use in widget when no size is "
+"set manually and is selected as the display mode landscape. If you do not "
+"specify a value for this field will be used the standard width of 350px and "
+"height will be calculated automatically."
+msgstr ""
+"questa opzione è usata per impostare la larghezza di default usata dai "
+"widgets landscape quando non viene specificata nessuna dimensione specifica. "
+"Se non viene impostato nessun valore per questo campo sarà usato il valore "
+"di 350px e l'altezza sarà calcolata automaticamente."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:230
+msgid ""
+"with this option is activated shortcode that allows the insertion of a +1 "
+"button in our article or web page. The +1 button has the same function as "
+"the button like this on facebook. If you want to customize the position in "
+"the theme use the function <code>szgoogle_get_gplus_button_one()</code>."
+msgstr ""
+"con questa opzione si può attivare lo shortcode che permette l'inserimento "
+"del bottone +1 su un'articolo o pagina web. Il bottone +1 ha lo stesso "
+"significato per il like di facebook. Se vuoi personalizzare la posizione sul "
+"tuo tema utilizza la funzione <code>szgoogle_get_gplus_button_one()</code>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:236
+msgid ""
+"this option allows the activation of shortcode for sharing a link on social "
+"network google+. Using this function you can insert the button in an article "
+"or a page wordpress. If you want to customize the position in the theme use "
+"the function <code>szgoogle_get_gplus_button_share()</code>."
+msgstr ""
+"questa opzione permette l'attivazione di uno shortcode per la condivisione "
+"di contenuti sul social network di google+. Usa questa funzione per inserire "
+"un bottone in un'articolo o in una pagina wordpress. Se vuoi personalizzare "
+"la posizione usa la funzione <code>szgoogle_get_gplus_button_share()</code>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:242
+msgid ""
+"this option allows the activation of shortcode for follow on social network "
+"google+. Using this function you can insert the button in an article or a "
+"page wordpress. If you want to customize the position in the theme use the "
+"function <code>szgoogle_get_gplus_button_follow()</code>."
+msgstr ""
+"questa opzione permette l'attivazione di uno shortcode per eseguire il "
+"follow in ambiente google plus. Usa questa funzione per inserire un bottone "
+"in un'articolo o in una pagina wordpress. Se vuoi personalizzare la "
+"posizione usa la funzione <code>szgoogle_get_gplus_button_follow()</code>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:252
+msgid ""
+"if you enable this feature will be added to the new commenting system made ​​"
+"available on the social network google+. The widget will be placed in the "
+"standard location for comments to wordpress. For customizations use the "
+"function <code>szgoogle_get_gplus_comments()</code>."
+msgstr ""
+"se abiliti questa funzione sarà aggiunto il nuovo sistema di commenti "
+"adottato da google+ per i siti esterni. Il box dei commenti sarà inserito "
+"nella posizione standard di wordpress. Per personalizzazioni usa la "
+"funzione  <code>szgoogle_get_gplus_comments()</code>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:258
+msgid ""
+"activating this option you can activate the system's comments Wodpress same "
+"time as those of google+. To decide the position of the comments you have to "
+"set the fields to follow. You can choose whether to place comments after the "
+"content or last."
+msgstr ""
+"attivando questa opzione puoi usare il sistema di commenti di google+ "
+"insieme a quello standard di wordpress. Per decide la posizione di uno "
+"rispetto all'altro utilizza i campi che trovi a seguire. Puoi scegliere la "
+"posizione prima o dopo il sistema standard."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:264
+msgid ""
+"enabling this option, the comment system is generated immediately after the "
+"post content or web page, otherwise it is inserted at the point that the "
+"standard function is called of the comments of wordpress in the file of the "
+"active theme. See also <code>szgoogle_get_gplus_comments()</code>."
+msgstr ""
+"abilitando questa opzione il box dei commenti sarà generato immediatamente "
+"dopo il contenuto del post o della pagina web, in caso contrario il box sarà "
+"inserito nel punto che viene chiamata la funzione standard del sistema "
+"wordpress. Vedi anche <code>szgoogle_get_gplus_comments()</code>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:270
+msgid ""
+"enabling this option, the comment system is generated immediately after "
+"standard comments, otherwise it is inserted at the point that the standard "
+"function is called of the comments of wordpress in the file of the active "
+"theme. See also <code>szgoogle_get_gplus_comments()</code>."
+msgstr ""
+"abilitando questa opzione il box dei commenti sarà generato immediatamente "
+"dopo il sistema di commenti standard, in caso contrario il box sarà inserito "
+"nel punto che viene chiamata la funzione standard del sistema wordpress. "
+"Vedi anche <code>szgoogle_get_gplus_comments()</code>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:276
+msgid ""
+"if you need to insert the component for comments to google+ in a sidebar you "
+"can activate this option and use the new widget that you will find in your "
+"admin panel, you specify the size or the way you use responsive design for "
+"automatic resize."
+msgstr ""
+"Se hai la necessità di inserire il box dei commenti in una sidebar, puoi "
+"attivare questa opzione e usare il nuovo widget che troverai nel pannello di "
+"amministrazione, potra specificare anche una dimensione o utilizzare la "
+"modalità responsive design."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:282
+msgid ""
+"enabling this option will allow you to use the shortcode <code>[sz-gplus-"
+"comments/]</code> that will allow you to insert a box for comments to google "
+"plus in any part of your post or page standard wordpress. For greater "
+"customization uses <code>szgoogle_get_gplus_comments()</code>."
+msgstr ""
+"abilitando questa opzione potrai utilizzare lo shortcode <code>[sz-gplus-"
+"comments/]</code> che ti permette di inserire un box commenti di google+ in "
+"qualsiasi parte di un post o di una pagina web. Se necessiti di maggiori "
+"personalizzazioni usa <code>szgoogle_get_gplus_comments()</code>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:297
 msgid "MDA"
 msgstr "DMA"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:359
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:305
 msgid "(month / day / year)"
 msgstr "(mese /giorno / anno)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:366
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:312
 msgid "(day / month / year)"
 msgstr "(giorno / mese / anno)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:373
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:319
 msgid "(year / month / day)"
 msgstr "(anno / mese / giorno)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:451
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:464
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:484
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:322
+msgid ""
+"enabling this option you can activate the commenting system only posts that "
+"are inserted after a certain date. This function is useful for managing two "
+"different systems of comments in reference to a period of time and using "
+"only the new commenting system for new posts."
+msgstr ""
+"abilitando questa opzione puoi attivare il nuovo sistema di commenti solo "
+"per i post inseriti dopo una certa data. Questa funzione è molto utile se si "
+"vogliono gestire diversi sistemi di commenti in base al periodo, possiamo "
+"utilizzare il vecchio sistema per i post passati e quello nuovo per gli "
+"altri."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:391
+msgid ""
+"with this option you can enable a rewrite rules that allows you to get a web "
+"address personalized pointing to the corresponding page on google plus such "
+"as <code>mydomain.com/+</code>. Activate this option and enter the complete "
+"link of the destination page of google plus."
+msgstr ""
+"con questa opzione possiamo abilitare una regola di rewrite e personalizzare "
+"un nostro URL con la corrispondete destinazione presente su google plus, in "
+"questo esempio useremo <code>mydomain.com/+</code>. Attivare l'opzione e "
+"inserire il link completo di destinazione presente su google+."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:396
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:407
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:424
 msgid "destination URL"
 msgstr "URL di destinazione"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:477
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:397
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:408
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:425
+msgid ""
+"in this field you must enter the full URL for the landing page that "
+"describes the connection on google plus. In fact you can enter any URL even "
+"if the rewrite is designed for integration with google plus. Please make use "
+"of the most useful for your needs."
+msgstr ""
+"in questo campo devi inserire la stringa completa URL di destinazione alla "
+"pagina presente su google+. In realtà tu puoi inserire qualsiasi URL anche "
+"se questo è stato studiato per google+, quindi utilizza la funzione in base "
+"alle tue necessità."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:402
+msgid ""
+"with this option you can enable a rewrite rules that allows you to get a web "
+"address personalized pointing to the corresponding page on google plus such "
+"as <code>mydomain.com/plus</code>. Activate this option and enter the "
+"complete link of the destination page of google plus."
+msgstr ""
+"con questa opzione possiamo abilitare una regola di rewrite e personalizzare "
+"un nostro URL con la corrispondete destinazione presente su google plus, in "
+"questo esempio useremo <code>mydomain.com/plus</code>. Attivare l'opzione e "
+"inserire il link completo di destinazione presente su google+."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:413
+msgid ""
+"with this option you can enable a rewrite rules that allows you to get a web "
+"address personalized pointing to the corresponding page on google plus such "
+"as <code>mydomain.com/origin</code>. Activate this option and enter the "
+"complete link of the source and destination page of google plus."
+msgstr ""
+"con questa opzione possiamo abilitare una regola di rewrite e personalizzare "
+"un nostro URL con la corrispondete destinazione presente su google plus, in "
+"questo esempio useremo <code>mydomain.com/origin</code>. Attivare l'opzione "
+"e inserire il link completo di destinazione presente su google+."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:418
 msgid "source path URL for redirect"
 msgstr "percorso URL origine per redirect"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:419
+msgid ""
+"in this field you must enter the source partial URL of your domain on which "
+"to perform the rewrite rule. For example you can use as a value source URL "
+"string <code>community/+</code> and associate the destination on a community "
+"present on google+."
+msgstr ""
+"in questo campo devi inserire la stringa URL parziale della sorgente legata "
+"al tuo dominio su cui effettuare il rewrite. Ad esempio puoi usare la "
+"stringa URL <code>community/+</code>  e associare la destinazione su una "
+"community presente in google+."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-plus.php:435
+msgid ""
+"if you use some plugin that performs functions similar to <a target=\"_blank"
+"\" href=\"http://wordpress.org/plugins/sz-google/\">sz-google for wordpress</"
+"a> is possible that we might create a conflict retrieving files javascript "
+"google, enabling this option will be disabled loadings code javascript from "
+"our plugin. In this way is not guaranteed to function properly."
+msgstr ""
+"se stai usando un'altro plugin simile a questo, si potrebbero creare dei "
+"conflitti sul caricamento delle stesso codice javascript rilasciato da "
+"google. Se abiliti questa funzione il nostro plugin non inserirerà il "
+"framework javascript sperando che lo faccia un'altro plugin. Non è garantito "
+"il corretto funzionamento."
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:22
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:83
@@ -734,15 +1036,20 @@ msgid "google analytics"
 msgstr "google analytics"
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:39
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:14
+msgid "google groups"
+msgstr "google gruppi"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:40
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:14
 msgid "google translate"
 msgstr "google translate"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:76
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:77
 msgid "activation modules"
 msgstr "attivazione moduli"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:98
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:93
 msgid ""
 "with this module you can manage some widgets in the social network google+, "
 "for example, we can insert the badge of the profiles, the badge of the "
@@ -755,7 +1062,7 @@ msgstr ""
 "condivisione, il bottone +1, il sistema di commenti integrato e molte cose "
 "ancora."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:109
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:99
 msgid ""
 "activating this module can handle the tracking code present in google "
 "analytics, so as to store the access statistics related to our website. Once "
@@ -767,7 +1074,21 @@ msgstr ""
 "volta integrato il codice nelle nostre pagine web possiamo analizzare "
 "centinaia di statistiche usando il pannello di controllo su GA."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:120
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:105
+msgid ""
+"enabling this module you get a widget and a shortcode to perform embed on "
+"google groups. Then you can insert into a wordpress page or in a sidebar "
+"content navigable for a group. You can specify various customization "
+"options, see the <a target=\"_blank\" href=\"https://support.google.com/"
+"groups/answer/1191206\">official documentation</a>."
+msgstr ""
+"abilitare questo modulo per ottenere un widget e uno shortcode che "
+"eseguiranno il codice embed di un gruppo di discussione presente su google. "
+"Se vuoi vedere le possibili personalizzazioni legate al codice embed leggi "
+"direttamente la  <a target=\"_blank\" href=\"https://support.google.com/"
+"groups/answer/1191206\">documentazione ufficiale</a>."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:111
 msgid ""
 "with this module you can place the widget for automatic content translate on "
 "your website made ​​available by google translate tools. For more information "
@@ -780,56 +1101,56 @@ msgstr ""
 "informazioni visitate il link  <a href=\"https://support.google.com/"
 "translate/\">https://support.google.com/translate/</a>."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:163
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:146
 msgid "overriding the default settings with your own specific preferences"
 msgstr "modifica le impostazione predefinite secondo le tue esigenze"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:179
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:204
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:217
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:227
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:241
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:162
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:187
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:200
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:210
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:224
 msgid "click to toggle"
 msgstr "clicca per chiudere/aprire"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:187
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:170
 msgid "save changes"
 msgstr "salva modifiche"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:205
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:188
 msgid "give us a little help"
 msgstr "Dacci un piccolo aiuto"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:208
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:191
 msgid "rate the plugin on WordPress.org"
 msgstr "Vota il plugin su WordPress.org"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:209
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:192
 msgid "join our community WordPress Italy+"
 msgstr "Iscriviti alla nostra community"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:218
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:246
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:201
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:229
 msgid "official page"
 msgstr "pagina ufficiale"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:228
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:211
 msgid "authors"
 msgstr "autori"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:242
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:225
 msgid "latest news on the plugin"
 msgstr "Ultime notizie sul plugin"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:245
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:228
 msgid "community WordPress"
 msgstr "community WordPress"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:247
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:230
 msgid "official documentation"
 msgstr "documentazione ufficiale"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:318
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin.php:301
 msgid "YES / NO"
 msgstr "SI / NO"
 
@@ -846,10 +1167,12 @@ msgid "website language"
 msgstr "lingua sito web"
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:40
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:29
 msgid "enable widget"
 msgstr "abilitare widget"
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:41
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:30
 msgid "enable shortcode"
 msgstr "abilitare shortcodes"
 
@@ -862,7 +1185,7 @@ msgid "multiple language"
 msgstr "lingua multipla"
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:49
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:201
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:155
 msgid "google analytics UA"
 msgstr "google analytics UA"
 
@@ -871,10 +1194,12 @@ msgid "general setting"
 msgstr "impostazioni generali"
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:70
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:67
 msgid "language setting"
 msgstr "impostazione lingua"
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:71
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:66
 msgid "activation components"
 msgstr "attivazione componenti"
 
@@ -882,15 +1207,15 @@ msgstr "attivazione componenti"
 msgid "advanced setting"
 msgstr "impostazioni avanzate"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:79
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:78
 msgid "google translate configuration"
 msgstr "configurazione google translate"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:91
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:87
 msgid "insert your META code"
 msgstr "inserisci il tuo codice META"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:95
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:88
 msgid ""
 "before you use the google translate module must register the site that you "
 "want to manage on their google account using the following official link <a "
@@ -905,19 +1230,19 @@ msgstr ""
 "sito eseguire l'azione \"get code\" e prendere il codice meta specificato e "
 "incollarlo sul campo."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:102
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:94
 msgid "inline vertical"
 msgstr "inline verticale"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:103
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:95
 msgid "inline horizontal"
 msgstr "inline orizzontale"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:104
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:96
 msgid "inline dropdown"
 msgstr "inline semplice"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:112
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:100
 msgid ""
 "with this parameter you can set the type of view you want to use for the "
 "widget to translate the language selection, you can choose for example "
@@ -930,7 +1255,8 @@ msgstr ""
 "posizionamento personalizzato usa la funzione "
 "<code>szgoogle_get_translate_code()</code>."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:129
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:112
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:102
 msgid ""
 "specify the language code associated with your website, if you do not "
 "specify any value will be called the <code>get_bloginfo('language')</code> "
@@ -940,11 +1266,12 @@ msgid ""
 msgstr ""
 "specificare la lingua associata al sito web, se non viene specificato "
 "nessuna valore per questo campo verrà richiamata la funzione nativa di "
-"wordpress <code>get_bloginfo('language')</code> che imposta la stessa lingua "
-"associata al tema. I linguaggi supportati li trovate su <a target=\"_blank\" "
-"href=\"http://translate.google.com/about/\">Translate About</a>."
+"wordpress chiamata <code>get_bloginfo('language')</code> che imposta la "
+"stessa lingua associata al tema. I linguaggi supportati sono: <a target="
+"\"_blank\" href=\"http://translate.google.com/about/\">Translate About</a>."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:145
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:122
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:84
 msgid ""
 "if you enable this option you will find the widget required in the "
 "administration menu of your widget and you can plug it into any sidebar "
@@ -956,7 +1283,7 @@ msgstr ""
 "definita nel tuo tema. Se disattivi questa opzione ricordati di non lasciare "
 "il widget collegato alle sidebar esistenti."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:156
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:128
 msgid ""
 "if you enable this option you can use the shortcode [sz-gtranslate] and "
 "enter the corresponding component directly in your article or page. Normally "
@@ -969,7 +1296,7 @@ msgstr ""
 "specificate delle opzioni, per controllare i parametri permessi leggi la "
 "documentazione ufficiale."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:171
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:138
 msgid ""
 "automatically display translation banner to users speaking languages other "
 "than the language of your page. If the language set on the visitor's browser "
@@ -984,7 +1311,7 @@ msgstr ""
 "\"_blank\" href=\"https://support.google.com/translate/\">documentazione "
 "ufficiale</a>."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:182
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:144
 msgid ""
 "your page contains content in multiple languages. Enable this option only if "
 "your pages contain content in different languages, in this case Google will "
@@ -998,7 +1325,7 @@ msgstr ""
 "leggi la documentazione ufficiale <a target=\"_blank\" href=\"https://"
 "support.google.com/translate/\">https://support.google.com/translate/</a>."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:193
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:150
 msgid ""
 "track translation traffic using google analytics. If you enable this option, "
 "you can check the requirements and the translation statistics directly to "
@@ -1013,7 +1340,7 @@ msgstr ""
 "per far funzionare questa opzione devi specificare il codice del tuo profilo "
 "analytics."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:205
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-translate.php:156
 msgid ""
 "enter the code assigned to the profile of google analytics on which to "
 "collect statistical data relating to requests for translation. If you have "
@@ -1024,6 +1351,148 @@ msgstr ""
 "raccogliere i dati statistici che riguardano le richieste di traduzione. Se "
 "è attivo il modulo google analytics del plugin viene preso in automatico il "
 "codice UA indicato nel modulo specifico. Esempio UA-12345-12."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:35
+msgid "default language"
+msgstr "lingua di default"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:40
+msgid "default group name"
+msgstr "nome del gruppo di default"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:41
+msgid "show search"
+msgstr "visualizzazione ricerca"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:42
+msgid "show tabs"
+msgstr "visualizzazione tabs"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:43
+msgid "hide title"
+msgstr "nascondi titolo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:44
+msgid "hide subject"
+msgstr "nascondi soggetto"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:45
+msgid "default width"
+msgstr "larghezza di default "
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:46
+msgid "default height"
+msgstr "altezza di default"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:68
+msgid "display setting"
+msgstr "impostazione visualizzazione"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:74
+msgid "google groups configuration"
+msgstr "configurazione google gruppi"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:90
+msgid ""
+"if you enable this option you can use the shortcode <code>[sz-ggroups]</"
+"code> and enter the corresponding component directly in your article or "
+"page. Normally shortcodes can be specified in the options, to control "
+"parameters given read the official documentation."
+msgstr ""
+"se abiliti questa opzione potrai utilizzare lo shortcode <code>[sz-ggroups]</"
+"code> ed inserire il componente corrispondente direttamente nel tuo articolo "
+"o pagina. Normalmente negli shortcodes possono essere specificate delle "
+"opzioni, per controllare i parametri permessi leggi la documentazione "
+"ufficiale."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:111
+msgid "insert default name"
+msgstr "inserisci il nome di default"
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:112
+msgid ""
+"in this area specify a group name that will be used in all those conditions "
+"in which you do not specify any value for the parameter \"name\". In any "
+"case, you can specify any name that is on the shortcode on the widget module "
+"google groups."
+msgstr ""
+"in questo campo devi specificare il nome del gruppo che sarà utilizzato di "
+"default, specialmente nei casi in cui non viene specificato il parametro "
+"\"name\". Potrai specificare qualsiasi altro valore tramite il widget e lo "
+"shortcode presenti in questo modulo."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:118
+msgid ""
+"select value \"yes\" if you want to show a search box, \"no\" if you don't "
+"want the box to show. This field is used as default value, but you can "
+"change this by specifying a specific value via the shortcode or php "
+"function. See official documentation for more details."
+msgstr ""
+"seleziona il valore \"si\" se vuoi visualizzare il box di ricerca, \"no\" se "
+"non lo vuoi visualizzare. Questo valore sarà usato come valore di default e "
+"può essere cambiato specificandolo nello shortcode o nella funzione php . "
+"Leggi la documentazione ufficiale per maggiori dettagli."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:124
+msgid ""
+"select value \"yes\" if you want to show the view selector tabs, \"no\" if "
+"you don't want to show tabs. This field is used as default value, but you "
+"can change this by specifying a specific value via the shortcode or php "
+"function. See official documentation for more details"
+msgstr ""
+"seleziona il valore \"si\" se vuoi visualizzare la selezione tabs, \"no\" se "
+"non lo vuoi visualizzare. Questo valore sarà usato come valore di default e "
+"può essere cambiato specificandolo nello shortcode o nella funzione php . "
+"Leggi la documentazione ufficiale per maggiori dettagli."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:130
+msgid ""
+"select value \"yes\" if you want to hide the forum title and description, "
+"\"no\" if you don't want to leave the title or description. This field is "
+"used as default value, but you can change this by specifying a specific "
+"value via the shortcode or php function. See official documentation for more "
+"details"
+msgstr ""
+"seleziona il valore \"si\" se vuoi nascondere il titolo, \"no\" se lo vuoi "
+"visualizzare. Questo valore sarà usato come valore di default e può essere "
+"cambiato specificandolo nello shortcode o nella funzione php . Leggi la "
+"documentazione ufficiale per maggiori dettagli."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:136
+msgid ""
+"select value \"yes\" if you want to hide the subject of the last post in My "
+"Forums view, \"no\" if you want to leave the subject visible. This field is "
+"used as default value, but you can change this by specifying a specific "
+"value via the shortcode or php function. See documentation for more details"
+msgstr ""
+"seleziona il valore \"si\" se vuoi nascondere il soggetto, \"no\" se lo vuoi "
+"visualizzare. Questo valore sarà usato come valore di default e può essere "
+"cambiato specificandolo nello shortcode o nella funzione php . Leggi la "
+"documentazione ufficiale per maggiori dettagli."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:142
+msgid ""
+"with this field you can set the width of the container iframe that will be "
+"used by defaul, when not specified as a parameter of the widget or the "
+"shortcode, if you see a value equal to zero, the default size will be 100% "
+"and will occupy the entire space of parent container."
+msgstr ""
+"con questo campo puoi impostare la larghezza del contenitore iframe che sarà "
+"utilizzato dal codice embed. Se utilizzi un valore uguale a zero la "
+"dimensione utilizzata sarà quella di 100% ed occuperà l'intero spazio del "
+"contenitore padre."
+
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-groups.php:148
+msgid ""
+"with this field you can set the height in pixels of the container iframe "
+"that will be used by defaul, when not specified as a parameter of the widget "
+"or the shortcode, if you see a value equal to zero, the default size will be "
+"700 pixels."
+msgstr ""
+"con questo campo puoi impostare l'altezza del contenitore iframe che sarà "
+"utilizzato dal codice embed. Se utilizzi un valore uguale a zero la "
+"dimensione utilizzata sarà quella predefinita di 700 pixel. Non utilizzare "
+"delle dimensioni troppo eccessive."
 
 #: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:44
 msgid "UA code"
@@ -1057,15 +1526,15 @@ msgstr "impostazioni generali "
 msgid "activation tracking code"
 msgstr "attivazione codice di monitoraggio"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:81
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:80
 msgid "google Analytics configuration"
 msgstr "configurazione google Analytics"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:93
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:89
 msgid "insert your UA code"
 msgstr "inserisci il tuo codice UA"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:97
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:90
 msgid ""
 "specify the code assigned to the profile of google analytics, to find enough "
 "to enter the admin panel google analytics and see the code assigned such as "
@@ -1077,19 +1546,19 @@ msgstr ""
 "simile a questo formato UA-12345-12. Se in questo campo non viene "
 "specificato nessun valore il codice di monitoraggio non sarà generato."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:105
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:96
 msgid "header (default)"
 msgstr "header (default)"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:106
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:97
 msgid "footer"
 msgstr "footer"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:107
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:98
 msgid "insert manually"
 msgstr "inserisci manualmente"
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:115
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:102
 msgid ""
 "specifies the location of the tracking code in the page HTML. The "
 "recommended position is the header that does not allow the loss of access "
@@ -1102,37 +1571,53 @@ msgstr ""
 "informazioni. Se vuoi selezionare l'inserimento manuale devi utilizzare la "
 "funzione <code>szgoogle_get_analytics_code()</code> e inserirla nel tuo tema."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:130
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:112
 msgid ""
-"Enable this option to activate the tracking code to the public pages of your "
+"enable this option to activate the tracking code to the public pages of your "
 "website. This option can also be used to disable the code without disabling "
 "the module. To check the tracking code on the basis of connected users use "
 "the options to follow as admin or users logged."
 msgstr ""
+"abilitare questa opzione per attivare il codice di monitoraggio nelle pagine "
+"pubbliche del tuo sito web. Questa opzione può essere utilizzata anche per "
+"disattivare momentaneamente il codice senza disattivare l'intero modulo. "
+"Controlla anche i campi che riguardano gli utenti collegati."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:141
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:118
 msgid ""
 "this option allows you to insert the tracking code in the admin pages. "
 "Useful function for some tests but not recommended during normal operation. "
 "Do not confuse this option with the administrator user which controls the "
 "type of user logged and not the execution environment."
 msgstr ""
+"questa opzione permette l'inserimento del codice di monitoraggio sulle "
+"pagine del pannello di amministrazione. Usare questa opzione per eventuali "
+"test ma sconsigliata durante le normali operazioni di manutenzione. Non "
+"confondere questa opzione con quella legata agli amministratori."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:152
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:124
 msgid ""
 "this option allows you to enter the tracking code when you browse the "
 "website as an administrator user. It is recommended to leave this option off "
 "as not to affect access statistics. This option is used for both the "
 "frontend and backend environment."
 msgstr ""
+"con questa opzione puoi controllare l'inserimento del codice di monitoraggio "
+"per gli utenti collegati come amministratori, utile per non inquinare le "
+"statistiche di accesso con le proprie visite. L'opzione viene controllata "
+"sia sul frontend che sul backend."
 
-#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:163
+#: /home/massimo/Common/svn/sz-google/trunk/admin/sz-google-admin-analytics.php:130
 msgid ""
 "with this option, you can check the tracking code for users who are "
 "connected to the website. The behavior of this option is similar to option "
 "regarding the administrator user. This option is used for both the frontend "
 "and backend environment."
 msgstr ""
+"con questa opzione puoi controllare l'inserimento del codice di monitoraggio "
+"per gli utenti che risultano loggati. Questa opzione funziona in maniera "
+"simile a quella degli utenti amministratori e viene controllata sia per il "
+"frontend che per il backend."
 
 #~ msgid "google analytics settings"
 #~ msgstr "configurazione google analytics"

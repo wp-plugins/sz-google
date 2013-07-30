@@ -13,10 +13,10 @@ $options = sz_google_modules_analytics_options();
 // Se sono sul front end aggiungo azione header o footer in
 // base a quello che è stato specificato nell'opzione di configurazione 
 
-if (!is_admin() and $options['ga_enable_front'] == '1')
+if (!is_admin() and $options['ga_enable_front'] == SZ_PLUGIN_GOOGLE_VALUE_YES)
 {
-	if ($options['ga_position'] == 'H') add_action('wp_head'  ,'sz_google_modules_analytics_add_script');
-	if ($options['ga_position'] == 'F') add_action('wp_footer','sz_google_modules_analytics_add_script');
+	if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_HEADER) add_action('wp_head'  ,'sz_google_modules_analytics_add_script');
+	if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('wp_footer','sz_google_modules_analytics_add_script');
 }
 
 /* ************************************************************************** */ 
@@ -31,12 +31,12 @@ function sz_google_modules_analytics_options()
 
 	// Controllo delle opzioni in caso di valori non validi
 
-	if (!isset($options['ga_uacode']))               $options['ga_uacode']               = '';   
-	if (!isset($options['ga_position']))             $options['ga_position']             = 'H';   
-	if (!isset($options['ga_enable_front']))         $options['ga_enable_front']         = '1';   
-	if (!isset($options['ga_enable_admin']))         $options['ga_enable_admin']         = '0';   
-	if (!isset($options['ga_enable_administrator'])) $options['ga_enable_administrator'] = '0';   
-	if (!isset($options['ga_enable_logged']))        $options['ga_enable_logged']        = '0';   
+	if (!isset($options['ga_uacode']))               $options['ga_uacode']               = SZ_PLUGIN_GOOGLE_VALUE_NULL;   
+	if (!isset($options['ga_position']))             $options['ga_position']             = SZ_PLUGIN_GOOGLE_GA_HEADER;   
+	if (!isset($options['ga_enable_front']))         $options['ga_enable_front']         = SZ_PLUGIN_GOOGLE_VALUE_YES;   
+	if (!isset($options['ga_enable_admin']))         $options['ga_enable_admin']         = SZ_PLUGIN_GOOGLE_VALUE_NO;   
+	if (!isset($options['ga_enable_administrator'])) $options['ga_enable_administrator'] = SZ_PLUGIN_GOOGLE_VALUE_NO;   
+	if (!isset($options['ga_enable_logged']))        $options['ga_enable_logged']        = SZ_PLUGIN_GOOGLE_VALUE_NO;   
 
 	return $options;
 }
@@ -77,16 +77,16 @@ function sz_google_modules_analytics_get_code()
 	// e disattivo il caricamento del codice se le opzioni sono disattivate 
 
 	if (current_user_can('manage_options')) {
-		if ($options['ga_enable_administrator'] == '0') $useract = false;
+		if ($options['ga_enable_administrator'] == SZ_PLUGIN_GOOGLE_VALUE_NO) $useract = false;
 	} else {
-		if (is_user_logged_in() and $options['ga_enable_logged'] == '0') $useract = false;   
+		if (is_user_logged_in() and $options['ga_enable_logged'] == SZ_PLUGIN_GOOGLE_VALUE_NO) $useract = false;   
 	}
 
 	// Controllo se sono in backend o frontend e abilito l'esecuzione del codice
 	// solo se le opzioni corrispondenti sono state attivate in configurazione
 
-	if ( is_admin() and $options['ga_enable_admin'] == '0') $useract = false;
-	if (!is_admin() and $options['ga_enable_front'] == '0') $useract = false;
+	if ( is_admin() and $options['ga_enable_admin'] == SZ_PLUGIN_GOOGLE_VALUE_NO) $useract = false;
+	if (!is_admin() and $options['ga_enable_front'] == SZ_PLUGIN_GOOGLE_VALUE_NO) $useract = false;
 
 	// Creazione codice di google analytics da inserire su pagina HTML 
 

@@ -36,6 +36,7 @@ function sz_google_admin_fields()
 	add_settings_section('sz_google_base_section','','sz_google_admin_base_section',basename(__FILE__));
 	add_settings_field('plus',ucfirst(__('google+','szgoogleadmin')),'sz_google_admin_base_plus',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),'sz_google_admin_base_analytics',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),'sz_google_admin_base_groups',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
 }
 
@@ -79,9 +80,7 @@ function sz_google_admin_base_callback()
 	// Chiamata alla funzione generale per la creazione del form generale
 	// le sezioni devono essere passate come un array con nome => titolo
 
-	sz_google_common_form(
-		ucfirst(__('configuration','szgoogleadmin')),'sz_google_options_base',$sections
-	); 
+	sz_google_common_form(ucfirst(__('configuration','szgoogleadmin')),'sz_google_options_base',$sections); 
 }
 
 /* ************************************************************************** */
@@ -90,35 +89,26 @@ function sz_google_admin_base_callback()
 
 function sz_google_admin_base_plus() 
 {
-	sz_google_common_form_checkbox_yesno(
-		'sz_google_options_base','plus'
-	);
-
-	sz_google_common_form_description(
-		__('with this module you can manage some widgets in the social network google+, for example, we can insert the badge of the profiles, the badge of the pages, the badge of the community, the buttons follow, the buttons share, the buttons +1, the comments system and much more.','szgoogleadmin')
-	);
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','plus');
+	sz_google_common_form_description(__('with this module you can manage some widgets in the social network google+, for example, we can insert the badge of the profiles, the badge of the pages, the badge of the community, the buttons follow, the buttons share, the buttons +1, the comments system and much more.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_analytics() 
 {
-	sz_google_common_form_checkbox_yesno(
-		'sz_google_options_base','analytics'
-	);
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','analytics');
+	sz_google_common_form_description(__('activating this module can handle the tracking code present in google analytics, so as to store the access statistics related to our website. Once you have entered the tracking code, you can view hundreds of statistics from the admin panel of google analytics.','szgoogleadmin'));
+}
 
-	sz_google_common_form_description(
-		__('activating this module can handle the tracking code present in google analytics, so as to store the access statistics related to our website. Once you have entered the tracking code, you can view hundreds of statistics from the admin panel of google analytics.','szgoogleadmin')
-	);
+function sz_google_admin_base_groups() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','groups');
+	sz_google_common_form_description(__('enabling this module you get a widget and a shortcode to perform embed on google groups. Then you can insert into a wordpress page or in a sidebar content navigable for a group. You can specify various customization options, see the <a target="_blank" href="https://support.google.com/groups/answer/1191206">official documentation</a>.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_translate() 
 {
-	sz_google_common_form_checkbox_yesno(
-		'sz_google_options_base','translate'
-	);
-
-	sz_google_common_form_description(
-		__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. For more information I recommend the official documentation on this link <a href="https://support.google.com/translate/">https://support.google.com/translate/</a>.','szgoogleadmin')
-	);
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','translate');
+	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. For more information I recommend the official documentation on this link <a href="https://support.google.com/translate/">https://support.google.com/translate/</a>.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -138,17 +128,10 @@ function sz_google_admin_callback_generale() {}
 
 $options_admin = sz_google_modules_options();
 
-if ($options_admin['plus'] == '1') {
-	@require_once(dirname(__FILE__).'/sz-google-admin-plus.php');
-}
-
-if ($options_admin['analytics'] == '1') {
-	@require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
-}
-
-if ($options_admin['translate'] == '1') {
-	@require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
-}
+if ($options_admin['plus']      == '1') @require_once(dirname(__FILE__).'/sz-google-admin-plus.php');
+if ($options_admin['analytics'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
+if ($options_admin['groups']    == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
+if ($options_admin['translate'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
 
 /* ************************************************************************** */
 /* Funzioni per disegno parte del form (esecuzione generale)                  */
