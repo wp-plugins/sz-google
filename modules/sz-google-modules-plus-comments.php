@@ -98,7 +98,7 @@ function sz_google_modules_comments_content($content)
 {
 	global $post,$comments;
 
-	if (!(is_singular() && (have_comments() || 'open' == $post->comment_status))) { return; }
+	if (!(is_singular() && (have_comments() || 'open' == $post->comment_status))) { return $content; }
 
 	// Creazione codice HTML per inserimento widget commenti		 
 
