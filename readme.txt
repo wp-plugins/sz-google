@@ -6,7 +6,7 @@ Stable tag: 0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: analytics, badge, buttons, comments, comments system, custom url, follow, google, google+, google analytics, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, sidebar, share, social network, shortcodes, translate
+Tags: analytics, badge, buttons, comments, comments system, custom url, embed video, follow, google, google+, google analytics, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
