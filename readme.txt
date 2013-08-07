@@ -113,6 +113,8 @@ To be informed about the features that gradually will be released you can follow
 = Google Youtube module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
+With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
+
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_get_youtube_video_code()`
@@ -182,6 +184,8 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add module for google youtube.
 * Feature: Add shortcode youtube [sz-ytvideo].
 * Feature: Add options youtube in admin panel for personalize.
+* Feature: Add options youtube disable IFRAME and use API.
+* Feature: Add options youtube for google analytics.
 * Fix: Change scripts for better performance.
 
 = Version 0.6 =
