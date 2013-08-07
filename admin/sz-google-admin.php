@@ -38,6 +38,7 @@ function sz_google_admin_fields()
 	add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),'sz_google_admin_base_analytics',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),'sz_google_admin_base_groups',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('youtube',ucwords(__('google youtube','szgoogleadmin')),'sz_google_admin_base_youtube',basename(__FILE__),'sz_google_base_section');
 }
 
 /* ************************************************************************** */
@@ -111,6 +112,12 @@ function sz_google_admin_base_translate()
 	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. For more information I recommend the official documentation on this link <a href="https://support.google.com/translate/">https://support.google.com/translate/</a>.','szgoogleadmin'));
 }
 
+function sz_google_admin_base_youtube() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','youtube');
+	sz_google_common_form_description(__('with this module can be inserted in the articles of wordpress a video on youtube, you can also use a widget to the inclusion of video in the sidebar on your theme. Through the options in the shortcode you can configure many parameters to customize the embed code.','szgoogleadmin'));
+}
+
 /* ************************************************************************** */
 /* Funzioni per SEZIONE Configurazione Generale BASE                          */
 /* ************************************************************************** */
@@ -132,6 +139,7 @@ if ($options_admin['plus']      == '1') @require_once(dirname(__FILE__).'/sz-goo
 if ($options_admin['analytics'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
 if ($options_admin['groups']    == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
 if ($options_admin['translate'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
+if ($options_admin['youtube']   == '1') @require_once(dirname(__FILE__).'/sz-google-admin-youtube.php');
 
 /* ************************************************************************** */
 /* Funzioni per disegno parte del form (esecuzione generale)                  */

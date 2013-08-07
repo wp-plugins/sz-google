@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.6
+Stable tag: 0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -24,6 +24,7 @@ To be informed about the features that gradually will be released you can follow
 * `Module Google Analytics`
 * `Module Google Groups`
 * `Module Google Translate`
+* `Module Google Youtube`
 
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -170,6 +171,9 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 0.7 =
+* Feature: Add module for google youtube.
+
 = Version 0.6 =
 * Fix: Translate more string for language italiano.
 * Feature: Add module for google groups embed.
@@ -218,6 +222,9 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 0.7 =
+This release add module for google youtube and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
 
 = 0.6 =
 This release add module for google groups and improves some aspects of previous modules. Several have been added tightens translation and improved help description on the fields of administration panel.

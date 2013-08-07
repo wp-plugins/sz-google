@@ -20,7 +20,3 @@ $widgets_options = sz_google_modules_options();
 if ($widgets_options['plus']=='1') {
 	@require_once(dirname(__FILE__).'/sz-google-widgets-plus.php');
 }
-
-if ($widgets_options['translate']=='1') {
-	@require_once(dirname(__FILE__).'/sz-google-widgets-translate.php');
-}

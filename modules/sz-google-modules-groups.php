@@ -5,16 +5,22 @@
 if (!defined('SZ_PLUGIN_GOOGLE_MODULES') or !SZ_PLUGIN_GOOGLE_MODULES) die();
 
 /* ************************************************************************** */ 
+/* Controllo le opzioni per sapere quali componenti risultano attivati        */ 
+/* ************************************************************************** */ 
+
+$options = sz_google_modules_groups_options();
+
+if ($options['groups_shortcode'] == '1') { 
+	add_shortcode('sz-ggroups','sz_google_shortcodes_groups');
+}
+
+/* ************************************************************************** */ 
 /* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
 /* ************************************************************************** */ 
 
 function sz_google_modules_groups_options()
 {
-	// Caricamento delle opzioni per modulo google groups
-
 	$options = get_option('sz_google_options_groups');
-
-	// Controllo delle opzioni in caso di valori non validi
 
 	if (!isset($options['groups_widget']))       $options['groups_widget']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['groups_shortcode']))    $options['groups_shortcode']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
@@ -33,6 +39,17 @@ function sz_google_modules_groups_options()
 	if (trim($options['groups_width'])    == '') $options['groups_width']       = SZ_PLUGIN_GOOGLE_GROUPS_WIDTH;
 	if (trim($options['groups_height'])   == '') $options['groups_height']      = SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT;
 
+	// Se trovo un valore non riconosciuto imposto dei valori predefiniti validi
+
+	$selects = array(SZ_PLUGIN_GOOGLE_VALUE_NO,SZ_PLUGIN_GOOGLE_VALUE_YES);
+
+	if (!in_array($options['groups_widget'],$selects))      $options['groups_widget']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['groups_shortcode'],$selects))   $options['groups_shortcode']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['groups_showsearch'],$selects))  $options['groups_showsearch']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['groups_showtabs'],$selects))    $options['groups_showtabs']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['groups_hidetitle'],$selects))   $options['groups_hidetitle']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['groups_hidesubject'],$selects)) $options['groups_hidesubject'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
+
 	return $options;
 }
 
@@ -40,10 +57,8 @@ function sz_google_modules_groups_options()
 /* Funzione per la generazione di codice legato a google groups               */
 /* ************************************************************************** */ 
 
-function sz_google_modules_groups_get_code($atts)
+function sz_google_modules_groups_get_code($atts=array())
 {
-	// Composizione opzioni legate al modulo di google groups 
-
 	$options = sz_google_modules_groups_options();
 
 	if ($options['groups_showsearch']  == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['groups_showsearch']  = 'true'; else $options['groups_showsearch']  = 'false';  
@@ -59,6 +74,8 @@ function sz_google_modules_groups_get_code($atts)
 
 	// Estrazione dei valori specificati nello shortcode, i valori ritornati
 	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
 
 	extract(shortcode_atts(array(
 		'name'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -120,6 +137,43 @@ function sz_google_modules_groups_get_code($atts)
 	$HTML .= '"&showpopout=true" + ';
 	$HTML .= '"&parenturl=" + encodeURIComponent(window.location.href);';
 	$HTML .= '</script>';
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* Funzione shortcode per inserimento GOOGLE GROUPS                           */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_groups($atts,$content=null) 
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	extract(shortcode_atts(array(
+		'name'           => '',
+		'width'          => '',
+		'height'         => '',
+		'showsearch'     => '',
+		'showtabs'       => '',
+		'hideforumtitle' => '',
+		'hidesubject'    => '',
+		'hl'             => '',
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML  = sz_google_modules_groups_get_code(array(
+		'name'           => trim($name),
+		'width'          => trim($width),
+		'height'         => trim($height),
+		'showsearch'     => trim($showsearch),
+		'showtabs'       => trim($showtabs),
+		'hideforumtitle' => trim($hideforumtitle),
+		'hidesubject'    => trim($hidesubject),
+		'hl'             => trim($hl),
+	));
 
 	return $HTML;
 }

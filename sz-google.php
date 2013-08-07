@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 0.6
+Version: 0.7
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -89,6 +89,21 @@ define('SZ_PLUGIN_GOOGLE_GROUPS_WIDTH' ,'0');
 define('SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT','700');
 
 /* ************************************************************************** */
+/* Definizione delle costanti da usare nel modulo GOOGLE YOUTUBE              */
+/* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH' ,'600');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT','400');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_TOP','');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_RIGHT','');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_BOTTOM','1');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_LEFT','');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT','em');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO','auto');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO','0');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_THEME','dark');
+
+/* ************************************************************************** */
 /* Caricamento della lingua per il plugin SZ-Google                           */
 /* ************************************************************************** */
 
@@ -112,7 +127,7 @@ if (!function_exists('is_user_logged_in()')) {
 /* Funzione creazione delle opzioni in attivazione                            */
 /* ************************************************************************** */
 
-function sz_google_plugin_activate() 
+function sz_google_plugin_activate()
 {
 	// Impostazione valori di default che riguardano  
 	// parametri di base come l'attivazione dei moduli 
@@ -122,6 +137,7 @@ function sz_google_plugin_activate()
 		'analytics'                      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'groups'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'translate'                      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube'                        => SZ_PLUGIN_GOOGLE_VALUE_NO,
 	);
 
 	// Impostazione valori di default che riguardano  
@@ -167,8 +183,8 @@ function sz_google_plugin_activate()
 		'plus_system_javascript'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 	);
 
-	// Impostazione valori di default che riguardano  
-	// il modulo collegato alle funzione di Google Analytics 
+	// Impostazione valori di default che riguardano
+	// il modulo collegato alle funzione di Google Analytics
 
 	$settings_ga = array(
 		'ga_uacode'                      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -179,7 +195,7 @@ function sz_google_plugin_activate()
 		'ga_enable_logged'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
 	);
 
-	// Impostazione valori di default che riguardano  
+	// Impostazione valori di default che riguardano
 	// il modulo collegato alle funzione di Google Groups
 
 	$settings_groups = array(
@@ -195,8 +211,8 @@ function sz_google_plugin_activate()
 		'groups_height'                  => SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT,
 	);
 
-	// Impostazione valori di default che riguardano  
-	// il modulo collegato alle funzione di Google Analytics 
+	// Impostazione valori di default che riguardano
+	// il modulo collegato alle funzione di Google Analytics
 
 	$settings_translate = array(
 		'translate_meta'                 => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -211,6 +227,31 @@ function sz_google_plugin_activate()
 		'translate_analytics_ua'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	);
 
+	// Impostazione valori di default che riguardano
+	// il modulo collegato alle funzione di Google Youtube
+
+	$settings_youtube = array(
+		'youtube_widget'                 => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_shortcode'              => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_responsive'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_width'                  => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH,
+		'youtube_height'                 => SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT,
+		'youtube_margin_top'             => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_TOP,
+		'youtube_margin_right'           => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_RIGHT,
+		'youtube_margin_bottom'          => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_BOTTOM,
+		'youtube_margin_left'            => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_LEFT,
+		'youtube_margin_unit'            => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT,
+		'youtube_force_ssl'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_autoplay'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_loop'                   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_fullscreen'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_disablekeyboard'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_theme'                  => SZ_PLUGIN_GOOGLE_YOUTUBE_THEME,
+		'youtube_disableiframe'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_analytics'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_delayed'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+	);
+
 	// Controllo formale delle opzioni e memorizzazione sul database
 	// in base ad una prima installazione o update del plugin 
 
@@ -219,6 +260,7 @@ function sz_google_plugin_activate()
 	sz_google_check_options('sz_google_options_ga'       ,$settings_ga);
 	sz_google_check_options('sz_google_options_groups'   ,$settings_groups);
 	sz_google_check_options('sz_google_options_translate',$settings_translate);
+	sz_google_check_options('sz_google_options_youtube'  ,$settings_youtube);
 
 	// Esecuzione flush rules per regole di rewrite personalizzate
 
@@ -242,7 +284,7 @@ register_deactivation_hook( __FILE__,'sz_google_plugin_deactivate');
 /* Inclusione delle funzioni generali per aggiunta di tutti i componenti      */
 /* ************************************************************************** */
 
-@require_once(dirname(__FILE__).'/functions/sz-google-functions.php');
+@require_once(dirname(__FILE__).'/includes/sz-google-functions.php');
 @require_once(dirname(__FILE__).'/modules/sz-google-modules.php');
 @require_once(dirname(__FILE__).'/widgets/sz-google-widgets.php');
 @require_once(dirname(__FILE__).'/shortcodes/sz-google-shortcodes.php');

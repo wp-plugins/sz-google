@@ -25,11 +25,7 @@ if (!is_admin() and $options['ga_enable_front'] == SZ_PLUGIN_GOOGLE_VALUE_YES)
 
 function sz_google_modules_analytics_options()
 {
-	// Caricamento delle opzioni per modulo google analytics 
-
 	$options = get_option('sz_google_options_ga');
-
-	// Controllo delle opzioni in caso di valori non validi
 
 	if (!isset($options['ga_uacode']))               $options['ga_uacode']               = SZ_PLUGIN_GOOGLE_VALUE_NULL;   
 	if (!isset($options['ga_position']))             $options['ga_position']             = SZ_PLUGIN_GOOGLE_GA_HEADER;   
@@ -37,6 +33,15 @@ function sz_google_modules_analytics_options()
 	if (!isset($options['ga_enable_admin']))         $options['ga_enable_admin']         = SZ_PLUGIN_GOOGLE_VALUE_NO;   
 	if (!isset($options['ga_enable_administrator'])) $options['ga_enable_administrator'] = SZ_PLUGIN_GOOGLE_VALUE_NO;   
 	if (!isset($options['ga_enable_logged']))        $options['ga_enable_logged']        = SZ_PLUGIN_GOOGLE_VALUE_NO;   
+
+	// Se trovo un valore non riconosciuto imposto dei valori predefiniti validi
+
+	$selects = array(SZ_PLUGIN_GOOGLE_VALUE_NO,SZ_PLUGIN_GOOGLE_VALUE_YES);
+
+	if (!in_array($options['ga_enable_front'],$selects))         $options['ga_enable_front']          = SZ_PLUGIN_GOOGLE_VALUE_YES;
+	if (!in_array($options['ga_enable_admin'],$selects))         $options['ga_enable_admin']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['ga_enable_administrator'],$selects)) $options['ga_enable_administrator']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['ga_enable_logged'],$selects))        $options['ga_enable_logged']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	return $options;
 }
