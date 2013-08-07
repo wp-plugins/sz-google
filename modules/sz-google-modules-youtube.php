@@ -331,44 +331,69 @@ function sz_google_modules_youtube_get_code($atts=array())
 		return $HTML;
 	}
 
-	// SE ATTIVATA FUNZIONE PER STATISTICHE ANALYTICS DEVO FORZARE 
-	// ESECUZIONE DEL CODICE EMBED TRAMITE YOUTUBE API 
-
-	if (	$analytics == SZ_PLUGIN_GOOGLE_VALUE_YES or 
-			$delayed   == SZ_PLUGIN_GOOGLE_VALUE_YES) 
-	{
-		$disableiframe = SZ_PLUGIN_GOOGLE_VALUE_YES; 
-	}
-
 	// Creazione identificativo univoco per riconoscere il codice embed 
 	// nel caso la funzioine venga richiamata più volte nella stessa pagina
 
 	$unique = md5(uniqid(),false);
 	$keyID  = 'sz-youtube-'.$unique;
 
+
+	$ONCLICK      = '';
+	$CSSIMAGE_1   = 'display:block;';
+	$CSSIMAGE_2   = 'display:block;';
+
+	$COVERIMAGE = plugin_dir_url(dirname(__FILE__)).'images/youtube-cover.jpg';
+	$COVERPLAYS = plugin_dir_url(dirname(__FILE__)).'images/youtube-play.png';
+
+	if ($delayed == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+	{
+		$CSSIMAGE_1 .= 'cursor:pointer;';
+		$CSSIMAGE_1 .= 'background-color:#f1f1f1;';
+		$CSSIMAGE_1 .= 'background-image:url('.$COVERIMAGE.');';
+		$CSSIMAGE_1 .= "background-repeat:no-repeat;";
+		$CSSIMAGE_1 .= "background-position:center center;";
+		$CSSIMAGE_1 .= "background-size:100% 100%;";
+
+		$CSSIMAGE_2 .= 'background-image:url('.$COVERPLAYS.');';
+		$CSSIMAGE_2 .= "background-repeat:no-repeat;";
+		$CSSIMAGE_2 .= "background-position:center center;";
+		$CSSIMAGE_2 .= "background-size:20% auto";
+
+		$ONCLICK     = ' onclick="javascript:onYouTubePlayerAPIReady_'.$unique.'();"';
+
+		$disableiframe = SZ_PLUGIN_GOOGLE_VALUE_YES; 
+	}
+
+	// SE ATTIVATA FUNZIONE PER STATISTICHE ANALYTICS DEVO FORZARE 
+	// ESECUZIONE DEL CODICE EMBED TRAMITE YOUTUBE API 
+
+	if ($analytics == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+		$disableiframe = SZ_PLUGIN_GOOGLE_VALUE_YES; 
+	}
+
 	// Creazione codice HTML per inserimento codice nella pagina 
 
 	$HTML  = '<div class="sz-youtube-main" style="'.$CSS.'">';
-	$HTML .= '<div class="sz-youtube-play" style="display:block;">';
+	$HTML .= '<div class="sz-youtube-play" style="'.$CSSIMAGE_1.'"'.$ONCLICK.'>';
 
 	if ($responsive == SZ_PLUGIN_GOOGLE_VALUE_YES)
 	{
 		$HTML .= '<div class="sz-youtube-cont" ';
 		$HTML .= 'style="';
-		$HTML .= 'display:block;';
 		$HTML .= 'position:relative;';
 		$HTML .= 'padding-bottom:56.25%;';
 		$HTML .= 'height:0;';
 		$HTML .= 'overflow:hidden;';
+		$HTML .= $CSSIMAGE_2;
 		$HTML .= '">';
 
 	} else {
 
 		$HTML .= '<div class="sz-youtube-cont" ';
 		$HTML .= 'style="';
-		$HTML .= 'display:block;';
 		$HTML .= 'position:relative;';
 		$HTML .= 'height:'.$height.'px;';
+		$HTML .= $CSSIMAGE_2;
 		$HTML .= '">';
 	}
 
