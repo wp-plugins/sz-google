@@ -110,6 +110,13 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_translate_meta()`
 * `szgoogle_get_translate_meta_ID()`
 
+= Google Youtube module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+**Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+
+* `szgoogle_get_youtube_video_code()`
+
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
