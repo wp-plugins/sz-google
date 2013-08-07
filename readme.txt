@@ -180,6 +180,9 @@ Before you use the google translate module must register the site that you want 
 
 = Version 0.7 =
 * Feature: Add module for google youtube.
+* Feature: Add shortcode youtube [sz-ytvideo].
+* Feature: Add options youtube in admin panel for personalize.
+* Fix: Change scripts for better performance.
 
 = Version 0.6 =
 * Fix: Translate more string for language italiano.
