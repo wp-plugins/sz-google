@@ -175,6 +175,7 @@ Before you use the google translate module must register the site that you want 
 1. SZ-Google and administration panel
 2. SZ-Google and module Google+
 3. SZ-Google and module Google+ example
+4. SZ-Google and module Youtube
 
 == Changelog ==
 
