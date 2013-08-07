@@ -337,6 +337,8 @@ function sz_google_modules_youtube_get_code($atts=array())
 	$unique = md5(uniqid(),false);
 	$keyID  = 'sz-youtube-'.$unique;
 
+	// Creazione variabili per gestire le immagini di copertina e 
+	// la modalità di caricamento codice embed ritardato
 
 	$ONCLICK      = '';
 	$CSSIMAGE_1   = 'display:block;';
@@ -361,6 +363,7 @@ function sz_google_modules_youtube_get_code($atts=array())
 
 		$ONCLICK     = ' onclick="javascript:onYouTubePlayerAPIReady_'.$unique.'();"';
 
+		$AUTOPLAY = SZ_PLUGIN_GOOGLE_VALUE_YES; 
 		$disableiframe = SZ_PLUGIN_GOOGLE_VALUE_YES; 
 	}
 
@@ -402,7 +405,9 @@ function sz_google_modules_youtube_get_code($atts=array())
 
 	if ($disableiframe == SZ_PLUGIN_GOOGLE_VALUE_YES) 
 	{
-		$HTML .= '<div class="sz-youtube-wrap" id="'.$keyID.'" style="display:block;"></div>';
+		$HTML .= '<div class="sz-youtube-wrap" style="display:block;">';
+		$HTML .= '<div class="sz-youtube-japi" id="'.$keyID.'" style="position:absolute;top:0;left:0;display:block;"></div>';
+		$HTML .= '</div>';
 
 		sz_google_modules_youtube_add_video_API(
 			array(
