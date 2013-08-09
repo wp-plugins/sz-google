@@ -215,9 +215,9 @@ function szgoogle_get_translate_meta() {
 	} else return false;
 }
 
-function szgoogle_get_translate_code() {
+function szgoogle_get_translate_code($atts=array()) {
 	if (function_exists('sz_google_modules_translate_get_code()')) {
-		return sz_google_modules_translate_get_code();
+		return sz_google_modules_translate_get_code($atts);
 	} else return false;
 }
 

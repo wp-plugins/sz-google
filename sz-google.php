@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 0.7
+Version: 0.8
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -102,6 +102,7 @@ define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT','em');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO','auto');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO','0');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_THEME','dark');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_COVER','local');
 
 /* ************************************************************************** */
 /* Caricamento della lingua per il plugin SZ-Google                           */
@@ -138,6 +139,7 @@ function sz_google_plugin_activate()
 		'groups'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'translate'                      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube'                        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'documentation'                  => SZ_PLUGIN_GOOGLE_VALUE_YES,
 	);
 
 	// Impostazione valori di default che riguardano  
@@ -247,9 +249,12 @@ function sz_google_plugin_activate()
 		'youtube_fullscreen'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_disablekeyboard'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube_theme'                  => SZ_PLUGIN_GOOGLE_YOUTUBE_THEME,
+		'youtube_cover'                  => SZ_PLUGIN_GOOGLE_YOUTUBE_COVER,
 		'youtube_disableiframe'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube_analytics'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube_delayed'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_schemaorg'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_disablerelated'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 	);
 
 	// Controllo formale delle opzioni e memorizzazione sul database

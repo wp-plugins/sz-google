@@ -51,9 +51,12 @@ function sz_google_modules_youtube_options()
 	if (!isset($options['youtube_fullscreen']))         $options['youtube_fullscreen']       = SZ_PLUGIN_GOOGLE_VALUE_YES;
 	if (!isset($options['youtube_disablekeyboard']))    $options['youtube_disablekeyboard']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['youtube_theme']))              $options['youtube_theme']            = SZ_PLUGIN_GOOGLE_YOUTUBE_THEME;
+	if (!isset($options['youtube_cover']))              $options['youtube_cover']            = SZ_PLUGIN_GOOGLE_YOUTUBE_COVER;
 	if (!isset($options['youtube_disableiframe']))      $options['youtube_disableiframe']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['youtube_analytics']))          $options['youtube_analytics']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['youtube_delayed']))            $options['youtube_delayed']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['youtube_schemaorg']))          $options['youtube_schemaorg']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['youtube_disablerelated']))     $options['youtube_disablerelated']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	// Se i valori numerici non sono coerenti imposto il valore di default
 
@@ -70,9 +73,12 @@ function sz_google_modules_youtube_options()
 	if (trim($options['youtube_fullscreen'])      == '') $options['youtube_fullscreen']      = SZ_PLUGIN_GOOGLE_VALUE_YES;
 	if (trim($options['youtube_disablekeyboard']) == '') $options['youtube_disablekeyboard'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (trim($options['youtube_theme'])           == '') $options['youtube_theme']           = SZ_PLUGIN_GOOGLE_YOUTUBE_THEME;
+	if (trim($options['youtube_cover'])           == '') $options['youtube_cover']           = SZ_PLUGIN_GOOGLE_YOUTUBE_COVER;
 	if (trim($options['youtube_disableiframe'])   == '') $options['youtube_disableiframe']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (trim($options['youtube_analytics'])       == '') $options['youtube_analytics']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (trim($options['youtube_delayed'])         == '') $options['youtube_delayed']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (trim($options['youtube_schemaorg'])       == '') $options['youtube_schemaorg']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (trim($options['youtube_disablerelated'])  == '') $options['youtube_disablerelated']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	// Se opzioni contengono valori non supportati imposto i parametri di default
 
@@ -97,6 +103,9 @@ function sz_google_modules_youtube_options()
 	if (!in_array(strtolower(trim($options['youtube_theme'])),array('dark','light'))) 
 		$options['youtube_theme'] = SZ_PLUGIN_GOOGLE_YOUTUBE_THEME; 
 
+	if (!in_array(strtolower(trim($options['youtube_cover'])),array('local','youtube'))) 
+		$options['youtube_cover'] = SZ_PLUGIN_GOOGLE_YOUTUBE_COVER; 
+
 	// Se trovo un valore non riconosciuto imposto dei valori predefiniti validi
 
 	$selects = array(SZ_PLUGIN_GOOGLE_VALUE_NO,SZ_PLUGIN_GOOGLE_VALUE_YES);
@@ -112,6 +121,8 @@ function sz_google_modules_youtube_options()
 	if (!in_array($options['youtube_disableiframe'],$selects))   $options['youtube_disableiframe']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['youtube_analytics'],$selects))       $options['youtube_analytics']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['youtube_delayed'],$selects))         $options['youtube_delayed']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['youtube_schemaorg'],$selects))       $options['youtube_schemaorg']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['youtube_disablerelated'],$selects))  $options['youtube_disablerelated']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	// Ritorno array con elenco delle opzioni controllate e corrette
 
@@ -146,10 +157,18 @@ function sz_google_modules_youtube_get_code($atts=array())
 		'fullscreen'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'disablekeyboard' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'theme'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'cover'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'title'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'disableiframe'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'analytics'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'delayed'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'start'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'end'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'schemaorg'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'name'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'description'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'duration'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'disablerelated'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -157,6 +176,10 @@ function sz_google_modules_youtube_get_code($atts=array())
 
 	$url             = trim($url);
 	$title           = trim($title);
+	$cover           = trim($cover);
+	$name            = trim($name);
+	$description     = trim($description);
+	$duration        = trim($duration);
 
 	$responsive      = strtolower(trim($responsive));
 	$margintop       = strtolower(trim($margintop));
@@ -172,6 +195,10 @@ function sz_google_modules_youtube_get_code($atts=array())
 	$disableiframe   = strtolower(trim($disableiframe));
 	$analytics       = strtolower(trim($analytics));
 	$delayed         = strtolower(trim($delayed));
+	$start           = strtolower(trim($start));
+	$end             = strtolower(trim($end));
+	$schemaorg       = strtolower(trim($schemaorg));
+	$disablerelated  = strtolower(trim($disablerelated));
 
 	// Controllo le caratteristiche del link per creare URL del
 	// sorgente iframe da utilizzare nel codice embed e cambio schema se necessario
@@ -229,9 +256,12 @@ function sz_google_modules_youtube_get_code($atts=array())
 	if ($fullscreen      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $fullscreen      = $options['youtube_fullscreen'];
 	if ($disablekeyboard == SZ_PLUGIN_GOOGLE_VALUE_NULL) $disablekeyboard = $options['youtube_disablekeyboard'];
 	if ($theme           == SZ_PLUGIN_GOOGLE_VALUE_NULL) $theme           = $options['youtube_theme'];
+	if ($cover           == SZ_PLUGIN_GOOGLE_VALUE_NULL) $cover           = $options['youtube_cover'];
 	if ($disableiframe   == SZ_PLUGIN_GOOGLE_VALUE_NULL) $disableiframe   = $options['youtube_disableiframe'];
 	if ($analytics       == SZ_PLUGIN_GOOGLE_VALUE_NULL) $analytics       = $options['youtube_analytics'];
 	if ($delayed         == SZ_PLUGIN_GOOGLE_VALUE_NULL) $delayed         = $options['youtube_delayed'];
+	if ($schemaorg       == SZ_PLUGIN_GOOGLE_VALUE_NULL) $schemaorg       = $options['youtube_schemaorg'];
+	if ($disablerelated  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $disablerelated  = $options['youtube_disablerelated'];
 
 	// Conversione dei valori specificati direttamete nei parametri con
 	// i valori usati per la memorizzazione dei valori di default
@@ -244,6 +274,8 @@ function sz_google_modules_youtube_get_code($atts=array())
 	if ($disableiframe   == 'yes' or $disableiframe   == 'y') $disableiframe   = SZ_PLUGIN_GOOGLE_VALUE_YES; 
 	if ($analytics       == 'yes' or $analytics       == 'y') $analytics       = SZ_PLUGIN_GOOGLE_VALUE_YES; 
 	if ($delayed         == 'yes' or $delayed         == 'y') $delayed         = SZ_PLUGIN_GOOGLE_VALUE_YES; 
+	if ($schemaorg       == 'yes' or $schemaorg       == 'y') $schemaorg       = SZ_PLUGIN_GOOGLE_VALUE_YES; 
+	if ($disablerelated  == 'yes' or $disablerelated  == 'y') $disablerelated  = SZ_PLUGIN_GOOGLE_VALUE_YES; 
 
 	if ($responsive      == 'no'  or $responsive      == 'n') $responsive      = SZ_PLUGIN_GOOGLE_VALUE_NO; 
 	if ($autoplay        == 'no'  or $autoplay        == 'n') $autoplay        = SZ_PLUGIN_GOOGLE_VALUE_NO; 
@@ -253,6 +285,8 @@ function sz_google_modules_youtube_get_code($atts=array())
 	if ($disableiframe   == 'no'  or $disableiframe   == 'n') $disableiframe   = SZ_PLUGIN_GOOGLE_VALUE_NO; 
 	if ($analytics       == 'no'  or $analytics       == 'n') $analytics       = SZ_PLUGIN_GOOGLE_VALUE_NO; 
 	if ($delayed         == 'no'  or $delayed         == 'n') $delayed         = SZ_PLUGIN_GOOGLE_VALUE_NO; 
+	if ($schemaorg       == 'no'  or $schemaorg       == 'n') $schemaorg       = SZ_PLUGIN_GOOGLE_VALUE_NO; 
+	if ($disablerelated  == 'no'  or $disablerelated  == 'n') $disablerelated  = SZ_PLUGIN_GOOGLE_VALUE_NO; 
 
 	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
 	// precedenti metto dei default assoluti che possono essere cambiati
@@ -266,7 +300,9 @@ function sz_google_modules_youtube_get_code($atts=array())
 	if (!in_array($disablekeyboard,$YESNO)) $disablekeyboard = $options['youtube_disablekeyboard']; 
 	if (!in_array($disableiframe,$YESNO))   $disableiframe   = $options['youtube_disableiframe']; 
 	if (!in_array($analytics,$YESNO))       $analytics       = $options['youtube_analytics']; 
-	if (!in_array($delayed,$YESNO))         $analytics       = $options['youtube_analytics']; 
+	if (!in_array($delayed,$YESNO))         $delayed         = $options['youtube_delayed']; 
+	if (!in_array($schemaorg,$YESNO))       $schemaorg       = $options['youtube_schemaorg'];
+	if (!in_array($disablerelated,$YESNO))  $disablerelated  = $options['youtube_disablerelated'];
 
 	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
 	// precedenti metto dei default assoluti che possono essere cambiati
@@ -284,6 +320,9 @@ function sz_google_modules_youtube_get_code($atts=array())
 
 	if (!in_array($marginunit,array('em','px'))) 
 		$marginunit = $options['youtube_margin_unit']; 
+
+	if (!ctype_digit($start)) $start = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!ctype_digit($end))   $start = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
 	// Se ho impostato la modalità responsive la dimensione è sempre 100%
 	// per occupare tutto lo spazio del contenitore genitore, stesso controllo per valore=0
@@ -340,12 +379,29 @@ function sz_google_modules_youtube_get_code($atts=array())
 	// Creazione variabili per gestire le immagini di copertina e 
 	// la modalità di caricamento codice embed ritardato
 
-	$ONCLICK      = '';
-	$CSSIMAGE_1   = 'display:block;';
-	$CSSIMAGE_2   = 'display:block;';
-
-	$COVERIMAGE = plugin_dir_url(dirname(__FILE__)).'images/youtube-cover.jpg';
+	$ONCLICK    = '';
+	$CSSIMAGE_1 = 'display:block;';
+	$CSSIMAGE_2 = 'display:block;';
+	$COVERIMAGE = trim($cover);
 	$COVERPLAYS = plugin_dir_url(dirname(__FILE__)).'images/youtube-play.png';
+
+	if (ctype_digit($COVERIMAGE)) {
+		$COVERSRC = wp_get_attachment_image_src($COVERIMAGE,'full');
+		if (isset($COVERSRC[0])) $COVERIMAGE = $COVERSRC[0]; 
+			else $COVERIMAGE = 'local'; 
+	}
+
+	if (strtolower($COVERIMAGE) == 'youtube') {
+		$image = $datas['scheme'].'://img.youtube.com/vi/';
+		$COVERIMAGE = $image.$vidID.'/hqdefault.jpg';
+	} 
+
+	if (strtolower($COVERIMAGE) == 'local') {
+		$COVERIMAGE = plugin_dir_url(dirname(__FILE__)).'images/youtube-cover.jpg';
+	} 
+
+	// Creazione variabili per gestire le immagini di copertina e 
+	// la modalità di caricamento codice embed ritardato
 
 	if ($delayed == SZ_PLUGIN_GOOGLE_VALUE_YES) 
 	{
@@ -374,9 +430,48 @@ function sz_google_modules_youtube_get_code($atts=array())
 		$disableiframe = SZ_PLUGIN_GOOGLE_VALUE_YES; 
 	}
 
-	// Creazione codice HTML per inserimento codice nella pagina 
+	// Creazione variabile da usare per lo schema.org in caso di attivazione
+	// opzione, vengono usate le specifiche di http://schema.org/VideoObject 
 
-	$HTML  = '<div class="sz-youtube-main" style="'.$CSS.'">';
+	$EMBEDURL = $datas['scheme'].'://www.youtube.com/embed/'.$vidID.'?v='.$vidID;
+	$THUMBNAILURL = $datas['scheme'].'://img.youtube.com/vi/'.$vidID.'/hqdefault.jpg';
+
+	if ($name == SZ_PLUGIN_GOOGLE_VALUE_NULL) $NAME = esc_html(ucfirst(__('youtube video','szgoogleadmin')));
+		else $NAME = esc_html($name);	
+
+	if ($description != SZ_PLUGIN_GOOGLE_VALUE_NULL) $DESCRIPTION = esc_html($description);
+		else $DESCRIPTION = esc_html($title);	
+
+	if ($disablerelated == SZ_PLUGIN_GOOGLE_VALUE_YES) $DISABLERELATED = '0';
+		else $DISABLERELATED = '1';
+
+	// Creazione codice HTML per inserimento nella pagina, la tecnica usata
+	// può essere la definizione di un IFRAME e la chiamata ad una funzione API 
+
+	$HTML = '';
+
+	// Creazione codice HTML con controllo inserimento schema.org, se il sistema
+	// è abilitato vengono usate le specifiche di http://schema.org/VideoObject 
+
+	if ($schemaorg == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+	{
+		$HTML .= '<div class="sz-youtube-main" style="'.$CSS.'" itemprop="video" itemscope itemtype="http://schema.org/VideoObject">';
+
+		if ($NAME        != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '<meta itemprop="name" content="'.$NAME.'">';
+		if ($DESCRIPTION != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '<meta itemprop="description" content="'.$DESCRIPTION.'">';
+		if ($duration    != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '<meta itemprop="duration" content="'.$duration.'">';
+
+		$HTML .= '<meta itemprop="embedURL" content="'.$EMBEDURL.'">';
+		$HTML .= '<meta itemprop="thumbnailUrl" content="'.$THUMBNAILURL.'">';
+
+	} else {
+
+		$HTML .= '<div class="sz-youtube-main" style="'.$CSS.'">';
+	}
+
+	// Creazione codice HTML per inserimento nella pagina, la tecnica usata
+	// può essere la definizione di un IFRAME e la chiamata ad una funzione API 
+
 	$HTML .= '<div class="sz-youtube-play" style="'.$CSSIMAGE_1.'"'.$ONCLICK.'>';
 
 	if ($responsive == SZ_PLUGIN_GOOGLE_VALUE_YES)
@@ -419,8 +514,15 @@ function sz_google_modules_youtube_get_code($atts=array())
 				'fullscreen'      => $FULLSCREEN,
 				'disablekeyboard' => $DISABLEKEYBOARD,
 				'theme'           => $theme,
+				'cover'           => $cover,
 				'analytics'       => $analytics,
 				'delayed'         => $delayed,
+				'start'           => $start,
+				'end'             => $end,
+				'schemaorg'       => $schemaorg,
+				'name'            => $name,
+				'description'     => $description,
+				'disablerelated'  => $DISABLERELATED,
 			)
 		);
 
@@ -428,15 +530,20 @@ function sz_google_modules_youtube_get_code($atts=array())
 
 		$HTML .= '<div class="sz-youtube-wrap" id="'.$keyID.'" style="display:block;">';
 		$HTML .= '<iframe ';
-		$HTML .= 'src="'.$datas['scheme'].'://www.youtube.com/embed/'.$vidID.'?v='.$vidID;
+		$HTML .= 'src="'.$EMBEDURL;
 		$HTML .= '&amp;wmode=opaque';
 		$HTML .= '&amp;controls=1';
 		$HTML .= '&amp;iv_load_policy=3';
 		$HTML .= '&amp;autoplay='.$AUTOPLAY;
 		$HTML .= '&amp;loop='.$LOOP;
 		$HTML .= '&amp;fs='.$FULLSCREEN;
+		$HTML .= '&amp;rel='.$DISABLERELATED;
 		$HTML .= '&amp;disablekb='.$DISABLEKEYBOARD;
 		$HTML .= '&amp;theme='.$theme;
+
+		if ($start != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '&amp;start='.$start;
+		if ($end   != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '&amp;end='.$end;
+
 		$HTML .= '" ';
 		$HTML .= 'style="position:absolute;top:0;left:0;width:100%;height:100%;"';
 		$HTML .= '>';
@@ -461,9 +568,9 @@ function sz_google_modules_youtube_get_code($atts=array())
 
 	$HTML .= '</div>';
 
-//end
 //showinfo
-//start
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento di un video youtube 
 
 	return $HTML;
 }
@@ -541,6 +648,11 @@ function sz_google_modules_youtube_add_script_footer()
 				$HTML .= 			"'iv_load_policy':3,";
 				$HTML .= 			"'autoplay':".$value['autoplay'].",";
 				$HTML .= 			"'loop':".$value['loop'].",";
+
+				if ($value['start'] != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= 'start:'.$value['start'].",";
+				if ($value['end']   != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= 'end:'.$value['end'].",";
+
+				$HTML .= 			"'rel':".$value['disablerelated'].",";
 				$HTML .= 			"'fs':".$value['fullscreen'].",";
 				$HTML .= 			"'disablekb':".$value['disablekeyboard'].",";
 				$HTML .= 			"'theme':'".$value['theme']."',";
@@ -612,10 +724,17 @@ function sz_google_shortcodes_youtube_video($atts,$content=null)
 		'fullscreen'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'disablekeyboard' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'theme'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'cover'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'title'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'disableiframe'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'analytics'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'delayed'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'start'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'end'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'schemaorg'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'name'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'description'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'disablerelated'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Preparazione codice HTML dello shortcode tramite la funzione
@@ -636,10 +755,17 @@ function sz_google_shortcodes_youtube_video($atts,$content=null)
 		'fullscreen'      => trim($fullscreen),
 		'disablekeyboard' => trim($disablekeyboard),
 		'theme'           => trim($theme),
+		'cover'           => trim($cover),
 		'title'           => trim($title),
 		'disableiframe'   => trim($disableiframe),
 		'analytics'       => trim($analytics),
 		'delayed'         => trim($delayed),
+		'start'           => trim($start),
+		'end'             => trim($end),
+		'schemaorg'       => trim($schemaorg),
+		'name'            => trim($name),
+		'description'     => trim($description),
+		'disablerelated'  => trim($disablerelated),
 	));
 
 	return $HTML;

@@ -97,11 +97,44 @@ function sz_google_modules_translate_get_meta()
 /* Funzione per la generazione di codice legato a google translate            */
 /* ************************************************************************** */ 
 
-function sz_google_modules_translate_get_code()
+function sz_google_modules_translate_get_code($atts=array())
 {
-	// Composizione opzioni legate al modulo di google translate 
-
 	$options = sz_google_modules_translate_options();
+
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
+
+	$uacode    = trim($uacode);
+	$language  = strtolower(trim($language));
+	$mode      = strtolower(trim($mode));
+	$automatic = strtolower(trim($automatic));
+	$multiple  = strtolower(trim($multiple));
+	$analytics = strtolower(trim($analytics));
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if ($language  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $language  = $options['translate_language'];
+	if ($mode      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $mode      = $options['translate_mode'];
+	if ($automatic == SZ_PLUGIN_GOOGLE_VALUE_NULL) $automatic = $options['translate_automatic'];
+	if ($multiple  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $multiple  = $options['translate_multiple'];
+	if ($analytics == SZ_PLUGIN_GOOGLE_VALUE_NULL) $analytics = $options['translate_analytics'];
+	if ($uacode    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $uacode    = $options['translate_analytics_ua'];
+
 
 	if ($options['translate_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
 		else $language = trim($options['translate_language']);
@@ -116,9 +149,11 @@ function sz_google_modules_translate_get_code()
 
 	if ($options['translate_mode']         == 'I2') $HTML .= ",layout:google.translate.TranslateElement.InlineLayout.HORIZONTAL";
 	if ($options['translate_mode']         == 'I3') $HTML .= ",layout:google.translate.TranslateElement.InlineLayout.SIMPLE";
-	if ($options['translate_automatic']    <> '1' ) $HTML .= ",autoDisplay:false";
-	if ($options['translate_multiple']     == '1' ) $HTML .= ",multilanguagePage:true";
-	if ($options['translate_analytics']    == '1' ) $HTML .= ",gaTrack:true";
+
+	if ($automatic   <> SZ_PLUGIN_GOOGLE_VALUE_YES ) $HTML .= ",autoDisplay:false";
+	if ($multiple    == SZ_PLUGIN_GOOGLE_VALUE_YES ) $HTML .= ",multilanguagePage:true";
+	if ($analytics   == SZ_PLUGIN_GOOGLE_VALUE_YES ) $HTML .= ",gaTrack:true";
+
 	if ($options['translate_analytics_ua'] <> ''  ) $HTML .= ",gaID:'".$options['translate_analytics_ua']."'";
 
 	$HTML .= "},'google_translate_element');}";
@@ -134,7 +169,30 @@ function sz_google_modules_translate_get_code()
 
 function sz_google_shortcodes_translate_widget($atts,$content=null) 
 {
-	$HTML  = sz_google_modules_translate_get_code();
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	extract(shortcode_atts(array(
+		'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML  = sz_google_modules_translate_get_code(array(
+		'language'  => trim($language),
+		'mode'      => trim($mode),
+		'automatic' => trim($automatic),
+		'multiple'  => trim($multiple),
+		'analytics' => trim($analytics),
+		'uacode'    => trim($uacode),
+	));
+
 	return $HTML;
 }
 

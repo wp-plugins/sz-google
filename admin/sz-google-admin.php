@@ -39,6 +39,7 @@ function sz_google_admin_fields()
 	add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),'sz_google_admin_base_groups',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('youtube',ucwords(__('google youtube','szgoogleadmin')),'sz_google_admin_base_youtube',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('documentation',ucwords(__('documentation','szgoogleadmin')),'sz_google_admin_base_documentation',basename(__FILE__),'sz_google_base_section');
 }
 
 /* ************************************************************************** */
@@ -118,6 +119,12 @@ function sz_google_admin_base_youtube()
 	sz_google_common_form_description(__('with this module can be inserted in the articles of wordpress a video on youtube, you can also use a widget to the inclusion of video in the sidebar on your theme. Through the options in the shortcode you can configure many parameters to customize the embed code.','szgoogleadmin'));
 }
 
+function sz_google_admin_base_documentation() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','documentation');
+	sz_google_common_form_description(__('activating this option you can see the documentation in the main menu of this plugin with the parameters to be used in <code>[shortcodes]</code> or PHP functions provided. There is a series of boxes in alphabetical order according to form inside the plugin with option tables.','szgoogleadmin'));
+}
+
 /* ************************************************************************** */
 /* Funzioni per SEZIONE Configurazione Generale BASE                          */
 /* ************************************************************************** */
@@ -135,23 +142,26 @@ function sz_google_admin_callback_generale() {}
 
 $options_admin = sz_google_modules_options();
 
-if ($options_admin['plus']      == '1') @require_once(dirname(__FILE__).'/sz-google-admin-plus.php');
-if ($options_admin['analytics'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
-if ($options_admin['groups']    == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
-if ($options_admin['translate'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
-if ($options_admin['youtube']   == '1') @require_once(dirname(__FILE__).'/sz-google-admin-youtube.php');
+if ($options_admin['plus']          == '1') @require_once(dirname(__FILE__).'/sz-google-admin-plus.php');
+if ($options_admin['analytics']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
+if ($options_admin['groups']        == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
+if ($options_admin['translate']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
+if ($options_admin['youtube']       == '1') @require_once(dirname(__FILE__).'/sz-google-admin-youtube.php');
+if ($options_admin['documentation'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-documentation.php');
 
 /* ************************************************************************** */
 /* Funzioni per disegno parte del form (esecuzione generale)                  */
 /* ************************************************************************** */
 
-function sz_google_common_form($title,$setting,$sections)
+function sz_google_common_form($title,$setting,$sections,$documentation=false)
 {
 
 	echo '<div id="sz-google-wrap" class="wrap">';
 	echo '<div id="sz-google-icon-gplus" class="icon32"><br></div>';
 	echo '<h2>'.ucwords($title).'</h2>';
-	echo '<p>'.ucfirst(__('overriding the default settings with your own specific preferences','szgoogleadmin')).'</p>';
+
+	if (!$documentation) echo '<p>'.ucfirst(__('overriding the default settings with your own specific preferences','szgoogleadmin')).'</p>';
+		else echo '<p>'.ucfirst(__('select the module documentation to read','szgoogleadmin')).'</p>';
 
 	// Contenitore principale con zona dedicata ai parametri di configurazione
 	// definiti tramite le chiamate dei singoli moduli attivati da pannello ammnistrativo
@@ -160,13 +170,22 @@ function sz_google_common_form($title,$setting,$sections)
 	echo '<div class="metabox-holder">';
 	echo '<div class="meta-box-sortables ui-sortable" id="sz-google-box">';
 
-	echo '<form method="post" action="options.php" enctype="multipart/form-data">';
-	echo '<input type="hidden" name="sz_google_options_plus[plus_redirect_flush]" value="0">';
+	// Se la chiamata contiene un array di documentazione posso disattivare
+	// il form per la modifica di parametri dato che si tratta di solo lettura
+
+	if (!$documentation) {
+		echo '<form method="post" action="options.php" enctype="multipart/form-data">';
+		echo '<input type="hidden" name="sz_google_options_plus[plus_redirect_flush]" value="0">';
+	}
+
+	// Se la chiamata non contiene un array di documentazione eseguo
+	// la creazione del codice HTML con tutti i campi opzione da modificare
 
 	settings_fields($setting);
 
 	foreach ($sections as $section => $title) {
-		echo '<div class="postbox">';
+		echo '<div class="postbox'; if ($documentation) echo " closed";
+		echo '">';
 		echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
 		echo '<h3 class="hndle"><span>'.$title.'</span></h3>';
 		echo '<div class="inside">';
@@ -175,8 +194,17 @@ function sz_google_common_form($title,$setting,$sections)
 		echo '</div>';
 	}	
 
-	echo '<p class="submit"><input name="Submit" type="submit" class="button-primary" value="'.ucfirst(__('save changes','szgoogleadmin')).'"/></p>';
-	echo '</form>';
+	if ($documentation) { 
+
+	}	
+
+	// Se la chiamata contiene un array di documentazione posso disattivare
+	// il form per la modifica di parametri dato che si tratta di solo lettura
+
+	if (!$documentation) {
+		echo '<p class="submit"><input name="Submit" type="submit" class="button-primary" value="'.ucfirst(__('save changes','szgoogleadmin')).'"/></p>';
+		echo '</form>';
+	}
 
 	echo '</div>';
 	echo '</div>';
@@ -255,7 +283,7 @@ function sz_google_common_form($title,$setting,$sections)
 
 function sz_google_common_form_description($description) 
 {
-	echo '<tr valign="top"><td colspan="2"><small>';
+	echo '<tr valign="top"><td colspan="2"><small style="font-size:0.9em">';
 	echo ucfirst(trim($description));
 	echo '</small></td></tr>';
 }

@@ -31,21 +31,23 @@ function sz_google_modules_options()
 {
 	$options = get_option('sz_google_options_base');
 
-	if (!isset($options['plus']))      $options['plus']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['analytics'])) $options['analytics'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['groups']))    $options['groups']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['translate'])) $options['translate'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube']))   $options['youtube']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus']))          $options['plus']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['analytics']))     $options['analytics']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['groups']))        $options['groups']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['translate']))     $options['translate']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['youtube']))       $options['youtube']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['documentation'])) $options['documentation'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	// Se trovo un valore non riconosciuto imposto la disattivazione del modulo
 
-	$selects = array(SZ_PLUGIN_GOOGLE_VALUE_NO,SZ_PLUGIN_GOOGLE_VALUE_YES);
+	$YESNO = array(SZ_PLUGIN_GOOGLE_VALUE_NO,SZ_PLUGIN_GOOGLE_VALUE_YES);
 
-	if (!in_array($options['plus'],$selects))      $options['plus']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['analytics'],$selects)) $options['analytics'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['groups'],$selects))    $options['groups']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['translate'],$selects)) $options['translate'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube'],$selects))   $options['youtube']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus'],$YESNO))          $options['plus']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['analytics'],$YESNO))     $options['analytics']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['groups'],$YESNO))        $options['groups']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['translate'],$YESNO))     $options['translate']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['youtube'],$YESNO))       $options['youtube']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['documentation'],$YESNO)) $options['documentation'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	return $options;
 }

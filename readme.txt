@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.7
+Stable tag: 0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -25,6 +25,7 @@ To be informed about the features that gradually will be released you can follow
 * `Module Google Groups`
 * `Module Google Translate`
 * `Module Google Youtube`
+* `Module Documentation`
 
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -115,6 +116,10 @@ To be informed about the features that gradually will be released you can follow
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
 
+**Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+
+* `[sz-ytvideo] ........: embed youtube video`
+
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_get_youtube_video_code()`
@@ -176,10 +181,19 @@ Before you use the google translate module must register the site that you want 
 2. SZ-Google and module Google+
 3. SZ-Google and module Google+ example
 4. SZ-Google and module Youtube
+5. SZ-Google and documentation
 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 0.8 =
+* Feature: Add module for modules documentation.
+* Feature: Add options youtube loading delayed code.
+* Feature: Add options youtube customer cove image.
+* Feature: Add options youtube and schema.org.
+* Fix: Change string for translate plugin italy.
+* Fix: Parameters for shortcode google translate.
 
 = Version 0.7 =
 * Feature: Add module for google youtube.
@@ -237,6 +251,9 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 0.8 =
+This release add module for google documentation and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
 
 = 0.7 =
 This release add module for google youtube and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
