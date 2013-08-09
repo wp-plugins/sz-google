@@ -38,6 +38,8 @@ function sz_google_admin_youtube_fields()
 	add_settings_field('youtube_autoplay',ucfirst(__('video autoplay','szgoogleadmin')),'sz_google_admin_youtube_autoplay','sz-google-admin-youtube-display.php','sz_google_youtube_display');
 	add_settings_field('youtube_loop',ucfirst(__('video loop','szgoogleadmin')),'sz_google_admin_youtube_loop','sz-google-admin-youtube-display.php','sz_google_youtube_display');
 	add_settings_field('youtube_theme',ucfirst(__('theme','szgoogleadmin')),'sz_google_admin_youtube_theme','sz-google-admin-youtube-display.php','sz_google_youtube_display');
+	add_settings_field('youtube_cover',ucfirst(__('cover','szgoogleadmin')),'sz_google_admin_youtube_cover','sz-google-admin-youtube-display.php','sz_google_youtube_display');
+	add_settings_field('youtube_schemaorg',ucfirst(__('schema.org','szgoogleadmin')),'sz_google_admin_youtube_schemaorg','sz-google-admin-youtube-display.php','sz_google_youtube_display');
 
 	// Definizione sezione per configurazione GOOGLE YOUTUBE MARGINS
 
@@ -57,6 +59,7 @@ function sz_google_admin_youtube_fields()
 	add_settings_field('youtube_disableiframe',ucfirst(__('disable IFRAME and use API','szgoogleadmin')),'sz_google_admin_youtube_disableiframe','sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
 	add_settings_field('youtube_analytics',ucwords(__('google analytics','szgoogleadmin')),'sz_google_admin_youtube_analytics','sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
 	add_settings_field('youtube_delayed',ucwords(__('delayed loading','szgoogleadmin')),'sz_google_admin_youtube_delayed','sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
+	add_settings_field('youtube_disablerelated',ucwords(__('disable related','szgoogleadmin')),'sz_google_admin_youtube_disablerelated','sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
 }
 
 /* ************************************************************************** */
@@ -149,6 +152,23 @@ function sz_google_admin_youtube_theme()
 	sz_google_common_form_description(__('in this field specify the default theme to apply the player. At this time you can choose between "light" and "dark". To see if they added some additional theme controls the official documentation <a target="_blank" href="https://developers.google.com/youtube/player_parameters#theme">Developer Youtube</a>. Also this parameter can be specified directly in the shortcode.','szgoogleadmin'));
 }
 
+function sz_google_admin_youtube_cover()
+{
+	$values = array(
+		'local'   => __('local','szgoogleadmin'),
+		'youtube' => __('youtube','szgoogleadmin'),
+	); 
+
+	sz_google_common_form_select('sz_google_options_youtube','youtube_cover',$values,'medium','');
+	sz_google_common_form_description(__('in this field you must specify the type of cover for your video clip when you do not specify a custom value. If you specify "local" will be used to cover stored in the plugin, if you use the value "youtube" will be used to cover defaults on youtube.','szgoogleadmin'));
+}
+
+function sz_google_admin_youtube_schemaorg()
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_schemaorg');
+	sz_google_common_form_description(__('enabling this option will be enabled <code>meta</code> commands relating to the resources of schema.org video. The values ​​of "meta" must be specified on shortcode or PHP function. For more information read the <a target="_blank" href="http://schema.org/VideoObject">official documentation</a> or the help page of google <a target="_blank" href="https://support.google.com/webmasters/answer/2413309?hl=en">Markup schema.org</a>.','szgoogleadmin'));
+}
+
 /* ************************************************************************** */
 /* Funzioni per SEZIONE Configurazione GOOGLE YOUTUBE MARGINS                 */
 /* ************************************************************************** */
@@ -228,6 +248,11 @@ function sz_google_admin_youtube_delayed()
 	sz_google_common_form_description(__('by default the iframe code associated with the video to be displayed is loaded immediately, there may be cases where this can be poorly performing, or even when we want to customize the cover image, it would be better to load the code after the user executes the play button.','szgoogleadmin'));
 }
 
+function sz_google_admin_youtube_disablerelated() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_disablerelated');
+	sz_google_common_form_description(__('enabling this option disables the related videos that are presented to the player at the end of the video. activating this option in the final video should be made the cover of the video. Read the official documentation to <a target="_blank" href="https://developers.google.com/youtube/player_parameters#rel">Developer Guide</a>.','szgoogleadmin'));
+}
 /* ************************************************************************** */
 /* Funzioni per la definizione dei campi legati a modulo                      */
 /* ************************************************************************** */

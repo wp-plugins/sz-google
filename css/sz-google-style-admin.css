@@ -96,3 +96,41 @@
 #sz-google-wrap input[type=number].large {
 	width:80%;
 }
+#sz-google-wrap h4 {
+	margin:0;
+	padding:10px;
+	font-size:1.2em;
+	font-family:monospace;
+	text-align:left;
+	background-color:#E7E7E7;
+}
+#sz-google-wrap table.docs {
+	width:100%;
+	border-spacing:2px;
+	font-family:monospace;
+	table-layout:fixed;
+}
+#sz-google-wrap table.docs th {
+	padding:5px;
+	text-align:left;
+	border:1px solid #d1d1d1;
+}
+#sz-google-wrap table.docs td {
+	padding:5px;
+	border:1px solid #d1d1d1;
+}
+#sz-google-wrap table.docs th.tit {
+	padding:0;
+	border:1px solid #d1d1d1;
+}
+#sz-google-wrap table.docs td.key {
+	font-weight:bold;
+}
+#sz-google-wrap table.docs td.des {
+	font-style:italic;
+}
+#sz-google-wrap table.docs td.val {
+	color:green;
+}
+#sz-google-wrap table.docs td.def {
+}

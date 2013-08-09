@@ -102,6 +102,7 @@ define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT','em');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO','auto');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO','0');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_THEME','dark');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_COVER','local');
 
 /* ************************************************************************** */
 /* Caricamento della lingua per il plugin SZ-Google                           */
@@ -138,6 +139,7 @@ function sz_google_plugin_activate()
 		'groups'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'translate'                      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube'                        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'documentation'                  => SZ_PLUGIN_GOOGLE_VALUE_YES,
 	);
 
 	// Impostazione valori di default che riguardano  
@@ -247,9 +249,12 @@ function sz_google_plugin_activate()
 		'youtube_fullscreen'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_disablekeyboard'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube_theme'                  => SZ_PLUGIN_GOOGLE_YOUTUBE_THEME,
+		'youtube_cover'                  => SZ_PLUGIN_GOOGLE_YOUTUBE_COVER,
 		'youtube_disableiframe'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube_analytics'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube_delayed'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_schemaorg'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_disablerelated'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 	);
 
 	// Controllo formale delle opzioni e memorizzazione sul database
