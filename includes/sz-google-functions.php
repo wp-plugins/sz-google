@@ -225,8 +225,26 @@ function szgoogle_get_translate_code($atts=array()) {
 /* Funzioni per elaborazione codice HTML di GOOGLE YOUTUBE                    */
 /* ************************************************************************** */
 
-function szgoogle_get_youtube_video_code($atts=array()) {
-	if (function_exists('sz_google_modules_youtube_get_code()')) {
-		return sz_google_modules_youtube_get_code($atts);
+function szgoogle_get_youtube_code_video($atts=array()) {
+	if (function_exists('sz_google_modules_youtube_get_code_video()')) {
+		return sz_google_modules_youtube_get_code_video($atts);
+	} else return false;
+}
+
+function szgoogle_get_youtube_code_badge($atts=array()) {
+	if (function_exists('sz_google_modules_youtube_get_code_badge()')) {
+		return sz_google_modules_youtube_get_code_badge($atts);
+	} else return false;
+}
+
+function szgoogle_get_youtube_code_button($atts=array()) {
+	if (function_exists('sz_google_modules_youtube_get_code_button()')) {
+		return sz_google_modules_youtube_get_code_button($atts);
+	} else return false;
+}
+
+function szgoogle_get_youtube_code_link($atts=array()) {
+	if (function_exists('sz_google_modules_youtube_get_code_link()')) {
+		return sz_google_modules_youtube_get_code_link($atts);
 	} else return false;
 }

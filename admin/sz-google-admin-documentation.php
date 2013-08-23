@@ -151,7 +151,7 @@ function sz_google_admin_documentation_translate()
 
 function sz_google_admin_documentation_youtube() 
 {
-	$tabella = array(
+	$doctxt_01 = array(
 		'url'             => array(__('youtube address URL','szgoogleadmin'),__('string','szgoogleadmin'),__('nobody','szgoogleadmin')),
 		'responsive'      => array(__('responsive mode','szgoogleadmin'),__('y=yes,n=no','szgoogleadmin'),__('configuration','szgoogleadmin')),
 		'width'           => array(__('size pixel width','szgoogleadmin'),__('numeric value','szgoogleadmin'),__('configuration','szgoogleadmin')),
@@ -180,13 +180,67 @@ function sz_google_admin_documentation_youtube()
 		'duration'        => array(__('schema.org duration','szgoogleadmin'),__('<a target="_blank" href="http://en.wikipedia.org/wiki/ISO_8601">format ISO 8601</a>','szgoogleadmin'),__('nobody','szgoogleadmin')),
 	);
 
+	$doctxt_02 = array(
+		'channel'         => array(__('channel name or ID','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
+		'width'           => array(__('size pixel width','szgoogleadmin'),__('numeric value','szgoogleadmin'),__('300','szgoogleadmin')),
+		'height'          => array(__('size pixel height','szgoogleadmin'),__('numeric value','szgoogleadmin'),__('150','szgoogleadmin')),
+		'widthunit'       => array(__('unit for width','szgoogleadmin'),__('px,em,%','szgoogleadmin'),__('px','szgoogleadmin')),
+		'heightunit'      => array(__('unit for height','szgoogleadmin'),__('px,em,%','szgoogleadmin'),__('px','szgoogleadmin')),
+	);
+
+	$doctxt_03 = array(
+		'channel'         => array(__('channel name or ID','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
+		'layout'          => array(__('layout type','szgoogleadmin'),__('default,full','szgoogleadmin'),__('default','szgoogleadmin')),
+		'theme'           => array(__('theme for button','szgoogleadmin'),__('default,dark','szgoogleadmin'),__('default','szgoogleadmin')),
+	);
+
+	$doctxt_04 = array(
+		'channel'         => array(__('channel name or ID','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
+		'subscription'    => array(__('subscription mode','szgoogleadmin'),__('y=yes,n=no','szgoogleadmin'),__('y=yes','szgoogleadmin')),
+		'text'            => array(__('anchor text for link','szgoogleadmin'),__('string','szgoogleadmin'),__('channel youtube','szgoogleadmin')),
+	);
+
+	// Preparazione variabili per la gestione dei titoli che
+	// saranno visualizzati su ogni sezione di documentazione
+
 	$titolo_01  = '[sz-ytvideo/]';
-	$titolo_02  = 'szgoogle_get_youtube_video_code()';
+	$titolo_02  = '[sz-ytbadge/]';
+	$titolo_03  = '[sz-ytbutton/]';
+	$titolo_04  = '[sz-ytlink/]';
+
+	// Preparazione variabili per la gestione dei titoli che
+	// saranno visualizzati su ogni sezione di documentazione
+
+	$titolo_11  = 'szgoogle_get_youtube_code_video()';
+	$titolo_12  = 'szgoogle_get_youtube_code_badge()';
+	$titolo_13  = 'szgoogle_get_youtube_code_button()';
+	$titolo_14  = 'szgoogle_get_youtube_code_link()';
+
+	// Preparazione variabili per la gestione degli esempi che
+	// saranno visualizzati su ogni sezione di documentazione
 
 	$esempi_01 = '[sz-ytvideo url="http://www.youtube.com/watch?v=Xz2unftv_l4"/]';
-	$esempi_02 = "echo szgoogle_get_youtube_video_code(array('parameter'=>'value'));";
+	$esempi_02 = '[sz-ytbadge channel="startbyzero"/]';
+	$esempi_03 = '[sz-ytbutton layout="full" theme="dark"/]';
+	$esempi_04 = '[sz-ytlink text="iscriviti al mio canale"/]';
 
-	echo sz_google_admin_documentation_table($tabella,$titolo_01,$esempi_01); 
-	echo sz_google_admin_documentation_table($tabella,$titolo_02,$esempi_02); 
+	// Preparazione variabili per la gestione degli esempi che
+	// saranno visualizzati su ogni sezione di documentazione
+
+	$esempi_11 = "echo szgoogle_get_youtube_code_video(array('parameter'=>'value'));";
+	$esempi_12 = "echo szgoogle_get_youtube_code_badge(array('parameter'=>'value'));";
+	$esempi_13 = "echo szgoogle_get_youtube_code_button(array('parameter'=>'value'));";
+	$esempi_14 = "echo szgoogle_get_youtube_code_link(array('parameter'=>'value'));";
+
+	// Chiamata alla funzione per la creazione dellle singole sezioni
+
+	echo sz_google_admin_documentation_table($doctxt_01,$titolo_01,$esempi_01); 
+	echo sz_google_admin_documentation_table($doctxt_02,$titolo_02,$esempi_02); 
+	echo sz_google_admin_documentation_table($doctxt_03,$titolo_03,$esempi_03); 
+	echo sz_google_admin_documentation_table($doctxt_04,$titolo_04,$esempi_04); 
+
+	echo sz_google_admin_documentation_table($doctxt_01,$titolo_11,$esempi_11); 
+	echo sz_google_admin_documentation_table($doctxt_02,$titolo_12,$esempi_12); 
+	echo sz_google_admin_documentation_table($doctxt_03,$titolo_13,$esempi_13); 
+	echo sz_google_admin_documentation_table($doctxt_04,$titolo_14,$esempi_14); 
 }
-

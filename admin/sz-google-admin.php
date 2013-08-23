@@ -258,7 +258,7 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 
 	echo '<div id="info-plugin" class="postbox">';
 	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
-	echo '<h3 class="hndle"><span><strong>'.ucwords(__('latest news on the plugin','szgoogleadmin')).'</strong></span></h3>';
+	echo '<h3 class="hndle"><span><strong>'.ucwords(__('latest news','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
 	echo '<ul>';
 	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('community WordPress','szgoogleadmin')).'</a></li>';

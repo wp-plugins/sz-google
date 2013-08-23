@@ -23,11 +23,19 @@ function sz_google_admin_youtube_fields()
 {
 	register_setting('sz_google_options_youtube','sz_google_options_youtube','sz_google_admin_youtube_validate');
 
+	// Definizione sezione per configurazione GOOGLE YOUTUBE CONFIG
+	add_settings_section('sz_google_youtube_config','','sz_google_admin_youtube_config','sz-google-admin-youtube-config.php');
+	add_settings_field('youtube_channel',ucfirst(__('channel name or ID','szgoogleadmin')),'sz_google_admin_youtube_channel','sz-google-admin-youtube-config.php','sz_google_youtube_config');
+
 	// Definizione sezione per configurazione GOOGLE YOUTUBE ACTIVATED
 
 	add_settings_section('sz_google_youtube_active','','sz_google_admin_youtube_active','sz-google-admin-youtube-enable.php');
-	add_settings_field('youtube_widget',ucwords(__('enable widget','szgoogleadmin')),'sz_google_admin_youtube_widget','sz-google-admin-youtube-enable.php','sz_google_youtube_active');
+	add_settings_field('youtube_widget',ucwords(__('enable widget video','szgoogleadmin')),'sz_google_admin_youtube_widget','sz-google-admin-youtube-enable.php','sz_google_youtube_active');
+	add_settings_field('youtube_widget_badge',ucwords(__('enable widget badge','szgoogleadmin')),'sz_google_admin_youtube_widget_badge','sz-google-admin-youtube-enable.php','sz_google_youtube_active');
 	add_settings_field('youtube_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),'sz_google_admin_youtube_shortcode','sz-google-admin-youtube-enable.php','sz_google_youtube_active');
+	add_settings_field('youtube_shortcode_badge',ucwords(__('enable shortcode badge','szgoogleadmin')),'sz_google_admin_youtube_shortcode_badge','sz-google-admin-youtube-enable.php','sz_google_youtube_active');
+	add_settings_field('youtube_shortcode_button',ucwords(__('enable shortcode button','szgoogleadmin')),'sz_google_admin_youtube_shortcode_button','sz-google-admin-youtube-enable.php','sz_google_youtube_active');
+	add_settings_field('youtube_shortcode_link',ucwords(__('enable shortcode link','szgoogleadmin')),'sz_google_admin_youtube_shortcode_link','sz-google-admin-youtube-enable.php','sz_google_youtube_active');
 
 	// Definizione sezione per configurazione GOOGLE YOUTUBE DISPLAY
 
@@ -79,16 +87,27 @@ function sz_google_admin_youtube_callback()
 	// le sezioni devono essere passate come un array con nome => titolo
 
 	$sections = array(
+		'sz-google-admin-youtube-config.php'   => ucwords(__('general setting','szgoogleadmin')),
 		'sz-google-admin-youtube-enable.php'   => ucwords(__('activation components','szgoogleadmin')),
-		'sz-google-admin-youtube-display.php'  => ucwords(__('display setting','szgoogleadmin')),
-		'sz-google-admin-youtube-margins.php'  => ucwords(__('setting default margins','szgoogleadmin')),
-		'sz-google-admin-youtube-advanced.php' => ucwords(__('advanced setting','szgoogleadmin')),
+		'sz-google-admin-youtube-display.php'  => ucwords(__('video display setting','szgoogleadmin')),
+		'sz-google-admin-youtube-margins.php'  => ucwords(__('video setting default margins','szgoogleadmin')),
+		'sz-google-admin-youtube-advanced.php' => ucwords(__('video advanced setting','szgoogleadmin')),
 	);
 
 	// Chiamata alla funzione generale per la creazione del form generale
 	// le sezioni devono essere passate come un array con nome => titolo
 
 	sz_google_common_form(ucfirst(__('google youtube configuration','szgoogleadmin')),'sz_google_options_youtube',$sections); 
+}
+
+/* ************************************************************************** */
+/* Funzioni per SEZIONE Configurazione GOOGLE YOUTUBE GENERAL                 */
+/* ************************************************************************** */
+
+function sz_google_admin_youtube_channel()
+{
+	sz_google_common_form_text('sz_google_options_youtube','youtube_channel','large',__('insert your channel name or ID','szgoogleadmin'));
+	sz_google_common_form_description(__('enter in this field the default name of your youtube channel. You can change the channel name using the shortcode or functions. if you do not specify anything the default channel will be "startbyzero". The channel\'s name is located in the your string URL.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -101,10 +120,34 @@ function sz_google_admin_youtube_widget()
 	sz_google_common_form_description(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
 }
 
+function sz_google_admin_youtube_widget_badge()
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_widget_badge');
+	sz_google_common_form_description(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
+}
+
 function sz_google_admin_youtube_shortcode() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode');
 	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytvideo]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+}
+
+function sz_google_admin_youtube_shortcode_badge() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode_badge');
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytbadge]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+}
+
+function sz_google_admin_youtube_shortcode_button() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode_button');
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytbutton]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+}
+
+function sz_google_admin_youtube_shortcode_link() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode_link');
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytlink]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -261,6 +304,7 @@ function sz_google_admin_youtube_validate($plugin_options) {
   return $plugin_options;
 }
 
+function sz_google_admin_youtube_config()   {}
 function sz_google_admin_youtube_active()   {}
 function sz_google_admin_youtube_display()  {}
 function sz_google_admin_youtube_margins()  {}

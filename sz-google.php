@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 0.8
+Version: 0.9
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -44,6 +44,7 @@ define('SZ_PLUGIN_GOOGLE_PATH_IMAGE',SZ_PLUGIN_GOOGLE_PATH.'images/');
 define('SZ_PLUGIN_GOOGLE_VALUE_NO'   ,'0');
 define('SZ_PLUGIN_GOOGLE_VALUE_YES'  ,'1');
 define('SZ_PLUGIN_GOOGLE_VALUE_NULL' ,'');
+define('SZ_PLUGIN_GOOGLE_VALUE_ZERO' ,'0');
 define('SZ_PLUGIN_GOOGLE_VALUE_LANG' ,'99');
 define('SZ_PLUGIN_GOOGLE_VALUE_DAY'  ,sprintf('%02d',date('d')));
 define('SZ_PLUGIN_GOOGLE_VALUE_MONTH',sprintf('%02d',date('m')));
@@ -103,6 +104,7 @@ define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO','auto');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO','0');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_THEME','dark');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_COVER','local');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL','startbyzero');
 
 /* ************************************************************************** */
 /* Caricamento della lingua per il plugin SZ-Google                           */
@@ -233,8 +235,13 @@ function sz_google_plugin_activate()
 	// il modulo collegato alle funzione di Google Youtube
 
 	$settings_youtube = array(
+		'youtube_channel'                => SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL,
 		'youtube_widget'                 => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_widget_badge'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_shortcode'              => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_shortcode_badge'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_shortcode_button'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_shortcode_link'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_responsive'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_width'                  => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH,
 		'youtube_height'                 => SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT,

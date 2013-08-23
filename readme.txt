@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.8
+Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -119,10 +119,16 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 **Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
 
 * `[sz-ytvideo] ........: embed youtube video`
+* `[sz-ytbadge] ........: embed youtube badge`
+* `[sz-ytbutton] .......: embed youtube button`
+* `[sz-yttext] ....-....: embed youtube link`
 
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_youtube_video_code()`
+* `szgoogle_get_youtube_code_video()`
+* `szgoogle_get_youtube_code_badge()`
+* `szgoogle_get_youtube_code_button()`
+* `szgoogle_get_youtube_code_link()`
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -186,6 +192,12 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 0.9 =
+* Feature: Add shortcode youtube for badge.
+* Feature: Add shortcode youtube for button.
+* Feature: Add shortcode youtube for link.
+* Feature: Add widgets for module google youtube.
 
 = Version 0.8 =
 * Feature: Add module for modules documentation.
@@ -251,6 +263,9 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 0.9 =
+have been added with this release the buttons and badges for Social youtube. They were created both widget and shortcodes. Were carried out some improvements to the plugin and the translation of some strings in Italian.
 
 = 0.8 =
 This release add module for google documentation and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
