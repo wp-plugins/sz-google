@@ -198,6 +198,7 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add shortcode youtube for button.
 * Feature: Add shortcode youtube for link.
 * Feature: Add widgets for module google youtube.
+* Feature: Add default fiexde size for g+ comments.
 
 = Version 0.8 =
 * Feature: Add module for modules documentation.
