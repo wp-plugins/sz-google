@@ -121,7 +121,7 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `[sz-ytvideo] ........: embed youtube video`
 * `[sz-ytbadge] ........: embed youtube badge`
 * `[sz-ytbutton] .......: embed youtube button`
-* `[sz-yttext] ....-....: embed youtube link`
+* `[sz-yttext] .........: embed youtube link`
 
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
@@ -198,7 +198,7 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add shortcode youtube for button.
 * Feature: Add shortcode youtube for link.
 * Feature: Add widgets for module google youtube.
-* Feature: Add default fiexde size for g+ comments.
+* Feature: Add default fixed size for g+ comments.
 
 = Version 0.8 =
 * Feature: Add module for modules documentation.
