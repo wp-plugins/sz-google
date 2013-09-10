@@ -54,6 +54,7 @@ function sz_google_admin_plus_fields()
 	add_settings_field('plus_shortcode_size_landscape',ucwords(__('shortcode width landscape','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_landscape','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 
 	// Definizione sezione per configurazione GOOGLE+ BUTTON SHORTCODE
+
 	add_settings_section('sz_google_plus_buttons','','sz_google_admin_plus_section','sz-google-admin-plus-buttons.php');
 	add_settings_field('plus_button_enable_plusone',ucwords(__('shortcode g+ plusone','szgoogleadmin')),'sz_google_admin_plus_button_plusone','sz-google-admin-plus-buttons.php','sz_google_plus_buttons');
 	add_settings_field('plus_button_enable_sharing',ucwords(__('shortcode g+ sharing','szgoogleadmin')),'sz_google_admin_plus_button_sharing','sz-google-admin-plus-buttons.php','sz_google_plus_buttons');
@@ -70,7 +71,14 @@ function sz_google_admin_plus_fields()
 	add_settings_field('plus_comments_sh_enable',ucwords(__('g+ comments shortcode','szgoogleadmin')),'sz_google_admin_plus_comments_sh','sz-google-admin-plus-comments.php','sz_google_plus_comments');
 	add_settings_field('plus_comments_dt_enable',ucwords(__('g+ comments date switch','szgoogleadmin')),'sz_google_admin_plus_comments_dt','sz-google-admin-plus-comments.php','sz_google_plus_comments');
 
+	// Definizione sezione per configurazione GOOGLE+ EMBEDDED POST
+
+	add_settings_section('sz_google_plus_post','','sz_google_admin_plus_section','sz-google-admin-plus-post.php');
+	add_settings_field('plus_post_enable_widget',ucwords(__('g+ embedded post widget','szgoogleadmin')),'sz_google_admin_plus_post_widget','sz-google-admin-plus-post.php','sz_google_plus_post');
+	add_settings_field('plus_post_enable_shortcode',ucwords(__('g+ embedded post shortcode','szgoogleadmin')),'sz_google_admin_plus_post_shortcode','sz-google-admin-plus-post.php','sz_google_plus_post');
+
 	// Definizione sezione per configurazione GOOGLE+ REDIRECT
+
 	add_settings_section('sz_google_plus_redirect','','sz_google_admin_plus_section','sz-google-admin-plus-redirect.php');
 	add_settings_field('plus_redirect_sign',ucwords(__('enable redirect /+','szgoogleadmin')),'sz_google_admin_plus_redirect_sign','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
 	add_settings_field('plus_redirect_sign_url',ucwords(__('enable redirect /+ URL','szgoogleadmin')),'sz_google_admin_plus_redirect_sign_url','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
@@ -81,6 +89,7 @@ function sz_google_admin_plus_fields()
 	add_settings_field('plus_redirect_curl_target',ucwords(__('enable redirect URL target','szgoogleadmin')),'sz_google_admin_plus_redirect_curl_target','sz-google-admin-plus-redirect.php','sz_google_plus_redirect');
 
 	// Definizione sezione per configurazione GOOGLE+ SYSTEM
+
 	add_settings_section('sz_google_plus_system','','sz_google_admin_plus_section','sz-google-admin-plus-system.php');
 	add_settings_field('plus_system_javascript',ucwords(__('disable file javascript','szgoogleadmin')),'sz_google_admin_plus_system_javascript','sz-google-admin-plus-system.php','sz_google_plus_system');
 }
@@ -108,6 +117,7 @@ function sz_google_admin_plus_callback()
 		'sz-google-admin-plus-shortcodes.php' => ucwords(__('google+ badge shortcodes','szgoogleadmin')),
 		'sz-google-admin-plus-buttons.php'    => ucwords(__('google+ button shortcodes','szgoogleadmin')), 
 		'sz-google-admin-plus-comments.php'   => ucwords(__('google+ comment system','szgoogleadmin')), 
+		'sz-google-admin-plus-post.php'       => ucwords(__('google+ embedded post','szgoogleadmin')), 
 		'sz-google-admin-plus-redirect.php'   => ucwords(__('google+ custom URL','szgoogleadmin')),
 		'sz-google-admin-plus-system.php'     => ucwords(__('google+ system','szgoogleadmin')),
 	);
@@ -381,6 +391,23 @@ function sz_google_admin_plus_comments_dt_year()
 
 	echo '</select>';
 }
+
+/* ************************************************************************** */
+/* Funzioni per la definizione dei campi legati a G+ EMBEDDED POST            */
+/* ************************************************************************** */
+
+function sz_google_admin_plus_post_widget() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_post_enable_widget');
+	sz_google_common_form_description(__('if you need to insert the component for embedded post to google+ in a sidebar you can activate this option and use the new widget that you will find in your admin panel, you specify the size or the way you use responsive design for automatic resize.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_post_shortcode() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_post_enable_shortcode');
+	sz_google_common_form_description(__('enabling this option will allow you to use the shortcode <code>[sz-gplus-post/]</code> that will allow you to insert a box for embedded post to google plus in any part of your post or page standard wordpress. For greater customization uses <code>szgoogle_get_gplus_post()</code>.','szgoogleadmin'));
+}
+
 
 /* ************************************************************************** */
 /* Funzioni per la definizione dei campi legati a G+ REDIRECT                 */

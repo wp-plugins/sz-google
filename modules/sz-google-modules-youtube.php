@@ -5,7 +5,7 @@
 if (!defined('SZ_PLUGIN_GOOGLE_MODULES') or !SZ_PLUGIN_GOOGLE_MODULES) die();
 
 /* ************************************************************************** */ 
-/* Definizione variabili globali per controlli e memorizzazioni comnuni       */ 
+/* Definizione variabili globali per controlli e memorizzazioni comuni        */ 
 /* ************************************************************************** */ 
 global $SZ_GOOGLE_YOUTUBE; 
 global $SZ_GOOGLE_YOUTUBE_API; 

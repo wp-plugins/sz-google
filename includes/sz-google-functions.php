@@ -174,6 +174,16 @@ function szgoogle_get_gplus_comments($atts=array()) {
 }
 
 /* ************************************************************************** */
+/* Funzioni per elaborazione codice HTML di G+ EMBEDDED POST                  */
+/* ************************************************************************** */
+
+function szgoogle_get_gplus_post($atts=array()) {
+	if (function_exists('sz_google_modules_plus_get_code_post')) {
+		return sz_google_modules_plus_get_code_post($atts);
+	} else return false;
+}
+
+/* ************************************************************************** */
 /* Funzioni per elaborazione codice HTML di GOOGLE ANALYTICS                  */
 /* ************************************************************************** */
 

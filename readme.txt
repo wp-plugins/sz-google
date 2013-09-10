@@ -2,11 +2,11 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 0.9
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: analytics, badge, buttons, comments, comments system, custom url, embed video, follow, google, google+, google analytics, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
+Tags: analytics, badge, buttons, comments, comments system, custom url, embed video, embedded posts, follow, google, google+, google analytics, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -42,6 +42,7 @@ To be informed about the features that gradually will be released you can follow
 * `Widget google+ page badge`
 * `Widget google+ community badget`
 * `Widget google+ comments system`
+* `Widget google+ embedded posts`
 
 **Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
 
@@ -52,6 +53,7 @@ To be informed about the features that gradually will be released you can follow
 * `[sz-gplus-share] ....: g+ button for sharing`
 * `[sz-gplus-follow] ...: g+ button for follow`
 * `[sz-gplus-comments] .: g+ comments system`
+* `[sz-gplus-post]......: g+ embedded posts`
 
 **Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
@@ -62,6 +64,7 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_gplus_button_share()`
 * `szgoogle_get_gplus_button_follow()`
 * `szgoogle_get_gplus_comments()`
+* `szgoogle_get_gplus_post()`
 
 `<?php echo szgoogle_get_gplus_button_follow(); ?>`
 
@@ -193,6 +196,9 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 1.0 =
+* Feature: Add google+ embedded posts.
+
 = Version 0.9 =
 * Feature: Add shortcode youtube for badge.
 * Feature: Add shortcode youtube for button.
@@ -265,8 +271,11 @@ Before you use the google translate module must register the site that you want 
 
 == Upgrade Notice ==
 
+= 1.0 =
+Added the new google plus feature that allows the insertion of a post directly on the page of our website. Have also been released for the alternate functions to improve the options already present in the plugin.
+
 = 0.9 =
-have been added with this release the buttons and badges for Social youtube. They were created both widget and shortcodes. Were carried out some improvements to the plugin and the translation of some strings in Italian.
+Have been added with this release the buttons and badges for Social youtube. They were created both widget and shortcodes. Were carried out some improvements to the plugin and the translation of some strings in Italian.
 
 = 0.8 =
 This release add module for google documentation and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
