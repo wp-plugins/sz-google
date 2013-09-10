@@ -947,7 +947,7 @@ function sz_google_modules_plus_get_code_post($atts=array())
 
 	$HTML  = '<div class="g-post" ';
 	$HTML .= 'data-href="'.$url.'"';
-	$HTML .= '>';
+	$HTML .= '></div>';
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
