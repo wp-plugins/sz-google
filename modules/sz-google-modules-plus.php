@@ -1,4 +1,4 @@
-	<?php
+<?php
 /* ************************************************************************** */
 /* Controllo se definita la costante del plugin                               */
 /* ************************************************************************** */
@@ -945,9 +945,11 @@ function sz_google_modules_plus_get_code_post($atts=array())
 
 	// Creazione codice HTML per embed code da inserire nella pagina wordpress
 
-	$HTML  = '<div class="g-post" ';
+	$HTML  = '<div class="sz-google-embedded-post">';
+	$HTML .= '<div class="g-post" ';
 	$HTML .= 'data-href="'.$url.'"';
 	$HTML .= '></div>';
+	$HTML .= '</div>';
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
