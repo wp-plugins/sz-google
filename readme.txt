@@ -202,6 +202,7 @@ Before you use the google translate module must register the site that you want 
 
 = Version 1.2 =
 * Feature: Add documentation section for modules google+.
+* Feature: Add any options for google+ buttons.
 
 = Version 1.1 =
 * Feature: Add option fixed size google+ comments.
