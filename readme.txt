@@ -30,6 +30,10 @@ To be informed about the features that gradually will be released you can follow
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google-plus-badge/">Demo online - Google plus badges</a>
+* <a href="https://startbyzero.com/demos/wordpress/google-button-per-wordpress/">Demo online - Google plus buttons</a>
+* <a href="https://startbyzero.com/demos/wordpress/google-embedded-posts/">Demo online - Google plus embedded post</a>
+
 **Google+ Badge:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These components can be used as a widget for use in or as a sidebar and as shortcode to use in the articles. You can also use the php functions to customize your own theme directly with programming code.
 
 **Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin-google sz we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
@@ -67,10 +71,6 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_gplus_post()`
 
 `<?php echo szgoogle_get_gplus_button_follow(); ?>`
-
-* <a href="https://startbyzero.com/demos/wordpress/plugin-google-plus-badge/">Demo online - Google plus badges</a>
-* <a href="https://startbyzero.com/demos/wordpress/google-button-per-wordpress/">Demo online - Google plus buttons</a>
-* <a href="https://startbyzero.com/demos/wordpress/google-embedded-posts/">Demo online - Google plus embedded post</a>
 
 = Google Analytics module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
