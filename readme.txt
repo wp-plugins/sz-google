@@ -118,6 +118,8 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_translate_meta()`
 * `szgoogle_get_translate_meta_ID()`
 
+`<?php $metacode = szgoogle_get_translate_meta(); ?>`
+
 = Google Youtube module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
@@ -136,6 +138,8 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `szgoogle_get_youtube_code_badge()`
 * `szgoogle_get_youtube_code_button()`
 * `szgoogle_get_youtube_code_link()`
+
+`<?php echo szgoogle_get_youtube_code_video(array(options)); ?>`
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
