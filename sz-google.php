@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.1
+Version: 1.2
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -54,9 +54,6 @@ define('SZ_PLUGIN_GOOGLE_VALUE_YEAR' ,sprintf('%04d',date('Y')));
 /* Definizione delle costanti da usare nel plugin G+                          */
 /* ************************************************************************** */
 
-define('SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT','180');
-define('SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE','275');
-
 define('SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE','106567288702045182616');
 define('SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE','117259631219963935481');
 define('SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY','109254048492234113886');
@@ -72,6 +69,17 @@ define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER','false');
 define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER','false');
 define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT','350');
 define('SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE','350');
+
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT','portrait');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME','light');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER','true');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO','true');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE','true');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR','false');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER','false');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER','false');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT','180');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE','275');
 
 /* ************************************************************************** */
 /* Definizione delle costanti da usare nel modulo GOOGLE ANALYTICS            */
@@ -175,6 +183,7 @@ function sz_google_plugin_activate()
 		'plus_comments_dt_day'           => SZ_PLUGIN_GOOGLE_VALUE_DAY,
 		'plus_comments_dt_month'         => SZ_PLUGIN_GOOGLE_VALUE_MONTH,
 		'plus_comments_dt_year'          => SZ_PLUGIN_GOOGLE_VALUE_YEAR,
+		'plus_comments_fixed_size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'plus_redirect_sign'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'plus_redirect_plus'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'plus_redirect_curl'             => SZ_PLUGIN_GOOGLE_VALUE_NO,

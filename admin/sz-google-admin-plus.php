@@ -70,6 +70,7 @@ function sz_google_admin_plus_fields()
 	add_settings_field('plus_comments_wd_enable',ucwords(__('g+ comments widget','szgoogleadmin')),'sz_google_admin_plus_comments_wd','sz-google-admin-plus-comments.php','sz_google_plus_comments');
 	add_settings_field('plus_comments_sh_enable',ucwords(__('g+ comments shortcode','szgoogleadmin')),'sz_google_admin_plus_comments_sh','sz-google-admin-plus-comments.php','sz_google_plus_comments');
 	add_settings_field('plus_comments_dt_enable',ucwords(__('g+ comments date switch','szgoogleadmin')),'sz_google_admin_plus_comments_dt','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_fixed_size',ucwords(__('g+ comments fixed size','szgoogleadmin')),'sz_google_admin_plus_comments_fixed_size','sz-google-admin-plus-comments.php','sz_google_plus_comments');
 
 	// Definizione sezione per configurazione GOOGLE+ EMBEDDED POST
 
@@ -184,15 +185,15 @@ function sz_google_admin_plus_widget_community()
 	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
 }
 
-function sz_google_admin_plus_widget_size_portrait() 
+function sz_google_admin_plus_widget_size_portrait()
 {
-	sz_google_common_form_number_step_1('sz_google_options_plus','plus_widget_size_portrait','medium',SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT);
+	sz_google_common_form_number_step_1('sz_google_options_plus','plus_widget_size_portrait','medium',SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT);
 	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 180px and height will be calculated automatically.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_size_landscape() 
 {
-	sz_google_common_form_number_step_1('sz_google_options_plus','plus_widget_size_landscape','medium',SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE);
+	sz_google_common_form_number_step_1('sz_google_options_plus','plus_widget_size_landscape','medium',SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE);
 	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 275px and height will be calculated automatically.','szgoogleadmin'));
 }
 
@@ -290,6 +291,12 @@ function sz_google_admin_plus_comments_sh()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_comments_sh_enable');
 	sz_google_common_form_description(__('enabling this option will allow you to use the shortcode <code>[sz-gplus-comments/]</code> that will allow you to insert a box for comments to google plus in any part of your post or page standard wordpress. For greater customization uses <code>szgoogle_get_gplus_comments()</code>.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_comments_fixed_size()
+{
+	sz_google_common_form_number_step_1('sz_google_options_plus','plus_comments_fixed_size','medium',__('responsive design','szgoogleadmin'));
+	sz_google_common_form_description(__('if you do not specify a value for this option, the size of the container of the comments will be performed in responsive mode, otherwise it is applied to a fixed size specified in this field. Use this option on wordpress themes with fixed size.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */

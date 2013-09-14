@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -67,6 +67,10 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_gplus_post()`
 
 `<?php echo szgoogle_get_gplus_button_follow(); ?>`
+
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google-plus-badge/">Demo online - Google plus badges</a>
+* <a href="https://startbyzero.com/demos/wordpress/google-button-per-wordpress/">Demo online - Google plus buttons</a>
+* <a href="https://startbyzero.com/demos/wordpress/google-embedded-posts/">Demo online - Google plus embedded post</a>
 
 = Google Analytics module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -196,8 +200,21 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 1.2 =
+* Feature: Add documentation section for modules google+.
+
+= Version 1.1 =
+* Feature: Add option fixed size google+ comments.
+* Feature: Add widgets for google+ buttons.
+* Feature: Add widgets for google+ embedded post.
+* Feature: Add widgets for google+ comments.
+* Fix: Correct bug for widget google+ embedded post.
+
 = Version 1.0 =
 * Feature: Add google+ embedded posts.
+* Feature: Add css class for all components.
+* Feature: Add options design for buttons google+.
+* Feature: Add options design for badges google+.
 
 = Version 0.9 =
 * Feature: Add shortcode youtube for badge.
@@ -270,6 +287,11 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 1.2 =
+
+= 1.1 =
+Added the widget for the google plus modules, fixed some minor errors and improved the code of the plugin to get the best performances of loading. Addition of the missing documentation.
 
 = 1.0 =
 Added the new google plus feature that allows the insertion of a post directly on the page of our website. Have also been released for the alternate functions to improve the options already present in the plugin.

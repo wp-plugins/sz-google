@@ -117,6 +117,7 @@ function sz_google_modules_plus_options()
 	if (!isset($options['plus_comments_dt_day']))          $options['plus_comments_dt_day']          = '01';  
 	if (!isset($options['plus_comments_dt_month']))        $options['plus_comments_dt_month']        = '01';
 	if (!isset($options['plus_comments_dt_year']))         $options['plus_comments_dt_year']         = '2000';
+	if (!isset($options['plus_comments_fixed_size']))      $options['plus_comments_fixed_size']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 	if (!isset($options['plus_redirect_sign']))            $options['plus_redirect_sign']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_redirect_plus']))            $options['plus_redirect_plus']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_redirect_curl']))            $options['plus_redirect_curl']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
@@ -130,10 +131,11 @@ function sz_google_modules_plus_options()
 	// Controllo delle opzioni in caso di valori non validi
 
 	if (trim($options['plus_language'])                 == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['plus_language']                 = SZ_PLUGIN_GOOGLE_VALUE_LANG;   
-	if (trim($options['plus_widget_size_portrait'])     == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['plus_widget_size_portrait']     = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT;
-	if (trim($options['plus_widget_size_landscape'])    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['plus_widget_size_landscape']    = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE;
+	if (trim($options['plus_widget_size_portrait'])     == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['plus_widget_size_portrait']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+	if (trim($options['plus_widget_size_landscape'])    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['plus_widget_size_landscape']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
 	if (trim($options['plus_shortcode_size_portrait'])  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['plus_shortcode_size_portrait']  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
 	if (trim($options['plus_shortcode_size_landscape']) == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['plus_shortcode_size_landscape'] = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE;
+	if (trim($options['plus_comments_fixed_size'])      == SZ_PLUGIN_GOOGLE_VALUE_ZERO) $options['plus_comments_fixed_size']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
 	// Se trovo un valore non riconosciuto imposto dei valori predefiniti validi
 
@@ -166,711 +168,183 @@ function sz_google_modules_plus_options()
 	return $options;
 }
 
-/* ************************************************************************** */ 
-/* Scrittura del codice javascript necessario alla visualizzazione widgets    */
-/* ************************************************************************** */ 
+/* ************************************************************************** */
+/* PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PL */
+/* PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PL */
+/* PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PL */
+/* PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PL */
+/* PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PLUS ONE PL */
+/* ************************************************************************** */
 
-function sz_google_modules_plus_add_script_footer()
+function sz_google_modules_plus_get_code_plusone($atts=array(),$content=null)
 {
-	// Se sono già entrato in questa funzione non eseguo niente
-	
-	if (defined('SZ_GOOGLE_MODULES_PLUS_ADD_SCRIPT_FOOTER')) return;
-	
-	// Controllo opzioni per linguaggio impostato o tema o specifico
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
-	define('SZ_GOOGLE_MODULES_PLUS_ADD_SCRIPT_FOOTER',true);
+	if (!is_array($atts)) $atts = array();
 
-	$options = sz_google_modules_plus_options();
-
-	if ($options['plus_system_javascript'] == SZ_PLUGIN_GOOGLE_VALUE_YES) return;	
-
-	if ($options['plus_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
-		else $language = trim($options['plus_language']);
-
-	// Codice javascript per il rendering dei componenti google plus
-	
-	$javascript  = '<script type="text/javascript">';
-  	$javascript .= "window.___gcfg = {lang:'".trim($language)."'};";
-	$javascript .= "(function() {";
-	$javascript .= "var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;";
-	$javascript .= "po.src = 'https://apis.google.com/js/plusone.js';";
-	$javascript .=  "var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);";
-	$javascript .=  "})();";
-	$javascript .=	"</script>"."\n";
-	
-	echo $javascript;
-}
-
-/* ************************************************************************** */
-/* Abilitazione del sistema di commenti g+ con o senza quello di default      */
-/* ************************************************************************** */
-
-function sz_google_modules_comments_system_enable() 
-{
-	// Calcolo opzioni di configurazione generale
-
-	$options = sz_google_modules_plus_options();
-
-	// Se è specificata opzione dopo il contenuto applico il filtro a the_content
-	// altrimenti applico il filtro alla funzione di comment_template
-
-	if ($options['plus_comments_ac_enable']=='1') add_filter('the_content','sz_google_modules_comments_content');
-		else add_filter('comments_template','sz_google_modules_comments_system');
-}
-
-/* ************************************************************************** */
-/* Funzione per rendering del sistema di commenti legato a google plus        */
-/* ************************************************************************** */
-
-function sz_google_modules_comments_system($include) 
-{
-	global $post,$comments;
-
-	if (!(is_singular() && (have_comments() || 'open' == $post->comment_status))) { return; }
-
-	// Aggiornamento delle variabili che contengono le opzioni		 
-	// di eleborazione commenti e loro posizione nella pagina
-
-	$checkdt = '00000000';
-	$checkid	= get_the_date('Ymd');
-	$options = sz_google_modules_plus_options();
-
-	// Calcolo la data di confronto per la funzione dei commenti
-
-	if ($options['plus_comments_dt_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
-	{
-		$checkdt  = sprintf('%04d',$options['plus_comments_dt_year']);
-		$checkdt .= sprintf('%02d',$options['plus_comments_dt_month']);
-		$checkdt .= sprintf('%02d',$options['plus_comments_dt_day']);
-
-		// Se devo controllare la data e non rientra nel range giusto non eseguo
-		// l'elaborazione del sistema commenti e rimando a quello originale
-
-		if ($checkid <= $checkdt) {
-			return $include;
-		}
-	}
-
-	// Controllo se devo mantenere i commenti standard di wordpress		 
-	// in caso affermativo eseguo il file prima dei commenti di google plus
-
-	if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and $options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {   
-		if (file_exists($include)) @require($include);
-		echo '<div id="sz-google-comments-margin" style="margin-bottom:1em"></div>';
-	}
-
-	// Creazione codice HTML per inserimento widget commenti		 
-
-	echo '<div id="sz-google-comments" class="sz-google-comments-wrap">';
-	echo '<script type="text/javascript">';
-	echo "var w=document.getElementById('sz-google-comments').offsetWidth;";
-	echo "document.write('".'<div class="g-comments" data-href="'.get_permalink().'" data-width="'."'+w+'".'" data-height="50" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>'."');";
-	echo '</script>';
-	echo '</div>';
-
-	// Aggiunta del codice javascript per il rendering dei widget		 
-	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
-
-	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
-
-	// Ritorno stesso template passato alla funzione nel caso in cui
-	// devo mantenere i commenti standard dopo quelli di google plus
-	
-	if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and $options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_NO) {   
-		return $include;
-	}
-
-	// Ritorno template di commenti dummy con nessuna azione HTML
-	
-	return plugin_dir_path( __FILE__ ).'sz-google-modules-plus-comments-dummy.php';
-}
-
-/* ************************************************************************** */
-/* Funzione per rendering del sistema di commenti legato a google plus        */
-/* ************************************************************************** */
-
-function sz_google_modules_comments_content($content) 
-{
-	global $post,$comments;
-
-	if (!(is_singular() && (have_comments() || 'open' == $post->comment_status))) { return $content; }
-
-	// Creazione codice HTML per inserimento widget commenti		 
-
-	$codice  = '<div id="sz-google-comments" class="sz-google-comments-wrap">';
-	$codice .= '<script type="text/javascript">';
-	$codice .= "var w=document.getElementById('sz-google-comments').offsetWidth;";
-	$codice .= "document.write('".'<div class="g-comments" data-href="'.get_permalink().'" data-width="'."'+w+'".'" data-height="50" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>'."');";
-	$codice .= '</script>';
-	$codice .= '</div>';
-
-	// Aggiunta del codice javascript per il rendering dei widget		 
-	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
-
-	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
-
-	return $content.$codice;
-}
-
-/* ************************************************************************** */
-/* Aggiungo le regole di rewrite per il modulo di google plus                 */
-/* ************************************************************************** */
-
-function sz_google_modules_plus_rewrite_rules() 
-{
-	global $wp; 
-	$options = sz_google_modules_plus_options();
-
-	// Controllo REDIRECT per url con la stringa "+"
-
-	if ($options['plus_redirect_sign'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
-		add_rewrite_rule('^\+$','index.php?szgoogleplusredirectsign=1','top');		
-		$wp->add_query_var('szgoogleplusredirectsign');
-	}   
-
-	// Controllo REDIRECT per url con la stringa "plus"
-
-	if ($options['plus_redirect_plus'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
-		add_rewrite_rule('^plus$','index.php?szgoogleplusredirectplus=1','top');		
-		$wp->add_query_var('szgoogleplusredirectplus');
-	}   
-
-	// Controllo REDIRECT per url con la stringa "URL"
-
-	if ($options['plus_redirect_curl'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
-		if (trim($options['plus_redirect_curl_dir']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL and trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-			add_rewrite_rule('^'. preg_quote(trim($options['plus_redirect_curl_dir'])).'$','index.php?szgoogleplusredirectcurl=1','top');		
-			$wp->add_query_var('szgoogleplusredirectcurl');
-		}
-	}   
-
-	// Se opzione di flush è disattivata eseguo il flush_rules ed eseguo
-	// la modifica dell'opzione al valore "1" per non ripetere l'operazione
-
-	if ($options['plus_redirect_flush'] == SZ_PLUGIN_GOOGLE_VALUE_NO) 
-	{
-		$options['plus_redirect_flush'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
-		update_option('sz_google_options_plus',$options);
-		add_action('wp_loaded','sz_google_modules_flush_rules');
-	}
-
-	// Aggiungo variabile QUERY URL e controllo personalizzato di redirect
-	
-	add_action('parse_request','sz_google_modules_plus_parse_query');
-}
-
-/* ************************************************************************** */
-/* Controllo le variabili su URL ed eseguo redirect se necessario             */
-/* ************************************************************************** */
-
-function sz_google_modules_plus_parse_query(&$wp)
-{
-	$options = sz_google_modules_plus_options();
-
-	// Controllo REDIRECT per url con la stringa "+"
-
-	if (array_key_exists('szgoogleplusredirectsign',$wp->query_vars)) {
-		if (trim($options['plus_redirect_sign_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
-			header("location:".trim($options['plus_redirect_sign_url'])); exit();
-		}
-	}
-
-	// Controllo REDIRECT per url con la stringa "plus"
-	
-	if (array_key_exists('szgoogleplusredirectplus',$wp->query_vars)) {
-		if (trim($options['plus_redirect_plus_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
-			header("location:".trim($options['plus_redirect_plus_url'])); exit();
-		}
-	}
-
-	// Controllo REDIRECT per url con la stringa "URL"
-	
-	if (array_key_exists('szgoogleplusredirectcurl',$wp->query_vars)) {
-		if (trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
-			header("location:".trim($options['plus_redirect_curl_url'])); exit();
-		}
-	}
-}
-
-/* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ COMMENTS                             */
-/* ************************************************************************** */
-
-function sz_google_shortcodes_plus_comments($atts,$content=null) 
-{
-	/* Estrazione del valore URL dal codice shortcode */
+	$DEFAULT_SIZE       = 'standard';
+	$DEFAULT_ANNOTATION = 'none';
+	$DEFAULT_ALIGN      = 'none';
+	$DEFAULT_POSITION   = 'outside';
 
 	extract(shortcode_atts(array(
-		'url'    => '',
-		'width'  => '',
+		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
-	// Esecuzione trim su valori specificati su shortcode
-
-	$url    = trim($url);
-	$width  = strtolower(trim($width));
-
-	// Imposto i valori di default nel caso siano specificati dei valori
-	// che non appartengono al range dei valori accettati
-
-	if ($url == '') $url = get_permalink();
-
-	// Creazione codice univoco per l'inserimento del box commenti		 
-
-	$uniqueID = 'sz-google-comments-'.md5(uniqid(),false);
-
-	// Creazione codice HTML per inserimento widget commenti		 
-	
-	if (!is_numeric($width) or $width == '') 
-	{ 
-		$HTML  = '<div id="'.$uniqueID.'" class="sz-google-comments-wrap">';
-		$HTML .= '<script type="text/javascript">';
-		$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-		$HTML .= "document.write('".'<div class="g-comments" data-href="'.$url.'" data-width="'."'+w+'".'" data-height="50" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>'."');";
-		$HTML .= '</script>';
-		$HTML .= '</div>';
-
-	} else {
-
-		$HTML  = '<div id="'.$uniqueID.'" class="sz-google-comments-wrap">';
-		$HTML .= '<script type="text/javascript">';
-		$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-		$HTML .= "document.write('".'<div class="g-comments" data-href="'.$url.'" data-width="'.$width.'" data-height="50" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>'."');";
-		$HTML .= '</script>';
-		$HTML .= '</div>';
-	}
-
-	// Aggiunta del codice javascript per il rendering dei widget		 
-	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
-
-	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
-
-	// Ritorno il codice HTML generato dalla funzione		 
-
-	return $HTML;
-}
-
-/* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ BADGE su COMMUNITY                   */
-/* ************************************************************************** */
-
-function sz_google_shortcodes_plus_community($atts,$content=null) 
-{
-	/* Estrazione del valore URL dal codice shortcode */
-
-	extract(shortcode_atts(array(
-		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY,
-		'width'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
-		'layout' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
-		'theme'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
-		'photo'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO,
-		'owner'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER,
-	),$atts));
-
-	// Esecuzione trim su valori specificati su shortcode
-
-	$id     = trim($id);
-	$width  = strtolower(trim($width));
-	$layout = strtolower(trim($layout));
-	$theme  = strtolower(trim($theme));
-	$photo  = strtolower(trim($photo));
-	$owner  = strtolower(trim($owner));
-
-	// Lettura opzioni generali per impostazione dei dati di default
-
-	$options = sz_google_modules_plus_options();
-
-	// Imposto i valori di default nel caso siano specificati dei valori
-	// che non appartengono al range dei valori accettati
-
-	if ($id == '') { 
-		$id = SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY; 
-	}
-
-	if ($layout <> 'portrait' and $layout <> 'landscape') { 
-		$layout = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-	} 
-
-	if ($theme <> 'light' and $theme <> 'dark') { 
-		$theme = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-	} 
-
-	if ($photo <> 'true' and $photo <> 'false') { $photo = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO; } 
-	if ($owner <> 'true' and $owner <> 'false') { $owner = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER; } 
-
-	// Controllo il valore per dimensione widget
-
-	if (!is_numeric($width) or $width == '') { 
-		if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
-			else $width = $options['plus_shortcode_size_landscape']; 
-	}
-
-	// Preparazione codice HTML per il badge di google plus
-
-	$HTML  = '<div class="g-community"';
-	$HTML .= ' data-href="https://plus.google.com/communities/'.$id.'"';
-	$HTML .= ' data-width="'     .$width  .'"';
-	$HTML .= ' data-layout="'    .$layout.'"';
-	$HTML .= ' data-theme="'     .$theme .'"';
-	$HTML .= ' data-showphoto="' .$photo .'"';
-	$HTML .= ' data-showowners="'.$owner .'"';
-	$HTML .= '></div>';
-
-	// Aggiunta del codice javascript per il rendering dei widget		 
-
-	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
-
-	// Ritorno il codice HTML generato dalla funzione		 
-
-	return $HTML;
-}
-
-/* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ BUTTON FOLLOW                        */
-/* ************************************************************************** */
-
-function sz_google_shortcodes_plus_follow($atts,$content=null) 
-{
-	$DEFAULT_URL        = '';
-	$DEFAULT_WIDTH      = ''; 
-	$DEFAULT_RELATION   = '';
-	$DEFAULT_SIZE       = 'medium';
-	$DEFAULT_ANNOTATION = 'bubble';
-
-	/* Estrazione del valore URL dal codice shortcode */
-
-	extract(shortcode_atts(array(
-		'url'        => $DEFAULT_URL,
-		'size'       => $DEFAULT_SIZE,
-		'width'      => $DEFAULT_WIDTH,
-		'annotation' => $DEFAULT_ANNOTATION,
-		'rel'        => $DEFAULT_RELATION,
-	),$atts));
-
-	// Esecuzione trim su valori specificati su shortcode
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
 
 	$url        = trim($url);
+	$text       = trim($text);
+	$img        = trim($img);
+
 	$width      = strtolower(trim($width));
 	$size       = strtolower(trim($size));
 	$annotation = strtolower(trim($annotation));
-	$rel        = strtolower(trim($rel));
+	$align      = strtolower(trim($align));
+	$position   = strtolower(trim($position));
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if ($width == '' or !is_numeric($width)) { 
-		$width = $DEFAULT_WIDTH; 
-	} 
-
-	if (!in_array($size,array('small','medium','large',))) { 
-		$size = $DEFAULT_SIZE; 
-	} 
-
-	if (!in_array($annotation,array('bubble','vertical-bubble','none'))) { 
-		$annotation = $DEFAULT_ANNOTATION; 
-	} 
-
-	if (!in_array($rel,array('author','publishe'))) { 
-		$rel = $DEFAULT_RELATION; 
-	} 
+	if (!in_array($size,array('small','medium','standard','tail'))) $size = $DEFAULT_SIZE;
+	if (!in_array($annotation,array('inline','bubble','none'))) $annotation = $DEFAULT_ANNOTATION; 
+	if (!in_array($align,array('none','left','right','center'))) $align = $DEFAULT_ALIGN; 
+	if (!in_array($position,array('top','center','bottom','outside'))) $position = $DEFAULT_POSITION; 
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
 	if ($url == '') $url = get_permalink();
 
-	// Preparazione codice HTML per il badge di google plus
+	// Creazione codice HTML per embed code da inserire nella pagina wordpress
 
-	$HTML  = '<div class="g-follow"';
+	$HTML  = '<div class="g-plusone"';
+
+	if ($width != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= ' data-width="'.$width.'"';
+	if ($align == 'right') $HTML .= ' data-align="right"';
+
 	$HTML .= ' data-href="'      .$url       .'"';
+	$HTML .= ' data-size="'      .$size      .'"';
 	$HTML .= ' data-annotation="'.$annotation.'"';
-
-	if ($size  == 'small')  $HTML .= ' data-height="15"';
-	if ($size  == 'medium') $HTML .= ' data-height="20"';
-	if ($size  == 'large')  $HTML .= ' data-height="24"';
-	if ($width <> '')       $HTML .= ' data-width="'.$width.'"';
-	if ($rel   <> '')       $HTML .= ' data-rel="'.$rel.'"';
-
 	$HTML .= '></div>';
 
-	// Aggiunta del codice javascript per il rendering dei widget		 
+	$HTML = sz_google_modules_plus_get_code_button_wrap(array(
+		'html'     => $HTML,
+		'text'     => $text,
+		'image'    => $img,
+		'content'  => $content,
+		'align'    => $align,
+		'position' => $position,
+		'class'    => 'sz-google-plusone',
+	));
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
 	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
 
-	// Ritorno il codice HTML generato dalla funzione		 
-
-	return $HTML;
-}
-/* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ BADGE su PAGE                        */
-/* ************************************************************************** */
-
-function sz_google_shortcodes_plus_page($atts,$content=null) 
-{
-	/* Estrazione del valore URL dal codice shortcode */
-
-	extract(shortcode_atts(array(
-		'id'        => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
-		'width'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
-		'layout'    => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
-		'theme'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
-		'cover'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
-		'tagline'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE,
-		'publisher' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER,
-	),$atts));
-
-	// Esecuzione trim su valori specificati su shortcode
-
-	$id        = trim($id);
-	$width     = strtolower(trim($width));
-	$layout    = strtolower(trim($layout));
-	$theme     = strtolower(trim($theme));
-	$cover     = strtolower(trim($cover));
-	$tagline   = strtolower(trim($tagline));
-	$publisher = strtolower(trim($publisher));
-
-	// Lettura opzioni generali per impostazione dei dati di default
-
-	$options = sz_google_modules_plus_options();
-
-	// Imposto i valori di default nel caso siano specificati dei valori
-	// che non appartengono al range dei valori accettati
-
-	if ($id == '') { 
-		$id = SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE; $publisher = 'false'; 
-	}
-
-	if ($layout <> 'portrait' and $layout <> 'landscape') { 
-		$layout = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-	} 
-
-	if ($theme <> 'light' and $theme <> 'dark') { 
-		$theme = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-	} 
-
-	if ($cover     <> 'true' and $cover     <> 'false') { $cover     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; } 
-	if ($tagline   <> 'true' and $tagline   <> 'false') { $tagline   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; } 
-	if ($publisher <> 'true' and $publisher <> 'false') { $publisher = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER; } 
-
-	// Controllo il valore per dimensione widget
-
-	if (!is_numeric($width) or $width == '') { 
-		if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
-			else $width = $options['plus_shortcode_size_landscape']; 
-	}
-
-	// Preparazione codice HTML per il badge di google plus
-
-	$HTML  = '<div class="g-page"';
-	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
-	$HTML .= ' data-width="'         .$width  .'"';
-	$HTML .= ' data-layout="'        .$layout .'"';
-	$HTML .= ' data-theme="'         .$theme  .'"';
-	$HTML .= ' data-showcoverphoto="'.$cover  .'"';
-	$HTML .= ' data-showtagline="'   .$tagline.'"';
-
-	if ($publisher == 'true') {		
-		$HTML .= ' data-rel="publisher"';
-	}
-
-	$HTML .= '></div>';
-
-	// Aggiunta del codice javascript per il rendering dei widget		 
-
-	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
-
-	// Ritorno il codice HTML generato dalla funzione		 
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
 }
 
 /* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ BOTTON PLUS ONE                      */
+/* GOOGLE+ PLUS ONE funzione per elaborazione shortcode (sz-gplus-plusone)    */
 /* ************************************************************************** */
 
 function sz_google_shortcodes_plus_plusone($atts,$content=null) 
 {
-	$DEFAULT_URL        = '';
-	$DEFAULT_SIZE       = 'standard';
-	$DEFAULT_WIDTH      = '300'; 
-	$DEFAULT_ANNOTATION = 'inline';
-
-	/* Estrazione del valore URL dal codice shortcode */
-
 	extract(shortcode_atts(array(
-		'url'        => $DEFAULT_URL,
-		'size'       => $DEFAULT_SIZE,
-		'width'      => $DEFAULT_WIDTH,
-		'annotation' => $DEFAULT_ANNOTATION,
+		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
-	// Esecuzione trim su valori specificati su shortcode
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
 
-	$url        = trim($url);
-	$width      = strtolower(trim($width));
-	$size       = strtolower(trim($size));
-	$annotation = strtolower(trim($annotation));
+	$HTML = sz_google_modules_plus_get_code_plusone(array(
+		'url'        => trim($url),
+		'size'       => trim($size),
+		'width'      => trim($width),
+		'annotation' => trim($annotation),
+		'align'      => trim($align),
+		'text'       => trim($text),
+		'img'        => trim($img),
+		'position'   => trim($position),
+	),$content);
 
-	// Imposto i valori di default nel caso siano specificati dei valori
-	// che non appartengono al range dei valori accettati
-
-	if ($width == '' or !is_numeric($width)) { 
-		$width = $DEFAULT_WIDTH; 
-	} 
-
-	if (!in_array($size,array('small','medium','standard','tail'))) { 
-		$size = $DEFAULT_SIZE; 
-	} 
-
-	if (!in_array($annotation,array('inline','bubble','none'))) { 
-		$annotation = $DEFAULT_ANNOTATION; 
-	} 
-
-	// Se non specifico un URL fisso imposto il permalink attuale
-
-	if ($url == '') $url = get_permalink();
-
-	// Preparazione codice HTML per il badge di google plus
-
-	$HTML  = '<div class="g-plusone"';
-	$HTML .= ' data-href="'      .$url       .'"';
-	$HTML .= ' data-size="'      .$size      .'"';
-	$HTML .= ' data-width="'     .$width     .'"';
-	$HTML .= ' data-annotation="'.$annotation.'"';
-	$HTML .= '></div>';
-
-	// Aggiunta del codice javascript per il rendering dei widget		 
-
-	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
-
-	// Ritorno il codice HTML generato dalla funzione		 
-
-	return $HTML;	
-}
-
-/* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ BADGE su PROFILO                     */
-/* ************************************************************************** */
-
-function sz_google_shortcodes_plus_profile($atts,$content=null) 
-{
-	/* Estrazione del valore URL dal codice shortcode */
-
-	extract(shortcode_atts(array(
-		'id'      => SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE,
-		'width'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
-		'layout'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
-		'theme'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
-		'cover'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
-		'tagline' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE,
-		'author'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR,
-	),$atts));
-
-	// Esecuzione trim su valori specificati su shortcode
-
-	$id      = trim($id);
-	$width   = strtolower(trim($width));
-	$layout  = strtolower(trim($layout));
-	$theme   = strtolower(trim($theme));
-	$cover   = strtolower(trim($cover));
-	$tagline = strtolower(trim($tagline));
-	$author  = strtolower(trim($author));
-
-	// Lettura opzioni generali per impostazione dei dati di default
-
-	$options = sz_google_modules_plus_options();
-
-	// Imposto i valori di default nel caso siano specificati dei valori
-	// che non appartengono al range dei valori accettati
-
-	if ($id == '') { 
-		$id = SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; $author = 'false'; 
-	}
-
-	if ($layout <> 'portrait' and $layout <> 'landscape') { 
-		$layout = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-	} 
-
-	if ($theme <> 'light' and $theme <> 'dark') { 
-		$theme = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-	} 
-
-	if ($cover   <> 'true' and $cover   <> 'false') { $cover   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; } 
-	if ($tagline <> 'true' and $tagline <> 'false') { $tagline = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; } 
-	if ($author  <> 'true' and $author  <> 'false') { $author  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR; } 
-
-	// Controllo il valore per dimensione widget
-
-	if (!is_numeric($width) or $width == '') { 
-		if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
-			else $width = $options['plus_shortcode_size_landscape']; 
-	}
-
-	// Preparazione codice HTML per il badge di google plus
-
-	$HTML  = '<div class="g-person"';
-	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
-	$HTML .= ' data-width="'         .$width  .'"';
-	$HTML .= ' data-layout="'        .$layout .'"';
-	$HTML .= ' data-theme="'         .$theme  .'"';
-	$HTML .= ' data-showcoverphoto="'.$cover  .'"';
-	$HTML .= ' data-showtagline="'   .$tagline.'"';
-
-	if ($author == 'true') {		
-		$HTML .= ' data-rel="author"';
-	}
-
-	$HTML .= '></div>';
-
-	// Aggiunta del codice javascript per il rendering dei widget		 
-
-	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
-
-	// Ritorno il codice HTML generato dalla funzione		 
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
 }
 
 /* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ BUTTON SHARING                       */
+/* SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SH */
+/* SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SH */
+/* SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SH */
+/* SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SH */
+/* SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SHARING SH */
 /* ************************************************************************** */
 
-function sz_google_shortcodes_plus_sharing($atts,$content=null) 
+function sz_google_modules_plus_get_code_sharing($atts=array(),$content=null)
 {
-	$DEFAULT_URL        = '';
-	$DEFAULT_SIZE       = 'medium';
-	$DEFAULT_WIDTH      = ''; 
-	$DEFAULT_ANNOTATION = 'inline';
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
-	/* Estrazione del valore URL dal codice shortcode */
+	if (!is_array($atts)) $atts = array();
+
+	$DEFAULT_SIZE       = 'medium';
+	$DEFAULT_ANNOTATION = 'inline';
+	$DEFAULT_ALIGN      = 'none';
+	$DEFAULT_POSITION   = 'outside';
 
 	extract(shortcode_atts(array(
-		'url'        => $DEFAULT_URL,
-		'size'       => $DEFAULT_SIZE,
-		'width'      => $DEFAULT_WIDTH,
-		'annotation' => $DEFAULT_ANNOTATION,
+		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
-	// Esecuzione trim su valori specificati su shortcode
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
 
 	$url        = trim($url);
+	$text       = trim($text);
+	$img        = trim($img);
+
 	$width      = strtolower(trim($width));
 	$size       = strtolower(trim($size));
 	$annotation = strtolower(trim($annotation));
+	$align      = strtolower(trim($align));
+	$position   = strtolower(trim($position));
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if ($width == '' or !is_numeric($width)) { 
-		$width = $DEFAULT_WIDTH; 
-	} 
-
-	if (!in_array($size,array('small','medium','large',))) { 
-		$size = $DEFAULT_SIZE; 
-	} 
-
-	if (!in_array($annotation,array('inline','bubble','vertical-bubble','none'))) { 
-		$annotation = $DEFAULT_ANNOTATION; 
-	} 
+	if (!in_array($size,array('small','medium','large'))) $size = $DEFAULT_SIZE;
+	if (!in_array($annotation,array('inline','bubble','vertical-bubble','none'))) $annotation = $DEFAULT_ANNOTATION; 
+	if (!in_array($align,array('none','left','right','center'))) $align = $DEFAULT_ALIGN; 
+	if (!in_array($position,array('top','center','bottom','outside'))) $position = $DEFAULT_POSITION; 
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
@@ -887,44 +361,219 @@ function sz_google_shortcodes_plus_sharing($atts,$content=null)
 	if ($size  == 'medium') $HTML .= ' data-height="20"';
 	if ($size  == 'large')  $HTML .= ' data-height="24"';
 	if ($width <> '')       $HTML .= ' data-width="'.$width.'"';
+	if ($align == 'right')  $HTML .= ' data-align="right"';
 
 	$HTML .= '></div>';
+
+	$HTML = sz_google_modules_plus_get_code_button_wrap(array(
+		'html'     => $HTML,
+		'text'     => $text,
+		'image'    => $img,
+		'content'  => $content,
+		'align'    => $align,
+		'position' => $position,
+		'class'    => 'sz-google-sharing',
+	));
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
 	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
 
-	// Ritorno il codice HTML generato dalla funzione		 
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
 }
 
 /* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ EMBEDDED POST                        */
+/* GOOGLE+ SHARING funzione per elaborazione shortcode (sz-gplus-share)       */
 /* ************************************************************************** */
 
-function sz_google_shortcodes_plus_post($atts,$content=null) 
+function sz_google_shortcodes_plus_sharing($atts,$content=null) 
 {
-	// Estrazione dei valori specificati nello shortcode, i valori ritornati
-	// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
 	extract(shortcode_atts(array(
-		'url' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Preparazione codice HTML dello shortcode tramite la funzione
 	// standard di preparazione codice sia per shortcode che widgets
 
-	$HTML = sz_google_modules_plus_get_code_post(array(
-		'url' => trim($url),
-	));
+	$HTML = sz_google_modules_plus_get_code_sharing(array(
+		'url'        => trim($url),
+		'size'       => trim($size),
+		'width'      => trim($width),
+		'annotation' => trim($annotation),
+		'align'      => trim($align),
+		'text'       => trim($text),
+		'img'        => trim($img),
+		'position'   => trim($position),
+	),$content);
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
 }
 
 /* ************************************************************************** */
-/* Funzione shortcode per generazione codice G+ EMBEDDED POST                 */
+/* FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLL */
+/* FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLL */
+/* FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLL */
+/* FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLL */
+/* FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLLOW FOLL */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_code_follow($atts=array(),$content=null)
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	$DEFAULT_SIZE       = 'medium';
+	$DEFAULT_ANNOTATION = 'bubble';
+	$DEFAULT_REL        = 'none';
+	$DEFAULT_ALIGN      = 'none';
+	$DEFAULT_POSITION   = 'outside';
+
+	extract(shortcode_atts(array(
+		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'rel'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
+
+	$url        = trim($url);
+	$text       = trim($text);
+	$img        = trim($img);
+
+	$width      = strtolower(trim($width));
+	$size       = strtolower(trim($size));
+	$annotation = strtolower(trim($annotation));
+	$align      = strtolower(trim($align));
+	$rel        = strtolower(trim($rel));
+	$position   = strtolower(trim($position));
+
+	// Imposto i valori di default nel caso siano specificati dei valori
+	// che non appartengono al range dei valori accettati
+
+	if (!in_array($size,array('small','medium','large'))) $size = $DEFAULT_SIZE;
+	if (!in_array($annotation,array('inline','bubble','vertical-bubble','none'))) $annotation = $DEFAULT_ANNOTATION; 
+	if (!in_array($align,array('none','left','right','center'))) $align = $DEFAULT_ALIGN; 
+	if (!in_array($rel,array('author','publisher'))) $rel = $DEFAULT_REL; 
+	if (!in_array($position,array('top','center','bottom','outside'))) $position = $DEFAULT_POSITION; 
+
+	// Lettura opzioni generali per impostazione dei dati di default
+
+	$options = sz_google_modules_plus_options();
+
+	// Imposto i valori di default nel caso siano specificati dei valori
+	// che non appartengono al range dei valori accettati
+
+	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.$options['plus_page']; }
+	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.$options['plus_profile']; }
+
+	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;    $rel = SZ_PLUGIN_GOOGLE_VALUE_NULL; }
+	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; $rel = SZ_PLUGIN_GOOGLE_VALUE_NULL; }
+
+	// Preparazione codice HTML per il badge di google plus
+
+	$HTML  = '<div class="g-follow"';
+	$HTML .= ' data-href="'      .$url       .'"';
+	$HTML .= ' data-annotation="'.$annotation.'"';
+
+	if ($size  == 'small')     $HTML .= ' data-height="15"';
+	if ($size  == 'medium')    $HTML .= ' data-height="20"';
+	if ($size  == 'large')     $HTML .= ' data-height="24"';
+	if ($width <> '')          $HTML .= ' data-width="'.$width.'"';
+	if ($align == 'right')     $HTML .= ' data-align="right"';
+	if ($rel   == 'author')    $HTML .= ' data-rel="author"';
+	if ($rel   == 'publisher') $HTML .= ' data-rel="publisher"';
+
+	$HTML .= '></div>';
+
+	$HTML = sz_google_modules_plus_get_code_button_wrap(array(
+		'html'     => $HTML,
+		'text'     => $text,
+		'image'    => $img,
+		'content'  => $content,
+		'align'    => $align,
+		'position' => $position,
+		'class'    => 'sz-google-follow',
+	));
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ FOLLOW funzione per elaborazione shortcode (sz-gplus-follow)       */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_plus_follow($atts,$content=null) 
+{
+	extract(shortcode_atts(array(
+		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'rel'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML = sz_google_modules_plus_get_code_follow(array(
+		'url'        => trim($url),
+		'size'       => trim($size),
+		'width'      => trim($width),
+		'annotation' => trim($annotation),
+		'align'      => trim($align),
+		'text'       => trim($text),
+		'img'        => trim($img),
+		'rel'        => trim($rel),
+		'position'   => trim($position),
+	),$content);
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* POST POST POST POST POST POST POST POST POST POST POST POST POST POST POST */
+/* POST POST POST POST POST POST POST POST POST POST POST POST POST POST POST */
+/* POST POST POST POST POST POST POST POST POST POST POST POST POST POST POST */
+/* POST POST POST POST POST POST POST POST POST POST POST POST POST POST POST */
+/* POST POST POST POST POST POST POST POST POST POST POST POST POST POST POST */
 /* ************************************************************************** */
 
 function sz_google_modules_plus_get_code_post($atts=array())
@@ -935,20 +584,31 @@ function sz_google_modules_plus_get_code_post($atts=array())
 	if (!is_array($atts)) $atts = array();
 
 	extract(shortcode_atts(array(
-		'url' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
 	// stringa minuscolo per il controllo di valori speciali come "auto"
 
-	$url = trim($url);
+	$url   = trim($url);
+	$align = strtolower(trim($align));
 
 	// Creazione codice HTML per embed code da inserire nella pagina wordpress
 
-	$HTML  = '<div class="sz-google-embedded-post">';
+	$HTML  = '<div class="sz-google-post">';
+	$HTML .= '<div class="sz-google-post-wrap"';
+	$HTML .= ' style="display:block;';
+
+	if ($align == 'left')   $HTML .= 'text-align:left;';
+	if ($align == 'center') $HTML .= 'text-align:center;';
+	if ($align == 'right')  $HTML .= 'text-align:right;';
+
+	$HTML .= '">';
 	$HTML .= '<div class="g-post" ';
 	$HTML .= 'data-href="'.$url.'"';
 	$HTML .= '></div>';
+	$HTML .= '</div>';
 	$HTML .= '</div>';
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
@@ -957,13 +617,182 @@ function sz_google_modules_plus_get_code_post($atts=array())
 	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
-	// il codice HTML per l'inserimento di un video youtube 
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ POST funzione per elaborazione shortcode (sz-gplus-post)           */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_plus_post($atts,$content=null) 
+{
+	extract(shortcode_atts(array(
+		'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML = sz_google_modules_plus_get_code_post(array(
+		'url'   => trim($url),
+		'align' => trim($align),
+	));
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR  */
+/* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR  */
+/* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR  */
+/* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR  */
+/* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR  */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_code_profile($atts,$content=null) 
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'id'      => SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE,
+		'width'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'layout'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'theme'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'cover'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'tagline' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'author'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'action'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Esecuzione trim su valori specificati su shortcode
+
+	$id      = trim($id);
+	$width   = strtolower(trim($width));
+	$layout  = strtolower(trim($layout));
+	$theme   = strtolower(trim($theme));
+	$cover   = strtolower(trim($cover));
+	$tagline = strtolower(trim($tagline));
+	$author  = strtolower(trim($author));
+	$action  = strtolower(trim($action));
+
+	// Lettura opzioni generali per impostazione dei dati di default
+
+	$options = sz_google_modules_plus_options();
+
+	// Imposto i valori di default nel caso siano specificati dei valori
+	// che non appartengono al range dei valori accettati
+
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_profile']; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; $author = 'false'; }
+
+	// Controllo se azione di richiesta non è un widget posso conrollare i valori
+	// di default legati allo shortcode che sono gli stessi per la funzione PHP diretta
+
+	if ($action != 'widget') 
+	{
+		if ($layout  <> 'portrait' and $layout  <> 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
+		if ($theme   <> 'light'    and $theme   <> 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
+		if ($cover   <> 'true'     and $cover   <> 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
+		if ($tagline <> 'true'     and $tagline <> 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
+		if ($author  <> 'true'     and $author  <> 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR; 
+
+		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
+			if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
+				else $width = $options['plus_shortcode_size_landscape']; 
+		}
+
+	} else {
+
+		if ($layout  <> 'portrait' and $layout  <> 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
+		if ($theme   <> 'light'    and $theme   <> 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
+		if ($cover   <> 'true'     and $cover   <> 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
+		if ($tagline <> 'true'     and $tagline <> 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
+		if ($author  <> 'true'     and $author  <> 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR; 
+
+		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
+			if ($layout == 'portrait') $width = $options['plus_widget_size_portrait'];
+				else $width = $options['plus_widget_size_landscape']; 
+		}
+	}
+
+	// Preparazione codice HTML per il badge di google plus
+
+	$HTML  = '<div class="sz-google-profile">';
+	$HTML .= '<div class="sz-google-profile-wrap">';
+	$HTML .= '<div class="g-person"';
+	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
+	$HTML .= ' data-width="'         .$width  .'"';
+	$HTML .= ' data-layout="'        .$layout .'"';
+	$HTML .= ' data-theme="'         .$theme  .'"';
+	$HTML .= ' data-showcoverphoto="'.$cover  .'"';
+	$HTML .= ' data-showtagline="'   .$tagline.'"';
+
+	if ($author == 'true') {		
+		$HTML .= ' data-rel="author"';
+	}
+
+	$HTML .= '></div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ PROFILE funzione per elaborazione shortcode (sz-gplus-profile)     */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_plus_profile($atts,$content=null) 
+{
+	extract(shortcode_atts(array(
+		'id'      => SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE,
+		'width'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
+		'layout'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
+		'theme'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
+		'cover'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
+		'tagline' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE,
+		'author'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML = sz_google_modules_plus_get_code_profile(array(
+		'id'      => trim($id),
+		'width'   => trim($width),
+		'layout'  => trim($layout),
+		'theme'   => trim($theme),
+		'cover'   => trim($cover),
+		'tagline' => trim($tagline),
+		'author'  => trim($author),
+		'action'  => trim('shortcode'),
+	),$content);
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
 }
 
 /* ************************************************************************** */ 
-/* SZ_Widget_Google_Profile - Inserimento profilo sulla sidebar come widget   */ 
+/* GOOGLE+ PROFILE definizione ed elaborazione del widget su sidebar          */ 
 /* ************************************************************************** */ 
 
 class SZ_Widget_Google_Profile extends WP_Widget
@@ -971,12 +800,15 @@ class SZ_Widget_Google_Profile extends WP_Widget
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
 
-	function SZ_Widget_Google_Profile() {
+	function SZ_Widget_Google_Profile() 
+	{
 		$widget_ops  = array(
 			'classname'   => 'widget-sz-google', 
 			'description' => ucfirst(__('widget for google+ profile','szgoogleadmin'))
 		);
-		$this->WP_Widget('SZ-Google-Profile',__('SZ-Google - G+ Profile','szgoogleadmin'),$widget_ops);
+
+		$this->WP_Widget('SZ-Google-Profile',
+			__('SZ-Google - G+ Profile','szgoogleadmin'),$widget_ops);
 	}
 
 	// Funzione per la visualizzazione del widget con lettura parametri
@@ -986,31 +818,23 @@ class SZ_Widget_Google_Profile extends WP_Widget
 	{
 		extract($args);
 
-		// Costruzione del titolo del widget
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
 
-		if (empty($instance['title'])) $title = '';
-			else $title = trim($instance['title']);
+		$title = sz_google_modules_widget_title($args,$instance);
 
-		$title = apply_filters('widget_title',$title,$instance,$this->id_base);
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
 
-		if (!isset($before_title)) $before_title = '';
-		if (!isset($after_title))  $after_title = '';
-
-		if ($title and $title <> '') {
-			$title = $before_title.$title.$after_title;
-		}
-
-		// Controllo se esistono le variabili di opzione
-
-		if (empty($instance['method']))   $instance['method']   = '1';
-		if (empty($instance['specific'])) $instance['specific'] = '';
-		if (empty($instance['width']))    $instance['width']    = '';
-		if (empty($instance['dfsize']))   $instance['dfsize']   = '';
-		if (empty($instance['layout']))   $instance['layout']   = 'portrait';
-		if (empty($instance['theme']))    $instance['theme']    = 'light';
-		if (empty($instance['photo']))    $instance['photo']    = 'true';
-		if (empty($instance['tagline']))  $instance['tagline']  = 'true';
-		if (empty($instance['author']))   $instance['author']   = 'true';
+		if (empty($instance['method']))   $instance['method']   = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		if (empty($instance['specific'])) $instance['specific'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))    $instance['width']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['dfsize']))   $instance['dfsize']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['layout']))   $instance['layout']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
+		if (empty($instance['theme']))    $instance['theme']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
+		if (empty($instance['photo']))    $instance['photo']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
+		if (empty($instance['tagline']))  $instance['tagline']  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE;
+		if (empty($instance['author']))   $instance['author']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR;
 
 		$method   = trim($instance['method']);
 		$specific = trim($instance['specific']);
@@ -1029,9 +853,9 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		// Correzione del valore di dimensione in caso di default
 		// che può essere diverso tra portrait e landscape
 
-		if ($width == '') {
-			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT;
-			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE;
+		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
 		}
 
 		if ($dfsize == '1') {
@@ -1042,44 +866,29 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		// Calcolo del valore ID per la composizione del badge
 
 		if ($method == '1') $profile = $options['plus_profile']; 
-		if ($method == '2') $profile = $specific;
-
-		// Se il profilo g+ non esiste visualizzo default
-
-		if (!isset($profile) or trim($profile)=='') { 
-			$profile = SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; 
-			$author  = 'false'; 
-		}
+			else $profile = $specific;
 
 		// Creazione del codice per il badge di google+
+
+		$HTML = sz_google_modules_plus_get_code_profile(array(
+			'id'      => trim($profile),
+			'width'   => trim($width),
+			'layout'  => trim($layout),
+			'theme'   => trim($theme),
+			'cover'   => trim($photo),
+			'tagline' => trim($tagline),
+			'author'  => trim($author),
+			'action'  => trim('widget'),
+		));
 		 
-		$HTML  = '<div class="g-person"';
-		$HTML .= ' data-href="https://plus.google.com/'.$profile.'"';
-		$HTML .= ' data-width="'         .$width  .'"';
-		$HTML .= ' data-layout="'        .$layout .'"';
-		$HTML .= ' data-theme="'         .$theme  .'"';
-		$HTML .= ' data-showcoverphoto="'.$photo  .'"';
-		$HTML .= ' data-showtagline="'   .$tagline.'"';
-
-		if ($author == 'true') {		
-			$HTML .= ' data-rel="author"';
-		}
-
-		$HTML .= '></div>';
-
 		// Output del codice HTML legato al widget da visualizzare		 
 
-		$output  = '';
-		$output .= $before_widget;
+		$output  = $before_widget;
 		$output .= $title;
 		$output .= $HTML;
 		$output .= $after_widget;
 
 		echo $output;
-
-		// Aggiunta del codice javascript per il rendering dei widget		 
-
-		add_action('wp_footer','sz_google_modules_plus_add_script_footer');
 	}
 
 	// Funzione per modifica parametri collegati al widget con 
@@ -1099,7 +908,7 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		$instance['tagline']  = trim(strip_tags($new_instance['tagline']));
 		$instance['author']   = trim(strip_tags($new_instance['author']));
 
-		if (!isset($new_instance['dfsize'])) $instance['dfsize'] = ''; 
+		if (!isset($new_instance['dfsize'])) $instance['dfsize'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
 			else $instance['dfsize'] = trim(strip_tags($new_instance['dfsize']));
 
 		return $instance;
@@ -1113,16 +922,16 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$array = array(
-			'title'    => '',
-			'method'   => '1',
-			'specific' => '',
-			'width'    => SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT,
-			'dfsize'   => '1',
-			'layout'   => 'portrait',
-			'theme'    => 'light',
-			'photo'    => 'true',
-			'tagline'  => 'true',
-			'author'   => 'true',
+			'method'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'dfsize'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'specific' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'title'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'layout'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
+			'theme'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
+			'photo'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
+			'tagline'  => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE,
+			'author'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
@@ -1255,11 +1064,155 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		echo '</tr>';
 		echo '</table>';
 	}
+}
 
+/* ************************************************************************** */
+/* PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE */
+/* PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE */
+/* PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE */
+/* PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE */
+/* PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_code_page($atts,$content=null) 
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'id'        => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
+		'width'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'layout'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'theme'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'cover'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'tagline'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'publisher' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'action'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Esecuzione trim su valori specificati su shortcode
+
+	$id        = trim($id);
+	$width     = strtolower(trim($width));
+	$layout    = strtolower(trim($layout));
+	$theme     = strtolower(trim($theme));
+	$cover     = strtolower(trim($cover));
+	$tagline   = strtolower(trim($tagline));
+	$publisher = strtolower(trim($publisher));
+	$action    = strtolower(trim($action));
+
+	// Lettura opzioni generali per impostazione dei dati di default
+
+	$options = sz_google_modules_plus_options();
+
+	// Imposto i valori di default nel caso siano specificati dei valori
+	// che non appartengono al range dei valori accettati
+
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_page']; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE; $publisher = 'false'; }
+
+	// Controllo se azione di richiesta non è un widget posso conrollare i valori
+	// di default legati allo shortcode che sono gli stessi per la funzione PHP diretta
+
+	if ($action != 'widget') 
+	{
+		if ($layout    <> 'portrait' and $layout    <> 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
+		if ($theme     <> 'light'    and $theme     <> 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
+		if ($cover     <> 'true'     and $cover     <> 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
+		if ($tagline   <> 'true'     and $tagline   <> 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
+		if ($publisher <> 'true'     and $publisher <> 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER; 
+
+		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
+			if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
+				else $width = $options['plus_shortcode_size_landscape']; 
+		}
+
+	} else {
+
+		if ($layout    <> 'portrait' and $layout    <> 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
+		if ($theme     <> 'light'    and $theme     <> 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
+		if ($cover     <> 'true'     and $cover     <> 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
+		if ($tagline   <> 'true'     and $tagline   <> 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
+		if ($publisher <> 'true'     and $publisher <> 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER; 
+
+		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
+			if ($layout == 'portrait') $width = $options['plus_widget_size_portrait'];
+				else $width = $options['plus_widget_size_landscape']; 
+		}
+	}
+
+	// Preparazione codice HTML per il badge di google plus
+
+	$HTML  = '<div class="sz-google-page">';
+	$HTML .= '<div class="sz-google-page-wrap">';
+	$HTML .= '<div class="g-page"';
+	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
+	$HTML .= ' data-width="'         .$width  .'"';
+	$HTML .= ' data-layout="'        .$layout .'"';
+	$HTML .= ' data-theme="'         .$theme  .'"';
+	$HTML .= ' data-showcoverphoto="'.$cover  .'"';
+	$HTML .= ' data-showtagline="'   .$tagline.'"';
+
+	if ($publisher == 'true') {		
+		$HTML .= ' data-rel="publisher"';
+	}
+
+	$HTML .= '></div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ PAGE funzione per elaborazione shortcode (sz-gplus-page)           */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_plus_page($atts,$content=null) 
+{
+	extract(shortcode_atts(array(
+		'id'        => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
+		'width'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
+		'layout'    => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
+		'theme'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
+		'cover'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
+		'tagline'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE,
+		'publisher' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML = sz_google_modules_plus_get_code_page(array(
+		'id'        => trim($id),
+		'width'     => trim($width),
+		'layout'    => trim($layout),
+		'theme'     => trim($theme),
+		'cover'     => trim($cover),
+		'tagline'   => trim($tagline),
+		'publisher' => trim($publisher),
+		'action'    => trim('shortcode'),
+	),$content);
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
 }
 
 /* ************************************************************************** */ 
-/* SZ_Widget_Google_Page - Inserimento pagina sulla sidebar come widget       */ 
+/* GOOGLE+ PAGE definizione ed elaborazione del widget su sidebar             */ 
 /* ************************************************************************** */ 
 
 class SZ_Widget_Google_Page extends WP_Widget 
@@ -1267,12 +1220,15 @@ class SZ_Widget_Google_Page extends WP_Widget
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
 
-	function SZ_Widget_Google_Page() {
+	function SZ_Widget_Google_Page() 
+	{
 		$widget_ops  = array(
 			'classname'   => 'widget-sz-google', 
 			'description' => ucfirst(__('widget for google+ page','szgoogleadmin'))
 		);
-		$this->WP_Widget('SZ-Google-Page',__('SZ-Google - G+ Page','szgoogleadmin'),$widget_ops);
+	
+		$this->WP_Widget('SZ-Google-Page',
+			__('SZ-Google - G+ Page','szgoogleadmin'),$widget_ops);
 	}
 
 	// Funzione per la visualizzazione del widget con lettura parametri
@@ -1282,31 +1238,23 @@ class SZ_Widget_Google_Page extends WP_Widget
 	{
 		extract($args);
 
-		// Costruzione del titolo del widget
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
 
-		if (empty($instance['title'])) $title = '';
-			else $title = trim($instance['title']);
+		$title = sz_google_modules_widget_title($args,$instance);
 
-		$title = apply_filters('widget_title',$title,$instance,$this->id_base);
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
 
-		if (!isset($before_title)) $before_title = '';
-		if (!isset($after_title))  $after_title = '';
-
-		if ($title and $title <> '') {
-			$title = $before_title.$title.$after_title;
-		}
-
-		// Controllo se esistono le variabili di opzione
-
-		if (empty($instance['method']))    $instance['method']    = '1';
-		if (empty($instance['specific']))  $instance['specific']  = '';
-		if (empty($instance['width']))     $instance['width']     = '';
-		if (empty($instance['dfsize']))    $instance['dfsize']    = '';
-		if (empty($instance['layout']))    $instance['layout']    = 'portrait';
-		if (empty($instance['theme']))     $instance['theme']     = 'light';
-		if (empty($instance['photo']))     $instance['photo']     = 'true';
-		if (empty($instance['tagline']))   $instance['tagline']   = 'true';
-		if (empty($instance['publisher'])) $instance['publisher'] = 'true';
+		if (empty($instance['method']))    $instance['method']    = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		if (empty($instance['specific']))  $instance['specific']  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))     $instance['width']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['dfsize']))    $instance['dfsize']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['layout']))    $instance['layout']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
+		if (empty($instance['theme']))     $instance['theme']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
+		if (empty($instance['photo']))     $instance['photo']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
+		if (empty($instance['tagline']))   $instance['tagline']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE;
+		if (empty($instance['publisher'])) $instance['publisher'] = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER;
 
 		$method    = trim($instance['method']);
 		$specific  = trim($instance['specific']);
@@ -1326,8 +1274,8 @@ class SZ_Widget_Google_Page extends WP_Widget
 		// che può essere diverso tra portrait e landscape
 
 		if ($width == '') {
-			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT;
-			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE;
+			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
 		}
 
 		if ($dfsize == '1') {
@@ -1338,45 +1286,29 @@ class SZ_Widget_Google_Page extends WP_Widget
 		// Calcolo del valore ID per la composizione del badge
 
 		if ($method == '1') $page = $options['plus_page']; 
-		if ($method == '2') $page = $specific;
-
-		// Se la business page non esiste visualizzo la default
-
-		if (!isset($page) or trim($page)=='') 
-		{ 
-			$page = SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE; 
-			$publisher = 'false'; 
-		}
+			else $page = $specific;
 
 		// Creazione del codice per il badge di google+
 		 
-		$HTML  = '<div class="g-page"';
-		$HTML .= ' data-href="https://plus.google.com/'.$page.'"';
-		$HTML .= ' data-width="'         .$width  .'"';
-		$HTML .= ' data-layout="'        .$layout .'"';
-		$HTML .= ' data-theme="'         .$theme  .'"';
-		$HTML .= ' data-showcoverphoto="'.$photo  .'"';
-		$HTML .= ' data-showtagline="'   .$tagline.'"';
-
-		if ($publisher == 'true') {		
-			$HTML .= ' data-rel="publisher"';
-		}
-
-		$HTML .= '></div>';
+		$HTML = sz_google_modules_plus_get_code_page(array(
+			'id'        => trim($page),
+			'width'     => trim($width),
+			'layout'    => trim($layout),
+			'theme'     => trim($theme),
+			'cover'     => trim($photo),
+			'tagline'   => trim($tagline),
+			'publisher' => trim($publisher),
+			'action'    => trim('widget'),
+		));
 
 		// Output del codice HTML legato al widget da visualizzare		 
 
-		$output  = '';
-		$output .= $before_widget;
+		$output  = $before_widget;
 		$output .= $title;
 		$output .= $HTML;
 		$output .= $after_widget;
 
 		echo $output;
-
-		// Aggiunta del codice javascript per il rendering dei widget		 
-
-		add_action('wp_footer','sz_google_modules_plus_add_script_footer');
 	}
 
 	// Funzione per modifica parametri collegati al widget con 
@@ -1410,16 +1342,16 @@ class SZ_Widget_Google_Page extends WP_Widget
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$array = array(
-			'title'     => '',
-			'method'    => '1',
-			'specific'  => '',
-			'width'     => SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT,
-			'dfsize'    => '1',
-			'layout'    => 'portrait',
-			'theme'     => 'light',
-			'photo'     => 'true',
-			'tagline'   => 'true',
-			'publisher' => 'true',
+			'title'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'method'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'specific'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'dfsize'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'layout'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
+			'theme'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
+			'photo'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
+			'tagline'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE,
+			'publisher' => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
@@ -1552,11 +1484,144 @@ class SZ_Widget_Google_Page extends WP_Widget
 		echo '</tr>';
 		echo '</table>';
 	}
+}
 
+/* ************************************************************************** */
+/* COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMM */
+/* COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMM */
+/* COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMM */
+/* COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMM */
+/* COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMMUNITY COMM */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_code_community($atts,$content=null) 
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY,
+		'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'layout' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'theme'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'photo'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'owner'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'action' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Esecuzione trim su valori specificati su shortcode
+
+	$id     = trim($id);
+	$width  = strtolower(trim($width));
+	$layout = strtolower(trim($layout));
+	$theme  = strtolower(trim($theme));
+	$photo  = strtolower(trim($photo));
+	$owner  = strtolower(trim($owner));
+	$action = strtolower(trim($action));
+
+	// Lettura opzioni generali per impostazione dei dati di default
+
+	$options = sz_google_modules_plus_options();
+
+	// Imposto i valori di default nel caso siano specificati dei valori
+	// che non appartengono al range dei valori accettati
+
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_community']; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY; }
+
+	// Controllo se azione di richiesta non è un widget posso conrollare i valori
+	// di default legati allo shortcode che sono gli stessi per la funzione PHP diretta
+
+	if ($action != 'widget') 
+	{
+		if ($layout <> 'portrait' and $layout <> 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
+		if ($theme  <> 'light'    and $theme  <> 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
+		if ($photo  <> 'true'     and $photo  <> 'false')     $photo  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO; 
+		if ($owner  <> 'true'     and $owner  <> 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER; 
+
+		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
+			if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
+				else $width = $options['plus_shortcode_size_landscape']; 
+		}
+
+	} else {
+
+		if ($layout <> 'portrait' and $layout <> 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
+		if ($theme  <> 'light'    and $theme  <> 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
+		if ($photo  <> 'true'     and $photo  <> 'false')     $cover  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO; 
+		if ($owner  <> 'true'     and $owner  <> 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER; 
+
+		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
+			if ($layout == 'portrait') $width = $options['plus_widget_size_portrait'];
+				else $width = $options['plus_widget_size_landscape']; 
+		}
+	}
+
+	// Preparazione codice HTML per il badge di google plus
+
+	$HTML  = '<div class="sz-google-community">';
+	$HTML .= '<div class="sz-google-community-wrap">';
+	$HTML .= '<div class="g-community"';
+	$HTML .= ' data-href="https://plus.google.com/communities/'.$id.'"';
+	$HTML .= ' data-width="'     .$width  .'"';
+	$HTML .= ' data-layout="'    .$layout.'"';
+	$HTML .= ' data-theme="'     .$theme .'"';
+	$HTML .= ' data-showphoto="' .$photo .'"';
+	$HTML .= ' data-showowners="'.$owner .'"';
+	$HTML .= '></div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ COMMUNITY funzione per elaborazione shortcode (sz-gplus-community) */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_plus_community($atts,$content=null) 
+{
+	extract(shortcode_atts(array(
+		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY,
+		'width'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
+		'layout' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
+		'theme'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
+		'photo'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO,
+		'owner'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML = sz_google_modules_plus_get_code_community(array(
+		'id'     => trim($id),
+		'width'  => trim($width),
+		'layout' => trim($layout),
+		'theme'  => trim($theme),
+		'photo'  => trim($photo),
+		'owner'  => trim($owner),
+		'action' => trim('shortcode'),
+	),$content);
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
 }
 
 /* ************************************************************************** */ 
-/* SZ_Widget_Google_Community - Inserimento sulla sidebar come widget         */ 
+/* GOOGLE+ COMMUNITY definizione ed elaborazione del widget su sidebar        */ 
 /* ************************************************************************** */ 
 
 class SZ_Widget_Google_Community extends WP_Widget 
@@ -1564,12 +1629,15 @@ class SZ_Widget_Google_Community extends WP_Widget
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
 
-	function SZ_Widget_Google_Community() {
+	function SZ_Widget_Google_Community() 
+	{
 		$widget_ops  = array(
 			'classname'   => 'widget-sz-google', 
 			'description' => ucfirst(__('widget for google+ community','szgoogleadmin'))
 		);
-		$this->WP_Widget('SZ-Google-Community',__('SZ-Google - G+ Community','szgoogleadmin'),$widget_ops);
+
+		$this->WP_Widget('SZ-Google-Community',
+			__('SZ-Google - G+ Community','szgoogleadmin'),$widget_ops);
 	}
 
 	// Funzione per la visualizzazione del widget con lettura parametri
@@ -1579,30 +1647,22 @@ class SZ_Widget_Google_Community extends WP_Widget
 	{
 		extract($args);
 
-		// Costruzione del titolo del widget
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
 
-		if (empty($instance['title'])) $title = '';
-			else $title = trim($instance['title']);
+		$title = sz_google_modules_widget_title($args,$instance);
 
-		$title = apply_filters('widget_title',$title,$instance,$this->id_base);
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
 
-		if (!isset($before_title)) $before_title = '';
-		if (!isset($after_title))  $after_title = '';
-
-		if ($title and $title <> '') {
-			$title = $before_title.$title.$after_title;
-		}
-
-		// Controllo se esistono le variabili di opzione
-
-		if (empty($instance['method']))   $instance['method']   = '1';
-		if (empty($instance['specific'])) $instance['specific'] = '';
-		if (empty($instance['width']))    $instance['width']    = '';
-		if (empty($instance['dfsize']))   $instance['dfsize']   = '';
-		if (empty($instance['layout']))   $instance['layout']   = 'portrait';
-		if (empty($instance['theme']))    $instance['theme']    = 'light';
-		if (empty($instance['photo']))    $instance['photo']    = 'true';
-		if (empty($instance['owner']))    $instance['owner']    = 'false';
+		if (empty($instance['method']))   $instance['method']   = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		if (empty($instance['specific'])) $instance['specific'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))    $instance['width']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['dfsize']))   $instance['dfsize']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['layout']))   $instance['layout']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
+		if (empty($instance['theme']))    $instance['theme']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
+		if (empty($instance['photo']))    $instance['photo']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
+		if (empty($instance['owner']))    $instance['owner']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER;
 
 		$method   = trim($instance['method']);
 		$specific = trim($instance['specific']);
@@ -1620,9 +1680,9 @@ class SZ_Widget_Google_Community extends WP_Widget
 		// Correzione del valore di dimensione in caso di default
 		// che può essere diverso tra portrait e landscape
 
-		if ($width == '') {
-			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT;
-			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_WIDGET_SIZE_LANDSCAPE;
+		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
 		}
 
 		if ($dfsize == '1') {
@@ -1633,38 +1693,28 @@ class SZ_Widget_Google_Community extends WP_Widget
 		// Calcolo del valore ID per la composizione del badge
 
 		if ($method == '1') $community = $options['plus_community'];
-		if ($method == '2') $community = $specific;
-
-		// Se la community non esiste visualizzo la default
-
-		if (!isset($community) or trim($community)=='') { 
-			$community = SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY; 
-		}
+			else $community = $specific;
 
 		// Creazione del codice per il badge di google+
-		 
-		$HTML  = '<div class="g-community"';
-		$HTML .= ' data-href="https://plus.google.com/communities/'.$community.'"';
-		$HTML .= ' data-width="'     .$width  .'"';
-		$HTML .= ' data-layout="'    .$layout.'"';
-		$HTML .= ' data-theme="'     .$theme .'"';
-		$HTML .= ' data-showphoto="' .$photo .'"';
-		$HTML .= ' data-showowners="'.$owner .'"';
-		$HTML .= '></div>';
 
+		$HTML = sz_google_modules_plus_get_code_community(array(
+			'id'     => trim($community),
+			'width'  => trim($width),
+			'layout' => trim($layout),
+			'theme'  => trim($theme),
+			'photo'  => trim($photo),
+			'owner'  => trim($owner),
+			'action' => trim('widget'),
+		));
+	 
 		// Output del codice HTML legato al widget da visualizzare		 
 
-		$output  = '';
-		$output .= $before_widget;
+		$output  = $before_widget;
 		$output .= $title;
 		$output .= $HTML;
 		$output .= $after_widget;
 
 		echo $output;
-
-		// Aggiunta del codice javascript per il rendering dei widget		 
-
-		add_action('wp_footer','sz_google_modules_plus_add_script_footer');
 	}
 
 	// Funzione per modifica parametri collegati al widget con 
@@ -1697,15 +1747,15 @@ class SZ_Widget_Google_Community extends WP_Widget
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$array = array(
-			'title'    => '',
-			'method'   => '1',
-			'specific' => '',
-			'width'    => SZ_PLUGIN_GOOGLE_WIDGET_SIZE_PORTRAIT,
-			'dfsize'   => '1',
-			'layout'   => 'portrait',
-			'theme'    => 'light',
-			'photo'    => 'true',
-			'owner'    => 'false',
+			'title'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'method'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'specific' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'dfsize'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'layout'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
+			'theme'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
+			'photo'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
+			'owner'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
@@ -1826,11 +1876,216 @@ class SZ_Widget_Google_Community extends WP_Widget
 		echo '</tr>';
 		echo '</table>';
 	}
+}
 
+/* ************************************************************************** */
+/* COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS CO */
+/* COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS CO */
+/* COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS CO */
+/* COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS CO */
+/* COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS COMMENTS CO */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_code_comments($atts,$content=null) 
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
+
+	$options  = sz_google_modules_plus_options();
+	$uniqueID = 'sz-google-comments-'.md5(uniqid(),false);
+
+	$url   = trim($url);
+	$width = strtolower(trim($width));
+
+	// Controllo opzione per dimensione fissa da applicare se esiste 
+	// un valore specificato e il parametro width non è stato specificato. 
+
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL and $options['plus_comments_fixed_size'] != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+		$width = $options['plus_comments_fixed_size'];
+	}
+
+	if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+
+	// Se non specifico un URL fisso imposto il permalink attuale
+
+	if ($url == '') $url = get_permalink();
+
+	// Creazione codice HTML per embed code da inserire nella pagina wordpress
+	// Questo codice deve essere usato sia dallo shortcode, dal widget e dalla funzione
+
+	$HTML  = '<div class="sz-google-comments">';
+	$HTML .= '<div id="'.$uniqueID.'" class="sz-google-comments-wrap">';
+	$HTML .= '<script type="text/javascript">';
+	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
+	$HTML .= "document.write('";
+	$HTML .= '<div class="g-comments"';
+	$HTML .= ' data-href="'.$url.'"';
+	$HTML .= ' data-width="'.$width.'"';
+	$HTML .= ' data-height="50" ';
+	$HTML .= ' data-first_party_property="BLOGGER"';
+	$HTML .= ' data-view_type="FILTERED_POSTMOD"';
+	$HTML .= '></div>'."');";
+	$HTML .= '</script>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ COMMENTS funzione per rendering del sistema di commenti            */
+/* ************************************************************************** */
+
+function sz_google_modules_comments_system_enable() 
+{
+	// Calcolo opzioni di configurazione generale
+
+	$options = sz_google_modules_plus_options();
+
+	// Se è specificata opzione dopo il contenuto applico il filtro a the_content
+	// altrimenti applico il filtro alla funzione di comment_template
+
+	if ($options['plus_comments_ac_enable'] == '1') add_filter('the_content','sz_google_modules_comments_content');
+		else add_filter('comments_template','sz_google_modules_comments_system');
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ COMMENTS funzione per rendering del sistema di commenti            */
+/* ************************************************************************** */
+
+function sz_google_modules_comments_system($include) 
+{
+	global $post,$comments;
+
+	if (!(is_singular() && (have_comments() || 'open' == $post->comment_status))) { return; }
+
+	// Aggiornamento delle variabili che contengono le opzioni		 
+	// di eleborazione commenti e loro posizione nella pagina
+
+	$checkdt = '00000000';
+	$checkid	= get_the_date('Ymd');
+	$options = sz_google_modules_plus_options();
+
+	// Calcolo la data di confronto per la funzione dei commenti
+
+	if ($options['plus_comments_dt_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+	{
+		$checkdt  = sprintf('%04d',$options['plus_comments_dt_year']);
+		$checkdt .= sprintf('%02d',$options['plus_comments_dt_month']);
+		$checkdt .= sprintf('%02d',$options['plus_comments_dt_day']);
+
+		// Se devo controllare la data e non rientra nel range giusto non eseguo
+		// l'elaborazione del sistema commenti e rimando a quello originale
+
+		if ($checkid <= $checkdt) {
+			return $include;
+		}
+	}
+
+	// Controllo se devo mantenere i commenti standard di wordpress		 
+	// in caso affermativo eseguo il file prima dei commenti di google plus
+
+	if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and $options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {   
+		if (file_exists($include)) @require($include);
+		echo '<div id="sz-google-comments-margin" style="margin-bottom:1em"></div>';
+	}
+
+	// Creazione codice HTML per inserimento widget commenti		 
+
+	$HTML = sz_google_modules_plus_get_code_comments(array(
+		'url'   => get_permalink(),
+		'width' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	));
+
+	echo $HTML;
+
+	// Aggiunta del codice javascript per il rendering dei widget		 
+	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	// Ritorno stesso template passato alla funzione nel caso in cui
+	// devo mantenere i commenti standard dopo quelli di google plus
+	
+	if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and $options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_NO) {   
+		return $include;
+	}
+
+	// Ritorno template di commenti dummy con nessuna azione HTML
+	
+	return plugin_dir_path( __FILE__ ).'sz-google-modules-plus-comments-dummy.php';
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ COMMENTS funzione per rendering del sistema di commenti            */
+/* ************************************************************************** */
+
+function sz_google_modules_comments_content($content) 
+{
+	global $post,$comments;
+
+	if (!(is_singular() && (have_comments() || 'open' == $post->comment_status))) { return $content; }
+
+	// Creazione codice HTML per inserimento widget dei commenti		 
+
+	$HTML = sz_google_modules_plus_get_code_comments(array(
+		'url'   => get_permalink(),
+		'width' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	));
+
+	// Aggiunta del codice javascript per il rendering dei widget		 
+	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	return $content.$HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ COMMENTS funzione per elaborazione shortcode (sz-gplus-comments)   */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_plus_comments($atts,$content=null) 
+{
+	extract(shortcode_atts(array(
+		'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML = sz_google_modules_plus_get_code_comments(array(
+		'url'   => trim($url),
+		'width' => trim($width),
+	),$content);
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
 }
 
 /* ************************************************************************** */ 
-/* SZ_Widget_Google_Profile - Inserimento profilo sulla sidebar come widget   */ 
+/* GOOGLE+ COMMENTS definizione ed elaborazione del widget su sidebar         */ 
 /* ************************************************************************** */ 
 
 class SZ_Widget_Google_Comments extends WP_Widget
@@ -1838,12 +2093,15 @@ class SZ_Widget_Google_Comments extends WP_Widget
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
 
-	function SZ_Widget_Google_Comments() {
+	function SZ_Widget_Google_Comments() 
+	{
 		$widget_ops  = array(
 			'classname'   => 'widget-sz-google', 
 			'description' => ucfirst(__('widget for google+ comments','szgoogleadmin'))
 		);
-		$this->WP_Widget('SZ-Google-Comments',__('SZ-Google - G+ Comments','szgoogleadmin'),$widget_ops);
+
+		$this->WP_Widget('SZ-Google-Comments',
+			__('SZ-Google - G+ Comments','szgoogleadmin'),$widget_ops);
 	}
 
 	// Funzione per la visualizzazione del widget con lettura parametri
@@ -1853,73 +2111,41 @@ class SZ_Widget_Google_Comments extends WP_Widget
 	{
 		extract($args);
 
-		// Costruzione del titolo del widget
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
 
-		if (empty($instance['title'])) $title = '';
-			else $title = trim($instance['title']);
+		$title = sz_google_modules_widget_title($args,$instance);
 
-		$title = apply_filters('widget_title',$title,$instance,$this->id_base);
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
 
-		if (!isset($before_title)) $before_title = '';
-		if (!isset($after_title))  $after_title = '';
-
-		if ($title and $title <> '') {
-			$title = $before_title.$title.$after_title;
-		}
-
-		// Controllo se esistono le variabili di opzione
-
-		if (empty($instance['url']))        $instance['url']        = '';
-		if (empty($instance['width']))      $instance['width']      = '';
-		if (empty($instance['responsive'])) $instance['responsive'] = '1';
+		if (empty($instance['url']))        $instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))      $instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['responsive'])) $instance['responsive'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
 
 		$url        = trim($instance['url']);
 		$width      = trim($instance['width']);
 		$responsive = trim($instance['responsive']);
 
-		// Imposto i valori di default nel caso siano specificati dei valori
-		// che non appartengono al range dei valori accettati
-
-		if ($url == '') $url = get_permalink();
-
-		// Creazione codice univoco per l'inserimento del box commenti		 
-
-		$uniqueID = 'sz-google-comments-'.md5(uniqid(),false);
+		if ($responsive == '1' or !is_numeric($width) or $width == '' or $width == '0') { 
+			$width = "'+w+'";
+		}
 
 		// Creazione codice HTML per inserimento widget commenti		 
-	
-		if ($responsive == '1' or !is_numeric($width) or $width == '' or $width == '0') 
-		{ 
-			$HTML  = '<div id="'.$uniqueID.'" class="sz-comments-shortcode">';
-			$HTML .= '<script type="text/javascript">';
-			$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-			$HTML .= "document.write('".'<div class="g-comments" data-href="'.$url.'" data-width="'."'+w+'".'" data-height="50" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>'."');";
-			$HTML .= '</script>';
-			$HTML .= '</div>';
 
-		} else {
+		$HTML = sz_google_modules_plus_get_code_comments(array(
+			'url'   => trim($url),
+			'width' => trim($width),
+		));
 
-			$HTML  = '<div id="'.$uniqueID.'" class="sz-comments-shortcode">';
-			$HTML .= '<script type="text/javascript">';
-			$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-			$HTML .= "document.write('".'<div class="g-comments" data-href="'.$url.'" data-width="'.$width.'" data-height="50" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD"></div>'."');";
-			$HTML .= '</script>';
-			$HTML .= '</div>';
-		}
-		 
 		// Output del codice HTML legato al widget da visualizzare		 
 
-		$output  = '';
-		$output .= $before_widget;
+		$output  = $before_widget;
 		$output .= $title;
 		$output .= $HTML;
 		$output .= $after_widget;
 
 		echo $output;
-
-		// Aggiunta del codice javascript per il rendering dei widget		 
-
-		add_action('wp_footer','sz_google_modules_plus_add_script_footer');
 	}
 
 	// Funzione per modifica parametri collegati al widget con 
@@ -1930,6 +2156,7 @@ class SZ_Widget_Google_Comments extends WP_Widget
 		$instance = $old_instance;
 
 		$instance['url']        = trim($new_instance['url']);
+		$instance['title']      = trim(strip_tags($new_instance['title']));
 		$instance['width']      = trim(strip_tags($new_instance['width']));
 		$instance['responsive'] = trim(strip_tags($new_instance['responsive']));
 
@@ -1941,22 +2168,25 @@ class SZ_Widget_Google_Comments extends WP_Widget
 	
 	function form($instance) 
 	{
-		// Creazione array per elenco campi da recuperare su FORM
-
 		$array = array(
-			'url'        => '',
-			'width'      => '',
-			'responsive' => '1',
+			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'responsive' => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$instance   = wp_parse_args((array) $instance,$array);
 		$url        = trim($instance['url']);
+		$title      = trim(strip_tags($instance['title']));
 		$width      = trim(strip_tags($instance['width']));
 		$responsive = trim(strip_tags($instance['responsive']));
 
 		// Campo di selezione parametro badge per TITOLO
+
+		echo '<p><label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
+		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/></p>';
 
 		echo '<p><label for="'.$this->get_field_id('url').'">'.ucfirst(__('url','szgoogleadmin')).':</label>';
 		echo '<input class="widefat" id="'.$this->get_field_id('url').'" name="'.$this->get_field_name('url').'" type="text" value="'.$url.'"/></p>';
@@ -1970,5 +2200,207 @@ class SZ_Widget_Google_Comments extends WP_Widget
 		echo '</tr>';
 		echo '</table>';
 	}
+}
 
+/* ************************************************************************** */
+/* REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWR */
+/* REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWR */
+/* REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWR */
+/* REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWR */
+/* REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWRITE RULES REWR */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_rewrite_rules() 
+{
+	global $wp; 
+	$options = sz_google_modules_plus_options();
+
+	// Controllo REDIRECT per url con la stringa "+"
+
+	if ($options['plus_redirect_sign'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+		add_rewrite_rule('^\+$','index.php?szgoogleplusredirectsign=1','top');		
+		$wp->add_query_var('szgoogleplusredirectsign');
+	}   
+
+	// Controllo REDIRECT per url con la stringa "plus"
+
+	if ($options['plus_redirect_plus'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+		add_rewrite_rule('^plus$','index.php?szgoogleplusredirectplus=1','top');		
+		$wp->add_query_var('szgoogleplusredirectplus');
+	}   
+
+	// Controllo REDIRECT per url con la stringa "URL"
+
+	if ($options['plus_redirect_curl'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+		if (trim($options['plus_redirect_curl_dir']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL and trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			add_rewrite_rule('^'. preg_quote(trim($options['plus_redirect_curl_dir'])).'$','index.php?szgoogleplusredirectcurl=1','top');		
+			$wp->add_query_var('szgoogleplusredirectcurl');
+		}
+	}   
+
+	// Se opzione di flush è disattivata eseguo il flush_rules ed eseguo
+	// la modifica dell'opzione al valore "1" per non ripetere l'operazione
+
+	if ($options['plus_redirect_flush'] == SZ_PLUGIN_GOOGLE_VALUE_NO) 
+	{
+		$options['plus_redirect_flush'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		update_option('sz_google_options_plus',$options);
+		add_action('wp_loaded','sz_google_modules_flush_rules');
+	}
+
+	// Aggiungo variabile QUERY URL e controllo personalizzato di redirect
+	
+	add_action('parse_request','sz_google_modules_plus_parse_query');
+}
+
+/* ************************************************************************** */
+/* Controllo le variabili su URL ed eseguo redirect se necessario             */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_parse_query(&$wp)
+{
+	$options = sz_google_modules_plus_options();
+
+	// Controllo REDIRECT per url con la stringa "+"
+
+	if (array_key_exists('szgoogleplusredirectsign',$wp->query_vars)) {
+		if (trim($options['plus_redirect_sign_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+			header("location:".trim($options['plus_redirect_sign_url'])); exit();
+		}
+	}
+
+	// Controllo REDIRECT per url con la stringa "plus"
+	
+	if (array_key_exists('szgoogleplusredirectplus',$wp->query_vars)) {
+		if (trim($options['plus_redirect_plus_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+			header("location:".trim($options['plus_redirect_plus_url'])); exit();
+		}
+	}
+
+	// Controllo REDIRECT per url con la stringa "URL"
+	
+	if (array_key_exists('szgoogleplusredirectcurl',$wp->query_vars)) {
+		if (trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+			header("location:".trim($options['plus_redirect_curl_url'])); exit();
+		}
+	}
+}
+
+/* ************************************************************************** */
+/* COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE CO */
+/* COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE CO */
+/* COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE CO */
+/* COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE CO */
+/* COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE COMMON CODE CO */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_add_script_footer()
+{
+	// Se sono già entrato in questa funzione non eseguo niente
+	
+	if (defined('SZ_GOOGLE_MODULES_PLUS_ADD_SCRIPT_FOOTER')) return;
+	
+	// Controllo opzioni per linguaggio impostato o tema o specifico
+
+	define('SZ_GOOGLE_MODULES_PLUS_ADD_SCRIPT_FOOTER',true);
+
+	$options = sz_google_modules_plus_options();
+
+	if ($options['plus_system_javascript'] == SZ_PLUGIN_GOOGLE_VALUE_YES) return;	
+
+	if ($options['plus_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
+		else $language = trim($options['plus_language']);
+
+	// Codice javascript per il rendering dei componenti google plus
+	
+	$javascript  = '<script type="text/javascript">';
+  	$javascript .= "window.___gcfg = {lang:'".trim($language)."'};";
+	$javascript .= "(function() {";
+	$javascript .= "var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;";
+	$javascript .= "po.src = 'https://apis.google.com/js/plusone.js';";
+	$javascript .=  "var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);";
+	$javascript .=  "})();";
+	$javascript .=	"</script>"."\n";
+	
+	echo $javascript;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ COMMON codice per disegnare il wrap dei bottoni di google plus     */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_code_button_wrap($atts) 
+{
+	extract(shortcode_atts(array(
+		'html'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'image'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'content'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'class'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	$HTML   = '<div class="'.$class.'">';
+	$HTML  .= '<div class="sz-google-button">';
+	$HTML  .= '<div class="sz-google-button-wrap" style="position:relative;margin-bottom:1em">';
+	$HTML  .= '<div class="sz-google-button-body">';
+
+	// Se trovo contenuto per il parametro "text" dello shortcode
+	// lo aggiungo prima del codice embed originale di google
+
+	if ($text != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+		$HTML .= '<div class="sz-google-button-text">';
+		$HTML .= '<p>'.$text.'</p>';
+		$HTML .= '</div>';
+	}
+
+	// Se trovo contenuto per il parametro "image" dello shortcode
+	// lo aggiungo prima del codice embed originale di google
+
+	if ($image != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+		$HTML .= '<div class="sz-google-button-imgs">';
+		$HTML .= '<p><img src="'.$image.'" alt=""/></p>';
+		$HTML .= '</div>';
+	}
+
+	// Se trovo contenuto tra inizio e fine dello shortcode
+	// lo aggiungo prima del codice embed originale di google
+
+	if ($content != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+		$HTML .= '<div class="sz-google-button-cont">';
+		$HTML .= $content;
+		$HTML .= '</div>';
+	}
+
+	$HTML .= '</div>';
+
+	// Aggiunta del codice per inserimento iframe originale
+	// di google con allineamento e posizionamento
+
+	$HTML .= '<div class="sz-google-button-code">';
+	$HTML .= '<div class="sz-google-button-side"';
+	$HTML .= ' style="display:block;';
+
+	if ($position == 'top')    $HTML .= 'position:absolute;width:100%;left:0;padding:1em;top:0;';		
+	if ($position == 'center') $HTML .= 'position:absolute;width:100%;left:0;padding:1em;top:48%';		
+	if ($position == 'bottom') $HTML .= 'position:absolute;width:100%;left:0;padding:1em;bottom:0;';		
+
+	if ($align == 'left')   $HTML .= 'text-align:left';		
+	if ($align == 'center') $HTML .= 'text-align:center';		
+	if ($align == 'right')  $HTML .= 'text-align:right';		
+
+	$HTML .= '">';
+	$HTML .= $html;
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
 }
