@@ -38,6 +38,10 @@ if ($options['plus_shortcode_co_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 	add_shortcode('sz-gplus-community','sz_google_shortcodes_plus_community');
 }
 
+if ($options['plus_shortcode_fl_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+	add_shortcode('sz-gplus-followers','sz_google_shortcodes_plus_followers');
+}
+
 if ($options['plus_button_enable_plusone'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 	add_shortcode('sz-gplus-one','sz_google_shortcodes_plus_plusone');
 }
@@ -74,8 +78,16 @@ if ($options['plus_widget_co_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 	add_action('widgets_init', create_function('', 'return register_widget("SZ_Widget_Google_Community");'));
 }
 
+if ($options['plus_widget_fl_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
+	add_action('widgets_init', create_function('', 'return register_widget("SZ_Widget_Google_Followers");'));
+}
+
 if ($options['plus_comments_wd_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
 	add_action('widgets_init',create_function('','return register_widget("SZ_Widget_Google_Comments");'));
+}
+
+if ($options['plus_post_enable_widget'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+	add_action('widgets_init',create_function('','return register_widget("SZ_Widget_Google_Post");'));
 }
 
 /* ************************************************************************** */ 
@@ -97,11 +109,13 @@ function sz_google_modules_plus_options()
 	if (!isset($options['plus_widget_pr_enable']))         $options['plus_widget_pr_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_widget_pa_enable']))         $options['plus_widget_pa_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_widget_co_enable']))         $options['plus_widget_co_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_widget_fl_enable']))         $options['plus_widget_fl_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_widget_size_portrait']))     $options['plus_widget_size_portrait']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 	if (!isset($options['plus_widget_size_landscape']))    $options['plus_widget_size_landscape']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 	if (!isset($options['plus_shortcode_pr_enable']))      $options['plus_shortcode_pr_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_shortcode_pa_enable']))      $options['plus_shortcode_pa_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_shortcode_co_enable']))      $options['plus_shortcode_co_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_shortcode_fl_enable']))      $options['plus_shortcode_fl_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!isset($options['plus_shortcode_size_portrait']))  $options['plus_shortcode_size_portrait']  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 	if (!isset($options['plus_shortcode_size_landscape'])) $options['plus_shortcode_size_landscape'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 	if (!isset($options['plus_button_enable_plusone']))    $options['plus_button_enable_plusone']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
@@ -144,9 +158,11 @@ function sz_google_modules_plus_options()
 	if (!in_array($options['plus_widget_pr_enable'],$selects))      $options['plus_widget_pr_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_widget_pa_enable'],$selects))      $options['plus_widget_pa_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_widget_co_enable'],$selects))      $options['plus_widget_co_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_widget_fl_enable'],$selects))      $options['plus_widget_fl_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_shortcode_pr_enable'],$selects))   $options['plus_shortcode_pr_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_shortcode_pa_enable'],$selects))   $options['plus_shortcode_pa_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_shortcode_co_enable'],$selects))   $options['plus_shortcode_co_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_shortcode_fl_enable'],$selects))   $options['plus_shortcode_fl_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_button_enable_plusone'],$selects)) $options['plus_button_enable_plusone'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_button_enable_sharing'],$selects)) $options['plus_button_enable_sharing'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
 	if (!in_array($options['plus_button_enable_follow'],$selects))  $options['plus_button_enable_follow']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
@@ -360,7 +376,7 @@ function sz_google_modules_plus_get_code_sharing($atts=array(),$content=null)
 	if ($size  == 'small')  $HTML .= ' data-height="15"';
 	if ($size  == 'medium') $HTML .= ' data-height="20"';
 	if ($size  == 'large')  $HTML .= ' data-height="24"';
-	if ($width <> '')       $HTML .= ' data-width="'.$width.'"';
+	if ($width != '')       $HTML .= ' data-width="'.$width.'"';
 	if ($align == 'right')  $HTML .= ' data-align="right"';
 
 	$HTML .= '></div>';
@@ -501,7 +517,7 @@ function sz_google_modules_plus_get_code_follow($atts=array(),$content=null)
 	if ($size  == 'small')     $HTML .= ' data-height="15"';
 	if ($size  == 'medium')    $HTML .= ' data-height="20"';
 	if ($size  == 'large')     $HTML .= ' data-height="24"';
-	if ($width <> '')          $HTML .= ' data-width="'.$width.'"';
+	if ($width != '')          $HTML .= ' data-width="'.$width.'"';
 	if ($align == 'right')     $HTML .= ' data-align="right"';
 	if ($rel   == 'author')    $HTML .= ' data-rel="author"';
 	if ($rel   == 'publisher') $HTML .= ' data-rel="publisher"';
@@ -605,9 +621,11 @@ function sz_google_modules_plus_get_code_post($atts=array())
 	if ($align == 'right')  $HTML .= 'text-align:right;';
 
 	$HTML .= '">';
+
 	$HTML .= '<div class="g-post" ';
 	$HTML .= 'data-href="'.$url.'"';
 	$HTML .= '></div>';
+
 	$HTML .= '</div>';
 	$HTML .= '</div>';
 
@@ -647,6 +665,131 @@ function sz_google_shortcodes_plus_post($atts,$content=null)
 	return $HTML;
 }
 
+/* ************************************************************************** */ 
+/* GOOGLE+ POST definizione ed elaborazione del widget su sidebar             */ 
+/* ************************************************************************** */ 
+
+class SZ_Widget_Google_Post extends WP_Widget
+{
+	// Costruttore principale della classe widget, definizione 
+	// delle opzioni legate al widget e al controllo dello stesso
+
+	function SZ_Widget_Google_Post() 
+	{
+		$widget_ops  = array(
+			'classname'   => 'widget-sz-google', 
+			'description' => ucfirst(__('widget for google+ post','szgoogleadmin'))
+		);
+
+		$this->WP_Widget('SZ-Google-Post',
+			__('SZ-Google - G+ Post','szgoogleadmin'),$widget_ops);
+	}
+
+	// Funzione per la visualizzazione del widget con lettura parametri
+	// di configurazione e preparazione codice HTML da usare nella sidebar
+
+	function widget($args,$instance) 
+	{
+		extract($args);
+
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
+
+		$title = sz_google_modules_widget_title($args,$instance);
+
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
+
+		if (empty($instance['url']))   $instance['url']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align'])) $instance['align'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+		$url   = trim($instance['url']);
+		$align = strtolower(trim($instance['align']));
+
+		// Creazione codice HTML per inserimento widget post		 
+
+		$HTML = sz_google_modules_plus_get_code_post(array(
+			'url'   => trim($url),
+			'align' => trim($align),
+		));
+
+		// Output del codice HTML legato al widget da visualizzare		 
+
+		$output  = $before_widget;
+		$output .= $title;
+		$output .= $HTML;
+		$output .= $after_widget;
+
+		echo $output;
+	}
+
+	// Funzione per modifica parametri collegati al widget con 
+	// memorizzazione dei valori direttamente nel database wordpress
+
+	function update($new_instance,$old_instance) 
+	{
+		$instance = $old_instance;
+
+		if (!isset($new_instance['title'])) $new_instance['title'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['url']))   $new_instance['url']   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align'])) $new_instance['align'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+
+		$instance['url']   = trim($new_instance['url']);
+		$instance['title'] = trim(strip_tags($new_instance['title']));
+		$instance['align'] = trim(strip_tags($new_instance['align']));
+
+		return $instance;
+	}
+
+	// Funzione per la visualizzazione del form presente sulle 
+	// sidebar nel pannello di amministrazione di wordpress
+	
+	function form($instance) 
+	{
+		$array = array(
+			'title' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'align' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		);
+
+		// Creazione array per elenco campi da recuperare su FORM
+
+		$instance = wp_parse_args((array) $instance,$array);
+
+		$url   = trim($instance['url']);
+		$title = trim(strip_tags($instance['title']));
+		$align = trim(strip_tags($instance['align']));
+
+		// Campo di selezione parametro badge per TITOLO
+
+		echo '<p><label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
+		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/></p>';
+
+		// Campo di selezione parametro badge per URL specifico
+
+		echo '<p id="'.$this->get_field_id('fieldj').'">';
+		echo '<input class="widefat" id="'.$this->get_field_id('url').'" name="'.$this->get_field_name('url').'" type="text" value="'.$url.'" placeholder="'.__('insert google+ post URL','szgoogleadmin').'"/></p>';
+
+		echo '<table style="width:100%">';
+
+		echo '<tr><td colspan="3"><hr></td></tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		echo '</table>';
+	}
+}
+
 /* ************************************************************************** */
 /* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR  */
 /* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR  */
@@ -665,6 +808,7 @@ function sz_google_modules_plus_get_code_profile($atts,$content=null)
 	extract(shortcode_atts(array(
 		'id'      => SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE,
 		'width'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'theme'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'cover'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -677,6 +821,7 @@ function sz_google_modules_plus_get_code_profile($atts,$content=null)
 
 	$id      = trim($id);
 	$width   = strtolower(trim($width));
+	$align   = strtolower(trim($align));
 	$layout  = strtolower(trim($layout));
 	$theme   = strtolower(trim($theme));
 	$cover   = strtolower(trim($cover));
@@ -699,35 +844,73 @@ function sz_google_modules_plus_get_code_profile($atts,$content=null)
 
 	if ($action != 'widget') 
 	{
-		if ($layout  <> 'portrait' and $layout  <> 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-		if ($theme   <> 'light'    and $theme   <> 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-		if ($cover   <> 'true'     and $cover   <> 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
-		if ($tagline <> 'true'     and $tagline <> 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
-		if ($author  <> 'true'     and $author  <> 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR; 
+		if ($layout  != 'portrait' and $layout  != 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
+		if ($theme   != 'light'    and $theme   != 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
+		if ($cover   != 'true'     and $cover   != 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
+		if ($tagline != 'true'     and $tagline != 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
+		if ($author  != 'true'     and $author  != 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR; 
 
-		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
-			if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
-				else $width = $options['plus_shortcode_size_landscape']; 
+	} else {
+
+		if ($layout  != 'portrait' and $layout  != 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
+		if ($theme   != 'light'    and $theme   != 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
+		if ($cover   != 'true'     and $cover   != 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
+		if ($tagline != 'true'     and $tagline != 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
+		if ($author  != 'true'     and $author  != 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR; 
+	}
+
+	// Controllo la dimensione del widget se non specificata applico i valori
+	// di default specificati nel pannello di amministrazione o nelle costanti
+
+	if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	if ($action != 'widget') 
+	{
+		if ($layout == 'portrait') {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+		} else {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_landscape'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE;
 		}
 
 	} else {
 
-		if ($layout  <> 'portrait' and $layout  <> 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
-		if ($theme   <> 'light'    and $theme   <> 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
-		if ($cover   <> 'true'     and $cover   <> 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
-		if ($tagline <> 'true'     and $tagline <> 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
-		if ($author  <> 'true'     and $author  <> 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR; 
-
-		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
-			if ($layout == 'portrait') $width = $options['plus_widget_size_portrait'];
-				else $width = $options['plus_widget_size_landscape']; 
+		if ($layout == 'portrait') {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+		} else {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_landscape'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
 		}
 	}
+
+	if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	// Controllo la dimensione del widget e controllo formale dei valori numerici
+	// se trovo qualche incongruenza applico i valori di default prestabiliti
+
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+
+	$uniqueID = 'sz-google-profile-'.md5(uniqid(),false);
 
 	// Preparazione codice HTML per il badge di google plus
 
 	$HTML  = '<div class="sz-google-profile">';
 	$HTML .= '<div class="sz-google-profile-wrap">';
+
+	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+
+	if ($align == 'left')   $HTML .= 'text-align:left;';
+	if ($align == 'center') $HTML .= 'text-align:center;';
+	if ($align == 'right')  $HTML .= 'text-align:right;';
+
+	$HTML .= '">';
+
+	$HTML .= '<script type="text/javascript">';
+	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
+	$HTML .= "document.write('";
 	$HTML .= '<div class="g-person"';
 	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
 	$HTML .= ' data-width="'         .$width  .'"';
@@ -740,7 +923,10 @@ function sz_google_modules_plus_get_code_profile($atts,$content=null)
 		$HTML .= ' data-rel="author"';
 	}
 
-	$HTML .= '></div>';
+	$HTML .= '></div>'."');";
+	$HTML .= '</script>';
+
+	$HTML .= '</div>';
 	$HTML .= '</div>';
 	$HTML .= '</div>';
 
@@ -764,6 +950,7 @@ function sz_google_shortcodes_plus_profile($atts,$content=null)
 	extract(shortcode_atts(array(
 		'id'      => SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE,
 		'width'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
+		'align'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
 		'theme'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
 		'cover'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
@@ -777,6 +964,7 @@ function sz_google_shortcodes_plus_profile($atts,$content=null)
 	$HTML = sz_google_modules_plus_get_code_profile(array(
 		'id'      => trim($id),
 		'width'   => trim($width),
+		'align'   => trim($align),
 		'layout'  => trim($layout),
 		'theme'   => trim($theme),
 		'cover'   => trim($cover),
@@ -826,46 +1014,36 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		// Controllo se esistono le variabili che servono durante l'elaborazione
 		// dello script e assegno dei valori di default nel caso non fossero specificati
 
-		if (empty($instance['method']))   $instance['method']   = SZ_PLUGIN_GOOGLE_VALUE_YES;
-		if (empty($instance['specific'])) $instance['specific'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['width']))    $instance['width']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['dfsize']))   $instance['dfsize']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['layout']))   $instance['layout']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
-		if (empty($instance['theme']))    $instance['theme']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
-		if (empty($instance['photo']))    $instance['photo']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
-		if (empty($instance['tagline']))  $instance['tagline']  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE;
-		if (empty($instance['author']))   $instance['author']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR;
+		if (empty($instance['method']))     $instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		if (empty($instance['specific']))   $instance['specific']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))      $instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width_auto'])) $instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))      $instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['layout']))     $instance['layout']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
+		if (empty($instance['theme']))      $instance['theme']      = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
+		if (empty($instance['photo']))      $instance['photo']      = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
+		if (empty($instance['tagline']))    $instance['tagline']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE;
+		if (empty($instance['author']))     $instance['author']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR;
 
-		$method   = trim($instance['method']);
-		$specific = trim($instance['specific']);
-		$width    = trim($instance['width']);
-		$dfsize   = trim($instance['dfsize']);
-		$layout   = trim($instance['layout']);
-		$theme    = trim($instance['theme']);
-		$photo    = trim($instance['photo']);
-		$tagline  = trim($instance['tagline']);
-		$author   = trim($instance['author']);
+		$method     = trim($instance['method']);
+		$specific   = trim($instance['specific']);
+		$width      = trim($instance['width']);
+		$width_auto = trim($instance['width_auto']);
+		$align      = trim($instance['align']);
+		$layout     = trim($instance['layout']);
+		$theme      = trim($instance['theme']);
+		$photo      = trim($instance['photo']);
+		$tagline    = trim($instance['tagline']);
+		$author     = trim($instance['author']);
 
-		// Caricamento delle opzioni per elaborazione
-		
-		$options = sz_google_modules_plus_options();
+		// Correzione del valore di dimensione nel caso venga
+		// specificata la maniera automatica e quindi usare javascript
 
-		// Correzione del valore di dimensione in caso di default
-		// che può essere diverso tra portrait e landscape
-
-		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
-			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
-		}
-
-		if ($dfsize == '1') {
-			if ($layout == 'portrait' ) $width = $options['plus_widget_size_portrait'];
-			if ($layout == 'landscape') $width = $options['plus_widget_size_landscape'];
-		}
+		if ($width_auto == SZ_PLUGIN_GOOGLE_VALUE_YES) $width = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
 
 		// Calcolo del valore ID per la composizione del badge
 
-		if ($method == '1') $profile = $options['plus_profile']; 
+		if ($method == SZ_PLUGIN_GOOGLE_VALUE_YES) $profile = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
 			else $profile = $specific;
 
 		// Creazione del codice per il badge di google+
@@ -873,6 +1051,7 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		$HTML = sz_google_modules_plus_get_code_profile(array(
 			'id'      => trim($profile),
 			'width'   => trim($width),
+			'align'   => trim($align),
 			'layout'  => trim($layout),
 			'theme'   => trim($theme),
 			'cover'   => trim($photo),
@@ -898,18 +1077,29 @@ class SZ_Widget_Google_Profile extends WP_Widget
 	{
 		$instance = $old_instance;
 
-		$instance['title']    = trim(strip_tags($new_instance['title']));
-		$instance['method']   = trim(strip_tags($new_instance['method']));
-		$instance['specific'] = trim(strip_tags($new_instance['specific']));
-		$instance['width']    = trim(strip_tags($new_instance['width']));
-		$instance['layout']   = trim(strip_tags($new_instance['layout']));
-		$instance['theme']    = trim(strip_tags($new_instance['theme']));
-		$instance['photo']    = trim(strip_tags($new_instance['photo']));
-		$instance['tagline']  = trim(strip_tags($new_instance['tagline']));
-		$instance['author']   = trim(strip_tags($new_instance['author']));
+		if (!isset($new_instance['title']))      $new_instance['title']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['method']))     $new_instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['specific']))   $new_instance['specific']   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width']))      $new_instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width_auto'])) $new_instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))      $new_instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['layout']))     $new_instance['layout']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['theme']))      $new_instance['theme']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['photo']))      $new_instance['photo']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['tagline']))    $new_instance['tagline']    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['author']))     $new_instance['author']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
 
-		if (!isset($new_instance['dfsize'])) $instance['dfsize'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
-			else $instance['dfsize'] = trim(strip_tags($new_instance['dfsize']));
+		$instance['title']      = trim(strip_tags($new_instance['title']));
+		$instance['method']     = trim(strip_tags($new_instance['method']));
+		$instance['specific']   = trim(strip_tags($new_instance['specific']));
+		$instance['width']      = trim(strip_tags($new_instance['width']));
+		$instance['width_auto'] = trim(strip_tags($new_instance['width_auto']));
+		$instance['align']      = trim(strip_tags($new_instance['align']));
+		$instance['layout']     = trim(strip_tags($new_instance['layout']));
+		$instance['theme']      = trim(strip_tags($new_instance['theme']));
+		$instance['photo']      = trim(strip_tags($new_instance['photo']));
+		$instance['tagline']    = trim(strip_tags($new_instance['tagline']));
+		$instance['author']     = trim(strip_tags($new_instance['author']));
 
 		return $instance;
 	}
@@ -919,34 +1109,40 @@ class SZ_Widget_Google_Profile extends WP_Widget
 	
 	function form($instance) 
 	{
-		// Creazione array per elenco campi da recuperare su FORM
-
 		$array = array(
-			'method'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'dfsize'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'specific' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'title'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'width'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
-			'layout'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
-			'theme'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
-			'photo'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
-			'tagline'  => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE,
-			'author'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR,
+			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'method'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'specific'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'width_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'layout'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
+			'theme'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
+			'photo'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
+			'tagline'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE,
+			'author'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$instance = wp_parse_args((array) $instance,$array);
-		$title    = trim(strip_tags($instance['title']));
-		$method   = trim(strip_tags($instance['method']));
-		$specific = trim(strip_tags($instance['specific']));
-		$width    = trim(strip_tags($instance['width']));
-		$dfsize   = trim(strip_tags($instance['dfsize']));
-		$layout   = trim(strip_tags($instance['layout']));
-		$theme    = trim(strip_tags($instance['theme']));
-		$photo    = trim(strip_tags($instance['photo']));
-		$tagline  = trim(strip_tags($instance['tagline']));
-		$author   = trim(strip_tags($instance['author']));
+
+		$title      = trim(strip_tags($instance['title']));
+		$method     = trim(strip_tags($instance['method']));
+		$specific   = trim(strip_tags($instance['specific']));
+		$width      = trim(strip_tags($instance['width']));
+		$width_auto = trim(strip_tags($instance['width_auto']));
+		$align      = trim(strip_tags($instance['align']));
+		$layout     = trim(strip_tags($instance['layout']));
+		$theme      = trim(strip_tags($instance['theme']));
+		$photo      = trim(strip_tags($instance['photo']));
+		$tagline    = trim(strip_tags($instance['tagline']));
+		$author     = trim(strip_tags($instance['author']));
+
+		$KEY_method = 'sz-key-1-'.md5(uniqid(),false);
+		$KEY_fieldj = 'sz-key-2-'.md5(uniqid(),false);
+		$KEY_widths = 'sz-key-3-'.md5(uniqid(),false);
+		$KEY_widtha = 'sz-key-4-'.md5(uniqid(),false);
 
 		// Campo di selezione parametro badge per TITOLO
 
@@ -955,56 +1151,24 @@ class SZ_Widget_Google_Profile extends WP_Widget
 
 		// Campo di selezione parametro badge per ID con metodo
 
-		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'">';
+		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'" data-sz-key="'.$KEY_method.'">';
 		echo '<option value="1" '; selected("1",$method); echo '>'.ucfirst(__('configuration ID','szgoogleadmin')).'</option>';
 		echo '<option value="2" '; selected("2",$method); echo '>'.ucfirst(__('specific ID','szgoogleadmin')).'</option>';
 		echo '</select></p>';
 
 		// Campo di selezione parametro badge per ID specifico
 
-		echo '<p id="'.$this->get_field_id('fieldj').'">';
+		echo '<p id="'.$this->get_field_id('fieldj').'" data-sz-key="'.$KEY_fieldj.'">';
 		echo '<input class="widefat" id="'.$this->get_field_id('specific').'" name="'.$this->get_field_name('specific').'" type="text" value="'.$specific.'" placeholder="'.__('insert specific ID','szgoogleadmin').'"/></p>';
 
-		// Codice javascript per abilitare/disabilitare il campo ID specifico
-
-		echo '<script type="text/javascript">';
-			echo 'jQuery(document).ready(function(){';
-				echo 'if (jQuery("#'.$this->get_field_id('method').'").val() == "1"){';
-					echo 'jQuery("#'.$this->get_field_id('fieldj').'").hide();';
-				echo '}';
-				echo 'jQuery("#'.$this->get_field_id('method').'").change(function(){';          
-					echo "if (this.value == '1') {";
-						echo 'jQuery("#'.$this->get_field_id('fieldj').'").slideUp();';
-				   echo "} else {";
-						echo 'jQuery("#'.$this->get_field_id('fieldj').'").slideDown();';
-					echo '}';
-				echo '});';
-			echo '});';
-		echo '</script>';
-
-		// Codice javascript per abilitare/disabilitare il campo WIDTH
-
-		echo '<script type="text/javascript">';
-			echo 'jQuery(document).ready(function(){';
-				echo 'if (jQuery("#'.$this->get_field_id('dfsize').'").is(":checked")) {';
-					echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",true);';
-				echo '}';
-				echo 'jQuery("#'.$this->get_field_id('dfsize').'").click(function(){';          
-					echo 'if (jQuery("#'.$this->get_field_id('dfsize').'").is(":checked")) {';
-						echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",true);';
-				   echo "} else {";
-						echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",false);';
-					echo '}';
-				echo '});';
-			echo '});';
-		echo '</script>';
+		echo '<table style="width:100%">';
 
 		// Campo di selezione parametro badge per WIDTH
 
-		echo '<table style="width:100%"><tr>';
+		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('width').'">'.ucfirst(__('width','szgoogleadmin')).':</label></td>';
-		echo '<td><input id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
-		echo '<td><input class="checkbox" type="checkbox" id="'.$this->get_field_id('dfsize').'" name="'.$this->get_field_name('dfsize').'" value="1" '; checked($dfsize); echo '>&nbsp;'.ucfirst(__('default','szgoogleadmin')).'</td>';
+		echo '<td><input data-sz-key="'.$KEY_widths.'" id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
+		echo '<td><input data-sz-key="'.$KEY_widtha.'" id="'.$this->get_field_id('width_auto').'" name="'.$this->get_field_name('width_auto').'" class="checkbox" type="checkbox" value="1" '; checked($width_auto); echo '>&nbsp;'.ucfirst(__('auto','szgoogleadmin')).'</td>';
 		echo '</tr>';
 
 		echo '<tr><td colspan="3"><hr></td></tr>';
@@ -1062,7 +1226,56 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		echo '<td><input type="radio" name="'.$this->get_field_name('author').'" value="true"' .$check1.'>&nbsp;'.ucfirst(__('enabled','szgoogleadmin')).'</td>';
 		echo '<td><input type="radio" name="'.$this->get_field_name('author').'" value="false"'.$check2.'>&nbsp;'.ucfirst(__('disabled','szgoogleadmin')).'</td>';
 		echo '</tr>';
+
+		echo '<tr><td colspan="3"><hr></td></tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
 		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare il campo ID specifico
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_method.'\']").val() == "1"){';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_fieldj.'\']").hide();';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_method.'\']").change(function(){';          
+					echo "if (this.value == '1') {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideUp();';
+				   echo "} else {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideDown();';
+					echo '}';
+				echo '});';
+
+				// Codice javascript per abilitare/disabilitare il campo WIDTH
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_widtha.'\']").is(":checked")) {';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_widtha.'\']").change(function(){';          
+					echo 'if (jQuery(this).is(":checked")) {';
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				   echo "} else {";
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",false);';
+					echo '}';
+				echo '});';
+
+			echo '});';
+		echo '</script>';
 	}
 }
 
@@ -1084,6 +1297,7 @@ function sz_google_modules_plus_get_code_page($atts,$content=null)
 	extract(shortcode_atts(array(
 		'id'        => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
 		'width'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'theme'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'cover'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1096,6 +1310,7 @@ function sz_google_modules_plus_get_code_page($atts,$content=null)
 
 	$id        = trim($id);
 	$width     = strtolower(trim($width));
+	$align     = strtolower(trim($align));
 	$layout    = strtolower(trim($layout));
 	$theme     = strtolower(trim($theme));
 	$cover     = strtolower(trim($cover));
@@ -1118,35 +1333,74 @@ function sz_google_modules_plus_get_code_page($atts,$content=null)
 
 	if ($action != 'widget') 
 	{
-		if ($layout    <> 'portrait' and $layout    <> 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-		if ($theme     <> 'light'    and $theme     <> 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-		if ($cover     <> 'true'     and $cover     <> 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
-		if ($tagline   <> 'true'     and $tagline   <> 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
-		if ($publisher <> 'true'     and $publisher <> 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER; 
+		if ($layout    != 'portrait' and $layout    != 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
+		if ($theme     != 'light'    and $theme     != 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
+		if ($cover     != 'true'     and $cover     != 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
+		if ($tagline   != 'true'     and $tagline   != 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
+		if ($publisher != 'true'     and $publisher != 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER; 
 
-		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
-			if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
-				else $width = $options['plus_shortcode_size_landscape']; 
+	} else {
+
+		if ($layout    != 'portrait' and $layout    != 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
+		if ($theme     != 'light'    and $theme     != 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
+		if ($cover     != 'true'     and $cover     != 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
+		if ($tagline   != 'true'     and $tagline   != 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
+		if ($publisher != 'true'     and $publisher != 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER; 
+	}
+
+	// Controllo la dimensione del widget se non specificata applico i valori
+	// di default specificati nel pannello di amministrazione o nelle costanti
+
+	if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	if ($action != 'widget') 
+	{
+		if ($layout == 'portrait') {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+		} else {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_landscape'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE;
 		}
 
 	} else {
 
-		if ($layout    <> 'portrait' and $layout    <> 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
-		if ($theme     <> 'light'    and $theme     <> 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
-		if ($cover     <> 'true'     and $cover     <> 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
-		if ($tagline   <> 'true'     and $tagline   <> 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
-		if ($publisher <> 'true'     and $publisher <> 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER; 
-
-		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
-			if ($layout == 'portrait') $width = $options['plus_widget_size_portrait'];
-				else $width = $options['plus_widget_size_landscape']; 
+		if ($layout == 'portrait') {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+		} else {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_landscape'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
 		}
 	}
+
+	if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	// Controllo la dimensione del widget e controllo formale dei valori numerici
+	// se trovo qualche incongruenza applico i valori di default prestabiliti
+
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+
+	$uniqueID = 'sz-google-page-'.md5(uniqid(),false);
 
 	// Preparazione codice HTML per il badge di google plus
 
 	$HTML  = '<div class="sz-google-page">';
 	$HTML .= '<div class="sz-google-page-wrap">';
+
+	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+
+	if ($align == 'left')   $HTML .= 'text-align:left;';
+	if ($align == 'center') $HTML .= 'text-align:center;';
+	if ($align == 'right')  $HTML .= 'text-align:right;';
+
+	$HTML .= '">';
+	$HTML .= '<div class="massimo"></div>';
+
+	$HTML .= '<script type="text/javascript">';
+	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
+	$HTML .= "document.write('";
 	$HTML .= '<div class="g-page"';
 	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
 	$HTML .= ' data-width="'         .$width  .'"';
@@ -1159,10 +1413,12 @@ function sz_google_modules_plus_get_code_page($atts,$content=null)
 		$HTML .= ' data-rel="publisher"';
 	}
 
-	$HTML .= '></div>';
-	$HTML .= '</div>';
-	$HTML .= '</div>';
+	$HTML .= '></div>'."');";
+	$HTML .= '</script>';
 
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
@@ -1184,6 +1440,7 @@ function sz_google_shortcodes_plus_page($atts,$content=null)
 	extract(shortcode_atts(array(
 		'id'        => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
 		'width'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
+		'align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout'    => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
 		'theme'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
 		'cover'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
@@ -1197,6 +1454,7 @@ function sz_google_shortcodes_plus_page($atts,$content=null)
 	$HTML = sz_google_modules_plus_get_code_page(array(
 		'id'        => trim($id),
 		'width'     => trim($width),
+		'align'     => trim($align),
 		'layout'    => trim($layout),
 		'theme'     => trim($theme),
 		'cover'     => trim($cover),
@@ -1246,46 +1504,36 @@ class SZ_Widget_Google_Page extends WP_Widget
 		// Controllo se esistono le variabili che servono durante l'elaborazione
 		// dello script e assegno dei valori di default nel caso non fossero specificati
 
-		if (empty($instance['method']))    $instance['method']    = SZ_PLUGIN_GOOGLE_VALUE_YES;
-		if (empty($instance['specific']))  $instance['specific']  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['width']))     $instance['width']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['dfsize']))    $instance['dfsize']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['layout']))    $instance['layout']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
-		if (empty($instance['theme']))     $instance['theme']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
-		if (empty($instance['photo']))     $instance['photo']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
-		if (empty($instance['tagline']))   $instance['tagline']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE;
-		if (empty($instance['publisher'])) $instance['publisher'] = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER;
+		if (empty($instance['method']))     $instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		if (empty($instance['specific']))   $instance['specific']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))      $instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width_auto'])) $instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))      $instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['layout']))     $instance['layout']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
+		if (empty($instance['theme']))      $instance['theme']      = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
+		if (empty($instance['photo']))      $instance['photo']      = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
+		if (empty($instance['tagline']))    $instance['tagline']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE;
+		if (empty($instance['publisher']))  $instance['publisher']  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER;
 
-		$method    = trim($instance['method']);
-		$specific  = trim($instance['specific']);
-		$width     = trim($instance['width']);
-		$dfsize    = trim($instance['dfsize']);
-		$layout    = trim($instance['layout']);
-		$theme     = trim($instance['theme']);
-		$photo     = trim($instance['photo']);
-		$tagline   = trim($instance['tagline']);
-		$publisher = trim($instance['publisher']);
+		$method     = trim($instance['method']);
+		$specific   = trim($instance['specific']);
+		$width      = trim($instance['width']);
+		$width_auto = trim($instance['width_auto']);
+		$align      = trim($instance['align']);
+		$layout     = trim($instance['layout']);
+		$theme      = trim($instance['theme']);
+		$photo      = trim($instance['photo']);
+		$tagline    = trim($instance['tagline']);
+		$publisher  = trim($instance['publisher']);
 
-		// Caricamento delle opzioni per elaborazione
-		
-		$options = sz_google_modules_plus_options();
+		// Correzione del valore di dimensione nel caso venga
+		// specificata la maniera automatica e quindi usare javascript
 
-		// Correzione del valore di dimensione in caso di default
-		// che può essere diverso tra portrait e landscape
-
-		if ($width == '') {
-			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
-			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
-		}
-
-		if ($dfsize == '1') {
-			if ($layout == 'portrait' ) $width = $options['plus_widget_size_portrait'];
-			if ($layout == 'landscape') $width = $options['plus_widget_size_landscape'];
-		}
+		if ($width_auto == SZ_PLUGIN_GOOGLE_VALUE_YES) $width = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
 
 		// Calcolo del valore ID per la composizione del badge
 
-		if ($method == '1') $page = $options['plus_page']; 
+		if ($method == SZ_PLUGIN_GOOGLE_VALUE_YES) $page = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 			else $page = $specific;
 
 		// Creazione del codice per il badge di google+
@@ -1293,6 +1541,7 @@ class SZ_Widget_Google_Page extends WP_Widget
 		$HTML = sz_google_modules_plus_get_code_page(array(
 			'id'        => trim($page),
 			'width'     => trim($width),
+			'align'     => trim($align),
 			'layout'    => trim($layout),
 			'theme'     => trim($theme),
 			'cover'     => trim($photo),
@@ -1318,18 +1567,29 @@ class SZ_Widget_Google_Page extends WP_Widget
 	{
 		$instance = $old_instance;
 
-		$instance['title']     = trim(strip_tags($new_instance['title']));
-		$instance['method']    = trim(strip_tags($new_instance['method']));
-		$instance['specific']  = trim(strip_tags($new_instance['specific']));
-		$instance['width']     = trim(strip_tags($new_instance['width']));
-		$instance['layout']    = trim(strip_tags($new_instance['layout']));
-		$instance['theme']     = trim(strip_tags($new_instance['theme']));
-		$instance['photo']     = trim(strip_tags($new_instance['photo']));
-		$instance['tagline']   = trim(strip_tags($new_instance['tagline']));
-		$instance['publisher'] = trim(strip_tags($new_instance['publisher']));
+		if (!isset($new_instance['title']))      $new_instance['title']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['method']))     $new_instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['specific']))   $new_instance['specific']   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width']))      $new_instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width_auto'])) $new_instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))      $new_instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['layout']))     $new_instance['layout']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['theme']))      $new_instance['theme']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['photo']))      $new_instance['photo']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['tagline']))    $new_instance['tagline']    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['publisher']))  $new_instance['publisher']  = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
 
-		if (!isset($new_instance['dfsize'])) $instance['dfsize'] = ''; 
-			else $instance['dfsize'] = trim(strip_tags($new_instance['dfsize']));
+		$instance['title']      = trim(strip_tags($new_instance['title']));
+		$instance['method']     = trim(strip_tags($new_instance['method']));
+		$instance['specific']   = trim(strip_tags($new_instance['specific']));
+		$instance['width']      = trim(strip_tags($new_instance['width']));
+		$instance['width_auto'] = trim(strip_tags($new_instance['width_auto']));
+		$instance['align']      = trim(strip_tags($new_instance['align']));
+		$instance['layout']     = trim(strip_tags($new_instance['layout']));
+		$instance['theme']      = trim(strip_tags($new_instance['theme']));
+		$instance['photo']      = trim(strip_tags($new_instance['photo']));
+		$instance['tagline']    = trim(strip_tags($new_instance['tagline']));
+		$instance['publisher']  = trim(strip_tags($new_instance['publisher']));
 
 		return $instance;
 	}
@@ -1339,34 +1599,40 @@ class SZ_Widget_Google_Page extends WP_Widget
 
 	function form($instance) 
 	{
-		// Creazione array per elenco campi da recuperare su FORM
-
 		$array = array(
-			'title'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'method'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'specific'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'width'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
-			'dfsize'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'layout'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
-			'theme'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
-			'photo'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
-			'tagline'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE,
-			'publisher' => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER,
+			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'method'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'specific'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'width_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'layout'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
+			'theme'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
+			'photo'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
+			'tagline'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE,
+			'publisher'  => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
 
-		$instance  = wp_parse_args((array) $instance,$array);
-		$title     = trim(strip_tags($instance['title']));
-		$method    = trim(strip_tags($instance['method']));
-		$specific  = trim(strip_tags($instance['specific']));
-		$width     = trim(strip_tags($instance['width']));
-		$dfsize    = trim(strip_tags($instance['dfsize']));
-		$layout    = trim(strip_tags($instance['layout']));
-		$theme     = trim(strip_tags($instance['theme']));
-		$photo     = trim(strip_tags($instance['photo']));
-		$tagline   = trim(strip_tags($instance['tagline']));
-		$publisher = trim(strip_tags($instance['publisher']));
+		$instance = wp_parse_args((array) $instance,$array);
+
+		$title      = trim(strip_tags($instance['title']));
+		$method     = trim(strip_tags($instance['method']));
+		$specific   = trim(strip_tags($instance['specific']));
+		$width      = trim(strip_tags($instance['width']));
+		$width_auto = trim(strip_tags($instance['width_auto']));
+		$align      = trim(strip_tags($instance['align']));
+		$layout     = trim(strip_tags($instance['layout']));
+		$theme      = trim(strip_tags($instance['theme']));
+		$photo      = trim(strip_tags($instance['photo']));
+		$tagline    = trim(strip_tags($instance['tagline']));
+		$publisher  = trim(strip_tags($instance['publisher']));
+
+		$KEY_method = 'sz-key-1-'.md5(uniqid(),false);
+		$KEY_fieldj = 'sz-key-2-'.md5(uniqid(),false);
+		$KEY_widths = 'sz-key-3-'.md5(uniqid(),false);
+		$KEY_widtha = 'sz-key-4-'.md5(uniqid(),false);
 
 		// Campo di selezione parametro badge per TITOLO
 
@@ -1375,56 +1641,24 @@ class SZ_Widget_Google_Page extends WP_Widget
 
 		// Campo di selezione parametro badge per ID con metodo
 
-		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'">';
+		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'" data-sz-key="'.$KEY_method.'">';
 		echo '<option value="1" '; selected("1",$method); echo '>'.ucfirst(__('configuration ID','szgoogleadmin')).'</option>';
 		echo '<option value="2" '; selected("2",$method); echo '>'.ucfirst(__('specific ID','szgoogleadmin')).'</option>';
 		echo '</select></p>';
 
 		// Campo di selezione parametro badge per ID specifico
 
-		echo '<p id="'.$this->get_field_id('fieldj').'">';
+		echo '<p id="'.$this->get_field_id('fieldj').'" data-sz-key="'.$KEY_fieldj.'">';
 		echo '<input class="widefat" id="'.$this->get_field_id('specific').'" name="'.$this->get_field_name('specific').'" type="text" value="'.$specific.'" placeholder="'.__('insert specific ID','szgoogleadmin').'"/></p>';
 
-		// Codice javascript per abilitare/disabilitare il campo ID specifico
-
-		echo '<script type="text/javascript">';
-			echo 'jQuery(document).ready(function(){';
-				echo 'if (jQuery("#'.$this->get_field_id('method').'").val() == "1"){';
-					echo 'jQuery("#'.$this->get_field_id('fieldj').'").hide();';
-				echo '}';
-				echo 'jQuery("#'.$this->get_field_id('method').'").change(function(){';          
-					echo "if (this.value == '1') {";
-						echo 'jQuery("#'.$this->get_field_id('fieldj').'").slideUp();';
-				   echo "} else {";
-						echo 'jQuery("#'.$this->get_field_id('fieldj').'").slideDown();';
-					echo '}';
-				echo '});';
-			echo '});';
-		echo '</script>';
-
-		// Codice javascript per abilitare/disabilitare il campo WIDTH
-
-		echo '<script type="text/javascript">';
-			echo 'jQuery(document).ready(function(){';
-				echo 'if (jQuery("#'.$this->get_field_id('dfsize').'").is(":checked")) {';
-					echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",true);';
-				echo '}';
-				echo 'jQuery("#'.$this->get_field_id('dfsize').'").click(function(){';          
-					echo 'if (jQuery("#'.$this->get_field_id('dfsize').'").is(":checked")) {';
-						echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",true);';
-				   echo "} else {";
-						echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",false);';
-					echo '}';
-				echo '});';
-			echo '});';
-		echo '</script>';
+		echo '<table style="width:100%">';
 
 		// Campo di selezione parametro badge per WIDTH
 
-		echo '<table style="width:100%"><tr>';
+		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('width').'">'.ucfirst(__('width','szgoogleadmin')).':</label></td>';
-		echo '<td><input id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
-		echo '<td><input class="checkbox" type="checkbox" id="'.$this->get_field_id('dfsize').'" name="'.$this->get_field_name('dfsize').'" value="1" '; checked($dfsize); echo '>&nbsp;'.ucfirst(__('default','szgoogleadmin')).'</td>';
+		echo '<td><input data-sz-key="'.$KEY_widths.'" id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
+		echo '<td><input data-sz-key="'.$KEY_widtha.'" id="'.$this->get_field_id('width_auto').'" name="'.$this->get_field_name('width_auto').'" class="checkbox" type="checkbox" value="1" '; checked($width_auto); echo '>&nbsp;'.ucfirst(__('auto','szgoogleadmin')).'</td>';
 		echo '</tr>';
 
 		echo '<tr><td colspan="3"><hr></td></tr>';
@@ -1482,7 +1716,56 @@ class SZ_Widget_Google_Page extends WP_Widget
 		echo '<td><input type="radio" name="'.$this->get_field_name('publisher').'" value="true"' .$check1.'>&nbsp;'.ucfirst(__('enabled','szgoogleadmin')).'</td>';
 		echo '<td><input type="radio" name="'.$this->get_field_name('publisher').'" value="false"'.$check2.'>&nbsp;'.ucfirst(__('disabled','szgoogleadmin')).'</td>';
 		echo '</tr>';
+
+		echo '<tr><td colspan="3"><hr></td></tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
 		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare il campo ID specifico
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_method.'\']").val() == "1"){';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_fieldj.'\']").hide();';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_method.'\']").change(function(){';          
+					echo "if (this.value == '1') {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideUp();';
+				   echo "} else {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideDown();';
+					echo '}';
+				echo '});';
+
+				// Codice javascript per abilitare/disabilitare il campo WIDTH
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_widtha.'\']").is(":checked")) {';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_widtha.'\']").change(function(){';          
+					echo 'if (jQuery(this).is(":checked")) {';
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				   echo "} else {";
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",false);';
+					echo '}';
+				echo '});';
+
+			echo '});';
+		echo '</script>';
 	}
 }
 
@@ -1504,6 +1787,7 @@ function sz_google_modules_plus_get_code_community($atts,$content=null)
 	extract(shortcode_atts(array(
 		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY,
 		'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'theme'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'photo'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1515,6 +1799,7 @@ function sz_google_modules_plus_get_code_community($atts,$content=null)
 
 	$id     = trim($id);
 	$width  = strtolower(trim($width));
+	$align  = strtolower(trim($align));
 	$layout = strtolower(trim($layout));
 	$theme  = strtolower(trim($theme));
 	$photo  = strtolower(trim($photo));
@@ -1536,44 +1821,84 @@ function sz_google_modules_plus_get_code_community($atts,$content=null)
 
 	if ($action != 'widget') 
 	{
-		if ($layout <> 'portrait' and $layout <> 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-		if ($theme  <> 'light'    and $theme  <> 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-		if ($photo  <> 'true'     and $photo  <> 'false')     $photo  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO; 
-		if ($owner  <> 'true'     and $owner  <> 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER; 
+		if ($layout != 'portrait' and $layout != 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
+		if ($theme  != 'light'    and $theme  != 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
+		if ($photo  != 'true'     and $photo  != 'false')     $photo  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO; 
+		if ($owner  != 'true'     and $owner  != 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER; 
 
-		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
-			if ($layout == 'portrait') $width = $options['plus_shortcode_size_portrait'];
-				else $width = $options['plus_shortcode_size_landscape']; 
+	} else {
+
+		if ($layout != 'portrait' and $layout != 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
+		if ($theme  != 'light'    and $theme  != 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
+		if ($photo  != 'true'     and $photo  != 'false')     $cover  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO; 
+		if ($owner  != 'true'     and $owner  != 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER; 
+	}
+
+	// Controllo la dimensione del widget se non specificata applico i valori
+	// di default specificati nel pannello di amministrazione o nelle costanti
+
+	if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	if ($action != 'widget') 
+	{
+		if ($layout == 'portrait') {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+		} else {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_landscape'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE;
 		}
 
 	} else {
 
-		if ($layout <> 'portrait' and $layout <> 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
-		if ($theme  <> 'light'    and $theme  <> 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
-		if ($photo  <> 'true'     and $photo  <> 'false')     $cover  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO; 
-		if ($owner  <> 'true'     and $owner  <> 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER; 
-
-		if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) { 
-			if ($layout == 'portrait') $width = $options['plus_widget_size_portrait'];
-				else $width = $options['plus_widget_size_landscape']; 
+		if ($layout == 'portrait') {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+		} else {
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_landscape'];
+			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
 		}
 	}
+
+	if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	// Controllo la dimensione del widget e controllo formale dei valori numerici
+	// se trovo qualche incongruenza applico i valori di default prestabiliti
+
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+
+	$uniqueID = 'sz-google-community-'.md5(uniqid(),false);
 
 	// Preparazione codice HTML per il badge di google plus
 
 	$HTML  = '<div class="sz-google-community">';
 	$HTML .= '<div class="sz-google-community-wrap">';
+
+	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+
+	if ($align == 'left')   $HTML .= 'text-align:left;';
+	if ($align == 'center') $HTML .= 'text-align:center;';
+	if ($align == 'right')  $HTML .= 'text-align:right;';
+
+	$HTML .= '">';
+
+	$HTML .= '<script type="text/javascript">';
+	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
+	$HTML .= "document.write('";
 	$HTML .= '<div class="g-community"';
 	$HTML .= ' data-href="https://plus.google.com/communities/'.$id.'"';
-	$HTML .= ' data-width="'     .$width  .'"';
+	$HTML .= ' data-width="'     .$width .'"';
 	$HTML .= ' data-layout="'    .$layout.'"';
 	$HTML .= ' data-theme="'     .$theme .'"';
 	$HTML .= ' data-showphoto="' .$photo .'"';
 	$HTML .= ' data-showowners="'.$owner .'"';
-	$HTML .= '></div>';
-	$HTML .= '</div>';
-	$HTML .= '</div>';
+	$HTML .= '></div>'."');";
+	$HTML .= '</script>';
 
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
@@ -1595,6 +1920,7 @@ function sz_google_shortcodes_plus_community($atts,$content=null)
 	extract(shortcode_atts(array(
 		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY,
 		'width'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
+		'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
 		'theme'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
 		'photo'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO,
@@ -1607,6 +1933,7 @@ function sz_google_shortcodes_plus_community($atts,$content=null)
 	$HTML = sz_google_modules_plus_get_code_community(array(
 		'id'     => trim($id),
 		'width'  => trim($width),
+		'align'  => trim($align),
 		'layout' => trim($layout),
 		'theme'  => trim($theme),
 		'photo'  => trim($photo),
@@ -1655,44 +1982,34 @@ class SZ_Widget_Google_Community extends WP_Widget
 		// Controllo se esistono le variabili che servono durante l'elaborazione
 		// dello script e assegno dei valori di default nel caso non fossero specificati
 
-		if (empty($instance['method']))   $instance['method']   = SZ_PLUGIN_GOOGLE_VALUE_YES;
-		if (empty($instance['specific'])) $instance['specific'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['width']))    $instance['width']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['dfsize']))   $instance['dfsize']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['layout']))   $instance['layout']   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
-		if (empty($instance['theme']))    $instance['theme']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
-		if (empty($instance['photo']))    $instance['photo']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
-		if (empty($instance['owner']))    $instance['owner']    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER;
+		if (empty($instance['method']))     $instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		if (empty($instance['specific']))   $instance['specific']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))      $instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width_auto'])) $instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))      $instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['layout']))     $instance['layout']     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT;
+		if (empty($instance['theme']))      $instance['theme']      = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME;
+		if (empty($instance['photo']))      $instance['photo']      = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO;
+		if (empty($instance['owner']))      $instance['owner']      = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER;
 
-		$method   = trim($instance['method']);
-		$specific = trim($instance['specific']);
-		$width    = trim($instance['width']);
-		$dfsize   = trim($instance['dfsize']);
-		$layout   = trim($instance['layout']);
-		$theme    = trim($instance['theme']);
-		$photo    = trim($instance['photo']);
-		$owner    = trim($instance['owner']);
+		$method     = trim($instance['method']);
+		$specific   = trim($instance['specific']);
+		$width      = trim($instance['width']);
+		$width_auto = trim($instance['width_auto']);
+		$align      = trim($instance['align']);
+		$layout     = trim($instance['layout']);
+		$theme      = trim($instance['theme']);
+		$photo      = trim($instance['photo']);
+		$owner      = trim($instance['owner']);
 
-		// Caricamento delle opzioni per elaborazione
+		// Correzione del valore di dimensione nel caso venga
+		// specificata la maniera automatica e quindi usare javascript
 
-		$options = sz_google_modules_plus_options();
-
-		// Correzione del valore di dimensione in caso di default
-		// che può essere diverso tra portrait e landscape
-
-		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-			if ($layout == 'portrait' ) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
-			if ($layout == 'landscape') $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
-		}
-
-		if ($dfsize == '1') {
-			if ($layout == 'portrait' ) $width = $options['plus_widget_size_portrait'];
-			if ($layout == 'landscape') $width = $options['plus_widget_size_landscape'];
-		}
+		if ($width_auto == SZ_PLUGIN_GOOGLE_VALUE_YES) $width = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
 
 		// Calcolo del valore ID per la composizione del badge
 
-		if ($method == '1') $community = $options['plus_community'];
+		if ($method == SZ_PLUGIN_GOOGLE_VALUE_YES) $community = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 			else $community = $specific;
 
 		// Creazione del codice per il badge di google+
@@ -1700,6 +2017,7 @@ class SZ_Widget_Google_Community extends WP_Widget
 		$HTML = sz_google_modules_plus_get_code_community(array(
 			'id'     => trim($community),
 			'width'  => trim($width),
+			'align'  => trim($align),
 			'layout' => trim($layout),
 			'theme'  => trim($theme),
 			'photo'  => trim($photo),
@@ -1724,17 +2042,26 @@ class SZ_Widget_Google_Community extends WP_Widget
 	{
 		$instance = $old_instance;
 
-		$instance['title']    = trim(strip_tags($new_instance['title']));
-		$instance['method']   = trim(strip_tags($new_instance['method']));
-		$instance['specific'] = trim(strip_tags($new_instance['specific']));
-		$instance['width']    = trim(strip_tags($new_instance['width']));
-		$instance['layout']   = trim(strip_tags($new_instance['layout']));
-		$instance['theme']    = trim(strip_tags($new_instance['theme']));
-		$instance['photo']    = trim(strip_tags($new_instance['photo']));
-		$instance['owner']    = trim(strip_tags($new_instance['owner']));
+		if (!isset($new_instance['title']))      $new_instance['title']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['method']))     $new_instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['specific']))   $new_instance['specific']   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width']))      $new_instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width_auto'])) $new_instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))      $new_instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['layout']))     $new_instance['layout']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['photo']))      $new_instance['photo']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['owner']))      $new_instance['owner']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
 
-		if (!isset($new_instance['dfsize'])) $instance['dfsize'] = ''; 
-			else $instance['dfsize'] = trim(strip_tags($new_instance['dfsize']));
+		$instance['title']      = trim(strip_tags($new_instance['title']));
+		$instance['method']     = trim(strip_tags($new_instance['method']));
+		$instance['specific']   = trim(strip_tags($new_instance['specific']));
+		$instance['width']      = trim(strip_tags($new_instance['width']));
+		$instance['width_auto'] = trim(strip_tags($new_instance['width_auto']));
+		$instance['align']      = trim(strip_tags($new_instance['align']));
+		$instance['layout']     = trim(strip_tags($new_instance['layout']));
+		$instance['theme']      = trim(strip_tags($new_instance['theme']));
+		$instance['photo']      = trim(strip_tags($new_instance['photo']));
+		$instance['owner']      = trim(strip_tags($new_instance['owner']));
 
 		return $instance;
 	}
@@ -1744,32 +2071,38 @@ class SZ_Widget_Google_Community extends WP_Widget
 	
 	function form($instance) 
 	{
-		// Creazione array per elenco campi da recuperare su FORM
-
 		$array = array(
-			'title'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'method'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'specific' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'width'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
-			'dfsize'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'layout'   => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
-			'theme'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
-			'photo'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
-			'owner'    => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER,
+			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'method'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'specific'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'width_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'layout'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT,
+			'theme'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME,
+			'photo'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO,
+			'owner'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$instance = wp_parse_args((array) $instance,$array);
-		$title    = trim(strip_tags($instance['title']));
-		$method   = trim(strip_tags($instance['method']));
-		$specific = trim(strip_tags($instance['specific']));
-		$width    = trim(strip_tags($instance['width']));
-		$dfsize   = trim(strip_tags($instance['dfsize']));
-		$layout   = trim(strip_tags($instance['layout']));
-		$theme    = trim(strip_tags($instance['theme']));
-		$photo    = trim(strip_tags($instance['photo']));
-		$owner    = trim(strip_tags($instance['owner']));
+
+		$title      = trim(strip_tags($instance['title']));
+		$method     = trim(strip_tags($instance['method']));
+		$specific   = trim(strip_tags($instance['specific']));
+		$width      = trim(strip_tags($instance['width']));
+		$width_auto = trim(strip_tags($instance['width_auto']));
+		$align      = trim(strip_tags($instance['align']));
+		$layout     = trim(strip_tags($instance['layout']));
+		$theme      = trim(strip_tags($instance['theme']));
+		$photo      = trim(strip_tags($instance['photo']));
+		$owner      = trim(strip_tags($instance['owner']));
+
+		$KEY_method = 'sz-key-1-'.md5(uniqid(),false);
+		$KEY_fieldj = 'sz-key-2-'.md5(uniqid(),false);
+		$KEY_widths = 'sz-key-3-'.md5(uniqid(),false);
+		$KEY_widtha = 'sz-key-4-'.md5(uniqid(),false);
 
 		// Campo di selezione parametro badge per TITOLO
 
@@ -1778,56 +2111,24 @@ class SZ_Widget_Google_Community extends WP_Widget
 
 		// Campo di selezione parametro badge per ID con metodo
 
-		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'">';
+		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'" data-sz-key="'.$KEY_method.'">';
 		echo '<option value="1" '; selected("1",$method); echo '>'.ucfirst(__('configuration ID','szgoogleadmin')).'</option>';
 		echo '<option value="2" '; selected("2",$method); echo '>'.ucfirst(__('specific ID','szgoogleadmin')).'</option>';
 		echo '</select></p>';
 
 		// Campo di selezione parametro badge per ID specifico
 
-		echo '<p id="'.$this->get_field_id('fieldj').'">';
+		echo '<p id="'.$this->get_field_id('fieldj').'" data-sz-key="'.$KEY_fieldj.'">';
 		echo '<input class="widefat" id="'.$this->get_field_id('specific').'" name="'.$this->get_field_name('specific').'" type="text" value="'.$specific.'" placeholder="'.__('insert specific ID','szgoogleadmin').'"/></p>';
 
-		// Codice javascript per abilitare/disabilitare il campo ID specifico
-
-		echo '<script type="text/javascript">';
-			echo 'jQuery(document).ready(function(){';
-				echo 'if (jQuery("#'.$this->get_field_id('method').'").val() == "1"){';
-					echo 'jQuery("#'.$this->get_field_id('fieldj').'").hide();';
-				echo '}';
-				echo 'jQuery("#'.$this->get_field_id('method').'").change(function(){';          
-					echo "if (this.value == '1') {";
-						echo 'jQuery("#'.$this->get_field_id('fieldj').'").slideUp();';
-				   echo "} else {";
-						echo 'jQuery("#'.$this->get_field_id('fieldj').'").slideDown();';
-					echo '}';
-				echo '});';
-			echo '});';
-		echo '</script>';
-
-		// Codice javascript per abilitare/disabilitare il campo WIDTH
-
-		echo '<script type="text/javascript">';
-			echo 'jQuery(document).ready(function(){';
-				echo 'if (jQuery("#'.$this->get_field_id('dfsize').'").is(":checked")) {';
-					echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",true);';
-				echo '}';
-				echo 'jQuery("#'.$this->get_field_id('dfsize').'").click(function(){';          
-					echo 'if (jQuery("#'.$this->get_field_id('dfsize').'").is(":checked")) {';
-						echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",true);';
-				   echo "} else {";
-						echo 'jQuery("#'.$this->get_field_id('width').'").prop("readonly",false);';
-					echo '}';
-				echo '});';
-			echo '});';
-		echo '</script>';
+		echo '<table style="width:100%">';
 
 		// Campo di selezione parametro badge per WIDTH
 
-		echo '<table style="width:100%"><tr>';
+		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('width').'">'.ucfirst(__('width','szgoogleadmin')).':</label></td>';
-		echo '<td><input id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
-		echo '<td><input class="checkbox" type="checkbox" id="'.$this->get_field_id('dfsize').'" name="'.$this->get_field_name('dfsize').'" value="1" '; checked($dfsize); echo '>&nbsp;'.ucfirst(__('default','szgoogleadmin')).'</td>';
+		echo '<td><input data-sz-key="'.$KEY_widths.'" id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
+		echo '<td><input data-sz-key="'.$KEY_widtha.'" id="'.$this->get_field_id('width_auto').'" name="'.$this->get_field_name('width_auto').'" class="checkbox" type="checkbox" value="1" '; checked($width_auto); echo '>&nbsp;'.ucfirst(__('auto','szgoogleadmin')).'</td>';
 		echo '</tr>';
 
 		echo '<tr><td colspan="3"><hr></td></tr>';
@@ -1874,7 +2175,446 @@ class SZ_Widget_Google_Community extends WP_Widget
 		echo '<td><input type="radio" name="'.$this->get_field_name('owner').'" value="true"' .$check1.'>&nbsp;'.ucfirst(__('enabled','szgoogleadmin')).'</td>';
 		echo '<td><input type="radio" name="'.$this->get_field_name('owner').'" value="false"'.$check2.'>&nbsp;'.ucfirst(__('disabled','szgoogleadmin')).'</td>';
 		echo '</tr>';
+
+		echo '<tr><td colspan="3"><hr></td></tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
 		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare il campo ID specifico
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_method.'\']").val() == "1"){';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_fieldj.'\']").hide();';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_method.'\']").change(function(){';          
+					echo "if (this.value == '1') {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideUp();';
+				   echo "} else {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideDown();';
+					echo '}';
+				echo '});';
+
+				// Codice javascript per abilitare/disabilitare il campo WIDTH
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_widtha.'\']").is(":checked")) {';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_widtha.'\']").change(function(){';          
+					echo 'if (jQuery(this).is(":checked")) {';
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				   echo "} else {";
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",false);';
+					echo '}';
+				echo '});';
+
+			echo '});';
+		echo '</script>';
+	}
+}
+
+/* ************************************************************************** */
+/* FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLL */
+/* FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLL */
+/* FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLL */
+/* FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLL */
+/* FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLLOWERS FOLL */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_code_followers($atts,$content=null) 
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
+		'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'height' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'action' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Esecuzione trim su valori specificati su shortcode
+
+	$id     = trim($id);
+	$width  = strtolower(trim($width));
+	$height = strtolower(trim($height));
+	$align  = strtolower(trim($align));
+	$action = strtolower(trim($action));
+
+	// Lettura opzioni generali per impostazione dei dati di default
+
+	$options = sz_google_modules_plus_options();
+
+	// Imposto i valori di default nel caso siano specificati dei valori
+	// che non appartengono al range dei valori accettati
+
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_page']; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_profile']; }
+
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; }
+
+	// Controllo la dimensione del widget e controllo formale dei valori numerici
+	// se trovo qualche incongruenza applico i valori di default prestabiliti
+
+	if (!is_numeric($width)  and $width  != 'auto') $width  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!is_numeric($height) and $height != 'auto') $height = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	if ($action != 'widget') {
+		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
+		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+	} else {
+		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
+		if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+	}
+
+	if (!is_numeric($width)  and $width  != 'auto') $width  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!is_numeric($height) and $height != 'auto') $height = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	// Controllo la dimensione del widget e controllo formale dei valori numerici
+	// se trovo qualche incongruenza applico i valori di default prestabiliti
+
+	if ($width  == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
+	if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+
+	if ($height == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $height = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_HEIGHT;
+	if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_HEIGHT;
+
+	$uniqueID = 'sz-google-followers-'.md5(uniqid(),false);
+
+	// Preparazione codice HTML per il badge di google plus
+
+	$HTML  = '<div class="sz-google-followers">';
+	$HTML .= '<div class="sz-google-followers-wrap">';
+
+	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+
+	if ($align == 'left')   $HTML .= 'text-align:left;';
+	if ($align == 'center') $HTML .= 'text-align:center;';
+	if ($align == 'right')  $HTML .= 'text-align:right;';
+
+	$HTML .= '">';
+
+	$HTML .= '<script type="text/javascript">';
+	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
+	$HTML .= "document.write('";
+	$HTML .= '<div class="g-plus"';
+	$HTML .= ' data-action="followers"';
+	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
+	$HTML .= ' data-width="' .$width .'"';
+	$HTML .= ' data-height="'.$height.'"';
+	$HTML .= ' data-source="blogger:blog:followers"';
+	$HTML .= '></div>'."');";
+	$HTML .= '</script>';
+
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_modules_plus_add_script_footer');
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ FOLLOWERS funzione per elaborazione shortcode (sz-gplus-followers) */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_plus_followers($atts,$content=null) 
+{
+	extract(shortcode_atts(array(
+		'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'height' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'action' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML = sz_google_modules_plus_get_code_followers(array(
+		'id'     => trim($id),
+		'width'  => trim($width),
+		'height' => trim($height),
+		'align'  => trim($align),
+		'action' => trim('shortcode'),
+	),$content);
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento del codice nella pagina
+
+	return $HTML;
+}
+
+/* ************************************************************************** */ 
+/* GOOGLE+ FOLLOWERS definizione ed elaborazione del widget su sidebar        */ 
+/* ************************************************************************** */ 
+
+class SZ_Widget_Google_Followers extends WP_Widget 
+{
+	// Costruttore principale della classe widget, definizione 
+	// delle opzioni legate al widget e al controllo dello stesso
+
+	function SZ_Widget_Google_Followers() 
+	{
+		$widget_ops  = array(
+			'classname'   => 'widget-sz-google', 
+			'description' => ucfirst(__('widget for google+ followers','szgoogleadmin'))
+		);
+
+		$this->WP_Widget('SZ-Google-Followers',
+			__('SZ-Google - G+ Followers','szgoogleadmin'),$widget_ops);
+	}
+
+	// Funzione per la visualizzazione del widget con lettura parametri
+	// di configurazione e preparazione codice HTML da usare nella sidebar
+
+	function widget($args,$instance) 
+	{
+		extract($args);
+
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
+
+		$title = sz_google_modules_widget_title($args,$instance);
+
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
+
+		if (empty($instance['method']))      $instance['method']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['specific']))    $instance['specific']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width']))       $instance['width']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['width_auto']))  $instance['width_auto']  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['height']))      $instance['height']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['height_auto'])) $instance['height_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))       $instance['align']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+		$method      = strtolower(trim($instance['method']));
+		$specific    = strtolower(trim($instance['specific']));
+		$width       = strtolower(trim($instance['width']));
+		$width_auto  = strtolower(trim($instance['width_auto']));
+		$height      = strtolower(trim($instance['height']));
+		$height_auto = strtolower(trim($instance['height_auto']));
+		$align       = strtolower(trim($instance['align']));
+
+		// Correzione del valore di dimensione nel caso venga
+		// specificata la maniera automatica e quindi usare javascript
+
+		if ($width_auto  == SZ_PLUGIN_GOOGLE_VALUE_YES) $width  = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+		if ($height_auto == SZ_PLUGIN_GOOGLE_VALUE_YES) $height = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+
+		// Calcolo del valore ID per la composizione del badge
+
+		if ($method == SZ_PLUGIN_GOOGLE_VALUE_YES) $reference = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			else $reference = trim($specific);
+
+		// Creazione del codice per il badge di google+
+
+		$HTML = sz_google_modules_plus_get_code_followers(array(
+			'id'     => trim($reference),
+			'width'  => trim($width),
+			'height' => trim($height),
+			'align'  => trim($align),
+			'action' => trim('widget'),
+		));
+	 
+		// Output del codice HTML legato al widget da visualizzare		 
+
+		$output  = $before_widget;
+		$output .= $title;
+		$output .= $HTML;
+		$output .= $after_widget;
+
+		echo $output;
+	}
+
+	// Funzione per modifica parametri collegati al widget con 
+	// memorizzazione dei valori direttamente nel database wordpress
+
+	function update($new_instance,$old_instance) 
+	{
+		$instance = $old_instance;
+
+		if (!isset($new_instance['title']))       $new_instance['title']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['method']))      $new_instance['method']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['specific']))    $new_instance['specific']    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width']))       $new_instance['width']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width_auto']))  $new_instance['width_auto']  = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['height']))      $new_instance['height']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['height_auto'])) $new_instance['height_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))       $new_instance['align']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+
+		$instance['title']       = trim(strip_tags($new_instance['title']));
+		$instance['method']      = trim(strip_tags($new_instance['method']));
+		$instance['specific']    = trim(strip_tags($new_instance['specific']));
+		$instance['width']       = trim(strip_tags($new_instance['width']));
+		$instance['width_auto']  = trim(strip_tags($new_instance['width_auto']));
+		$instance['height']      = trim(strip_tags($new_instance['height']));
+		$instance['height_auto'] = trim(strip_tags($new_instance['height_auto']));
+		$instance['align']       = trim(strip_tags($new_instance['align']));
+
+		return $instance;
+	}
+
+	// Funzione per la visualizzazione del form presente sulle 
+	// sidebar nel pannello di amministrazione di wordpress
+	
+	function form($instance) 
+	{
+		$array = array(
+			'title'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'method'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'specific'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'       => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'height'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_HEIGHT,
+			'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'align'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		);
+
+		// Creazione array per elenco campi da recuperare su FORM
+
+		$instance = wp_parse_args((array) $instance,$array);
+
+		$title       = trim(strip_tags($instance['title']));
+		$method      = trim(strip_tags($instance['method']));
+		$specific    = trim(strip_tags($instance['specific']));
+		$width       = trim(strip_tags($instance['width']));
+		$width_auto  = trim(strip_tags($instance['width_auto']));
+		$height      = trim(strip_tags($instance['height']));
+		$height_auto = trim(strip_tags($instance['height_auto']));
+		$align       = trim(strip_tags($instance['align']));
+
+		$KEY_method  = 'sz-key-1-'.md5(uniqid(),false);
+		$KEY_fieldj  = 'sz-key-2-'.md5(uniqid(),false);
+		$KEY_widths  = 'sz-key-3-'.md5(uniqid(),false);
+		$KEY_widtha  = 'sz-key-4-'.md5(uniqid(),false);
+		$KEY_heights = 'sz-key-5-'.md5(uniqid(),false);
+		$KEY_heighta = 'sz-key-6-'.md5(uniqid(),false);
+
+		// Campo di selezione parametro badge per TITOLO
+
+		echo '<p><label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
+		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/></p>';
+
+		// Campo di selezione parametro badge per ID con metodo
+
+		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'" data-sz-key="'.$KEY_method.'">';
+		echo '<option value="1" '; selected("1",$method); echo '>'.ucfirst(__('configuration ID','szgoogleadmin')).'</option>';
+		echo '<option value="2" '; selected("2",$method); echo '>'.ucfirst(__('specific ID','szgoogleadmin')).'</option>';
+		echo '</select></p>';
+
+		// Campo di selezione parametro badge per ID specifico
+
+		echo '<p id="'.$this->get_field_id('fieldj').'" data-sz-key="'.$KEY_fieldj.'">';
+		echo '<input class="widefat" id="'.$this->get_field_id('specific').'" name="'.$this->get_field_name('specific').'" type="text" value="'.$specific.'" placeholder="'.__('insert specific ID','szgoogleadmin').'"/></p>';
+
+		echo '<table style="width:100%">';
+
+		// Campo di selezione parametro badge per WIDTH
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('width').'">'.ucfirst(__('width','szgoogleadmin')).':</label></td>';
+		echo '<td><input data-sz-key="'.$KEY_widths.'" id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
+		echo '<td><input data-sz-key="'.$KEY_widtha.'" id="'.$this->get_field_id('width_auto').'" name="'.$this->get_field_name('width_auto').'" class="checkbox" type="checkbox" value="1" '; checked($width_auto); echo '>&nbsp;'.ucfirst(__('auto','szgoogleadmin')).'</td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro badge per HEIGHT
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('height').'">'.ucfirst(__('height','szgoogleadmin')).':</label></td>';
+		echo '<td><input data-sz-key="'.$KEY_heights.'" id="'.$this->get_field_id('height').'" name="'.$this->get_field_name('height').'" type="number" size="5" step="1" min="180" max="450" value="'.$height.'"/></td>';
+		echo '<td><input data-sz-key="'.$KEY_heighta.'" id="'.$this->get_field_id('height_auto').'" name="'.$this->get_field_name('height_auto').'" class="checkbox" type="checkbox" value="1" '; checked($height_auto); echo '>&nbsp;'.ucfirst(__('auto','szgoogleadmin')).'</td>';
+		echo '</tr>';
+
+		echo '<tr><td colspan="3"><hr></td></tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare il campo ID specifico
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_method.'\']").val() == "1"){';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_fieldj.'\']").hide();';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_method.'\']").change(function(){';          
+					echo "if (this.value == '1') {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideUp();';
+				   echo "} else {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideDown();';
+					echo '}';
+				echo '});';
+
+				// Codice javascript per abilitare/disabilitare il campo WIDTH
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_widtha.'\']").is(":checked")) {';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_widtha.'\']").change(function(){';          
+					echo 'if (jQuery(this).is(":checked")) {';
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				   echo "} else {";
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",false);';
+					echo '}';
+				echo '});';
+
+				// Codice javascript per abilitare/disabilitare il campo HEIGHT
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_heighta.'\']").is(":checked")) {';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_heights.'\']").prop("readonly",true);';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_heighta.'\']").change(function(){';          
+					echo 'if (jQuery(this).is(":checked")) {';
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_heights.'\']").prop("readonly",true);';
+				   echo "} else {";
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_heights.'\']").prop("readonly",false);';
+					echo '}';
+				echo '});';
+
+			echo '});';
+		echo '</script>';
 	}
 }
 
@@ -1896,6 +2636,7 @@ function sz_google_modules_plus_get_code_comments($atts,$content=null)
 	extract(shortcode_atts(array(
 		'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -1906,15 +2647,23 @@ function sz_google_modules_plus_get_code_comments($atts,$content=null)
 
 	$url   = trim($url);
 	$width = strtolower(trim($width));
+	$align = strtolower(trim($align));
 
 	// Controllo opzione per dimensione fissa da applicare se esiste 
 	// un valore specificato e il parametro width non è stato specificato. 
 
-	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL and $options['plus_comments_fixed_size'] != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-		$width = $options['plus_comments_fixed_size'];
-	}
+	if (!is_numeric($width) and $width != 'auto') $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
-	if (!is_numeric($width) or $width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_comments_fixed_size'];
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+
+	if (!is_numeric($width) and $width != 'auto') $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+	// Controllo opzione per dimensione fissa da applicare se esiste 
+	// un valore specificato e il parametro width non è stato specificato. 
+
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+	if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
@@ -1924,7 +2673,16 @@ function sz_google_modules_plus_get_code_comments($atts,$content=null)
 	// Questo codice deve essere usato sia dallo shortcode, dal widget e dalla funzione
 
 	$HTML  = '<div class="sz-google-comments">';
-	$HTML .= '<div id="'.$uniqueID.'" class="sz-google-comments-wrap">';
+	$HTML .= '<div class="sz-google-comments-wrap">';
+
+	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+
+	if ($align == 'left')   $HTML .= 'text-align:left;';
+	if ($align == 'center') $HTML .= 'text-align:center;';
+	if ($align == 'right')  $HTML .= 'text-align:right;';
+
+	$HTML .= '">';
+
 	$HTML .= '<script type="text/javascript">';
 	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
 	$HTML .= "document.write('";
@@ -1936,6 +2694,8 @@ function sz_google_modules_plus_get_code_comments($atts,$content=null)
 	$HTML .= ' data-view_type="FILTERED_POSTMOD"';
 	$HTML .= '></div>'."');";
 	$HTML .= '</script>';
+
+	$HTML .= '</div>';
 	$HTML .= '</div>';
 	$HTML .= '</div>';
 
@@ -2068,6 +2828,7 @@ function sz_google_shortcodes_plus_comments($atts,$content=null)
 	extract(shortcode_atts(array(
 		'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Preparazione codice HTML dello shortcode tramite la funzione
@@ -2076,6 +2837,7 @@ function sz_google_shortcodes_plus_comments($atts,$content=null)
 	$HTML = sz_google_modules_plus_get_code_comments(array(
 		'url'   => trim($url),
 		'width' => trim($width),
+		'align' => trim($align),
 	),$content);
 
 	// Ritorno per la funzione con tutta la stringa contenente
@@ -2120,22 +2882,26 @@ class SZ_Widget_Google_Comments extends WP_Widget
 		// dello script e assegno dei valori di default nel caso non fossero specificati
 
 		if (empty($instance['url']))        $instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['method']))     $instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		if (empty($instance['width']))      $instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		if (empty($instance['responsive'])) $instance['responsive'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		if (empty($instance['width_auto'])) $instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))      $instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
 		$url        = trim($instance['url']);
-		$width      = trim($instance['width']);
-		$responsive = trim($instance['responsive']);
+		$method     = strtolower(trim($instance['method']));
+		$width_auto = strtolower(trim($instance['width_auto']));
+		$width      = strtolower(trim($instance['width']));
+		$align      = strtolower(trim($instance['align']));
 
-		if ($responsive == '1' or !is_numeric($width) or $width == '' or $width == '0') { 
-			$width = "'+w+'";
-		}
+		if ($method     == SZ_PLUGIN_GOOGLE_VALUE_YES) $url   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if ($width_auto == SZ_PLUGIN_GOOGLE_VALUE_YES) $width = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
 
 		// Creazione codice HTML per inserimento widget commenti		 
 
 		$HTML = sz_google_modules_plus_get_code_comments(array(
 			'url'   => trim($url),
 			'width' => trim($width),
+			'align' => trim($align),
 		));
 
 		// Output del codice HTML legato al widget da visualizzare		 
@@ -2155,10 +2921,19 @@ class SZ_Widget_Google_Comments extends WP_Widget
 	{
 		$instance = $old_instance;
 
+		if (!isset($new_instance['title']))      $new_instance['title']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['method']))     $new_instance['method']     = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['url']))        $new_instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width']))      $new_instance['width']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['width_auto'])) $new_instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))      $new_instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+
 		$instance['url']        = trim($new_instance['url']);
 		$instance['title']      = trim(strip_tags($new_instance['title']));
+		$instance['method']     = trim(strip_tags($new_instance['method']));
 		$instance['width']      = trim(strip_tags($new_instance['width']));
-		$instance['responsive'] = trim(strip_tags($new_instance['responsive']));
+		$instance['width_auto'] = trim(strip_tags($new_instance['width_auto']));
+		$instance['align']      = trim(strip_tags($new_instance['align']));
 
 		return $instance;
 	}
@@ -2171,34 +2946,104 @@ class SZ_Widget_Google_Comments extends WP_Widget
 		$array = array(
 			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'method'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
 			'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'responsive' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'width_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$instance   = wp_parse_args((array) $instance,$array);
+
 		$url        = trim($instance['url']);
 		$title      = trim(strip_tags($instance['title']));
+		$method     = trim(strip_tags($instance['method']));
 		$width      = trim(strip_tags($instance['width']));
-		$responsive = trim(strip_tags($instance['responsive']));
+		$width_auto = trim(strip_tags($instance['width_auto']));
+		$align      = trim(strip_tags($instance['align']));
+
+		$KEY_method = 'sz-key-1-'.md5(uniqid(),false);
+		$KEY_fieldj = 'sz-key-2-'.md5(uniqid(),false);
+		$KEY_widths = 'sz-key-3-'.md5(uniqid(),false);
+		$KEY_widtha = 'sz-key-4-'.md5(uniqid(),false);
 
 		// Campo di selezione parametro badge per TITOLO
 
 		echo '<p><label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
 		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/></p>';
 
-		echo '<p><label for="'.$this->get_field_id('url').'">'.ucfirst(__('url','szgoogleadmin')).':</label>';
-		echo '<input class="widefat" id="'.$this->get_field_id('url').'" name="'.$this->get_field_name('url').'" type="text" value="'.$url.'"/></p>';
+		// Campo di selezione parametro badge per ID con metodo
+
+		echo '<p><select class="widefat" id="'.$this->get_field_id('method').'" name="'.$this->get_field_name('method').'" data-sz-key="'.$KEY_method.'">';
+		echo '<option value="1" '; selected("1",$method); echo '>'.ucfirst(__('current post','szgoogleadmin')).'</option>';
+		echo '<option value="2" '; selected("2",$method); echo '>'.ucfirst(__('specific URL','szgoogleadmin')).'</option>';
+		echo '</select></p>';
+
+		// Campo di selezione parametro badge per URL specifico
+
+		echo '<p id="'.$this->get_field_id('fieldj').'" data-sz-key="'.$KEY_fieldj.'">';
+		echo '<input class="widefat" id="'.$this->get_field_id('url').'" name="'.$this->get_field_name('url').'" type="text" value="'.$url.'" placeholder="'.__('insert specific URL','szgoogleadmin').'"/></p>';
+
+		echo '<table style="width:100%">';
 
 		// Campo di selezione parametro badge per WIDTH
 
-		echo '<table style="width:100%"><tr>';
+		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('width').'">'.ucfirst(__('width','szgoogleadmin')).':</label></td>';
-		echo '<td><input id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
-		echo '<td><input class="checkbox" type="checkbox" id="'.$this->get_field_id('responsive').'" name="'.$this->get_field_name('responsive').'" value="1" '; checked($responsive); echo '>&nbsp;'.ucfirst(__('responsive','szgoogleadmin')).'</td>';
+		echo '<td><input data-sz-key="'.$KEY_widths.'" id="'.$this->get_field_id('width').'" name="'.$this->get_field_name('width').'" type="number" size="5" step="1" min="180" max="450" value="'.$width.'"/></td>';
+		echo '<td><input data-sz-key="'.$KEY_widtha.'" id="'.$this->get_field_id('width_auto').'" name="'.$this->get_field_name('width_auto').'" class="checkbox" type="checkbox" value="1" '; checked($width_auto); echo '>&nbsp;'.ucfirst(__('auto','szgoogleadmin')).'</td>';
 		echo '</tr>';
+
+		echo '<tr><td colspan="3"><hr></td></tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
 		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare il campo ID specifico
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_method.'\']").val() == "1"){';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_fieldj.'\']").hide();';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_method.'\']").change(function(){';          
+					echo "if (this.value == '1') {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideUp();';
+				   echo "} else {";
+						echo 'jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_fieldj.'\']").slideDown();';
+					echo '}';
+				echo '});';
+
+				// Codice javascript per abilitare/disabilitare il campo WIDTH
+
+				echo 'if (jQuery("#widgets-right [data-sz-key=\''.$KEY_widtha.'\']").is(":checked")) {';
+					echo  'jQuery("#widgets-right [data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				echo '}';
+
+				echo 'jQuery("[data-sz-key=\''.$KEY_widtha.'\']").change(function(){';          
+					echo 'if (jQuery(this).is(":checked")) {';
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",true);';
+				   echo "} else {";
+						echo ' jQuery(this).parents("form:first").find("[data-sz-key=\''.$KEY_widths.'\']").prop("readonly",false);';
+					echo '}';
+				echo '});';
+
+			echo '});';
+		echo '</script>';
 	}
 }
 
@@ -2232,7 +3077,7 @@ function sz_google_modules_plus_rewrite_rules()
 	// Controllo REDIRECT per url con la stringa "URL"
 
 	if ($options['plus_redirect_curl'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
-		if (trim($options['plus_redirect_curl_dir']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL and trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+		if (trim($options['plus_redirect_curl_dir']) != SZ_PLUGIN_GOOGLE_VALUE_NULL and trim($options['plus_redirect_curl_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
 			add_rewrite_rule('^'. preg_quote(trim($options['plus_redirect_curl_dir'])).'$','index.php?szgoogleplusredirectcurl=1','top');		
 			$wp->add_query_var('szgoogleplusredirectcurl');
 		}
@@ -2264,7 +3109,7 @@ function sz_google_modules_plus_parse_query(&$wp)
 	// Controllo REDIRECT per url con la stringa "+"
 
 	if (array_key_exists('szgoogleplusredirectsign',$wp->query_vars)) {
-		if (trim($options['plus_redirect_sign_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+		if (trim($options['plus_redirect_sign_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
 			header("location:".trim($options['plus_redirect_sign_url'])); exit();
 		}
 	}
@@ -2272,7 +3117,7 @@ function sz_google_modules_plus_parse_query(&$wp)
 	// Controllo REDIRECT per url con la stringa "plus"
 	
 	if (array_key_exists('szgoogleplusredirectplus',$wp->query_vars)) {
-		if (trim($options['plus_redirect_plus_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+		if (trim($options['plus_redirect_plus_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
 			header("location:".trim($options['plus_redirect_plus_url'])); exit();
 		}
 	}
@@ -2280,7 +3125,7 @@ function sz_google_modules_plus_parse_query(&$wp)
 	// Controllo REDIRECT per url con la stringa "URL"
 	
 	if (array_key_exists('szgoogleplusredirectcurl',$wp->query_vars)) {
-		if (trim($options['plus_redirect_curl_url']) <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+		if (trim($options['plus_redirect_curl_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
 			header("location:".trim($options['plus_redirect_curl_url'])); exit();
 		}
 	}

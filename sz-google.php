@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.2
+Version: 1.3
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -46,6 +46,7 @@ define('SZ_PLUGIN_GOOGLE_VALUE_YES'  ,'1');
 define('SZ_PLUGIN_GOOGLE_VALUE_NULL' ,'');
 define('SZ_PLUGIN_GOOGLE_VALUE_ZERO' ,'0');
 define('SZ_PLUGIN_GOOGLE_VALUE_LANG' ,'99');
+define('SZ_PLUGIN_GOOGLE_VALUE_AUTO' ,'auto');
 define('SZ_PLUGIN_GOOGLE_VALUE_DAY'  ,sprintf('%02d',date('d')));
 define('SZ_PLUGIN_GOOGLE_VALUE_MONTH',sprintf('%02d',date('m')));
 define('SZ_PLUGIN_GOOGLE_VALUE_YEAR' ,sprintf('%04d',date('Y')));
@@ -80,6 +81,7 @@ define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER','false');
 define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER','false');
 define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT','180');
 define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE','275');
+define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_HEIGHT','300');
 
 /* ************************************************************************** */
 /* Definizione delle costanti da usare nel modulo GOOGLE ANALYTICS            */
@@ -163,11 +165,13 @@ function sz_google_plugin_activate()
 		'plus_widget_pr_enable'          => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'plus_widget_pa_enable'          => SZ_PLUGIN_GOOGLE_VALUE_YES,		
 		'plus_widget_co_enable'          => SZ_PLUGIN_GOOGLE_VALUE_YES,		
+		'plus_widget_fl_enable'          => SZ_PLUGIN_GOOGLE_VALUE_YES,		
 		'plus_widget_size_portrait'      => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
 		'plus_widget_size_landscape'     => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE,
 		'plus_shortcode_pr_enable'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'plus_shortcode_pa_enable'       => SZ_PLUGIN_GOOGLE_VALUE_YES,		
 		'plus_shortcode_co_enable'       => SZ_PLUGIN_GOOGLE_VALUE_YES,		
+		'plus_shortcode_fl_enable'       => SZ_PLUGIN_GOOGLE_VALUE_YES,		
 		'plus_shortcode_size_portrait'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT,
 		'plus_shortcode_size_landscape'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE,
 		'plus_button_enable_plusone'     => SZ_PLUGIN_GOOGLE_VALUE_YES,

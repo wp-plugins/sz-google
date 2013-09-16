@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -45,6 +45,7 @@ To be informed about the features that gradually will be released you can follow
 * `Widget google+ profile badge`
 * `Widget google+ page badge`
 * `Widget google+ community badget`
+* `Widget google+ followers`
 * `Widget google+ comments system`
 * `Widget google+ embedded posts`
 
@@ -53,6 +54,7 @@ To be informed about the features that gradually will be released you can follow
 * `[sz-gplus-profile] ..: g+ badge for profile`
 * `[sz-gplus-page] .....: g+ badge for business page`
 * `[sz-gplus-community] : g+ badge for community`
+* `[sz-gplus-followers] : g+ badge for followers`
 * `[sz-gplus-one] ......: g+ button plus one`
 * `[sz-gplus-share] ....: g+ button for sharing`
 * `[sz-gplus-follow] ...: g+ button for follow`
@@ -64,6 +66,7 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_gplus_badge_profile()`
 * `szgoogle_get_gplus_badge_page()`
 * `szgoogle_get_gplus_badge_community()`
+* `szgoogle_get_gplus_badge_followers()`
 * `szgoogle_get_gplus_button_one()`
 * `szgoogle_get_gplus_button_share()`
 * `szgoogle_get_gplus_button_follow()`
@@ -204,9 +207,17 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 1.3 =
+* Feature: Add google+ badge for followers widget.
+* Feature: Add google+ badge for followers shortcode.
+* Feature: Add options width="auto" for any badges.
+
 = Version 1.2 =
 * Feature: Add documentation section for modules google+.
 * Feature: Add any options for google+ buttons.
+* Feature: Add options align for google+ badges.
+* Fix: Correct options widget for google+ comment system.
+* Fix: Problem events widget with jquery and WP 3.6.
 
 = Version 1.1 =
 * Feature: Add option fixed size google+ comments.
@@ -292,6 +303,9 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
+
+= 1.3 =
+Add google+ badge for followers widget and shortcode.
 
 = 1.2 =
 

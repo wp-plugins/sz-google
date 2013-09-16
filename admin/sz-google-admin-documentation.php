@@ -75,11 +75,12 @@ function sz_google_admin_documentation_gplus()
 		'01' => '[sz-gplus-profile]',
 		'02' => '[sz-gplus-page]',
 		'03' => '[sz-gplus-community]',
-		'04' => '[sz-gplus-one]',
-		'05' => '[sz-gplus-share]',
-		'06' => '[sz-gplus-follow]',
-		'07' => '[sz-gplus-comments]',
-		'08' => '[sz-gplus-post]',
+		'04' => '[sz-gplus-followers]',
+		'05' => '[sz-gplus-one]',
+		'06' => '[sz-gplus-share]',
+		'07' => '[sz-gplus-follow]',
+		'08' => '[sz-gplus-comments]',
+		'09' => '[sz-gplus-post]',
 	); 
 
 	// Definizione elenco delle funzioni presenti nella documentazione 
@@ -89,11 +90,12 @@ function sz_google_admin_documentation_gplus()
 		'01' => 'szgoogle_get_gplus_badge_profile()',
 		'02' => 'szgoogle_get_gplus_badge_page()',
 		'03' => 'szgoogle_get_gplus_badge_community()',
-		'04' => 'szgoogle_get_gplus_button_one()',
-		'05' => 'szgoogle_get_gplus_button_share()',
-		'06' => 'szgoogle_get_gplus_button_follow()',
-		'07' => 'szgoogle_get_gplus_comments()',
-		'08' => 'szgoogle_get_gplus_post()',
+		'04' => 'szgoogle_get_gplus_badge_followers()',
+		'05' => 'szgoogle_get_gplus_button_one()',
+		'06' => 'szgoogle_get_gplus_button_share()',
+		'07' => 'szgoogle_get_gplus_button_follow()',
+		'08' => 'szgoogle_get_gplus_comments()',
+		'09' => 'szgoogle_get_gplus_post()',
 	); 
 
 	// Definizione elenco degli shortcode presenti nella documentazione 
@@ -103,11 +105,12 @@ function sz_google_admin_documentation_gplus()
 		'01' => __('google+ badge for profile','szgoogleadmin'),
 		'02' => __('google+ badge for page','szgoogleadmin'),
 		'03' => __('google+ badge for community','szgoogleadmin'),
-		'04' => __('google+ button for +1','szgoogleadmin'),
-		'05' => __('google+ button for sharing','szgoogleadmin'),
-		'06' => __('google+ button for follow','szgoogleadmin'),
-		'07' => __('google+ comment system','szgoogleadmin'),
-		'08' => __('google+ embedded post','szgoogleadmin'),
+		'04' => __('google+ badge for followers','szgoogleadmin'),
+		'05' => __('google+ button for +1','szgoogleadmin'),
+		'06' => __('google+ button for sharing','szgoogleadmin'),
+		'07' => __('google+ button for follow','szgoogleadmin'),
+		'08' => __('google+ comment system','szgoogleadmin'),
+		'09' => __('google+ embedded post','szgoogleadmin'),
 	); 
 
 	// Definizione elenco parametri con valori consentiti e di default che sono
@@ -117,7 +120,8 @@ function sz_google_admin_documentation_gplus()
 
 		'01' => array(
 			'id'         => array(__('profile id','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
-			'width'      => array(__('widget width','szgoogleadmin'),__('integer','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'width'      => array(__('widget width','szgoogleadmin'),__('integer,auto','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'align'      => array(__('widget alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
 			'layout'     => array(__('widget layout','szgoogleadmin'),__('portrait,landscape','szgoogleadmin'),__('portrait','szgoogleadmin')),
 			'theme'      => array(__('widget theme','szgoogleadmin'),__('light,dark','szgoogleadmin'),__('light','szgoogleadmin')),
 			'cover'      => array(__('widget cover','szgoogleadmin'),__('true,false','szgoogleadmin'),__('true','szgoogleadmin')),
@@ -127,7 +131,8 @@ function sz_google_admin_documentation_gplus()
 
 		'02' => array(
 			'id'         => array(__('page id','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
-			'width'      => array(__('widget width','szgoogleadmin'),__('integer','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'width'      => array(__('widget width','szgoogleadmin'),__('integer,auto','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'align'      => array(__('widget alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
 			'layout'     => array(__('widget layout','szgoogleadmin'),__('portrait,landscape','szgoogleadmin'),__('portrait','szgoogleadmin')),
 			'theme'      => array(__('widget theme','szgoogleadmin'),__('light,dark','szgoogleadmin'),__('light','szgoogleadmin')),
 			'cover'      => array(__('widget cover','szgoogleadmin'),__('true,false','szgoogleadmin'),__('true','szgoogleadmin')),
@@ -137,7 +142,8 @@ function sz_google_admin_documentation_gplus()
 
 		'03' => array(
 			'id'         => array(__('community id','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
-			'width'      => array(__('widget width','szgoogleadmin'),__('integer','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'width'      => array(__('widget width','szgoogleadmin'),__('integer,auto','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'align'      => array(__('widget alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
 			'layout'     => array(__('widget layout','szgoogleadmin'),__('portrait,landscape','szgoogleadmin'),__('portrait','szgoogleadmin')),
 			'theme'      => array(__('widget theme','szgoogleadmin'),__('light,dark','szgoogleadmin'),__('light','szgoogleadmin')),
 			'photo'      => array(__('widget photo','szgoogleadmin'),__('true,false','szgoogleadmin'),__('true','szgoogleadmin')),
@@ -145,14 +151,10 @@ function sz_google_admin_documentation_gplus()
 		),
 
 		'04' => array(
-			'url'        => array(__('complete URL address','szgoogleadmin'),__('string','szgoogleadmin'),__('current post','szgoogleadmin')),
-			'size'       => array(__('button size','szgoogleadmin'),__('small,medium,standard,tail','szgoogleadmin'),__('standard','szgoogleadmin')),
-			'width'      => array(__('button width','szgoogleadmin'),__('integer','szgoogleadmin'),__('null','szgoogleadmin')),
-			'annotation' => array(__('button annotation','szgoogleadmin'),__('inline,bubble,none','szgoogleadmin'),__('none','szgoogleadmin')),
-			'align'      => array(__('button alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
-			'text'       => array(__('button wrap text','szgoogleadmin'),__('string','szgoogleadmin'),__('null','szgoogleadmin')),
-			'img'        => array(__('button wrap image','szgoogleadmin'),__('string','szgoogleadmin'),__('null','szgoogleadmin')),
-			'position'   => array(__('button wrap position','zgoogleadmin'),__('top,center,bottom,outside','szgoogleadmin'),__('outside','szgoogleadmin')),
+			'id'         => array(__('page id or profile id','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'align'      => array(__('widget alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
+			'width'      => array(__('widget width','szgoogleadmin'),__('integer,auto','szgoogleadmin'),__('configuration','szgoogleadmin')),
+			'height'     => array(__('widget height','szgoogleadmin'),__('integer,auto','szgoogleadmin'),__('configuration','szgoogleadmin')),
 		),
 
 		'05' => array(
@@ -166,8 +168,18 @@ function sz_google_admin_documentation_gplus()
 			'position'   => array(__('button wrap position','zgoogleadmin'),__('top,center,bottom,outside','szgoogleadmin'),__('outside','szgoogleadmin')),
 		),
 
-
 		'06' => array(
+			'url'        => array(__('complete URL address','szgoogleadmin'),__('string','szgoogleadmin'),__('current post','szgoogleadmin')),
+			'size'       => array(__('button size','szgoogleadmin'),__('small,medium,standard,tail','szgoogleadmin'),__('standard','szgoogleadmin')),
+			'width'      => array(__('button width','szgoogleadmin'),__('integer','szgoogleadmin'),__('null','szgoogleadmin')),
+			'annotation' => array(__('button annotation','szgoogleadmin'),__('inline,bubble,none','szgoogleadmin'),__('none','szgoogleadmin')),
+			'align'      => array(__('button alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
+			'text'       => array(__('button wrap text','szgoogleadmin'),__('string','szgoogleadmin'),__('null','szgoogleadmin')),
+			'img'        => array(__('button wrap image','szgoogleadmin'),__('string','szgoogleadmin'),__('null','szgoogleadmin')),
+			'position'   => array(__('button wrap position','zgoogleadmin'),__('top,center,bottom,outside','szgoogleadmin'),__('outside','szgoogleadmin')),
+		),
+
+		'07' => array(
 			'url'        => array(__('URL google+ page or profile','szgoogleadmin'),__('string','szgoogleadmin'),__('configuration','szgoogleadmin')),
 			'size'       => array(__('button size','szgoogleadmin'),__('small,medium,large','szgoogleadmin'),__('medium','szgoogleadmin')),
 			'width'      => array(__('button width','szgoogleadmin'),__('integer','szgoogleadmin'),__('null','szgoogleadmin')),
@@ -179,12 +191,13 @@ function sz_google_admin_documentation_gplus()
 			'position'   => array(__('button wrap position','zgoogleadmin'),__('top,center,bottom,outside','szgoogleadmin'),__('outside','szgoogleadmin')),
 		),
 
-		'07' => array(
+		'08' => array(
 			'url'        => array(__('complete URL address','szgoogleadmin'),__('string','szgoogleadmin'),__('current post','szgoogleadmin')),
-			'width'      => array(__('widget fixed width','szgoogleadmin'),__('integer or null','szgoogleadmin'),__('null=responsive','szgoogleadmin')),
+			'width'      => array(__('widget fixed width','szgoogleadmin'),__('integer,auto','szgoogleadmin'),__('auto','szgoogleadmin')),
+			'align'      => array(__('widget alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
 		),
 
-		'08' => array(
+		'09' => array(
 			'url'        => array(__('complete URL address','szgoogleadmin'),__('string','szgoogleadmin'),__('current post','szgoogleadmin')),
 			'align'      => array(__('widget alignment','szgoogleadmin'),__('left,center,right,none','szgoogleadmin'),__('none','szgoogleadmin')),
 		),
@@ -197,11 +210,12 @@ function sz_google_admin_documentation_gplus()
 		'01' => '[sz-gplus-profile id="106567288702045182616"/]',
 		'02' => '[sz-gplus-page id="117259631219963935481"/]',
 		'03' => '[sz-gplus-community id="109254048492234113886"/]',
-		'04' => '[sz-gplus-one size="medium" annotation="bubble"/]',
-		'05' => '[sz-gplus-share size="small" annotation="bubble"/]',
-		'06' => '[sz-gplus-follow size="medium"/]',
-		'07' => '[sz-gplus-comments url="https://startbyzero.com/webmaster" width="600"/]',
-		'08' => '[sz-gplus-post url="URL_GOOGLE_PLUS_POST" align="center"/]',
+		'04' => '[sz-gplus-followers id="106567288702045182616"/]',
+		'05' => '[sz-gplus-one size="medium" annotation="bubble"/]',
+		'06' => '[sz-gplus-share size="small" annotation="bubble"/]',
+		'07' => '[sz-gplus-follow size="medium"/]',
+		'08' => '[sz-gplus-comments url="https://startbyzero.com/webmaster" width="600"/]',
+		'09' => '[sz-gplus-post url="URL_GOOGLE_PLUS_POST" align="center"/]',
 	); 
 
 	// Definizione array per contenere il codice di esempio da aggiungere
@@ -211,11 +225,12 @@ function sz_google_admin_documentation_gplus()
 		'01' => 'szgoogle_get_gplus_badge_profile(array("id"=>"106567288702045182616"));',
 		'02' => 'szgoogle_get_gplus_badge_page(array("id"=>"117259631219963935481"));',
 		'03' => 'szgoogle_get_gplus_badge_community(array("id"=>"109254048492234113886"));',
-		'04' => 'szgoogle_get_gplus_button_one(array("size"=>"medium"));',
-		'05' => 'szgoogle_get_gplus_button_share(array("size"=>"small"));',
-		'06' => 'szgoogle_get_gplus_button_follow(array("size"=>"medium"));',
-		'07' => 'szgoogle_get_gplus_comments(array("width"=>"600"));',
-		'08' => 'szgoogle_get_gplus_post(array("align"=>"center"));',
+		'04' => 'szgoogle_get_gplus_badge_followers(array("id"=>"106567288702045182616"));',
+		'05' => 'szgoogle_get_gplus_button_one(array("size"=>"medium"));',
+		'06' => 'szgoogle_get_gplus_button_share(array("size"=>"small"));',
+		'07' => 'szgoogle_get_gplus_button_follow(array("size"=>"medium"));',
+		'08' => 'szgoogle_get_gplus_comments(array("width"=>"600"));',
+		'09' => 'szgoogle_get_gplus_post(array("align"=>"center"));',
 	); 
 
 	// Chiamata alla funzione per la creazione delle singole sezioni con la
@@ -225,17 +240,18 @@ function sz_google_admin_documentation_gplus()
 		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
 		array($shortcode['02'],$description['02'],$options['02'],$shortcode_example['02']),
 		array($shortcode['03'],$description['03'],$options['03'],$shortcode_example['03']),
+		array($shortcode['04'],$description['04'],$options['04'],$shortcode_example['04']),
 	));
 
 	echo sz_google_admin_documentation_table(__('documentation for shortcodes - buttons','szgoogleadmin'),array(
-		array($shortcode['04'],$description['04'],$options['04'],$shortcode_example['04']),
 		array($shortcode['05'],$description['05'],$options['05'],$shortcode_example['05']),
 		array($shortcode['06'],$description['06'],$options['06'],$shortcode_example['06']),
+		array($shortcode['07'],$description['07'],$options['07'],$shortcode_example['07']),
 	));
 
 	echo sz_google_admin_documentation_table(__('documentation for shortcodes - widgets','szgoogleadmin'),array(
-		array($shortcode['07'],$description['07'],$options['07'],$shortcode_example['07']),
 		array($shortcode['08'],$description['08'],$options['08'],$shortcode_example['08']),
+		array($shortcode['09'],$description['09'],$options['09'],$shortcode_example['09']),
 	));
 
 	// Chiamata alla funzione per la creazione delle singole sezioni con la
@@ -245,17 +261,18 @@ function sz_google_admin_documentation_gplus()
 		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
 		array($functions['02'],$description['02'],$options['02'],$function_example['02']),
 		array($functions['03'],$description['03'],$options['03'],$function_example['03']),
+		array($functions['04'],$description['04'],$options['04'],$function_example['04']),
 	));
 
 	echo sz_google_admin_documentation_table(__('documentation for PHP functions - buttons','szgoogleadmin'),array(
-		array($functions['04'],$description['04'],$options['04'],$function_example['04']),
 		array($functions['05'],$description['05'],$options['05'],$function_example['05']),
 		array($functions['06'],$description['06'],$options['06'],$function_example['06']),
+		array($functions['07'],$description['07'],$options['07'],$function_example['07']),
 	));
 
 	echo sz_google_admin_documentation_table(__('documentation for PHP functions - widgets','szgoogleadmin'),array(
-		array($functions['07'],$description['07'],$options['07'],$function_example['07']),
 		array($functions['08'],$description['08'],$options['08'],$function_example['08']),
+		array($functions['09'],$description['09'],$options['09'],$function_example['09']),
 	));
 }
 

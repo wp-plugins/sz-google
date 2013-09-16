@@ -33,6 +33,12 @@ function szgoogle_get_gplus_badge_community($atts=array()) {
 	} else return false;
 }
 
+function szgoogle_get_gplus_badge_followers($atts=array()) {
+	if (function_exists('sz_google_modules_plus_get_code_followers')) {
+		return sz_google_modules_plus_get_code_followers($atts);
+	} else return false;
+}
+
 /* ************************************************************************** */
 /* Funzioni per elaborazione codice HTML di G+ BUTTON                         */
 /* ************************************************************************** */

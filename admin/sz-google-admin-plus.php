@@ -41,6 +41,7 @@ function sz_google_admin_plus_fields()
 	add_settings_field('plus_widget_pr_enable',ucwords(__('widget G+ profile','szgoogleadmin')),'sz_google_admin_plus_widget_profile','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
 	add_settings_field('plus_widget_pa_enable',ucwords(__('widget G+ page','szgoogleadmin')),'sz_google_admin_plus_widget_page','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
 	add_settings_field('plus_widget_co_enable',ucwords(__('widget G+ community','szgoogleadmin')),'sz_google_admin_plus_widget_community','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
+	add_settings_field('plus_widget_fl_enable',ucwords(__('widget G+ followers','szgoogleadmin')),'sz_google_admin_plus_widget_followers','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
 	add_settings_field('plus_widget_size_portrait',ucwords(__('widget width portrait','szgoogleadmin')),'sz_google_admin_plus_widget_size_portrait','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
 	add_settings_field('plus_widget_size_landscape',ucwords(__('widget width landscape','szgoogleadmin')),'sz_google_admin_plus_widget_size_landscape','sz-google-admin-plus-widgets.php','sz_google_plus_widgets');
 
@@ -50,6 +51,7 @@ function sz_google_admin_plus_fields()
 	add_settings_field('plus_shortcode_pr_enable',ucwords(__('shortcode G+ profile','szgoogleadmin')),'sz_google_admin_plus_shortcode_profile','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 	add_settings_field('plus_shortcode_pa_enable',ucwords(__('shortcode G+ page','szgoogleadmin')),'sz_google_admin_plus_shortcode_page','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 	add_settings_field('plus_shortcode_co_enable',ucwords(__('shortcode G+ community','szgoogleadmin')),'sz_google_admin_plus_shortcode_community','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
+	add_settings_field('plus_shortcode_fl_enable',ucwords(__('shortcode G+ followers','szgoogleadmin')),'sz_google_admin_plus_shortcode_followers','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 	add_settings_field('plus_shortcode_size_portrait',ucwords(__('shortcode width portrait','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_portrait','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 	add_settings_field('plus_shortcode_size_landscape',ucwords(__('shortcode width landscape','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_landscape','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 
@@ -185,6 +187,12 @@ function sz_google_admin_plus_widget_community()
 	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
 }
 
+function sz_google_admin_plus_widget_followers() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_widget_fl_enable');
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+}
+
 function sz_google_admin_plus_widget_size_portrait()
 {
 	sz_google_common_form_number_step_1('sz_google_options_plus','plus_widget_size_portrait','medium',SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT);
@@ -217,6 +225,12 @@ function sz_google_admin_plus_shortcode_community()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_shortcode_co_enable');
 	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_shortcode_followers() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_shortcode_fl_enable');
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_shortcode_size_portrait() 
