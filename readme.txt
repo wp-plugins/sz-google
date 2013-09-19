@@ -41,9 +41,9 @@ To be informed about the features that gradually will be released you can follow
 
 **Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the widget.
 
-**Google+ Embedded Posts:** With this function we can put in our post a simple widget that shows in full a post this on google plus, as well as the contents will be inserted also the buttons to perform social actions, all of this while remaining on its website, and without leaving the web page.Through its widget you can use to insert also a sidebar of your theme wordrpess.
-
 **Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin-google sz we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
+
+**Google+ Embedded Posts:** With this function we can put in our post a simple widget that shows in full a post this on google plus, as well as the contents will be inserted also the buttons to perform social actions, all of this while remaining on its website, and without leaving the web page.Through its widget you can use to insert also a sidebar.
 
 **Google+ Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -58,15 +58,15 @@ To be informed about the features that gradually will be released you can follow
 * `Widget google+ embedded posts`
 
 
-**Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
+**Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the <a href="https://startbyzero.com/demos/wordpress/plugin-google/">official documentation</a>.
 
-* `[sz-gplus-profile] ..: g+ badge for profile`
-* `[sz-gplus-page] .....: g+ badge for page`
-* `[sz-gplus-community] : g+ badge for community`
-* `[sz-gplus-followers] : g+ badge for followers`
-* `[sz-gplus-one] ......: g+ button plus one`
-* `[sz-gplus-share] ....: g+ button share`
-* `[sz-gplus-follow] ...: g+ button follow`
+* `[sz-gplus-profile] ..: g+ profile`
+* `[sz-gplus-page] .....: g+ page`
+* `[sz-gplus-community] : g+ community`
+* `[sz-gplus-followers] : g+ followers`
+* `[sz-gplus-one] ......: g+ plus one`
+* `[sz-gplus-share] ....: g+ share`
+* `[sz-gplus-follow] ...: g+ follow`
 * `[sz-gplus-comments] .: g+ comments system`
 * `[sz-gplus-post]......: g+ embedded posts`
 
