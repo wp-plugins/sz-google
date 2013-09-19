@@ -82,6 +82,18 @@ if ($options['plus_widget_fl_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 	add_action('widgets_init', create_function('', 'return register_widget("SZ_Widget_Google_Followers");'));
 }
 
+if ($options['plus_button_enable_widget_plusone'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+	add_action('widgets_init',create_function('','return register_widget("sz_widget_google_plus_one");'));
+}
+
+if ($options['plus_button_enable_widget_sharing'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+	add_action('widgets_init',create_function('','return register_widget("sz_widget_google_plus_sharing");'));
+}
+
+if ($options['plus_button_enable_widget_follow'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+	add_action('widgets_init',create_function('','return register_widget("sz_widget_google_plus_follow");'));
+}
+
 if ($options['plus_comments_wd_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
 	add_action('widgets_init',create_function('','return register_widget("SZ_Widget_Google_Comments");'));
 }
@@ -102,45 +114,48 @@ function sz_google_modules_plus_options()
 
 	// Controllo delle opzioni in caso di valori non validi
 
-	if (!isset($options['plus_profile']))                  $options['plus_profile']                  = SZ_PLUGIN_GOOGLE_VALUE_NULL;   
-	if (!isset($options['plus_page']))                     $options['plus_page']                     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_community']))                $options['plus_community']                = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_language']))                 $options['plus_language']                 = SZ_PLUGIN_GOOGLE_VALUE_LANG;   
-	if (!isset($options['plus_widget_pr_enable']))         $options['plus_widget_pr_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_widget_pa_enable']))         $options['plus_widget_pa_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_widget_co_enable']))         $options['plus_widget_co_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_widget_fl_enable']))         $options['plus_widget_fl_enable']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_widget_size_portrait']))     $options['plus_widget_size_portrait']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_widget_size_landscape']))    $options['plus_widget_size_landscape']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_shortcode_pr_enable']))      $options['plus_shortcode_pr_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_shortcode_pa_enable']))      $options['plus_shortcode_pa_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_shortcode_co_enable']))      $options['plus_shortcode_co_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_shortcode_fl_enable']))      $options['plus_shortcode_fl_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_shortcode_size_portrait']))  $options['plus_shortcode_size_portrait']  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_shortcode_size_landscape'])) $options['plus_shortcode_size_landscape'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_button_enable_plusone']))    $options['plus_button_enable_plusone']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_button_enable_sharing']))    $options['plus_button_enable_sharing']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_button_enable_follow']))     $options['plus_button_enable_follow']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_sh_enable']))       $options['plus_comments_sh_enable']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_gp_enable']))       $options['plus_comments_gp_enable']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_gp_enable']))       $options['plus_comments_gp_enable']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_wp_enable']))       $options['plus_comments_wp_enable']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_ac_enable']))       $options['plus_comments_ac_enable']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_aw_enable']))       $options['plus_comments_aw_enable']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_dt_enable']))       $options['plus_comments_dt_enable']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_comments_dt_day']))          $options['plus_comments_dt_day']          = '01';  
-	if (!isset($options['plus_comments_dt_month']))        $options['plus_comments_dt_month']        = '01';
-	if (!isset($options['plus_comments_dt_year']))         $options['plus_comments_dt_year']         = '2000';
-	if (!isset($options['plus_comments_fixed_size']))      $options['plus_comments_fixed_size']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_redirect_sign']))            $options['plus_redirect_sign']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_redirect_plus']))            $options['plus_redirect_plus']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_redirect_curl']))            $options['plus_redirect_curl']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_redirect_curl_dir']))        $options['plus_redirect_curl_dir']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_redirect_curl_url']))        $options['plus_redirect_curl_url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['plus_redirect_flush']))           $options['plus_redirect_flush']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_system_javascript']))        $options['plus_system_javascript']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_post_enable_widget']))       $options['plus_post_enable_widget']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['plus_post_enable_shortcode']))    $options['plus_post_enable_shortcode']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_profile']))                      $options['plus_profile']                      = SZ_PLUGIN_GOOGLE_VALUE_NULL;   
+	if (!isset($options['plus_page']))                         $options['plus_page']                         = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_community']))                    $options['plus_community']                    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_language']))                     $options['plus_language']                     = SZ_PLUGIN_GOOGLE_VALUE_LANG;   
+	if (!isset($options['plus_widget_pr_enable']))             $options['plus_widget_pr_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_widget_pa_enable']))             $options['plus_widget_pa_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_widget_co_enable']))             $options['plus_widget_co_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_widget_fl_enable']))             $options['plus_widget_fl_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_widget_size_portrait']))         $options['plus_widget_size_portrait']         = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_widget_size_landscape']))        $options['plus_widget_size_landscape']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_shortcode_pr_enable']))          $options['plus_shortcode_pr_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_shortcode_pa_enable']))          $options['plus_shortcode_pa_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_shortcode_co_enable']))          $options['plus_shortcode_co_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_shortcode_fl_enable']))          $options['plus_shortcode_fl_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_shortcode_size_portrait']))      $options['plus_shortcode_size_portrait']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_shortcode_size_landscape']))     $options['plus_shortcode_size_landscape']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_button_enable_plusone']))        $options['plus_button_enable_plusone']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_button_enable_sharing']))        $options['plus_button_enable_sharing']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_button_enable_follow']))         $options['plus_button_enable_follow']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_button_enable_widget_plusone'])) $options['plus_button_enable_widget_plusone'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_button_enable_widget_sharing'])) $options['plus_button_enable_widget_sharing'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_button_enable_widget_follow']))  $options['plus_button_enable_widget_follow']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_sh_enable']))           $options['plus_comments_sh_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_gp_enable']))           $options['plus_comments_gp_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_gp_enable']))           $options['plus_comments_gp_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_wp_enable']))           $options['plus_comments_wp_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_ac_enable']))           $options['plus_comments_ac_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_aw_enable']))           $options['plus_comments_aw_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_dt_enable']))           $options['plus_comments_dt_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_comments_dt_day']))              $options['plus_comments_dt_day']              = '01';  
+	if (!isset($options['plus_comments_dt_month']))            $options['plus_comments_dt_month']            = '01';
+	if (!isset($options['plus_comments_dt_year']))             $options['plus_comments_dt_year']             = '2000';
+	if (!isset($options['plus_comments_fixed_size']))          $options['plus_comments_fixed_size']          = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_redirect_sign']))                $options['plus_redirect_sign']                = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_redirect_plus']))                $options['plus_redirect_plus']                = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_redirect_curl']))                $options['plus_redirect_curl']                = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_redirect_curl_dir']))            $options['plus_redirect_curl_dir']            = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_redirect_curl_url']))            $options['plus_redirect_curl_url']            = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!isset($options['plus_redirect_flush']))               $options['plus_redirect_flush']               = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_system_javascript']))            $options['plus_system_javascript']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_post_enable_widget']))           $options['plus_post_enable_widget']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!isset($options['plus_post_enable_shortcode']))        $options['plus_post_enable_shortcode']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	// Controllo delle opzioni in caso di valori non validi
 
@@ -155,31 +170,34 @@ function sz_google_modules_plus_options()
 
 	$selects = array(SZ_PLUGIN_GOOGLE_VALUE_NO,SZ_PLUGIN_GOOGLE_VALUE_YES);
 
-	if (!in_array($options['plus_widget_pr_enable'],$selects))      $options['plus_widget_pr_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_widget_pa_enable'],$selects))      $options['plus_widget_pa_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_widget_co_enable'],$selects))      $options['plus_widget_co_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_widget_fl_enable'],$selects))      $options['plus_widget_fl_enable']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_shortcode_pr_enable'],$selects))   $options['plus_shortcode_pr_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_shortcode_pa_enable'],$selects))   $options['plus_shortcode_pa_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_shortcode_co_enable'],$selects))   $options['plus_shortcode_co_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_shortcode_fl_enable'],$selects))   $options['plus_shortcode_fl_enable']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_button_enable_plusone'],$selects)) $options['plus_button_enable_plusone'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_button_enable_sharing'],$selects)) $options['plus_button_enable_sharing'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_button_enable_follow'],$selects))  $options['plus_button_enable_follow']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_comments_sh_enable'],$selects))    $options['plus_comments_sh_enable']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_comments_gp_enable'],$selects))    $options['plus_comments_gp_enable']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_comments_gp_enable'],$selects))    $options['plus_comments_gp_enable']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_comments_wp_enable'],$selects))    $options['plus_comments_wp_enable']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_comments_ac_enable'],$selects))    $options['plus_comments_ac_enable']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_comments_aw_enable'],$selects))    $options['plus_comments_aw_enable']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_comments_dt_enable'],$selects))    $options['plus_comments_dt_enable']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_redirect_sign'],$selects))         $options['plus_redirect_sign']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_redirect_plus'],$selects))         $options['plus_redirect_plus']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_redirect_curl'],$selects))         $options['plus_redirect_curl']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_redirect_flush'],$selects))        $options['plus_redirect_flush']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_system_javascript'],$selects))     $options['plus_system_javascript']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_post_enable_widget'],$selects))    $options['plus_post_enable_widget']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['plus_post_enable_shortcode'],$selects)) $options['plus_post_enable_shortcode'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_widget_pr_enable'],            $selects)) $options['plus_widget_pr_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_widget_pa_enable'],            $selects)) $options['plus_widget_pa_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_widget_co_enable'],            $selects)) $options['plus_widget_co_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_widget_fl_enable'],            $selects)) $options['plus_widget_fl_enable']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_shortcode_pr_enable'],         $selects)) $options['plus_shortcode_pr_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_shortcode_pa_enable'],         $selects)) $options['plus_shortcode_pa_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_shortcode_co_enable'],         $selects)) $options['plus_shortcode_co_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_shortcode_fl_enable'],         $selects)) $options['plus_shortcode_fl_enable']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_button_enable_plusone'],       $selects)) $options['plus_button_enable_plusone']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_button_enable_sharing'],       $selects)) $options['plus_button_enable_sharing']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_button_enable_follow'],        $selects)) $options['plus_button_enable_follow']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_button_enable_widget_plusone'],$selects)) $options['plus_button_enable_widget_plusone'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_button_enable_widget_sharing'],$selects)) $options['plus_button_enable_widget_sharing'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_button_enable_widget_follow'], $selects)) $options['plus_button_enable_widget_follow']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_comments_sh_enable'],          $selects)) $options['plus_comments_sh_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_comments_gp_enable'],          $selects)) $options['plus_comments_gp_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_comments_gp_enable'],          $selects)) $options['plus_comments_gp_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_comments_wp_enable'],          $selects)) $options['plus_comments_wp_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_comments_ac_enable'],          $selects)) $options['plus_comments_ac_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_comments_aw_enable'],          $selects)) $options['plus_comments_aw_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_comments_dt_enable'],          $selects)) $options['plus_comments_dt_enable']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_redirect_sign'],               $selects)) $options['plus_redirect_sign']                = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_redirect_plus'],               $selects)) $options['plus_redirect_plus']                = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_redirect_curl'],               $selects)) $options['plus_redirect_curl']                = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_redirect_flush'],              $selects)) $options['plus_redirect_flush']               = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_system_javascript'],           $selects)) $options['plus_system_javascript']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_post_enable_widget'],          $selects)) $options['plus_post_enable_widget']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	if (!in_array($options['plus_post_enable_shortcode'],       $selects)) $options['plus_post_enable_shortcode']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 	return $options;
 }
@@ -205,28 +223,38 @@ function sz_google_modules_plus_get_code_plusone($atts=array(),$content=null)
 	$DEFAULT_POSITION   = 'outside';
 
 	extract(shortcode_atts(array(
-		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
 	// stringa minuscolo per il controllo di valori speciali come "auto"
 
-	$url        = trim($url);
-	$text       = trim($text);
-	$img        = trim($img);
+	$url          = trim($url);
+	$text         = trim($text);
+	$img          = trim($img);
 
-	$width      = strtolower(trim($width));
-	$size       = strtolower(trim($size));
-	$annotation = strtolower(trim($annotation));
-	$align      = strtolower(trim($align));
-	$position   = strtolower(trim($position));
+	$width        = strtolower(trim($width));
+	$size         = strtolower(trim($size));
+	$annotation   = strtolower(trim($annotation));
+	$align        = strtolower(trim($align));
+	$position     = strtolower(trim($position));
+	$margintop    = strtolower(trim($margintop));
+	$marginright  = strtolower(trim($marginright));
+	$marginbottom = strtolower(trim($marginbottom));
+	$marginleft   = strtolower(trim($marginleft));
+	$marginunit   = strtolower(trim($marginunit));
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
@@ -238,7 +266,7 @@ function sz_google_modules_plus_get_code_plusone($atts=array(),$content=null)
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
-	if ($url == '') $url = get_permalink();
+	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = get_permalink();
 
 	// Creazione codice HTML per embed code da inserire nella pagina wordpress
 
@@ -253,13 +281,18 @@ function sz_google_modules_plus_get_code_plusone($atts=array(),$content=null)
 	$HTML .= '></div>';
 
 	$HTML = sz_google_modules_plus_get_code_button_wrap(array(
-		'html'     => $HTML,
-		'text'     => $text,
-		'image'    => $img,
-		'content'  => $content,
-		'align'    => $align,
-		'position' => $position,
-		'class'    => 'sz-google-plusone',
+		'html'         => $HTML,
+		'text'         => $text,
+		'image'        => $img,
+		'content'      => $content,
+		'align'        => $align,
+		'position'     => $position,
+		'margintop'    => $margintop,
+		'marginright'  => $marginright,
+		'marginbottom' => $marginbottom,
+		'marginleft'   => $marginleft,
+		'marginunit'   => $marginunit,
+		'class'        => 'sz-google-plusone',
 	));
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
@@ -280,34 +313,317 @@ function sz_google_modules_plus_get_code_plusone($atts=array(),$content=null)
 function sz_google_shortcodes_plus_plusone($atts,$content=null) 
 {
 	extract(shortcode_atts(array(
-		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Preparazione codice HTML dello shortcode tramite la funzione
 	// standard di preparazione codice sia per shortcode che widgets
 
 	$HTML = sz_google_modules_plus_get_code_plusone(array(
-		'url'        => trim($url),
-		'size'       => trim($size),
-		'width'      => trim($width),
-		'annotation' => trim($annotation),
-		'align'      => trim($align),
-		'text'       => trim($text),
-		'img'        => trim($img),
-		'position'   => trim($position),
+		'url'          => trim($url),
+		'size'         => trim($size),
+		'width'        => trim($width),
+		'annotation'   => trim($annotation),
+		'align'        => trim($align),
+		'text'         => trim($text),
+		'img'          => trim($img),
+		'position'     => trim($position),
+		'margintop'    => trim($margintop),
+		'marginright'  => trim($marginright),
+		'marginbottom' => trim($marginbottom),
+		'marginleft'   => trim($marginleft),
+		'marginunit'   => trim($marginunit),
 	),$content);
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
+}
+
+/* ************************************************************************** */ 
+/* GOOGLE+ PLUS ONE definizione ed elaborazione del widget su sidebar         */ 
+/* ************************************************************************** */ 
+
+class sz_widget_google_plus_one extends WP_Widget
+{
+	// Costruttore principale della classe widget, definizione 
+	// delle opzioni legate al widget e al controllo dello stesso
+
+	function sz_widget_google_plus_one() 
+	{
+		$widget_ops  = array(
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-one', 
+			'description' => ucfirst(__('widget for google+ button +1','szgoogleadmin'))
+		);
+
+		$this->WP_Widget('SZ-GOOGLE-PLUS-ONE',
+			__('SZ-Google - G+ Plus one','szgoogleadmin'),$widget_ops);
+	}
+
+	// Funzione per la visualizzazione del widget con lettura parametri
+	// di configurazione e preparazione codice HTML da usare nella sidebar
+
+	function widget($args,$instance) 
+	{
+		extract($args);
+
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
+
+		$title = sz_google_modules_widget_title($args,$instance);
+
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
+
+		if (empty($instance['url']))        $instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['urltype']))    $instance['urltype']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['badge']))      $instance['badge']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['img']))        $instance['img']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['text']))       $instance['text']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))      $instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['position']))   $instance['position']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['size']))       $instance['size']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['annotation'])) $instance['annotation'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+		// Se sul widget ho escluso il badge dal pulsante azzero anche
+		// le variabili del badge eventualmente impostate e memorizzate 
+
+		if ($instance['badge'] != SZ_PLUGIN_GOOGLE_VALUE_YES) 
+		{
+			$instance['img']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$instance['text']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$instance['position'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		}
+
+		// Se sul widget ho selezionato di calcolare l'indirizzo dal 
+		// post corrente annullo la variabile con eventuale indirizzo 
+
+		if ($instance['urltype'] != SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			$instance['url'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		}
+
+		// Dopo il controllo di esistenza per tutte le opzioni necessarie
+		// eseguo il trim e la conversione in minuscolo per le opzioni 
+
+		$url        = trim($instance['url']);
+		$text       = trim($instance['text']);
+		$img        = trim($instance['img']);
+
+		$align      = strtolower(trim($instance['align']));
+		$position   = strtolower(trim($instance['position']));
+		$size       = strtolower(trim($instance['size']));
+		$annotation = strtolower(trim($instance['annotation']));
+
+		// Creazione codice HTML per inserimento widget post		 
+
+		$HTML = sz_google_modules_plus_get_code_plusone(array(
+			'url'          => trim($url),
+			'filename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'sitename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'text'         => trim($text),
+			'img'          => trim($img),
+			'position'     => trim($position),
+			'align'        => trim($align),
+			'size'         => trim($size),
+			'annotation'   => trim($annotation),
+			'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		));
+
+		// Output del codice HTML legato al widget da visualizzare		 
+
+		$output  = $before_widget;
+		$output .= $title;
+		$output .= $HTML;
+		$output .= $after_widget;
+
+		echo $output;
+	}
+
+	// Funzione per modifica parametri collegati al widget con 
+	// memorizzazione dei valori direttamente nel database wordpress
+
+	function update($new_instance,$old_instance) 
+	{
+		$instance = $old_instance;
+
+		if (!isset($new_instance['title']))      $new_instance['title']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['badge']))      $new_instance['badge']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['url']))        $new_instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['urltype']))    $new_instance['urltype']    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['text']))       $new_instance['text']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['img']))        $new_instance['img']        = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))      $new_instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['position']))   $new_instance['position']   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['size']))       $new_instance['size']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['annotation'])) $new_instance['annotation'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+
+		$instance['url']        = trim($new_instance['url']);
+		$instance['text']       = trim($new_instance['text']);
+		$instance['img']        = trim($new_instance['img']);
+
+		$instance['urltype']    = trim(strip_tags($new_instance['urltype']));
+		$instance['title']      = trim(strip_tags($new_instance['title']));
+		$instance['badge']      = trim(strip_tags($new_instance['badge']));
+		$instance['align']      = trim(strip_tags($new_instance['align']));
+		$instance['position']   = trim(strip_tags($new_instance['position']));
+		$instance['size']       = trim(strip_tags($new_instance['size']));
+		$instance['annotation'] = trim(strip_tags($new_instance['annotation']));
+
+		return $instance;
+	}
+
+	// Funzione per la visualizzazione del form presente sulle 
+	// sidebar nel pannello di amministrazione di wordpress
+	
+	function form($instance) 
+	{
+		$array = array(
+			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'badge'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'urltype'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		);
+
+		// Creazione array per elenco campi da recuperare su FORM
+
+		$instance = wp_parse_args((array) $instance,$array);
+
+		$url        = trim($instance['url']);
+		$text       = trim($instance['text']);
+		$img        = trim($instance['img']);
+
+		$urltype    = trim(strip_tags($instance['urltype']));
+		$badge      = trim(strip_tags($instance['badge']));
+		$title      = trim(strip_tags($instance['title']));
+		$align      = trim(strip_tags($instance['align']));
+		$position   = trim(strip_tags($instance['position']));
+		$size       = trim(strip_tags($instance['size']));
+		$annotation = trim(strip_tags($instance['annotation']));
+
+		// Campo di selezione parametro badge per TITOLO
+
+		echo '<table style="width:100%">';
+
+		echo '<tr>';
+		echo '<td colspan="2">';
+		echo '<label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
+		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/>';
+		echo '</td>';
+		echo '</tr>';
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="sz-google-switch-hidden widefat" id="'.$this->get_field_id('urltype').'" name="'.$this->get_field_name('urltype').'" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-url">';
+		echo '<option value="0" '; selected("0",$urltype); echo '>'.__('current post address','szgoogleadmin').'</option>';
+		echo '<option value="1" '; selected("1",$urltype); echo '>'.__('specific url address','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro URL del file che deve essere memorizzato su drive
+
+		echo '<tr class="sz-google-switch-url">';
+		echo '<td colspan="2"><input class="sz-upload-image-url widefat" id="'.$this->get_field_id('url').'" name="'.$this->get_field_name('url').'" type="text" value="'.$url.'" placeholder="'.__('insert source URL','szgoogleadmin').'"/></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per scegliere se visualizzare il badge insieme al bottone
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="sz-google-switch-hidden widefat" id="'.$this->get_field_id('badge').'" name="'.$this->get_field_name('badge').'" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display">';
+		echo '<option value="0" '; selected("0",$badge); echo '>'.__('button without badge','szgoogleadmin').'</option>';
+		echo '<option value="1" '; selected("1",$badge); echo '>'.__('button with badge','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro testo da utilizzare come badge del pulsante
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td colspan="2"><textarea class="widefat" rows="3" cols="20" id="'.$this->get_field_id('text').'" name="'.$this->get_field_name('text').'" placeholder="'.__('insert text for badge','szgoogleadmin').'">'.esc_attr($text).'</textarea></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro IMG del file che deve essere memorizzato su drive
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td><input class="sz-upload-image-url-2 widefat" id="'.$this->get_field_id('img').'" name="'.$this->get_field_name('img').'" type="text" value="'.$img.'" placeholder="'.__('choose image for badge','szgoogleadmin').'"/></td>';
+		echo '<td><input class="sz-upload-image-button button" type="button" value="'.ucfirst(__('select file','szgoogleadmin')).'" data-field-url="sz-upload-image-url-2" data-title="'.ucfirst(__('select or upload a file','szgoogleadmin')).'" data-button-text="'.ucfirst(__('confirm selection','szgoogleadmin')).'"/></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro badge per POSITION
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('position').'" name="'.$this->get_field_name('position').'">';
+		echo '<option value="outside" '; selected("outside",$position); echo '>'.__('button position outside','szgoogleadmin').'</option>';
+		echo '<option value="top" ';     selected("top"    ,$position); echo '>'.__('button position top','szgoogleadmin').'</option>';
+		echo '<option value="center" ';  selected("center" ,$position); echo '>'.__('button position center','szgoogleadmin').'</option>';
+		echo '<option value="bottom" ';  selected("bottom" ,$position); echo '>'.__('button position bottom','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('button alignment none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('button alignment left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('button alignment center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('button alignment right','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per button size
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('size').'" name="'.$this->get_field_name('size').'">';
+		echo '<option value="standard" ' ; selected("standard",$size); echo '>'.__('size standard','szgoogleadmin').'</option>';
+		echo '<option value="small" '    ; selected("small"   ,$size); echo '>'.__('size small','szgoogleadmin').'</option>';
+		echo '<option value="medium" '   ; selected("medium"  ,$size); echo '>'.__('size medium','szgoogleadmin').'</option>';
+		echo '<option value="tail" '     ; selected("tail"    ,$size); echo '>'.__('size tail','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per button annotation
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('annotation').'" name="'.$this->get_field_name('annotation').'">';
+		echo '<option value="none" '  ; selected("none"  ,$annotation); echo '>'.__('annotation none','szgoogleadmin').'</option>';
+		echo '<option value="inline" '; selected("inline",$annotation); echo '>'.__('annotation inline','szgoogleadmin').'</option>';
+		echo '<option value="bubble" '; selected("bubble",$annotation); echo '>'.__('annotation bubble','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare le funzioni dei campi, attenzione che 
+		// la definizione document.ready viene specificata qui perchè sul file iniziale non funziona
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+				echo 'szgoogle_switch_hidden_ready();';
+				echo 'szgoogle_media_uploader();';
+			echo '});';
+		echo '</script>';
+	}
 }
 
 /* ************************************************************************** */
@@ -331,28 +647,38 @@ function sz_google_modules_plus_get_code_sharing($atts=array(),$content=null)
 	$DEFAULT_POSITION   = 'outside';
 
 	extract(shortcode_atts(array(
-		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
 	// stringa minuscolo per il controllo di valori speciali come "auto"
 
-	$url        = trim($url);
-	$text       = trim($text);
-	$img        = trim($img);
+	$url          = trim($url);
+	$text         = trim($text);
+	$img          = trim($img);
 
-	$width      = strtolower(trim($width));
-	$size       = strtolower(trim($size));
-	$annotation = strtolower(trim($annotation));
-	$align      = strtolower(trim($align));
-	$position   = strtolower(trim($position));
+	$width        = strtolower(trim($width));
+	$size         = strtolower(trim($size));
+	$annotation   = strtolower(trim($annotation));
+	$align        = strtolower(trim($align));
+	$position     = strtolower(trim($position));
+	$margintop    = strtolower(trim($margintop));
+	$marginright  = strtolower(trim($marginright));
+	$marginbottom = strtolower(trim($marginbottom));
+	$marginleft   = strtolower(trim($marginleft));
+	$marginunit   = strtolower(trim($marginunit));
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
@@ -364,7 +690,7 @@ function sz_google_modules_plus_get_code_sharing($atts=array(),$content=null)
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
-	if ($url == '') $url = get_permalink();
+	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = get_permalink();
 
 	// Preparazione codice HTML per il badge di google plus
 
@@ -382,13 +708,18 @@ function sz_google_modules_plus_get_code_sharing($atts=array(),$content=null)
 	$HTML .= '></div>';
 
 	$HTML = sz_google_modules_plus_get_code_button_wrap(array(
-		'html'     => $HTML,
-		'text'     => $text,
-		'image'    => $img,
-		'content'  => $content,
-		'align'    => $align,
-		'position' => $position,
-		'class'    => 'sz-google-sharing',
+		'html'         => $HTML,
+		'text'         => $text,
+		'image'        => $img,
+		'content'      => $content,
+		'align'        => $align,
+		'position'     => $position,
+		'margintop'    => $margintop,
+		'marginright'  => $marginright,
+		'marginbottom' => $marginbottom,
+		'marginleft'   => $marginleft,
+		'marginunit'   => $marginunit,
+		'class'        => 'sz-google-sharing',
 	));
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
@@ -409,34 +740,316 @@ function sz_google_modules_plus_get_code_sharing($atts=array(),$content=null)
 function sz_google_shortcodes_plus_sharing($atts,$content=null) 
 {
 	extract(shortcode_atts(array(
-		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Preparazione codice HTML dello shortcode tramite la funzione
 	// standard di preparazione codice sia per shortcode che widgets
 
 	$HTML = sz_google_modules_plus_get_code_sharing(array(
-		'url'        => trim($url),
-		'size'       => trim($size),
-		'width'      => trim($width),
-		'annotation' => trim($annotation),
-		'align'      => trim($align),
-		'text'       => trim($text),
-		'img'        => trim($img),
-		'position'   => trim($position),
+		'url'          => trim($url),
+		'size'         => trim($size),
+		'width'        => trim($width),
+		'annotation'   => trim($annotation),
+		'align'        => trim($align),
+		'text'         => trim($text),
+		'img'          => trim($img),
+		'position'     => trim($position),
+		'margintop'    => trim($margintop),
+		'marginright'  => trim($marginright),
+		'marginbottom' => trim($marginbottom),
+		'marginleft'   => trim($marginleft),
+		'marginunit'   => trim($marginunit),
 	),$content);
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
+}
+
+/* ************************************************************************** */ 
+/* GOOGLE+ SHARING definizione ed elaborazione del widget su sidebar          */ 
+/* ************************************************************************** */ 
+
+class sz_widget_google_plus_sharing extends WP_Widget
+{
+	// Costruttore principale della classe widget, definizione 
+	// delle opzioni legate al widget e al controllo dello stesso
+
+	function sz_widget_google_plus_sharing() 
+	{
+		$widget_ops  = array(
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-sharing', 
+			'description' => ucfirst(__('widget for google+ sharing','szgoogleadmin'))
+		);
+
+		$this->WP_Widget('SZ-GOOGLE-PLUS-SHARING',
+			__('SZ-Google - G+ Sharing','szgoogleadmin'),$widget_ops);
+	}
+
+	// Funzione per la visualizzazione del widget con lettura parametri
+	// di configurazione e preparazione codice HTML da usare nella sidebar
+
+	function widget($args,$instance) 
+	{
+		extract($args);
+
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
+
+		$title = sz_google_modules_widget_title($args,$instance);
+
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
+
+		if (empty($instance['url']))        $instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['urltype']))    $instance['urltype']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['badge']))      $instance['badge']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['img']))        $instance['img']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['text']))       $instance['text']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))      $instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['position']))   $instance['position']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['size']))       $instance['size']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['annotation'])) $instance['annotation'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+		// Se sul widget ho escluso il badge dal pulsante azzero anche
+		// le variabili del badge eventualmente impostate e memorizzate 
+
+		if ($instance['badge'] != SZ_PLUGIN_GOOGLE_VALUE_YES) 
+		{
+			$instance['img']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$instance['text']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$instance['position'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		}
+
+		// Se sul widget ho selezionato di calcolare l'indirizzo dal 
+		// post corrente annullo la variabile con eventuale indirizzo 
+
+		if ($instance['urltype'] != SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			$instance['url'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		}
+
+		// Dopo il controllo di esistenza per tutte le opzioni necessarie
+		// eseguo il trim e la conversione in minuscolo per le opzioni 
+
+		$url        = trim($instance['url']);
+		$text       = trim($instance['text']);
+		$img        = trim($instance['img']);
+
+		$align      = strtolower(trim($instance['align']));
+		$position   = strtolower(trim($instance['position']));
+		$size       = strtolower(trim($instance['size']));
+		$annotation = strtolower(trim($instance['annotation']));
+
+		// Creazione codice HTML per inserimento widget post		 
+
+		$HTML = sz_google_modules_plus_get_code_sharing(array(
+			'url'          => trim($url),
+			'filename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'sitename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'text'         => trim($text),
+			'img'          => trim($img),
+			'position'     => trim($position),
+			'align'        => trim($align),
+			'size'         => trim($size),
+			'annotation'   => trim($annotation),
+			'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		));
+
+		// Output del codice HTML legato al widget da visualizzare		 
+
+		$output  = $before_widget;
+		$output .= $title;
+		$output .= $HTML;
+		$output .= $after_widget;
+
+		echo $output;
+	}
+
+	// Funzione per modifica parametri collegati al widget con 
+	// memorizzazione dei valori direttamente nel database wordpress
+
+	function update($new_instance,$old_instance) 
+	{
+		$instance = $old_instance;
+
+		if (!isset($new_instance['title']))      $new_instance['title']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['badge']))      $new_instance['badge']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['url']))        $new_instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['urltype']))    $new_instance['urltype']    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['text']))       $new_instance['text']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['img']))        $new_instance['img']        = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))      $new_instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['position']))   $new_instance['position']   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['size']))       $new_instance['size']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['annotation'])) $new_instance['annotation'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+
+		$instance['url']        = trim($new_instance['url']);
+		$instance['text']       = trim($new_instance['text']);
+		$instance['img']        = trim($new_instance['img']);
+
+		$instance['urltype']    = trim(strip_tags($new_instance['urltype']));
+		$instance['title']      = trim(strip_tags($new_instance['title']));
+		$instance['badge']      = trim(strip_tags($new_instance['badge']));
+		$instance['align']      = trim(strip_tags($new_instance['align']));
+		$instance['position']   = trim(strip_tags($new_instance['position']));
+		$instance['size']       = trim(strip_tags($new_instance['size']));
+		$instance['annotation'] = trim(strip_tags($new_instance['annotation']));
+
+		return $instance;
+	}
+
+	// Funzione per la visualizzazione del form presente sulle 
+	// sidebar nel pannello di amministrazione di wordpress
+	
+	function form($instance) 
+	{
+		$array = array(
+			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'badge'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'urltype'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		);
+
+		// Creazione array per elenco campi da recuperare su FORM
+
+		$instance = wp_parse_args((array) $instance,$array);
+
+		$url        = trim($instance['url']);
+		$text       = trim($instance['text']);
+		$img        = trim($instance['img']);
+
+		$urltype    = trim(strip_tags($instance['urltype']));
+		$badge      = trim(strip_tags($instance['badge']));
+		$title      = trim(strip_tags($instance['title']));
+		$align      = trim(strip_tags($instance['align']));
+		$position   = trim(strip_tags($instance['position']));
+		$size       = trim(strip_tags($instance['size']));
+		$annotation = trim(strip_tags($instance['annotation']));
+
+		// Campo di selezione parametro badge per TITOLO
+
+		echo '<table style="width:100%">';
+
+		echo '<tr>';
+		echo '<td colspan="2">';
+		echo '<label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
+		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/>';
+		echo '</td>';
+		echo '</tr>';
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="sz-google-switch-hidden widefat" id="'.$this->get_field_id('urltype').'" name="'.$this->get_field_name('urltype').'" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-url">';
+		echo '<option value="0" '; selected("0",$urltype); echo '>'.__('current post address','szgoogleadmin').'</option>';
+		echo '<option value="1" '; selected("1",$urltype); echo '>'.__('specific url address','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro URL del file che deve essere memorizzato su drive
+
+		echo '<tr class="sz-google-switch-url">';
+		echo '<td colspan="2"><input class="sz-upload-image-url widefat" id="'.$this->get_field_id('url').'" name="'.$this->get_field_name('url').'" type="text" value="'.$url.'" placeholder="'.__('insert source URL','szgoogleadmin').'"/></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per scegliere se visualizzare il badge insieme al bottone
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="sz-google-switch-hidden widefat" id="'.$this->get_field_id('badge').'" name="'.$this->get_field_name('badge').'" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display">';
+		echo '<option value="0" '; selected("0",$badge); echo '>'.__('button without badge','szgoogleadmin').'</option>';
+		echo '<option value="1" '; selected("1",$badge); echo '>'.__('button with badge','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro testo da utilizzare come badge del pulsante
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td colspan="2"><textarea class="widefat" rows="3" cols="20" id="'.$this->get_field_id('text').'" name="'.$this->get_field_name('text').'" placeholder="'.__('insert text for badge','szgoogleadmin').'">'.esc_attr($text).'</textarea></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro IMG del file che deve essere memorizzato su drive
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td><input class="sz-upload-image-url-2 widefat" id="'.$this->get_field_id('img').'" name="'.$this->get_field_name('img').'" type="text" value="'.$img.'" placeholder="'.__('choose image for badge','szgoogleadmin').'"/></td>';
+		echo '<td><input class="sz-upload-image-button button" type="button" value="'.ucfirst(__('select file','szgoogleadmin')).'" data-field-url="sz-upload-image-url-2" data-title="'.ucfirst(__('select or upload a file','szgoogleadmin')).'" data-button-text="'.ucfirst(__('confirm selection','szgoogleadmin')).'"/></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro badge per POSITION
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('position').'" name="'.$this->get_field_name('position').'">';
+		echo '<option value="outside" '; selected("outside",$position); echo '>'.__('button position outside','szgoogleadmin').'</option>';
+		echo '<option value="top" ';     selected("top"    ,$position); echo '>'.__('button position top','szgoogleadmin').'</option>';
+		echo '<option value="center" ';  selected("center" ,$position); echo '>'.__('button position center','szgoogleadmin').'</option>';
+		echo '<option value="bottom" ';  selected("bottom" ,$position); echo '>'.__('button position bottom','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('button alignment none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('button alignment left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('button alignment center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('button alignment right','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per button size
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('size').'" name="'.$this->get_field_name('size').'">';
+		echo '<option value="medium" '   ; selected("medium"  ,$size); echo '>'.__('size medium','szgoogleadmin').'</option>';
+		echo '<option value="small" '    ; selected("small"   ,$size); echo '>'.__('size small','szgoogleadmin').'</option>';
+		echo '<option value="large" '    ; selected("large"   ,$size); echo '>'.__('size large','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per button annotation
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('annotation').'" name="'.$this->get_field_name('annotation').'">';
+		echo '<option value="none" '  ; selected("none"  ,$annotation); echo '>'.__('annotation none','szgoogleadmin').'</option>';
+		echo '<option value="inline" '; selected("inline",$annotation); echo '>'.__('annotation inline','szgoogleadmin').'</option>';
+		echo '<option value="bubble" '; selected("bubble",$annotation); echo '>'.__('annotation bubble','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare le funzioni dei campi, attenzione che 
+		// la definizione document.ready viene specificata qui perchè sul file iniziale non funziona
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+				echo 'szgoogle_switch_hidden_ready();';
+				echo 'szgoogle_media_uploader();';
+			echo '});';
+		echo '</script>';
+	}
 }
 
 /* ************************************************************************** */
@@ -461,30 +1074,40 @@ function sz_google_modules_plus_get_code_follow($atts=array(),$content=null)
 	$DEFAULT_POSITION   = 'outside';
 
 	extract(shortcode_atts(array(
-		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'rel'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'rel'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
 	// stringa minuscolo per il controllo di valori speciali come "auto"
 
-	$url        = trim($url);
-	$text       = trim($text);
-	$img        = trim($img);
+	$url          = trim($url);
+	$text         = trim($text);
+	$img          = trim($img);
 
-	$width      = strtolower(trim($width));
-	$size       = strtolower(trim($size));
-	$annotation = strtolower(trim($annotation));
-	$align      = strtolower(trim($align));
-	$rel        = strtolower(trim($rel));
-	$position   = strtolower(trim($position));
+	$width        = strtolower(trim($width));
+	$size         = strtolower(trim($size));
+	$annotation   = strtolower(trim($annotation));
+	$align        = strtolower(trim($align));
+	$rel          = strtolower(trim($rel));
+	$position     = strtolower(trim($position));
+	$margintop    = strtolower(trim($margintop));
+	$marginright  = strtolower(trim($marginright));
+	$marginbottom = strtolower(trim($marginbottom));
+	$marginleft   = strtolower(trim($marginleft));
+	$marginunit   = strtolower(trim($marginunit));
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
@@ -508,6 +1131,11 @@ function sz_google_modules_plus_get_code_follow($atts=array(),$content=null)
 	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;    $rel = SZ_PLUGIN_GOOGLE_VALUE_NULL; }
 	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; $rel = SZ_PLUGIN_GOOGLE_VALUE_NULL; }
 
+	// Elimino dal path i riferimenti aggiunti ai link di navigazione e 
+	// riporto il link originale di google plus, senza /u/0/b etc etc
+
+	$url = sz_google_modules_plus_get_canonical_url($url);
+
 	// Preparazione codice HTML per il badge di google plus
 
 	$HTML  = '<div class="g-follow"';
@@ -525,13 +1153,18 @@ function sz_google_modules_plus_get_code_follow($atts=array(),$content=null)
 	$HTML .= '></div>';
 
 	$HTML = sz_google_modules_plus_get_code_button_wrap(array(
-		'html'     => $HTML,
-		'text'     => $text,
-		'image'    => $img,
-		'content'  => $content,
-		'align'    => $align,
-		'position' => $position,
-		'class'    => 'sz-google-follow',
+		'html'         => $HTML,
+		'text'         => $text,
+		'image'        => $img,
+		'content'      => $content,
+		'align'        => $align,
+		'position'     => $position,
+		'margintop'    => $margintop,
+		'marginright'  => $marginright,
+		'marginbottom' => $marginbottom,
+		'marginleft'   => $marginleft,
+		'marginunit'   => $marginunit,
+		'class'        => 'sz-google-follow',
 	));
 
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
@@ -552,36 +1185,337 @@ function sz_google_modules_plus_get_code_follow($atts=array(),$content=null)
 function sz_google_shortcodes_plus_follow($atts,$content=null) 
 {
 	extract(shortcode_atts(array(
-		'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'rel'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'rel'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts));
 
 	// Preparazione codice HTML dello shortcode tramite la funzione
 	// standard di preparazione codice sia per shortcode che widgets
 
 	$HTML = sz_google_modules_plus_get_code_follow(array(
-		'url'        => trim($url),
-		'size'       => trim($size),
-		'width'      => trim($width),
-		'annotation' => trim($annotation),
-		'align'      => trim($align),
-		'text'       => trim($text),
-		'img'        => trim($img),
-		'rel'        => trim($rel),
-		'position'   => trim($position),
+		'url'          => trim($url),
+		'size'         => trim($size),
+		'width'        => trim($width),
+		'annotation'   => trim($annotation),
+		'align'        => trim($align),
+		'text'         => trim($text),
+		'img'          => trim($img),
+		'rel'          => trim($rel),
+		'position'     => trim($position),
+		'margintop'    => trim($margintop),
+		'marginright'  => trim($marginright),
+		'marginbottom' => trim($marginbottom),
+		'marginleft'   => trim($marginleft),
+		'marginunit'   => trim($marginunit),
 	),$content);
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
 
 	return $HTML;
+}
+
+/* ************************************************************************** */ 
+/* GOOGLE+ FOLLOW definizione ed elaborazione del widget su sidebar           */ 
+/* ************************************************************************** */ 
+
+class sz_widget_google_plus_follow extends WP_Widget
+{
+	// Costruttore principale della classe widget, definizione 
+	// delle opzioni legate al widget e al controllo dello stesso
+
+	function sz_widget_google_plus_follow() 
+	{
+		$widget_ops  = array(
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-follow', 
+			'description' => ucfirst(__('widget for google+ follow','szgoogleadmin'))
+		);
+
+		$this->WP_Widget('SZ-GOOGLE-PLUS-FOLLOW',
+			__('SZ-Google - G+ Follow','szgoogleadmin'),$widget_ops);
+	}
+
+	// Funzione per la visualizzazione del widget con lettura parametri
+	// di configurazione e preparazione codice HTML da usare nella sidebar
+
+	function widget($args,$instance) 
+	{
+		extract($args);
+
+		// Costruzione del titolo del widget tramite la funzione
+		// di uso comune a tutti i widgets del plugin sz-google
+
+		$title = sz_google_modules_widget_title($args,$instance);
+
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
+
+		if (empty($instance['url']))        $instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['urltype']))    $instance['urltype']    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['badge']))      $instance['badge']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['img']))        $instance['img']        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['text']))       $instance['text']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['align']))      $instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['position']))   $instance['position']   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['size']))       $instance['size']       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		if (empty($instance['annotation'])) $instance['annotation'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+		// Se sul widget ho escluso il badge dal pulsante azzero anche
+		// le variabili del badge eventualmente impostate e memorizzate 
+
+		if ($instance['badge'] != SZ_PLUGIN_GOOGLE_VALUE_YES) 
+		{
+			$instance['img']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$instance['text']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$instance['position'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		}
+
+		// Se sul widget ho selezionato di calcolare l'indirizzo dal 
+		// post corrente annullo la variabile con eventuale indirizzo 
+
+		if ($instance['urltype'] != SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			$instance['url'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		}
+
+		// Lettura opzioni generali per impostazione dei dati di default
+
+		$options = sz_google_modules_plus_options();
+
+		// Imposto i valori di default nel caso siano specificati dei valori
+		// che non appartengono al range dei valori accettati
+
+		if ($instance['urltype'] == '0') {
+			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = 'https://plus.google.com/'.$options['plus_page'];
+			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;
+		}
+
+		if ($instance['urltype'] == '2') {
+			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = 'https://plus.google.com/'.$options['plus_profile'];
+			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE;
+		}
+
+		// Dopo il controllo di esistenza per tutte le opzioni necessarie
+		// eseguo il trim e la conversione in minuscolo per le opzioni 
+
+		$url        = trim($instance['url']);
+		$text       = trim($instance['text']);
+		$img        = trim($instance['img']);
+
+		$align      = strtolower(trim($instance['align']));
+		$position   = strtolower(trim($instance['position']));
+		$size       = strtolower(trim($instance['size']));
+		$annotation = strtolower(trim($instance['annotation']));
+
+		// Creazione codice HTML per inserimento widget post		 
+
+		$HTML = sz_google_modules_plus_get_code_follow(array(
+			'url'          => trim($url),
+			'filename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'sitename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'text'         => trim($text),
+			'img'          => trim($img),
+			'position'     => trim($position),
+			'align'        => trim($align),
+			'size'         => trim($size),
+			'annotation'   => trim($annotation),
+			'rel'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NONE,
+			'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		));
+
+		// Output del codice HTML legato al widget da visualizzare		 
+
+		$output  = $before_widget;
+		$output .= $title;
+		$output .= $HTML;
+		$output .= $after_widget;
+
+		echo $output;
+	}
+
+	// Funzione per modifica parametri collegati al widget con 
+	// memorizzazione dei valori direttamente nel database wordpress
+
+	function update($new_instance,$old_instance) 
+	{
+		$instance = $old_instance;
+
+		if (!isset($new_instance['title']))      $new_instance['title']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['badge']))      $new_instance['badge']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['url']))        $new_instance['url']        = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['urltype']))    $new_instance['urltype']    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['text']))       $new_instance['text']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['img']))        $new_instance['img']        = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['align']))      $new_instance['align']      = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['position']))   $new_instance['position']   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['size']))       $new_instance['size']       = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+		if (!isset($new_instance['annotation'])) $new_instance['annotation'] = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+
+		$instance['url']        = trim($new_instance['url']);
+		$instance['text']       = trim($new_instance['text']);
+		$instance['img']        = trim($new_instance['img']);
+
+		$instance['urltype']    = trim(strip_tags($new_instance['urltype']));
+		$instance['title']      = trim(strip_tags($new_instance['title']));
+		$instance['badge']      = trim(strip_tags($new_instance['badge']));
+		$instance['align']      = trim(strip_tags($new_instance['align']));
+		$instance['position']   = trim(strip_tags($new_instance['position']));
+		$instance['size']       = trim(strip_tags($new_instance['size']));
+		$instance['annotation'] = trim(strip_tags($new_instance['annotation']));
+
+		return $instance;
+	}
+
+	// Funzione per la visualizzazione del form presente sulle 
+	// sidebar nel pannello di amministrazione di wordpress
+	
+	function form($instance) 
+	{
+		$array = array(
+			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'badge'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'url'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'urltype'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'text'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'img'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'align'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'position'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'size'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'annotation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		);
+
+		// Creazione array per elenco campi da recuperare su FORM
+
+		$instance = wp_parse_args((array) $instance,$array);
+
+		$url        = trim($instance['url']);
+		$text       = trim($instance['text']);
+		$img        = trim($instance['img']);
+
+		$urltype    = trim(strip_tags($instance['urltype']));
+		$badge      = trim(strip_tags($instance['badge']));
+		$title      = trim(strip_tags($instance['title']));
+		$align      = trim(strip_tags($instance['align']));
+		$position   = trim(strip_tags($instance['position']));
+		$size       = trim(strip_tags($instance['size']));
+		$annotation = trim(strip_tags($instance['annotation']));
+
+		// Campo di selezione parametro badge per TITOLO
+
+		echo '<table style="width:100%">';
+
+		echo '<tr>';
+		echo '<td colspan="2">';
+		echo '<label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
+		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/>';
+		echo '</td>';
+		echo '</tr>';
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="sz-google-switch-hidden widefat" id="'.$this->get_field_id('urltype').'" name="'.$this->get_field_name('urltype').'" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-url">';
+		echo '<option value="0" '; selected("0",$urltype); echo '>'.__('default URL for page','szgoogleadmin').'</option>';
+		echo '<option value="2" '; selected("2",$urltype); echo '>'.__('default URL for profile','szgoogleadmin').'</option>';
+		echo '<option value="1" '; selected("1",$urltype); echo '>'.__('specific URL page or profile','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro URL del file che deve essere memorizzato su drive
+
+		echo '<tr class="sz-google-switch-url">';
+		echo '<td colspan="2"><input class="sz-upload-image-url widefat" id="'.$this->get_field_id('url').'" name="'.$this->get_field_name('url').'" type="text" value="'.$url.'" placeholder="'.__('insert URL for page or profile','szgoogleadmin').'"/></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per scegliere se visualizzare il badge insieme al bottone
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="sz-google-switch-hidden widefat" id="'.$this->get_field_id('badge').'" name="'.$this->get_field_name('badge').'" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display">';
+		echo '<option value="0" '; selected("0",$badge); echo '>'.__('button without badge','szgoogleadmin').'</option>';
+		echo '<option value="1" '; selected("1",$badge); echo '>'.__('button with badge','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro testo da utilizzare come badge del pulsante
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td colspan="2"><textarea class="widefat" rows="3" cols="20" id="'.$this->get_field_id('text').'" name="'.$this->get_field_name('text').'" placeholder="'.__('insert text for badge','szgoogleadmin').'">'.esc_attr($text).'</textarea></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro IMG del file che deve essere memorizzato su drive
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td><input class="sz-upload-image-url-2 widefat" id="'.$this->get_field_id('img').'" name="'.$this->get_field_name('img').'" type="text" value="'.$img.'" placeholder="'.__('choose image for badge','szgoogleadmin').'"/></td>';
+		echo '<td><input class="sz-upload-image-button button" type="button" value="'.ucfirst(__('select file','szgoogleadmin')).'" data-field-url="sz-upload-image-url-2" data-title="'.ucfirst(__('select or upload a file','szgoogleadmin')).'" data-button-text="'.ucfirst(__('confirm selection','szgoogleadmin')).'"/></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro badge per POSITION
+
+		echo '<tr class="sz-google-switch-display">';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('position').'" name="'.$this->get_field_name('position').'">';
+		echo '<option value="outside" '; selected("outside",$position); echo '>'.__('button position outside','szgoogleadmin').'</option>';
+		echo '<option value="top" ';     selected("top"    ,$position); echo '>'.__('button position top','szgoogleadmin').'</option>';
+		echo '<option value="center" ';  selected("center" ,$position); echo '>'.__('button position center','szgoogleadmin').'</option>';
+		echo '<option value="bottom" ';  selected("bottom" ,$position); echo '>'.__('button position bottom','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro badge per ALIGN
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('button alignment none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('button alignment left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('button alignment center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('button alignment right','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per button size
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('size').'" name="'.$this->get_field_name('size').'">';
+		echo '<option value="medium" '   ; selected("medium"  ,$size); echo '>'.__('size medium','szgoogleadmin').'</option>';
+		echo '<option value="small" '    ; selected("small"   ,$size); echo '>'.__('size small','szgoogleadmin').'</option>';
+		echo '<option value="large" '    ; selected("large"   ,$size); echo '>'.__('size large','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		// Campo di selezione parametro per button annotation
+
+		echo '<tr>';
+		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('annotation').'" name="'.$this->get_field_name('annotation').'">';
+		echo '<option value="none" '  ; selected("none"  ,$annotation); echo '>'.__('annotation none','szgoogleadmin').'</option>';
+		echo '<option value="inline" '; selected("inline",$annotation); echo '>'.__('annotation inline','szgoogleadmin').'</option>';
+		echo '<option value="bubble" '; selected("bubble",$annotation); echo '>'.__('annotation bubble','szgoogleadmin').'</option>';
+		echo '</select></td>';
+		echo '</tr>';
+
+		echo '</table>';
+
+		// Codice javascript per abilitare/disabilitare le funzioni dei campi, attenzione che 
+		// la definizione document.ready viene specificata qui perchè sul file iniziale non funziona
+
+		echo '<script type="text/javascript">';
+			echo 'jQuery(document).ready(function(){';
+				echo 'szgoogle_switch_hidden_ready();';
+				echo 'szgoogle_media_uploader();';
+			echo '});';
+		echo '</script>';
+	}
 }
 
 /* ************************************************************************** */
@@ -609,6 +1543,16 @@ function sz_google_modules_plus_get_code_post($atts=array())
 
 	$url   = trim($url);
 	$align = strtolower(trim($align));
+
+	// Se non specifico un URL valido per la creazione del bottone
+	// esco dalla funzione e ritorno una stringa vuota
+
+	if (empty($url)) { return SZ_PLUGIN_GOOGLE_VALUE_NULL; }
+
+	// Elimino dal path i riferimenti aggiunti ai link di navigazione e 
+	// riporto il link originale di google plus, senza /u/0/b etc etc
+
+	$url = sz_google_modules_plus_get_canonical_url($url);
 
 	// Creazione codice HTML per embed code da inserire nella pagina wordpress
 
@@ -677,7 +1621,7 @@ class SZ_Widget_Google_Post extends WP_Widget
 	function SZ_Widget_Google_Post() 
 	{
 		$widget_ops  = array(
-			'classname'   => 'widget-sz-google', 
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-post', 
 			'description' => ucfirst(__('widget for google+ post','szgoogleadmin'))
 		);
 
@@ -779,10 +1723,10 @@ class SZ_Widget_Google_Post extends WP_Widget
 		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
 		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
-		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
-		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
-		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
-		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('right','szgoogleadmin').'</option>';
 		echo '</select></td>';
 		echo '</tr>';
 
@@ -991,7 +1935,7 @@ class SZ_Widget_Google_Profile extends WP_Widget
 	function SZ_Widget_Google_Profile() 
 	{
 		$widget_ops  = array(
-			'classname'   => 'widget-sz-google', 
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-profile', 
 			'description' => ucfirst(__('widget for google+ profile','szgoogleadmin'))
 		);
 
@@ -1234,10 +2178,10 @@ class SZ_Widget_Google_Profile extends WP_Widget
 		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
 		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
-		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
-		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
-		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
-		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('right','szgoogleadmin').'</option>';
 		echo '</select></td>';
 		echo '</tr>';
 
@@ -1481,7 +2425,7 @@ class SZ_Widget_Google_Page extends WP_Widget
 	function SZ_Widget_Google_Page() 
 	{
 		$widget_ops  = array(
-			'classname'   => 'widget-sz-google', 
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-page', 
 			'description' => ucfirst(__('widget for google+ page','szgoogleadmin'))
 		);
 	
@@ -1724,10 +2668,10 @@ class SZ_Widget_Google_Page extends WP_Widget
 		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
 		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
-		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
-		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
-		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
-		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('right','szgoogleadmin').'</option>';
 		echo '</select></td>';
 		echo '</tr>';
 
@@ -1959,7 +2903,7 @@ class SZ_Widget_Google_Community extends WP_Widget
 	function SZ_Widget_Google_Community() 
 	{
 		$widget_ops  = array(
-			'classname'   => 'widget-sz-google', 
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-community', 
 			'description' => ucfirst(__('widget for google+ community','szgoogleadmin'))
 		);
 
@@ -2183,10 +3127,10 @@ class SZ_Widget_Google_Community extends WP_Widget
 		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
 		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
-		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
-		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
-		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
-		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('right','szgoogleadmin').'</option>';
 		echo '</select></td>';
 		echo '</tr>';
 
@@ -2383,7 +3327,7 @@ class SZ_Widget_Google_Followers extends WP_Widget
 	function SZ_Widget_Google_Followers() 
 	{
 		$widget_ops  = array(
-			'classname'   => 'widget-sz-google', 
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-followers', 
 			'description' => ucfirst(__('widget for google+ followers','szgoogleadmin'))
 		);
 
@@ -2559,10 +3503,10 @@ class SZ_Widget_Google_Followers extends WP_Widget
 		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
 		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
-		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
-		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
-		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
-		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('right','szgoogleadmin').'</option>';
 		echo '</select></td>';
 		echo '</tr>';
 
@@ -2667,7 +3611,12 @@ function sz_google_modules_plus_get_code_comments($atts,$content=null)
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
-	if ($url == '') $url = get_permalink();
+	if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = get_permalink();
+
+	// Elimino dal path i riferimenti aggiunti ai link di navigazione e 
+	// riporto il link originale di google plus, senza /u/0/b etc etc
+
+	$url = sz_google_modules_plus_get_canonical_url($url);
 
 	// Creazione codice HTML per embed code da inserire nella pagina wordpress
 	// Questo codice deve essere usato sia dallo shortcode, dal widget e dalla funzione
@@ -2858,7 +3807,7 @@ class SZ_Widget_Google_Comments extends WP_Widget
 	function SZ_Widget_Google_Comments() 
 	{
 		$widget_ops  = array(
-			'classname'   => 'widget-sz-google', 
+			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-comments', 
 			'description' => ucfirst(__('widget for google+ comments','szgoogleadmin'))
 		);
 
@@ -3002,10 +3951,10 @@ class SZ_Widget_Google_Comments extends WP_Widget
 		echo '<tr>';
 		echo '<td><label for="'.$this->get_field_id('align').'">'.ucfirst(__('align','szgoogleadmin')).':</label></td>';
 		echo '<td colspan="2"><select class="widefat" id="'.$this->get_field_id('align').'" name="'.$this->get_field_name('align').'">';
-		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.ucfirst(__('alignment not specified','szgoogleadmin')).'</option>';
-		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.ucfirst(__('alignment left','szgoogleadmin')).'</option>';
-		echo '<option value="center" '; selected("center",$align); echo '>'.ucfirst(__('alignment center','szgoogleadmin')).'</option>';
-		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.ucfirst(__('alignment right','szgoogleadmin')).'</option>';
+		echo '<option value="none" '  ; selected("none"  ,$align); echo '>'.__('none','szgoogleadmin').'</option>';
+		echo '<option value="left" '  ; selected("left"  ,$align); echo '>'.__('left','szgoogleadmin').'</option>';
+		echo '<option value="center" '; selected("center",$align); echo '>'.__('center','szgoogleadmin').'</option>';
+		echo '<option value="right" ' ; selected("right" ,$align); echo '>'.__('right','szgoogleadmin').'</option>';
 		echo '</select></td>';
 		echo '</tr>';
 
@@ -3174,78 +4123,18 @@ function sz_google_modules_plus_add_script_footer()
 /* GOOGLE+ COMMON codice per disegnare il wrap dei bottoni di google plus     */
 /* ************************************************************************** */
 
-function sz_google_modules_plus_get_code_button_wrap($atts) 
+function sz_google_modules_plus_get_code_button_wrap($atts) {
+	return sz_google_modules_get_code_button_wrap($atts);
+}
+
+/* ************************************************************************** */
+/* GOOGLE+ COMMON calcolo indirizzo URL levando i dati di navigazione         */
+/* ************************************************************************** */
+
+function sz_google_modules_plus_get_canonical_url($url=null) 
 {
-	extract(shortcode_atts(array(
-		'html'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'image'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'content'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'align'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'position' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'class'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-	),$atts));
+	$url = str_ireplace('://plus.google.com/u/0/b/','://plus.google.com/',$url);
+	$url = str_ireplace('://plus.google.com/u/0/'  ,'://plus.google.com/',$url);
 
-	$HTML   = '<div class="'.$class.'">';
-	$HTML  .= '<div class="sz-google-button">';
-	$HTML  .= '<div class="sz-google-button-wrap" style="position:relative;margin-bottom:1em">';
-	$HTML  .= '<div class="sz-google-button-body">';
-
-	// Se trovo contenuto per il parametro "text" dello shortcode
-	// lo aggiungo prima del codice embed originale di google
-
-	if ($text != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-		$HTML .= '<div class="sz-google-button-text">';
-		$HTML .= '<p>'.$text.'</p>';
-		$HTML .= '</div>';
-	}
-
-	// Se trovo contenuto per il parametro "image" dello shortcode
-	// lo aggiungo prima del codice embed originale di google
-
-	if ($image != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-		$HTML .= '<div class="sz-google-button-imgs">';
-		$HTML .= '<p><img src="'.$image.'" alt=""/></p>';
-		$HTML .= '</div>';
-	}
-
-	// Se trovo contenuto tra inizio e fine dello shortcode
-	// lo aggiungo prima del codice embed originale di google
-
-	if ($content != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-		$HTML .= '<div class="sz-google-button-cont">';
-		$HTML .= $content;
-		$HTML .= '</div>';
-	}
-
-	$HTML .= '</div>';
-
-	// Aggiunta del codice per inserimento iframe originale
-	// di google con allineamento e posizionamento
-
-	$HTML .= '<div class="sz-google-button-code">';
-	$HTML .= '<div class="sz-google-button-side"';
-	$HTML .= ' style="display:block;';
-
-	if ($position == 'top')    $HTML .= 'position:absolute;width:100%;left:0;padding:1em;top:0;';		
-	if ($position == 'center') $HTML .= 'position:absolute;width:100%;left:0;padding:1em;top:48%';		
-	if ($position == 'bottom') $HTML .= 'position:absolute;width:100%;left:0;padding:1em;bottom:0;';		
-
-	if ($align == 'left')   $HTML .= 'text-align:left';		
-	if ($align == 'center') $HTML .= 'text-align:center';		
-	if ($align == 'right')  $HTML .= 'text-align:right';		
-
-	$HTML .= '">';
-	$HTML .= $html;
-	$HTML .= '</div>';
-	$HTML .= '</div>';
-
-	$HTML .= '</div>';
-	$HTML .= '</div>';
-	$HTML .= '</div>';
-
-	// Ritorno per la funzione con tutta la stringa contenente
-	// il codice HTML per l'inserimento del codice nella pagina
-
-	return $HTML;
+	return $url;
 }

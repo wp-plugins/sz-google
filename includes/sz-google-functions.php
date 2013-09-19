@@ -82,6 +82,16 @@ function szgoogle_get_gplus_post($atts=array()) {
 }
 
 /* ************************************************************************** */
+/* Funzioni per elaborazione codice HTML di GOOGLE DRIVE                     */
+/* ************************************************************************** */
+
+function szgoogle_get_drive_savebutton($atts=array()) {
+	if (function_exists('sz_google_modules_drive_get_code_savebutton')) {
+		return sz_google_modules_drive_get_code_savebutton($atts);
+	} else return false;
+}
+
+/* ************************************************************************** */
 /* Funzioni per elaborazione codice HTML di GOOGLE ANALYTICS                  */
 /* ************************************************************************** */
 

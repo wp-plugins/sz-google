@@ -36,6 +36,7 @@ function sz_google_admin_fields()
 	add_settings_section('sz_google_base_section','','sz_google_admin_base_section',basename(__FILE__));
 	add_settings_field('plus',ucfirst(__('google+','szgoogleadmin')),'sz_google_admin_base_plus',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),'sz_google_admin_base_analytics',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('drive',ucwords(__('google drive','szgoogleadmin')),'sz_google_admin_base_drive',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),'sz_google_admin_base_groups',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('youtube',ucwords(__('google youtube','szgoogleadmin')),'sz_google_admin_base_youtube',basename(__FILE__),'sz_google_base_section');
@@ -48,6 +49,7 @@ function sz_google_admin_fields()
 
 function sz_google_admin_add_stylesheet() 
 {
+
 	wp_register_style('sz-google-style-admin',SZ_PLUGIN_GOOGLE_PATH_CSS.'sz-google-style-admin.css');
 	wp_enqueue_style('sz-google-style-admin');
 
@@ -56,6 +58,14 @@ function sz_google_admin_add_stylesheet()
 	wp_enqueue_script('utils');
 	wp_enqueue_script('dashboard');
 	wp_enqueue_script('thickbox');
+
+	// Caricamento framework javasctipt per media uploader da
+	// utilizzare nelle funzioni di scelta attachment come i widgets
+
+	if (!did_action('wp_enqueue_media')) wp_enqueue_media();
+
+	wp_register_script('sz_google_javascript',SZ_PLUGIN_GOOGLE_PATH_JS.'sz-google.js');
+	wp_enqueue_script('sz_google_javascript');
 }
 
 /* ************************************************************************** */
@@ -101,16 +111,22 @@ function sz_google_admin_base_analytics()
 	sz_google_common_form_description(__('activating this module can handle the tracking code present in google analytics, so as to store the access statistics related to our website. Once you have entered the tracking code, you can view hundreds of statistics from the admin panel of google analytics.','szgoogleadmin'));
 }
 
+function sz_google_admin_base_drive() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','drive');
+	sz_google_common_form_description(__('through this module you can insert into wordpress some features of google drive, you will find widgets and shortcodes to help you with this task. Obviously many functions can only work if you login with a valid account on google. See the configuration section in the admin panel.','szgoogleadmin'));
+}
+
 function sz_google_admin_base_groups() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','groups');
-	sz_google_common_form_description(__('enabling this module you get a widget and a shortcode to perform embed on google groups. Then you can insert into a wordpress page or in a sidebar content navigable for a group. You can specify various customization options, see the <a target="_blank" href="https://support.google.com/groups/answer/1191206">official documentation</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this module you get a widget and a shortcode to perform embed on google groups. Then you can insert into a wordpress page or in a sidebar content navigable for a group. You can specify various customization options, see the configuration section in the admin panel.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_translate() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','translate');
-	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. For more information I recommend the official documentation on this link <a href="https://support.google.com/translate/">https://support.google.com/translate/</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. The widget can be placed in the context of a post or a sidebar defined in your theme, see the configuration section in the admin panel.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_youtube() 
@@ -144,6 +160,7 @@ $options_admin = sz_google_modules_options();
 
 if ($options_admin['plus']          == '1') @require_once(dirname(__FILE__).'/sz-google-admin-plus.php');
 if ($options_admin['analytics']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
+if ($options_admin['drive']         == '1') @require_once(dirname(__FILE__).'/sz-google-admin-drive.php');
 if ($options_admin['groups']        == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
 if ($options_admin['translate']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
 if ($options_admin['youtube']       == '1') @require_once(dirname(__FILE__).'/sz-google-admin-youtube.php');

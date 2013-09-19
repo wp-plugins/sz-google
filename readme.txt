@@ -1,12 +1,12 @@
 === SZ - Google for WordPress ===
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
-Tested up to: 3.5
-Stable tag: 1.3
+Tested up to: 3.6
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: analytics, badge, buttons, comments, comments system, custom url, embed video, embedded posts, follow, google, google+, google analytics, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
+Tags: analytics, badge, buttons, comments, comments system, custom url, drive, embed video, embedded posts, follow, google, google+, google analytics, google drive, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, save to drive, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -22,6 +22,7 @@ To be informed about the features that gradually will be released you can follow
 
 * `Module Google+`
 * `Module Google Analytics`
+* `Module Google Drive`
 * `Module Google Groups`
 * `Module Google Translate`
 * `Module Google Youtube`
@@ -30,9 +31,9 @@ To be informed about the features that gradually will be released you can follow
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-* <a href="https://startbyzero.com/demos/wordpress/plugin-google-plus-badge/">Demo online - Google plus badges</a>
-* <a href="https://startbyzero.com/demos/wordpress/google-button-per-wordpress/">Demo online - Google plus buttons</a>
-* <a href="https://startbyzero.com/demos/wordpress/google-embedded-posts/">Demo online - Google plus embedded post</a>
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google/google-plus-badges/">Demo online - Google plus badges</a>
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google/google-plus-buttons/">Demo online - Google plus buttons</a>
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google/google-plus-embedded-posts/">Demo online - Google plus embedded post</a>
 
 **Google+ Badge:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These components can be used as a widget for use in or as a sidebar and as shortcode to use in the articles. You can also use the php functions to customize your own theme directly with programming code.
 
@@ -88,6 +89,21 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_get_ga_code()`
 
 `<?php echo szgoogle_get_ga_code(); ?>`
+
+= Google Drive module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+**Google Drive Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget google drive for button save`
+
+**Google Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+
+* `[sz-drive-save]......: googe drive save button`
+
+**Google Drive Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+
+* `szgoogle_get_drive_savebutton()`
 
 = Google Groups module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -202,15 +218,26 @@ Before you use the google translate module must register the site that you want 
 3. SZ-Google and module Google+ example
 4. SZ-Google and module Youtube
 5. SZ-Google and documentation
+6. SZ-Google and module Google Drive
 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 1.4 =
+* Feature: Add new module for google drive.
+* Feature: Add google drive save button widget.
+* Feature: Add google drive save button shortcode.
+* Feature: Add google+ widget button plus one.
+* Feature: Add google+ widget button sharing.
+* Feature: Add google+ widget button follow.
+* Feature: Add new CSS classes for all widgets. 
+
 = Version 1.3 =
 * Feature: Add google+ badge for followers widget.
 * Feature: Add google+ badge for followers shortcode.
 * Feature: Add options width="auto" for any badges.
+* Feature: Add widget for new component buttons.
 
 = Version 1.2 =
 * Feature: Add documentation section for modules google+.
@@ -304,10 +331,11 @@ Before you use the google translate module must register the site that you want 
 
 == Upgrade Notice ==
 
-= 1.3 =
-Add google+ badge for followers widget and shortcode.
+= 1.4 =
+Add new module google drive, add widget and shortcode for google drive save button. Add new widgets for google plus button as plus one, sharing and follow. Improvement of the automatic sizing of badges. 
 
-= 1.2 =
+= 1.3 =
+Add google+ badge for followers widget and shortcode. Add new widgets for google plus button as plus one, sharing and follow. Fixed some minor errors and improved the code of the plugin to get the best performances of loading. 
 
 = 1.1 =
 Added the widget for the google plus modules, fixed some minor errors and improved the code of the plugin to get the best performances of loading. Addition of the missing documentation.

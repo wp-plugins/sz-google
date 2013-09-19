@@ -207,7 +207,7 @@ class SZ_Widget_Google_Translate extends WP_Widget
 
 	function SZ_Widget_Google_Translate() {
 		$widget_ops  = array(
-			'classname'   => 'widget-sz-google', 
+			'classname'   => 'sz-widget-google sz-widget-translate sz-widget-translate-widget', 
 			'description' => ucfirst(__('widget for google translate','szgoogleadmin'))
 		);
 		$this->WP_Widget('SZ-Google-Translate',__('SZ-Google - Translate','szgoogleadmin'),$widget_ops);

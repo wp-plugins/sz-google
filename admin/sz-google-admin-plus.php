@@ -55,6 +55,13 @@ function sz_google_admin_plus_fields()
 	add_settings_field('plus_shortcode_size_portrait',ucwords(__('shortcode width portrait','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_portrait','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 	add_settings_field('plus_shortcode_size_landscape',ucwords(__('shortcode width landscape','szgoogleadmin')),'sz_google_admin_plus_shortcode_size_landscape','sz-google-admin-plus-shortcodes.php','sz_google_plus_shortcodes');
 
+	// Definizione sezione per configurazione GOOGLE+ BUTTON WIDGETS
+
+	add_settings_section('sz_google_plus_widgets_buttons','','sz_google_admin_plus_section','sz-google-admin-plus-widgets-buttons.php');
+	add_settings_field('plus_button_enable_widget_plusone',ucwords(__('widget g+ plusone','szgoogleadmin')),'sz_google_admin_plus_widget_button_plusone','sz-google-admin-plus-widgets-buttons.php','sz_google_plus_widgets_buttons');
+	add_settings_field('plus_button_enable_widget_sharing',ucwords(__('widget g+ sharing','szgoogleadmin')),'sz_google_admin_plus_widget_button_sharing','sz-google-admin-plus-widgets-buttons.php','sz_google_plus_widgets_buttons');
+	add_settings_field('plus_button_enable_widget_follow' ,ucwords(__('widget g+ follow' ,'szgoogleadmin')),'sz_google_admin_plus_widget_button_follow' ,'sz-google-admin-plus-widgets-buttons.php','sz_google_plus_widgets_buttons');
+
 	// Definizione sezione per configurazione GOOGLE+ BUTTON SHORTCODE
 
 	add_settings_section('sz_google_plus_buttons','','sz_google_admin_plus_section','sz-google-admin-plus-buttons.php');
@@ -114,15 +121,16 @@ function sz_google_admin_plus_callback()
 	// le sezioni devono essere passate come un array con nome => titolo
 
 	$sections = array(
-		'sz-google-admin-plus.php'            => ucwords(__('google+ ID','szgoogleadmin')),
-		'sz-google-admin-plus-language.php'   => ucwords(__('google+ language','szgoogleadmin')),
-		'sz-google-admin-plus-widgets.php'    => ucwords(__('google+ badge widget','szgoogleadmin')),
-		'sz-google-admin-plus-shortcodes.php' => ucwords(__('google+ badge shortcodes','szgoogleadmin')),
-		'sz-google-admin-plus-buttons.php'    => ucwords(__('google+ button shortcodes','szgoogleadmin')), 
-		'sz-google-admin-plus-comments.php'   => ucwords(__('google+ comment system','szgoogleadmin')), 
-		'sz-google-admin-plus-post.php'       => ucwords(__('google+ embedded post','szgoogleadmin')), 
-		'sz-google-admin-plus-redirect.php'   => ucwords(__('google+ custom URL','szgoogleadmin')),
-		'sz-google-admin-plus-system.php'     => ucwords(__('google+ system','szgoogleadmin')),
+		'sz-google-admin-plus.php'                 => ucwords(__('google+ ID','szgoogleadmin')),
+		'sz-google-admin-plus-language.php'        => ucwords(__('google+ language','szgoogleadmin')),
+		'sz-google-admin-plus-widgets.php'         => ucwords(__('google+ badge widget','szgoogleadmin')),
+		'sz-google-admin-plus-shortcodes.php'      => ucwords(__('google+ badge shortcodes','szgoogleadmin')),
+		'sz-google-admin-plus-widgets-buttons.php' => ucwords(__('google+ button widgets','szgoogleadmin')), 
+		'sz-google-admin-plus-buttons.php'         => ucwords(__('google+ button shortcodes','szgoogleadmin')), 
+		'sz-google-admin-plus-comments.php'        => ucwords(__('google+ comment system','szgoogleadmin')), 
+		'sz-google-admin-plus-post.php'            => ucwords(__('google+ embedded post','szgoogleadmin')), 
+		'sz-google-admin-plus-redirect.php'        => ucwords(__('google+ custom URL','szgoogleadmin')),
+		'sz-google-admin-plus-system.php'          => ucwords(__('google+ system','szgoogleadmin')),
 	);
 
 	// Chiamata alla funzione generale per la creazione del form generale
@@ -243,6 +251,28 @@ function sz_google_admin_plus_shortcode_size_landscape()
 {
 	sz_google_common_form_number_step_1('sz_google_options_plus','plus_shortcode_size_landscape','medium',SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE);
 	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated automatically.','szgoogleadmin'));
+}
+
+/* ************************************************************************** */
+/* Funzioni per la definizione dei campi legati a G+ BUTTONS WIDGETS          */
+/* ************************************************************************** */
+
+function sz_google_admin_plus_widget_button_plusone() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_widget_plusone');
+	sz_google_common_form_description(__('with this option is activated widget that allows the insertion of a +1 button in our article or web page. The +1 button has the same function as the button like this on facebook. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_one()</code>.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_widget_button_sharing() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_widget_sharing');
+	sz_google_common_form_description(__('this option allows the activation of widget for sharing a link on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_share()</code>.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_widget_button_follow() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_widget_follow');
+	sz_google_common_form_description(__('this option allows the activation of widget for follow on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_follow()</code>.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
