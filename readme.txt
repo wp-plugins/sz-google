@@ -114,6 +114,8 @@ To be informed about the features that gradually will be released you can follow
 = Google Groups module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google/google-groups/">Demo online - Google Groups</a>
+
 **Google Groups Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google groups embed`
@@ -147,6 +149,9 @@ To be informed about the features that gradually will be released you can follow
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
+
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google/youtube-video/">Demo online - Youtube video</a>
+* <a href="https://startbyzero.com/demos/wordpress/plugin-google/youtube-bottoni-e-badges/">Demo online - Youtube buttons and badges</a>
 
 **Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
 
