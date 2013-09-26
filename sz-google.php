@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">SZ-Google for WordPress</a> follow the official page of <a href="https://plus.google.com/115876177980154798858/" target="_blank">startbyzero</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.4
+Version: 1.5.0
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -53,6 +53,8 @@ define('SZ_PLUGIN_GOOGLE_VALUE_DAY'  ,sprintf('%02d',date('d')));
 define('SZ_PLUGIN_GOOGLE_VALUE_MONTH',sprintf('%02d',date('m')));
 define('SZ_PLUGIN_GOOGLE_VALUE_YEAR' ,sprintf('%04d',date('Y')));
 
+define('SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET','widget');
+define('SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE','shortcode');
 define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_TOP','none');
 define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT','none');
 define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM','1');
@@ -92,12 +94,6 @@ define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE','275');
 define('SZ_PLUGIN_GOOGLE_PLUS_WIDGET_HEIGHT','300');
 
 /* ************************************************************************** */
-/* Definizione delle costanti da usare nel modulo GOOGLE DRIVE                */
-/* ************************************************************************** */
-
-define('SZ_PLUGIN_GOOGLE_DRIVE_SITENAME','Website');
-
-/* ************************************************************************** */
 /* Definizione delle costanti da usare nel modulo GOOGLE ANALYTICS            */
 /* ************************************************************************** */
 
@@ -106,12 +102,24 @@ define('SZ_PLUGIN_GOOGLE_GA_FOOTER','F');
 define('SZ_PLUGIN_GOOGLE_GA_MANUAL','M');
 
 /* ************************************************************************** */
+/* Definizione delle costanti da usare nel modulo GOOGLE DRIVE                */
+/* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_DRIVE_SITENAME','Website');
+
+/* ************************************************************************** */
 /* Definizione delle costanti da usare nel modulo GOOGLE GROUPS               */
 /* ************************************************************************** */
 
 define('SZ_PLUGIN_GOOGLE_GROUPS_NAME'  ,'adsense-api');
 define('SZ_PLUGIN_GOOGLE_GROUPS_WIDTH' ,'0');
 define('SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT','700');
+
+/* ************************************************************************** */
+/* Definizione delle costanti da usare nel modulo GOOGLE TRANSLATE            */
+/* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_TRANSLATE_MODE','I1');
 
 /* ************************************************************************** */
 /* Definizione delle costanti da usare nel modulo GOOGLE YOUTUBE              */
@@ -206,6 +214,9 @@ function sz_google_plugin_activate()
 		'plus_comments_dt_month'            => SZ_PLUGIN_GOOGLE_VALUE_MONTH,
 		'plus_comments_dt_year'             => SZ_PLUGIN_GOOGLE_VALUE_YEAR,
 		'plus_comments_fixed_size'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_comments_title'               => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_comments_css_class_1'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'plus_comments_css_class_2'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'plus_redirect_sign'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'plus_redirect_plus'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'plus_redirect_curl'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -221,15 +232,6 @@ function sz_google_plugin_activate()
 	);
 
 	// Impostazione valori di default che riguardano
-	// il modulo collegato alle funzioni di Google Drive
-
-	$settings_drive = array(
-		'drive_sitename'                    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'drive_savebutton_widget'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
-		'drive_savebutton_shortcode'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
-	);
-
-	// Impostazione valori di default che riguardano
 	// il modulo collegato alle funzioni di Google Analytics
 
 	$settings_ga = array(
@@ -239,6 +241,15 @@ function sz_google_plugin_activate()
 		'ga_enable_admin'                   => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'ga_enable_administrator'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'ga_enable_logged'                  => SZ_PLUGIN_GOOGLE_VALUE_NO,
+	);
+
+	// Impostazione valori di default che riguardano
+	// il modulo collegato alle funzioni di Google Drive
+
+	$settings_drive = array(
+		'drive_sitename'                    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'drive_savebutton_widget'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'drive_savebutton_shortcode'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
 	);
 
 	// Impostazione valori di default che riguardano
@@ -262,7 +273,7 @@ function sz_google_plugin_activate()
 
 	$settings_translate = array(
 		'translate_meta'                    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'translate_mode'                    => 'I1',
+		'translate_mode'                    => SZ_PLUGIN_GOOGLE_TRANSLATE_MODE,
 		'translate_language'                => SZ_PLUGIN_GOOGLE_VALUE_LANG,
 		'translate_to'                      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'translate_widget'                  => SZ_PLUGIN_GOOGLE_VALUE_YES,
@@ -311,8 +322,8 @@ function sz_google_plugin_activate()
 
 	sz_google_check_options('sz_google_options_base'     ,$settings_base); 
 	sz_google_check_options('sz_google_options_plus'     ,$settings_plus); 
-	sz_google_check_options('sz_google_options_drive'    ,$settings_drive); 
 	sz_google_check_options('sz_google_options_ga'       ,$settings_ga);
+	sz_google_check_options('sz_google_options_drive'    ,$settings_drive); 
 	sz_google_check_options('sz_google_options_groups'   ,$settings_groups);
 	sz_google_check_options('sz_google_options_translate',$settings_translate);
 	sz_google_check_options('sz_google_options_youtube'  ,$settings_youtube);
@@ -338,8 +349,8 @@ register_deactivation_hook( __FILE__,'sz_google_plugin_deactivate');
 /* Inclusione delle funzioni generali per aggiunta di tutti i componenti      */
 /* ************************************************************************** */
 
-@require_once(dirname(__FILE__).'/includes/sz-google-functions.php');
 @require_once(dirname(__FILE__).'/modules/sz-google-modules.php');
+@require_once(dirname(__FILE__).'/modules/sz-google-functions.php');
 
 /* ************************************************************************** */
 /* Inclusione delle funzioni da usare in admin                                */

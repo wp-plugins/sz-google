@@ -313,7 +313,8 @@ function sz_google_common_form_text($optionset,$name,$class='medium',$placeholde
 {	
 	$options = get_option($optionset);
 
-	if (!isset($options[$name])) $options[$name] = ""; 
+	if (!isset($options[$name])) $options[$name] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		else $options[$name] =  esc_html($options[$name]);
 
 	echo '<input name="'.$optionset.'['.$name.']" type="text" class="'.$class.'" ';
 	echo 'value="'.$options[$name].'" placeholder="'.$placeholder.'"/>';

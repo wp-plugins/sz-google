@@ -72,14 +72,17 @@ function sz_google_admin_plus_fields()
 	// Definizione sezione per configurazione GOOGLE+ COMMENTS
 
 	add_settings_section('sz_google_plus_comments','','sz_google_admin_plus_section','sz-google-admin-plus-comments.php');
-	add_settings_field('plus_comments_gp_enable',ucwords(__('enable G+ comments','szgoogleadmin')),'sz_google_admin_plus_comments_gp','sz-google-admin-plus-comments.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_wp_enable',ucwords(__('enable WP comments','szgoogleadmin')),'sz_google_admin_plus_comments_wp','sz-google-admin-plus-comments.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_ac_enable',ucwords(__('comments after content','szgoogleadmin')),'sz_google_admin_plus_comments_ac','sz-google-admin-plus-comments.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_aw_enable',ucwords(__('comments after WP system','szgoogleadmin')),'sz_google_admin_plus_comments_aw','sz-google-admin-plus-comments.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_wd_enable',ucwords(__('g+ comments widget','szgoogleadmin')),'sz_google_admin_plus_comments_wd','sz-google-admin-plus-comments.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_sh_enable',ucwords(__('g+ comments shortcode','szgoogleadmin')),'sz_google_admin_plus_comments_sh','sz-google-admin-plus-comments.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_dt_enable',ucwords(__('g+ comments date switch','szgoogleadmin')),'sz_google_admin_plus_comments_dt','sz-google-admin-plus-comments.php','sz_google_plus_comments');
-	add_settings_field('plus_comments_fixed_size',ucwords(__('g+ comments fixed size','szgoogleadmin')),'sz_google_admin_plus_comments_fixed_size','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_gp_enable',  ucwords(__('enable G+ comments','szgoogleadmin')),      'sz_google_admin_plus_comments_gp',         'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_wp_enable',  ucwords(__('enable WP comments','szgoogleadmin')),      'sz_google_admin_plus_comments_wp',         'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_ac_enable',  ucwords(__('comments after content','szgoogleadmin')),  'sz_google_admin_plus_comments_ac',         'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_aw_enable',  ucwords(__('comments after WP system','szgoogleadmin')),'sz_google_admin_plus_comments_aw',         'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_wd_enable',  ucwords(__('comments widget','szgoogleadmin')),         'sz_google_admin_plus_comments_wd',         'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_sh_enable',  ucwords(__('comments shortcode','szgoogleadmin')),      'sz_google_admin_plus_comments_sh',         'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_dt_enable',  ucwords(__('comments date switch','szgoogleadmin')),    'sz_google_admin_plus_comments_dt',         'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_fixed_size', ucwords(__('comments fixed size','szgoogleadmin')),     'sz_google_admin_plus_comments_fixed_size', 'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_title',      ucwords(__('comments title','szgoogleadmin')),          'sz_google_admin_plus_comments_title',      'sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_css_class_1',ucwords(__('comments CSS class 1','szgoogleadmin')),    'sz_google_admin_plus_comments_css_class_1','sz-google-admin-plus-comments.php','sz_google_plus_comments');
+	add_settings_field('plus_comments_css_class_2',ucwords(__('comments CSS class 2','szgoogleadmin')),    'sz_google_admin_plus_comments_css_class_2','sz-google-admin-plus-comments.php','sz_google_plus_comments');
 
 	// Definizione sezione per configurazione GOOGLE+ EMBEDDED POST
 
@@ -341,6 +344,24 @@ function sz_google_admin_plus_comments_fixed_size()
 {
 	sz_google_common_form_number_step_1('sz_google_options_plus','plus_comments_fixed_size','medium',__('responsive design','szgoogleadmin'));
 	sz_google_common_form_description(__('if you do not specify a value for this option, the size of the container of the comments will be performed in responsive mode, otherwise it is applied to a fixed size specified in this field. Use this option on wordpress themes with fixed size.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_comments_title()
+{
+	sz_google_common_form_text('sz_google_options_plus','plus_comments_title','large',__('string HTML for comments title','szgoogleadmin'));
+	sz_google_common_form_description(__('Set this field to a string that identifies the creation of a first title of the widget for comments to google+. You can use html code and insert the variable with the name of {title}. If not given the title value for this field will be ignored and not printed.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_comments_css_class_1()
+{
+	sz_google_common_form_text('sz_google_options_plus','plus_comments_css_class_1','large',__('name for CSS class (1)','szgoogleadmin'));
+	sz_google_common_form_description(__('the widget comments has two wraps, each of these we can define the CSS style class that allow us to adapt the graphics of the comments to that of wordpress theme installed. Leave blank to not add any classes to the container of the comments.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_comments_css_class_2()
+{
+	sz_google_common_form_text('sz_google_options_plus','plus_comments_css_class_2','large',__('name for CSS class (2)','szgoogleadmin'));
+	sz_google_common_form_description(__('the widget comments has two wraps, each of these we can define the CSS style class that allow us to adapt the graphics of the comments to that of wordpress theme installed. Leave blank to not add any classes to the container of the comments.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */

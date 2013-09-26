@@ -643,7 +643,7 @@ function sz_google_modules_youtube_get_code_badge($atts=array())
 
 	// Creazione codice HTML per embed code da inserire nella pagina wordpress
 
-	$HTML  = '<iframe src="http://www.youtube.com/subscribe_widget?p='.$channel.'" ';
+	$HTML  = '<iframe src="https://www.youtube.com/subscribe_widget?p='.$channel.'" ';
 	$HTML .= 'style="overflow:hidden;';
 	$HTML .= 'width:'.$width.$widthunit.';';
 	$HTML .= 'height:'.$height.$heightunit.';';
