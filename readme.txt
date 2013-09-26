@@ -240,7 +240,7 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add badge google profile with pop-up.
 * Feature: Add badge google page with pop-up.
 
-= Version 1.4 =
+= Version 1.4.0 =
 * Feature: Add new module for google drive.
 * Feature: Add google drive save button widget.
 * Feature: Add google drive save button shortcode.
@@ -249,40 +249,40 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add google+ widget button follow.
 * Feature: Add new CSS classes for all widgets. 
 
-= Version 1.3 =
+= Version 1.3.0 =
 * Feature: Add google+ badge for followers widget.
 * Feature: Add google+ badge for followers shortcode.
 * Feature: Add options width="auto" for any badges.
 * Feature: Add widget for new component buttons.
 
-= Version 1.2 =
+= Version 1.2.0 =
 * Feature: Add documentation section for modules google+.
 * Feature: Add any options for google+ buttons.
 * Feature: Add options align for google+ badges.
 * Fix: Correct options widget for google+ comment system.
 * Fix: Problem events widget with jquery and WP 3.6.
 
-= Version 1.1 =
+= Version 1.1.0 =
 * Feature: Add option fixed size google+ comments.
 * Feature: Add widgets for google+ buttons.
 * Feature: Add widgets for google+ embedded post.
 * Feature: Add widgets for google+ comments.
 * Fix: Correct bug for widget google+ embedded post.
 
-= Version 1.0 =
+= Version 1.0.0 =
 * Feature: Add google+ embedded posts.
 * Feature: Add css class for all components.
 * Feature: Add options design for buttons google+.
 * Feature: Add options design for badges google+.
 
-= Version 0.9 =
+= Version 0.9.0 =
 * Feature: Add shortcode youtube for badge.
 * Feature: Add shortcode youtube for button.
 * Feature: Add shortcode youtube for link.
 * Feature: Add widgets for module google youtube.
 * Feature: Add default fixed size for g+ comments.
 
-= Version 0.8 =
+= Version 0.8.0 =
 * Feature: Add module for modules documentation.
 * Feature: Add options youtube loading delayed code.
 * Feature: Add options youtube customer cove image.
@@ -290,7 +290,7 @@ Before you use the google translate module must register the site that you want 
 * Fix: Change string for translate plugin italy.
 * Fix: Parameters for shortcode google translate.
 
-= Version 0.7 =
+= Version 0.7.0 =
 * Feature: Add module for google youtube.
 * Feature: Add shortcode youtube [sz-ytvideo].
 * Feature: Add options youtube in admin panel for personalize.
@@ -298,7 +298,7 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add options youtube for google analytics.
 * Fix: Change scripts for better performance.
 
-= Version 0.6 =
+= Version 0.6.0 =
 * Fix: Translate more string for language italiano.
 * Feature: Add module for google groups embed.
 * Feature: Add widget for google groups embed.
@@ -306,14 +306,14 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add administration panel for google groups embed.
 * Feature: Add help description for field in admin panel.
 
-= Version 0.5 =
+= Version 0.5.0 =
 * Fix: Translate more string for language italiano.
 * Feature: Add module for google translate widget.
 * Feature: Add option for google translate mode.
 * Feature: Add option for google translate widget.
 * Feature: Add option for google translate shortcode.
 
-= Version 0.4 =
+= Version 0.4.0 =
 * Fix: Function sortables for admin panel and plugin options.
 * Feature: Add option for remove google analytics if administrator.
 * Feature: Add option for remove google analytics if user logged.
@@ -321,21 +321,21 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add function for analytics szgoogle_get_ga_ID().
 * Feature: Add function for analytics szgoogle_get_ga_code().
 
-= Version 0.3 =
+= Version 0.3.0 =
 * Feature: Add Google+ switch for loading javascript code.
 * Feature: Add stylesheet for personalized admin panel.
 * Feature: Add module for Google Analytics.
 * Feature: Add sidebar in admin panel for link about plugin.
 * Feature: Remove code Analytics for admin area.
 
-= Version 0.2 =
+= Version 0.2.0 =
 * Feature: Add Google+ shortcode button plus one.
 * Feature: Add Google+ shortcode button share.
 * Feature: Add Google+ shortcode button follow.
 * Feature: Add Google+ custom URL redirect.
 * Feature: Add Google+ select language widgets.
 
-= Version 0.1 =
+= Version 0.1.0 =
 * Feature: First version of the plugin and initial functions.
 * Feature: Add Google+ shortcode badges profile.
 * Feature: Add Google+ shortcode badges page.
@@ -347,41 +347,41 @@ Before you use the google translate module must register the site that you want 
 
 == Upgrade Notice ==
 
-= 1.4 =
+= 1.4.0 =
 Add new module google drive, add widget and shortcode for google drive save button. Add new widgets for google plus button as plus one, sharing and follow. Improvement of the automatic sizing of badges. 
 
-= 1.3 =
+= 1.3.0 =
 Add google+ badge for followers widget and shortcode. Add new widgets for google plus button as plus one, sharing and follow. Fixed some minor errors and improved the code of the plugin to get the best performances of loading. 
 
-= 1.1 =
+= 1.1.0 =
 Added the widget for the google plus modules, fixed some minor errors and improved the code of the plugin to get the best performances of loading. Addition of the missing documentation.
 
-= 1.0 =
+= 1.0.0 =
 Added the new google plus feature that allows the insertion of a post directly on the page of our website. Have also been released for the alternate functions to improve the options already present in the plugin.
 
-= 0.9 =
+= 0.9.0 =
 Have been added with this release the buttons and badges for Social youtube. They were created both widget and shortcodes. Were carried out some improvements to the plugin and the translation of some strings in Italian.
 
-= 0.8 =
+= 0.8.0 =
 This release add module for google documentation and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
 
-= 0.7 =
+= 0.7.0 =
 This release add module for google youtube and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
 
-= 0.6 =
+= 0.6.0 =
 This release add module for google groups and improves some aspects of previous modules. Several have been added tightens translation and improved help description on the fields of administration panel.
 
-= 0.5 =
+= 0.5.0 =
 This release add module for google translate and improves some aspects of previous modules. To use the google translate module must register your site on google account and get the information about the destination code.
 
-= 0.4 =
+= 0.4.0 =
 This release has been issued for the fixes small bugs and adding new parameters regarding google analytics. Have been improved on some aspects the badges for google plus.
 
-= 0.3 =
+= 0.3.0 =
 Some changes to the first release, added a stylesheet for the admin panel and the ability to disable javascript to google+ so as to avoid conflicts with other social plugins.
 
-= 0.2 =
+= 0.2.0 =
 Have been added new features that relate to the social buttons and operations redirects as custom URL google+. We have also released some PHP functions that can be used in the development of the themes.
 
-= 0.1 =
+= 0.1.0 =
 Release of the first version of the plugin sz-google intergrazione with the widgets that relate to the social network google plus to include on your wordpress sidebar.
