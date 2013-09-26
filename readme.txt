@@ -33,6 +33,7 @@ To be informed about the features that gradually will be released you can follow
 
 * <a href="https://startbyzero.com/wordpress/plugin-google/google-plus-badges/">Demo online - Google plus badges</a>
 * <a href="https://startbyzero.com/wordpress/plugin-google/google-plus-buttons/">Demo online - Google plus buttons</a>
+* <a href="https://startbyzero.com/wordpress/plugin-google/google-plus-comments/">Demo online - Google plus comments</a>
 * <a href="https://startbyzero.com/wordpress/plugin-google/google-plus-embedded-posts/">Demo online - Google plus embedded post</a>
 
 **Google+ Badges:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These components can be used as a widget for use in or as a sidebar and as shortcode to use in the articles. You can also use the php functions to customize your own theme directly with programming code.
@@ -56,7 +57,6 @@ To be informed about the features that gradually will be released you can follow
 * `Widget google+ follow`
 * `Widget google+ comments system`
 * `Widget google+ embedded posts`
-
 
 **Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the <a href="https://startbyzero.com/wordpress/plugin-google/">official documentation</a>.
 
