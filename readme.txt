@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -230,6 +230,12 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.5.1 =
+* Fix: Create separate translate file for admin/frontend.
+* Fix: Create widgets for google groups in admin panel.
+* Fix: Complete translate for italian language.
+* Fix: Add new option in the documentation plugin.
 
 = Version 1.5.0 =
 * Fix: Change protocol for youtube badge with ssl.

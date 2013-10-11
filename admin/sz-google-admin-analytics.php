@@ -8,15 +8,15 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 /* Controllo le opzioni generali per saper i moduli che devo essere caricati  */
 /* ************************************************************************** */ 
 
-$options = sz_google_modules_analytics_options();
+$options = sz_google_module_analytics_options();
 
 // Se sono sul pannello di amministrazione devo controllare se è stata
 // attivata l'opzione per abilitare il modulo su amministrazione 
 
 if (is_admin() and $options['ga_enable_admin'] == '1') 
 {
-	if ($options['ga_position'] == 'H') add_action('admin_head'  ,'sz_google_modules_analytics_add_script');
-	if ($options['ga_position'] == 'F') add_action('admin_footer','sz_google_modules_analytics_add_script');
+	if ($options['ga_position'] == 'H') add_action('admin_head'  ,'sz_google_module_analytics_add_script');
+	if ($options['ga_position'] == 'F') add_action('admin_footer','sz_google_module_analytics_add_script');
 }
 
 /* ************************************************************************** */

@@ -12,6 +12,18 @@ define('SZ_PLUGIN_GOOGLE_ADMIN',true);
 define('SZ_PLUGIN_GOOGLE_ADMIN_BASENAME',basename(__FILE__));
 
 /* ************************************************************************** */
+/* Caricamento della lingua per il plugin SZ-Google parte amministrazione     */
+/* ************************************************************************** */
+
+function sz_google_language_init_admin() 
+{
+	load_plugin_textdomain(
+		'szgoogleadmin',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE);
+}
+
+add_action('init','sz_google_language_init_admin');
+
+/* ************************************************************************** */
 /* Creazione e aggiunta menu di amministrazione                               */
 /* ************************************************************************** */
 
@@ -156,7 +168,7 @@ function sz_google_admin_callback_generale() {}
 /* Aggiunta di tutti i file admin richiesti in base alle attivazioni          */
 /* ************************************************************************** */
 
-$options_admin = sz_google_modules_options();
+$options_admin = sz_google_module_options();
 
 if ($options_admin['plus']          == '1') @require_once(dirname(__FILE__).'/sz-google-admin-plus.php');
 if ($options_admin['analytics']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
@@ -209,10 +221,6 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 		do_settings_sections($section);
 		echo '</div>';
 		echo '</div>';
-	}	
-
-	if ($documentation) { 
-
 	}	
 
 	// Se la chiamata contiene un array di documentazione posso disattivare
@@ -368,4 +376,3 @@ function sz_google_common_form_number_step_1($optionset,$name,$class='medium',$p
 	echo '<input name="'.$optionset.'['.$name.']" type="number" step="1" class="'.$class.'" ';
 	echo 'value="'.$options[$name].'" placeholder="'.$placeholder.'"/>';
 }
-
