@@ -138,7 +138,7 @@ function sz_google_admin_base_groups()
 function sz_google_admin_base_translate() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','translate');
-	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. The widget can be placed in the context of a post or a sidebar defined in your theme, see the configuration section in the admin panel.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made available by google translate tools. The widget can be placed in the context of a post or a sidebar defined in your theme, see the configuration section in the admin panel.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_youtube() 

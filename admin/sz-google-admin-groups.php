@@ -8,7 +8,7 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 /* Creazione e aggiunta menu di amministrazione                               */
 /* ************************************************************************** */
 
-function sz_google_admin_groups_menu() 
+function sz_google_admin_groups_menu()
 {
 	if (function_exists('add_submenu_page')) {
 		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google groups','szgoogleadmin')),ucwords(__('google groups','szgoogleadmin')),'manage_options','sz-google-admin-groups.php','sz_google_admin_groups_callback'); 
@@ -57,7 +57,7 @@ add_action('admin_init','sz_google_admin_groups_fields');
 /* Funzioni per SEZIONE Configurazione Google Groups                          */
 /* ************************************************************************** */
 
-function sz_google_admin_groups_callback() 
+function sz_google_admin_groups_callback()
 {
 	// Definizione delle sezioni che devono essere composte in HTML
 	// le sezioni devono essere passate come un array con nome => titolo
@@ -78,13 +78,13 @@ function sz_google_admin_groups_callback()
 /* Funzioni per SEZIONE Configurazione GOOGLE GROUPS COMPONENTS               */
 /* ************************************************************************** */
 
-function sz_google_admin_groups_widget() 
+function sz_google_admin_groups_widget()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_groups','groups_widget');
 	sz_google_common_form_description(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
 }
 
-function sz_google_admin_groups_shortcode() 
+function sz_google_admin_groups_shortcode()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_groups','groups_shortcode');
 	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ggroups]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
@@ -96,7 +96,7 @@ function sz_google_admin_groups_shortcode()
 
 function sz_google_admin_groups_language() 
 {
-	$values = sz_google_get_languages(); 
+	$values = sz_google_get_languages();
 
 	sz_google_common_form_select('sz_google_options_groups','groups_language',$values,'medium','');
 	sz_google_common_form_description(__('specify the language code associated with your website, if you do not specify any value will be called the <code>get_bloginfo(\'language\')</code> and set the same language related to the theme of wordpress. Supported languages ​​can be found on <a target="_blank" href="http://translate.google.com/about/">http://translate.google.com/about/</a>.','szgoogleadmin'));

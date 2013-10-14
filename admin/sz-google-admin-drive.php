@@ -8,10 +8,10 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 /* Creazione e aggiunta menu di amministrazione                               */
 /* ************************************************************************** */
 
-function sz_google_admin_drive_menu() 
+function sz_google_admin_drive_menu()
 {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google drive','szgoogleadmin')),ucwords(__('google drive','szgoogleadmin')),'manage_options','sz-google-admin-drive.php','sz_google_admin_drive_callback'); 
+		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google drive','szgoogleadmin')),ucwords(__('google drive','szgoogleadmin')),'manage_options','sz-google-admin-drive.php','sz_google_admin_drive_callback');
 	}
 }
 

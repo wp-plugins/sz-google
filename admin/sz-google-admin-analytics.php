@@ -26,7 +26,7 @@ if (is_admin() and $options['ga_enable_admin'] == '1')
 function sz_google_admin_analytics_menu() 
 {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google analytics','szgoogleadmin')),ucwords(__('google analytics','szgoogleadmin')),'manage_options','sz-google-admin-analytics.php','sz_google_admin_analytics_callback'); 
+		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google analytics','szgoogleadmin')),ucwords(__('google analytics','szgoogleadmin')),'manage_options','sz-google-admin-analytics.php','sz_google_admin_analytics_callback');
 	}
 }
 

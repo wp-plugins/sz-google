@@ -4,9 +4,9 @@
 /* ************************************************************************** */
 if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
 
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 /* Controllo le opzioni generali per saper i moduli che devo essere caricati  */
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 
 $options = sz_google_module_analytics_options();
 
@@ -24,9 +24,9 @@ if (!is_admin() and $SZ_GA_ENABLE_FRONT_END == SZ_PLUGIN_GOOGLE_VALUE_YES)
 	if ($SZ_GA_ENABLE_POSITION == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('wp_footer','sz_google_module_analytics_add_script');
 }
 
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 /* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 
 function sz_google_module_analytics_options()
 {
@@ -57,17 +57,17 @@ function sz_google_module_analytics_options()
 	return $options;
 }
 
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 /* Scrittura del codice javascript necessario alla visualizzazione widgets    */
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 
 function sz_google_module_analytics_add_script() {
 	echo sz_google_module_analytics_get_code();
 }
 
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 /* Scrittura del codice javascript necessario alla visualizzazione widgets    */
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 
 function sz_google_module_analytics_get_ID()
 {
@@ -77,18 +77,18 @@ function sz_google_module_analytics_get_ID()
 	return $guacode;
 }
 
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 /* Scrittura del codice javascript necessario alla visualizzazione widgets    */
-/* ************************************************************************** */ 
+/* ************************************************************************** */
 
 function sz_google_module_analytics_get_code()
 {
 	$useract = true;
 	$options = sz_google_module_analytics_options();
-	$guacode = sz_google_module_analytics_get_ID();   
+	$guacode = sz_google_module_analytics_get_ID();
 
 	// Controllo se sono loggato come amministratore o utente registrato
-	// e disattivo il caricamento del codice se le opzioni sono disattivate 
+	// e disattivo il caricamento del codice se le opzioni sono disattivate
 
 	if (current_user_can('manage_options')) {
 		if ($options['ga_enable_administrator'] == SZ_PLUGIN_GOOGLE_VALUE_NO) $useract = false;

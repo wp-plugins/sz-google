@@ -8,10 +8,10 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 /* Creazione e aggiunta menu di amministrazione                               */
 /* ************************************************************************** */
 
-function sz_google_admin_plus_menu() 
+function sz_google_admin_plus_menu()
 {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - Google+','Google+','manage_options','sz-google-admin-gplus.php','sz_google_admin_plus_callback'); 
+		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - Google+','Google+','manage_options','sz-google-admin-gplus.php','sz_google_admin_plus_callback');
 	}
 }
 
@@ -170,7 +170,7 @@ function sz_google_admin_plus_community()
 
 function sz_google_admin_plus_language() 
 {
-	$values = sz_google_get_languages(); 
+	$values = sz_google_get_languages();
 
 	sz_google_common_form_select('sz_google_options_plus','plus_language',$values,'medium','');
 	sz_google_common_form_description(__('specify the language code associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress. Supported languages ​​can be found on <a target="_blank" href="https://developers.google.com/+/web/api/supported-languages">Supported languages for the Google+ plugins</a>.','szgoogleadmin'));
