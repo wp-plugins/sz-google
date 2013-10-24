@@ -132,7 +132,21 @@ To be informed about the features that gradually will be released you can follow
 = Google Panoramio module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-With this module you can insert into a wordpress page a video on youtube. you can customize many 
+This module allows you to include in their articles of galleries present in panoramio, just specify the desired template and the required options. You can use four different templates, photo, list, slideshow and photo_list.
+
+* <a href="https://startbyzero.com/wordpress/plugin-google/panoramio/">Demo online - Panoramio</a>
+
+**Google Panoramio Widgets:** In this plugin are available to google panoramio widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget google panoramio`
+
+**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+
+* `[sz-panoramio] ......: google panoramio widget`
+
+**Google Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+
+* `szgoogle_get_panoramio_code()`
 
 = Google Translate module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -242,6 +256,7 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add google panoramio shortcode.
 * Feature: Add google panoramio function php.
 * Feature: Add google panoramio documentation.
+* Fix: Option width google+ widget not refresh.
 
 = Version 1.5.1 =
 * Fix: Create separate translate file for admin/frontend.
