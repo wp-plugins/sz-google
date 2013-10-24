@@ -50,6 +50,7 @@ function sz_google_admin_fields()
 	add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),'sz_google_admin_base_analytics',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('drive',ucwords(__('google drive','szgoogleadmin')),'sz_google_admin_base_drive',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),'sz_google_admin_base_groups',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('panoramio',ucwords(__('google panoramio','szgoogleadmin')),'sz_google_admin_base_panoramio',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('youtube',ucwords(__('google youtube','szgoogleadmin')),'sz_google_admin_base_youtube',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('documentation',ucwords(__('documentation','szgoogleadmin')),'sz_google_admin_base_documentation',basename(__FILE__),'sz_google_base_section');
@@ -135,6 +136,12 @@ function sz_google_admin_base_groups()
 	sz_google_common_form_description(__('enabling this module you get a widget and a shortcode to perform embed on google groups. Then you can insert into a wordpress page or in a sidebar content navigable for a group. You can specify various customization options, see the configuration section in the admin panel.','szgoogleadmin'));
 }
 
+function sz_google_admin_base_panoramio() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','panoramio');
+	sz_google_common_form_description(__('Through this module you can insert into wordpress some features of photos panoramio, you will find widgets and shortcodes to help you with this task and use the functions in your favorite theme. You can also specify parameters for selecting user, group, tag etc.','szgoogleadmin'));
+}
+
 function sz_google_admin_base_translate() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','translate');
@@ -174,6 +181,7 @@ if ($options_admin['plus']          == '1') @require_once(dirname(__FILE__).'/sz
 if ($options_admin['analytics']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
 if ($options_admin['drive']         == '1') @require_once(dirname(__FILE__).'/sz-google-admin-drive.php');
 if ($options_admin['groups']        == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
+if ($options_admin['panoramio']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-panoramio.php');
 if ($options_admin['translate']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
 if ($options_admin['youtube']       == '1') @require_once(dirname(__FILE__).'/sz-google-admin-youtube.php');
 if ($options_admin['documentation'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-documentation.php');

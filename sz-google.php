@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/117259631219963935481/" target="_blank">official page</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.5.1
+Version: 1.6.0
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -124,6 +124,27 @@ define('SZ_PLUGIN_GOOGLE_GROUPS_WIDTH' ,'0');
 define('SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT','700');
 
 /* ************************************************************************** */
+/* Definizione delle costanti da usare nel modulo GOOGLE PANORAMIO            */
+/* ************************************************************************** */
+
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_TEMPLATE','photo');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH' ,'auto');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT','300');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_ORIENTATION','horizontal');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE','6');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION','bottom');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH','1');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY','2');
+
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE','photo');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH' ,'auto');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT','300');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION','horizontal');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE','6');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION','bottom');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY','2');
+
+/* ************************************************************************** */
 /* Definizione delle costanti da usare nel modulo GOOGLE TRANSLATE            */
 /* ************************************************************************** */
 
@@ -168,6 +189,7 @@ function sz_google_plugin_activate()
 		'analytics'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'drive'                             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'groups'                            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'panoramio'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'translate'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube'                           => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'documentation'                     => SZ_PLUGIN_GOOGLE_VALUE_YES,
@@ -265,6 +287,27 @@ function sz_google_plugin_activate()
 	);
 
 	// Impostazione valori di default che riguardano
+	// il modulo collegato alle funzioni di Google Panoramio
+
+	$settings_panoramio = array(
+		'panoramio_widget'                  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'panoramio_shortcode'               => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'panoramio_s_template'              => SZ_PLUGIN_GOOGLE_PANORAMIO_S_TEMPLATE,
+		'panoramio_s_width'                 => SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH,
+		'panoramio_s_height'                => SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT,
+		'panoramio_s_orientation'           => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ORIENTATION,
+		'panoramio_s_list_size'             => SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE,
+		'panoramio_s_position'              => SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION,
+		'panoramio_s_paragraph'             => SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH,
+		'panoramio_w_template'              => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
+		'panoramio_w_width'                 => SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH,
+		'panoramio_w_height'                => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
+		'panoramio_w_orientation'           => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION,
+		'panoramio_w_list_size'             => SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE,
+		'panoramio_w_position'              => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
+	);
+
+	// Impostazione valori di default che riguardano
 	// il modulo collegato alle funzioni di Google Analytics
 
 	$settings_translate = array(
@@ -321,6 +364,7 @@ function sz_google_plugin_activate()
 	sz_google_module_check_options('sz_google_options_ga'       ,$settings_ga);
 	sz_google_module_check_options('sz_google_options_drive'    ,$settings_drive); 
 	sz_google_module_check_options('sz_google_options_groups'   ,$settings_groups);
+	sz_google_module_check_options('sz_google_options_panoramio',$settings_panoramio);
 	sz_google_module_check_options('sz_google_options_translate',$settings_translate);
 	sz_google_module_check_options('sz_google_options_youtube'  ,$settings_youtube);
 

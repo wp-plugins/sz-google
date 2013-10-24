@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.5.1
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -24,6 +24,7 @@ To be informed about the features that gradually will be released you can follow
 * `Module Google Analytics`
 * `Module Google Drive`
 * `Module Google Groups`
+* `Module Google Panoramio`
 * `Module Google Translate`
 * `Module Google Youtube`
 * `Module Documentation`
@@ -128,6 +129,11 @@ To be informed about the features that gradually will be released you can follow
 
 * `szgoogle_get_groups_code()`
 
+= Google Panoramio module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+With this module you can insert into a wordpress page a video on youtube. you can customize many 
+
 = Google Translate module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
@@ -230,6 +236,12 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.6.0 =
+* Feature: Add google panoramio widget.
+* Feature: Add google panoramio shortcode.
+* Feature: Add google panoramio function php.
+* Feature: Add google panoramio documentation.
 
 = Version 1.5.1 =
 * Fix: Create separate translate file for admin/frontend.
@@ -353,41 +365,5 @@ Before you use the google translate module must register the site that you want 
 
 == Upgrade Notice ==
 
-= 1.4.0 =
-Add new module google drive, add widget and shortcode for google drive save button. Add new widgets for google plus button as plus one, sharing and follow. Improvement of the automatic sizing of badges. 
-
-= 1.3.0 =
-Add google+ badge for followers widget and shortcode. Add new widgets for google plus button as plus one, sharing and follow. Fixed some minor errors and improved the code of the plugin to get the best performances of loading. 
-
-= 1.1.0 =
-Added the widget for the google plus modules, fixed some minor errors and improved the code of the plugin to get the best performances of loading. Addition of the missing documentation.
-
-= 1.0.0 =
-Added the new google plus feature that allows the insertion of a post directly on the page of our website. Have also been released for the alternate functions to improve the options already present in the plugin.
-
-= 0.9.0 =
-Have been added with this release the buttons and badges for Social youtube. They were created both widget and shortcodes. Were carried out some improvements to the plugin and the translation of some strings in Italian.
-
-= 0.8.0 =
-This release add module for google documentation and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
-
-= 0.7.0 =
-This release add module for google youtube and improves some aspects of previous modules. With this version of the plugin can place on your site any video on youtube and customize many parameters of customization. 
-
-= 0.6.0 =
-This release add module for google groups and improves some aspects of previous modules. Several have been added tightens translation and improved help description on the fields of administration panel.
-
-= 0.5.0 =
-This release add module for google translate and improves some aspects of previous modules. To use the google translate module must register your site on google account and get the information about the destination code.
-
-= 0.4.0 =
-This release has been issued for the fixes small bugs and adding new parameters regarding google analytics. Have been improved on some aspects the badges for google plus.
-
-= 0.3.0 =
-Some changes to the first release, added a stylesheet for the admin panel and the ability to disable javascript to google+ so as to avoid conflicts with other social plugins.
-
-= 0.2.0 =
-Have been added new features that relate to the social buttons and operations redirects as custom URL google+. We have also released some PHP functions that can be used in the development of the themes.
-
-= 0.1.0 =
-Release of the first version of the plugin sz-google intergrazione with the widgets that relate to the social network google plus to include on your wordpress sidebar.
+= 1.6.0 =
+Add new module google panoramio with widgets and shortcodes. Add section documentation for new module. Fix any bugs presents in the 1.5.1 release.

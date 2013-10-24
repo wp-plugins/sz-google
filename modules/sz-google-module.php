@@ -34,6 +34,7 @@ $SZ_ENABLE_MODULE_PLUS      = $module['plus'];
 $SZ_ENABLE_MODULE_ANALYTICS = $module['analytics'];
 $SZ_ENABLE_MODULE_DRIVE     = $module['drive'];
 $SZ_ENABLE_MODULE_GROUPS    = $module['groups'];
+$SZ_ENABLE_MODULE_PANORAMIO = $module['panoramio'];
 $SZ_ENABLE_MODULE_TRANSLATE = $module['translate'];
 $SZ_ENABLE_MODULE_YOUTUBE   = $module['youtube'];
 
@@ -45,6 +46,7 @@ if ($SZ_ENABLE_MODULE_PLUS      == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dir
 if ($SZ_ENABLE_MODULE_ANALYTICS == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-module-analytics.php');
 if ($SZ_ENABLE_MODULE_DRIVE     == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-module-drive.php');
 if ($SZ_ENABLE_MODULE_GROUPS    == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-module-groups.php');
+if ($SZ_ENABLE_MODULE_PANORAMIO == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-module-panoramio.php');
 if ($SZ_ENABLE_MODULE_TRANSLATE == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-module-translate.php');
 if ($SZ_ENABLE_MODULE_YOUTUBE   == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once(dirname(__FILE__).'/sz-google-module-youtube.php');
 
@@ -64,6 +66,7 @@ function sz_google_module_options()
 		'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'analytics'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'groups'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'panoramio'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'translate'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'documentation' => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -77,6 +80,7 @@ function sz_google_module_options()
 		'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'analytics'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'groups'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'panoramio'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'translate'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'youtube'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'documentation' => SZ_PLUGIN_GOOGLE_VALUE_NO,
