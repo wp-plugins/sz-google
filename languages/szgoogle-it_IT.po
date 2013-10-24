@@ -1,0 +1,2528 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: szgoogle\n"
+"POT-Creation-Date: 2013-09-27 06:22-0500\n"
+"PO-Revision-Date: 2013-09-27 06:22-0500\n"
+"Last-Translator: massimo <webmaster@startbyzero.com>\n"
+"Language-Team: wpitalyplus <wpitalyplus@gmail.com>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: /home/massimo/Common/svn/sz-google/trunk/modules\n"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-youtube.php:388
+msgid "youtube URL string specified is not valid."
+msgstr "stringa specificata per URL youtube non è valida."
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-youtube.php:461
+msgid "youtube video"
+msgstr "video youtube"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-youtube.php:758
+msgid "channel youtube"
+msgstr "canale youtube"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-translate.php:211
+msgid "widget for google translate"
+msgstr "widget per google translate"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-translate.php:213
+msgid "SZ-Google - Translate"
+msgstr "SZ-Google - Translate"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-translate.php:283
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:602
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1129
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1605
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2018
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2444
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2871
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3336
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3830
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4095
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:351
+msgid "title"
+msgstr "titolo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:235
+msgid "same language theme"
+msgstr "stessa lingua del tema"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:236
+msgid "afrikaans"
+msgstr "africano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:237
+msgid "amharic"
+msgstr "amarico"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:238
+msgid "arabic"
+msgstr "arabo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:239
+msgid "basque"
+msgstr "basco"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:240
+msgid "bengali"
+msgstr "bengali"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:241
+msgid "bulgarian"
+msgstr "bulgaro"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:242
+msgid "catalan"
+msgstr "catalano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:243
+msgid "chinese (Hong Kong)"
+msgstr "cinese (Hong Kong)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:244
+msgid "chinese (Simplified)"
+msgstr "cinese (Semplificato)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:245
+msgid "chinese (Traditional)"
+msgstr "cinese (Tradizionale)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:246
+msgid "croatian"
+msgstr "croato"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:247
+msgid "czech"
+msgstr "ceco"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:248
+msgid "danish"
+msgstr "danese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:249
+msgid "dutch"
+msgstr "olandese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:250
+msgid "english (UK)"
+msgstr "inglese (UK)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:251
+msgid "english (US)"
+msgstr "inglese (US)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:252
+msgid "estonian"
+msgstr "ettone"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:253
+msgid "filipino"
+msgstr "filippino"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:254
+msgid "finnish"
+msgstr "finlandese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:255
+msgid "french"
+msgstr "francese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:256
+msgid "french (Canadian)"
+msgstr "francese (Canada)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:257
+msgid "galician"
+msgstr "galiziano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:258
+msgid "german"
+msgstr "tedesco"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:259
+msgid "greek"
+msgstr "greco"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:260
+msgid "gujarati"
+msgstr "gujarati"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:261
+msgid "hebrew"
+msgstr "ebraico"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:262
+msgid "hindi"
+msgstr "hindi"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:263
+msgid "hungarian"
+msgstr "ungherese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:264
+msgid "icelandic"
+msgstr "islandese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:265
+msgid "indonesian"
+msgstr "indonesiano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:266
+msgid "italian"
+msgstr "italiano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:267
+msgid "japanese"
+msgstr "giapponese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:268
+msgid "kannada"
+msgstr "kannada"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:269
+msgid "korean"
+msgstr "coreano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:270
+msgid "latvian"
+msgstr "lettone"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:271
+msgid "lithuanian"
+msgstr "lituano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:272
+msgid "malay"
+msgstr "malese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:273
+msgid "malayalam"
+msgstr "malayalam"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:274
+msgid "marathi"
+msgstr "marathi"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:275
+msgid "norwegian"
+msgstr "norvegese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:276
+msgid "persian"
+msgstr "persiano"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:277
+msgid "polish"
+msgstr "polonia"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:278
+msgid "portuguese (Brazil)"
+msgstr "portoghese (Brasile)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:279
+msgid "portuguese (Portugal)"
+msgstr "portoghese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:280
+msgid "romanian"
+msgstr "rumeno"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:281
+msgid "russian"
+msgstr "russo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:282
+msgid "serbian"
+msgstr "serbo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:283
+msgid "slovak"
+msgstr "slovacco"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:284
+msgid "slovenian"
+msgstr "sloveno"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:285
+msgid "spanish"
+msgstr "spagnolo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:286
+msgid "spanish (Latin America)"
+msgstr "spagnolo (America latina)"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:287
+msgid "swahili"
+msgstr "swahili"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:288
+msgid "swedish"
+msgstr "svedese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:289
+msgid "tamil"
+msgstr "tamil"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:290
+msgid "telugu"
+msgstr "telegu"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:291
+msgid "thai"
+msgstr "thailandese"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:292
+msgid "turkish"
+msgstr "turco"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:293
+msgid "ukrainian"
+msgstr "ucraino"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:294
+msgid "urdu"
+msgstr "urdu"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:295
+msgid "vietnamese"
+msgstr "vietnamita"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:296
+msgid "zulu"
+msgstr "zulu"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:448
+msgid "widget for google+ profile"
+msgstr "widget per google+ profilo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:452
+msgid "SZ-Google - G+ Profile"
+msgstr "SZ-Google - G+ Profilo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:608
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1135
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1611
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2024
+msgid "configuration ID"
+msgstr "ID di configurazione"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:609
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1136
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1612
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2025
+msgid "specific ID"
+msgstr "ID specifico"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:615
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1142
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1618
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2031
+msgid "insert specific ID"
+msgstr "inserire ID specifico"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:622
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1149
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1625
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2038
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3850
+msgid "width"
+msgstr "larghezza"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:624
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1151
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1627
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2040
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2048
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3852
+msgid "auto"
+msgstr "auto"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:635
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1162
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1638
+msgid "layout"
+msgstr "layout"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:636
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1163
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1639
+msgid "portrait"
+msgstr "verticale"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:637
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1164
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1640
+msgid "landscape"
+msgstr "orizzontale"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:646
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1173
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1649
+msgid "theme"
+msgstr "tema"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:647
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1174
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1650
+msgid "light"
+msgstr "chiaro"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:648
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1175
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1651
+msgid "dark"
+msgstr "scuro"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:656
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1183
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1659
+msgid "cover"
+msgstr "copertina"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:657
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:668
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:679
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1184
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1195
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1206
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1660
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1671
+msgid "enabled"
+msgstr "abilitato"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:658
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:669
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:680
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1185
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1196
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1207
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1661
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1672
+msgid "disabled"
+msgstr "disabilitato"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:667
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1194
+msgid "tagline"
+msgstr "descrizione"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:678
+msgid "author"
+msgstr "autore"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:688
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1215
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1680
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2056
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3860
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4110
+msgid "align"
+msgstr "allineamento"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:690
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1217
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1682
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2058
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3862
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4112
+msgid "none"
+msgstr "none"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:691
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1218
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1683
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2059
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3863
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4113
+msgid "left"
+msgstr "sinistra"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:692
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1219
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1684
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2060
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3864
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4114
+msgid "center"
+msgstr "centro"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:693
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1220
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1685
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2061
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3865
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4115
+msgid "right"
+msgstr "destra"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:975
+msgid "widget for google+ page"
+msgstr "widget per google+ pagina"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:979
+msgid "SZ-Google - G+ Page"
+msgstr "SZ-Google - G+ Pagina"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1205
+msgid "publisher"
+msgstr "publisher"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1459
+msgid "widget for google+ community"
+msgstr "widget per google+ community"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1463
+msgid "SZ-Google - G+ Community"
+msgstr "SZ-Google - G+ Community"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1670
+msgid "owner"
+msgstr "proprietario"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1883
+msgid "widget for google+ followers"
+msgstr "widget per google+ followers"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1887
+msgid "SZ-Google - G+ Followers"
+msgstr "SZ-Google - G+ Followers"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2046
+msgid "height"
+msgstr "altezza"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2281
+msgid "widget for google+ button +1"
+msgstr "widget per google+ bottone +1"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2285
+msgid "SZ-Google - G+ Plus one"
+msgstr "SZ-Google - G+ Plus one"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2451
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2878
+msgid "current post address"
+msgstr "indirizzo post corrente"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2452
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2879
+msgid "specific url address"
+msgstr "specifica indirizzo URL"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2459
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2886
+msgid "insert source URL"
+msgstr "inserisci URL sorgente"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2466
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2893
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3359
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:367
+msgid "button without badge"
+msgstr "bottone senza badge"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2467
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2894
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3360
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:368
+msgid "button with badge"
+msgstr "bottone con il badge"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2474
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2901
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3367
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:375
+msgid "insert text for badge"
+msgstr "inserisci un testo per il badge"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2480
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2907
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3373
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:381
+msgid "choose image for badge"
+msgstr "scegli una immagine per badge"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2481
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2908
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3374
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:360
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:382
+msgid "select file"
+msgstr "selezione file"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2481
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2908
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3374
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:360
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:382
+msgid "select or upload a file"
+msgstr "selezione o caricamento file"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2481
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2908
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3374
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:360
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:382
+msgid "confirm selection"
+msgstr "conferma selezione"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2488
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2915
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3381
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:389
+msgid "position outside"
+msgstr "posizione al di fuori"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2489
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2916
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3382
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:390
+msgid "position top"
+msgstr "posizione in alto"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2490
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2917
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3383
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:391
+msgid "position center"
+msgstr "posizione centrale"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2491
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2918
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3384
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:392
+msgid "position bottom"
+msgstr "posizione in basso"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2499
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2926
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3392
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:400
+msgid "alignment none"
+msgstr "allineamento non specificato"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2500
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2927
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3393
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:401
+msgid "alignment left"
+msgstr "allineamento a sinistra"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2501
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2928
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3394
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:402
+msgid "alignment center"
+msgstr "allineamento centrale"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2502
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2929
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3395
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:403
+msgid "alignment right"
+msgstr "allineamento a destra"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2510
+msgid "size standard"
+msgstr "dimensione standard"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2511
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2938
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3404
+msgid "size small"
+msgstr "dimensione small"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2512
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2937
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3403
+msgid "size medium"
+msgstr "dimensione medium"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2513
+msgid "size tail"
+msgstr "dimensione tail"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2521
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2947
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3413
+msgid "annotation none"
+msgstr "nessuna annotazione "
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2522
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2948
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3414
+msgid "annotation inline"
+msgstr "annotazione inline"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2523
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2949
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3415
+msgid "annotation bubble"
+msgstr "annotazione bubble"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2708
+msgid "widget for google+ share"
+msgstr "widget per google+ share"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2712
+msgid "SZ-Google - G+ Share"
+msgstr "SZ-Google - G+ Share"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2939
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3405
+msgid "size large"
+msgstr "dimensione large"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3155
+msgid "widget for google+ follow"
+msgstr "widget per google+ follow"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3159
+msgid "SZ-Google - G+ Follow"
+msgstr "SZ-Google - G+ Follow"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3343
+msgid "default URL for page"
+msgstr "URL predefinito per pagina"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3344
+msgid "default URL for profile"
+msgstr "URL predefinito per profilo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3345
+msgid "specific URL page or profile"
+msgstr "specificare URL pagina o profilo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3352
+msgid "insert URL for page or profile"
+msgstr "inserire URL per pagina o profilo"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3498
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3657
+msgid "leave a Reply"
+msgstr "lascia un commento"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3716
+msgid "widget for google+ comments"
+msgstr "widget per google+ commenti"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3720
+msgid "SZ-Google - G+ Comments"
+msgstr "SZ-Google - G+ Commenti"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3836
+msgid "current post"
+msgstr "post corrente"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3837
+msgid "specific URL"
+msgstr "URL specifico"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3843
+msgid "insert specific URL"
+msgstr "inserire URL specifico"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4011
+msgid "widget for google+ post"
+msgstr "widget per google+ post"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4015
+msgid "SZ-Google - G+ Post"
+msgstr "SZ-Google - G+ Post"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4101
+msgid "insert google+ post URL"
+msgstr "inserire URL del post google+"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:214
+msgid "widget for google drive save button"
+msgstr "widget per google drive bottone salva"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:218
+msgid "SZ-Google - Drive Save Button"
+msgstr "SZ-Google - Drive Save Button"
+
+#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:359
+msgid "insert URL file to save"
+msgstr "inserire URL del file da salvare"
+
+#~ msgid "google+ Profile"
+#~ msgstr "google+ Profilo"
+
+#~ msgid "google+ Page"
+#~ msgstr "google+ Pagina"
+
+#~ msgid "google+ Community"
+#~ msgstr "google+ Community"
+
+#~ msgid "select language"
+#~ msgstr "seleziona lingua"
+
+#~ msgid "widget G+ profile"
+#~ msgstr "widget G+ profilo"
+
+#~ msgid "widget G+ page"
+#~ msgstr "widget G+ pagina"
+
+#~ msgid "widget G+ community"
+#~ msgstr "widget G+ community"
+
+#~ msgid "widget G+ followers"
+#~ msgstr "widget g+ followers"
+
+#~ msgid "widget width portrait"
+#~ msgstr "widget larghezza verticale"
+
+#~ msgid "widget width landscape"
+#~ msgstr "widget larghezza orizzontale"
+
+#~ msgid "shortcode G+ profile"
+#~ msgstr "shortcode G+ profilo"
+
+#~ msgid "shortcode G+ page"
+#~ msgstr "shortcode G+ pagina"
+
+#~ msgid "shortcode G+ community"
+#~ msgstr "shortcode G+ community"
+
+#~ msgid "shortcode G+ followers"
+#~ msgstr "shortcode g+ followers"
+
+#~ msgid "shortcode width portrait"
+#~ msgstr "shortcode larghezza verticale"
+
+#~ msgid "shortcode width landscape"
+#~ msgstr "shortcode larghezza orizzontale"
+
+#~ msgid "widget g+ plusone"
+#~ msgstr "widget g+ plusone"
+
+#~ msgid "widget g+ sharing"
+#~ msgstr "widget g+ condivisione"
+
+#~ msgid "widget g+ follow"
+#~ msgstr "widget g+ follow"
+
+#~ msgid "shortcode g+ plusone"
+#~ msgstr "shortcode g+ plusone"
+
+#~ msgid "shortcode g+ sharing"
+#~ msgstr "shortcode g+ condividi"
+
+#~ msgid "shortcode g+ follow"
+#~ msgstr "shortcode g+ follow"
+
+#~ msgid "enable G+ comments"
+#~ msgstr "abilitare G+ commenti"
+
+#~ msgid "enable WP comments"
+#~ msgstr "abilitare WP commenti"
+
+#~ msgid "comments after content"
+#~ msgstr "commenti dopo contenuto"
+
+#~ msgid "comments after WP system"
+#~ msgstr "commenti dopo WP commenti"
+
+#~ msgid "comments widget"
+#~ msgstr "commenti widget"
+
+#~ msgid "comments shortcode"
+#~ msgstr "commenti shortcode"
+
+#~ msgid "comments date switch"
+#~ msgstr "commenti data selezione"
+
+#~ msgid "comments fixed size"
+#~ msgstr "commenti dimensione fissa"
+
+#~ msgid "comments title"
+#~ msgstr "commenti titolo"
+
+#~ msgid "comments CSS class 1"
+#~ msgstr "CSS class 1 commenti"
+
+#~ msgid "comments CSS class 2"
+#~ msgstr "CSS class 2 commenti"
+
+#~ msgid "g+ embedded post widget"
+#~ msgstr "g+ embedded post widget"
+
+#~ msgid "g+ embedded post shortcode"
+#~ msgstr "g+ embedded post shortcode"
+
+#~ msgid "enable redirect /+"
+#~ msgstr "abilita redirect per /+"
+
+#~ msgid "enable redirect /+ URL"
+#~ msgstr "abilita redirect /+ URL"
+
+#~ msgid "enable redirect /plus"
+#~ msgstr "abilita redirect per /plus"
+
+#~ msgid "enable redirect /plus URL"
+#~ msgstr "abilita redirect  /plus URL"
+
+#~ msgid "enable redirect URL"
+#~ msgstr "abilita redirect per URL"
+
+#~ msgid "enable redirect URL source"
+#~ msgstr "abilita redirect URL source"
+
+#~ msgid "enable redirect URL target"
+#~ msgstr "abilita redirect URL target"
+
+#~ msgid "disable file javascript"
+#~ msgstr "disabilitare file javascript"
+
+#~ msgid "google+ ID"
+#~ msgstr "google+ ID"
+
+#~ msgid "google+ language"
+#~ msgstr "google+ lingua"
+
+#~ msgid "google+ badge widget"
+#~ msgstr "google+ badge widget"
+
+#~ msgid "google+ badge shortcodes"
+#~ msgstr "google+ G+ shortcodes"
+
+#~ msgid "google+ button widgets"
+#~ msgstr "google+ bottoni widgets"
+
+#~ msgid "google+ button shortcodes"
+#~ msgstr "google+ shortcode per bottoni"
+
+#~ msgid "google+ comment system"
+#~ msgstr "google+ sistema commenti"
+
+#~ msgid "google+ embedded post"
+#~ msgstr "google+ embedded post"
+
+#~ msgid "google+ custom URL"
+#~ msgstr "google+ URL personalizzato"
+
+#~ msgid "google+ system"
+#~ msgstr "google+ sistema"
+
+#~ msgid "google+ configuration"
+#~ msgstr "configurazione google+"
+
+#~ msgid "insert ID your profile"
+#~ msgstr "inserisci ID profilo"
+
+#~ msgid ""
+#~ "enter the code that identifies the profile on google+, get to know the "
+#~ "code of a profile just look at the profile link and copy the 21 digit "
+#~ "number located on the URL string. For example if the link is <a target="
+#~ "\"_blank\" href=\"https://plus.google.com/106567288702045182616/posts"
+#~ "\">https://plus.google.com/106567288702045182616/posts</a> the profile ID "
+#~ "is 106567288702045182616."
+#~ msgstr ""
+#~ "inserisci il codice che identifica il profilo su goole+, per sapere il "
+#~ "codice basta guardare il link URL del profilo e copiare il numero di 21 "
+#~ "cifre presente in esso. Ad esempio se il link è <a target=\"_blank\" href="
+#~ "\"https://plus.google.com/106567288702045182616/posts\">https://plus."
+#~ "google.com/106567288702045182616/posts</a> il profilo ID è "
+#~ "106567288702045182616."
+
+#~ msgid "insert ID your page"
+#~ msgstr "inserisci ID pagina"
+
+#~ msgid ""
+#~ "enter the code that identifies the page on google+, get to know the code "
+#~ "of a profile just look at the page link and copy the 21 digit number "
+#~ "located on the URL string. For example if the link is <a target=\"_blank"
+#~ "\" href=\"https://plus.google.com/117259631219963935481\">https://plus."
+#~ "google.com/117259631219963935481</a> the page ID is 117259631219963935481."
+#~ msgstr ""
+#~ "inserisci il codice che identifica la pagina su google+, per sapere il "
+#~ "codice basta guardare il link URL della pagina e copiare il numero di 21 "
+#~ "cifre presente in esso. Ad esempio se il link è <a target=\"_blank\" href="
+#~ "\"https://plus.google.com/117259631219963935481\">https://plus.google."
+#~ "com/117259631219963935481</a> la paginaID è 117259631219963935481."
+
+#~ msgid "insert ID your community"
+#~ msgstr "inserisci ID community"
+
+#~ msgid ""
+#~ "enter the code that identifies the community, get to know the code of a "
+#~ "community just look at the link and copy the 21 digit number located on "
+#~ "the URL string. For example if the link is <a target=\"_blank\" href="
+#~ "\"https://plus.google.com/communities/109254048492234113886\">https://"
+#~ "plus.google.com/communities/109254048492234113886</a> the community ID is "
+#~ "109254048492234113886."
+#~ msgstr ""
+#~ "inserisci il codice che identifica la community, per sapere il codice "
+#~ "basta guardare il link URL della community e copiar il numero di 21 cifre "
+#~ "presente in esso. Ad esempio se il link è <a target=\"_blank\" href="
+#~ "\"https://plus.google.com/communities/109254048492234113886\">https://"
+#~ "plus.google.com/communities/109254048492234113886</a> la community ID è "
+#~ "109254048492234113886."
+
+#~ msgid ""
+#~ "specify the language code associated with your website, if you do not "
+#~ "specify any value will be called the get_bloginfo('language') and set the "
+#~ "same language related to the theme of wordpress. Supported languages ​​can "
+#~ "be found on <a target=\"_blank\" href=\"https://developers.google.com/+/"
+#~ "web/api/supported-languages\">Supported languages for the Google+ "
+#~ "plugins</a>."
+#~ msgstr ""
+#~ "specificare la lingua associata al sito web, se non viene specificato "
+#~ "nessuna valore per questo campo verrà richiamata la funzione nativa di "
+#~ "wordpress <code>get_bloginfo('language')</code> che imposta la stessa "
+#~ "lingua associata al tema. I linguaggi supportati sono: <a target=\"_blank"
+#~ "\" href=\"http://translate.google.com/about/\">Translate About</a>. "
+
+#~ msgid ""
+#~ "enabling this option will be included in the admin panel a new widget "
+#~ "that will allow the insertion of a badge for the user profiles present on "
+#~ "google+. If you want to see the graphic result of badges provided by "
+#~ "google read the <a target=\"_blank\" href=\"https://developers.google.com/"
+#~ "+/web/badge/\">official documentation</a> of developers."
+#~ msgstr ""
+#~ "abilitando questa opzione verrà aggiunto un nuovo widget che permette "
+#~ "l'inserimento del badge google+ per i profili. Se vuoi vedere i risultati "
+#~ "grafici dei vari badge e le varie opzioni di visualizzazione leggi la <a "
+#~ "target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+#~ "\">documentazione ufficiale</a> dei sviluppatori."
+
+#~ msgid ""
+#~ "enabling this option will be included in the admin panel a new widget "
+#~ "that will allow the insertion of a badge for the pages present on google"
+#~ "+. If you want to see the graphic result of badges provided by google "
+#~ "read the <a target=\"_blank\" href=\"https://developers.google.com/+/web/"
+#~ "badge/\">official documentation</a> of developers."
+#~ msgstr ""
+#~ "abilitando questa opzione verrà aggiunto un nuovo widget che permette "
+#~ "l'inserimento del badge google+ per le pagine. Se vuoi vedere i risultati "
+#~ "grafici dei vari badge  e le varie opzioni di visualizzazione leggi la <a "
+#~ "target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+#~ "\">documentazione ufficiale</a> dei sviluppatori."
+
+#~ msgid ""
+#~ "enabling this option will be included in the admin panel a new widget "
+#~ "that will allow the insertion of a badge for the community present on "
+#~ "google+. If you want to see the graphic result of badges provided by "
+#~ "google read the <a target=\"_blank\" href=\"https://developers.google.com/"
+#~ "+/web/badge/\">official documentation</a> of developers."
+#~ msgstr ""
+#~ "abilitando questa opzione verrà aggiunto un nuovo widget che permette "
+#~ "l'inserimento del badge google+ per le community. Se vuoi vedere i "
+#~ "risultati grafici dei vari badge e le varie opzioni di visualizzazione  "
+#~ "leggi la <a target=\"_blank\" href=\"https://developers.google.com/+/web/"
+#~ "badge/\">documentazione ufficiale</a> dei sviluppatori. "
+
+#~ msgid ""
+#~ "this option is used to set a default width for use in widget when no size "
+#~ "is set manually and is selected as the display mode portrait. If you do "
+#~ "not specify a value for this field will be used the standard width of "
+#~ "180px and height will be calculated automatically."
+#~ msgstr ""
+#~ "questa opzione è usata per impostare la larghezza da utilizzare per il "
+#~ "widget quando nessuna dimensione è stata specificata per la modalità "
+#~ "portrait. Se non specifichi nessun valore sarà utilizzata la dimensione "
+#~ "di 180px mentre l'altezza sarà calcolata automaticamente."
+
+#~ msgid ""
+#~ "this option is used to set a default width for use in widget when no size "
+#~ "is set manually and is selected as the display mode landscape. If you do "
+#~ "not specify a value for this field will be used the standard width of "
+#~ "275px and height will be calculated automatically."
+#~ msgstr ""
+#~ "questa opzione è usata per impostare la larghezza da utilizzare per il "
+#~ "widget quando nessuna dimensione è stata specificata per la modalità "
+#~ "landscape. Se non specifichi nessun valore sarà utilizzata la dimensione "
+#~ "di 275px mentre l'altezza sarà calcolata automaticamente."
+
+#~ msgid ""
+#~ "enabling this option will be included in the admin panel a new shortcode "
+#~ "that will allow the insertion of a badge for the user profiles present on "
+#~ "google+. If you want to see the graphic result of badges provided by "
+#~ "google read the <a target=\"_blank\" href=\"https://developers.google.com/"
+#~ "+/web/badge/\">official documentation</a> of developers."
+#~ msgstr ""
+#~ "abilitando questa opzione sarà incluso un nuovo shortcode che permette "
+#~ "l'inserimento di un badge google+ per i profili utente. Se vuoi vedere "
+#~ "maggiori dettagli sull'aspetto grafico e i parametri di personalizzazione "
+#~ "leggi la <a target=\"_blank\" href=\"https://developers.google.com/+/web/"
+#~ "badge/\">documentazione ufficiale</a> degli sviluppatori."
+
+#~ msgid ""
+#~ "enabling this option will be included in the admin panel a new shortcode "
+#~ "that will allow the insertion of a badge for the pages present on google"
+#~ "+. If you want to see the graphic result of badges provided by google "
+#~ "read the <a target=\"_blank\" href=\"https://developers.google.com/+/web/"
+#~ "badge/\">official documentation</a> of developers."
+#~ msgstr ""
+#~ "abilitando questa opzione sarà incluso un nuovo shortcode che permette "
+#~ "l'inserimento di un badge google+ per le pagine. Se vuoi vedere maggiori "
+#~ "dettagli sull'aspetto grafico e i parametri di personalizzazione leggi la "
+#~ "<a target=\"_blank\" href=\"https://developers.google.com/+/web/badge/"
+#~ "\">documentazione ufficiale</a> degli sviluppatori."
+
+#~ msgid ""
+#~ "enabling this option will be included in the admin panel a new shortcode "
+#~ "that will allow the insertion of a badge for the community present on "
+#~ "google+. If you want to see the graphic result of badges provided by "
+#~ "google read the <a target=\"_blank\" href=\"https://developers.google.com/"
+#~ "+/web/badge/\">official documentation</a> of developers."
+#~ msgstr ""
+#~ "abilitando questa opzione sarà incluso un nuovo shortcode che permette "
+#~ "l'inserimento di un badge google+ per le community. Se vuoi vedere "
+#~ "maggiori dettagli sull'aspetto grafico e i parametri di personalizzazione "
+#~ "leggi la <a target=\"_blank\" href=\"https://developers.google.com/+/web/"
+#~ "badge/\">documentazione ufficiale</a> degli sviluppatori."
+
+#~ msgid ""
+#~ "this option is used to set a default width for use in widget when no size "
+#~ "is set manually and is selected as the display mode portrait. If you do "
+#~ "not specify a value for this field will be used the standard width of "
+#~ "350px and height will be calculated automatically."
+#~ msgstr ""
+#~ "questa opzione è usata per impostare la larghezza di default usata dai "
+#~ "widgets portrait quando non viene specificata nessuna dimensione "
+#~ "specifica. Se non viene impostato nessun valore per questo campo sarà "
+#~ "usato il valore di 350px e l'altezza sarà calcolata automaticamente."
+
+#~ msgid ""
+#~ "this option is used to set a default width for use in widget when no size "
+#~ "is set manually and is selected as the display mode landscape. If you do "
+#~ "not specify a value for this field will be used the standard width of "
+#~ "350px and height will be calculated automatically."
+#~ msgstr ""
+#~ "questa opzione è usata per impostare la larghezza di default usata dai "
+#~ "widgets landscape quando non viene specificata nessuna dimensione "
+#~ "specifica. Se non viene impostato nessun valore per questo campo sarà "
+#~ "usato il valore di 350px e l'altezza sarà calcolata automaticamente."
+
+#~ msgid ""
+#~ "with this option is activated shortcode that allows the insertion of a +1 "
+#~ "button in our article or web page. The +1 button has the same function as "
+#~ "the button like this on facebook. If you want to customize the position "
+#~ "in the theme use the function <code>szgoogle_get_gplus_button_one()</"
+#~ "code>."
+#~ msgstr ""
+#~ "con questa opzione si può attivare lo shortcode che permette "
+#~ "l'inserimento del bottone +1 su un'articolo o pagina web. Il bottone +1 "
+#~ "ha lo stesso significato per il like di facebook. Se vuoi personalizzare "
+#~ "la posizione sul tuo tema utilizza la funzione "
+#~ "<code>szgoogle_get_gplus_button_one()</code>."
+
+#~ msgid ""
+#~ "this option allows the activation of shortcode for sharing a link on "
+#~ "social network google+. Using this function you can insert the button in "
+#~ "an article or a page wordpress. If you want to customize the position in "
+#~ "the theme use the function <code>szgoogle_get_gplus_button_share()</code>."
+#~ msgstr ""
+#~ "questa opzione permette l'attivazione di uno shortcode per la "
+#~ "condivisione di contenuti sul social network di google+. Usare questa "
+#~ "funzione per inserire un bottone in un'articolo wordpress. Se vuoi "
+#~ "personalizzare la posizione usa la funzione "
+#~ "<code>szgoogle_get_gplus_button_share()</code>."
+
+#~ msgid ""
+#~ "this option allows the activation of shortcode for follow on social "
+#~ "network google+. Using this function you can insert the button in an "
+#~ "article or a page wordpress. If you want to customize the position in the "
+#~ "theme use the function <code>szgoogle_get_gplus_button_follow()</code>."
+#~ msgstr ""
+#~ "questa opzione permette l'attivazione di uno shortcode per eseguire il "
+#~ "follow in ambiente google plus. Usa questa funzione per inserire un "
+#~ "bottone in un'articolo o in una pagina wordpress. Se vuoi personalizzare "
+#~ "la posizione usa la funzione <code>szgoogle_get_gplus_button_follow()</"
+#~ "code>."
+
+#~ msgid ""
+#~ "if you enable this feature will be added to the new commenting system "
+#~ "made ​​available on the social network google+. The widget will be placed "
+#~ "in the standard location for comments to wordpress. For customizations "
+#~ "use the function <code>szgoogle_get_gplus_comments()</code>."
+#~ msgstr ""
+#~ "se abiliti questa funzione sarà aggiunto il nuovo sistema di commenti "
+#~ "adottato da google+ per i siti esterni. Il box dei commenti sarà inserito "
+#~ "nella posizione standard di wordpress. Per personalizzazioni usa la "
+#~ "funzione  <code>szgoogle_get_gplus_comments()</code>."
+
+#~ msgid ""
+#~ "activating this option you can activate the system's comments Wodpress "
+#~ "same time as those of google+. To decide the position of the comments you "
+#~ "have to set the fields to follow. You can choose whether to place "
+#~ "comments after the content or last."
+#~ msgstr ""
+#~ "attivando questa opzione puoi usare il sistema di commenti di google+ "
+#~ "insieme a quello standard di wordpress. Per decide la posizione di uno "
+#~ "rispetto all'altro utilizza i campi che trovi a seguire. Puoi scegliere "
+#~ "la posizione prima o dopo il sistema standard."
+
+#~ msgid ""
+#~ "enabling this option, the comment system is generated immediately after "
+#~ "the post content or web page, otherwise it is inserted at the point that "
+#~ "the standard function is called of the comments of wordpress in the file "
+#~ "of the active theme. See also <code>szgoogle_get_gplus_comments()</code>."
+#~ msgstr ""
+#~ "abilitando questa opzione il box dei commenti sarà generato "
+#~ "immediatamente dopo il contenuto del post o della pagina web, in caso "
+#~ "contrario il box sarà inserito nel punto che viene chiamata la funzione "
+#~ "standard del sistema wordpress. Vedi anche "
+#~ "<code>szgoogle_get_gplus_comments()</code>."
+
+#~ msgid ""
+#~ "enabling this option, the comment system is generated immediately after "
+#~ "standard comments, otherwise it is inserted at the point that the "
+#~ "standard function is called of the comments of wordpress in the file of "
+#~ "the active theme. See also <code>szgoogle_get_gplus_comments()</code>."
+#~ msgstr ""
+#~ "abilitando questa opzione il box dei commenti sarà generato "
+#~ "immediatamente dopo il sistema di commenti standard, in caso contrario il "
+#~ "box sarà inserito nel punto che viene chiamata la funzione standard del "
+#~ "sistema wordpress. Vedi anche <code>szgoogle_get_gplus_comments()</code>."
+
+#~ msgid ""
+#~ "if you need to insert the component for comments to google+ in a sidebar "
+#~ "you can activate this option and use the new widget that you will find in "
+#~ "your admin panel, you specify the size or the way you use responsive "
+#~ "design for automatic resize."
+#~ msgstr ""
+#~ "Se hai la necessità di inserire il box dei commenti in una sidebar, puoi "
+#~ "attivare questa opzione e usare il nuovo widget che troverai nel pannello "
+#~ "di amministrazione, potra specificare anche una dimensione o utilizzare "
+#~ "la modalità responsive design."
+
+#~ msgid ""
+#~ "enabling this option will allow you to use the shortcode <code>[sz-gplus-"
+#~ "comments/]</code> that will allow you to insert a box for comments to "
+#~ "google plus in any part of your post or page standard wordpress. For "
+#~ "greater customization uses <code>szgoogle_get_gplus_comments()</code>."
+#~ msgstr ""
+#~ "abilitando questa opzione potrai utilizzare lo shortcode <code>[sz-gplus-"
+#~ "comments/]</code> che ti permette di inserire un box commenti di google+ "
+#~ "in qualsiasi parte di un post o di una pagina web. Se necessiti di "
+#~ "maggiori personalizzazioni usa <code>szgoogle_get_gplus_comments()</code>."
+
+#~ msgid "responsive design"
+#~ msgstr "modalità responsive"
+
+#~ msgid "string HTML for comments title"
+#~ msgstr "stringa HTML per titolo commenti"
+
+#~ msgid "name for CSS class (1)"
+#~ msgstr "nome classe CSS (1)"
+
+#~ msgid "name for CSS class (2)"
+#~ msgstr "nome classe CSS (2)"
+
+#~ msgid "MDA"
+#~ msgstr "DMA"
+
+#~ msgid "(month / day / year)"
+#~ msgstr "(mese /giorno / anno)"
+
+#~ msgid "(day / month / year)"
+#~ msgstr "(giorno / mese / anno)"
+
+#~ msgid "(year / month / day)"
+#~ msgstr "(anno / mese / giorno)"
+
+#~ msgid ""
+#~ "enabling this option you can activate the commenting system only posts "
+#~ "that are inserted after a certain date. This function is useful for "
+#~ "managing two different systems of comments in reference to a period of "
+#~ "time and using only the new commenting system for new posts."
+#~ msgstr ""
+#~ "abilitando questa opzione puoi attivare il nuovo sistema di commenti solo "
+#~ "per i post inseriti dopo una certa data. Questa funzione è molto utile se "
+#~ "si vogliono gestire diversi sistemi di commenti in base al periodo, "
+#~ "possiamo utilizzare il vecchio sistema per i post passati e quello nuovo "
+#~ "per gli altri."
+
+#~ msgid ""
+#~ "with this option you can enable a rewrite rules that allows you to get a "
+#~ "web address personalized pointing to the corresponding page on google "
+#~ "plus such as <code>mydomain.com/+</code>. Activate this option and enter "
+#~ "the complete link of the destination page of google plus."
+#~ msgstr ""
+#~ "con questa opzione possiamo abilitare una regola di rewrite e "
+#~ "personalizzare un nostro URL con la corrispondete destinazione presente "
+#~ "su google plus, in questo esempio useremo <code>mydomain.com/+</code>. "
+#~ "Attivare l'opzione e inserire il link completo di destinazione presente "
+#~ "su google+."
+
+#~ msgid "destination URL"
+#~ msgstr "URL di destinazione"
+
+#~ msgid ""
+#~ "in this field you must enter the full URL for the landing page that "
+#~ "describes the connection on google plus. In fact you can enter any URL "
+#~ "even if the rewrite is designed for integration with google plus. Please "
+#~ "make use of the most useful for your needs."
+#~ msgstr ""
+#~ "in questo campo devi inserire la stringa completa URL di destinazione "
+#~ "alla pagina presente su google+. In realtà tu puoi inserire qualsiasi URL "
+#~ "anche se questo è stato studiato per google+, quindi utilizza la funzione "
+#~ "in base alle tue necessità."
+
+#~ msgid ""
+#~ "with this option you can enable a rewrite rules that allows you to get a "
+#~ "web address personalized pointing to the corresponding page on google "
+#~ "plus such as <code>mydomain.com/plus</code>. Activate this option and "
+#~ "enter the complete link of the destination page of google plus."
+#~ msgstr ""
+#~ "con questa opzione possiamo abilitare una regola di rewrite e "
+#~ "personalizzare un nostro URL con la corrispondete destinazione presente "
+#~ "su google plus, in questo esempio useremo <code>mydomain.com/plus</code>. "
+#~ "Attivare l'opzione e inserire il link completo di destinazione presente "
+#~ "su google+."
+
+#~ msgid ""
+#~ "with this option you can enable a rewrite rules that allows you to get a "
+#~ "web address personalized pointing to the corresponding page on google "
+#~ "plus such as <code>mydomain.com/origin</code>. Activate this option and "
+#~ "enter the complete link of the source and destination page of google plus."
+#~ msgstr ""
+#~ "con questa opzione possiamo abilitare una regola di rewrite e "
+#~ "personalizzare un nostro URL con la corrispondete destinazione presente "
+#~ "su google plus, in questo esempio useremo <code>mydomain.com/origin</"
+#~ "code>. Attivare l'opzione e inserire il link completo di destinazione "
+#~ "presente su google+."
+
+#~ msgid "source path URL for redirect"
+#~ msgstr "percorso URL origine per redirect"
+
+#~ msgid ""
+#~ "in this field you must enter the source partial URL of your domain on "
+#~ "which to perform the rewrite rule. For example you can use as a value "
+#~ "source URL string <code>community/+</code> and associate the destination "
+#~ "on a community present on google+."
+#~ msgstr ""
+#~ "in questo campo devi inserire la stringa URL parziale della sorgente "
+#~ "legata al tuo dominio su cui effettuare il rewrite. Ad esempio puoi usare "
+#~ "la stringa URL <code>community/+</code>  e associare la destinazione su "
+#~ "una community presente in google+."
+
+#~ msgid ""
+#~ "if you use some plugin that performs functions similar to <a target="
+#~ "\"_blank\" href=\"http://wordpress.org/plugins/sz-google/\">sz-google for "
+#~ "wordpress</a> is possible that we might create a conflict retrieving "
+#~ "files javascript google, enabling this option will be disabled loadings "
+#~ "code javascript from our plugin. In this way is not guaranteed to "
+#~ "function properly."
+#~ msgstr ""
+#~ "se stai usando un'altro plugin simile a questo, si potrebbero creare dei "
+#~ "conflitti sul caricamento delle stesso codice javascript rilasciato da "
+#~ "google. Se abiliti questa funzione il nostro plugin non inserirerà il "
+#~ "framework javascript. Non è garantito il corretto funzionamento."
+
+#~ msgid "documentation"
+#~ msgstr "documentazione"
+
+#~ msgid "google+"
+#~ msgstr "google+"
+
+#~ msgid "google analytics"
+#~ msgstr "google analytics"
+
+#~ msgid "google drive"
+#~ msgstr "google drive"
+
+#~ msgid "google groups"
+#~ msgstr "google gruppi"
+
+#~ msgid "google translate"
+#~ msgstr "google translate"
+
+#~ msgid "youtube"
+#~ msgstr "youtube"
+
+#~ msgid "quick plugin documentation"
+#~ msgstr "documentazione ufficiale plugin"
+
+#~ msgid "google+ badge for profile"
+#~ msgstr "google+ badge per profilo"
+
+#~ msgid "google+ badge for community"
+#~ msgstr "google+ badge per community"
+
+#~ msgid "google+ badge for followers"
+#~ msgstr "google+ badge per followers"
+
+#~ msgid "google+ button for +1"
+#~ msgstr "google+ bottone per +1"
+
+#~ msgid "google+ button for sharing"
+#~ msgstr "google+ bottone per condivisione"
+
+#~ msgid "google+ button for follow"
+#~ msgstr "google+ bottone per follow"
+
+#~ msgid "profile"
+#~ msgstr "profilo"
+
+#~ msgid "configuration"
+#~ msgstr "configurazione"
+
+#~ msgid "rel=author"
+#~ msgstr "rel=author"
+
+#~ msgid "page"
+#~ msgstr "pagina"
+
+#~ msgid "community"
+#~ msgstr "community"
+
+#~ msgid "photo"
+#~ msgstr "fotografia"
+
+#~ msgid "page or profile"
+#~ msgstr "pagina o profilo"
+
+#~ msgid "complete URL address"
+#~ msgstr "indirizzo URL completo"
+
+#~ msgid "size"
+#~ msgstr "dimensione"
+
+#~ msgid "annotation"
+#~ msgstr "annotazione"
+
+#~ msgid "text"
+#~ msgstr "testo"
+
+#~ msgid "image"
+#~ msgstr "immagine"
+
+#~ msgid "position"
+#~ msgstr "posizione"
+
+#~ msgid "margin top"
+#~ msgstr "margine alto"
+
+#~ msgid "margin right"
+#~ msgstr "margine destro"
+
+#~ msgid "margin bottom"
+#~ msgstr "margine basso"
+
+#~ msgid "margin left"
+#~ msgstr "margine sinistro"
+
+#~ msgid "margin unit"
+#~ msgstr "misura per margine"
+
+#~ msgid "relation"
+#~ msgstr "relazione"
+
+#~ msgid "fixed width"
+#~ msgstr "larghezza fissa"
+
+#~ msgid "documentation for shortcodes - badges"
+#~ msgstr "documentazione  per shortcodes - badges"
+
+#~ msgid "documentation for shortcodes - buttons"
+#~ msgstr "documentazione  per shortcodes - bottoni"
+
+#~ msgid "documentation for shortcodes - widgets"
+#~ msgstr "documentazione  per shortcodes - widgets"
+
+#~ msgid "documentation for PHP functions - badges"
+#~ msgstr "documentazione  per funzioni PHP - badges"
+
+#~ msgid "documentation for PHP functions - buttons"
+#~ msgstr "documentazione  per funzioni PHP - bottoni"
+
+#~ msgid "documentation for PHP functions - widgets"
+#~ msgstr "documentazione  per funzioni PHP - widgets"
+
+#~ msgid "google analytics get account ID"
+#~ msgstr "google analytics account ID"
+
+#~ msgid "google analytics get tracking code"
+#~ msgstr "google analytics codice di tracciamento"
+
+#~ msgid "documentation for PHP functions"
+#~ msgstr "documentazione  per funzioni PHP"
+
+#~ msgid "google drive save button"
+#~ msgstr "google drive bottone salva"
+
+#~ msgid "URL address file"
+#~ msgstr "indirizzo URL del file"
+
+#~ msgid "name of file"
+#~ msgstr "nome del file"
+
+#~ msgid "name of site"
+#~ msgstr "nome del sito"
+
+#~ msgid "documentation for shortcodes"
+#~ msgstr "documentazione per shortcodes"
+
+#~ msgid "google groups embedded widget "
+#~ msgstr "widget google groups"
+
+#~ msgid "name of groups"
+#~ msgstr "nome del gruppo"
+
+#~ msgid "display search"
+#~ msgstr "visualizzare ricerca"
+
+#~ msgid "display tabs"
+#~ msgstr "visualizzare tabs"
+
+#~ msgid "hidden title"
+#~ msgstr "nascondi titolo"
+
+#~ msgid "hidden subject"
+#~ msgstr "nascondi soggetto"
+
+#~ msgid "language"
+#~ msgstr "linguaggio"
+
+#~ msgid "google translate widget"
+#~ msgstr "google translate widget"
+
+#~ msgid "google translate get meta code"
+#~ msgstr "google translate meta code"
+
+#~ msgid "google translate get meta ID"
+#~ msgstr "google translate ID"
+
+#~ msgid "language for widget"
+#~ msgstr "lingua del widget"
+
+#~ msgid "display mode"
+#~ msgstr "Modalità visualizzazione"
+
+#~ msgid "automatic banner"
+#~ msgstr "banner automatico"
+
+#~ msgid "google analytics UA"
+#~ msgstr "google analytics UA"
+
+#~ msgid "youtube channel badge"
+#~ msgstr "canale youtube con badge"
+
+#~ msgid "youtube channel button"
+#~ msgstr "canale youtube con bottone"
+
+#~ msgid "youtube channel link"
+#~ msgstr "canale youtube con link"
+
+#~ msgid "youtube address URL"
+#~ msgstr "indirizzo URL youtube"
+
+#~ msgid "responsive mode"
+#~ msgstr "modalità responsive"
+
+#~ msgid "size pixel width"
+#~ msgstr "larghezza in pixel"
+
+#~ msgid "size pixel height"
+#~ msgstr "altezza in pixel"
+
+#~ msgid "enable autoplay"
+#~ msgstr "attivazione autoplay"
+
+#~ msgid "enable loop"
+#~ msgstr "attivazione loop"
+
+#~ msgid "enable fullscreen"
+#~ msgstr "schermo intero"
+
+#~ msgid "disable keyboard"
+#~ msgstr "disabilitare tastiera"
+
+#~ msgid "theme name"
+#~ msgstr "nome del tema"
+
+#~ msgid "cover image"
+#~ msgstr "immagine copertina"
+
+#~ msgid "title for video"
+#~ msgstr "titolo del video"
+
+#~ msgid "disable IFRAME mode"
+#~ msgstr "disattivare IFRAME"
+
+#~ msgid "enable google analytics"
+#~ msgstr "google analytics"
+
+#~ msgid "enable loading delayed"
+#~ msgstr "caricamento ritardato"
+
+#~ msgid "time of start"
+#~ msgstr "tempo di inizio"
+
+#~ msgid "time of end"
+#~ msgstr "tempo di fine"
+
+#~ msgid "deactive related video"
+#~ msgstr "disattivare video correlati"
+
+#~ msgid "schema.org enable"
+#~ msgstr "abilitare schema.org"
+
+#~ msgid "schema.org name"
+#~ msgstr "schema.org nome"
+
+#~ msgid "schema.org description"
+#~ msgstr "schema.org descrizione"
+
+#~ msgid "value of title"
+#~ msgstr "valore del titolo"
+
+#~ msgid "schema.org duration"
+#~ msgstr "schema.org durata"
+
+#~ msgid ""
+#~ "<a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/"
+#~ "ISO_8601\">format ISO 8601</a>"
+#~ msgstr ""
+#~ "<a target=\"_blank\" href=\"http://it.wikipedia.org/wiki/"
+#~ "ISO_8601\">format ISO 8601</a>"
+
+#~ msgid "channel name or ID"
+#~ msgstr "nome del canale o ID"
+
+#~ msgid "unit for width"
+#~ msgstr "unità per larghezza"
+
+#~ msgid "unit for height"
+#~ msgstr "unità per altezza"
+
+#~ msgid "layout type"
+#~ msgstr "tipo di  layout"
+
+#~ msgid "theme for button"
+#~ msgstr "tema del bottone"
+
+#~ msgid "subscription mode"
+#~ msgstr "modalità sottoscrizione"
+
+#~ msgid "anchor text for link"
+#~ msgstr "testo di ancoraggio per link"
+
+#~ msgid "parameter"
+#~ msgstr "parametro"
+
+#~ msgid "description"
+#~ msgstr "descrizione"
+
+#~ msgid "values"
+#~ msgstr "valori"
+
+#~ msgid "default"
+#~ msgstr "default"
+
+#~ msgid "example"
+#~ msgstr "esempio"
+
+#~ msgid "google youtube"
+#~ msgstr "google youtube"
+
+#~ msgid "activation modules"
+#~ msgstr "attivazione moduli"
+
+#~ msgid ""
+#~ "with this module you can manage some widgets in the social network google"
+#~ "+, for example, we can insert the badge of the profiles, the badge of the "
+#~ "pages, the badge of the community, the buttons follow, the buttons share, "
+#~ "the buttons +1, the comments system and much more."
+#~ msgstr ""
+#~ "con questo modulo puoi gestire molti widgets riguardanti il social "
+#~ "network di google+, per esempio puoi inserire i badge di profilo, quelli "
+#~ "delle pagine, quelli delle community, i bottoni di follow, quelli per la "
+#~ "condivisione, il bottone +1, il sistema di commenti integrato e molte "
+#~ "cose ancora."
+
+#~ msgid ""
+#~ "activating this module can handle the tracking code present in google "
+#~ "analytics, so as to store the access statistics related to our website. "
+#~ "Once you have entered the tracking code, you can view hundreds of "
+#~ "statistics from the admin panel of google analytics."
+#~ msgstr ""
+#~ "attivando questo modulo possiamo gestire il codice di monitoraggio "
+#~ "presente in google analytics e memorizzare le statistiche del nostro sito "
+#~ "web. Una volta integrato il codice nelle nostre pagine web possiamo "
+#~ "analizzare centinaia di statistiche usando il pannello di controllo su GA."
+
+#~ msgid ""
+#~ "with this module can be inserted in the articles of wordpress a video on "
+#~ "youtube, you can also use a widget to the inclusion of video in the "
+#~ "sidebar on your theme. Through the options in the shortcode you can "
+#~ "configure many parameters to customize the embed code."
+#~ msgstr ""
+#~ "con questo modulo è possibile inserire su un'articolo wordpress un video "
+#~ "presente su youtube, puoi anche usare un widget per l'inserimento in una "
+#~ "sidebar definita nel tema, puoi personalizzare molti parametri con lo "
+#~ "shortcode dedicato. Puoi scegliere tra modalità IFRAME o API."
+
+#~ msgid ""
+#~ "activating this option you can see the documentation in the main menu of "
+#~ "this plugin with the parameters to be used in <code>[shortcodes]</code> "
+#~ "or PHP functions provided. There is a series of boxes in alphabetical "
+#~ "order according to form inside the plugin with option tables."
+#~ msgstr ""
+#~ "attivando questa opzione è possibile leggere la documentazione presente "
+#~ "nel menu principale del plugin, vengono presentati tutti i moduli che si "
+#~ "posso configurare nel plugin e i parametri usati dagli shortcodes o dalle "
+#~ "funzioni PHP per ulteriori personalizzazioni da inserire nel proprio tema."
+
+#~ msgid "overriding the default settings with your own specific preferences"
+#~ msgstr "modifica le impostazione predefinite secondo le tue esigenze"
+
+#~ msgid "select the module documentation to read"
+#~ msgstr "seleziona la documentazione del modulo da leggere"
+
+#~ msgid "click to toggle"
+#~ msgstr "clicca per chiudere/aprire"
+
+#~ msgid "save changes"
+#~ msgstr "salva modifiche"
+
+#~ msgid "give us a little help"
+#~ msgstr "Dacci un piccolo aiuto"
+
+#~ msgid "rate the plugin on WordPress.org"
+#~ msgstr "Vota il plugin su WordPress.org"
+
+#~ msgid "join our community WordPress Italy+"
+#~ msgstr "Iscriviti alla nostra community"
+
+#~ msgid "official page"
+#~ msgstr "pagina ufficiale"
+
+#~ msgid "latest news"
+#~ msgstr "Ultime notizie"
+
+#~ msgid "community WordPress"
+#~ msgstr "community WordPress"
+
+#~ msgid "official documentation"
+#~ msgstr "documentazione ufficiale"
+
+#~ msgid "YES / NO"
+#~ msgstr "SI / NO"
+
+#~ msgid "site name"
+#~ msgstr "nome del sito"
+
+#~ msgid "enable widget"
+#~ msgstr "abilitare widget"
+
+#~ msgid "enable shortcode"
+#~ msgstr "abilitare shortcodes"
+
+#~ msgid "general setting"
+#~ msgstr "impostazioni generali"
+
+#~ msgid "save to drive button"
+#~ msgstr "bottone salva su drive"
+
+#~ msgid "google drive configuration"
+#~ msgstr "google drive configurazione"
+
+#~ msgid "insert your site name"
+#~ msgstr "inserisci il nome del sito"
+
+#~ msgid ""
+#~ "if you enable this option you will find the widget required in the "
+#~ "administration menu of your widget and you can plug it into any sidebar "
+#~ "defined in your theme. If you disable this option, remember not to leave "
+#~ "the widget connected to existing sidebar."
+#~ msgstr ""
+#~ "se abiliti questa opzione troverai il widget richiesto nel menu di "
+#~ "amministrazione dei tuoi widget e potrai inserirlo in qualsiasi sidebar "
+#~ "definita nel tuo tema. Se disattivi questa opzione ricordati di non "
+#~ "lasciare il widget collegato alle sidebar esistenti."
+
+#~ msgid "code for META"
+#~ msgstr "codice per META"
+
+#~ msgid "website language"
+#~ msgstr "lingua sito web"
+
+#~ msgid "multiple language"
+#~ msgstr "lingua multipla"
+
+#~ msgid "language setting"
+#~ msgstr "impostazione lingua"
+
+#~ msgid "activation components"
+#~ msgstr "attivazione componenti"
+
+#~ msgid "advanced setting"
+#~ msgstr "impostazioni avanzate"
+
+#~ msgid "google translate configuration"
+#~ msgstr "configurazione google translate"
+
+#~ msgid "insert your META code"
+#~ msgstr "inserisci il tuo codice META"
+
+#~ msgid ""
+#~ "before you use the google translate module must register the site that "
+#~ "you want to manage on their google account using the following official "
+#~ "link <a target=\"_blank\" href=\"https://translate.google.com/manager/"
+#~ "website/\">Google Translate Tools</a>. Once inserit your site to perform "
+#~ "the action \"get code\", display meta code and insert this in the field."
+#~ msgstr ""
+#~ "prima di usare il modulo di google translate bisogna registrare il sito "
+#~ "che si vuole gestire sul proprio account google utilizzando il seguente "
+#~ "collegamento <a target=\"_blank\" href=\"https://translate.google.com/"
+#~ "manager/website/\">Google Translate Tools</a>. Una volta inserito il "
+#~ "proprio sito eseguire l'azione \"get code\" e prendere il codice meta "
+#~ "specificato."
+
+#~ msgid "inline vertical"
+#~ msgstr "inline verticale"
+
+#~ msgid "inline horizontal"
+#~ msgstr "inline orizzontale"
+
+#~ msgid "inline dropdown"
+#~ msgstr "inline semplice"
+
+#~ msgid ""
+#~ "with this parameter you can set the type of view you want to use for the "
+#~ "widget to translate the language selection, you can choose for example "
+#~ "vertical, horizontal or simple. If you want to use a custom positioning "
+#~ "can use the function <code>szgoogle_get_translate_code()</code>."
+#~ msgstr ""
+#~ "con questo parametro si può impostare il tipo di visualizzazione che si "
+#~ "desidera utilizzare per il widget della selezione lingua da tradurre, "
+#~ "puoi scegliere verticale, orizzontale o semplice. Se vuoi personalizzare "
+#~ "usa la funzione <code>szgoogle_get_translate_code()</code>."
+
+#~ msgid ""
+#~ "specify the language code associated with your website, if you do not "
+#~ "specify any value will be called the <code>get_bloginfo('language')</"
+#~ "code> and set the same language related to the theme of wordpress. "
+#~ "Supported languages ​​can be found on <a target=\"_blank\" href=\"http://"
+#~ "translate.google.com/about/\">http://translate.google.com/about/</a>."
+#~ msgstr ""
+#~ "specificare la lingua associata al sito web, se non viene specificato "
+#~ "nessuna valore per questo campo verrà richiamata la funzione nativa di "
+#~ "wordpress <code>get_bloginfo('language')</code> che imposta la stessa "
+#~ "lingua associata al tema. I linguaggi supportati sono: <a target=\"_blank"
+#~ "\" href=\"http://translate.google.com/about/\">Translate About</a>."
+
+#~ msgid ""
+#~ "if you enable this option you can use the shortcode [sz-gtranslate] and "
+#~ "enter the corresponding component directly in your article or page. "
+#~ "Normally shortcodes can be specified in the options, to control "
+#~ "parameters given read the official documentation."
+#~ msgstr ""
+#~ "se abiliti questa opzione potrai utilizzare lo shortcode <code>[sz-"
+#~ "gtranslate]</code> ed inserire il componente corrispondente direttamente "
+#~ "nel tuo articolo. Normalmente negli shortcodes possono essere specificate "
+#~ "delle opzioni, per controllare i parametri permessi leggi la "
+#~ "documentazione."
+
+#~ msgid ""
+#~ "automatically display translation banner to users speaking languages "
+#~ "other than the language of your page. If the language set on the "
+#~ "visitor's browser is different from that of the website page displays the "
+#~ "banner of translation. For details read the <a target=\"_blank\" href="
+#~ "\"https://support.google.com/translate/\">official documentation</a>."
+#~ msgstr ""
+#~ "visualizza automaticamente il banner traduzione per gli utenti che "
+#~ "parlano lingue diverse dalla lingua della tua pagina. Se la lingua "
+#~ "impostata sul browser del visitatore è diversa da quella della pagina del "
+#~ "sito viene visualizzato il banner di traduzione. Per dettagli leggi la <a "
+#~ "target=\"_blank\" href=\"https://support.google.com/translate/"
+#~ "\">documentazione ufficiale</a>."
+
+#~ msgid ""
+#~ "your page contains content in multiple languages. Enable this option only "
+#~ "if your pages contain content in different languages, in this case Google "
+#~ "will use an algorithm of analysis other than the standard. For details "
+#~ "read the official documentation <a target=\"_blank\" href=\"https://"
+#~ "support.google.com/translate/\">https://support.google.com/translate/</a>."
+#~ msgstr ""
+#~ "La tua pagina include contenuti in più lingue. Abilita questa opzione "
+#~ "solo se le tue pagine web contengono contenuti con differenti lingue, in "
+#~ "questo caso google userà un'algoritmo diverso da quello standard. Per "
+#~ "dettagli leggi la documentazione ufficiale <a target=\"_blank\" href="
+#~ "\"https://support.google.com/translate/\">https://support.google.com/"
+#~ "translate/</a>."
+
+#~ msgid ""
+#~ "track translation traffic using google analytics. If you enable this "
+#~ "option, you can check the requirements and the translation statistics "
+#~ "directly to your google analytics account. If you enable this option, you "
+#~ "can check the requirements and the translation statistics directly to "
+#~ "your google analytics account. Remember that to run this option you must "
+#~ "specify the code assigned to your profile analytics."
+#~ msgstr ""
+#~ "monitora il traffico delle traduzioni con google analytics. Se abiliti "
+#~ "questa opzione sarà possibile controllare le richieste e le statistiche "
+#~ "di traduzione direttamente sul tuo account di google analytics. Ricordati "
+#~ "che per far funzionare questa opzione devi specificare il codice del tuo "
+#~ "profilo analytics."
+
+#~ msgid ""
+#~ "enter the code assigned to the profile of google analytics on which to "
+#~ "collect statistical data relating to requests for translation. If you "
+#~ "have the google analytics module of the plugin is automatically taken "
+#~ "into the UA code shown in the specific module. Example UA-12345-12."
+#~ msgstr ""
+#~ "inserire il codice assegnato al profilo di google analytics su cui "
+#~ "raccogliere i dati statistici che riguardano le richieste di traduzione. "
+#~ "Se è attivo il modulo google analytics del plugin viene preso in "
+#~ "automatico il codice UA indicato nel modulo specifico. Esempio "
+#~ "UA-12345-12."
+
+#~ msgid "enable widget video"
+#~ msgstr "abilitare widget video"
+
+#~ msgid "enable widget badge"
+#~ msgstr "abilitare widget badge"
+
+#~ msgid "enable shortcode badge"
+#~ msgstr "abilitare shortcode badge"
+
+#~ msgid "enable shortcode button"
+#~ msgstr "abilitare shortcode bottone"
+
+#~ msgid "enable shortcode link"
+#~ msgstr "abilitare shortcode link"
+
+#~ msgid "default width"
+#~ msgstr "larghezza di default "
+
+#~ msgid "default height"
+#~ msgstr "altezza di default"
+
+#~ msgid "video autoplay"
+#~ msgstr "video autoplay"
+
+#~ msgid "video loop"
+#~ msgstr "video loop"
+
+#~ msgid "schema.org"
+#~ msgstr "schema.org"
+
+#~ msgid "force SSL"
+#~ msgstr "forzare SSL"
+
+#~ msgid "disable IFRAME and use API"
+#~ msgstr "API invece di IFRAME"
+
+#~ msgid "delayed loading"
+#~ msgstr "caricamento ritardato"
+
+#~ msgid "disable related"
+#~ msgstr "disabilitare correlati"
+
+#~ msgid "video display setting"
+#~ msgstr "impostazione visualizzazione "
+
+#~ msgid "video setting default margins"
+#~ msgstr "impostazione margini di default "
+
+#~ msgid "video advanced setting"
+#~ msgstr "impostazioni avanzate "
+
+#~ msgid "google youtube configuration"
+#~ msgstr "configurazione google youtube"
+
+#~ msgid "insert your channel name or ID"
+#~ msgstr "inserire il nome o id del canale"
+
+#~ msgid ""
+#~ "if you enable this option you can use the shortcode <code>[sz-ytvideo]</"
+#~ "code> and enter the corresponding component directly in your article or "
+#~ "page. Normally shortcodes can be specified in the options, to control "
+#~ "parameters given read the official documentation."
+#~ msgstr ""
+#~ "se abiliti questa opzione potrai utilizzare lo shortcode <code>[sz-"
+#~ "ytvideo]</code> ed inserire il componente corrispondente direttamente nel "
+#~ "tuo articolo o pagina. Normalmente negli shortcodes possono essere "
+#~ "specificate delle opzioni, per controllare i parametri  leggi la "
+#~ "documentazione."
+
+#~ msgid ""
+#~ "activating this value, the size of the video will be managed with the "
+#~ "technique of responsive design, so the size is automatically adjusted to "
+#~ "the size of the window, for more information and a more detailed "
+#~ "explanation please see the documentation on <a href=\"http://en.wikipedia."
+#~ "org/wiki/Responsive_web_design\">Wikipedia Responsive Web Design</a>."
+#~ msgstr ""
+#~ "attivando questa opzione la dimensione del video sarà gestita con la "
+#~ "tecnica del responsive design, quindi la grandezza sarà automaticamente "
+#~ "aggiustata in base alla dimensione della finestra, per avere ulteriori "
+#~ "informazioni leggere la documentazione su <a href=\"http://en.wikipedia."
+#~ "org/wiki/Responsive_web_design\">Wikipedia Responsive Web Design</a>."
+
+#~ msgid ""
+#~ "enter the default size of the video, if you do not specify a value in "
+#~ "this field, the default size will be 600px. If you specified a value of "
+#~ "\"0\" or is activated the responsive mode will be used the special value "
+#~ "100% which will occupy the entire space of the container."
+#~ msgstr ""
+#~ "immettere la dimensione del video, se non specifichi nessun valore per "
+#~ "questo campo la dimensione sarà impostata a 600 pixel. Se inserisci un "
+#~ "valore uguale a zero o viene attivato il responsive mode sarà usata una "
+#~ "dimensione del 100% che occuperà tutto lo spazio del contenitore."
+
+#~ msgid ""
+#~ "Enter the default size of the video, if you do not specify a value in "
+#~ "this field, the default size will be 400px. In the responsive version "
+#~ "this value will be ignored, in fact the height will change automatically "
+#~ "according to the width of the parent container."
+#~ msgstr ""
+#~ "inserire la dimensione del video in altezza, se non specifici nessun "
+#~ "valore per questo campo la dimensione impostata sarà di 400 pixel. Se è "
+#~ "attivato il responsive mode questo valore sarà ignorato, in quanto "
+#~ "l'altezza del video sarà calcolata in maniera proporzionale alla "
+#~ "larghezza del contenitore."
+
+#~ msgid ""
+#~ "enabling this option, the video will start automatically inserted when "
+#~ "viewing the page without waiting for the user to press the play button. "
+#~ "This behavior you can manage it even with the option of shortcode called "
+#~ "<code>autoplay</code>. Do not put two videos in the same page with "
+#~ "autoplay enabled."
+#~ msgstr ""
+#~ "abilitando questa opzione il video partirà automaticamente durante la "
+#~ "visualizzazione della pagina senza aspettare che l'utente prema il tasto "
+#~ "di play. Puoi gestire questo comportamento anche tramite una opzione "
+#~ "presente nello shortcode chiamata <code>autoplay</code>. "
+
+#~ msgid ""
+#~ "this option allows you to reinitiate the video after it was finished. The "
+#~ "same function, you can obtain it using the special value <code>loop</"
+#~ "code> in the shortcode without changing the default behavior. See "
+#~ "official documentation <a target=\"_blank\" href=\"https://developers."
+#~ "google.com/youtube/player_parameters#loop\">Developer Youtube</a>."
+#~ msgstr ""
+#~ "questa opzione permette di riportare all'inizio la visualizzazione del "
+#~ "video una volta che questo è terminato in maniera automatica. Puoi "
+#~ "ottenere questo comportamento anche tramite il parametro <code>loop</"
+#~ "code> collegato allo shortcode dedicato. Vedi <a target=\"_blank\" href="
+#~ "\"https://developers.google.com/youtube/player_parameters#loop"
+#~ "\">Developer Youtube</a>."
+
+#~ msgid ""
+#~ "in this field specify the default theme to apply the player. At this time "
+#~ "you can choose between \"light\" and \"dark\". To see if they added some "
+#~ "additional theme controls the official documentation <a target=\"_blank\" "
+#~ "href=\"https://developers.google.com/youtube/player_parameters#theme"
+#~ "\">Developer Youtube</a>. Also this parameter can be specified directly "
+#~ "in the shortcode."
+#~ msgstr ""
+#~ "in questo campo è possibile scegliere il temo predefinito del player "
+#~ "youtube, per il momento è possibile scegliere tra chiaro e scuro, questa "
+#~ "opzione ritorna utile per avere un'inerfaccia simile al design del "
+#~ "proprio sito web. Vedi <a target=\"_blank\" href=\"https://developers."
+#~ "google.com/youtube/player_parameters#theme\">Developer Youtube</a>. "
+
+#~ msgid "local"
+#~ msgstr "local"
+
+#~ msgid ""
+#~ "in this field you must specify the type of cover for your video clip when "
+#~ "you do not specify a custom value. If you specify \"local\" will be used "
+#~ "to cover stored in the plugin, if you use the value \"youtube\" will be "
+#~ "used to cover defaults on youtube."
+#~ msgstr ""
+#~ "in questo campo bisogna specificare il metodo per calcolare la copertina "
+#~ "del video quando non viene specificato nessun valore. Usando il valore "
+#~ "\"local\" sarà usata la copertina di default memorizzata nel plugin, se "
+#~ "invece usi \"youtube\" sarà usata la copertina standard del video youtube."
+
+#~ msgid ""
+#~ "enabling this option will be enabled <code>meta</code> commands relating "
+#~ "to the resources of schema.org video. The values ​​of \"meta\" must be "
+#~ "specified on shortcode or PHP function. For more information read the <a "
+#~ "target=\"_blank\" href=\"http://schema.org/VideoObject\">official "
+#~ "documentation</a> or the help page of google <a target=\"_blank\" href="
+#~ "\"https://support.google.com/webmasters/answer/2413309?hl=en\">Markup "
+#~ "schema.org</a>."
+#~ msgstr ""
+#~ "abilitando questa opzione saranno inseriti i campi <code>meta</code> di "
+#~ "schema.org riguardante i video. Il valori di \"meta\" possono essere "
+#~ "specificati nello shortcode o nella funzione. Per maggiori informazioni "
+#~ "leggere la <a target=\"_blank\" href=\"http://schema.org/VideoObject"
+#~ "\">documentazione ufficiale</a> o la pagina di aiuto di google  <a target="
+#~ "\"_blank\" href=\"https://support.google.com/webmasters/answer/2413309?"
+#~ "hl=it\">Markup schema.org</a>."
+
+#~ msgid ""
+#~ "enter the value of the margin to be applied to the container that will "
+#~ "contain the iframe youtube video to display. If you do not specify any "
+#~ "value will be used the value 0. This parameter indicates the top margin "
+#~ "from the previous text and it will be applied to <code>class=\"sz-youtube-"
+#~ "main\"</code>."
+#~ msgstr ""
+#~ "inserire il valore del margine alto che deve essere applicato al "
+#~ "contenitore del player youtube per la visualizzazione del video. Se non "
+#~ "specifici nessun valore sarà usato un valore di zero. Questo parametro "
+#~ "indica la distanza dal testo per <code>class=\"sz-youtube-main\"</code>."
+
+#~ msgid ""
+#~ "enter the value of the margin to be applied to the container that will "
+#~ "contain the iframe youtube video to display. If you do not specify any "
+#~ "value for this field will be used the special value \"auto\". If you've "
+#~ "enabled the responsive mode, this value will be ignored and will be used "
+#~ "as margin the value \"auto\"."
+#~ msgstr ""
+#~ "inserire il valore del margine da applicare al contenitore principale del "
+#~ "video. Se non specifichi niente verrà usato il valore speciale \"auto\". "
+#~ "Se viene abilitata l'opzione del responsive mode questo valoe sarà "
+#~ "ignorato e verrà usato il valore di margine \"auto\"."
+
+#~ msgid ""
+#~ "enter the value of the margin to be applied to the container that will "
+#~ "contain the iframe youtube video to display. If you do not specify any "
+#~ "value will be used the value 0. This parameter indicates the bottom "
+#~ "margin from the text and it will be applied to <code>class=\"sz-youtube-"
+#~ "main\"</code>."
+#~ msgstr ""
+#~ "inserire il valore del margine basso che deve essere applicato al "
+#~ "contenitore del player youtube per la visualizzazione del video. Se non "
+#~ "specifici nessun valore sarà usato un valore di zero. Questo parametro "
+#~ "indica la distanza dal testo inferiore per <code>class=\"sz-youtube-main"
+#~ "\"</code>."
+
+#~ msgid "em"
+#~ msgstr "em"
+
+#~ msgid "px"
+#~ msgstr "px"
+
+#~ msgid ""
+#~ "this field is used to specify the unit of measure that must be applied to "
+#~ "numeric values ​​that relate to the margins of the video container, the "
+#~ "values ​​that can be specified are em = relative size or px = pixel size. "
+#~ "With these values ​​will create the CSS code for HTML containers."
+#~ msgstr ""
+#~ "questo campo viene usato per specificare l'unità di misura da applicare "
+#~ "ai valori specificati nei campi dei margini sopra indicati. i valori "
+#~ "possibili al momento sono px = pixel o em = relative size. Questi valori "
+#~ "saranno utilizzati come comandi CSS del contenitore."
+
+#~ msgid ""
+#~ "if this function is enabled the embed code to generate the video link is "
+#~ "forced with the SSL protocol even if the URL string is specified "
+#~ "otherwise. Enabling recommended if the web pages of the site are set by "
+#~ "default with SSL."
+#~ msgstr ""
+#~ "se viene abilitata questa funzione il codice embed del video sarà forzato "
+#~ "ad utilizzare il protocollo SSL anche se sulla stringa URL è specificato "
+#~ "diversamente. Abilitazione raccomandata se le pagine del sito web sono "
+#~ "distribuite per default in SSL."
+
+#~ msgid ""
+#~ "enable this option to enter in the control bar of the video player icon "
+#~ "that allows you to view fullscreen. More information can be found in the "
+#~ "official documentation <a target=\"_blank\" href=\"https://developers."
+#~ "google.com/youtube/player_parameters#fs\">Developer Youtube</a>. This "
+#~ "behavior you can manage it even with the option of shortcode called "
+#~ "<code>fullscreen</code>."
+#~ msgstr ""
+#~ "abilitare questa opzione se si vuole mantenere nella barra delle opzioni "
+#~ "la possibilità di vedere il video a pieno schermo. Per maggiori "
+#~ "informazioni potete leggere la documentazione ufficiale <a target=\"_blank"
+#~ "\" href=\"https://developers.google.com/youtube/player_parameters#fs"
+#~ "\">Developer Youtube</a>. Potete gestire questo parametro anche dallo "
+#~ "shortcode dedicato."
+
+#~ msgid ""
+#~ "will disable the player keyboard controls. Keyboard controls are as "
+#~ "follows: Spacebar: Play/Pause - Arrow Left: Jump back 10% in the current "
+#~ "video - Arrow Right: Jump ahead 10% in the current video - Arrow Up: "
+#~ "Volume up - Arrow Down: Volume Down."
+#~ msgstr ""
+#~ "questa opzione disabilita la tastiera e i comandi associati. I comandi di "
+#~ "tastiera sono: spacebar: play/pause - arrow left: jump back 10%  - arrow "
+#~ "right: jump ahead 10%  - arrow up: volume up - arrow down: volume down."
+
+#~ msgid ""
+#~ "normally to insert a youtube video on a webpage uses the iframe "
+#~ "technique, use this parameter to change this way and use the JavaScript "
+#~ "API provided by google. If you activate the option of google analytics "
+#~ "for youtube this value will be ignored, in fact, will always be used API."
+#~ msgstr ""
+#~ "normalmente quando viene inserito un video youtube in una pagina web "
+#~ "viene inserito un comando iframe, usando questo parametro è possibile "
+#~ "cambiare questa modalità e utilizzare le API. Se viene attivato google "
+#~ "analytics questa opzione viene ignorata e usato il metodo API."
+
+#~ msgid ""
+#~ "by default the iframe code associated with the video to be displayed is "
+#~ "loaded immediately, there may be cases where this can be poorly "
+#~ "performing, or even when we want to customize the cover image, it would "
+#~ "be better to load the code after the user executes the play button."
+#~ msgstr ""
+#~ "per default il codice di caricamento iframe viene eseguito durante il "
+#~ "caricamento della pagina, ci posso essere dei casi dove questo metodo può "
+#~ "risultare poco performante, ad esempio quando inseriamo diversi video "
+#~ "sulla stessa pagina per poi selezionarne solo uno. "
+
+#~ msgid ""
+#~ "enabling this option disables the related videos that are presented to "
+#~ "the player at the end of the video. activating this option in the final "
+#~ "video should be made the cover of the video. Read the official "
+#~ "documentation to <a target=\"_blank\" href=\"https://developers.google."
+#~ "com/youtube/player_parameters#rel\">Developer Guide</a>."
+#~ msgstr ""
+#~ "abilitando questa opzione si disattivano i video correlati presentati dal "
+#~ "player alla fine della visualizzazione video. Con questa opzione attivata "
+#~ "dovrebbe essere presentata alla finela cover originale del video youtube. "
+#~ "Leggi la documentazione ufficiale su <a target=\"_blank\" href=\"https://"
+#~ "developers.google.com/youtube/player_parameters#rel\">Developer Guide</a>."
+
+#~ msgid "default language"
+#~ msgstr "lingua di default"
+
+#~ msgid "default group name"
+#~ msgstr "nome del gruppo di default"
+
+#~ msgid "show search"
+#~ msgstr "visualizzazione ricerca"
+
+#~ msgid "show tabs"
+#~ msgstr "visualizzazione tabs"
+
+#~ msgid "hide title"
+#~ msgstr "nascondi titolo"
+
+#~ msgid "hide subject"
+#~ msgstr "nascondi soggetto"
+
+#~ msgid "display setting"
+#~ msgstr "impostazione visualizzazione"
+
+#~ msgid "google groups configuration"
+#~ msgstr "configurazione google gruppi"
+
+#~ msgid ""
+#~ "if you enable this option you can use the shortcode <code>[sz-ggroups]</"
+#~ "code> and enter the corresponding component directly in your article or "
+#~ "page. Normally shortcodes can be specified in the options, to control "
+#~ "parameters given read the official documentation."
+#~ msgstr ""
+#~ "se abiliti questa opzione potrai utilizzare lo shortcode <code>[sz-"
+#~ "ggroups]</code> ed inserire il componente corrispondente direttamente nel "
+#~ "tuo articolo o pagina. Normalmente negli shortcodes possono essere "
+#~ "specificate delle opzioni, per controllare i parametri  leggi la "
+#~ "documentazione."
+
+#~ msgid "insert default name"
+#~ msgstr "inserisci il nome di default"
+
+#~ msgid ""
+#~ "in this area specify a group name that will be used in all those "
+#~ "conditions in which you do not specify any value for the parameter \"name"
+#~ "\". In any case, you can specify any name that is on the shortcode on the "
+#~ "widget module google groups."
+#~ msgstr ""
+#~ "in questo campo devi specificare il nome del gruppo che sarà utilizzato "
+#~ "di default, specialmente nei casi in cui non viene specificato il "
+#~ "parametro \"name\". Potrai specificare qualsiasi altro valore tramite il "
+#~ "widget e lo shortcode presenti in questo modulo."
+
+#~ msgid ""
+#~ "select value \"yes\" if you want to show a search box, \"no\" if you "
+#~ "don't want the box to show. This field is used as default value, but you "
+#~ "can change this by specifying a specific value via the shortcode or php "
+#~ "function. See official documentation for more details."
+#~ msgstr ""
+#~ "seleziona il valore \"si\" se vuoi visualizzare il box di ricerca, \"no\" "
+#~ "se non lo vuoi visualizzare. Questo valore sarà usato come valore di "
+#~ "default e può essere cambiato specificandolo nello shortcode o nella "
+#~ "funzione php . Leggi la documentazione ufficiale per maggiori dettagli."
+
+#~ msgid ""
+#~ "select value \"yes\" if you want to show the view selector tabs, \"no\" "
+#~ "if you don't want to show tabs. This field is used as default value, but "
+#~ "you can change this by specifying a specific value via the shortcode or "
+#~ "php function. See official documentation for more details"
+#~ msgstr ""
+#~ "seleziona il valore \"si\" se vuoi visualizzare la selezione tabs, \"no\" "
+#~ "se non lo vuoi visualizzare. Questo valore sarà usato come valore di "
+#~ "default e può essere cambiato specificandolo nello shortcode o nella "
+#~ "funzione php . Leggi la documentazione ufficiale per maggiori dettagli."
+
+#~ msgid ""
+#~ "select value \"yes\" if you want to hide the forum title and description, "
+#~ "\"no\" if you don't want to leave the title or description. This field is "
+#~ "used as default value, but you can change this by specifying a specific "
+#~ "value via the shortcode or php function. See official documentation for "
+#~ "more details"
+#~ msgstr ""
+#~ "seleziona il valore \"si\" se vuoi nascondere il titolo, \"no\" se lo "
+#~ "vuoi visualizzare. Questo valore sarà usato come valore di default e può "
+#~ "essere cambiato specificandolo nello shortcode o nella funzione php . "
+#~ "Leggi la documentazione ufficiale per maggiori dettagli."
+
+#~ msgid ""
+#~ "select value \"yes\" if you want to hide the subject of the last post in "
+#~ "My Forums view, \"no\" if you want to leave the subject visible. This "
+#~ "field is used as default value, but you can change this by specifying a "
+#~ "specific value via the shortcode or php function. See documentation for "
+#~ "more details"
+#~ msgstr ""
+#~ "seleziona il valore \"si\" se vuoi nascondere il soggetto, \"no\" se lo "
+#~ "vuoi visualizzare. Questo valore sarà usato come valore di default e può "
+#~ "essere cambiato specificandolo nello shortcode o nella funzione php . "
+#~ "Leggi la documentazione ufficiale per maggiori dettagli."
+
+#~ msgid ""
+#~ "with this field you can set the width of the container iframe that will "
+#~ "be used by defaul, when not specified as a parameter of the widget or the "
+#~ "shortcode, if you see a value equal to zero, the default size will be "
+#~ "100% and will occupy the entire space of parent container."
+#~ msgstr ""
+#~ "con questo campo puoi impostare la larghezza del contenitore iframe che "
+#~ "sarà utilizzato dal codice embed. Se utilizzi un valore uguale a zero la "
+#~ "dimensione utilizzata sarà quella di 100% ed occuperà l'intero spazio del "
+#~ "contenitore padre."
+
+#~ msgid ""
+#~ "with this field you can set the height in pixels of the container iframe "
+#~ "that will be used by defaul, when not specified as a parameter of the "
+#~ "widget or the shortcode, if you see a value equal to zero, the default "
+#~ "size will be 700 pixels."
+#~ msgstr ""
+#~ "con questo campo puoi impostare l'altezza del contenitore iframe che sarà "
+#~ "utilizzato dal codice embed. Se utilizzi un valore uguale a zero la "
+#~ "dimensione utilizzata sarà quella predefinita di 700 pixel. Non "
+#~ "utilizzare delle dimensioni troppo eccessive."
+
+#~ msgid "UA code"
+#~ msgstr "codice UA"
+
+#~ msgid "enable frontend"
+#~ msgstr "abilitare per frontend"
+
+#~ msgid "enable admin panel"
+#~ msgstr "abilitare per pannello admin"
+
+#~ msgid "enable administrator"
+#~ msgstr "abilitare per amministratore"
+
+#~ msgid "enable user logged"
+#~ msgstr "abilitare utente loggato"
+
+#~ msgid "general settings"
+#~ msgstr "impostazioni generali "
+
+#~ msgid "activation tracking code"
+#~ msgstr "attivazione codice di monitoraggio"
+
+#~ msgid "google Analytics configuration"
+#~ msgstr "configurazione google Analytics"
+
+#~ msgid "insert your UA code"
+#~ msgstr "inserisci il tuo codice UA"
+
+#~ msgid ""
+#~ "specify the code assigned to the profile of google analytics, to find "
+#~ "enough to enter the admin panel google analytics and see the code "
+#~ "assigned such as UA-12345-12. If this code is not specified will not be "
+#~ "generated the tracking code for google analytics."
+#~ msgstr ""
+#~ "specificare il codice assegnato al profilo su google analytics, per "
+#~ "cercare il codice andate sul pannello di amministrazione GA e copiate il "
+#~ "codice simile a questo formato UA-12345-12. Se in questo campo non viene "
+#~ "specificato nessun valore il codice di monitoraggio non sarà generato."
+
+#~ msgid "header (default)"
+#~ msgstr "header (default)"
+
+#~ msgid "footer"
+#~ msgstr "footer"
+
+#~ msgid "insert manually"
+#~ msgstr "inserisci manualmente"
+
+#~ msgid ""
+#~ "specifies the location of the tracking code in the page HTML. The "
+#~ "recommended position is the header that does not allow the loss of access "
+#~ "statistics. If you specify the manual mode you have to use the "
+#~ "<code>szgoogle_get_analytics_code()</code> and insert it into the code of "
+#~ "your theme."
+#~ msgstr ""
+#~ "specificare la posizione del codice di monitoraggio dentro la pagina "
+#~ "HTML. La posizione consigliata è quella \"header\" dove è difficile "
+#~ "perdere informazioni. Se vuoi selezionare l'inserimento manuale devi "
+#~ "utilizzare la funzione <code>szgoogle_get_analytics_code()</code>  nel "
+#~ "tuo tema."
+
+#~ msgid ""
+#~ "enable this option to activate the tracking code to the public pages of "
+#~ "your website. This option can also be used to disable the code without "
+#~ "disabling the module. To check the tracking code on the basis of "
+#~ "connected users use the options to follow as admin or users logged."
+#~ msgstr ""
+#~ "abilitare questa opzione per attivare il codice di monitoraggio nelle "
+#~ "pagine pubbliche del tuo sito web. Questa opzione può essere utilizzata "
+#~ "anche per disattivare momentaneamente il codice senza disattivare "
+#~ "l'intero modulo. Controlla anche i campi che riguardano gli utenti "
+#~ "collegati."
+
+#~ msgid ""
+#~ "this option allows you to insert the tracking code in the admin pages. "
+#~ "Useful function for some tests but not recommended during normal "
+#~ "operation. Do not confuse this option with the administrator user which "
+#~ "controls the type of user logged and not the execution environment."
+#~ msgstr ""
+#~ "questa opzione permette l'inserimento del codice di monitoraggio sulle "
+#~ "pagine del pannello di amministrazione. Usare questa opzione per "
+#~ "eventuali test ma sconsigliata durante le normali operazioni di "
+#~ "manutenzione. Non confondere questa opzione con quella legata agli "
+#~ "amministratori."
+
+#~ msgid ""
+#~ "this option allows you to enter the tracking code when you browse the "
+#~ "website as an administrator user. It is recommended to leave this option "
+#~ "off as not to affect access statistics. This option is used for both the "
+#~ "frontend and backend environment."
+#~ msgstr ""
+#~ "con questa opzione puoi controllare l'inserimento del codice di "
+#~ "monitoraggio per gli utenti collegati come amministratori, utile per non "
+#~ "inquinare le statistiche di accesso con le proprie visite. L'opzione "
+#~ "viene controllata sia sul frontend che sul backend."
+
+#~ msgid ""
+#~ "with this option, you can check the tracking code for users who are "
+#~ "connected to the website. The behavior of this option is similar to "
+#~ "option regarding the administrator user. This option is used for both the "
+#~ "frontend and backend environment."
+#~ msgstr ""
+#~ "con questa opzione puoi controllare l'inserimento del codice di "
+#~ "monitoraggio per gli utenti che risultano loggati. Questa opzione "
+#~ "funziona in maniera simile a quella degli utenti amministratori e viene "
+#~ "controllata sia per il frontend che per il backend."
+
+#~ msgid "string"
+#~ msgstr "stringa"
+
+#, fuzzy
+#~ msgid "widget width"
+#~ msgstr "widget larghezza verticale"
+
+#, fuzzy
+#~ msgid "widget alignment"
+#~ msgstr "widget G+ pagina"
+
+#, fuzzy
+#~ msgid "widget layout"
+#~ msgstr "layout"
+
+#, fuzzy
+#~ msgid "portrait,landscape"
+#~ msgstr "orizzontale"
+
+#, fuzzy
+#~ msgid "widget theme"
+#~ msgstr "widget G+ pagina"
+
+#, fuzzy
+#~ msgid "light,dark"
+#~ msgstr "chiaro"
+
+#, fuzzy
+#~ msgid "widget cover"
+#~ msgstr "widget G+ profilo"
+
+#, fuzzy
+#~ msgid "widget tagline"
+#~ msgstr "widget G+ pagina"
+
+#, fuzzy
+#~ msgid "widget rel=publisher"
+#~ msgstr "publisher"
+
+#, fuzzy
+#~ msgid "widget photo"
+#~ msgstr "widget G+ profilo"
+
+#, fuzzy
+#~ msgid "widget owners"
+#~ msgstr "widget G+ profilo"
+
+#, fuzzy
+#~ msgid "widget height"
+#~ msgstr "altezza di default"
+
+#, fuzzy
+#~ msgid "numeric,none"
+#~ msgstr "valore numerico"
+
+#, fuzzy
+#~ msgid "author,publisher,none"
+#~ msgstr "publisher"
+
+#, fuzzy
+#~ msgid "widget hidden title"
+#~ msgstr "nascondi titolo"
+
+#, fuzzy
+#~ msgid "widget hidden subject"
+#~ msgstr "nascondi soggetto"
+
+#, fuzzy
+#~ msgid "widget language"
+#~ msgstr "lingua di default"
+
+#~ msgid "V,H,D"
+#~ msgstr "V,H,D"
+
+#~ msgid "y=yes,n=no"
+#~ msgstr "y=yes,n=no"
+
+#~ msgid "nobody"
+#~ msgstr "nessuno"
+
+#~ msgid "numeric value"
+#~ msgstr "valore numerico"
+
+#~ msgid "px,em"
+#~ msgstr "px,em"
+
+#~ msgid "dark,light"
+#~ msgstr "dark,light"
+
+#~ msgid "local,youtube,URL,ID"
+#~ msgstr "local,youtube,URL,ID"
+
+#~ msgid "numeric value seconds"
+#~ msgstr "valore numerico secondi"
+
+#, fuzzy
+#~ msgid "px,em,%"
+#~ msgstr "px,em"
+
+#, fuzzy
+#~ msgid "default,full"
+#~ msgstr "default"
+
+#, fuzzy
+#~ msgid "default,dark"
+#~ msgstr "default"
+
+#, fuzzy
+#~ msgid "y=yes"
+#~ msgstr "y=yes,n=no"
+
+#~ msgid "url"
+#~ msgstr "url"
+
+#~ msgid "responsive"
+#~ msgstr "responsive"
+
+#~ msgid "google analytics enabled"
+#~ msgstr "abilitare google analytics"
+
+#~ msgid "activation"
+#~ msgstr "attivazione"
