@@ -6,7 +6,7 @@ Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: analytics, badge, buttons, comments, comments system, custom url, drive, embed video, embedded posts, follow, google, google+, google analytics, google drive, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, save to drive, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
+Tags: analytics, badge, buttons, comments, comments system, custom url, drive, embed video, embedded posts, follow, google, google+, google analytics, google drive, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, panoramio, post sharing, post comments, widgets, widgets google+, widget translate, redirect, save to drive, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -15,7 +15,7 @@ Plugin to integrate Google's products in WordPress with particular attention for
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote. In any case, we will always be willing to consider new requests for anyone who wants to ask for a new feature to be developed in the plugin. Write all your requests on our <a href="https://plus.google.com/communities/109254048492234113886">official community</a>.
 
-To be informed about the features that gradually will be released you can follow this link page <a href="https://startbyzero.com/wordpress/plugin-google/">sz-google for wordpress</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
+To be informed about the features that gradually will be released you can follow this link page <a href="https://startbyzero.com/wordpress/plugin-google/">sz-google for wordpress</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WP Italyplus</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
 
 = Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -223,7 +223,7 @@ Given that in the plugin will be implemented different function that will not be
 = Troubleshoot problems during installation =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>. Remember to specify exactly the problem, the version of the plugin that use for installing or updating, the version of wordpress and uses the operating system that manages the site hosting. If you have problems of conflict with other plugins give as much information as possible so you can run a debug trace and find the problem.
+If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WP Italyplus</a>. Remember to specify exactly the problem, the version of the plugin that use for installing or updating, the version of wordpress and uses the operating system that manages the site hosting. If you have problems of conflict with other plugins give as much information as possible so you can run a debug trace and find the problem.
 
 == Frequently Asked Questions ==
 
