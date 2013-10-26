@@ -6,7 +6,7 @@ Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: analytics, badge, buttons, comments, comments system, custom url, drive, embed video, embedded posts, follow, google, google+, google analytics, google drive, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, panoramio, post sharing, post comments, widgets, widgets google+, widget translate, redirect, save to drive, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
+Tags: analytics, badge, buttons, comments, comments system, custom url, drive, embed video, embedded posts, follow, google, google+, google analytics, google drive, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, save to drive, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -15,7 +15,7 @@ Plugin to integrate Google's products in WordPress with particular attention for
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote. In any case, we will always be willing to consider new requests for anyone who wants to ask for a new feature to be developed in the plugin. Write all your requests on our <a href="https://plus.google.com/communities/109254048492234113886">official community</a>.
 
-To be informed about the features that gradually will be released you can follow this link page <a href="https://startbyzero.com/wordpress/plugin-google/">sz-google for wordpress</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WP Italyplus</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
+To be informed about the features that gradually will be released you can follow this link page <a href="https://startbyzero.com/wordpress/plugin-google/">sz-google for wordpress</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
 
 = Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -132,21 +132,7 @@ To be informed about the features that gradually will be released you can follow
 = Google Panoramio module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-This module allows you to include in their articles of galleries present in panoramio, just specify the desired template and the required options. You can use four different templates, photo, list, slideshow and photo_list.
-
-* <a href="https://startbyzero.com/wordpress/plugin-google/panoramio/">Demo online - Panoramio</a>
-
-**Google Panoramio Widgets:** In this plugin are available to google panoramio widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
-
-* `Widget google panoramio`
-
-**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
-
-* `[sz-panoramio] ......: google panoramio widget`
-
-**Google Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
-
-* `szgoogle_get_panoramio_code()`
+With this module you can insert into a wordpress page a video on youtube. you can customize many 
 
 = Google Translate module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -223,7 +209,7 @@ Given that in the plugin will be implemented different function that will not be
 = Troubleshoot problems during installation =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WP Italyplus</a>. Remember to specify exactly the problem, the version of the plugin that use for installing or updating, the version of wordpress and uses the operating system that manages the site hosting. If you have problems of conflict with other plugins give as much information as possible so you can run a debug trace and find the problem.
+If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>. Remember to specify exactly the problem, the version of the plugin that use for installing or updating, the version of wordpress and uses the operating system that manages the site hosting. If you have problems of conflict with other plugins give as much information as possible so you can run a debug trace and find the problem.
 
 == Frequently Asked Questions ==
 
@@ -231,6 +217,12 @@ If you have problems during the installation of this plugin please contact us di
 
 = You can see a demo before the installation? =
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://startbyzero.com/wordpress/plugin-google/">SZ-Google Demo</a> to display many components in live demo.
+
+= All these functions in a single plugin affect performance? =
+The plugin was written in separate modules that are activated only on request. this allows saving both memory of CPU, obviously if all functions are activated the plugin needs resources, however senpre less than installing a high number of different plugins.
+
+= Can I ask for the implementation of a new product google? =
+We take into consideration qualsiaqsi request is made by the community, of course, if a product is requested several times by diffrenti people will do anything to aqggiungerlo to our plugins. Write request in the forum or in the community.
 
 = You can use the functions of the plugin with PHP? =
 Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
@@ -256,7 +248,6 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add google panoramio shortcode.
 * Feature: Add google panoramio function php.
 * Feature: Add google panoramio documentation.
-* Fix: Option width google+ widget not refresh.
 
 = Version 1.5.1 =
 * Fix: Create separate translate file for admin/frontend.
