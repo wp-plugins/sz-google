@@ -307,3 +307,4 @@ class sz_google_module_groups_widget_iframe extends WP_Widget_SZ_Google
 			'sz-google-widget-groups-iframe.php');
 	}
 }
+

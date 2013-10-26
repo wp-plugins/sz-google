@@ -40,7 +40,7 @@ function szgoogle_get_gplus_badge_followers($atts=array()) {
 }
 
 /* ************************************************************************** */
-/* Funzioni per elaborazione codice HTML di G+ BUTTON                         */
+/* GOOGLE+ BUTTONS funzioni PHP da richiamare direttamente                    */
 /* ************************************************************************** */
 
 function szgoogle_get_gplus_button_one($atts=array()) {
@@ -72,7 +72,7 @@ function szgoogle_get_gplus_comments($atts=array()) {
 }
 
 /* ************************************************************************** */
-/* Funzioni per elaborazione codice HTML di G+ EMBEDDED POST                  */
+/* GOOGLE+ EMBEDDED POST funzioni PHP da richiamare direttamente              */
 /* ************************************************************************** */
 
 function szgoogle_get_gplus_post($atts=array()) {
@@ -82,7 +82,7 @@ function szgoogle_get_gplus_post($atts=array()) {
 }
 
 /* ************************************************************************** */
-/* Funzioni per elaborazione codice HTML di GOOGLE DRIVE                     */
+/* GOOGLE DRIVE funzioni PHP da richiamare direttamente                       */
 /* ************************************************************************** */
 
 function szgoogle_get_drive_savebutton($atts=array()) {
@@ -92,7 +92,7 @@ function szgoogle_get_drive_savebutton($atts=array()) {
 }
 
 /* ************************************************************************** */
-/* Funzioni per elaborazione codice HTML di GOOGLE ANALYTICS                  */
+/* GOOGLE ANALYTICS funzioni PHP da richiamare direttamente                   */
 /* ************************************************************************** */
 
 function szgoogle_get_ga_ID() {
@@ -108,7 +108,7 @@ function szgoogle_get_ga_code() {
 }
 
 /* ************************************************************************** */
-/* Funzioni per elaborazione codice HTML di GOOGLE GROUPS                     */
+/* GOOGLE GROUPS funzioni PHP da richiamare direttamente                      */
 /* ************************************************************************** */
 
 function szgoogle_get_groups_code($atts=array()) {
@@ -117,13 +117,18 @@ function szgoogle_get_groups_code($atts=array()) {
 	} else return false;
 }
 
+/* ************************************************************************** */
+/* GOOGLE PANORAMIO funzioni PHP da richiamare direttamente                   */
+/* ************************************************************************** */
 
-
-
-
+function szgoogle_get_panoramio_code($atts=array()) {
+	if (function_exists('sz_google_module_panoramio_get_code')) {
+		return sz_google_module_panoramio_get_code($atts);
+	} else return false;
+}
 
 /* ************************************************************************** */
-/* Funzioni per elaborazione codice HTML di GOOGLE TRANSLATE                  */
+/* GOOGLE TRANSLATE funzioni PHP da richiamare direttamente                   */
 /* ************************************************************************** */
 
 function szgoogle_get_translate_meta_ID() {
@@ -145,7 +150,7 @@ function szgoogle_get_translate_code($atts=array()) {
 }
 
 /* ************************************************************************** */
-/* Funzioni per elaborazione codice HTML di GOOGLE YOUTUBE                    */
+/* GOOGLE YOUTUBE funzioni PHP da richiamare direttamente                     */
 /* ************************************************************************** */
 
 function szgoogle_get_youtube_code_video($atts=array()) {

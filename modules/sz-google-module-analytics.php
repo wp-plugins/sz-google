@@ -126,3 +126,4 @@ function sz_google_module_analytics_get_code()
 
 	return false;
 }
+

@@ -1122,3 +1122,4 @@ function sz_google_module_youtube_check_channel($channel)
 	if (strlen($channel) == 24 and substr($channel,0,2) == 'UC') return "ID";
 		else return "NAME";
 }
+

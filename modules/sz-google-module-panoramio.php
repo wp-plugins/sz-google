@@ -393,3 +393,4 @@ class sz_google_module_panoramio_widget extends WP_Widget_SZ_Google
 			'sz-google-widget-panoramio.php');
 	}
 }
+
