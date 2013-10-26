@@ -222,7 +222,7 @@ Yes, we have made available demonstration of the pages where the plugin installe
 The plugin was written in separate modules that are activated only on request. this allows saving both memory of CPU, obviously if all functions are activated the plugin needs resources, however senpre less than installing a high number of different plugins.
 
 = Can I ask for the implementation of a new product google? =
-We take into consideration qualsiaqsi request is made by the community, of course, if a product is requested several times by diffrenti people will do anything to aqggiungerlo to our plugins. Write request in the forum or in the community.
+We take into consideration qualsiaqsi request is made by the community, of course, if a product is requested several times by diffrenti people will do anything to aqggiungerlo to our plugins. Write request in the forum or in the <a href="https://plus.google.com/communities/109254048492234113886">community</a>.
 
 = You can use the functions of the plugin with PHP? =
 Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
