@@ -238,6 +238,7 @@ Before you use the google translate module must register the site that you want 
 4. SZ-Google and module Youtube
 5. SZ-Google and documentation
 6. SZ-Google and module Google Drive
+7. SZ-Google and module Panoramio
 
 == Changelog ==
 
