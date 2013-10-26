@@ -132,7 +132,21 @@ To be informed about the features that gradually will be released you can follow
 = Google Panoramio module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-With this module you can insert into a wordpress page a video on youtube. you can customize many 
+With this module you can insert widgets with photo galleries present on panoramio. You can select photos by user, group or tag. You can choose between different display layouts as photo, slideshow, list and photo_list with navigation menu.
+
+* <a href="https://startbyzero.com/wordpress/plugin-google/panoramio/">Demo online - Panoramio</a>
+
+**Google Panoramio Widgets:** In this plugin are available to google panoramio widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget google panoramio`
+
+**Google Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+
+* `[sz-panoramio] ......: google panoramio photo widget`
+
+**Google Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+
+* `szgoogle_get_panoramio_code()`
 
 = Google Translate module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -219,7 +233,7 @@ If you have problems during the installation of this plugin please contact us di
 Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://startbyzero.com/wordpress/plugin-google/">SZ-Google Demo</a> to display many components in live demo.
 
 = All these functions in a single plugin affect performance? =
-The plugin was written in separate modules that are activated only on request. this allows saving both memory of CPU, obviously if all functions are activated the plugin needs resources, however senpre less than installing a high number of different plugins.
+The plugin was written in separate modules that are activated only on request. This allows saving both memory of CPU, obviously if all functions are activated the plugin needs resources, however senpre less than installing a high number of different plugins.
 
 = Can I ask for the implementation of a new product google? =
 We take into consideration qualsiaqsi request is made by the community, of course, if a product is requested several times by diffrenti people will do anything to aqggiungerlo to our plugins. Write request in the forum or in the <a href="https://plus.google.com/communities/109254048492234113886">community</a>.
