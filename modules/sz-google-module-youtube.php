@@ -1,11 +1,11 @@
 <?php
 /* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
+/* YOUTUBE Controllo se definita la costante del plugin                       */
 /* ************************************************************************** */
 if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
 
 /* ************************************************************************** */ 
-/* Definizione variabili globali per controlli e memorizzazioni comuni        */ 
+/* YOUTUBE Definizione variabili globali per controlli e memorizzazioni       */ 
 /* ************************************************************************** */ 
 global $SZ_GOOGLE_YOUTUBE; 
 global $SZ_GOOGLE_YOUTUBE_API; 
@@ -14,29 +14,44 @@ $SZ_GOOGLE_YOUTUBE = true;
 $SZ_GOOGLE_YOUTUBE_API = array();
 
 /* ************************************************************************** */ 
-/* Controllo le opzioni per sapere quali componenti risultano attivati        */ 
+/* YOUTUBE Controllo le opzioni per sapere quali componenti sono attivati     */ 
 /* ************************************************************************** */ 
 
 $options = sz_google_module_youtube_options();
 
-if ($options['youtube_shortcode'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
-	add_shortcode('sz-ytvideo','sz_google_shortcodes_youtube_video');
-}
+// Impostazioni variabili per attivazione degli shortcodes
 
-if ($options['youtube_shortcode_badge'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
-	add_shortcode('sz-ytbadge','sz_google_shortcodes_youtube_badge');
-}
+$SZ_YOUTUBE_ENABLE_SHORTC_VIDEO    = $options['youtube_shortcode'];
+$SZ_YOUTUBE_ENABLE_SHORTC_BADGE    = $options['youtube_shortcode_badge'];
+$SZ_YOUTUBE_ENABLE_SHORTC_BUTTON   = $options['youtube_shortcode_button'];
+$SZ_YOUTUBE_ENABLE_SHORTC_LINK     = $options['youtube_shortcode_link'];
+$SZ_YOUTUBE_ENABLE_SHORTC_PLAYLIST = $options['youtube_shortcode_playlist'];
 
-if ($options['youtube_shortcode_button'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
-	add_shortcode('sz-ytbutton','sz_google_shortcodes_youtube_button');
-}
+// Impostazioni variabili per attivazione degli widgets
 
-if ($options['youtube_shortcode_link'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
-	add_shortcode('sz-ytlink','sz_google_shortcodes_youtube_link');
-}
+$SZ_YOUTUBE_ENABLE_WIDGET_VIDEO    = $options['youtube_widget'];
+$SZ_YOUTUBE_ENABLE_WIDGET_BADGE    = $options['youtube_widget_badge'];
+$SZ_YOUTUBE_ENABLE_WIDGET_PLAYLIST = $options['youtube_widget_playlist'];
 
 /* ************************************************************************** */ 
-/* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
+/* YOUTUBE Controllo le opzioni generali per i moduli che devo caricare       */
+/* ************************************************************************** */ 
+
+if ($SZ_YOUTUBE_ENABLE_SHORTC_VIDEO    == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-ytvideo'   ,'sz_google_shortcodes_youtube_video');
+if ($SZ_YOUTUBE_ENABLE_SHORTC_BADGE    == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-ytbadge'   ,'sz_google_shortcodes_youtube_badge');
+if ($SZ_YOUTUBE_ENABLE_SHORTC_BUTTON   == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-ytbutton'  ,'sz_google_shortcodes_youtube_button');
+if ($SZ_YOUTUBE_ENABLE_SHORTC_LINK     == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-ytlink'    ,'sz_google_shortcodes_youtube_link');
+if ($SZ_YOUTUBE_ENABLE_SHORTC_PLAYLIST == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-ytplaylist','sz_google_shortcodes_youtube_playlist');
+
+/* ************************************************************************** */ 
+/* YOUTUBE Controllo le opzioni generali per i moduli che devo caricare       */
+/* ************************************************************************** */ 
+
+if ($SZ_YOUTUBE_ENABLE_WIDGET_VIDEO    == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_youtube_widget_video');
+if ($SZ_YOUTUBE_ENABLE_WIDGET_PLAYLIST == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_youtube_widget_playlist');
+
+/* ************************************************************************** */ 
+/* YOUTUBE Funzione generale per il caricamento e la messa in coerenza        */
 /* ************************************************************************** */ 
 
 function sz_google_module_youtube_options()
@@ -45,115 +60,105 @@ function sz_google_module_youtube_options()
 
 	$options = get_option('sz_google_options_youtube');
 
-	// Controllo delle opzioni in caso di valori non validi
+	// Controllo delle opzioni in caso di valori non esistenti
+	// richiamo della funzione per il controllo isset()
 
-	if (!isset($options['youtube_channel']))            $options['youtube_channel']          = SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL;
-	if (!isset($options['youtube_widget']))             $options['youtube_widget']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_widget_badge']))       $options['youtube_widget_badge']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_shortcode']))          $options['youtube_shortcode']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_shortcode_badge']))    $options['youtube_shortcode_badge']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_shortcode_button']))   $options['youtube_shortcode_button'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_shortcode_link']))     $options['youtube_shortcode_link']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_responsive']))         $options['youtube_responsive']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_width']))              $options['youtube_width']            = SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH;
-	if (!isset($options['youtube_height']))             $options['youtube_height']           = SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT;
-	if (!isset($options['youtube_margin_top']))         $options['youtube_margin_top']       = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
-	if (!isset($options['youtube_margin_right']))       $options['youtube_margin_right']     = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO;
-	if (!isset($options['youtube_margin_bottom']))      $options['youtube_margin_bottom']    = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
-	if (!isset($options['youtube_margin_left']))        $options['youtube_margin_left']      = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO;
-	if (!isset($options['youtube_margin_unit']))        $options['youtube_margin_unit']      = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT;
-	if (!isset($options['youtube_force_ssl']))          $options['youtube_force_ssl']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_autoplay']))           $options['youtube_autoplay']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_loop']))               $options['youtube_loop']             = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_fullscreen']))         $options['youtube_fullscreen']       = SZ_PLUGIN_GOOGLE_VALUE_YES;
-	if (!isset($options['youtube_disablekeyboard']))    $options['youtube_disablekeyboard']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_theme']))              $options['youtube_theme']            = SZ_PLUGIN_GOOGLE_YOUTUBE_THEME;
-	if (!isset($options['youtube_cover']))              $options['youtube_cover']            = SZ_PLUGIN_GOOGLE_YOUTUBE_COVER;
-	if (!isset($options['youtube_disableiframe']))      $options['youtube_disableiframe']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_analytics']))          $options['youtube_analytics']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_delayed']))            $options['youtube_delayed']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_schemaorg']))          $options['youtube_schemaorg']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['youtube_disablerelated']))     $options['youtube_disablerelated']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	$options = sz_google_module_check_values_isset($options,array(
+		'youtube_channel'            => SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL,
+		'youtube_widget'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_widget_badge'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_widget_playlist'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_badge'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_button'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_link'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_playlist' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_responsive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_width'              => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH,
+		'youtube_height'             => SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT,
+		'youtube_margin_top'         => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO,
+		'youtube_margin_right'       => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO,
+		'youtube_margin_bottom'      => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO,
+		'youtube_margin_left'        => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO,
+		'youtube_margin_unit'        => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT,
+		'youtube_force_ssl'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_autoplay'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_loop'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_fullscreen'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_disablekeyboard'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_theme'              => SZ_PLUGIN_GOOGLE_YOUTUBE_THEME,
+		'youtube_cover'              => SZ_PLUGIN_GOOGLE_YOUTUBE_COVER,
+		'youtube_disableiframe'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_analytics'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_delayed'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_schemaorg'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_disablerelated'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+	));
 
-	// Se i valori numerici non sono coerenti imposto il valore di default
+	// Controllo delle opzioni in caso di valori non conformi
+	// richiamo della funzione per il controllo isnull()
 
-	if (trim($options['youtube_channel'])         == '') $options['youtube_channel']         = SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL;
-	if (trim($options['youtube_width'])           == '') $options['youtube_width']           = SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH;
-	if (trim($options['youtube_height'])          == '') $options['youtube_height']          = SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT;
-	if (trim($options['youtube_margin_top'])      == '') $options['youtube_margin_top']      = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
-	if (trim($options['youtube_margin_right'])    == '') $options['youtube_margin_right']    = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO;
-	if (trim($options['youtube_margin_bottom'])   == '') $options['youtube_margin_bottom']   = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
-	if (trim($options['youtube_margin_left'])     == '') $options['youtube_margin_left']     = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO;
-	if (trim($options['youtube_margin_unit'])     == '') $options['youtube_margin_unit']     = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT;
-	if (trim($options['youtube_force_ssl'])       == '') $options['youtube_force_ssl']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_autoplay'])        == '') $options['youtube_autoplay']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_loop'])            == '') $options['youtube_loop']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_fullscreen'])      == '') $options['youtube_fullscreen']      = SZ_PLUGIN_GOOGLE_VALUE_YES;
-	if (trim($options['youtube_disablekeyboard']) == '') $options['youtube_disablekeyboard'] = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_theme'])           == '') $options['youtube_theme']           = SZ_PLUGIN_GOOGLE_YOUTUBE_THEME;
-	if (trim($options['youtube_cover'])           == '') $options['youtube_cover']           = SZ_PLUGIN_GOOGLE_YOUTUBE_COVER;
-	if (trim($options['youtube_disableiframe'])   == '') $options['youtube_disableiframe']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_analytics'])       == '') $options['youtube_analytics']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_delayed'])         == '') $options['youtube_delayed']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_schemaorg'])       == '') $options['youtube_schemaorg']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (trim($options['youtube_disablerelated'])  == '') $options['youtube_disablerelated']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
+	$options = sz_google_module_check_values_isnull($options,array(
+		'youtube_channel'            => SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL,
+		'youtube_width'              => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH,
+		'youtube_height'             => SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT,
+		'youtube_margin_top'         => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO,
+		'youtube_margin_right'       => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO,
+		'youtube_margin_bottom'      => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO,
+		'youtube_margin_left'        => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO,
+		'youtube_margin_unit'        => SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT,
+		'youtube_force_ssl'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_autoplay'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_loop'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_fullscreen'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_disablekeyboard'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_theme'              => SZ_PLUGIN_GOOGLE_YOUTUBE_THEME,
+		'youtube_cover'              => SZ_PLUGIN_GOOGLE_YOUTUBE_COVER,
+		'youtube_disableiframe'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_analytics'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_delayed'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_schemaorg'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_disablerelated'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+	));
 
-	// Se opzioni contengono valori non supportati imposto i parametri di default
+	// Chiamata alla funzione comune per controllare le variabili che devono avere
+	// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
 
-	if (!is_numeric($options['youtube_width']))         $options['youtube_width']         = SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH;
-	if (!is_numeric($options['youtube_height']))        $options['youtube_height']        = SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT;
-	if (!is_numeric($options['youtube_margin_top']))    $options['youtube_margin_top']    = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
-	if (!is_numeric($options['youtube_margin_bottom'])) $options['youtube_margin_bottom'] = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
+	$options = sz_google_module_check_values_yesno($options,array(
+		'youtube_widget'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_widget_badge'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_widget_playlist'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_badge'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_button'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_link'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_shortcode_playlist' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_responsive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_force_ssl'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_autoplay'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_loop'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_fullscreen'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_disablekeyboard'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_disableiframe'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_analytics'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_delayed'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_schemaorg'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		'youtube_disablerelated'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+	));
 
-	// Controllo opzioni per margini destro e sinistro con valore speciale "auto"
-
-	if (!is_numeric($options['youtube_margin_right']) and strtolower(trim($options['youtube_margin_right'])) <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO)
-		$options['youtube_margin_right']  = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_RIGHT;
-
-	if (!is_numeric($options['youtube_margin_left']) and strtolower(trim($options['youtube_margin_left'])) <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO)
-		$options['youtube_margin_left']   = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_LEFT;
-
-	// Controllo opzioni con caratteristiche particolari e impostazioni predefinite
-
-	if (!in_array(strtolower(trim($options['youtube_margin_unit'])),array('em','px'))) 
-		$options['youtube_margin_unit'] = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT; 
-
-	if (!in_array(strtolower(trim($options['youtube_theme'])),array('dark','light'))) 
-		$options['youtube_theme'] = SZ_PLUGIN_GOOGLE_YOUTUBE_THEME; 
-
-	if (!in_array(strtolower(trim($options['youtube_cover'])),array('local','youtube'))) 
-		$options['youtube_cover'] = SZ_PLUGIN_GOOGLE_YOUTUBE_COVER; 
-
-	// Se trovo un valore non riconosciuto imposto dei valori predefiniti validi
-
-	$selects = array(SZ_PLUGIN_GOOGLE_VALUE_NO,SZ_PLUGIN_GOOGLE_VALUE_YES);
-
-	if (!in_array($options['youtube_widget'],$selects))           $options['youtube_widget']            = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_widget_badge'],$selects))     $options['youtube_widget_badge']      = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_shortcode'],$selects))        $options['youtube_shortcode']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_shortcode_badge'],$selects))  $options['youtube_shortcode_badge']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_shortcode_button'],$selects)) $options['youtube_shortcode_button']  = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_shortcode_link'],$selects))   $options['youtube_shortcode_link']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_responsive'],$selects))       $options['youtube_responsive']        = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_force_ssl'],$selects))        $options['youtube_force_ssl']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_autoplay'],$selects))         $options['youtube_autoplay']          = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_loop'],$selects))             $options['youtube_loop']              = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_fullscreen'],$selects))       $options['youtube_fullscreen']        = SZ_PLUGIN_GOOGLE_VALUE_YES;
-	if (!in_array($options['youtube_disablekeyboard'],$selects))  $options['youtube_disablekeyboard']   = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_disableiframe'],$selects))    $options['youtube_disableiframe']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_analytics'],$selects))        $options['youtube_analytics']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_delayed'],$selects))          $options['youtube_delayed']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_schemaorg'],$selects))        $options['youtube_schemaorg']         = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!in_array($options['youtube_disablerelated'],$selects))   $options['youtube_disablerelated']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-
-	// Ritorno array con elenco delle opzioni controllate e corrette
+	// Ritorno indietro il gruppo di opzioni corretto dai
+	// controlli formali della funzione di reperimento opzioni
 
 	return $options;
 }
 
-/* ************************************************************************** */ 
-/* Funzione per la generazione di codice legato a YOUTUBE VIDEO               */
-/* ************************************************************************** */ 
+/* ************************************************************************** */
+/* YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUT */
+/* YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUT */
+/* YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUT */
+/* YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUT */
+/* YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUTUBE VIDEO YOUT */
+/* ************************************************************************** */
 
 function sz_google_module_youtube_get_code_video($atts=array())
 {
@@ -334,17 +339,30 @@ function sz_google_module_youtube_get_code_video($atts=array())
 	if (!is_numeric($margintop))    $margintop    = $options['youtube_margin_top'];
 	if (!is_numeric($marginbottom)) $marginbottom = $options['youtube_margin_bottom'];
 
-	if (!is_numeric($marginright) and strtolower(trim($marginright)) <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO)
-		$marginright = $options['youtube_margin_right'];
+	if (!is_numeric($width))        $width        = SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH;
+	if (!is_numeric($height))       $height       = SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT;
+	if (!is_numeric($margintop))    $margintop    = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
+	if (!is_numeric($marginbottom)) $marginbottom = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
 
-	if (!is_numeric($marginleft) and strtolower(trim($marginleft)) <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO)
-		$marginleft = $options['youtube_margin_left'];
+	if (!is_numeric($marginright) and strtolower(trim($marginright)) <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginright = $options['youtube_margin_right'];
+	if (!is_numeric($marginleft)  and strtolower(trim($marginleft))  <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginleft  = $options['youtube_margin_left'];
 
-	if (!in_array($marginunit,array('em','px'))) 
-		$marginunit = $options['youtube_margin_unit']; 
+	if (!is_numeric($marginright) and strtolower(trim($marginright)) <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginright = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_RIGHT;
+	if (!is_numeric($marginleft)  and strtolower(trim($marginleft))  <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginleft  = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_LEFT;
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if (!in_array($marginunit,array('em','px')))    $marginunit = $options['youtube_margin_unit']; 
+	if (!in_array($theme,array('dark','light')))    $theme      = $options['youtube_theme']; 
+	if (!in_array($cover,array('local','youtube'))) $cover      = $options['youtube_cover']; 
+
+	if (!in_array($marginunit,array('em','px')))    $marginunit = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT; 
+	if (!in_array($theme,array('dark','light')))    $theme      = SZ_PLUGIN_GOOGLE_YOUTUBE_THEME; 
+	if (!in_array($cover,array('local','youtube'))) $cover      = SZ_PLUGIN_GOOGLE_YOUTUBE_COVER; 
 
 	if (!ctype_digit($start)) $start = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!ctype_digit($end))   $start = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	if (!ctype_digit($end))   $end   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
 	// Se ho impostato la modalità responsive la dimensione è sempre 100%
 	// per occupare tutto lo spazio del contenitore genitore, stesso controllo per valore=0
@@ -385,7 +403,7 @@ function sz_google_module_youtube_get_code_video($atts=array())
 	{
 		$HTML  = '<div class="sz-youtube-main" style="'.$CSS.'">';
 		$HTML .= '<div class="sz-youtube-warn" style="display:block;padding:1em 0;text-align:center;background-color:#e1e1e1;border:1px solid #b1b1b1;">';
-		$HTML .= ucfirst(__('youtube URL string specified is not valid.','szgoogle'));
+		$HTML .= ucfirst(sz_google_babel('youtube URL string specified is not valid.'));
 		$HTML .= '</div>';
 		$HTML .= '</div>';
 
@@ -458,7 +476,7 @@ function sz_google_module_youtube_get_code_video($atts=array())
 	$EMBEDURL = $datas['scheme'].'://www.youtube.com/embed/'.$vidID.'?v='.$vidID;
 	$THUMBNAILURL = $datas['scheme'].'://img.youtube.com/vi/'.$vidID.'/hqdefault.jpg';
 
-	if ($name == SZ_PLUGIN_GOOGLE_VALUE_NULL) $NAME = esc_html(ucfirst(__('youtube video','szgoogle')));
+	if ($name == SZ_PLUGIN_GOOGLE_VALUE_NULL) $NAME = esc_html(ucfirst(sz_google_babel('youtube video')));
 		else $NAME = esc_html($name);	
 
 	if ($description != SZ_PLUGIN_GOOGLE_VALUE_NULL) $DESCRIPTION = esc_html($description);
@@ -596,211 +614,8 @@ function sz_google_module_youtube_get_code_video($atts=array())
 	return $HTML;
 }
 
-/* ************************************************************************** */ 
-/* Funzione per la generazione di codice legato a YOUTUBE BADGE               */
-/* ************************************************************************** */ 
-
-function sz_google_module_youtube_get_code_badge($atts=array())
-{
-	$options = sz_google_module_youtube_options();
-
-	// Estrazione dei valori specificati nello shortcode, i valori ritornati
-	// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
-	if (!is_array($atts)) $atts = array();
-
-	extract(shortcode_atts(array(
-		'channel'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'widthunit'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'height'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'heightunit' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-	),$atts));
-
-	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
-	// stringa minuscolo per il controllo di valori speciali come "auto"
-
-	$channel    = trim($channel);
-	$width      = trim($width);
-	$widthunit  = trim($widthunit);
-	$height     = trim($height);
-	$heightunit = trim($heightunit);
-
-	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-	// precedenti metto dei default assoluti che possono essere cambiati
-
-	if ($channel    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $channel    = $options['youtube_channel'];
-	if ($width      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width      = '300';
-	if ($height     == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height     = '100';
-	if ($widthunit  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $widthunit  = 'px';
-	if ($heightunit == SZ_PLUGIN_GOOGLE_VALUE_NULL) $heightunit = 'px';
-
-	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-	// precedenti metto dei default assoluti che possono essere cambiati
-
-	if (!ctype_digit($width))  $width  = '300'; 
-	if (!ctype_digit($height)) $height = '100'; 
-
-	// Creazione codice HTML per embed code da inserire nella pagina wordpress
-
-	$HTML  = '<iframe src="https://www.youtube.com/subscribe_widget?p='.$channel.'" ';
-	$HTML .= 'style="overflow:hidden;';
-	$HTML .= 'width:'.$width.$widthunit.';';
-	$HTML .= 'height:'.$height.$heightunit.';';
-	$HTML .= 'border:0;" ';
-	$HTML .= 'scrolling="no" frameborder="0"';
-	$HTML .= '></iframe>';
-
-	// Ritorno per la funzione con tutta la stringa contenente
-	// il codice HTML per l'inserimento di un video youtube 
-
-	return $HTML;
-}
-
-/* ************************************************************************** */ 
-/* Funzione per la generazione di codice legato a YOUTUBE BUTTON              */
-/* ************************************************************************** */ 
-
-function sz_google_module_youtube_get_code_button($atts=array())
-{
-	$options = sz_google_module_youtube_options();
-
-	// Estrazione dei valori specificati nello shortcode, i valori ritornati
-	// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
-	if (!is_array($atts)) $atts = array();
-
-	extract(shortcode_atts(array(
-		'channel' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'layout'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'theme'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-	),$atts));
-
-	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
-	// stringa minuscolo per il controllo di valori speciali come "auto"
-
-	$channel = trim($channel);
-	$layout  = trim($layout);
-	$theme   = trim($theme);
-
-	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-	// precedenti metto dei default assoluti che possono essere cambiati
-
-	if ($channel == SZ_PLUGIN_GOOGLE_VALUE_NULL) $channel = $options['youtube_channel'];
-	if ($layout  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $layout  = 'default';
-	if ($theme   == SZ_PLUGIN_GOOGLE_VALUE_NULL) $theme   = 'default';
-
-	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-	// precedenti metto dei default assoluti che possono essere cambiati
-
-	if (!in_array($layout,array('default','full'))) $layout = 'default'; 
-	if (!in_array($theme, array('default','dark'))) $theme  = 'default'; 
-
-	// Verifico se canale è un nome o identificativo univoco 
-	// come ad esempio il canale wordpress italy+ UCJqiM61oRRvhTD5il2n56xg
-
-	$channel_type = sz_google_module_youtube_check_channel($channel);
-
-	// Creazione codice HTML per embed code da inserire nella pagina wordpress
-
-	$HTML  = '<div class="g-ytsubscribe" ';
-
-	if ($channel_type == 'ID') $HTML .= 'data-channelid="'.$channel.'" ';
-		else $HTML .= 'data-channel="'.$channel.'" ';
-
-	$HTML .= 'data-layout="'.$layout.'" ';
-	$HTML .= 'data-theme="'.$theme.'"';
-	$HTML .= '></div>';
-
-	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
-	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
-
-	add_action('wp_footer','sz_google_module_youtube_loading_script');
-
-	// Ritorno per la funzione con tutta la stringa contenente
-	// il codice HTML per l'inserimento di un video youtube 
-
-	return $HTML;
-}
-
-/* ************************************************************************** */ 
-/* Funzione per la generazione di codice legato a YOUTUBE LINK                */
-/* ************************************************************************** */ 
-
-function sz_google_module_youtube_get_code_link($atts=array())
-{
-	$options = sz_google_module_youtube_options();
-
-	// Estrazione dei valori specificati nello shortcode, i valori ritornati
-	// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
-	if (!is_array($atts)) $atts = array();
-
-	extract(shortcode_atts(array(
-		'channel'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'subscription' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'content'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-	),$atts));
-
-	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
-	// stringa minuscolo per il controllo di valori speciali come "auto"
-
-	$channel      = trim($channel);
-	$subscription = trim($subscription);
-	$text         = trim($text);
-
-	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-	// precedenti metto dei default assoluti che possono essere cambiati
-
-	if ($channel      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $channel = $options['youtube_channel'];
-	if ($subscription == SZ_PLUGIN_GOOGLE_VALUE_NULL) $subscription  = SZ_PLUGIN_GOOGLE_VALUE_YES;
-	if ($text         == SZ_PLUGIN_GOOGLE_VALUE_NULL) $text = __('channel youtube','szgoogle');
-
-	// Conversione dei valori specificati direttamete nei parametri con
-	// i valori usati per la memorizzazione dei valori di default
-
-	if ($subscription == 'yes' or $subscription == 'y') $subscription = SZ_PLUGIN_GOOGLE_VALUE_YES; 
-	if ($subscription == 'no'  or $subscription == 'n') $subscription = SZ_PLUGIN_GOOGLE_VALUE_NO; 
-
-	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-	// precedenti metto dei default assoluti che possono essere cambiati
-
-	$YESNO = array(SZ_PLUGIN_GOOGLE_VALUE_YES,SZ_PLUGIN_GOOGLE_VALUE_NO);
-
-	if (!in_array($subscription,$YESNO)) $subscription = SZ_PLUGIN_GOOGLE_VALUE_YES; 
-
-	// Verifico se canale è un nome o identificativo univoco 
-	// come ad esempio il canale wordpress italy+ UCJqiM61oRRvhTD5il2n56xg
-
-	$channel_type = sz_google_module_youtube_check_channel($channel);
-
-	if ($channel_type == 'ID') $ytURL = 'http://www.youtube.com/channel/';
-		else $ytURL = 'http://www.youtube.com/user/';
-
-	// Creazione codice HTML per embed code da inserire nella pagina wordpress
-
-	if (empty($content)) 
-	{
-		$HTML  = '<a href="'.$ytURL.$channel.'?sub_confirmation='.$subscription.'">';
-		$HTML .= $text;
-		$HTML .= '</a>';
-
-	} else {
-
-		$HTML  = '<a href="'.$ytURL.$channel.'?sub_confirmation='.$subscription.'">';
-		$HTML .= $content;
-		$HTML .= '</a>';
-	}
-
-	// Ritorno per la funzione con tutta la stringa contenente
-	// il codice HTML per l'inserimento di un video youtube 
-
-	return $HTML;
-}
-
 /* ************************************************************************** */
-/* Funzione shortcode per inserimento GOOGLE YOUTUBE VIDEO                    */
+/* YOUTUBE VIDEO funzione per definizione shortcode                           */
 /* ************************************************************************** */
 
 function sz_google_shortcodes_youtube_video($atts,$content=null) 
@@ -870,8 +685,215 @@ function sz_google_shortcodes_youtube_video($atts,$content=null)
 	return $HTML;
 }
 
+/* ************************************************************************** */ 
+/* YOUTUBE VIDEO definizione ed elaborazione del widget su sidebar            */ 
+/* ************************************************************************** */ 
+
+class sz_google_module_youtube_widget_video extends WP_Widget_SZ_Google
+{
+	function __construct() 
+	{
+		parent::__construct('SZ-Google-Youtube-Video',__('SZ-Google - Youtube video','szgoogleadmin'),array(
+			'classname'   => 'sz-widget-google sz-widget-google-youtube sz-widget-google-youtube-video', 
+			'description' => ucfirst(__('widget for youtube video','szgoogleadmin'))
+		));
+	}
+
+	// Funzione per la visualizzazione del widget con lettura parametri
+	// di configurazione e preparazione codice HTML da usare nella sidebar
+
+	function widget($args,$instance) 
+	{
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
+
+		$options = $this->common_empty(array(
+			'url'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'responsive'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'height'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'margintop'       => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginright'     => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginbottom'    => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginleft'      => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginunit'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'title'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'analytics'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'delayed'         => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'autoplay'        => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'loop'            => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'fullscreen'      => SZ_PLUGIN_GOOGLE_YOUTUBE_YES,
+			'schemaorg'       => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'disableiframe'   => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'disablekeyboard' => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'disablerelated'  => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'name'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'description'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'duration'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'start'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'end'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'theme'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'cover'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		),$instance);
+
+		// Creazione del codice HTML per il widget attuale richiamando la
+		// funzione base che viene richiamata anche dallo shortcode corrispondente
+
+		$HTML = sz_google_module_youtube_get_code_video($options);
+
+		// Output del codice HTML legato al widget da visualizzare
+		// chiamata alla funzione generale per wrap standard
+
+		echo $this->common_widget($args,$instance,$HTML);
+	}
+
+	// Funzione per modifica parametri collegati al widget con 
+	// memorizzazione dei valori direttamente nel database wordpress
+
+	function update($new_instance,$old_instance) 
+	{
+		return $this->common_update(array(
+			'title'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'url'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'responsive'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'width'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'height'          => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'delayed'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'autoplay'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'loop'            => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'fullscreen'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'schemaorg'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'disableiframe'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'disablekeyboard' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'disablerelated'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'start'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'end'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'theme'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'cover'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		),$new_instance,$old_instance);
+	}
+
+	// Funzione per la visualizzazione del form presente sulle 
+	// sidebar nel pannello di amministrazione di wordpress
+	
+	function form($instance) 
+	{
+		$array = array(
+			'title'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'url'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'responsive'      => SZ_PLUGIN_GOOGLE_YOUTUBE_YES,
+			'width'           => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDGET_WIDTH,
+			'height'          => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDGET_HEIGHT,
+			'delayed'         => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'autoplay'        => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'loop'            => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'fullscreen'      => SZ_PLUGIN_GOOGLE_YOUTUBE_YES,
+			'schemaorg'       => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'disableiframe'   => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'disablekeyboard' => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'disablerelated'  => SZ_PLUGIN_GOOGLE_YOUTUBE_NO,
+			'start'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'end'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'theme'           => SZ_PLUGIN_GOOGLE_YOUTUBE_THEME,
+			'cover'           => SZ_PLUGIN_GOOGLE_YOUTUBE_COVER,
+		);
+
+		// Creazione array per elenco campi da recuperare su FORM
+
+		$instance = wp_parse_args((array)$instance,$array);
+
+		$title           = trim(strip_tags($instance['title']));
+		$url             = trim(strip_tags($instance['url']));
+		$responsive      = trim(strip_tags($instance['responsive']));
+		$width           = trim(strip_tags($instance['width']));
+		$height          = trim(strip_tags($instance['height']));
+		$delayed         = trim(strip_tags($instance['delayed']));
+		$autoplay        = trim(strip_tags($instance['autoplay']));
+		$loop            = trim(strip_tags($instance['loop']));
+		$fullscreen      = trim(strip_tags($instance['fullscreen']));
+		$schemaorg       = trim(strip_tags($instance['schemaorg']));
+		$disableiframe   = trim(strip_tags($instance['disableiframe']));
+		$disablekeyboard = trim(strip_tags($instance['disablekeyboard']));
+		$disablerelated  = trim(strip_tags($instance['disablerelated']));
+		$start           = trim(strip_tags($instance['start']));
+		$end             = trim(strip_tags($instance['end']));
+		$theme           = trim(strip_tags($instance['theme']));
+		$cover           = trim(strip_tags($instance['cover']));
+
+		// Richiamo il template per la visualizzazione della
+		// parte che riguarda il pannello di amministrazione
+
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-youtube-video.php');
+	}
+}
+
 /* ************************************************************************** */
-/* Funzione shortcode per inserimento GOOGLE YOUTUBE BADGE                    */
+/* YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUT */
+/* YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUT */
+/* YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUT */
+/* YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUT */
+/* YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUTUBE BADGE YOUT */
+/* ************************************************************************** */
+
+function sz_google_module_youtube_get_code_badge($atts=array())
+{
+	$options = sz_google_module_youtube_options();
+
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'channel'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'widthunit'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'height'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'heightunit' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
+
+	$channel    = trim($channel);
+	$width      = trim($width);
+	$widthunit  = trim($widthunit);
+	$height     = trim($height);
+	$heightunit = trim($heightunit);
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if ($channel    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $channel    = $options['youtube_channel'];
+	if ($width      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width      = '300';
+	if ($height     == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height     = '100';
+	if ($widthunit  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $widthunit  = 'px';
+	if ($heightunit == SZ_PLUGIN_GOOGLE_VALUE_NULL) $heightunit = 'px';
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if (!ctype_digit($width))  $width  = '300'; 
+	if (!ctype_digit($height)) $height = '100'; 
+
+	// Creazione codice HTML per embed code da inserire nella pagina wordpress
+
+	$HTML  = '<iframe src="https://www.youtube.com/subscribe_widget?p='.$channel.'" ';
+	$HTML .= 'style="overflow:hidden;';
+	$HTML .= 'width:'.$width.$widthunit.';';
+	$HTML .= 'height:'.$height.$heightunit.';';
+	$HTML .= 'border:0;" ';
+	$HTML .= 'scrolling="no" frameborder="0"';
+	$HTML .= '></iframe>';
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento di un video youtube 
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* YOUTUBE BADGE funzione per definizione shortcode                           */
 /* ************************************************************************** */
 
 function sz_google_shortcodes_youtube_badge($atts,$content=null) 
@@ -902,7 +924,77 @@ function sz_google_shortcodes_youtube_badge($atts,$content=null)
 }
 
 /* ************************************************************************** */
-/* Funzione shortcode per inserimento GOOGLE YOUTUBE BUTTON                   */
+/* YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON */
+/* YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON */
+/* YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON */
+/* YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON */
+/* YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON YOUTUBE BUTTON */
+/* ************************************************************************** */
+
+function sz_google_module_youtube_get_code_button($atts=array())
+{
+	$options = sz_google_module_youtube_options();
+
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'channel' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'layout'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'theme'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
+
+	$channel = trim($channel);
+	$layout  = trim($layout);
+	$theme   = trim($theme);
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if ($channel == SZ_PLUGIN_GOOGLE_VALUE_NULL) $channel = $options['youtube_channel'];
+	if ($layout  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $layout  = 'default';
+	if ($theme   == SZ_PLUGIN_GOOGLE_VALUE_NULL) $theme   = 'default';
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if (!in_array($layout,array('default','full'))) $layout = 'default'; 
+	if (!in_array($theme, array('default','dark'))) $theme  = 'default'; 
+
+	// Verifico se canale è un nome o identificativo univoco 
+	// come ad esempio il canale wordpress italy+ UCJqiM61oRRvhTD5il2n56xg
+
+	$channel_type = sz_google_module_youtube_check_channel($channel);
+
+	// Creazione codice HTML per embed code da inserire nella pagina wordpress
+
+	$HTML  = '<div class="g-ytsubscribe" ';
+
+	if ($channel_type == 'ID') $HTML .= 'data-channelid="'.$channel.'" ';
+		else $HTML .= 'data-channel="'.$channel.'" ';
+
+	$HTML .= 'data-layout="'.$layout.'" ';
+	$HTML .= 'data-theme="'.$theme.'"';
+	$HTML .= '></div>';
+
+	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
+	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
+
+	add_action('wp_footer','sz_google_module_youtube_loading_script');
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento di un video youtube 
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* YOUTUBE BUTTON funzione per definizione shortcode                          */
 /* ************************************************************************** */
 
 function sz_google_shortcodes_youtube_button($atts,$content=null) 
@@ -929,7 +1021,87 @@ function sz_google_shortcodes_youtube_button($atts,$content=null)
 }
 
 /* ************************************************************************** */
-/* Funzione shortcode per inserimento GOOGLE YOUTUBE LINK                     */
+/* YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE L */
+/* YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE L */
+/* YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE L */
+/* YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE L */
+/* YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE LINK YOUTUBE L */
+/* ************************************************************************** */
+
+function sz_google_module_youtube_get_code_link($atts=array())
+{
+	$options = sz_google_module_youtube_options();
+
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'channel'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'subscription' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'content'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
+
+	$channel      = trim($channel);
+	$subscription = trim($subscription);
+	$text         = trim($text);
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if ($channel      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $channel = $options['youtube_channel'];
+	if ($subscription == SZ_PLUGIN_GOOGLE_VALUE_NULL) $subscription  = SZ_PLUGIN_GOOGLE_VALUE_YES;
+	if ($text         == SZ_PLUGIN_GOOGLE_VALUE_NULL) $text = sz_google_babel('channel youtube');
+
+	// Conversione dei valori specificati direttamete nei parametri con
+	// i valori usati per la memorizzazione dei valori di default
+
+	if ($subscription == 'yes' or $subscription == 'y') $subscription = SZ_PLUGIN_GOOGLE_VALUE_YES; 
+	if ($subscription == 'no'  or $subscription == 'n') $subscription = SZ_PLUGIN_GOOGLE_VALUE_NO; 
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	$YESNO = array(SZ_PLUGIN_GOOGLE_VALUE_YES,SZ_PLUGIN_GOOGLE_VALUE_NO);
+
+	if (!in_array($subscription,$YESNO)) $subscription = SZ_PLUGIN_GOOGLE_VALUE_YES; 
+
+	// Verifico se canale è un nome o identificativo univoco 
+	// come ad esempio il canale wordpress italy+ UCJqiM61oRRvhTD5il2n56xg
+
+	$channel_type = sz_google_module_youtube_check_channel($channel);
+
+	if ($channel_type == 'ID') $ytURL = 'http://www.youtube.com/channel/';
+		else $ytURL = 'http://www.youtube.com/user/';
+
+	// Creazione codice HTML per embed code da inserire nella pagina wordpress
+
+	if (empty($content)) 
+	{
+		$HTML  = '<a href="'.$ytURL.$channel.'?sub_confirmation='.$subscription.'">';
+		$HTML .= $text;
+		$HTML .= '</a>';
+
+	} else {
+
+		$HTML  = '<a href="'.$ytURL.$channel.'?sub_confirmation='.$subscription.'">';
+		$HTML .= $content;
+		$HTML .= '</a>';
+	}
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento di un video youtube 
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* YOUTUBE LINK funzione per definizione shortcode                            */
 /* ************************************************************************** */
 
 function sz_google_shortcodes_youtube_link($atts,$content=null) 
@@ -957,7 +1129,309 @@ function sz_google_shortcodes_youtube_link($atts,$content=null)
 }
 
 /* ************************************************************************** */
-/* Funzione per aggiungere un video al caricamento tramite API su footer      */
+/* YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUB */
+/* YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUB */
+/* YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUB */
+/* YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUB */
+/* YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUBE PLAYLIST YOUTUB */
+/* ************************************************************************** */
+
+function sz_google_module_youtube_get_code_playlist($atts=array())
+{
+	$options = sz_google_module_youtube_options();
+
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	if (!is_array($atts)) $atts = array();
+
+	extract(shortcode_atts(array(
+		'id'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'height'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+	// stringa minuscolo per il controllo di valori speciali come "auto"
+
+	$id           = trim($id);
+	$width        = strtolower(trim($width));
+	$height       = strtolower(trim($height));
+	$margintop    = strtolower(trim($margintop));
+	$marginright  = strtolower(trim($marginright));
+	$marginbottom = strtolower(trim($marginbottom));
+	$marginleft   = strtolower(trim($marginleft));
+	$marginunit   = strtolower(trim($marginunit));
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width  = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+	if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+
+	if (!is_numeric($width)  and $width  <> SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width  = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+	if (!is_numeric($height) and $height <> SZ_PLUGIN_GOOGLE_VALUE_AUTO) $height = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if (!is_numeric($margintop))    $margintop    = $options['youtube_margin_top'];
+	if (!is_numeric($marginbottom)) $marginbottom = $options['youtube_margin_bottom'];
+
+	if (!is_numeric($margintop))    $margintop    = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
+	if (!is_numeric($marginbottom)) $marginbottom = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO;
+
+	if (!is_numeric($marginright) and $marginright <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginright = $options['youtube_margin_right'];
+	if (!is_numeric($marginleft)  and $marginleft  <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginleft  = $options['youtube_margin_left'];
+
+	if (!is_numeric($marginright) and $marginright <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginright = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_RIGHT;
+	if (!is_numeric($marginleft)  and $marginleft  <> SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO) $marginleft  = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_LEFT;
+
+	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+	// precedenti metto dei default assoluti che possono essere cambiati
+
+	if (!in_array($marginunit,array('em','px')))    $marginunit = $options['youtube_margin_unit']; 
+	if (!in_array($marginunit,array('em','px')))    $marginunit = SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_UNIT; 
+
+	// Creazione variabile per il calcolo dei margini da applicare
+	// se margini destra e sinistra sono uguali a zero diventano "auto" 
+
+	$CSS1 = '';
+
+	if ($margintop == '0') $CSS1 .= 'margin-top:0;';
+		else $CSS1 .= 'margin-top:'.trim($margintop).trim($marginunit).';';
+
+	if (in_array($marginright,array('0','auto'))) $CSS1 .= 'margin-right:'.$marginright.';';
+		else $CSS1 .= 'margin-right:'.trim($marginright).trim($marginunit).';';
+
+	if ($marginbottom == '0') $CSS1 .= 'margin-bottom:0;';
+		else $CSS1 .= 'margin-bottom:'.trim($marginbottom).trim($marginunit).';';
+
+	if (in_array($marginleft,array('0','auto'))) $CSS1 .= 'margin-left:'.$marginleft.';';
+		else $CSS1 .= 'margin-left:'.trim($marginleft).trim($marginunit).';';
+
+	// Se non ho trovato nessun video ID durante l'analisi URL
+	// preparo codice HTML per indicare errore di elaborazione funzione
+
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+	{
+		$HTML  = '<div class="sz-youtube-main" style="'.$CSS.'">';
+		$HTML .= '<div class="sz-youtube-warn" style="display:block;padding:1em 0;text-align:center;background-color:#e1e1e1;border:1px solid #b1b1b1;">';
+		$HTML .= ucfirst(sz_google_babel('youtube playlist ID is not valid.'));
+		$HTML .= '</div>';
+		$HTML .= '</div>';
+
+		return $HTML;
+	}
+
+	// Controllo se ho specificato una altezza automatica o specifica, solo
+	// nel primo caso utilizzo un contenitore con la tecnica usata nel responsive
+
+	$HTML = '';
+	$CSS2 = '';
+	$CSS3 = '';
+
+	if ($width  == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $CSS2 .= 'width:100%;';
+	if ($width  <> SZ_PLUGIN_GOOGLE_VALUE_AUTO) $CSS2 .= 'width:' .$width .'px;';
+	if ($height <> SZ_PLUGIN_GOOGLE_VALUE_AUTO) $CSS3 .= 'height:'.$height.'px;';
+
+	// Attivazione contenitore con tecnica per responsive o nel caso siano state
+	// specificate delle dimensioni il contenitore sarà a dimensione fissa
+
+	if ($height == SZ_PLUGIN_GOOGLE_VALUE_AUTO)
+	{
+		$HTML .= '<div class="sz-youtube-cont" ';
+		$HTML .= 'style="';
+		$HTML .= 'position:relative;';
+		$HTML .= 'padding-bottom:56.25%;';
+		$HTML .= 'height:0;';
+		$HTML .= 'overflow:hidden;';
+		$HTML .= $CSS2;
+		$HTML .= '">';
+
+	} else {
+
+		$HTML .= '<div class="sz-youtube-cont" ';
+		$HTML .= 'style="';
+		$HTML .= 'position:relative;';
+		$HTML .= $CSS2.$CSS3;
+		$HTML .= '">';
+	}
+
+	// Creazione codice HTML per inserimento nella pagina, la tecnica usata
+	// può essere la definizione di un IFRAME e la chiamata ad una funzione API 
+
+	$HTML .= '<div class="sz-youtube-wrap" style="'.$CSS1.'">';
+	$HTML .= '<div class="sz-youtube-playlist">';
+	$HTML .= '<iframe src="http://www.youtube.com/embed/videoseries?';
+	$HTML .= 'list='.$id;
+	$HTML .= '&amp;wmode=opaque';
+	$HTML .= '" ';
+	$HTML .= 'style="position:absolute;top:0;left:0;width:100%;height:100%;" ';
+	$HTML .= 'frameborder="0">';
+	$HTML .= '</iframe>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+	$HTML .= '</div>';
+
+	// Ritorno per la funzione con tutta la stringa contenente
+	// il codice HTML per l'inserimento di un video youtube 
+
+	return $HTML;
+}
+
+/* ************************************************************************** */
+/* YOUTUBE PLAYLIST funzione per definizione shortcode                        */
+/* ************************************************************************** */
+
+function sz_google_shortcodes_youtube_playlist($atts,$content=null) 
+{
+	// Estrazione dei valori specificati nello shortcode, i valori ritornati
+	// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+	extract(shortcode_atts(array(
+		'id'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'height'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+	),$atts));
+
+	// Preparazione codice HTML dello shortcode tramite la funzione
+	// standard di preparazione codice sia per shortcode che widgets
+
+	$HTML  = sz_google_module_youtube_get_code_playlist(array(
+		'id'           => trim($id),
+		'width'        => trim($width),
+		'height'       => trim($height),
+		'margintop'    => trim($margintop),
+		'marginright'  => trim($marginright),
+		'marginbottom' => trim($marginbottom),
+		'marginleft'   => trim($marginleft),
+		'marginunit'   => trim($marginunit),
+	));
+
+	return $HTML;
+}
+
+/* ************************************************************************** */ 
+/* YOUTUBE PLAYLIST definizione ed elaborazione del widget su sidebar         */ 
+/* ************************************************************************** */ 
+
+class sz_google_module_youtube_widget_playlist extends WP_Widget_SZ_Google
+{
+	function __construct() 
+	{
+		parent::__construct('SZ-Google-Youtube-Playlist',__('SZ-Google - Youtube playlist','szgoogleadmin'),array(
+			'classname'   => 'sz-widget-google sz-widget-google-youtube sz-widget-google-youtube-playlist', 
+			'description' => ucfirst(__('widget for youtube playlist','szgoogleadmin'))
+		));
+	}
+
+	// Funzione per la visualizzazione del widget con lettura parametri
+	// di configurazione e preparazione codice HTML da usare nella sidebar
+
+	function widget($args,$instance) 
+	{
+		// Controllo se esistono le variabili che servono durante l'elaborazione
+		// dello script e assegno dei valori di default nel caso non fossero specificati
+
+		$options = $this->common_empty(array(
+			'id'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'height'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+			'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		),$instance);
+
+		// Definizione delle variabili di controllo del widget, questi valori non
+		// interessano le opzioni della funzione base ma incidono su alcuni aspetti
+
+		$controls = $this->common_empty(array(
+			'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		),$instance);
+
+		// Correzione del valore di dimensione nel caso venga
+		// specificata la maniera automatica e quindi usare javascript
+
+		if ($controls['width_auto']  == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['width']  = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+		if ($controls['height_auto'] == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['height'] = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+
+		// Creazione del codice HTML per il widget attuale richiamando la
+		// funzione base che viene richiamata anche dallo shortcode corrispondente
+
+		$HTML = sz_google_module_youtube_get_code_playlist($options);
+
+		// Output del codice HTML legato al widget da visualizzare
+		// chiamata alla funzione generale per wrap standard
+
+		echo $this->common_widget($args,$instance,$HTML);
+	}
+
+	// Funzione per modifica parametri collegati al widget con 
+	// memorizzazione dei valori direttamente nel database wordpress
+
+	function update($new_instance,$old_instance) 
+	{
+		return $this->common_update(array(
+			'id'          => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'width'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'height'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		),$new_instance,$old_instance);
+	}
+
+	// Funzione per la visualizzazione del form presente sulle 
+	// sidebar nel pannello di amministrazione di wordpress
+	
+	function form($instance) 
+	{
+		$array = array(
+			'title'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'id'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width'       => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDGET_WIDTH,
+			'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'height'      => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDGET_HEIGHT,
+			'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		);
+
+		// Creazione array per elenco campi da recuperare su FORM
+
+		$instance = wp_parse_args((array)$instance,$array);
+
+		$title           = trim(strip_tags($instance['title']));
+		$id              = trim(strip_tags($instance['id']));
+		$width           = trim(strip_tags($instance['width']));
+		$width_auto      = trim(strip_tags($instance['width_auto']));
+		$height          = trim(strip_tags($instance['height']));
+		$height_auto     = trim(strip_tags($instance['height_auto']));
+
+		// Richiamo il template per la visualizzazione della
+		// parte che riguarda il pannello di amministrazione
+
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-youtube-playlist.php');
+	}
+}
+
+/* ************************************************************************** */
+/* YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON */
+/* YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON */
+/* YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON */
+/* YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON */
+/* YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON YOUTUBE COMMON */
 /* ************************************************************************** */
 
 function sz_google_module_youtube_add_video_API($opts=array())
@@ -971,7 +1445,7 @@ function sz_google_module_youtube_add_video_API($opts=array())
 }
 
 /* ************************************************************************** */
-/* Funzione per aggiungere un video al caricamento tramite API su footer      */
+/* YOUTUBE Funzione per aggiungere un video al caricamento tramite API        */
 /* ************************************************************************** */
 
 function sz_google_module_youtube_add_script_footer()
@@ -1024,15 +1498,15 @@ function sz_google_module_youtube_add_script_footer()
 				$HTML .=			"width:'100%',";
 				$HTML .=			"height:'100%',";
 				$HTML .=			"videoId:'".$value['video']."',";
+
+//				if ($value['start'] != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= "'startSeconds':".$value['start'].",";
+//				if ($value['end']   != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= "'endSeconds':".$value['end'].",";//
+
 				$HTML .=			'playerVars: {';
 				$HTML .= 			"'controls':1,";
 				$HTML .= 			"'iv_load_policy':3,";
 				$HTML .= 			"'autoplay':".$value['autoplay'].",";
 				$HTML .= 			"'loop':".$value['loop'].",";
-
-				if ($value['start'] != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= 'start:'.$value['start'].",";
-				if ($value['end']   != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= 'end:'.$value['end'].",";
-
 				$HTML .= 			"'rel':".$value['disablerelated'].",";
 				$HTML .= 			"'fs':".$value['fullscreen'].",";
 				$HTML .= 			"'disablekb':".$value['disablekeyboard'].",";
@@ -1082,7 +1556,7 @@ function sz_google_module_youtube_add_script_footer()
 }
 
 /* ************************************************************************** */
-/* Funzione per aggiungere il codice javascript plusone per i bottoni        */
+/* YOUTUBE Funzione per aggiungere il codice javascript plusone per i bottoni */
 /* ************************************************************************** */
 
 function sz_google_module_youtube_loading_script()
@@ -1114,7 +1588,7 @@ function sz_google_module_youtube_loading_script()
 }
 
 /* ************************************************************************** */
-/* Funzione per controllare se canale è un nome o un codice ID                */
+/* YOUTUBE Funzione per controllare se canale è un nome o un codice ID        */
 /* ************************************************************************** */
 
 function sz_google_module_youtube_check_channel($channel) 
@@ -1122,4 +1596,3 @@ function sz_google_module_youtube_check_channel($channel)
 	if (strlen($channel) == 24 and substr($channel,0,2) == 'UC') return "ID";
 		else return "NAME";
 }
-

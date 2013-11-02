@@ -11,7 +11,8 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 function sz_google_admin_panoramio_menu() 
 {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google panoramio','szgoogleadmin')),ucwords(__('google panoramio','szgoogleadmin')),'manage_options','sz-google-admin-panoramio.php','sz_google_admin_panoramio_callback'); 
+		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google panoramio','szgoogleadmin')),ucwords(__('google panoramio','szgoogleadmin')),'manage_options','sz-google-admin-panoramio.php','sz_google_admin_panoramio_callback'); 
+		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
 	}
 }
 

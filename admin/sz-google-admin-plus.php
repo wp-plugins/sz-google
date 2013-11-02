@@ -11,7 +11,8 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 function sz_google_admin_plus_menu() 
 {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - Google+','Google+','manage_options','sz-google-admin-gplus.php','sz_google_admin_plus_callback'); 
+		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - Google+','Google+','manage_options','sz-google-admin-gplus.php','sz_google_admin_plus_callback'); 
+		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
 	}
 }
 

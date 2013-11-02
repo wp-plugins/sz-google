@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: http://startbyzero.com/webmaster/wordpress-plugin/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/117259631219963935481/" target="_blank">official page</a> present in the social network Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WordPress Italy+</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.6.0
+Version: 1.6.1
 Author URI: https://plus.google.com/106567288702045182616
 License: GPL2
 
@@ -135,6 +135,9 @@ define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE','6');
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION','bottom');
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH','1');
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY','2');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_SET','public');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS','4');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS','1');
 
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE','photo');
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH' ,'auto');
@@ -143,6 +146,9 @@ define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION','horizontal');
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE','6');
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION','bottom');
 define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY','2');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET','public');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS','4');
+define('SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS','1');
 
 /* ************************************************************************** */
 /* Definizione delle costanti da usare nel modulo GOOGLE TRANSLATE            */
@@ -154,6 +160,8 @@ define('SZ_PLUGIN_GOOGLE_TRANSLATE_MODE','I1');
 /* Definizione delle costanti da usare nel modulo GOOGLE YOUTUBE              */
 /* ************************************************************************** */
 
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_NO' ,'n');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_YES','y');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH' ,'600');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT','400');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_TOP','');
@@ -166,6 +174,8 @@ define('SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_ZERO','0');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_THEME','dark');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_COVER','local');
 define('SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL','startbyzero');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_WIDGET_WIDTH' ,'300');
+define('SZ_PLUGIN_GOOGLE_YOUTUBE_WIDGET_HEIGHT','200');
 
 /* ************************************************************************** */
 /* Carico il file pluggable se nessuno ha definito le funzioni utente         */
@@ -330,10 +340,12 @@ function sz_google_plugin_activate()
 		'youtube_channel'                   => SZ_PLUGIN_GOOGLE_YOUTUBE_CHANNEL,
 		'youtube_widget'                    => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_widget_badge'              => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_widget_playlist'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_shortcode'                 => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_shortcode_badge'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_shortcode_button'          => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_shortcode_link'            => SZ_PLUGIN_GOOGLE_VALUE_YES,
+		'youtube_shortcode_playlist'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_responsive'                => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		'youtube_width'                     => SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH,
 		'youtube_height'                    => SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT,

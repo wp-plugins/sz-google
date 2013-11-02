@@ -4,7 +4,7 @@
 /* ************************************************************************** */
 if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
 
-// Definizione dei nome per le varibili per CSS id
+// Definizione dei nome per le variabili CSS id
 
 $ID_title         = $this->get_field_id('title');
 $ID_method        = $this->get_field_id('method');
@@ -18,7 +18,7 @@ $ID_tagline       = $this->get_field_id('tagline');
 $ID_author        = $this->get_field_id('author');
 $ID_align         = $this->get_field_id('align');
 
-// Definizione dei nome per le varibili per CSS name
+// Definizione dei nome per le variabili CSS name
 
 $NAME_title       = $this->get_field_name('title');
 $NAME_method      = $this->get_field_name('method');
@@ -32,7 +32,7 @@ $NAME_tagline     = $this->get_field_name('tagline');
 $NAME_author      = $this->get_field_name('author');
 $NAME_align       = $this->get_field_name('align');
 
-// Definizione dei nome per le varibili contenuto
+// Definizione dei nome per le variabili contenuto
 
 $VALUE_title      = esc_attr($title);
 $VALUE_method     = esc_attr($method);
@@ -85,7 +85,7 @@ $VALUE_align      = esc_attr($align);
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare il parametro layout -->
+<!-- WIDGETS (Campo per specificare il parametro layout) -->
 
 <tr>
 	<td><label for="<?php echo $ID_layout ?>"><?php echo ucfirst(__('layout','szgoogleadmin')) ?>:</label></td>
@@ -93,7 +93,7 @@ $VALUE_align      = esc_attr($align);
 	<td><input type="radio" name="<?php echo $NAME_layout ?>" value="landscape" <?php if ($VALUE_layout != 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('landscape','szgoogleadmin')) ?></td>
 </tr>
 
-<!-- WIDGETS (Campo per specificare il parametro theme -->
+<!-- WIDGETS (Campo per specificare il parametro theme) -->
 
 <tr>
 	<td><label for="<?php echo $ID_theme ?>"><?php echo ucfirst(__('theme','szgoogleadmin')) ?>:</label></td>
@@ -101,7 +101,7 @@ $VALUE_align      = esc_attr($align);
 	<td><input type="radio" name="<?php echo $NAME_theme ?>" value="dark"  <?php if ($VALUE_theme != 'light') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('dark','szgoogleadmin')) ?></td>
 </tr>
 
-<!-- WIDGETS (Campo per specificare il parametro cover -->
+<!-- WIDGETS (Campo per specificare il parametro cover) -->
 
 <tr>
 	<td><label for="<?php echo $ID_cover ?>"><?php echo ucfirst(__('cover','szgoogleadmin')) ?>:</label></td>
@@ -109,7 +109,7 @@ $VALUE_align      = esc_attr($align);
 	<td><input type="radio" name="<?php echo $NAME_cover ?>" value="false" <?php if ($VALUE_cover != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('disabled','szgoogleadmin')) ?></td>
 </tr>
 
-<!-- WIDGETS (Campo per specificare il parametro tagline -->
+<!-- WIDGETS (Campo per specificare il parametro tagline) -->
 
 <tr>
 	<td><label for="<?php echo $ID_tagline ?>"><?php echo ucfirst(__('tagline','szgoogleadmin')) ?>:</label></td>
@@ -117,7 +117,7 @@ $VALUE_align      = esc_attr($align);
 	<td><input type="radio" name="<?php echo $NAME_tagline ?>" value="false" <?php if ($VALUE_tagline != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('disabled','szgoogleadmin')) ?></td>
 </tr>
 
-<!-- WIDGETS (Campo per specificare il parametro autore -->
+<!-- WIDGETS (Campo per specificare il parametro autore) -->
 
 <tr>
 	<td><label for="<?php echo $ID_author ?>"><?php echo ucfirst(__('author','szgoogleadmin')) ?>:</label></td>
@@ -127,7 +127,7 @@ $VALUE_align      = esc_attr($align);
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare il parametro align -->
+<!-- WIDGETS (Campo per specificare il parametro align) -->
 
 <tr>
 	<td><label for="<?php echo $ID_align ?>"><?php echo ucfirst(__('align','szgoogleadmin')) ?>:</label></td>

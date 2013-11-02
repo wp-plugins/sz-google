@@ -4,7 +4,7 @@
 /* ************************************************************************** */
 if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
 
-// Definizione dei nome per le varibili per CSS id
+// Definizione dei nome per le variabili CSS id
 
 $ID_title             = $this->get_field_id('title');
 $ID_name              = $this->get_field_id('name');
@@ -18,7 +18,7 @@ $ID_hideforumtitle    = $this->get_field_id('hideforumtitle');
 $ID_hidesubject       = $this->get_field_id('hidesubject ');
 $ID_hl                = $this->get_field_id('hl');
 
-// Definizione dei nome per le varibili per CSS name
+// Definizione dei nome per le variabili CSS name
 
 $NAME_title           = $this->get_field_name('title');
 $NAME_name            = $this->get_field_name('name');
@@ -32,7 +32,7 @@ $NAME_hideforumtitle  = $this->get_field_name('hideforumtitle');
 $NAME_hidesubject     = $this->get_field_name('hidesubject ');
 $NAME_hl              = $this->get_field_name('hl');
 
-// Definizione dei nome per le varibili contenuto
+// Definizione dei nome per le variabili contenuto
 
 $VALUE_title          = esc_attr($title);
 $VALUE_name           = esc_attr($name);

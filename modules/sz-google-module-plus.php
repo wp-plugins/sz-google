@@ -424,9 +424,9 @@ class sz_google_module_plus_widget_profile extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Profile',__('SZ-Google - G+ Profile','szgoogle'),array(
+		parent::__construct('SZ-Google-Profile',__('SZ-Google - G+ Profile','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-profile', 
-			'description' => ucfirst(__('widget for google+ profile','szgoogle'))
+			'description' => ucfirst(__('widget for google+ profile','szgoogleadmin'))
 		));
 	}
 
@@ -762,9 +762,9 @@ class sz_google_module_plus_widget_page extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Page',__('SZ-Google - G+ Page','szgoogle'),array(
+		parent::__construct('SZ-Google-Page',__('SZ-Google - G+ Page','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-page', 
-			'description' => ucfirst(__('widget for google+ page','szgoogle'))
+			'description' => ucfirst(__('widget for google+ page','szgoogleadmin'))
 		));
 	}
 
@@ -1058,9 +1058,9 @@ class sz_google_module_plus_widget_community extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Community',__('SZ-Google - G+ Community','szgoogle'),array(
+		parent::__construct('SZ-Google-Community',__('SZ-Google - G+ Community','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-community', 
-			'description' => ucfirst(__('widget for google+ community','szgoogle'))
+			'description' => ucfirst(__('widget for google+ community','szgoogleadmin'))
 		));
 	}
 
@@ -1311,9 +1311,9 @@ class sz_google_module_plus_widget_followers extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Followers',__('SZ-Google - G+ Followers','szgoogle'),array(
+		parent::__construct('SZ-Google-Followers',__('SZ-Google - G+ Followers','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-followers', 
-			'description' => ucfirst(__('widget for google+ followers','szgoogle'))
+			'description' => ucfirst(__('widget for google+ followers','szgoogleadmin'))
 		));
 	}
 
@@ -1558,9 +1558,9 @@ class sz_google_module_plus_widget_plusone extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-GOOGLE-PLUS-ONE',__('SZ-Google - G+ Plus one','szgoogle'),array(
+		parent::__construct('SZ-GOOGLE-PLUS-ONE',__('SZ-Google - G+ Plus one','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-one', 
-			'description' => ucfirst(__('widget for google+ button +1','szgoogle'))
+			'description' => ucfirst(__('widget for google+ button +1','szgoogleadmin'))
 		));
 	}
 
@@ -1831,9 +1831,9 @@ class sz_google_module_plus_widget_share extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-GOOGLE-PLUS-SHARING',__('SZ-Google - G+ Share','szgoogle'),array(
+		parent::__construct('SZ-GOOGLE-PLUS-SHARING',__('SZ-Google - G+ Share','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-share', 
-			'description' => ucfirst(__('widget for google+ share','szgoogle'))
+			'description' => ucfirst(__('widget for google+ share','szgoogleadmin'))
 		));
 	}
 
@@ -2124,9 +2124,9 @@ class sz_google_module_plus_widget_follow extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-GOOGLE-PLUS-FOLLOW',__('SZ-Google - G+ Follow','szgoogle'),array(
+		parent::__construct('SZ-GOOGLE-PLUS-FOLLOW',__('SZ-Google - G+ Follow','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-follow', 
-			'description' => ucfirst(__('widget for google+ follow','szgoogle'))
+			'description' => ucfirst(__('widget for google+ follow','szgoogleadmin'))
 		));
 	}
 
@@ -2335,7 +2335,7 @@ function sz_google_module_plus_get_code_comments($atts,$content=null)
 
 	// Controllo i valori delle classi eventuali da ggiungere ai wrapper
 
-	if (!empty($title))  $title  = str_ireplace('{title}',ucfirst(__('leave a Reply','szgoogle')),$title);
+	if (!empty($title))  $title  = str_ireplace('{title}',ucfirst(sz_google_babel('leave a Reply')),$title);
 	if (!empty($class2)) $class2 = ' '.$class2;
 	if (!empty($class2)) $class2 = ' '.$class2;
 
@@ -2412,9 +2412,9 @@ class sz_google_module_plus_widget_comments extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Comments',__('SZ-Google - G+ Comments','szgoogle'),array(
+		parent::__construct('SZ-Google-Comments',__('SZ-Google - G+ Comments','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-comments', 
-			'description' => ucfirst(__('widget for google+ comments','szgoogle'))
+			'description' => ucfirst(__('widget for google+ comments','szgoogleadmin'))
 		));
 	}
 
@@ -2626,7 +2626,7 @@ function sz_google_module_plus_comments_content($content)
 	$HTML = sz_google_module_plus_get_code_comments(array(
 		'url'    => get_permalink(),
 		'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'title'  => '<h3>'.ucfirst(__('leave a Reply','szgoogle')).'</h3>',
+		'title'  => '<h3>'.ucfirst(sz_google_babel('leave a Reply')).'</h3>',
 		'class1' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'class2' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	));
@@ -2732,9 +2732,9 @@ class sz_google_module_plus_widget_post extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Post',__('SZ-Google - G+ Post','szgoogle'),array(
+		parent::__construct('SZ-Google-Post',__('SZ-Google - G+ Post','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-post', 
-			'description' => ucfirst(__('widget for google+ post','szgoogle'))
+			'description' => ucfirst(__('widget for google+ post','szgoogleadmin'))
 		));
 	}
 

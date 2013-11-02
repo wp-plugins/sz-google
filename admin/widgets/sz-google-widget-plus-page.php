@@ -4,7 +4,7 @@
 /* ************************************************************************** */
 if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
 
-// Definizione dei nome per le varibili per CSS id
+// Definizione dei nome per le variabili CSS id
 
 $ID_title         = $this->get_field_id('title');
 $ID_method        = $this->get_field_id('method');
@@ -18,7 +18,7 @@ $ID_tagline       = $this->get_field_id('tagline');
 $ID_publisher     = $this->get_field_id('publisher');
 $ID_align         = $this->get_field_id('align');
 
-// Definizione dei nome per le varibili per CSS name
+// Definizione dei nome per le variabili CSS name
 
 $NAME_title       = $this->get_field_name('title');
 $NAME_method      = $this->get_field_name('method');
@@ -32,7 +32,7 @@ $NAME_tagline     = $this->get_field_name('tagline');
 $NAME_publisher   = $this->get_field_name('publisher');
 $NAME_align       = $this->get_field_name('align');
 
-// Definizione dei nome per le varibili contenuto
+// Definizione dei nome per le variabili contenuto
 
 $VALUE_title      = esc_attr($title);
 $VALUE_method     = esc_attr($method);

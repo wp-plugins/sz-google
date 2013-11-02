@@ -194,9 +194,9 @@ class sz_google_module_drive_widget_savebutton extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Drive-Save-Button',__('SZ-Google - Drive Save Button','szgoogle'),array(
+		parent::__construct('SZ-Google-Drive-Save-Button',__('SZ-Google - Drive Save Button','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-drive sz-widget-google-drive-save-button', 
-			'description' => ucfirst(__('widget for google drive save button','szgoogle'))
+			'description' => ucfirst(__('widget for google drive save button','szgoogleadmin'))
 		));
 	}
 
@@ -299,8 +299,7 @@ class sz_google_module_drive_widget_savebutton extends WP_Widget_SZ_Google
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
-			'sz-google-widget-drive-savebutton.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-drive-savebutton.php');
 	}
 }
 

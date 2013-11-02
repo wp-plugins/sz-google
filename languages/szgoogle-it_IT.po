@@ -1,756 +1,547 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogle\n"
-"POT-Creation-Date: 2013-09-27 06:22-0500\n"
-"PO-Revision-Date: 2013-09-27 06:22-0500\n"
-"Last-Translator: massimo <webmaster@startbyzero.com>\n"
+"POT-Creation-Date: 2013-11-01 13:43-0500\n"
+"PO-Revision-Date: 2013-11-01 13:43-0500\n"
+"Last-Translator: Massimo <massimo@startbyzero.com>\n"
 "Language-Team: wpitalyplus <wpitalyplus@gmail.com>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.5.4\n"
-"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-KeywordsList: sz_google_babel\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: /home/massimo/Common/svn/sz-google/trunk/modules\n"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-youtube.php:388
-msgid "youtube URL string specified is not valid."
-msgstr "stringa specificata per URL youtube non è valida."
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-youtube.php:461
-msgid "youtube video"
-msgstr "video youtube"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-youtube.php:758
-msgid "channel youtube"
-msgstr "canale youtube"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-translate.php:211
-msgid "widget for google translate"
-msgstr "widget per google translate"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-translate.php:213
-msgid "SZ-Google - Translate"
-msgstr "SZ-Google - Translate"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-translate.php:283
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:602
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1129
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1605
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2018
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2444
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2871
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3336
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3830
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4095
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:351
-msgid "title"
-msgstr "titolo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:235
-msgid "same language theme"
-msgstr "stessa lingua del tema"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:236
-msgid "afrikaans"
-msgstr "africano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:237
-msgid "amharic"
-msgstr "amarico"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:238
-msgid "arabic"
-msgstr "arabo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:239
-msgid "basque"
-msgstr "basco"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:240
-msgid "bengali"
-msgstr "bengali"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:241
-msgid "bulgarian"
-msgstr "bulgaro"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:242
-msgid "catalan"
-msgstr "catalano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:243
-msgid "chinese (Hong Kong)"
-msgstr "cinese (Hong Kong)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:244
-msgid "chinese (Simplified)"
-msgstr "cinese (Semplificato)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:245
-msgid "chinese (Traditional)"
-msgstr "cinese (Tradizionale)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:246
-msgid "croatian"
-msgstr "croato"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:247
-msgid "czech"
-msgstr "ceco"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:248
-msgid "danish"
-msgstr "danese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:249
-msgid "dutch"
-msgstr "olandese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:250
-msgid "english (UK)"
-msgstr "inglese (UK)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:251
-msgid "english (US)"
-msgstr "inglese (US)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:252
-msgid "estonian"
-msgstr "ettone"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:253
-msgid "filipino"
-msgstr "filippino"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:254
-msgid "finnish"
-msgstr "finlandese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:255
-msgid "french"
-msgstr "francese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:256
-msgid "french (Canadian)"
-msgstr "francese (Canada)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:257
-msgid "galician"
-msgstr "galiziano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:258
-msgid "german"
-msgstr "tedesco"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:259
-msgid "greek"
-msgstr "greco"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:260
-msgid "gujarati"
-msgstr "gujarati"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:261
-msgid "hebrew"
-msgstr "ebraico"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:262
-msgid "hindi"
-msgstr "hindi"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:263
-msgid "hungarian"
-msgstr "ungherese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:264
-msgid "icelandic"
-msgstr "islandese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:265
-msgid "indonesian"
-msgstr "indonesiano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:266
-msgid "italian"
-msgstr "italiano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:267
-msgid "japanese"
-msgstr "giapponese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:268
-msgid "kannada"
-msgstr "kannada"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:269
-msgid "korean"
-msgstr "coreano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:270
-msgid "latvian"
-msgstr "lettone"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:271
-msgid "lithuanian"
-msgstr "lituano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:272
-msgid "malay"
-msgstr "malese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:273
-msgid "malayalam"
-msgstr "malayalam"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:274
-msgid "marathi"
-msgstr "marathi"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:275
-msgid "norwegian"
-msgstr "norvegese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:276
-msgid "persian"
-msgstr "persiano"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:277
-msgid "polish"
-msgstr "polonia"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:278
-msgid "portuguese (Brazil)"
-msgstr "portoghese (Brasile)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:279
-msgid "portuguese (Portugal)"
-msgstr "portoghese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:280
-msgid "romanian"
-msgstr "rumeno"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:281
-msgid "russian"
-msgstr "russo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:282
-msgid "serbian"
-msgstr "serbo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:283
-msgid "slovak"
-msgstr "slovacco"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:284
-msgid "slovenian"
-msgstr "sloveno"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:285
-msgid "spanish"
-msgstr "spagnolo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:286
-msgid "spanish (Latin America)"
-msgstr "spagnolo (America latina)"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:287
-msgid "swahili"
-msgstr "swahili"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:288
-msgid "swedish"
-msgstr "svedese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:289
-msgid "tamil"
-msgstr "tamil"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:290
-msgid "telugu"
-msgstr "telegu"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:291
-msgid "thai"
-msgstr "thailandese"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:292
-msgid "turkish"
-msgstr "turco"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:293
-msgid "ukrainian"
-msgstr "ucraino"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:294
-msgid "urdu"
-msgstr "urdu"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:295
-msgid "vietnamese"
-msgstr "vietnamita"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module.php:296
-msgid "zulu"
-msgstr "zulu"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:448
-msgid "widget for google+ profile"
-msgstr "widget per google+ profilo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:452
-msgid "SZ-Google - G+ Profile"
-msgstr "SZ-Google - G+ Profilo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:608
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1135
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1611
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2024
-msgid "configuration ID"
-msgstr "ID di configurazione"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:609
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1136
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1612
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2025
-msgid "specific ID"
-msgstr "ID specifico"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:615
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1142
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1618
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2031
-msgid "insert specific ID"
-msgstr "inserire ID specifico"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:622
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1149
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1625
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2038
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3850
-msgid "width"
-msgstr "larghezza"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:624
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1151
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1627
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2040
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2048
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3852
-msgid "auto"
-msgstr "auto"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:635
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1162
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1638
-msgid "layout"
-msgstr "layout"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:636
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1163
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1639
-msgid "portrait"
-msgstr "verticale"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:637
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1164
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1640
-msgid "landscape"
-msgstr "orizzontale"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:646
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1173
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1649
-msgid "theme"
-msgstr "tema"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:647
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1174
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1650
-msgid "light"
-msgstr "chiaro"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:648
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1175
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1651
-msgid "dark"
-msgstr "scuro"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:656
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1183
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1659
-msgid "cover"
-msgstr "copertina"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:657
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:668
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:679
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1184
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1195
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1206
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1660
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1671
-msgid "enabled"
-msgstr "abilitato"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:658
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:669
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:680
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1185
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1196
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1207
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1661
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1672
-msgid "disabled"
-msgstr "disabilitato"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:667
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1194
-msgid "tagline"
-msgstr "descrizione"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:678
-msgid "author"
-msgstr "autore"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:688
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1215
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1680
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2056
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3860
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4110
-msgid "align"
-msgstr "allineamento"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:690
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1217
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1682
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2058
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3862
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4112
-msgid "none"
-msgstr "none"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:691
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1218
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1683
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2059
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3863
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4113
-msgid "left"
-msgstr "sinistra"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:692
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1219
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1684
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2060
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3864
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4114
-msgid "center"
-msgstr "centro"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:693
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1220
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1685
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2061
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3865
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4115
-msgid "right"
-msgstr "destra"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:975
-msgid "widget for google+ page"
-msgstr "widget per google+ pagina"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:979
-msgid "SZ-Google - G+ Page"
-msgstr "SZ-Google - G+ Pagina"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1205
-msgid "publisher"
-msgstr "publisher"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1459
-msgid "widget for google+ community"
-msgstr "widget per google+ community"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1463
-msgid "SZ-Google - G+ Community"
-msgstr "SZ-Google - G+ Community"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1670
-msgid "owner"
-msgstr "proprietario"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1883
-msgid "widget for google+ followers"
-msgstr "widget per google+ followers"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:1887
-msgid "SZ-Google - G+ Followers"
-msgstr "SZ-Google - G+ Followers"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2046
-msgid "height"
-msgstr "altezza"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2281
-msgid "widget for google+ button +1"
-msgstr "widget per google+ bottone +1"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2285
-msgid "SZ-Google - G+ Plus one"
-msgstr "SZ-Google - G+ Plus one"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2451
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2878
-msgid "current post address"
-msgstr "indirizzo post corrente"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2452
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2879
-msgid "specific url address"
-msgstr "specifica indirizzo URL"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2459
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2886
-msgid "insert source URL"
-msgstr "inserisci URL sorgente"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2466
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2893
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3359
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:367
-msgid "button without badge"
-msgstr "bottone senza badge"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2467
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2894
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3360
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:368
-msgid "button with badge"
-msgstr "bottone con il badge"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2474
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2901
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3367
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:375
-msgid "insert text for badge"
-msgstr "inserisci un testo per il badge"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2480
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2907
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3373
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:381
-msgid "choose image for badge"
-msgstr "scegli una immagine per badge"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2481
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2908
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3374
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:360
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:382
-msgid "select file"
-msgstr "selezione file"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2481
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2908
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3374
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:360
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:382
-msgid "select or upload a file"
-msgstr "selezione o caricamento file"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2481
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2908
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3374
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:360
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:382
-msgid "confirm selection"
-msgstr "conferma selezione"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2488
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2915
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3381
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:389
-msgid "position outside"
-msgstr "posizione al di fuori"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2489
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2916
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3382
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:390
-msgid "position top"
-msgstr "posizione in alto"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2490
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2917
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3383
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:391
-msgid "position center"
-msgstr "posizione centrale"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2491
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2918
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3384
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:392
-msgid "position bottom"
-msgstr "posizione in basso"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2499
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2926
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3392
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:400
-msgid "alignment none"
-msgstr "allineamento non specificato"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2500
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2927
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3393
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:401
-msgid "alignment left"
-msgstr "allineamento a sinistra"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2501
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2928
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3394
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:402
-msgid "alignment center"
-msgstr "allineamento centrale"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2502
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2929
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3395
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:403
-msgid "alignment right"
-msgstr "allineamento a destra"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2510
-msgid "size standard"
-msgstr "dimensione standard"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2511
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2938
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3404
-msgid "size small"
-msgstr "dimensione small"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2512
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2937
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3403
-msgid "size medium"
-msgstr "dimensione medium"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2513
-msgid "size tail"
-msgstr "dimensione tail"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2521
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2947
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3413
-msgid "annotation none"
-msgstr "nessuna annotazione "
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2522
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2948
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3414
-msgid "annotation inline"
-msgstr "annotazione inline"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2523
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2949
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3415
-msgid "annotation bubble"
-msgstr "annotazione bubble"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2708
-msgid "widget for google+ share"
-msgstr "widget per google+ share"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2712
-msgid "SZ-Google - G+ Share"
-msgstr "SZ-Google - G+ Share"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:2939
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3405
-msgid "size large"
-msgstr "dimensione large"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3155
-msgid "widget for google+ follow"
-msgstr "widget per google+ follow"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3159
-msgid "SZ-Google - G+ Follow"
-msgstr "SZ-Google - G+ Follow"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3343
-msgid "default URL for page"
-msgstr "URL predefinito per pagina"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3344
-msgid "default URL for profile"
-msgstr "URL predefinito per profilo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3345
-msgid "specific URL page or profile"
-msgstr "specificare URL pagina o profilo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3352
-msgid "insert URL for page or profile"
-msgstr "inserire URL per pagina o profilo"
-
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3498
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3657
+"X-Poedit-SearchPath-0: /home/massimo/Common/files/subversion/sz-google/"
+"trunk\n"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2338
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2629
 msgid "leave a Reply"
 msgstr "lascia un commento"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3716
-msgid "widget for google+ comments"
-msgstr "widget per google+ commenti"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:388
+msgid "youtube URL string specified is not valid."
+msgstr "stringa specificata per URL youtube non è valida."
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3720
-msgid "SZ-Google - G+ Comments"
-msgstr "SZ-Google - G+ Commenti"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:461
+msgid "youtube video"
+msgstr "video youtube"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3836
-msgid "current post"
-msgstr "post corrente"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:758
+msgid "channel youtube"
+msgstr "canale youtube"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3837
-msgid "specific URL"
-msgstr "URL specifico"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:220
+msgid "same language theme"
+msgstr "stessa lingua del tema"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:3843
-msgid "insert specific URL"
-msgstr "inserire URL specifico"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:221
+msgid "afrikaans"
+msgstr "africano"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4011
-msgid "widget for google+ post"
-msgstr "widget per google+ post"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:222
+msgid "amharic"
+msgstr "amarico"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4015
-msgid "SZ-Google - G+ Post"
-msgstr "SZ-Google - G+ Post"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:223
+msgid "arabic"
+msgstr "arabo"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-plus.php:4101
-msgid "insert google+ post URL"
-msgstr "inserire URL del post google+"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:224
+msgid "basque"
+msgstr "basco"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:214
-msgid "widget for google drive save button"
-msgstr "widget per google drive bottone salva"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:225
+msgid "bengali"
+msgstr "bengali"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:218
-msgid "SZ-Google - Drive Save Button"
-msgstr "SZ-Google - Drive Save Button"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:226
+msgid "bulgarian"
+msgstr "bulgaro"
 
-#: /home/massimo/Common/svn/sz-google/trunk/modules/sz-google-module-drive.php:359
-msgid "insert URL file to save"
-msgstr "inserire URL del file da salvare"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:227
+msgid "catalan"
+msgstr "catalano"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:228
+msgid "chinese (Hong Kong)"
+msgstr "cinese (Hong Kong)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:229
+msgid "chinese (Simplified)"
+msgstr "cinese (Semplificato)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:230
+msgid "chinese (Traditional)"
+msgstr "cinese (Tradizionale)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:231
+msgid "croatian"
+msgstr "croato"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:232
+msgid "czech"
+msgstr "ceco"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:233
+msgid "danish"
+msgstr "danese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:234
+msgid "dutch"
+msgstr "olandese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:235
+msgid "english (UK)"
+msgstr "inglese (UK)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:236
+msgid "english (US)"
+msgstr "inglese (US)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:237
+msgid "estonian"
+msgstr "ettone"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:238
+msgid "filipino"
+msgstr "filippino"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:239
+msgid "finnish"
+msgstr "finlandese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:240
+msgid "french"
+msgstr "francese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:241
+msgid "french (Canadian)"
+msgstr "francese (Canada)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:242
+msgid "galician"
+msgstr "galiziano"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:243
+msgid "german"
+msgstr "tedesco"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:244
+msgid "greek"
+msgstr "greco"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:245
+msgid "gujarati"
+msgstr "gujarati"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:246
+msgid "hebrew"
+msgstr "ebraico"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:247
+msgid "hindi"
+msgstr "hindi"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:248
+msgid "hungarian"
+msgstr "ungherese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:249
+msgid "icelandic"
+msgstr "islandese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:250
+msgid "indonesian"
+msgstr "indonesiano"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:251
+msgid "italian"
+msgstr "italiano"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:252
+msgid "japanese"
+msgstr "giapponese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:253
+msgid "kannada"
+msgstr "kannada"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:254
+msgid "korean"
+msgstr "coreano"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:255
+msgid "latvian"
+msgstr "lettone"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:256
+msgid "lithuanian"
+msgstr "lituano"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:257
+msgid "malay"
+msgstr "malese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:258
+msgid "malayalam"
+msgstr "malayalam"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:259
+msgid "marathi"
+msgstr "marathi"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:260
+msgid "norwegian"
+msgstr "norvegese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:261
+msgid "persian"
+msgstr "persiano"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:262
+msgid "polish"
+msgstr "polonia"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:263
+msgid "portuguese (Brazil)"
+msgstr "portoghese (Brasile)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:264
+msgid "portuguese (Portugal)"
+msgstr "portoghese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:265
+msgid "romanian"
+msgstr "rumeno"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:266
+msgid "russian"
+msgstr "russo"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:267
+msgid "serbian"
+msgstr "serbo"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:268
+msgid "slovak"
+msgstr "slovacco"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:269
+msgid "slovenian"
+msgstr "sloveno"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:270
+msgid "spanish"
+msgstr "spagnolo"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:271
+msgid "spanish (Latin America)"
+msgstr "spagnolo (America latina)"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:272
+msgid "swahili"
+msgstr "swahili"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:273
+msgid "swedish"
+msgstr "svedese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:274
+msgid "tamil"
+msgstr "tamil"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:275
+msgid "telugu"
+msgstr "telegu"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:276
+msgid "thai"
+msgstr "thailandese"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:277
+msgid "turkish"
+msgstr "turco"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:278
+msgid "ukrainian"
+msgstr "ucraino"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:279
+msgid "urdu"
+msgstr "urdu"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:280
+msgid "vietnamese"
+msgstr "vietnamita"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:281
+msgid "zulu"
+msgstr "zulu"
+
+#~ msgid "SZ-Google - Translate"
+#~ msgstr "SZ-Google - Translate"
+
+#~ msgid "widget for google translate"
+#~ msgstr "widget per google translate"
+
+#~ msgid "title"
+#~ msgstr "titolo"
+
+#~ msgid "SZ-Google - G+ Profile"
+#~ msgstr "SZ-Google - G+ Profilo"
+
+#~ msgid "widget for google+ profile"
+#~ msgstr "widget per google+ profilo"
+
+#~ msgid "SZ-Google - G+ Page"
+#~ msgstr "SZ-Google - G+ Pagina"
+
+#~ msgid "widget for google+ page"
+#~ msgstr "widget per google+ pagina"
+
+#~ msgid "SZ-Google - G+ Community"
+#~ msgstr "SZ-Google - G+ Community"
+
+#~ msgid "widget for google+ community"
+#~ msgstr "widget per google+ community"
+
+#~ msgid "SZ-Google - G+ Followers"
+#~ msgstr "SZ-Google - G+ Followers"
+
+#~ msgid "widget for google+ followers"
+#~ msgstr "widget per google+ followers"
+
+#~ msgid "SZ-Google - G+ Plus one"
+#~ msgstr "SZ-Google - G+ Plus one"
+
+#~ msgid "widget for google+ button +1"
+#~ msgstr "widget per google+ bottone +1"
+
+#~ msgid "SZ-Google - G+ Share"
+#~ msgstr "SZ-Google - G+ Share"
+
+#~ msgid "widget for google+ share"
+#~ msgstr "widget per google+ share"
+
+#~ msgid "SZ-Google - G+ Follow"
+#~ msgstr "SZ-Google - G+ Follow"
+
+#~ msgid "widget for google+ follow"
+#~ msgstr "widget per google+ follow"
+
+#~ msgid "SZ-Google - G+ Comments"
+#~ msgstr "SZ-Google - G+ Commenti"
+
+#~ msgid "widget for google+ comments"
+#~ msgstr "widget per google+ commenti"
+
+#~ msgid "SZ-Google - G+ Post"
+#~ msgstr "SZ-Google - G+ Post"
+
+#~ msgid "widget for google+ post"
+#~ msgstr "widget per google+ post"
+
+#, fuzzy
+#~ msgid "SZ-Google - Panoramio"
+#~ msgstr "SZ-Google - Translate"
+
+#, fuzzy
+#~ msgid "widget for photos in panoramio"
+#~ msgstr "widget per google+ profilo"
+
+#~ msgid "SZ-Google - Drive Save Button"
+#~ msgstr "SZ-Google - Drive Save Button"
+
+#~ msgid "widget for google drive save button"
+#~ msgstr "widget per google drive bottone salva"
+
+#, fuzzy
+#~ msgid "SZ-Google - Groups iframe"
+#~ msgstr "SZ-Google - G+ Pagina"
+
+#, fuzzy
+#~ msgid "widget for google groups iframe"
+#~ msgstr "widget per google+ pagina"
+
+#~ msgid "configuration ID"
+#~ msgstr "ID di configurazione"
+
+#~ msgid "specific ID"
+#~ msgstr "ID specifico"
+
+#~ msgid "insert specific ID"
+#~ msgstr "inserire ID specifico"
+
+#~ msgid "width"
+#~ msgstr "larghezza"
+
+#~ msgid "auto"
+#~ msgstr "auto"
+
+#~ msgid "layout"
+#~ msgstr "layout"
+
+#~ msgid "portrait"
+#~ msgstr "verticale"
+
+#~ msgid "landscape"
+#~ msgstr "orizzontale"
+
+#~ msgid "theme"
+#~ msgstr "tema"
+
+#~ msgid "light"
+#~ msgstr "chiaro"
+
+#~ msgid "dark"
+#~ msgstr "scuro"
+
+#~ msgid "cover"
+#~ msgstr "copertina"
+
+#~ msgid "enabled"
+#~ msgstr "abilitato"
+
+#~ msgid "disabled"
+#~ msgstr "disabilitato"
+
+#~ msgid "tagline"
+#~ msgstr "descrizione"
+
+#~ msgid "author"
+#~ msgstr "autore"
+
+#~ msgid "align"
+#~ msgstr "allineamento"
+
+#~ msgid "none"
+#~ msgstr "none"
+
+#~ msgid "left"
+#~ msgstr "sinistra"
+
+#~ msgid "center"
+#~ msgstr "centro"
+
+#~ msgid "right"
+#~ msgstr "destra"
+
+#~ msgid "publisher"
+#~ msgstr "publisher"
+
+#~ msgid "owner"
+#~ msgstr "proprietario"
+
+#~ msgid "height"
+#~ msgstr "altezza"
+
+#~ msgid "current post address"
+#~ msgstr "indirizzo post corrente"
+
+#~ msgid "specific url address"
+#~ msgstr "specifica indirizzo URL"
+
+#~ msgid "insert source URL"
+#~ msgstr "inserisci URL sorgente"
+
+#~ msgid "button without badge"
+#~ msgstr "bottone senza badge"
+
+#~ msgid "button with badge"
+#~ msgstr "bottone con il badge"
+
+#~ msgid "insert text for badge"
+#~ msgstr "inserisci un testo per il badge"
+
+#~ msgid "choose image for badge"
+#~ msgstr "scegli una immagine per badge"
+
+#~ msgid "select file"
+#~ msgstr "selezione file"
+
+#~ msgid "select or upload a file"
+#~ msgstr "selezione o caricamento file"
+
+#~ msgid "confirm selection"
+#~ msgstr "conferma selezione"
+
+#~ msgid "position outside"
+#~ msgstr "posizione al di fuori"
+
+#~ msgid "position top"
+#~ msgstr "posizione in alto"
+
+#~ msgid "position center"
+#~ msgstr "posizione centrale"
+
+#~ msgid "position bottom"
+#~ msgstr "posizione in basso"
+
+#~ msgid "alignment none"
+#~ msgstr "allineamento non specificato"
+
+#~ msgid "alignment left"
+#~ msgstr "allineamento a sinistra"
+
+#~ msgid "alignment center"
+#~ msgstr "allineamento centrale"
+
+#~ msgid "alignment right"
+#~ msgstr "allineamento a destra"
+
+#~ msgid "size standard"
+#~ msgstr "dimensione standard"
+
+#~ msgid "size small"
+#~ msgstr "dimensione small"
+
+#~ msgid "size medium"
+#~ msgstr "dimensione medium"
+
+#~ msgid "size tail"
+#~ msgstr "dimensione tail"
+
+#~ msgid "annotation none"
+#~ msgstr "nessuna annotazione "
+
+#~ msgid "annotation inline"
+#~ msgstr "annotazione inline"
+
+#~ msgid "annotation bubble"
+#~ msgstr "annotazione bubble"
+
+#~ msgid "size large"
+#~ msgstr "dimensione large"
+
+#~ msgid "default URL for page"
+#~ msgstr "URL predefinito per pagina"
+
+#~ msgid "default URL for profile"
+#~ msgstr "URL predefinito per profilo"
+
+#~ msgid "specific URL page or profile"
+#~ msgstr "specificare URL pagina o profilo"
+
+#~ msgid "insert URL for page or profile"
+#~ msgstr "inserire URL per pagina o profilo"
+
+#~ msgid "current post"
+#~ msgstr "post corrente"
+
+#~ msgid "specific URL"
+#~ msgstr "URL specifico"
+
+#~ msgid "insert specific URL"
+#~ msgstr "inserire URL specifico"
+
+#~ msgid "insert google+ post URL"
+#~ msgstr "inserire URL del post google+"
+
+#~ msgid "insert URL file to save"
+#~ msgstr "inserire URL del file da salvare"
 
 #~ msgid "google+ Profile"
 #~ msgstr "google+ Profilo"

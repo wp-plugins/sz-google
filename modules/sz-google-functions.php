@@ -159,6 +159,12 @@ function szgoogle_get_youtube_code_video($atts=array()) {
 	} else return false;
 }
 
+function szgoogle_get_youtube_code_playlist($atts=array()) {
+	if (function_exists('sz_google_module_youtube_get_code_playlist()')) {
+		return sz_google_module_youtube_get_code_playlist($atts);
+	} else return false;
+}
+
 function szgoogle_get_youtube_code_badge($atts=array()) {
 	if (function_exists('sz_google_module_youtube_get_code_badge()')) {
 		return sz_google_module_youtube_get_code_badge($atts);

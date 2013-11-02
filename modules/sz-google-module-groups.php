@@ -194,9 +194,9 @@ class sz_google_module_groups_widget_iframe extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('sz-google-groups-iframe',__('SZ-Google - Groups iframe','szgoogle'),array(
+		parent::__construct('sz-google-groups-iframe',__('SZ-Google - Groups iframe','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-groups sz-widget-google-groups-iframe', 
-			'description' => ucfirst(__('widget for google groups iframe','szgoogle'))
+			'description' => ucfirst(__('widget for google groups iframe','szgoogleadmin'))
 		));
 	}
 
@@ -303,8 +303,6 @@ class sz_google_module_groups_widget_iframe extends WP_Widget_SZ_Google
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
-			'sz-google-widget-groups-iframe.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-groups-iframe.php');
 	}
 }
-

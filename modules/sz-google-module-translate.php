@@ -207,9 +207,9 @@ class SZ_Widget_Google_Translate extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('SZ-Google-Translate',__('SZ-Google - Translate','szgoogle'),array(
+		parent::__construct('SZ-Google-Translate',__('SZ-Google - Translate','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-translate sz-widget-translate-widget', 
-			'description' => ucfirst(__('widget for google translate','szgoogle'))
+			'description' => ucfirst(__('widget for google translate','szgoogleadmin'))
 		));
 	}
 
@@ -280,7 +280,7 @@ class SZ_Widget_Google_Translate extends WP_Widget_SZ_Google
 
 		// Campo di selezione parametro badge per TITOLO
 
-		echo '<p><label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogle')).':</label>';
+		echo '<p><label for="'.$this->get_field_id('title').'">'.ucfirst(__('title','szgoogleadmin')).':</label>';
 		echo '<input class="widefat" id="'.$this->get_field_id('title').'" name="'.$this->get_field_name('title').'" type="text" value="'.esc_attr($title).'"/></p>';
 	}
 }

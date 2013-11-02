@@ -1,6 +1,6 @@
 <?php
 /* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
+/* ADMIN Controllo se definita la costante del plugin                         */
 /* ************************************************************************** */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
@@ -12,11 +12,10 @@ define('SZ_PLUGIN_GOOGLE_ADMIN',true);
 define('SZ_PLUGIN_GOOGLE_ADMIN_BASENAME',basename(__FILE__));
 
 /* ************************************************************************** */
-/* Caricamento della lingua per il plugin SZ-Google parte amministrazione     */
+/* ADMIN Caricamento della lingua per il plugin su parte amministrazione      */
 /* ************************************************************************** */
 
-function sz_google_language_init_admin() 
-{
+function sz_google_language_init_admin() {
 	load_plugin_textdomain(
 		'szgoogleadmin',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE);
 }
@@ -24,19 +23,20 @@ function sz_google_language_init_admin()
 add_action('init','sz_google_language_init_admin');
 
 /* ************************************************************************** */
-/* Creazione e aggiunta menu di amministrazione                               */
+/* ADMIN Creazione e aggiunta menu di amministrazione                         */
 /* ************************************************************************** */
 
 function sz_google_admin_menu() 
 {
 	if (function_exists('add_submenu_page')) {
 		add_menu_page('SZ Google','SZ Google','manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_callback_generale',SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE.'google-16x16.png');
-		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google',ucfirst(__('configuration','szgoogleadmin')),'manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_base_callback'); 
+		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google',ucfirst(__('configuration','szgoogleadmin')),'manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_base_callback'); 
+		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
 	}
 }
 
 /* ************************************************************************** */
-/* Registrazione delle opzioni legate al plugin come modulo generale          */
+/* ADMIN Registrazione delle opzioni legate al plugin come modulo generale    */
 /* ************************************************************************** */
 
 function sz_google_admin_fields()
@@ -57,20 +57,13 @@ function sz_google_admin_fields()
 }
 
 /* ************************************************************************** */
-/* Registrazione del foglio stile per pannello di amministrazione             */
+/* ADMIN Registrazione componenti in init su amministrazion generale          */
 /* ************************************************************************** */
 
-function sz_google_admin_add_stylesheet() 
+function sz_google_admin_init() 
 {
-
 	wp_register_style('sz-google-style-admin',SZ_PLUGIN_GOOGLE_PATH_CSS.'sz-google-style-admin.css');
 	wp_enqueue_style('sz-google-style-admin');
-
-	wp_enqueue_script('jquery-ui-sortable');
-	wp_enqueue_script('postbox');
-	wp_enqueue_script('utils');
-	wp_enqueue_script('dashboard');
-	wp_enqueue_script('thickbox');
 
 	// Caricamento framework javasctipt per media uploader da
 	// utilizzare nelle funzioni di scelta attachment come i widgets
@@ -82,15 +75,28 @@ function sz_google_admin_add_stylesheet()
 }
 
 /* ************************************************************************** */
-/* Aggiungo le funzioni per l'esecuzione in admin                             */
+/* ADMIN Aggiungo le funzioni per l'esecuzione in admin                       */
 /* ************************************************************************** */
 
-add_action('admin_menu','sz_google_admin_menu');
+add_action('admin_init','sz_google_admin_init');
 add_action('admin_init','sz_google_admin_fields');
-add_action('admin_enqueue_scripts','sz_google_admin_add_stylesheet');
+add_action('admin_menu','sz_google_admin_menu');
 
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione Generale BASE                          */
+/* ADMIN Registrazione componenti solo su pagine del plugin interessate       */
+/* ************************************************************************** */
+
+function sz_google_admin_add_plugin() 
+{
+	wp_enqueue_script('jquery-ui-sortable');
+	wp_enqueue_script('postbox');
+	wp_enqueue_script('utils');
+	wp_enqueue_script('dashboard');
+	wp_enqueue_script('thickbox');
+}
+
+/* ************************************************************************** */
+/* ADMIN Funzioni per SEZIONE Configurazione Generale BASE                    */
 /* ************************************************************************** */
 
 function sz_google_admin_base_callback() 
@@ -109,7 +115,7 @@ function sz_google_admin_base_callback()
 }
 
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione Generale BASE                          */
+/* ADMIN Funzioni per SEZIONE Configurazione Generale BASE                    */
 /* ************************************************************************** */
 
 function sz_google_admin_base_plus() 
@@ -161,7 +167,7 @@ function sz_google_admin_base_documentation()
 }
 
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione Generale BASE                          */
+/* ADMIN Funzioni per SEZIONE Configurazione Generale BASE                    */
 /* ************************************************************************** */
 
 function sz_google_admin_base_validate($plugin_options) {
@@ -172,7 +178,7 @@ function sz_google_admin_base_section() {}
 function sz_google_admin_callback_generale() {}
 
 /* ************************************************************************** */
-/* Aggiunta di tutti i file admin richiesti in base alle attivazioni          */
+/* ADMIN Aggiunta di tutti i file admin richiesti in base alle attivazioni    */
 /* ************************************************************************** */
 
 $options_admin = sz_google_module_options();
@@ -187,7 +193,7 @@ if ($options_admin['youtube']       == '1') @require_once(dirname(__FILE__).'/sz
 if ($options_admin['documentation'] == '1') @require_once(dirname(__FILE__).'/sz-google-admin-documentation.php');
 
 /* ************************************************************************** */
-/* Funzioni per disegno parte del form (esecuzione generale)                  */
+/* ADMIN Funzioni per disegno parte del form (esecuzione generale)            */
 /* ************************************************************************** */
 
 function sz_google_common_form($title,$setting,$sections,$documentation=false)
@@ -311,7 +317,7 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 }
 
 /* ************************************************************************** */
-/* Funzioni per disegno descrizione aggiuntiva sotto i campi opzione          */
+/* ADMIN Funzioni per disegno descrizione aggiuntiva sotto i campi opzione    */
 /* ************************************************************************** */
 
 function sz_google_common_form_description($description) 
@@ -322,7 +328,7 @@ function sz_google_common_form_description($description)
 }
 
 /* ************************************************************************** */
-/* Funzioni per disegno parte del form (campi alfanumerici)                   */
+/* ADMIN Funzioni per disegno parte del form (campi alfanumerici)             */
 /* ************************************************************************** */
 
 function sz_google_common_form_text($optionset,$name,$class='medium',$placeholder='') 
@@ -337,7 +343,7 @@ function sz_google_common_form_text($optionset,$name,$class='medium',$placeholde
 }
 
 /* ************************************************************************** */
-/* Funzioni per disegno parte del form (SELECT)                               */
+/* ADMIN Funzioni per disegno parte del form (SELECT)                         */
 /* ************************************************************************** */
 
 function sz_google_common_form_select($optionset,$name,$values,$class='medium',$placeholder='') 
@@ -358,7 +364,7 @@ function sz_google_common_form_select($optionset,$name,$values,$class='medium',$
 }
 
 /* ************************************************************************** */
-/* Funzioni per disegno parte del form (campi con checkbox S/N)               */
+/* ADMIN Funzioni per disegno parte del form (campi con checkbox S/N)         */
 /* ************************************************************************** */
 
 function sz_google_common_form_checkbox_yesno($optionset,$name,$class='medium') 
@@ -372,7 +378,7 @@ function sz_google_common_form_checkbox_yesno($optionset,$name,$class='medium')
 }
 
 /* ************************************************************************** */
-/* Funzioni per disegno parte del form (campi numerici con step 1)            */
+/* ADMIN Funzioni per disegno parte del form (campi numerici con step 1)      */
 /* ************************************************************************** */
 
 function sz_google_common_form_number_step_1($optionset,$name,$class='medium',$placeholder='') 

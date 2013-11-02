@@ -1,8 +1,8 @@
 === SZ - Google for WordPress ===
 Contributors: massimodellarovere,iGenius,Pr0v4
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 1.6.0
+Tested up to: 3.7
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -176,13 +176,20 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 **Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
 
 * `[sz-ytvideo] ........: embed youtube video`
+* `[sz-ytplaylist] .....: embed youtube playlist`
 * `[sz-ytbadge] ........: embed youtube badge`
 * `[sz-ytbutton] .......: embed youtube button`
 * `[sz-yttext] .........: embed youtube link`
 
+**Google Youtube Widgets:** In this plugin are available to google youtube widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget embed youtube video`
+* `Widget embed youtube playlist`
+
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_get_youtube_code_video()`
+* `szgoogle_get_youtube_code_playlist()`
 * `szgoogle_get_youtube_code_badge()`
 * `szgoogle_get_youtube_code_button()`
 * `szgoogle_get_youtube_code_link()`
@@ -257,6 +264,14 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.6.1 =
+* Feature: Add youtube playlist widget.
+* Feature: Add youtube playlist shortcode.
+* Fix: Options for sidebar widget google panoramio.
+* Fix: Translate some string for italian language.
+* Fix: Widget Youtube not display in admin sidebar.
+* Fix: Function postbox conflit with insert new post.
 
 = Version 1.6.0 =
 * Feature: Add google panoramio widget.
@@ -386,5 +401,5 @@ Before you use the google translate module must register the site that you want 
 
 == Upgrade Notice ==
 
-= 1.6.0 =
-Add new module google panoramio with widgets and shortcodes. Add section documentation for new module. Fix any bugs presents in the 1.5.1 release.
+= 1.6.1 =
+Fix options for panoramio widget when is used in sidebar.

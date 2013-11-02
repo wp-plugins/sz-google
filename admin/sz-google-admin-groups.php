@@ -11,7 +11,8 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 function sz_google_admin_groups_menu() 
 {
 	if (function_exists('add_submenu_page')) {
-		add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google groups','szgoogleadmin')),ucwords(__('google groups','szgoogleadmin')),'manage_options','sz-google-admin-groups.php','sz_google_admin_groups_callback'); 
+		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('google groups','szgoogleadmin')),ucwords(__('google groups','szgoogleadmin')),'manage_options','sz-google-admin-groups.php','sz_google_admin_groups_callback'); 
+		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
 	}
 }
 

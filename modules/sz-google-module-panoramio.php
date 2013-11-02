@@ -42,6 +42,9 @@ function sz_google_module_panoramio_options()
 		'panoramio_s_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION,
 		'panoramio_s_paragraph'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH,
 		'panoramio_s_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY,
+		'panoramio_s_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_S_SET,
+		'panoramio_s_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS,
+		'panoramio_s_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS,
 		'panoramio_w_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
 		'panoramio_w_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH,
 		'panoramio_w_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
@@ -50,6 +53,9 @@ function sz_google_module_panoramio_options()
 		'panoramio_w_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
 		'panoramio_w_paragraph'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'panoramio_w_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY,
+		'panoramio_w_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET,
+		'panoramio_w_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS,
+		'panoramio_w_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS,
 	));
 
 	// Controllo delle opzioni in caso di valori non conformi
@@ -64,6 +70,9 @@ function sz_google_module_panoramio_options()
 		'panoramio_s_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION,
 		'panoramio_s_paragraph'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH,
 		'panoramio_s_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY,
+		'panoramio_s_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_S_SET,
+		'panoramio_s_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS,
+		'panoramio_s_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS,
 		'panoramio_w_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
 		'panoramio_w_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH,
 		'panoramio_w_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
@@ -72,6 +81,9 @@ function sz_google_module_panoramio_options()
 		'panoramio_w_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
 		'panoramio_w_paragraph'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		'panoramio_w_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY,
+		'panoramio_w_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET,
+		'panoramio_w_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS,
+		'panoramio_w_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS,
 	));
 
 	// Chiamata alla funzione comune per controllare le variabili che devono avere
@@ -151,6 +163,9 @@ function sz_google_module_panoramio_get_code($atts=array())
 		$DEFAULT_ORIENTATION = $options['panoramio_w_orientation'];
 		$DEFAULT_PARAGRAPH   = $options['panoramio_w_paragraph'];
 		$DEFAULT_DELAY       = $options['panoramio_w_delay'];
+		$DEFAULT_SET         = $options['panoramio_w_set'];
+		$DEFAULT_COLUMNS     = $options['panoramio_w_columns'];
+		$DEFAULT_ROWS        = $options['panoramio_w_rows'];
 
 	} else {
 
@@ -162,6 +177,9 @@ function sz_google_module_panoramio_get_code($atts=array())
 		$DEFAULT_ORIENTATION = $options['panoramio_s_orientation'];
 		$DEFAULT_PARAGRAPH   = $options['panoramio_s_paragraph'];
 		$DEFAULT_DELAY       = $options['panoramio_s_delay'];
+		$DEFAULT_SET         = $options['panoramio_s_set'];
+		$DEFAULT_COLUMNS     = $options['panoramio_s_columns'];
+		$DEFAULT_ROWS        = $options['panoramio_s_rows'];
 	}
 
 	// Controllo la variabile che controlla il paragrafo vuoto da aggiungere
@@ -175,15 +193,16 @@ function sz_google_module_panoramio_get_code($atts=array())
 	// Controllo la coerenza delle opzioni di elaborazione modulo e 
 	// sostituzione con valori di default quando presentano dei problemi
 
-	if (!in_array($template,   array('photo','slideshow','list','photo_list'))) $template    = $DEFAULT_TEMPLATE;
+	if (!in_array($template   ,array('photo','slideshow','list','photo_list'))) $template    = $DEFAULT_TEMPLATE;
+	if (!in_array($set        ,array('all','public','recent')))                 $set         = $DEFAULT_SET;
 	if (!in_array($orientation,array('horizontal','vertical')))                 $orientation = $DEFAULT_ORIENTATION;
-	if (!in_array($position,   array('left','top','right','bottom')))           $position    = $DEFAULT_POSITION;
+	if (!in_array($position   ,array('left','top','right','bottom')))           $position    = $DEFAULT_POSITION;
 
  	if (!ctype_xdigit(str_replace("#","",$bgcolor))) $bgcolor = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 	if (!is_numeric($delay) or $delay < 0) $delay = $DEFAULT_DELAY; 
 
-	if (!ctype_digit($columns))  $columns  = "4"; 
-	if (!ctype_digit($rows))     $rows     = "1"; 
+	if (!ctype_digit($columns))  $columns  = $DEFAULT_COLUMNS; 
+	if (!ctype_digit($rows))     $rows     = $DEFAULT_ROWS;
 	if (!ctype_digit($listsize)) $listsize = $DEFAULT_LIST_SIZE; 
 
 	// Controllo i valori passati in array che specificano la dimensione del widget
@@ -231,7 +250,11 @@ function sz_google_module_panoramio_get_code($atts=array())
 	if ($user  != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '&user=' .rawurlencode($user);
 	if ($group != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '&group='.rawurlencode($group);
 	if ($tag   != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '&tag='  .rawurlencode($tag);
-	if ($set   != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '&set='  .rawurlencode($set);
+
+
+	if ($user  == SZ_PLUGIN_GOOGLE_VALUE_NULL and $group == SZ_PLUGIN_GOOGLE_VALUE_NULL and $tag == SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+		if ($set != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= '&set='.rawurlencode($set);
+	}
 
 	$HTML .= '" ';
 	$HTML .= 'scrolling="no" frameborder="0" marginwidth="0" marginheight="0" ';
@@ -293,9 +316,9 @@ class sz_google_module_panoramio_widget extends WP_Widget_SZ_Google
 
 	function __construct() 
 	{
-		parent::__construct('sz-google-panoramio',__('SZ-Google - Panoramio','szgoogle'),array(
+		parent::__construct('sz-google-panoramio',__('SZ-Google - Panoramio','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-panoramio sz-widget-google-panoramio-iframe', 
-			'description' => ucfirst(__('widget for photos in panoramio','szgoogle'))
+			'description' => ucfirst(__('widget for photos in panoramio','szgoogleadmin'))
 		));
 	}
 
@@ -308,13 +331,18 @@ class sz_google_module_panoramio_widget extends WP_Widget_SZ_Google
 		// dello script e assegno dei valori di default nel caso non fossero specificati
 
 		$options = $this->common_empty(array(
-			'template'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'default'    => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
-			'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'height'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
-			'user'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'group'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'tag'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'template'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'default'     => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
+			'width'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
+			'user'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'group'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'tag'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'set'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'columns'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'rows'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'orientation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'position'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		),$instance);
 
 		// Definizione delle variabili di controllo del widget, questi valori non
@@ -346,14 +374,19 @@ class sz_google_module_panoramio_widget extends WP_Widget_SZ_Google
 	function update($new_instance,$old_instance) 
 	{
 		return $this->common_update(array(
-			'title'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'template'   => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'width'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'width_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'height'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'user'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'group'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'tag'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'title'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'template'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'width'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'height'      => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'user'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'group'       => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'tag'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'set'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'columns'     => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'rows'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'orientation' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'position'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
 		),$new_instance,$old_instance);
 	}
 
@@ -363,34 +396,42 @@ class sz_google_module_panoramio_widget extends WP_Widget_SZ_Google
 	function form($instance) 
 	{
 		$array = array(
-			'title'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'template'   => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
-			'width'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'width_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
-			'height'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
-			'user'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'group'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'tag'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'title'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
+			'width'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
+			'user'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'group'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'tag'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET,
+			'columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS,
+			'rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS,
+			'orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION,
+			'position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
 		);
 
 		// Creazione array per elenco campi da recuperare su FORM
 
 		$instance = wp_parse_args((array) $instance,$array);
 
-		$title      = trim(strip_tags($instance['title']));
-		$template   = trim(strip_tags($instance['template']));
-		$width      = trim(strip_tags($instance['width']));
-		$width_auto = trim(strip_tags($instance['width_auto']));
-		$height     = trim(strip_tags($instance['height']));
-		$user       = trim(strip_tags($instance['user']));
-		$group      = trim(strip_tags($instance['group']));
-		$tag        = trim(strip_tags($instance['tag']));
+		$title       = trim(strip_tags($instance['title']));
+		$template    = trim(strip_tags($instance['template']));
+		$width       = trim(strip_tags($instance['width']));
+		$width_auto  = trim(strip_tags($instance['width_auto']));
+		$height      = trim(strip_tags($instance['height']));
+		$user        = trim(strip_tags($instance['user']));
+		$group       = trim(strip_tags($instance['group']));
+		$tag         = trim(strip_tags($instance['tag']));
+		$set         = trim(strip_tags($instance['set']));
+		$columns     = trim(strip_tags($instance['columns']));
+		$rows        = trim(strip_tags($instance['rows']));
+		$orientation = trim(strip_tags($instance['orientation']));
+		$position    = trim(strip_tags($instance['position']));
 
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
-			'sz-google-widget-panoramio.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-panoramio.php');
 	}
 }
-
