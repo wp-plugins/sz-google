@@ -1,12 +1,12 @@
 === SZ - Google for WordPress ===
-Contributors: massimodellarovere,iGenius,Pr0v4
+Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.7
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
-Tags: analytics, badge, buttons, comments, comments system, custom url, drive, embed video, embedded posts, follow, google, google+, google analytics, google drive, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, post sharing, post comments, widgets, widgets google+, widget translate, redirect, save to drive, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, video, video youtube
+Tags: analytics, badge, buttons, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google analytics universal, google drive, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google+ page, google plus, google+ profile, google+ share, groups, groups embed, playlist, post sharing, post comments, widgets, widgets google+, widget translate, redirect, save to drive, sidebar, share, social network, shortcodes, translate, youtube, youtube embed, youtube playlist, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -87,6 +87,15 @@ To be informed about the features that gradually will be released you can follow
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
 **Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website. You can choose to hide the code when using the administration panel, or when a user is connected to both as a normal user or as an administrator. For more informations see <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-modulo-google-analytics/">official documentation</a>.
+
+* `Google analytics classic and universal.`
+* `Google analytics enable frontend.`
+* `Google analytics enable admin panel.`
+* `Google analytics enable administrator.`
+* `Google analytics enable user logged.`
+* `Google analytics enable tracking subdomains.`
+* `Google analytics enable multiple top domains.`
+* `Google analytics enable advertiser.`
 
 **Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function directly `szgoogle_get_ga_code()` in your theme manually.
 
@@ -171,6 +180,7 @@ With this module you can insert widgets with photo galleries present on panorami
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
 
 * <a href="https://startbyzero.com/wordpress/plugin-google/youtube-video/">Demo online - Youtube video</a>
+* <a href="https://startbyzero.com/wordpress/plugin-google/youtube-playlist/">Demo online - Youtube playlist</a>
 * <a href="https://startbyzero.com/wordpress/plugin-google/youtube-bottoni-e-badges/">Demo online - Youtube buttons and badges</a>
 
 **Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortocode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
@@ -264,6 +274,13 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.6.2 =
+* Feature: Google analytics classic and universal.
+* Feature: Google analytics documentation.
+* Feature: Google analytics enable tracking subdomains.
+* Feature: Google analytics enable multiple top domains.
+* Feature: Google analytics enable advertiser.
 
 = Version 1.6.1 =
 * Feature: Add youtube playlist widget.
@@ -400,6 +417,3 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add Google+ comments system.
 
 == Upgrade Notice ==
-
-= 1.6.1 =
-Fix options for panoramio widget when is used in sidebar.

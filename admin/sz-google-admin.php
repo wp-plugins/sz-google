@@ -30,7 +30,7 @@ function sz_google_admin_menu()
 {
 	if (function_exists('add_submenu_page')) {
 		add_menu_page('SZ Google','SZ Google','manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_callback_generale',SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE.'google-16x16.png');
-		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google',ucfirst(__('configuration','szgoogleadmin')),'manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_base_callback'); 
+		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google',ucfirst(__('configuration','szgoogleadmin')),'manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_base_callback');
 		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
 	}
 }
@@ -111,7 +111,7 @@ function sz_google_admin_base_callback()
 	// Chiamata alla funzione generale per la creazione del form generale
 	// le sezioni devono essere passate come un array con nome => titolo
 
-	sz_google_common_form(ucfirst(__('configuration','szgoogleadmin')),'sz_google_options_base',$sections); 
+	sz_google_common_form(ucfirst(__('configuration version','szgoogleadmin').'&nbsp;'.SZ_PLUGIN_GOOGLE_VERSION),'sz_google_options_base',$sections); 
 }
 
 /* ************************************************************************** */
@@ -264,7 +264,8 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 	echo '<div class="inside">';
 	echo '<ul>';
 	echo '<li><a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/sz-google">'.ucfirst(__('rate the plugin on WordPress.org','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('join our community WP Italyplus','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('WP Italyplus: join our community','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/117259631219963935481">'.ucfirst(__('WP Italyplus: join our google+ page','szgoogleadmin')).'</a></li>';
 	echo '</ul>';
 	echo '</div>';
 	echo '</div>';
@@ -275,7 +276,20 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
 	echo '<h3 class="hndle"><span><strong>'.ucwords(__('official page','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
-	echo '<a target="_blank" href="https://plus.google.com/117259631219963935481/"><img src="'.SZ_PLUGIN_GOOGLE_PATH_IMAGE.'wpitalyplus.png'.'" alt="WordPress Italy+" style="width:100%;height:auto"></a>';
+	echo '<a target="_blank" href="https://plus.google.com/117259631219963935481"><img src="'.SZ_PLUGIN_GOOGLE_PATH_IMAGE.'wpitalyplus.png'.'" alt="WordPress Italy+" style="width:100%;height:auto"></a>';
+	echo '</div>';
+	echo '</div>';
+
+	// Sezione su sidebar per "Richiesta di supporto"
+
+	echo '<div id="support-plugin" class="postbox">';
+	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
+	echo '<h3 class="hndle"><span><strong>'.ucwords(__('support','szgoogleadmin')).'</strong></span></h3>';
+	echo '<div class="inside">';
+	echo '<ul>';
+	echo '<li><a target="_blank" href="http://wordpress.org/support/plugin/sz-google">'.ucfirst(__('support for bugs and reports','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('support for new requests and ideas','szgoogleadmin')).'</a></li>';
+	echo '</ul>';
 	echo '</div>';
 	echo '</div>';
 
@@ -286,8 +300,8 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 	echo '<h3 class="hndle"><span><strong>'.ucwords(__('authors','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
 	echo '<ul>';
-	echo '<li><a target="_blank" href="https://plus.google.com/106567288702045182616/">Massimo Della Rovere</a></li>';
-	echo '<li><a target="_blank" href="https://plus.google.com/101045287591082507791/">Eugenio Petullà</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/+EugenioPetullà">Eugenio Petullà</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/+MassimoDellaRovere">Massimo Della Rovere</a></li>';
 	echo '</ul>';
 	echo '</div>';
 	echo '</div>';
@@ -299,10 +313,11 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 	echo '<h3 class="hndle"><span><strong>'.ucwords(__('latest news','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
 	echo '<ul>';
-	echo '<li><a target="_blank" href="https://plus.google.com/117259631219963935481/">'.ucfirst(__('official page','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('community WordPress','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="http://www.youtube.com/channel/UCJqiM61oRRvhTD5il2n56xg?sub_confirmation=1">'.ucfirst(__('youtube channel','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="http://startbyzero.com/webmaster/wordpress-plugin/sz-google/">'.ucfirst(__('official documentation','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/117259631219963935481">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('official page','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="http://wpitalyplus.com">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('official website','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('community WordPress','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="http://www.youtube.com/user/wpitalyplus?sub_confirmation=1">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('youtube channel','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://startbyzero.com/wordpress/plugin-google/">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('official documentation','szgoogleadmin')).'</a></li>';
 	echo '</ul>';
 	echo '</div>';
 	echo '</div>';

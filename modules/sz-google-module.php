@@ -211,6 +211,22 @@ function sz_google_babel($string) {
 }
 
 /* ************************************************************************** */
+/* COMMON CODE funzione di calcolo domini corrente visualizzato               */
+/* ************************************************************************** */
+
+function sz_google_get_current_domain() 
+{
+	$pieces = parse_url(get_site_url());
+  	$domain = isset($pieces['host']) ? $pieces['host'] : '';
+
+	if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i',$domain,$regs)) {
+    	return $regs['domain'];
+  	}
+
+	return false;
+}
+
+/* ************************************************************************** */
 /* COMMON CODE array contenente i linguaggi supportati da google              */
 /* ************************************************************************** */
 

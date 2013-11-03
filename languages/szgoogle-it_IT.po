@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogle\n"
-"POT-Creation-Date: 2013-11-01 13:43-0500\n"
-"PO-Revision-Date: 2013-11-01 13:43-0500\n"
+"POT-Creation-Date: 2013-11-03 17:14-0500\n"
+"PO-Revision-Date: 2013-11-03 17:14-0500\n"
 "Last-Translator: Massimo <massimo@startbyzero.com>\n"
 "Language-Team: wpitalyplus <wpitalyplus@gmail.com>\n"
 "Language: it_IT\n"
@@ -21,263 +21,267 @@ msgstr ""
 msgid "leave a Reply"
 msgstr "lascia un commento"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:388
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:406
 msgid "youtube URL string specified is not valid."
 msgstr "stringa specificata per URL youtube non è valida."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:461
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:479
 msgid "youtube video"
 msgstr "video youtube"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:758
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:1059
 msgid "channel youtube"
 msgstr "canale youtube"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:220
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:1225
+msgid "youtube playlist ID is not valid."
+msgstr "codice specificato su ID playlist non è valido."
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:236
 msgid "same language theme"
 msgstr "stessa lingua del tema"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:221
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:237
 msgid "afrikaans"
 msgstr "africano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:222
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:238
 msgid "amharic"
 msgstr "amarico"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:223
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:239
 msgid "arabic"
 msgstr "arabo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:224
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:240
 msgid "basque"
 msgstr "basco"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:225
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:241
 msgid "bengali"
 msgstr "bengali"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:226
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:242
 msgid "bulgarian"
 msgstr "bulgaro"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:227
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:243
 msgid "catalan"
 msgstr "catalano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:228
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:244
 msgid "chinese (Hong Kong)"
 msgstr "cinese (Hong Kong)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:229
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:245
 msgid "chinese (Simplified)"
 msgstr "cinese (Semplificato)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:230
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:246
 msgid "chinese (Traditional)"
 msgstr "cinese (Tradizionale)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:231
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:247
 msgid "croatian"
 msgstr "croato"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:232
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:248
 msgid "czech"
 msgstr "ceco"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:233
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:249
 msgid "danish"
 msgstr "danese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:234
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:250
 msgid "dutch"
 msgstr "olandese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:235
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:251
 msgid "english (UK)"
 msgstr "inglese (UK)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:236
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:252
 msgid "english (US)"
 msgstr "inglese (US)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:237
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:253
 msgid "estonian"
 msgstr "ettone"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:238
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:254
 msgid "filipino"
 msgstr "filippino"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:239
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:255
 msgid "finnish"
 msgstr "finlandese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:240
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:256
 msgid "french"
 msgstr "francese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:241
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:257
 msgid "french (Canadian)"
 msgstr "francese (Canada)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:242
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:258
 msgid "galician"
 msgstr "galiziano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:243
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:259
 msgid "german"
 msgstr "tedesco"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:244
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:260
 msgid "greek"
 msgstr "greco"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:245
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:261
 msgid "gujarati"
 msgstr "gujarati"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:246
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:262
 msgid "hebrew"
 msgstr "ebraico"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:247
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:263
 msgid "hindi"
 msgstr "hindi"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:248
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:264
 msgid "hungarian"
 msgstr "ungherese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:249
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:265
 msgid "icelandic"
 msgstr "islandese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:250
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:266
 msgid "indonesian"
 msgstr "indonesiano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:251
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:267
 msgid "italian"
 msgstr "italiano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:252
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:268
 msgid "japanese"
 msgstr "giapponese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:253
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:269
 msgid "kannada"
 msgstr "kannada"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:254
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:270
 msgid "korean"
 msgstr "coreano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:255
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:271
 msgid "latvian"
 msgstr "lettone"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:256
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:272
 msgid "lithuanian"
 msgstr "lituano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:257
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:273
 msgid "malay"
 msgstr "malese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:258
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:274
 msgid "malayalam"
 msgstr "malayalam"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:259
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:275
 msgid "marathi"
 msgstr "marathi"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:260
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:276
 msgid "norwegian"
 msgstr "norvegese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:261
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:277
 msgid "persian"
 msgstr "persiano"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:262
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:278
 msgid "polish"
 msgstr "polonia"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:263
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:279
 msgid "portuguese (Brazil)"
 msgstr "portoghese (Brasile)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:264
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:280
 msgid "portuguese (Portugal)"
 msgstr "portoghese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:265
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:281
 msgid "romanian"
 msgstr "rumeno"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:266
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:282
 msgid "russian"
 msgstr "russo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:267
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:283
 msgid "serbian"
 msgstr "serbo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:268
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:284
 msgid "slovak"
 msgstr "slovacco"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:269
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:285
 msgid "slovenian"
 msgstr "sloveno"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:270
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:286
 msgid "spanish"
 msgstr "spagnolo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:271
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:287
 msgid "spanish (Latin America)"
 msgstr "spagnolo (America latina)"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:272
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:288
 msgid "swahili"
 msgstr "swahili"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:273
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:289
 msgid "swedish"
 msgstr "svedese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:274
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:290
 msgid "tamil"
 msgstr "tamil"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:275
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:291
 msgid "telugu"
 msgstr "telegu"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:276
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:292
 msgid "thai"
 msgstr "thailandese"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:277
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:293
 msgid "turkish"
 msgstr "turco"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:278
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:294
 msgid "ukrainian"
 msgstr "ucraino"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:279
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:295
 msgid "urdu"
 msgstr "urdu"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:280
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:296
 msgid "vietnamese"
 msgstr "vietnamita"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:281
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module.php:297
 msgid "zulu"
 msgstr "zulu"
 

@@ -324,6 +324,26 @@ function sz_google_admin_documentation_analytics()
 		'02' => __('google analytics get tracking code','szgoogleadmin'),
 	); 
 
+	// Definizione elenco parametri con valori consentiti e di default che sono
+	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
+
+	$options = array(
+
+		'01' => array(),
+
+		'02' => array(
+			'ga_uacode'               => array(__('UA code'                 ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
+			'ga_position'             => array(__('position'                ,'szgoogleadmin'),'H=Header,F=Footer',__('configuration','szgoogleadmin')),
+			'ga_enable_front'         => array(__('enable for front'        ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
+			'ga_enable_admin'         => array(__('enable for admin'        ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
+			'ga_enable_administrator' => array(__('enable for administrator','szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
+			'ga_enable_logged'        => array(__('enable for logged'       ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
+			'ga_enable_subdomain'     => array(__('enable for subdomain'    ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
+			'ga_enable_multiple'      => array(__('enable for multiple'     ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
+			'ga_enable_advertiser'    => array(__('enable for advertiser'   ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
+		),
+	);
+
 	// Definizione array per contenere il codice di esempio da aggiungere
 	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
 
@@ -336,8 +356,8 @@ function sz_google_admin_documentation_analytics()
 	// suddivisione per shortcodes, functions php and other.
 
 	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],array(),$function_example['01']),
-		array($functions['02'],$description['02'],array(),$function_example['02']),
+		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
+		array($functions['02'],$description['02'],$options['02'],$function_example['02']),
 	));
 }
 

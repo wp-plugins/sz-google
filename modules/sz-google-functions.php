@@ -101,9 +101,9 @@ function szgoogle_get_ga_ID() {
 	} else return false;
 }
 
-function szgoogle_get_ga_code() {
+function szgoogle_get_ga_code($atts=array()) {
 	if (function_exists('sz_google_module_analytics_get_code')) {
-		return sz_google_module_analytics_get_code();
+		return sz_google_module_analytics_get_code($atts);
 	} else return false;
 }
 

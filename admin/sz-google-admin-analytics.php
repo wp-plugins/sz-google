@@ -1,11 +1,11 @@
 <?php
 /* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
+/* GOOGLE ANALYTICS Controllo se definita la costante del plugin              */
 /* ************************************************************************** */
 if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 
 /* ************************************************************************** */ 
-/* Controllo le opzioni generali per saper i moduli che devo essere caricati  */
+/* GOOGLE ANALYTICS Controllo le opzioni generali per sapere i moduli         */
 /* ************************************************************************** */ 
 
 $options = sz_google_module_analytics_options();
@@ -20,7 +20,7 @@ if (is_admin() and $options['ga_enable_admin'] == '1')
 }
 
 /* ************************************************************************** */
-/* Creazione e aggiunta menu di amministrazione                               */
+/* GOOGLE ANALYTICS Creazione e aggiunta menu di amministrazione              */
 /* ************************************************************************** */
 
 function sz_google_admin_analytics_menu() 
@@ -32,7 +32,7 @@ function sz_google_admin_analytics_menu()
 }
 
 /* ************************************************************************** */
-/* Registrazione delle opzioni legate al plugin                               */
+/* GOOGLE ANALYTICS Registrazione delle opzioni legate al plugin              */
 /* ************************************************************************** */
 
 function sz_google_admin_analytics_fields()
@@ -44,6 +44,7 @@ function sz_google_admin_analytics_fields()
 	add_settings_section('sz_google_analytics_section','','sz_google_admin_analytics_section','sz-google-admin-analytics.php');
 	add_settings_field('ga_uacode',ucfirst(__('UA code','szgoogleadmin')),'sz_google_admin_analytics_uacode','sz-google-admin-analytics.php','sz_google_analytics_section');
 	add_settings_field('ga_position',ucfirst(__('position','szgoogleadmin')),'sz_google_admin_analytics_position','sz-google-admin-analytics.php','sz_google_analytics_section');
+	add_settings_field('ga_type',ucfirst(__('type code analytics','szgoogleadmin')),'sz_google_admin_analytics_type','sz-google-admin-analytics.php','sz_google_analytics_section');
 
 	// Definizione sezione per configurazione GOOGLE ANALYTICS ENABLED
 
@@ -52,17 +53,24 @@ function sz_google_admin_analytics_fields()
 	add_settings_field('ga_enable_admin',ucfirst(__('enable admin panel','szgoogleadmin')),'sz_google_admin_analytics_enable_admin','sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
 	add_settings_field('ga_enable_admin_administrator',ucfirst(__('enable administrator','szgoogleadmin')),'sz_google_admin_analytics_enable_administrator','sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
 	add_settings_field('ga_enable_admin_logged',ucfirst(__('enable user logged','szgoogleadmin')),'sz_google_admin_analytics_enable_logged','sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
+
+	// Definizione sezione per configurazione GOOGLE ANALYTICS CLASSIC
+
+	add_settings_section('sz_google_analytics_classic','','sz_google_admin_analytics_section','sz-google-admin-analytics-classic.php');
+	add_settings_field('ga_enable_subdomains',ucfirst(__('enable tracking subdomains','szgoogleadmin')),'sz_google_admin_analytics_enable_subdomains','sz-google-admin-analytics-classic.php','sz_google_analytics_classic');
+	add_settings_field('ga_enable_multiple',ucfirst(__('enable multiple top domains','szgoogleadmin')),'sz_google_admin_analytics_enable_multiple','sz-google-admin-analytics-classic.php','sz_google_analytics_classic');
+	add_settings_field('ga_enable_advertiser',ucfirst(__('enable advertiser','szgoogleadmin')),'sz_google_admin_analytics_enable_advertiser','sz-google-admin-analytics-classic.php','sz_google_analytics_classic');
 }
 
 /* ************************************************************************** */
-/* Aggiungo le funzioni per l'esecuzione in admin                             */
+/* GOOGLE ANALYTICS Aggiungo le funzioni per l'esecuzione in admin            */
 /* ************************************************************************** */
 
 add_action('admin_menu','sz_google_admin_analytics_menu');
 add_action('admin_init','sz_google_admin_analytics_fields');
 
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione Google analytics                       */
+/* GOOGLE ANALYTICS Funzioni per SEZIONE di configurazione                    */
 /* ************************************************************************** */
 
 function sz_google_admin_analytics_callback() 
@@ -72,7 +80,8 @@ function sz_google_admin_analytics_callback()
 
 	$sections = array(
 		'sz-google-admin-analytics.php'         => ucwords(__('general settings','szgoogleadmin')),
-		'sz-google-admin-analytics-enabled.php' => ucwords(__('activation tracking code' ,'szgoogleadmin')),
+		'sz-google-admin-analytics-enabled.php' => ucwords(__('activation tracking code','szgoogleadmin')),
+		'sz-google-admin-analytics-classic.php' => ucwords(__('options for classic analytics','szgoogleadmin')),
 	);
 
 	// Chiamata alla funzione generale per la creazione del form generale
@@ -82,7 +91,7 @@ function sz_google_admin_analytics_callback()
 }
 
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione GOOGLE ANALYTICS                       */
+/* GOOGLE ANALYTICS Funzioni per SEZIONE di configurazione                    */
 /* ************************************************************************** */
 
 function sz_google_admin_analytics_uacode() 
@@ -103,8 +112,19 @@ function sz_google_admin_analytics_position()
 	sz_google_common_form_description(__('specifies the location of the tracking code in the page HTML. The recommended position is the header that does not allow the loss of access statistics. If you specify the manual mode you have to use the <code>szgoogle_get_analytics_code()</code> and insert it into the code of your theme.','szgoogleadmin'));
 }
 
+function sz_google_admin_analytics_type() 
+{
+	$values = array(
+		'classic'   => __('google analytics classic','szgoogleadmin'),
+		'universal' => __('google analytics universal','szgoogleadmin'),
+	); 
+
+	sz_google_common_form_select('sz_google_options_ga','ga_type',$values,'medium','');
+	sz_google_common_form_description(__('universal Analytics introduces a set of features that change the way data is collected and organized in your Google Analytics account, so you can get a better understanding of how visitors interact with your online content. Universal Analytics is a new and more flexible tracking code.','szgoogleadmin'));
+}
+
 /* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione GOOGLE ANALYTICS                       */
+/* GOOGLE ANALYTICS Funzioni per SEZIONE di configurazione                    */
 /* ************************************************************************** */
 
 function sz_google_admin_analytics_enable_front() 
@@ -132,7 +152,29 @@ function sz_google_admin_analytics_enable_logged()
 }
 
 /* ************************************************************************** */
-/* Funzioni per la definizione dei campi legati a modulo                      */
+/* GOOGLE ANALYTICS Funzioni per SEZIONE di configurazione CLASSIC            */
+/* ************************************************************************** */
+
+function sz_google_admin_analytics_enable_subdomains() 
+{ 
+	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_subdomains');
+	sz_google_common_form_description(__('turn this option on to modify your tracking code so you can track your subdomains, as well. This option adds the _setDomainName function to your code. Use this function if you manage multiple domains as example www.domain.com, apps.domain.com and store.domain.com','szgoogleadmin'));
+}
+
+function sz_google_admin_analytics_enable_multiple() 
+{ 
+	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_multiple');
+	sz_google_common_form_description(__('turn this option on to track across multiple top-level domains. This option adds the _setDomainName and _setAllowLinker functions to your tracking code. Use this function if you manage multiple domains as example domain.uk, domain.cn and domain.fr','szgoogleadmin'));
+}
+
+function sz_google_admin_analytics_enable_advertiser() 
+{ 
+	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_advertiser');
+	sz_google_common_form_description(__('turn this option for enable display advertiser support. This change is compatible with both the synchronous and asynchronous versions of the tracking code. This modification does not impact any customizations you have previously made to your code. You also need to update your privacy policy.','szgoogleadmin'));
+}
+
+/* ************************************************************************** */
+/* GOOGLE ANALYTICS Funzioni per la definizione dei campi legati a modulo     */
 /* ************************************************************************** */
 
 function sz_google_admin_analytics_validate($plugin_options) {
