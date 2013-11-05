@@ -65,6 +65,15 @@ function sz_google_admin_init()
 	wp_register_style('sz-google-style-admin',SZ_PLUGIN_GOOGLE_PATH_CSS.'sz-google-style-admin.css');
 	wp_enqueue_style('sz-google-style-admin');
 
+	// Caricamento framework javasctipt per media uploader da
+	// utilizzare nelle funzioni di scelta attachment come i widgets
+
+	global $pagenow;
+
+	if ($pagenow == 'widgets.php') {
+		if (!did_action('wp_enqueue_media')) wp_enqueue_media();
+	}
+
 	wp_register_script('sz_google_javascript',SZ_PLUGIN_GOOGLE_PATH_JS.'sz-google.js');
 	wp_enqueue_script('sz_google_javascript');
 }
@@ -88,11 +97,6 @@ function sz_google_admin_add_plugin()
 	wp_enqueue_script('utils');
 	wp_enqueue_script('dashboard');
 	wp_enqueue_script('thickbox');
-
-	// Caricamento framework javasctipt per media uploader da
-	// utilizzare nelle funzioni di scelta attachment come i widgets
-
-	if (!did_action('wp_enqueue_media')) wp_enqueue_media();
 }
 
 /* ************************************************************************** */
