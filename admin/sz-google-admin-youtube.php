@@ -148,31 +148,31 @@ function sz_google_admin_youtube_widget_playlist()
 function sz_google_admin_youtube_shortcode() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytvideo]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-ytvideo] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_shortcode_badge() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode_badge');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytbadge]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-ytbadge] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_shortcode_button() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode_button');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytbutton]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-ytbutton] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_shortcode_link() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode_link');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytlink]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-ytlink] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_shortcode_playlist() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_shortcode_playlist');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ytplaylist]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-ytplaylist] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -182,7 +182,7 @@ function sz_google_admin_youtube_shortcode_playlist()
 function sz_google_admin_youtube_responsive()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_responsive');
-	sz_google_common_form_description(__('activating this value, the size of the video will be managed with the technique of responsive design, so the size is automatically adjusted to the size of the window, for more information and a more detailed explanation please see the documentation on <a href="http://en.wikipedia.org/wiki/Responsive_web_design">Wikipedia Responsive Web Design</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('activating this value, the size of the video will be managed with the technique of responsive design, so the size is automatically adjusted to the size of the window, for more information see the documentation on Wikipedia Responsive Web Design.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_width()
@@ -200,13 +200,13 @@ function sz_google_admin_youtube_height()
 function sz_google_admin_youtube_autoplay()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_autoplay');
-	sz_google_common_form_description(__('enabling this option, the video will start automatically inserted when viewing the page without waiting for the user to press the play button. This behavior you can manage it even with the option of shortcode called <code>autoplay</code>. Do not put two videos in the same page with autoplay enabled.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option, the video will start automatically inserted when viewing the page without waiting for the user to press the play button. This behavior you can manage it even with the option of shortcode called "autoplay".','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_loop()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_loop');
-	sz_google_common_form_description(__('this option allows you to reinitiate the video after it was finished. The same function, you can obtain it using the special value <code>loop</code> in the shortcode without changing the default behavior. See official documentation <a target="_blank" href="https://developers.google.com/youtube/player_parameters#loop">Developer Youtube</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option allows you to reinitiate the video after it was finished. The same function, you can obtain it using the special value [loop] in the shortcode without changing the default behavior. See official documentation Developer Youtube.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_theme()
@@ -217,7 +217,7 @@ function sz_google_admin_youtube_theme()
 	); 
 
 	sz_google_common_form_select('sz_google_options_youtube','youtube_theme',$values,'medium','');
-	sz_google_common_form_description(__('in this field specify the default theme to apply the player. At this time you can choose between "light" and "dark". To see if they added some additional theme controls the official documentation <a target="_blank" href="https://developers.google.com/youtube/player_parameters#theme">Developer Youtube</a>. Also this parameter can be specified directly in the shortcode.','szgoogleadmin'));
+	sz_google_common_form_description(__('in this field specify the default theme to apply the player. At this time you can choose between "light" and "dark". To see if they added some additional theme controls the official documentation Developer Youtube.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_cover()
@@ -234,7 +234,7 @@ function sz_google_admin_youtube_cover()
 function sz_google_admin_youtube_schemaorg()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_schemaorg');
-	sz_google_common_form_description(__('enabling this option will be enabled <code>meta</code> commands relating to the resources of schema.org video. The values ​​of "meta" must be specified on shortcode or PHP function. For more information read the <a target="_blank" href="http://schema.org/VideoObject">official documentation</a> or the help page of google <a target="_blank" href="https://support.google.com/webmasters/answer/2413309?hl=en">Markup schema.org</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be enabled meta commands relating to the resources of schema.org video. The values ​​of "meta" must be specified on shortcode or PHP function. For more information read the official documentation.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -244,25 +244,25 @@ function sz_google_admin_youtube_schemaorg()
 function sz_google_admin_youtube_margin_top()
 {
 	sz_google_common_form_number_step_1('sz_google_options_youtube','youtube_margin_top','medium',0);
-	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value will be used the value 0. This parameter indicates the top margin from the previous text and it will be applied to <code>class="sz-youtube-main"</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value will be used the value 0. This parameter indicates the top margin from the previous text.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_margin_right()
 {
 	sz_google_common_form_number_step_1('sz_google_options_youtube','youtube_margin_right','medium',SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO);
-	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value for this field will be used the special value "auto". If you\'ve enabled the responsive mode, this value will be ignored and will be used as margin the value "auto".','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value for this field will be used the special value "auto". If you use responsive mode this value will be ignored.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_margin_bottom()
 {
 	sz_google_common_form_number_step_1('sz_google_options_youtube','youtube_margin_bottom','medium',0);
-	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value will be used the value 0. This parameter indicates the bottom margin from the text and it will be applied to <code>class="sz-youtube-main"</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value will be used the value 0. This parameter indicates the bottom margin from the text.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_margin_left()
 {
 	sz_google_common_form_number_step_1('sz_google_options_youtube','youtube_margin_left','medium',SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO);
-	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value for this field will be used the special value "auto". If you\'ve enabled the responsive mode, this value will be ignored and will be used as margin the value "auto".','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value for this field will be used the special value "auto". If you use responsive mode this value will be ignored.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_margin_unit()
@@ -273,7 +273,7 @@ function sz_google_admin_youtube_margin_unit()
 	); 
 
 	sz_google_common_form_select('sz_google_options_youtube','youtube_margin_unit',$values,'medium','');
-	sz_google_common_form_description(__('this field is used to specify the unit of measure that must be applied to numeric values ​​that relate to the margins of the video container, the values ​​that can be specified are em = relative size or px = pixel size. With these values ​​will create the CSS code for HTML containers.','szgoogleadmin'));
+	sz_google_common_form_description(__('this field is used to specify the unit of measure that must be applied to numeric values ​​that relate to the margins of the video container, the values ​​that can be specified are em = relative size or px = pixel size.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -289,7 +289,7 @@ function sz_google_admin_youtube_force_ssl()
 function sz_google_admin_youtube_fullscreen()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_fullscreen');
-	sz_google_common_form_description(__('enable this option to enter in the control bar of the video player icon that allows you to view fullscreen. More information can be found in the official documentation <a target="_blank" href="https://developers.google.com/youtube/player_parameters#fs">Developer Youtube</a>. This behavior you can manage it even with the option of shortcode called <code>fullscreen</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enable this option to enter in the control bar of the video player icon that allows you to view fullscreen. More information can be found in the official documentation. This behavior you can manage it even with the option of shortcode called "fullscreen".','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_disablekeyboard()
@@ -301,25 +301,25 @@ function sz_google_admin_youtube_disablekeyboard()
 function sz_google_admin_youtube_disableiframe()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_disableiframe');
-	sz_google_common_form_description(__('normally to insert a youtube video on a webpage uses the iframe technique, use this parameter to change this way and use the JavaScript API provided by google. If you activate the option of google analytics for youtube this value will be ignored, in fact, will always be used API.','szgoogleadmin'));
+	sz_google_common_form_description(__('normally to insert a youtube video on a webpage uses the iframe technique, use this parameter to change this way and use the JavaScript API provided by google. If you activate the option of google analytics for youtube this value will be ignored.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_analytics() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_analytics');
-	sz_google_common_form_description(__('track translation traffic using google analytics. If you enable this option, you can check the requirements and the translation statistics directly to your google analytics account. If you enable this option, you can check the requirements and the translation statistics directly to your google analytics account. Remember that to run this option you must specify the code assigned to your profile analytics.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option, you can check the requirements and the translation statistics directly to your google analytics account. Remember that to run this option you must specify the code assigned to your profile analytics.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_delayed() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_delayed');
-	sz_google_common_form_description(__('by default the iframe code associated with the video to be displayed is loaded immediately, there may be cases where this can be poorly performing, or even when we want to customize the cover image, it would be better to load the code after the user executes the play button.','szgoogleadmin'));
+	sz_google_common_form_description(__('by default the iframe code is loaded immediately, there may be cases where this can be poorly performing, or even when we want to customize the cover image, it would be better to load the code after the user executes the play button.','szgoogleadmin'));
 }
 
 function sz_google_admin_youtube_disablerelated() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_youtube','youtube_disablerelated');
-	sz_google_common_form_description(__('enabling this option disables the related videos that are presented to the player at the end of the video. activating this option in the final video should be made the cover of the video. Read the official documentation to <a target="_blank" href="https://developers.google.com/youtube/player_parameters#rel">Developer Guide</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option disables the related videos that are presented to the player at the end of the video. activating this option in the final video should be made the cover of the video. Read the official documentation to Developer Guide.','szgoogleadmin'));
 }
 /* ************************************************************************** */
 /* Funzioni per la definizione dei campi legati a modulo                      */

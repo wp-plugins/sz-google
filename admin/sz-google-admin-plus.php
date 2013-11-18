@@ -88,8 +88,8 @@ function sz_google_admin_plus_fields()
 	// Definizione sezione per configurazione GOOGLE+ EMBEDDED POST
 
 	add_settings_section('sz_google_plus_post','','sz_google_admin_plus_section','sz-google-admin-plus-post.php');
-	add_settings_field('plus_post_enable_widget',ucwords(__('g+ embedded post widget','szgoogleadmin')),'sz_google_admin_plus_post_widget','sz-google-admin-plus-post.php','sz_google_plus_post');
-	add_settings_field('plus_post_enable_shortcode',ucwords(__('g+ embedded post shortcode','szgoogleadmin')),'sz_google_admin_plus_post_shortcode','sz-google-admin-plus-post.php','sz_google_plus_post');
+	add_settings_field('plus_post_enable_widget',ucwords(__('g+ post widget','szgoogleadmin')),'sz_google_admin_plus_post_widget','sz-google-admin-plus-post.php','sz_google_plus_post');
+	add_settings_field('plus_post_enable_shortcode',ucwords(__('g+ post shortcode','szgoogleadmin')),'sz_google_admin_plus_post_shortcode','sz-google-admin-plus-post.php','sz_google_plus_post');
 
 	// Definizione sezione per configurazione GOOGLE+ REDIRECT
 
@@ -150,19 +150,19 @@ function sz_google_admin_plus_callback()
 function sz_google_admin_plus_profile() 
 {
 	sz_google_common_form_text('sz_google_options_plus','plus_profile','medium',__('insert ID your profile','szgoogleadmin'));
-	sz_google_common_form_description(__('enter the code that identifies the profile on google+, get to know the code of a profile just look at the profile link and copy the 21 digit number located on the URL string. For example if the link is <a target="_blank" href="https://plus.google.com/106567288702045182616/posts">https://plus.google.com/106567288702045182616/posts</a> the profile ID is 106567288702045182616.','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the code that identifies the profile on google+, get to know the code of a profile just look at the profile link and copy the 21 digit number located on the URL string. For example a profile ID is 106567288702045182616.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_page() 
 {
 	sz_google_common_form_text('sz_google_options_plus','plus_page','medium',__('insert ID your page','szgoogleadmin'));
-	sz_google_common_form_description(__('enter the code that identifies the page on google+, get to know the code of a profile just look at the page link and copy the 21 digit number located on the URL string. For example if the link is <a target="_blank" href="https://plus.google.com/117259631219963935481">https://plus.google.com/117259631219963935481</a> the page ID is 117259631219963935481.','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the code that identifies the page on google+, get to know the code of a profile just look at the page link and copy the 21 digit number located on the URL string. For example a page ID is 117259631219963935481.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_community() 
 {
 	sz_google_common_form_text('sz_google_options_plus','plus_community','medium',__('insert ID your community','szgoogleadmin'));
-	sz_google_common_form_description(__('enter the code that identifies the community, get to know the code of a community just look at the link and copy the 21 digit number located on the URL string. For example if the link is <a target="_blank" href="https://plus.google.com/communities/109254048492234113886">https://plus.google.com/communities/109254048492234113886</a> the community ID is 109254048492234113886.','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the code that identifies the community, get to know the code of a community just look at the link and copy the 21 digit number located on the URL string. For example a community ID is 109254048492234113886.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -171,10 +171,10 @@ function sz_google_admin_plus_community()
 
 function sz_google_admin_plus_language() 
 {
-	$values = sz_google_get_languages(); 
+	$values = SZGoogleCommon::getLanguages();
 
 	sz_google_common_form_select('sz_google_options_plus','plus_language',$values,'medium','');
-	sz_google_common_form_description(__('specify the language code associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress. Supported languages ​​can be found on <a target="_blank" href="https://developers.google.com/+/web/api/supported-languages">Supported languages for the Google+ plugins</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('specify the language code associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -184,37 +184,37 @@ function sz_google_admin_plus_language()
 function sz_google_admin_plus_widget_profile() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_widget_pr_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the user profiles present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the user profiles present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_page() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_widget_pa_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the pages present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the pages present on google+. If you want to see the graphic result of badges provided by google read the official documentation</a>.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_community() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_widget_co_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the official documentation</a>.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_followers() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_widget_fl_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_size_portrait()
 {
 	sz_google_common_form_number_step_1('sz_google_options_plus','plus_widget_size_portrait','medium',SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT);
-	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 180px and height will be calculated automatically.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 180px and height will be calculated.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_size_landscape() 
 {
 	sz_google_common_form_number_step_1('sz_google_options_plus','plus_widget_size_landscape','medium',SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE);
-	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 275px and height will be calculated automatically.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 275px and height will be automatically.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -224,37 +224,37 @@ function sz_google_admin_plus_widget_size_landscape()
 function sz_google_admin_plus_shortcode_profile() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_shortcode_pr_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the user profiles present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the user profiles present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_shortcode_page() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_shortcode_pa_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the pages present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the pages present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_shortcode_community() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_shortcode_co_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_shortcode_followers() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_shortcode_fl_enable');
-	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges provided by google read the <a target="_blank" href="https://developers.google.com/+/web/badge/">official documentation</a> of developers.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_shortcode_size_portrait() 
 {
 	sz_google_common_form_number_step_1('sz_google_options_plus','plus_shortcode_size_portrait','medium',SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT);
-	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated automatically.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_shortcode_size_landscape() 
 {
 	sz_google_common_form_number_step_1('sz_google_options_plus','plus_shortcode_size_landscape','medium',SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE);
-	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated automatically.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -264,19 +264,19 @@ function sz_google_admin_plus_shortcode_size_landscape()
 function sz_google_admin_plus_widget_button_plusone() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_widget_plusone');
-	sz_google_common_form_description(__('with this option is activated widget that allows the insertion of a +1 button in our article or web page. The +1 button has the same function as the button like this on facebook. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_one()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this option is activated widget that allows the insertion of a +1 button in our article or web page. The +1 button has the same function as the button like this on facebook. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_button_sharing() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_widget_sharing');
-	sz_google_common_form_description(__('this option allows the activation of widget for sharing a link on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_share()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option allows the activation of widget for sharing a link on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_widget_button_follow() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_widget_follow');
-	sz_google_common_form_description(__('this option allows the activation of widget for follow on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_follow()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option allows the activation of widget for follow on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -286,19 +286,19 @@ function sz_google_admin_plus_widget_button_follow()
 function sz_google_admin_plus_button_plusone() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_plusone');
-	sz_google_common_form_description(__('with this option is activated shortcode that allows the insertion of a +1 button in our article or web page. The +1 button has the same function as the button like this on facebook. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_one()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this option is activated shortcode that allows the insertion of a +1 button in our article or web page. The +1 button has the same function as the button like this on facebook. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_button_sharing() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_sharing');
-	sz_google_common_form_description(__('this option allows the activation of shortcode for sharing a link on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_share()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option allows the activation of shortcode for sharing a link on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_button_follow() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_button_enable_follow');
-	sz_google_common_form_description(__('this option allows the activation of shortcode for follow on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function <code>szgoogle_get_gplus_button_follow()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option allows the activation of shortcode for follow on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -308,7 +308,7 @@ function sz_google_admin_plus_button_follow()
 function sz_google_admin_plus_comments_gp() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_comments_gp_enable');
-	sz_google_common_form_description(__('if you enable this feature will be added to the new commenting system made ​​available on the social network google+. The widget will be placed in the standard location for comments to wordpress. For customizations use the function <code>szgoogle_get_gplus_comments()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this feature will be added to the new commenting system made ​​available on the social network google+. The widget will be placed in the standard location for comments to wordpress. For customizations use the function PHP.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_comments_wp() 
@@ -320,13 +320,13 @@ function sz_google_admin_plus_comments_wp()
 function sz_google_admin_plus_comments_ac() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_comments_ac_enable');
-	sz_google_common_form_description(__('enabling this option, the comment system is generated immediately after the post content or web page, otherwise it is inserted at the point that the standard function is called of the comments of wordpress in the file of the active theme. See also <code>szgoogle_get_gplus_comments()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option, the comment system is generated immediately after the post content or web page, otherwise it is inserted at the point that the standard function is called of the comments of wordpress in the file of the active theme.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_comments_aw() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_comments_aw_enable');
-	sz_google_common_form_description(__('enabling this option, the comment system is generated immediately after standard comments, otherwise it is inserted at the point that the standard function is called of the comments of wordpress in the file of the active theme. See also <code>szgoogle_get_gplus_comments()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option, the comment system is generated immediately after standard comments, otherwise it is inserted at the point that the standard function is called of the comments of wordpress in the file of the active theme.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_comments_wd() 
@@ -338,7 +338,7 @@ function sz_google_admin_plus_comments_wd()
 function sz_google_admin_plus_comments_sh() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_comments_sh_enable');
-	sz_google_common_form_description(__('enabling this option will allow you to use the shortcode <code>[sz-gplus-comments/]</code> that will allow you to insert a box for comments to google plus in any part of your post or page standard wordpress. For greater customization uses <code>szgoogle_get_gplus_comments()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will allow you to use the shortcode [sz-gplus-comments] that will allow you to insert a box for comments to google plus in any part of your post or page standard wordpress. For greater customization uses function PHP.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_comments_fixed_size()
@@ -402,7 +402,7 @@ function sz_google_admin_plus_comments_dt()
 		echo '<span class="fieldtext">'.__('(year / month / day)','szgoogleadmin').'</span>';
 	}
 
-	sz_google_common_form_description(__('enabling this option you can activate the commenting system only posts that are inserted after a certain date. This function is useful for managing two different systems of comments in reference to a period of time and using only the new commenting system for new posts.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option you can activate the commenting system only posts that are inserted after a certain date. This function is useful for managing two different systems of comments in reference to a period of time.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_comments_dt_day() 
@@ -478,7 +478,7 @@ function sz_google_admin_plus_post_widget()
 function sz_google_admin_plus_post_shortcode() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_post_enable_shortcode');
-	sz_google_common_form_description(__('enabling this option will allow you to use the shortcode <code>[sz-gplus-post/]</code> that will allow you to insert a box for embedded post to google plus in any part of your post or page standard wordpress. For greater customization uses <code>szgoogle_get_gplus_post()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this option will allow you to use the shortcode [sz-gplus-post] that will allow you to insert a box for embedded post to google plus in any part of your post or page standard wordpress.','szgoogleadmin'));
 }
 
 
@@ -488,7 +488,7 @@ function sz_google_admin_plus_post_shortcode()
 
 function sz_google_admin_plus_redirect_sign() {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_redirect_sign');
-	sz_google_common_form_description(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as <code>mydomain.com/+</code>. Activate this option and enter the complete link of the destination page of google plus.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as mydomain.com/+. Activate this option and enter the complete link of the destination.','szgoogleadmin'));
 } 
 
 function sz_google_admin_plus_redirect_sign_url() 
@@ -499,7 +499,7 @@ function sz_google_admin_plus_redirect_sign_url()
 
 function sz_google_admin_plus_redirect_plus() {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_redirect_plus');
-	sz_google_common_form_description(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as <code>mydomain.com/plus</code>. Activate this option and enter the complete link of the destination page of google plus.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as mydomain.com/plus. Activate this option and enter the complete link of the destination.','szgoogleadmin'));
 } 
 
 function sz_google_admin_plus_redirect_plus_url() 
@@ -510,13 +510,13 @@ function sz_google_admin_plus_redirect_plus_url()
 
 function sz_google_admin_plus_redirect_curl() {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_redirect_curl');
-	sz_google_common_form_description(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as <code>mydomain.com/origin</code>. Activate this option and enter the complete link of the source and destination page of google plus.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as mydomain.com/origin. Activate this option and enter source and destination page.','szgoogleadmin'));
 } 
 
 function sz_google_admin_plus_redirect_curl_source() 
 {
 	sz_google_common_form_text('sz_google_options_plus','plus_redirect_curl_dir','large',__('source path URL for redirect','szgoogleadmin'));
-	sz_google_common_form_description(__('in this field you must enter the source partial URL of your domain on which to perform the rewrite rule. For example you can use as a value source URL string <code>community/+</code> and associate the destination on a community present on google+.','szgoogleadmin'));
+	sz_google_common_form_description(__('in this field you must enter the source partial URL of your domain on which to perform the rewrite rule. For example you can use as a value source URL string community/+ and associate the destination on a community present on google+.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_redirect_curl_target() 
@@ -532,7 +532,7 @@ function sz_google_admin_plus_redirect_curl_target()
 function sz_google_admin_plus_system_javascript() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_system_javascript');
-	sz_google_common_form_description(__('if you use some plugin that performs functions similar to <a target="_blank" href="http://wordpress.org/plugins/sz-google/">sz-google for wordpress</a> is possible that we might create a conflict retrieving files javascript google, enabling this option will be disabled loadings code javascript from our plugin. In this way is not guaranteed to function properly.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you use some plugin that performs functions similar to sz-google for wordpress is possible that we might create a conflict retrieving files javascript google, enabling this option will be disabled loadings code javascript from our plugin.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */

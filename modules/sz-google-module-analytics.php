@@ -1,68 +1,101 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
-if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
+/**
+ * Modulo GOOGLE ANALYTICS per la definizione delle funzioni che riguardano
+ * sia i widget che i shortcode ma anche filtri e azioni che il modulo
+ * può integrare durante l'aggiunta di funzionalità a wordpress.
+ *
+ * @package SZGoogle
+ */
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-/* ************************************************************************** */ 
-/* Controllo le opzioni generali per saper i moduli che devo essere caricati  */
-/* ************************************************************************** */ 
-
-$options = sz_google_module_analytics_options();
-
-// Impostazioni variabili per attivazione dei controlli
-
-$SZ_GA_ENABLE_FRONT_END = $options['ga_enable_front'];
-$SZ_GA_ENABLE_POSITION  = $options['ga_position'];
-
-// Se sono sul front end aggiungo azione header o footer in
-// base a quello che è stato specificato nell'opzione di configurazione 
-
-if (!is_admin() and $SZ_GA_ENABLE_FRONT_END == SZ_PLUGIN_GOOGLE_VALUE_YES)
+/**
+ * Definizione della classe principale da utilizzare per questo
+ * modulo. La classe deve essere una extends di SZGoogleModule
+ * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+ */
+class SZGoogleModuleAnalytics extends SZGoogleModule
 {
-	if ($SZ_GA_ENABLE_POSITION == SZ_PLUGIN_GOOGLE_GA_HEADER) add_action('wp_head'  ,'sz_google_module_analytics_add_script');
-	if ($SZ_GA_ENABLE_POSITION == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('wp_footer','sz_google_module_analytics_add_script');
+	function __construct() 
+	{
+		parent::__construct();
+	}
+
+	/**
+	 * Calcolo le opzioni legate al modulo con esecuzione dei 
+	 * controlli formali di coerenza e impostazione dei default
+	 *
+	 * @return array
+	 */
+	function getOptions()
+	{
+		$options = get_option('sz_google_options_ga');
+
+		// Controllo delle opzioni in caso di valori non esistenti
+		// richiamo della funzione per il controllo isset()
+
+		$options = $this->checkOptionIsSet($options,array(
+			'ga_type'                 => SZ_PLUGIN_GOOGLE_GA_TYPE,
+			'ga_uacode'               => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'ga_position'             => SZ_PLUGIN_GOOGLE_GA_HEADER,
+			'ga_enable_front'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'ga_enable_admin'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_administrator' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_logged'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_subdomain'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_multiple'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_advertiser'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));
+
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo yes or no
+
+		$options = $this->checkOptionIsYesNo($options,array(
+			'ga_enable_front'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			'ga_enable_admin'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_administrator' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_logged'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_subdomain'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_multiple'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'ga_enable_advertiser'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));	
+
+		// Ritorno indietro il gruppo di opzioni corretto dai
+		// controlli formali della funzione di reperimento opzioni
+
+		return $options;
+	}
+
+	/**
+	 * Aggiungo le azioni del modulo corrente, questa funzione deve
+	 * essere implementate per ogni modulo in maniera personalizzata
+	 * non è possibile creare una funzione di standardizzazione
+	 *
+	 * @return void
+	 */
+	function moduleAddActions()
+	{
+		$options = $this->getOptions();
+
+		// Se sono sul front end aggiungo azione header o footer in
+		// base a quello che è stato specificato nell'opzione di configurazione 
+
+		if (!is_admin() and $options['ga_enable_front'] == SZ_PLUGIN_GOOGLE_VALUE_YES)
+		{
+			if (SZ_PLUGIN_GOOGLE_DEBUG) {
+				SZGoogleDebug::log('execute exec-mods point register google analytics');
+			}
+
+			if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_HEADER) add_action('wp_head'  ,'sz_google_module_analytics_add_script');
+			if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('wp_footer','sz_google_module_analytics_add_script');
+		}
+	}
 }
 
-/* ************************************************************************** */ 
-/* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
-/* ************************************************************************** */ 
 
-function sz_google_module_analytics_options()
-{
-	$options = get_option('sz_google_options_ga');
+global $SZ_ANALYTICS_OBJECT;
 
-	// Controllo delle opzioni in caso di valori non esistenti
-	// richiamo della funzione per il controllo isset()
-
-	$options = sz_google_module_check_values_isset($options,array(
-		'ga_type'                 => SZ_PLUGIN_GOOGLE_GA_TYPE,
-		'ga_uacode'               => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'ga_position'             => SZ_PLUGIN_GOOGLE_GA_HEADER,
-		'ga_enable_front'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
-		'ga_enable_admin'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_administrator' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_logged'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_subdomain'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_multiple'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_advertiser'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
-
-	// Chiamata alla funzione comune per controllare le variabili che devono avere
-	// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
-
-	$options = sz_google_module_check_values_yesno($options,array(
-		'ga_enable_front'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
-		'ga_enable_admin'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_administrator' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_logged'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_subdomain'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_multiple'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'ga_enable_advertiser'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
-
-	return $options;
-}
+$SZ_ANALYTICS_OBJECT = new SZGoogleModuleAnalytics();
+$SZ_ANALYTICS_OBJECT->moduleAddActions();
 
 /* ************************************************************************** */ 
 /* Scrittura del codice javascript necessario alla visualizzazione widgets    */
@@ -78,7 +111,9 @@ function sz_google_module_analytics_add_script() {
 
 function sz_google_module_analytics_get_ID()
 {
-	$options = sz_google_module_analytics_options();
+	global $SZ_ANALYTICS_OBJECT;
+	$options = $SZ_ANALYTICS_OBJECT->getOptions();
+
 	$guacode = trim($options['ga_uacode']);   
 
 	return $guacode;
@@ -90,7 +125,8 @@ function sz_google_module_analytics_get_ID()
 
 function sz_google_module_analytics_get_code($atts=array())
 {
-	$options = sz_google_module_analytics_options();
+	global $SZ_ANALYTICS_OBJECT;
+	$options = $SZ_ANALYTICS_OBJECT->getOptions();
 
 	// Estrazione dei valori specificati nello shortcode, i valori ritornati
 	// sono contenuti nei nomi di variabili corrispondenti alla chiave
@@ -189,7 +225,7 @@ function sz_google_module_analytics_get_code($atts=array())
 		$HTML .= "m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"."\n";
 		$HTML .= "})(window,document,'script','//www.google-analytics.com/analytics.js','ga');"."\n";
 
-		$HTML .= "ga('create','".trim($ga_uacode)."','".trim(sz_google_get_current_domain())."');"."\n";
+		$HTML .= "ga('create','".trim($ga_uacode)."','".trim(SZGoogleCommon::getCurrentDomain())."');"."\n";
 		$HTML .= "ga('send','pageview');"."\n";
 
 		$HTML .= "//]]></script>"."\n";
@@ -214,7 +250,7 @@ function sz_google_module_analytics_get_code($atts=array())
 		// di codice contenente il _setDomainName del domino corrente visualizzato
 
 		if ($ga_enable_subdomain == SZ_PLUGIN_GOOGLE_VALUE_YES or $ga_enable_multiple  == SZ_PLUGIN_GOOGLE_VALUE_YES) {
-			$HTML .= "_gaq.push(['_setDomainName','".trim(sz_google_get_current_domain())."']);"."\n";
+			$HTML .= "_gaq.push(['_setDomainName','".trim(SZGoogleCommon::getCurrentDomain())."']);"."\n";
 		}
 
 		// Se opzione multiple risulta attivata aggiungo una nuova riga con il codice

@@ -1,103 +1,124 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
-if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
+/**
+ * Modulo GOOGLE PANORAMIO per la definizione delle funzioni che riguardano
+ * sia i widget che i shortcode ma anche filtri e azioni che il modulo
+ * può integrare durante l'aggiunta di funzionalità a wordpress.
+ *
+ * @package SZGoogle
+ */
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-/* ************************************************************************** */ 
-/* Controllo le opzioni per sapere quali componenti risultano attivati        */ 
-/* ************************************************************************** */ 
-
-$options = sz_google_module_panoramio_options();
-
-// Impostazioni variabili per attivazione dei controlli
-
-$SZ_PANORAMIO_ENABLE_SHORTC = $options['panoramio_shortcode'];
-$SZ_PANORAMIO_ENABLE_WIDGET = $options['panoramio_widget'];
-
-// Impostazioni variabili per attivazione dei shortcodes
-
-if ($SZ_PANORAMIO_ENABLE_SHORTC == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-panoramio','sz_google_module_panoramio_shortcode');
-if ($SZ_PANORAMIO_ENABLE_WIDGET == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_panoramio_widget');
-
-/* ************************************************************************** */ 
-/* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
-/* ************************************************************************** */ 
-
-function sz_google_module_panoramio_options()
+/**
+ * Definizione della classe principale da utilizzare per questo
+ * modulo. La classe deve essere una extends di SZGoogleModule
+ * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+ */
+class SZGoogleModulePanoramio extends SZGoogleModule
 {
-	$options = get_option('sz_google_options_panoramio');
+	function __construct()
+	{
+		parent::__construct();
 
-	// Controllo delle opzioni in caso di valori non esistenti
-	// richiamo della funzione per il controllo isset()
+		$this->moduleShortcodes = array(
+			'panoramio_shortcode' => array('sz-panoramio','sz_google_module_panoramio_shortcode'),
+		);
 
-	$options = sz_google_module_check_values_isset($options,array(
-		'panoramio_widget'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'panoramio_shortcode'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'panoramio_s_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_TEMPLATE,
-		'panoramio_s_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH,
-		'panoramio_s_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT,
-		'panoramio_s_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ORIENTATION,
-		'panoramio_s_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE,
-		'panoramio_s_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION,
-		'panoramio_s_paragraph'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH,
-		'panoramio_s_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY,
-		'panoramio_s_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_S_SET,
-		'panoramio_s_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS,
-		'panoramio_s_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS,
-		'panoramio_w_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
-		'panoramio_w_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH,
-		'panoramio_w_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
-		'panoramio_w_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION,
-		'panoramio_w_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE,
-		'panoramio_w_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
-		'panoramio_w_paragraph'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'panoramio_w_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY,
-		'panoramio_w_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET,
-		'panoramio_w_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS,
-		'panoramio_w_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS,
-	));
+		$this->moduleWidgets = array(
+			'panoramio_widget'    => 'sz_google_module_panoramio_widget',
+		);
+	}
 
-	// Controllo delle opzioni in caso di valori non conformi
-	// richiamo della funzione per il controllo isnull()
+	/**
+	 * Calcolo le opzioni legate al modulo con esecuzione dei 
+	 * controlli formali di coerenza e impostazione dei default
+	 *
+	 * @return array
+	 */
+	function getOptions()
+	{
+		$options = get_option('sz_google_options_panoramio');
 
-	$options = sz_google_module_check_values_isnull($options,array(
-		'panoramio_s_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_TEMPLATE,
-		'panoramio_s_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH,
-		'panoramio_s_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT,
-		'panoramio_s_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ORIENTATION,
-		'panoramio_s_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE,
-		'panoramio_s_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION,
-		'panoramio_s_paragraph'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH,
-		'panoramio_s_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY,
-		'panoramio_s_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_S_SET,
-		'panoramio_s_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS,
-		'panoramio_s_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS,
-		'panoramio_w_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
-		'panoramio_w_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH,
-		'panoramio_w_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
-		'panoramio_w_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION,
-		'panoramio_w_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE,
-		'panoramio_w_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
-		'panoramio_w_paragraph'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'panoramio_w_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY,
-		'panoramio_w_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET,
-		'panoramio_w_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS,
-		'panoramio_w_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS,
-	));
+		// Controllo delle opzioni in caso di valori non esistenti
+		// richiamo della funzione per il controllo isset()
 
-	// Chiamata alla funzione comune per controllare le variabili che devono avere
-	// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
+		$options = $this->checkOptionIsSet($options,array(
+			'panoramio_widget'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'panoramio_shortcode'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'panoramio_s_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_TEMPLATE,
+			'panoramio_s_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH,
+			'panoramio_s_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT,
+			'panoramio_s_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ORIENTATION,
+			'panoramio_s_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE,
+			'panoramio_s_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION,
+			'panoramio_s_paragraph'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH,
+			'panoramio_s_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY,
+			'panoramio_s_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_S_SET,
+			'panoramio_s_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS,
+			'panoramio_s_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS,
+			'panoramio_w_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
+			'panoramio_w_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH,
+			'panoramio_w_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
+			'panoramio_w_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION,
+			'panoramio_w_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE,
+			'panoramio_w_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
+			'panoramio_w_paragraph'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'panoramio_w_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY,
+			'panoramio_w_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET,
+			'panoramio_w_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS,
+			'panoramio_w_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS,
+		));
 
-	$options = sz_google_module_check_values_yesno($options,array(
-		'panoramio_widget'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'panoramio_shortcode'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'panoramio_s_paragraph' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'panoramio_w_paragraph' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo isnull()
 
-	return $options;
+		$options = $this->checkOptionIsNull($options,array(
+			'panoramio_s_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_TEMPLATE,
+			'panoramio_s_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH,
+			'panoramio_s_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT,
+			'panoramio_s_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ORIENTATION,
+			'panoramio_s_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE,
+			'panoramio_s_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION,
+			'panoramio_s_paragraph'   => SZ_PLUGIN_GOOGLE_PANORAMIO_S_PARAGRAPH,
+			'panoramio_s_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY,
+			'panoramio_s_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_S_SET,
+			'panoramio_s_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS,
+			'panoramio_s_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS,
+			'panoramio_w_template'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_TEMPLATE,
+			'panoramio_w_width'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH,
+			'panoramio_w_height'      => SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT,
+			'panoramio_w_orientation' => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ORIENTATION,
+			'panoramio_w_list_size'   => SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE,
+			'panoramio_w_position'    => SZ_PLUGIN_GOOGLE_PANORAMIO_W_POSITION,
+			'panoramio_w_paragraph'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'panoramio_w_delay'       => SZ_PLUGIN_GOOGLE_PANORAMIO_W_DELAY,
+			'panoramio_w_set'         => SZ_PLUGIN_GOOGLE_PANORAMIO_W_SET,
+			'panoramio_w_columns'     => SZ_PLUGIN_GOOGLE_PANORAMIO_W_COLUMNS,
+			'panoramio_w_rows'        => SZ_PLUGIN_GOOGLE_PANORAMIO_W_ROWS,
+		));
+
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo Yes o No
+
+		$options = $this->checkOptionIsYesNo($options,array(
+			'panoramio_widget'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'panoramio_shortcode'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'panoramio_s_paragraph' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'panoramio_w_paragraph' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));
+
+		// Ritorno indietro il gruppo di opzioni corretto dai
+		// controlli formali della funzione di reperimento opzioni
+
+		return $options;
+	}
 }
+
+
+global $SZ_PANORAMIO_OBJECT;
+
+$SZ_PANORAMIO_OBJECT = new SZGoogleModulePanoramio();
+$SZ_PANORAMIO_OBJECT->moduleAddWidgets();
+$SZ_PANORAMIO_OBJECT->moduleAddShortcodes();
 
 /* ************************************************************************** */ 
 /* Funzione per la generazione di codice legato a google panoramio            */
@@ -151,7 +172,8 @@ function sz_google_module_panoramio_get_code($atts=array())
 	// Lettura delle opzioni per la definzione di parametri che non hanno
 	// specificato nessun valore e che saranno sostituiti con quelli di default
 
-	$options = sz_google_module_panoramio_options();
+	global $SZ_PANORAMIO_OBJECT;
+	$options = $SZ_PANORAMIO_OBJECT->getOptions();
 
 	if ($default == SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
 	{
@@ -309,7 +331,7 @@ function sz_google_module_panoramio_shortcode($atts,$content=null)
 /* GOOGLE PANORAMIO definizione ed elaborazione del widget su sidebar         */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_panoramio_widget extends WP_Widget_SZ_Google
+class sz_google_module_panoramio_widget extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso

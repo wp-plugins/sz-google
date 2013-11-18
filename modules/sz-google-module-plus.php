@@ -1,207 +1,212 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
-if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
+/**
+ * Modulo GOOGLE PLUS per la definizione delle funzioni che riguardano
+ * sia i widget che i shortcode ma anche filtri e azioni che il modulo
+ * può integrare durante l'aggiunta di funzionalità a wordpress.
+ *
+ * @package SZGoogle
+ */
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-/* ************************************************************************** */ 
-/* Controllo le opzioni generali per i moduli che devo essere caricati        */
-/* ************************************************************************** */ 
-
-$options = sz_google_module_plus_options();
-
-// Impostazioni variabili per attivazione degli shortcodes
-
-$SZ_PLUS_ENABLE_SHORTC_PROFILE   = $options['plus_shortcode_pr_enable'];
-$SZ_PLUS_ENABLE_SHORTC_PAGE      = $options['plus_shortcode_pa_enable'];
-$SZ_PLUS_ENABLE_SHORTC_COMMUNITY = $options['plus_shortcode_co_enable'];
-$SZ_PLUS_ENABLE_SHORTC_FOLLOWERS = $options['plus_shortcode_fl_enable'];
-$SZ_PLUS_ENABLE_SHORTC_PLUSONE   = $options['plus_button_enable_plusone'];
-$SZ_PLUS_ENABLE_SHORTC_SHARE     = $options['plus_button_enable_sharing'];
-$SZ_PLUS_ENABLE_SHORTC_FOLLOW    = $options['plus_button_enable_follow'];
-$SZ_PLUS_ENABLE_SHORTC_COMMENTS  = $options['plus_comments_sh_enable'];
-$SZ_PLUS_ENABLE_SHORTC_POST      = $options['plus_post_enable_shortcode'];
-
-// Impostazioni variabili per attivazione degli widgets
-
-$SZ_PLUS_ENABLE_WIDGET_PROFILE   = $options['plus_widget_pr_enable'];
-$SZ_PLUS_ENABLE_WIDGET_PAGE      = $options['plus_widget_pa_enable'];
-$SZ_PLUS_ENABLE_WIDGET_COMMUNITY = $options['plus_widget_co_enable'];
-$SZ_PLUS_ENABLE_WIDGET_FOLLOWERS = $options['plus_widget_fl_enable'];
-$SZ_PLUS_ENABLE_WIDGET_PLUSONE   = $options['plus_button_enable_widget_plusone'];
-$SZ_PLUS_ENABLE_WIDGET_SHARE     = $options['plus_button_enable_widget_sharing'];
-$SZ_PLUS_ENABLE_WIDGET_FOLLOW    = $options['plus_button_enable_widget_follow'];
-$SZ_PLUS_ENABLE_WIDGET_COMMENTS  = $options['plus_comments_wd_enable'];
-$SZ_PLUS_ENABLE_WIDGET_POST      = $options['plus_post_enable_widget'];
-
-// Impostazioni variabili per attivazione di funzioni generali
-
-$SZ_PLUS_ENABLE_COMMENTS         = $options['plus_comments_gp_enable'];
-$SZ_PLUS_ENABLE_REDIRECT_SIGN    = $options['plus_redirect_sign'];
-$SZ_PLUS_ENABLE_REDIRECT_PLUS    = $options['plus_redirect_plus'];
-$SZ_PLUS_ENABLE_REDIRECT_URL     = $options['plus_redirect_curl'];
-$SZ_PLUS_ENABLE_REDIRECT_FLUSH   = $options['plus_redirect_flush'];
-
-/* ************************************************************************** */ 
-/* Controllo le opzioni generali per i moduli che devo essere caricati        */
-/* ************************************************************************** */ 
-
-if ($SZ_PLUS_ENABLE_SHORTC_PROFILE   == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-profile'  ,'sz_google_module_plus_shortcodes_profile');
-if ($SZ_PLUS_ENABLE_SHORTC_PAGE      == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-page'     ,'sz_google_module_plus_shortcodes_page');
-if ($SZ_PLUS_ENABLE_SHORTC_COMMUNITY == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-community','sz_google_module_plus_shortcodes_community');
-if ($SZ_PLUS_ENABLE_SHORTC_FOLLOWERS == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-followers','sz_google_module_plus_shortcodes_followers');
-if ($SZ_PLUS_ENABLE_SHORTC_PLUSONE   == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-one'      ,'sz_google_module_plus_shortcodes_plusone');
-if ($SZ_PLUS_ENABLE_SHORTC_SHARE     == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-share'    ,'sz_google_module_plus_shortcodes_share');
-if ($SZ_PLUS_ENABLE_SHORTC_FOLLOW    == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-follow'   ,'sz_google_module_plus_shortcodes_follow');
-if ($SZ_PLUS_ENABLE_SHORTC_COMMENTS  == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-comments' ,'sz_google_module_plus_shortcodes_comments');
-if ($SZ_PLUS_ENABLE_SHORTC_POST      == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-gplus-post'     ,'sz_google_module_plus_shortcodes_post');
-
-/* ************************************************************************** */ 
-/* Controllo le opzioni generali per i moduli che devo essere caricati        */
-/* ************************************************************************** */ 
-
-if ($SZ_PLUS_ENABLE_WIDGET_PROFILE   == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_profile');
-if ($SZ_PLUS_ENABLE_WIDGET_PAGE      == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_page');
-if ($SZ_PLUS_ENABLE_WIDGET_COMMUNITY == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_community');
-if ($SZ_PLUS_ENABLE_WIDGET_FOLLOWERS == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_followers');
-if ($SZ_PLUS_ENABLE_WIDGET_PLUSONE   == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_plusone');
-if ($SZ_PLUS_ENABLE_WIDGET_SHARE     == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_share');
-if ($SZ_PLUS_ENABLE_WIDGET_FOLLOW    == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_follow');
-if ($SZ_PLUS_ENABLE_WIDGET_COMMENTS  == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_comments');
-if ($SZ_PLUS_ENABLE_WIDGET_POST      == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_plus_widget_post');
-
-/* ************************************************************************** */ 
-/* Controllo se devo attivare il sistema dei commenti per google plus         */
-/* ************************************************************************** */ 
-
-if ($SZ_PLUS_ENABLE_COMMENTS == SZ_PLUGIN_GOOGLE_VALUE_YES) {
-	add_action('init','sz_google_module_plus_comments_system_enable');
-}
-
-/* ************************************************************************** */ 
-/* Controllo se devo attivare le funzioni di redirect per custom URL          */
-/* ************************************************************************** */ 
-
-if ($SZ_PLUS_ENABLE_REDIRECT_SIGN  == SZ_PLUGIN_GOOGLE_VALUE_YES or
-	$SZ_PLUS_ENABLE_REDIRECT_PLUS  == SZ_PLUGIN_GOOGLE_VALUE_YES or
-	$SZ_PLUS_ENABLE_REDIRECT_URL   == SZ_PLUGIN_GOOGLE_VALUE_YES or 
-	$SZ_PLUS_ENABLE_REDIRECT_FLUSH == SZ_PLUGIN_GOOGLE_VALUE_NO) 
+/**
+ * Definizione della classe principale da utilizzare per questo
+ * modulo. La classe deve essere una extends di SZGoogleModule
+ * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+ */
+class SZGoogleModulePlus extends SZGoogleModule
 {
-		add_action('init','sz_google_module_plus_rewrite_rules');
+	function __construct()
+	{
+		parent::__construct();
+
+		$this->moduleShortcodes = array(
+			'plus_shortcode_pr_enable'          => array('sz-gplus-profile'  ,'sz_google_module_plus_shortcodes_profile'),
+			'plus_shortcode_pa_enable'          => array('sz-gplus-page'     ,'sz_google_module_plus_shortcodes_page'),
+			'plus_shortcode_co_enable'          => array('sz-gplus-community','sz_google_module_plus_shortcodes_community'),
+			'plus_shortcode_fl_enable'          => array('sz-gplus-followers','sz_google_module_plus_shortcodes_followers'),
+			'plus_button_enable_plusone'        => array('sz-gplus-one'      ,'sz_google_module_plus_shortcodes_plusone'),
+			'plus_button_enable_sharing'        => array('sz-gplus-share'    ,'sz_google_module_plus_shortcodes_share'),
+			'plus_button_enable_follow'         => array('sz-gplus-follow'   ,'sz_google_module_plus_shortcodes_follow'),
+			'plus_comments_sh_enable'           => array('sz-gplus-comments' ,'sz_google_module_plus_shortcodes_comments'),
+			'plus_post_enable_shortcode'        => array('sz-gplus-post'     ,'sz_google_module_plus_shortcodes_post'),
+		);
+
+		$this->moduleWidgets = array(
+			'plus_widget_pr_enable'             => 'sz_google_module_plus_widget_profile',
+			'plus_widget_pa_enable'             => 'sz_google_module_plus_widget_page',
+			'plus_widget_co_enable'             => 'sz_google_module_plus_widget_community',
+			'plus_widget_fl_enable'             => 'sz_google_module_plus_widget_followers',
+			'plus_button_enable_widget_plusone' => 'sz_google_module_plus_widget_plusone',
+			'plus_button_enable_widget_sharing' => 'sz_google_module_plus_widget_share',
+			'plus_button_enable_widget_follow'  => 'sz_google_module_plus_widget_follow',
+			'plus_comments_wd_enable'           => 'sz_google_module_plus_widget_comments',
+			'plus_post_enable_widget'           => 'sz_google_module_plus_widget_post',
+		);
+	}
+
+	/**
+	 * Calcolo le opzioni legate al modulo con esecuzione dei 
+	 * controlli formali di coerenza e impostazione dei default
+	 *
+	 * @return array
+	 */
+	function getOptions()
+	{
+		$options = get_option('sz_google_options_plus');
+
+		// Controllo delle opzioni in caso di valori non esistenti
+		// richiamo della funzione per il controllo isset()
+
+		$options = $this->checkOptionIsSet($options,array(
+			'plus_profile'                      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_page'                         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_community'                    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_language'                     => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+			'plus_widget_pr_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_widget_pa_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_widget_co_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_widget_fl_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_widget_size_portrait'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_widget_size_landscape'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_shortcode_pr_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_pa_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_co_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_fl_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_size_portrait'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_shortcode_size_landscape'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_button_enable_plusone'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_sharing'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_follow'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_widget_plusone' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_widget_sharing' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_widget_follow'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_sh_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_wp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_ac_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_aw_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_dt_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_dt_day'              => SZ_PLUGIN_GOOGLE_VALUE_OLD_DAY,
+			'plus_comments_dt_month'            => SZ_PLUGIN_GOOGLE_VALUE_OLD_MONTH,
+			'plus_comments_dt_year'             => SZ_PLUGIN_GOOGLE_VALUE_OLD_YEAR,
+			'plus_comments_fixed_size'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_comments_title'               => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_comments_css_class_1'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_comments_css_class_2'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_redirect_sign'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_redirect_plus'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_redirect_curl'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_redirect_curl_dir'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_redirect_curl_url'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'plus_redirect_flush'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_system_javascript'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_post_enable_widget'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_post_enable_shortcode'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));
+
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo isnull()
+
+		$options = $this->checkOptionIsNull($options,array(
+			'plus_language'                    => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+			'plus_widget_size_portrait'        => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
+			'plus_widget_size_landscape'       => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE,
+			'plus_shortcode_size_portrait'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT,
+			'plus_shortcode_size_landscape'    => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE,
+		));
+
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo iszero()
+
+		$options = $this->checkOptionIsZero($options,array(
+			'plus_comments_fixed_size'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		));
+
+		// Chiamata alla funzione comune per controllare le variabili che devono avere
+		// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
+
+		$options = $this->checkOptionIsYesNo($options,array(
+			'plus_widget_pr_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_widget_pa_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_widget_co_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_widget_fl_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_pr_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_pa_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_co_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_shortcode_fl_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_plusone'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_sharing'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_follow'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_widget_plusone' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_widget_sharing' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_button_enable_widget_follow'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_sh_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_wp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_ac_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_aw_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_comments_dt_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_redirect_sign'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_redirect_plus'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_redirect_curl'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_redirect_flush'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_system_javascript'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_post_enable_widget'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));
+
+		// Ritorno indietro il gruppo di opzioni corretto dai
+		// controlli formali della funzione di reperimento opzioni
+
+		return $options;
+	}
+
+	/**
+	 * Aggiungo le azioni del modulo corrente, questa funzione deve
+	 * essere implementate per ogni modulo in maniera personalizzata
+	 * non è possibile creare una funzione di standardizzazione
+	 *
+	 * @return void
+	 */
+	function moduleAddActions()
+	{
+		$options = $this->getOptions();
+
+		// Controllo se devo attivare il sistema dei commenti per google plus
+		// e aggiungo la funzione specifica al contesto (init)
+
+		if ($options['plus_comments_gp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+		{
+			if (SZ_PLUGIN_GOOGLE_DEBUG) {
+				SZGoogleDebug::log('execute exec-mods point register comment system');
+			}
+			add_action('init','sz_google_module_plus_comments_system_enable');
+		}
+
+		// Controllo se devo eseguire delle funzioni di redirect
+		// e aggiungo la funzione specifica al contesto (init)
+
+		if ($options['plus_redirect_sign']  == SZ_PLUGIN_GOOGLE_VALUE_YES or
+			$options['plus_redirect_plus']  == SZ_PLUGIN_GOOGLE_VALUE_YES or
+			$options['plus_redirect_curl']  == SZ_PLUGIN_GOOGLE_VALUE_YES or 
+			$options['plus_redirect_flush'] == SZ_PLUGIN_GOOGLE_VALUE_NO) 
+		{
+			if (SZ_PLUGIN_GOOGLE_DEBUG) {
+				SZGoogleDebug::log('execute exec-mods point register rewrite rules');
+			}
+			add_action('init','sz_google_module_plus_rewrite_rules');
+		}
+	}
 }
 
-/* ************************************************************************** */ 
-/* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
-/* ************************************************************************** */ 
 
-function sz_google_module_plus_options()
-{
-	$options = get_option('sz_google_options_plus');
+global $SZ_PLUS_OBJECT;
 
-	// Controllo delle opzioni in caso di valori non esistenti
-	// richiamo della funzione per il controllo isset()
-
-	$options = sz_google_module_check_values_isset($options,array(
-		'plus_profile'                      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_page'                         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_community'                    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_language'                     => SZ_PLUGIN_GOOGLE_VALUE_LANG,
-		'plus_widget_pr_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_widget_pa_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_widget_co_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_widget_fl_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_widget_size_portrait'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_widget_size_landscape'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_shortcode_pr_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_pa_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_co_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_fl_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_size_portrait'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_shortcode_size_landscape'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_button_enable_plusone'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_sharing'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_follow'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_widget_plusone' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_widget_sharing' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_widget_follow'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_sh_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_wp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_ac_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_aw_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_dt_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_dt_day'              => SZ_PLUGIN_GOOGLE_VALUE_OLD_DAY,
-		'plus_comments_dt_month'            => SZ_PLUGIN_GOOGLE_VALUE_OLD_MONTH,
-		'plus_comments_dt_year'             => SZ_PLUGIN_GOOGLE_VALUE_OLD_YEAR,
-		'plus_comments_fixed_size'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_comments_title'               => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_comments_css_class_1'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_comments_css_class_2'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_redirect_sign'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_redirect_plus'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_redirect_curl'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_redirect_curl_dir'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_redirect_curl_url'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'plus_redirect_flush'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_system_javascript'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_post_enable_widget'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_post_enable_shortcode'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
-
-	// Controllo delle opzioni in caso di valori non conformi
-	// richiamo della funzione per il controllo isnull()
-
-	$options = sz_google_module_check_values_isnull($options,array(
-		'plus_language'                    => SZ_PLUGIN_GOOGLE_VALUE_LANG,
-		'plus_widget_size_portrait'        => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT,
-		'plus_widget_size_landscape'       => SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE,
-		'plus_shortcode_size_portrait'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT,
-		'plus_shortcode_size_landscape'    => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE,
-	));
-
-	$options = sz_google_module_check_values_iszero($options,array(
-		'plus_comments_fixed_size'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-	));
-
-	// Chiamata alla funzione comune per controllare le variabili che devono avere
-	// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
-
-	$options = sz_google_module_check_values_yesno($options,array(
-		'plus_widget_pr_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_widget_pa_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_widget_co_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_widget_fl_enable'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_pr_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_pa_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_co_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_shortcode_fl_enable'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_plusone'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_sharing'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_follow'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_widget_plusone' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_widget_sharing' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_button_enable_widget_follow'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_sh_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_gp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_wp_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_ac_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_aw_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_comments_dt_enable'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_redirect_sign'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_redirect_plus'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_redirect_curl'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_redirect_flush'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_system_javascript'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'plus_post_enable_widget'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
-
-	// Ritorno indietro il gruppo di opzioni corretto dai
-	// controlli formali della funzione di reperimento opzioni
-
-	return $options;
-}
+$SZ_PLUS_OBJECT = new SZGoogleModulePlus();
+$SZ_PLUS_OBJECT->moduleAddActions();
+$SZ_PLUS_OBJECT->moduleAddWidgets();
+$SZ_PLUS_OBJECT->moduleAddShortcodes();
 
 /* ************************************************************************** */
 /* PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PROFILE PR */
@@ -219,7 +224,7 @@ function sz_google_module_plus_get_code_profile($atts,$content=null)
 	if (!is_array($atts)) $atts = array();
 
 	extract(shortcode_atts(array(
-		'id'      => SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE,
+		'id'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'type'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -251,12 +256,13 @@ function sz_google_module_plus_get_code_profile($atts,$content=null)
 
 	// Lettura opzioni generali per impostazione dei dati di default
 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_profile']; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = trim($options['plus_profile']); }
 	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; $author = 'false'; }
 
 	// Controllo se azione di richiesta non è un widget posso conrollare i valori
@@ -398,7 +404,7 @@ function sz_google_module_plus_shortcodes_profile($atts,$content=null)
 	// standard di preparazione codice sia per shortcode che widgets
 
 	return sz_google_module_plus_get_code_profile(shortcode_atts(array(
-		'id'      => SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE,
+		'id'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'type'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
 		'align'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -417,7 +423,7 @@ function sz_google_module_plus_shortcodes_profile($atts,$content=null)
 /* GOOGLE+ PROFILE definizione ed elaborazione del widget su sidebar          */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_profile extends WP_Widget_SZ_Google
+class sz_google_module_plus_widget_profile extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -559,7 +565,7 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 	if (!is_array($atts)) $atts = array();
 
 	extract(shortcode_atts(array(
-		'id'        => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
+		'id'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'type'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -591,12 +597,13 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 
 	// Lettura opzioni generali per impostazione dei dati di default
 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_page']; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = trim($options['plus_page']); }
 	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE; $publisher = 'false'; }
 
 	// Controllo se azione di richiesta non è un widget posso conrollare i valori
@@ -688,7 +695,6 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 		if ($align == 'right')  $HTML .= 'text-align:right;';
 
 		$HTML .= '">';
-		$HTML .= '<div class="massimo"></div>';
 
 		$HTML .= '<script type="text/javascript">';
 		$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
@@ -736,7 +742,7 @@ function sz_google_module_plus_shortcodes_page($atts,$content=null)
 	// standard di preparazione codice sia per shortcode che widgets
 
 	return sz_google_module_plus_get_code_page(shortcode_atts(array(
-		'id'        => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
+		'id'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'type'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
 		'align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -755,7 +761,7 @@ function sz_google_module_plus_shortcodes_page($atts,$content=null)
 /* GOOGLE+ PAGE definizione ed elaborazione del widget su sidebar             */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_page extends WP_Widget_SZ_Google 
+class sz_google_module_plus_widget_page extends SZGoogleWidget 
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -894,7 +900,7 @@ function sz_google_module_plus_get_code_community($atts,$content=null)
 	if (!is_array($atts)) $atts = array();
 
 	extract(shortcode_atts(array(
-		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY,
+		'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -917,12 +923,13 @@ function sz_google_module_plus_get_code_community($atts,$content=null)
 
 	// Lettura opzioni generali per impostazione dei dati di default
 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_community']; }
+	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = trim($options['plus_community']); }
 	if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY; }
 
 	// Controllo se azione di richiesta non è un widget posso conrollare i valori
@@ -1036,7 +1043,7 @@ function sz_google_module_plus_shortcodes_community($atts,$content=null)
 	// standard di preparazione codice sia per shortcode che widgets
 
 	return sz_google_module_plus_get_code_community(shortcode_atts(array(
-		'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY,
+		'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
 		'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'layout' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
@@ -1051,7 +1058,7 @@ function sz_google_module_plus_shortcodes_community($atts,$content=null)
 /* GOOGLE+ COMMUNITY definizione ed elaborazione del widget su sidebar        */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_community extends WP_Widget_SZ_Google 
+class sz_google_module_plus_widget_community extends SZGoogleWidget 
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -1203,7 +1210,8 @@ function sz_google_module_plus_get_code_followers($atts,$content=null)
 
 	// Lettura opzioni generali per impostazione dei dati di default
 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
@@ -1304,7 +1312,7 @@ function sz_google_module_plus_shortcodes_followers($atts,$content=null)
 /* GOOGLE+ FOLLOWERS definizione ed elaborazione del widget su sidebar        */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_followers extends WP_Widget_SZ_Google 
+class sz_google_module_plus_widget_followers extends SZGoogleWidget 
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -1494,7 +1502,7 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 	$HTML .= ' data-annotation="'.$annotation.'"';
 	$HTML .= '></div>';
 
-	$HTML = sz_google_module_plus_get_code_button_wrap(array(
+	$HTML = SZGoogleCommon::getCodeButtonWrap(array(
 		'html'         => $HTML,
 		'text'         => $text,
 		'image'        => $img,
@@ -1551,7 +1559,7 @@ function sz_google_module_plus_shortcodes_plusone($atts,$content=null)
 /* GOOGLE+ PLUS ONE definizione ed elaborazione del widget su sidebar         */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_plusone extends WP_Widget_SZ_Google
+class sz_google_module_plus_widget_plusone extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -1767,7 +1775,7 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 
 	$HTML .= '></div>';
 
-	$HTML = sz_google_module_plus_get_code_button_wrap(array(
+	$HTML = SZGoogleCommon::getCodeButtonWrap(array(
 		'html'         => $HTML,
 		'text'         => $text,
 		'image'        => $img,
@@ -1824,7 +1832,7 @@ function sz_google_module_plus_shortcodes_share($atts,$content=null)
 /* GOOGLE+ SHARE definizione ed elaborazione del widget su sidebar            */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_share extends WP_Widget_SZ_Google
+class sz_google_module_plus_widget_share extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -2027,7 +2035,8 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 
 	// Lettura opzioni generali per impostazione dei dati di default
 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
@@ -2059,7 +2068,7 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 
 	$HTML .= '></div>';
 
-	$HTML = sz_google_module_plus_get_code_button_wrap(array(
+	$HTML = SZGoogleCommon::getCodeButtonWrap(array(
 		'html'         => $HTML,
 		'text'         => $text,
 		'image'        => $img,
@@ -2117,7 +2126,7 @@ function sz_google_module_plus_shortcodes_follow($atts,$content=null)
 /* GOOGLE+ FOLLOW definizione ed elaborazione del widget su sidebar           */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_follow extends WP_Widget_SZ_Google
+class sz_google_module_plus_widget_follow extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -2183,7 +2192,8 @@ class sz_google_module_plus_widget_follow extends WP_Widget_SZ_Google
 
 		// Lettura opzioni generali per impostazione dei dati di default
 
-		$general = sz_google_module_plus_options();
+		global $SZ_PLUS_OBJECT;
+		$general = $SZ_PLUS_OBJECT->getOptions();
 
 		// Imposto i valori di default nel caso siano specificati dei valori
 		// che non appartengono al range dei valori accettati
@@ -2297,7 +2307,9 @@ function sz_google_module_plus_get_code_comments($atts,$content=null)
 	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
 	// stringa minuscolo per il controllo di valori speciali come "auto"
 
-	$options  = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
+
 	$uniqueID = 'sz-google-comments-'.md5(uniqid(),false);
 
 	$url    = trim($url);
@@ -2335,7 +2347,7 @@ function sz_google_module_plus_get_code_comments($atts,$content=null)
 
 	// Controllo i valori delle classi eventuali da ggiungere ai wrapper
 
-	if (!empty($title))  $title  = str_ireplace('{title}',ucfirst(sz_google_babel('leave a Reply')),$title);
+	if (!empty($title))  $title  = str_ireplace('{title}',ucfirst(SZGoogleCommon::getTranslate('leave a Reply')),$title);
 	if (!empty($class2)) $class2 = ' '.$class2;
 	if (!empty($class2)) $class2 = ' '.$class2;
 
@@ -2405,7 +2417,7 @@ function sz_google_module_plus_shortcodes_comments($atts,$content=null)
 /* GOOGLE+ COMMENTS definizione ed elaborazione del widget su sidebar         */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_comments extends WP_Widget_SZ_Google
+class sz_google_module_plus_widget_comments extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -2521,7 +2533,8 @@ function sz_google_module_plus_comments_system_enable()
 {
 	// Calcolo opzioni di configurazione generale
 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Se è specificata opzione dopo il contenuto applico il filtro a the_content
 	// altrimenti applico il filtro alla funzione di comment_template
@@ -2553,7 +2566,13 @@ function sz_google_module_plus_comments_system($include)
 
 	$checkdt = '00000000';
 	$checkid	= get_the_date('Ymd');
-	$options = sz_google_module_plus_options();
+
+
+
+
+
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Calcolo la data di confronto per la funzione dei commenti
 
@@ -2626,7 +2645,7 @@ function sz_google_module_plus_comments_content($content)
 	$HTML = sz_google_module_plus_get_code_comments(array(
 		'url'    => get_permalink(),
 		'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'title'  => '<h3>'.ucfirst(sz_google_babel('leave a Reply')).'</h3>',
+		'title'  => '<h3>'.ucfirst(SZGoogleCommon::getTranslate('leave a Reply')).'</h3>',
 		'class1' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'class2' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	));
@@ -2725,7 +2744,7 @@ function sz_google_module_plus_shortcodes_post($atts,$content=null)
 /* GOOGLE+ POST definizione ed elaborazione del widget su sidebar             */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_plus_widget_post extends WP_Widget_SZ_Google
+class sz_google_module_plus_widget_post extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -2812,7 +2831,8 @@ class sz_google_module_plus_widget_post extends WP_Widget_SZ_Google
 function sz_google_module_plus_rewrite_rules() 
 {
 	global $wp; 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Controllo REDIRECT per url con la stringa "+"
 
@@ -2845,7 +2865,12 @@ function sz_google_module_plus_rewrite_rules()
 	{
 		$options['plus_redirect_flush'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
 		update_option('sz_google_options_plus',$options);
-		add_action('wp_loaded','sz_google_module_flush_rules');
+
+		if (SZ_PLUGIN_GOOGLE_DEBUG) {
+			SZGoogleDebug::log('add action rewrite flush rules from google plus');
+		}
+
+		add_action('wp_loaded',array('SZGoogleCommon','rewriteFlushRules'));
 	}
 
 	// Aggiungo variabile QUERY URL e controllo personalizzato di redirect
@@ -2859,7 +2884,8 @@ function sz_google_module_plus_rewrite_rules()
 
 function sz_google_module_plus_parse_query(&$wp)
 {
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	// Controllo REDIRECT per url con la stringa "+"
 
@@ -2904,7 +2930,8 @@ function sz_google_module_plus_add_script_footer()
 
 	define('SZ_GOOGLE_MODULE_PLUS_ADD_SCRIPT_FOOTER',true);
 
-	$options = sz_google_module_plus_options();
+	global $SZ_PLUS_OBJECT;
+	$options = $SZ_PLUS_OBJECT->getOptions();
 
 	if ($options['plus_system_javascript'] == SZ_PLUGIN_GOOGLE_VALUE_YES) return;	
 
@@ -2923,14 +2950,6 @@ function sz_google_module_plus_add_script_footer()
 	$javascript .=	"</script>"."\n";
 	
 	echo $javascript;
-}
-
-/* ************************************************************************** */
-/* GOOGLE+ COMMON codice per disegnare il wrap dei bottoni di google plus     */
-/* ************************************************************************** */
-
-function sz_google_module_plus_get_code_button_wrap($atts) {
-	return sz_google_module_get_code_button_wrap($atts);
 }
 
 /* ************************************************************************** */

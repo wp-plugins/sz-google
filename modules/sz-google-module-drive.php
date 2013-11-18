@@ -1,52 +1,72 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
-if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
+/**
+ * Modulo GOOGLE DRIVE per la definizione delle funzioni che riguardano
+ * sia i widget che i shortcode ma anche filtri e azioni che il modulo
+ * può integrare durante l'aggiunta di funzionalità a wordpress.
+ *
+ * @package SZGoogle
+ */
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-/* ************************************************************************** */ 
-/* Controllo le opzioni per sapere quali componenti risultano attivati        */ 
-/* ************************************************************************** */ 
-
-$options = sz_google_module_drive_options();
-
-// Impostazioni variabili per attivazione dei controlli
-
-$SZ_DRIVE_ENABLE_SHORTC_SAVEBUTTON = $options['drive_savebutton_shortcode'];
-$SZ_DRIVE_ENABLE_WIDGET_SAVEBUTTON = $options['drive_savebutton_widget'];
-
-// Impostazioni variabili per attivazione dei shortcodes
-
-if ($SZ_DRIVE_ENABLE_SHORTC_SAVEBUTTON == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-drive-save','sz_google_module_drive_shortcodes_savebutton');
-if ($SZ_DRIVE_ENABLE_WIDGET_SAVEBUTTON == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_drive_widget_savebutton');
-
-/* ************************************************************************** */ 
-/* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
-/* ************************************************************************** */ 
-
-function sz_google_module_drive_options()
+/**
+ * Definizione della classe principale da utilizzare per questo
+ * modulo. La classe deve essere una extends di SZGoogleModule
+ * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+ */
+class SZGoogleModuleDrive extends SZGoogleModule
 {
-	$options = get_option('sz_google_options_drive');
+	function __construct()
+	{
+		parent::__construct();
 
-	// Controllo delle opzioni in caso di valori non esistenti
-	// richiamo della funzione per il controllo isset()
+		$this->moduleShortcodes = array(
+			'drive_savebutton_shortcode' => array('sz-drive-save','sz_google_module_drive_shortcodes_savebutton'),
+		);
 
-	$options = sz_google_module_check_values_isset($options,array(
-		'drive_sitename'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'drive_savebutton_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'drive_savebutton_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
+		$this->moduleWidgets = array(
+			'drive_savebutton_widget'    => 'sz_google_module_drive_widget_savebutton',
+		);
+	}
 
-	// Chiamata alla funzione comune per controllare le variabili che devono avere
-	// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
+	/**
+	 * Calcolo le opzioni legate al modulo con esecuzione dei 
+	 * controlli formali di coerenza e impostazione dei default
+	 *
+	 * @return array
+	 */
+	function getOptions()
+	{
+		$options = get_option('sz_google_options_drive');
 
-	$options = sz_google_module_check_values_yesno($options,array(
-		'drive_savebutton_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'drive_savebutton_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
+		// Controllo delle opzioni in caso di valori non esistenti
+		// richiamo della funzione per il controllo isset()
 
-	return $options;
+		$options = $this->checkOptionIsSet($options,array(
+			'drive_sitename'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'drive_savebutton_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'drive_savebutton_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));
+
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo Yes o No
+
+		$options = $this->checkOptionIsYesNo($options,array(
+			'drive_savebutton_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'drive_savebutton_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));
+
+		// Ritorno indietro il gruppo di opzioni corretto dai
+		// controlli formali della funzione di reperimento opzioni
+
+		return $options;
+	}
 }
+
+global $SZ_DRIVE_OBJECT;
+
+$SZ_DRIVE_OBJECT = new SZGoogleModuleDrive();
+$SZ_DRIVE_OBJECT->moduleAddWidgets();
+$SZ_DRIVE_OBJECT->moduleAddShortcodes();
 
 /* ************************************************************************** */
 /* SAVE BUTTON SAVE BUTTON SAVE BUTTON SAVE BUTTON SAVE BUTTON SAVE BUTTON SA */
@@ -131,7 +151,7 @@ function sz_google_module_drive_get_code_savebutton($atts=array(),$content=null)
 	$HTML .= ' data-sitename="'.$sitename.'"';
 	$HTML .= '></div>';
 
-	$HTML = sz_google_module_drive_get_code_button_wrap(array(
+	$HTML = SZGoogleCommon::getCodeButtonWrap(array(
 		'html'         => $HTML,
 		'text'         => $text,
 		'image'        => $img,
@@ -187,7 +207,7 @@ function sz_google_module_drive_shortcodes_savebutton($atts,$content=null)
 /* DRIVE SAVE BUTTON definizione ed elaborazione del widget su sidebar        */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_drive_widget_savebutton extends WP_Widget_SZ_Google
+class sz_google_module_drive_widget_savebutton extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso
@@ -303,10 +323,3 @@ class sz_google_module_drive_widget_savebutton extends WP_Widget_SZ_Google
 	}
 }
 
-/* ************************************************************************** */
-/* DRIVE codice per disegnare il wrap dei bottoni di google plus              */
-/* ************************************************************************** */
-
-function sz_google_module_drive_get_code_button_wrap($atts) {
-	return sz_google_module_get_code_button_wrap($atts);
-}

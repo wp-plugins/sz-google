@@ -1,72 +1,92 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
-if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
+/**
+ * Modulo GOOGLE GROUPS per la definizione delle funzioni che riguardano
+ * sia i widget che i shortcode ma anche filtri e azioni che il modulo
+ * può integrare durante l'aggiunta di funzionalità a wordpress.
+ *
+ * @package SZGoogle
+ */
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-/* ************************************************************************** */ 
-/* Controllo le opzioni per sapere quali componenti risultano attivati        */ 
-/* ************************************************************************** */ 
-
-$options = sz_google_module_groups_options();
-
-// Impostazioni variabili per attivazione dei controlli
-
-$SZ_GROUPS_ENABLE_SHORTC_IFRAME = $options['groups_shortcode'];
-$SZ_GROUPS_ENABLE_WIDGET_IFRAME = $options['groups_widget'];
-
-// Impostazioni variabili per attivazione dei shortcodes
-
-if ($SZ_GROUPS_ENABLE_SHORTC_IFRAME == SZ_PLUGIN_GOOGLE_VALUE_YES) add_shortcode('sz-ggroups','sz_google_module_groups_shortcode_iframe');
-if ($SZ_GROUPS_ENABLE_WIDGET_IFRAME == SZ_PLUGIN_GOOGLE_VALUE_YES) sz_google_module_widget_create('sz_google_module_groups_widget_iframe');
-
-/* ************************************************************************** */ 
-/* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
-/* ************************************************************************** */ 
-
-function sz_google_module_groups_options()
+/**
+ * Definizione della classe principale da utilizzare per questo
+ * modulo. La classe deve essere una extends di SZGoogleModule
+ * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+ */
+class SZGoogleModuleGroups extends SZGoogleModule
 {
-	$options = get_option('sz_google_options_groups');
+	function __construct()
+	{
+		parent::__construct();
 
-	// Controllo delle opzioni in caso di valori non esistenti
-	// richiamo della funzione per il controllo isset()
+		$this->moduleShortcodes = array(
+			'groups_shortcode' => array('sz-ggroups','sz_google_module_groups_shortcode_iframe'),
+		);
 
-	$options = sz_google_module_check_values_isset($options,array(
-		'groups_widget'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_shortcode'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_language'    => SZ_PLUGIN_GOOGLE_VALUE_LANG,
-		'groups_name'        => SZ_PLUGIN_GOOGLE_GROUPS_NAME,
-		'groups_showsearch'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_showtabs'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_hidetitle'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_hidesubject' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_width'       => SZ_PLUGIN_GOOGLE_GROUPS_WIDTH,
-		'groups_height'      => SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT,
-	));
+		$this->moduleWidgets = array(
+			'groups_widget'    => 'sz_google_module_groups_widget_iframe',
+		);
+	}
 
-	// Controllo delle opzioni in caso di valori non conformi
-	// richiamo della funzione per il controllo isnull()
+	/**
+	 * Calcolo le opzioni legate al modulo con esecuzione dei 
+	 * controlli formali di coerenza e impostazione dei default
+	 *
+	 * @return array
+	 */
+	function getOptions()
+	{
+		$options = get_option('sz_google_options_groups');
 
-	$options = sz_google_module_check_values_isnull($options,array(
-		'groups_language'    => SZ_PLUGIN_GOOGLE_VALUE_LANG,
-		'groups_width'       => SZ_PLUGIN_GOOGLE_GROUPS_WIDTH,
-		'groups_height'      => SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT,
-	));
+		// Controllo delle opzioni in caso di valori non esistenti
+		// richiamo della funzione per il controllo isset()
 
-	// Chiamata alla funzione comune per controllare le variabili che devono avere
-	// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
+		$options = $this->checkOptionIsSet($options,array(
+			'groups_widget'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_shortcode'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_language'    => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+			'groups_name'        => SZ_PLUGIN_GOOGLE_GROUPS_NAME,
+			'groups_showsearch'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_showtabs'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_hidetitle'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_hidesubject' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_width'       => SZ_PLUGIN_GOOGLE_GROUPS_WIDTH,
+			'groups_height'      => SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT,
+		));
 
-	$options = sz_google_module_check_values_yesno($options,array(
-		'groups_widget'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_shortcode'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_showsearch'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_showtabs'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_hidetitle'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
-		'groups_hidesubject' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-	));
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo isnull()
 
-	return $options;
+		$options = $this->checkOptionIsNull($options,array(
+			'groups_language'    => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+			'groups_width'       => SZ_PLUGIN_GOOGLE_GROUPS_WIDTH,
+			'groups_height'      => SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT,
+		));
+
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo Yes o No
+
+		$options = $this->checkOptionIsYesNo($options,array(
+			'groups_widget'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_shortcode'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_showsearch'  => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_showtabs'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_hidetitle'   => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'groups_hidesubject' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+		));
+
+		// Ritorno indietro il gruppo di opzioni corretto dai
+		// controlli formali della funzione di reperimento opzioni
+
+		return $options;
+	}
 }
+
+global $SZ_GROUPS_OBJECT;
+
+$SZ_GROUPS_OBJECT = new SZGoogleModuleGroups();
+$SZ_GROUPS_OBJECT->moduleAddWidgets();
+$SZ_GROUPS_OBJECT->moduleAddShortcodes();
 
 /* ************************************************************************** */ 
 /* Funzione per la generazione di codice legato a google groups               */
@@ -74,7 +94,8 @@ function sz_google_module_groups_options()
 
 function sz_google_module_groups_get_code_iframe($atts=array())
 {
-	$options = sz_google_module_groups_options();
+	global $SZ_GROUPS_OBJECT;
+	$options = $SZ_GROUPS_OBJECT->getOptions();
 
 	if ($options['groups_showsearch']  == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['groups_showsearch']  = 'true'; else $options['groups_showsearch']  = 'false';  
 	if ($options['groups_showtabs']    == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['groups_showtabs']    = 'true'; else $options['groups_showtabs']    = 'false';  
@@ -187,7 +208,7 @@ function sz_google_module_groups_shortcode_iframe($atts,$content=null)
 /* GOOGLE GROUPS IFRAME definizione ed elaborazione del widget su sidebar     */ 
 /* ************************************************************************** */ 
 
-class sz_google_module_groups_widget_iframe extends WP_Widget_SZ_Google
+class sz_google_module_groups_widget_iframe extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso

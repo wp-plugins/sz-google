@@ -88,7 +88,7 @@ function sz_google_admin_groups_widget()
 function sz_google_admin_groups_shortcode() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_groups','groups_shortcode');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-ggroups]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-ggroups] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -97,10 +97,10 @@ function sz_google_admin_groups_shortcode()
 
 function sz_google_admin_groups_language() 
 {
-	$values = sz_google_get_languages(); 
+	$values = SZGoogleCommon::getLanguages();
 
 	sz_google_common_form_select('sz_google_options_groups','groups_language',$values,'medium','');
-	sz_google_common_form_description(__('specify the language code associated with your website, if you do not specify any value will be called the <code>get_bloginfo(\'language\')</code> and set the same language related to the theme of wordpress. Supported languages ​​can be found on <a target="_blank" href="http://translate.google.com/about/">http://translate.google.com/about/</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('specify the language associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress. Supported languages ​​http://translate.google.com/about/.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -116,31 +116,31 @@ function sz_google_admin_groups_name()
 function sz_google_admin_groups_showsearch() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_groups','groups_showsearch');
-	sz_google_common_form_description(__('select value "yes" if you want to show a search box, "no" if you don\'t want the box to show. This field is used as default value, but you can change this by specifying a specific value via the shortcode or php function. See official documentation for more details.','szgoogleadmin'));
+	sz_google_common_form_description(__('select value "yes" if you want to show a search box, "no" if you don\'t want the box to show. This field is used as default value, but you can change this by specifying a specific value via the shortcode or php function. See official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_groups_showtabs() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_groups','groups_showtabs');
-	sz_google_common_form_description(__('select value "yes" if you want to show the view selector tabs, "no" if you don\'t want to show tabs. This field is used as default value, but you can change this by specifying a specific value via the shortcode or php function. See official documentation for more details','szgoogleadmin'));
+	sz_google_common_form_description(__('select value "yes" if you want to show the view selector tabs, "no" if you don\'t want to show tabs. This field is used as default value, but you can change this by specifying a specific value via the shortcode or php function. See official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_groups_hidetitle() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_groups','groups_hidetitle');
-	sz_google_common_form_description(__('select value "yes" if you want to hide the forum title and description, "no" if you don\'t want to leave the title or description. This field is used as default value, but you can change this by specifying a specific value via the shortcode or php function. See official documentation for more details','szgoogleadmin'));
+	sz_google_common_form_description(__('select value "yes" if you want to hide the forum title and description, "no" if you don\'t want to leave the title or description. This field is used as default value, but you can change this by specifying a specific value in shortcode or php function.','szgoogleadmin'));
 }
 
 function sz_google_admin_groups_hidesubject() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_groups','groups_hidesubject');
-	sz_google_common_form_description(__('select value "yes" if you want to hide the subject of the last post in My Forums view, "no" if you want to leave the subject visible. This field is used as default value, but you can change this by specifying a specific value via the shortcode or php function. See documentation for more details','szgoogleadmin'));
+	sz_google_common_form_description(__('select value "yes" if you want to hide the subject of the last post in My Forums view, "no" if you want to leave the subject visible. This field is used as default value, but you can change this by specifying a specific value in shortcode or php function.','szgoogleadmin'));
 }
 
 function sz_google_admin_groups_width() 
 {
 	sz_google_common_form_number_step_1('sz_google_options_groups','groups_width','medium',0);
-	sz_google_common_form_description(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the widget or the shortcode, if you see a value equal to zero, the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the widget or the shortcode, if you see a value equal to zero, the default size will be 100% and will occupy the entire space.','szgoogleadmin'));
 }
 
 function sz_google_admin_groups_height() 

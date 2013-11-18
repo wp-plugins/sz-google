@@ -1,22 +1,97 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
-if (!defined('SZ_PLUGIN_GOOGLE_MODULE') or !SZ_PLUGIN_GOOGLE_MODULE) die();
+/**
+ * Modulo GOOGLE TRANSLATE per la definizione delle funzioni che riguardano
+ * sia i widget che i shortcode ma anche filtri e azioni che il modulo
+ * può integrare durante l'aggiunta di funzionalità a wordpress.
+ *
+ * @package SZGoogle
+ */
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
+
+/**
+ * Definizione della classe principale da utilizzare per questo
+ * modulo. La classe deve essere una extends di SZGoogleModule
+ * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+ */
+class SZGoogleModuleTranslate extends SZGoogleModule
+{
+	function __construct()
+	{
+		parent::__construct();
+
+		$this->moduleShortcodes = array(
+			'translate_shortcode' => array('sz-gtranslate','sz_google_shortcodes_translate_widget'),
+		);
+
+		$this->moduleWidgets = array(
+			'translate_widget'    => 'SZ_Widget_Google_Translate',
+		);
+	}
+
+	/**
+	 * Calcolo le opzioni legate al modulo con esecuzione dei 
+	 * controlli formali di coerenza e impostazione dei default
+	 *
+	 * @return array
+	 */
+	function getOptions()
+	{
+		$options = get_option('sz_google_options_translate');
+
+		// Controllo delle opzioni in caso di valori non esistenti
+		// richiamo della funzione per il controllo isset()
+
+		$options = $this->checkOptionIsSet($options,array(
+			'translate_meta'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'translate_mode'         => SZ_PLUGIN_GOOGLE_TRANSLATE_MODE,
+			'translate_language'     => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+			'translate_to'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'translate_widget'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'translate_shortcode'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'translate_automatic'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'translate_multiple'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'translate_analytics'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'translate_analytics_ua' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		));
+
+		// Controllo delle opzioni in caso di valori non conformi
+		// richiamo della funzione per il controllo isnull()
+
+		$options = $this->checkOptionIsNull($options,array(
+			'translate_language'     => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+		));
+
+		// Controllo opzione di codice GA-UA nel caso debba pendere il valore
+		// specificato nel modulo corrispondente se risulta attivo.
+
+		if (is_object(self::$SZGoogleModuleAnalytics) and $options['translate_analytics_ua'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+		{
+			$options_ga = self::$SZGoogleModuleAnalytics->getOptions();
+			$options['translate_analytics_ua'] = $options_ga['ga_uacode'];   
+		}
+
+		// Ritorno indietro il gruppo di opzioni corretto dai
+		// controlli formali della funzione di reperimento opzioni
+
+		return $options;
+	}
+}
 
 /* ************************************************************************** */ 
 /* Controllo le opzioni per sapere quali componenti risultano attivati        */ 
 /* ************************************************************************** */ 
 
-$options = sz_google_module_translate_options();
+global $SZ_TRANSLATE_OBJECT;
 
-if ($options['translate_shortcode'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
-	add_shortcode('sz-gtranslate','sz_google_shortcodes_translate_widget');
-}
+$SZ_TRANSLATE_OBJECT = new SZGoogleModuleTranslate();
+$SZ_TRANSLATE_OBJECT->moduleAddWidgets();
+$SZ_TRANSLATE_OBJECT->moduleAddShortcodes();
 
-if ($options['translate_widget'] == SZ_PLUGIN_GOOGLE_VALUE_YES) { 
-	add_action('widgets_init',create_function('','return register_widget("SZ_Widget_Google_Translate");'));
-}
+
+
+
+
+
 
 /* ************************************************************************** */ 
 /* Funzion per caricamento parte header con meta ID di translate              */
@@ -29,52 +104,14 @@ function sz_google_module_translate_meta() {
 add_action('wp_head','sz_google_module_translate_meta');
 
 /* ************************************************************************** */ 
-/* Funzione generale per il caricamento e la messa in coerenza delle opzioni  */
-/* ************************************************************************** */ 
-
-function sz_google_module_translate_options()
-{
-	// Caricamento delle opzioni per modulo google translate
-
-	$options = get_option('sz_google_options_translate');
-
-	// Controllo delle opzioni in caso di valori non validi
-
-	if (!isset($options['translate_meta']))         $options['translate_meta']         = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-	if (!isset($options['translate_mode']))         $options['translate_mode']         = 'I1';
-	if (!isset($options['translate_language']))     $options['translate_language']     = SZ_PLUGIN_GOOGLE_VALUE_LANG;
-	if (!isset($options['translate_to']))           $options['translate_to']           = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['translate_widget']))       $options['translate_widget']       = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['translate_shortcode']))    $options['translate_shortcode']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['translate_automatic']))    $options['translate_automatic']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['translate_multiple']))     $options['translate_multiple']     = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['translate_analytics']))    $options['translate_analytics']    = SZ_PLUGIN_GOOGLE_VALUE_NO;
-	if (!isset($options['translate_analytics_ua'])) $options['translate_analytics_ua'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-
-	// Controllo delle opzioni in caso di valori non validi
-
-	if (trim($options['translate_language']) == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
-		$options['translate_language'] = SZ_PLUGIN_GOOGLE_VALUE_LANG;
-
-	// Controllo opzione di codice GA-UA nel caso debba pendere il valore
-	// specificato nel modulo corrispondente se risulta attivo.
-
-	if (function_exists('sz_google_module_analytics_options') and $options['translate_analytics_ua'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
-	{
-		$options_ga = sz_google_module_analytics_options();
-		$options['translate_analytics_ua'] = $options_ga['ga_uacode'];   
-	}
-
-	return $options;
-}
-
-/* ************************************************************************** */ 
 /* Funzione per la generazione di codice legato a google translate            */
 /* ************************************************************************** */ 
 
 function sz_google_module_translate_get_meta_ID() 
 {
-	$options = sz_google_module_translate_options();
+	global $SZ_TRANSLATE_OBJECT;
+	$options = $SZ_TRANSLATE_OBJECT->getOptions();
+
 	return trim($options['translate_meta']);
 }
 
@@ -99,7 +136,8 @@ function sz_google_module_translate_get_meta()
 
 function sz_google_module_translate_get_code($atts=array())
 {
-	$options = sz_google_module_translate_options();
+	global $SZ_TRANSLATE_OBJECT;
+	$options = $SZ_TRANSLATE_OBJECT->getOptions();
 
 	// Estrazione dei valori specificati nello shortcode, i valori ritornati
 	// sono contenuti nei nomi di variabili corrispondenti alla chiave
@@ -200,7 +238,7 @@ function sz_google_shortcodes_translate_widget($atts,$content=null)
 /* SZ_Widget_Google_Profile - Inserimento profilo sulla sidebar come widget   */ 
 /* ************************************************************************** */ 
 
-class SZ_Widget_Google_Translate extends WP_Widget_SZ_Google
+class SZ_Widget_Google_Translate extends SZGoogleWidget
 {
 	// Costruttore principale della classe widget, definizione 
 	// delle opzioni legate al widget e al controllo dello stesso

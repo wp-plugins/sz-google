@@ -1,7 +1,11 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
+/**
+ * Elenco delle funzioni PHP messe a disposizione dal plugin per  
+ * essere usate direttamente nei temi o in altri plugin richiamando
+ * direttamente la funzione con le opzioni di personalizzazione.
+ *
+ * @package SZGoogle
+ */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 /* ************************************************************************** */

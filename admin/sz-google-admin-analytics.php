@@ -7,16 +7,18 @@ if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 /* ************************************************************************** */ 
 /* GOOGLE ANALYTICS Controllo le opzioni generali per sapere i moduli         */
 /* ************************************************************************** */ 
+global $SZ_ANALYTICS_OBJECT_ADMIN;
 
-$options = sz_google_module_analytics_options();
+$SZ_ANALYTICS_OBJECT_ADMIN = new SZGoogleModuleAnalytics();
+$SZ_ANALYTICS_OPTION_ADMIN = $SZ_ANALYTICS_OBJECT_ADMIN->getOptions();
 
 // Se sono sul pannello di amministrazione devo controllare se è stata
 // attivata l'opzione per abilitare il modulo su amministrazione 
 
-if (is_admin() and $options['ga_enable_admin'] == '1') 
+if (is_admin() and $SZ_ANALYTICS_OPTION_ADMIN['ga_enable_admin'] == '1') 
 {
-	if ($options['ga_position'] == 'H') add_action('admin_head'  ,'sz_google_module_analytics_add_script');
-	if ($options['ga_position'] == 'F') add_action('admin_footer','sz_google_module_analytics_add_script');
+	if ($SZ_ANALYTICS_OPTION_ADMIN['ga_position'] == 'H') add_action('admin_head'  ,'sz_google_module_analytics_add_script');
+	if ($SZ_ANALYTICS_OPTION_ADMIN['ga_position'] == 'F') add_action('admin_footer','sz_google_module_analytics_add_script');
 }
 
 /* ************************************************************************** */
@@ -109,7 +111,7 @@ function sz_google_admin_analytics_position()
 	); 
 
 	sz_google_common_form_select('sz_google_options_ga','ga_position',$values,'medium','');
-	sz_google_common_form_description(__('specifies the location of the tracking code in the page HTML. The recommended position is the header that does not allow the loss of access statistics. If you specify the manual mode you have to use the <code>szgoogle_get_analytics_code()</code> and insert it into the code of your theme.','szgoogleadmin'));
+	sz_google_common_form_description(__('specifies the location of the tracking code in the page HTML. The recommended position is the header that does not allow the loss of access statistics. If you specify the manual mode you have to use szgoogle_get_analytics_code().','szgoogleadmin'));
 }
 
 function sz_google_admin_analytics_type() 
@@ -120,7 +122,7 @@ function sz_google_admin_analytics_type()
 	); 
 
 	sz_google_common_form_select('sz_google_options_ga','ga_type',$values,'medium','');
-	sz_google_common_form_description(__('universal Analytics introduces a set of features that change the way data is collected and organized in your Google Analytics account, so you can get a better understanding of how visitors interact with your online content. Universal Analytics is a new and more flexible tracking code.','szgoogleadmin'));
+	sz_google_common_form_description(__('universal Analytics introduces a set of features that change the way data is collected and organized in your Google Analytics account, so you can get a better understanding of how visitors interact with your online content.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -130,13 +132,13 @@ function sz_google_admin_analytics_type()
 function sz_google_admin_analytics_enable_front() 
 { 
 	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_front');
-	sz_google_common_form_description(__('enable this option to activate the tracking code to the public pages of your website. This option can also be used to disable the code without disabling the module. To check the tracking code on the basis of connected users use the options to follow as admin or users logged.','szgoogleadmin'));
+	sz_google_common_form_description(__('enable this option to activate the tracking code to the public pages of your website. This option can also be used to disable the code without disabling the module. To check the tracking code on the basis of connected users use others options.','szgoogleadmin'));
 }
 
 function sz_google_admin_analytics_enable_admin() 
 { 
 	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_admin');
-	sz_google_common_form_description(__('this option allows you to insert the tracking code in the admin pages. Useful function for some tests but not recommended during normal operation. Do not confuse this option with the administrator user which controls the type of user logged and not the execution environment.','szgoogleadmin'));
+	sz_google_common_form_description(__('this option allows you to insert the tracking code in the admin pages. Useful function for some tests but not recommended during normal operation. Do not confuse this option with the administrator user which controls the type of user logged.','szgoogleadmin'));
 }
 
 function sz_google_admin_analytics_enable_administrator() 
@@ -158,19 +160,19 @@ function sz_google_admin_analytics_enable_logged()
 function sz_google_admin_analytics_enable_subdomains() 
 { 
 	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_subdomains');
-	sz_google_common_form_description(__('turn this option on to modify your tracking code so you can track your subdomains, as well. This option adds the _setDomainName function to your code. Use this function if you manage multiple domains as example www.domain.com, apps.domain.com and store.domain.com','szgoogleadmin'));
+	sz_google_common_form_description(__('turn this option for track your subdomains. This option adds the _setDomainName function to your code. Use this function if you manage multiple domains as example www.domain.com, apps.domain.com and store.domain.com','szgoogleadmin'));
 }
 
 function sz_google_admin_analytics_enable_multiple() 
 { 
 	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_multiple');
-	sz_google_common_form_description(__('turn this option on to track across multiple top-level domains. This option adds the _setDomainName and _setAllowLinker functions to your tracking code. Use this function if you manage multiple domains as example domain.uk, domain.cn and domain.fr','szgoogleadmin'));
+	sz_google_common_form_description(__('turn this option on to track across multiple top-level domains. This option adds the _setDomainName and _setAllowLinker to tracking code. Use this function if you manage multiple domains as example domain.uk, domain.cn and domain.fr','szgoogleadmin'));
 }
 
 function sz_google_admin_analytics_enable_advertiser() 
 { 
 	sz_google_common_form_checkbox_yesno('sz_google_options_ga','ga_enable_advertiser');
-	sz_google_common_form_description(__('turn this option for enable display advertiser support. This change is compatible with both the synchronous and asynchronous versions of the tracking code. This modification does not impact any customizations you have previously made to your code. You also need to update your privacy policy.','szgoogleadmin'));
+	sz_google_common_form_description(__('turn this option for enable display advertiser support. This change is compatible with both the synchronous and asynchronous versions of the tracking code. This modification does not impact any customizations you have previously made to your code.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */

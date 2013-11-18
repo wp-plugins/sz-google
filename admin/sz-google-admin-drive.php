@@ -86,7 +86,7 @@ function sz_google_admin_drive_savebutton_widget()
 function sz_google_admin_drive_savebutton_shortcode() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_drive','drive_savebutton_shortcode');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-drive-save]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-drive-save] and enter the corresponding component directly in your article or page. Normally in the shortcodes can be specified the options for customizations.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */

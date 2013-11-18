@@ -29,7 +29,7 @@ add_action('init','sz_google_language_init_admin');
 function sz_google_admin_menu() 
 {
 	if (function_exists('add_submenu_page')) {
-		add_menu_page('SZ Google','SZ Google','manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_callback_generale',SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE.'google-16x16.png');
+		add_menu_page('SZ Google','SZ Google','manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_callback_generale','div');
 		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google',ucfirst(__('configuration','szgoogleadmin')),'manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_base_callback');
 		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
 	}
@@ -49,6 +49,7 @@ function sz_google_admin_fields()
 	add_settings_field('plus',ucfirst(__('google+','szgoogleadmin')),'sz_google_admin_base_plus',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),'sz_google_admin_base_analytics',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('drive',ucwords(__('google drive','szgoogleadmin')),'sz_google_admin_base_drive',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('fonts',ucwords(__('google fonts','szgoogleadmin')),'sz_google_admin_base_fonts',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),'sz_google_admin_base_groups',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('panoramio',ucwords(__('google panoramio','szgoogleadmin')),'sz_google_admin_base_panoramio',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
@@ -70,12 +71,13 @@ function sz_google_admin_init()
 
 	global $pagenow;
 
-	if ($pagenow == 'widgets.php') {
+	if ($pagenow == 'widgets.php') 
+	{
 		if (!did_action('wp_enqueue_media')) wp_enqueue_media();
-	}
 
-	wp_register_script('sz_google_javascript',SZ_PLUGIN_GOOGLE_PATH_JS.'sz-google.js');
-	wp_enqueue_script('sz_google_javascript');
+		wp_register_script('sz_google_javascript',SZ_PLUGIN_GOOGLE_PATH_JS.'sz-google.js');
+		wp_enqueue_script('sz_google_javascript');
+	}
 }
 
 /* ************************************************************************** */
@@ -125,7 +127,7 @@ function sz_google_admin_base_callback()
 function sz_google_admin_base_plus() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','plus');
-	sz_google_common_form_description(__('with this module you can manage some widgets in the social network google+, for example, we can insert the badge of the profiles, the badge of the pages, the badge of the community, the buttons follow, the buttons share, the buttons +1, the comments system and much more.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this module you can manage some widgets in the social network google+, for example, we can insert badge of the profiles, badge of the pages, badge of the community, buttons follow, buttons share, buttons +1, comments system and much more.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_analytics() 
@@ -134,40 +136,46 @@ function sz_google_admin_base_analytics()
 	sz_google_common_form_description(__('activating this module can handle the tracking code present in google analytics, so as to store the access statistics related to our website. Once you have entered the tracking code, you can view hundreds of statistics from the admin panel of google analytics.','szgoogleadmin'));
 }
 
-function sz_google_admin_base_drive() 
+function sz_google_admin_base_drive()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','drive');
-	sz_google_common_form_description(__('through this module you can insert into wordpress some features of google drive, you will find widgets and shortcodes to help you with this task. Obviously many functions can only work if you login with a valid account on google. See the configuration section in the admin panel.','szgoogleadmin'));
+	sz_google_common_form_description(__('through this module you can insert into wordpress some features of google drive, you will find widgets and shortcodes to help you with this task. Obviously many functions can only work if you login with a valid account on google.','szgoogleadmin'));
+}
+
+function sz_google_admin_base_fonts()
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','fonts');
+	sz_google_common_form_description(__('with this module you can load into your wordpress theme fonts made ​​available on Google CDN. Simply select the desired font and HTML parts concerned. The plugin will automatically add all the necessary parts of the code.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_groups() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','groups');
-	sz_google_common_form_description(__('enabling this module you get a widget and a shortcode to perform embed on google groups. Then you can insert into a wordpress page or in a sidebar content navigable for a group. You can specify various customization options, see the configuration section in the admin panel.','szgoogleadmin'));
+	sz_google_common_form_description(__('enabling this module you get a widget and a shortcode to perform embed on google groups. Then you can insert into a wordpress page or in a sidebar content navigable for a group. You can specify various customization options.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_panoramio() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','panoramio');
-	sz_google_common_form_description(__('Through this module you can insert into wordpress some features of photos panoramio, you will find widgets and shortcodes to help you with this task and use the functions in your favorite theme. You can also specify parameters for selecting user, group, tag etc.','szgoogleadmin'));
+	sz_google_common_form_description(__('through this module you can insert some features of photos panoramio, you will find widgets and shortcodes to help you with this task and use the functions in your favorite theme. You can also specify parameters for selecting user, group, tag etc.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_translate() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','translate');
-	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. The widget can be placed in the context of a post or a sidebar defined in your theme, see the configuration section in the admin panel.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this module you can place the widget for automatic content translate on your website made ​​available by google translate tools. The widget can be placed in the context of a post or a sidebar defined in your theme.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_youtube() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','youtube');
-	sz_google_common_form_description(__('with this module can be inserted in the articles of wordpress a video on youtube, you can also use a widget to the inclusion of video in the sidebar on your theme. Through the options in the shortcode you can configure many parameters to customize the embed code.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this module can be inserted in wordpress a video youtube, you can also use a widget to the inclusion of video in the sidebar on your theme. Through the options in the shortcode you can configure many parameters to customize the embed code.','szgoogleadmin'));
 }
 
 function sz_google_admin_base_documentation() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','documentation');
-	sz_google_common_form_description(__('activating this option you can see the documentation in the main menu of this plugin with the parameters to be used in <code>[shortcodes]</code> or PHP functions provided. There is a series of boxes in alphabetical order according to form inside the plugin with option tables.','szgoogleadmin'));
+	sz_google_common_form_description(__('activating this option you can see the documentation in the main menu of this plugin with the parameters to be used in [shortcodes] or PHP functions provided. There is a series of boxes in alphabetical order.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -185,11 +193,13 @@ function sz_google_admin_callback_generale() {}
 /* ADMIN Aggiunta di tutti i file admin richiesti in base alle attivazioni    */
 /* ************************************************************************** */
 
-$options_admin = sz_google_module_options();
+$a = new SZGoogleModule();
+$options_admin = $a->getOptions();
 
 if ($options_admin['plus']          == '1') @require_once(dirname(__FILE__).'/sz-google-admin-plus.php');
 if ($options_admin['analytics']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-analytics.php');
 if ($options_admin['drive']         == '1') @require_once(dirname(__FILE__).'/sz-google-admin-drive.php');
+if ($options_admin['fonts']         == '1') @require_once(dirname(__FILE__).'/sz-google-admin-fonts.php');
 if ($options_admin['groups']        == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
 if ($options_admin['panoramio']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-panoramio.php');
 if ($options_admin['translate']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
@@ -204,7 +214,6 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 {
 
 	echo '<div id="sz-google-wrap" class="wrap">';
-	echo '<div id="sz-google-icon-gplus" class="icon32"><br></div>';
 	echo '<h2>'.ucwords($title).'</h2>';
 
 	if (!$documentation) echo '<p>'.ucfirst(__('overriding the default settings with your own specific preferences','szgoogleadmin')).'</p>';
@@ -267,20 +276,20 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 	echo '<h3 class="hndle"><span><strong>'.ucwords(__('give us a little help','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
 	echo '<ul>';
-	echo '<li><a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/sz-google">'.ucfirst(__('rate the plugin on WordPress.org','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('WP Italyplus: join our community','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="https://plus.google.com/117259631219963935481">'.ucfirst(__('WP Italyplus: join our google+ page','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/sz-google">'.ucfirst(__('rate the plugin','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('join our community','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/+wpitalyplus">'.ucfirst(__('join our google+ page','szgoogleadmin')).'</a></li>';
 	echo '</ul>';
 	echo '</div>';
 	echo '</div>';
 
 	// Sezione su sidebar per "pagina ufficiale"
 
-	echo '<div id="authors-plugin" class="postbox">';
+	echo '<div id="official-plugin" class="postbox">';
 	echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
 	echo '<h3 class="hndle"><span><strong>'.ucwords(__('official page','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
-	echo '<a target="_blank" href="https://plus.google.com/117259631219963935481"><img src="'.SZ_PLUGIN_GOOGLE_PATH_IMAGE.'wpitalyplus.png'.'" alt="WordPress Italy+" style="width:100%;height:auto"></a>';
+	echo '<a target="_blank" href="https://plus.google.com/+wpitalyplus"><img src="'.SZ_PLUGIN_GOOGLE_PATH_IMAGE.'wpitalyplus.png'.'" alt="WordPress Italy+" style="width:100%;height:auto;vertical-align:bottom;"></a>';
 	echo '</div>';
 	echo '</div>';
 
@@ -292,7 +301,7 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 	echo '<div class="inside">';
 	echo '<ul>';
 	echo '<li><a target="_blank" href="http://wordpress.org/support/plugin/sz-google">'.ucfirst(__('support for bugs and reports','szgoogleadmin')).'</a></li>';
-	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('support for new requests and ideas','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('support for new requests','szgoogleadmin')).'</a></li>';
 	echo '</ul>';
 	echo '</div>';
 	echo '</div>';
@@ -317,7 +326,7 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 	echo '<h3 class="hndle"><span><strong>'.ucwords(__('latest news','szgoogleadmin')).'</strong></span></h3>';
 	echo '<div class="inside">';
 	echo '<ul>';
-	echo '<li><a target="_blank" href="https://plus.google.com/117259631219963935481">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('official page','szgoogleadmin')).'</a></li>';
+	echo '<li><a target="_blank" href="https://plus.google.com/+wpitalyplus">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('official page','szgoogleadmin')).'</a></li>';
 	echo '<li><a target="_blank" href="http://wpitalyplus.com">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('official website','szgoogleadmin')).'</a></li>';
 	echo '<li><a target="_blank" href="https://plus.google.com/communities/109254048492234113886">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('community WordPress','szgoogleadmin')).'</a></li>';
 	echo '<li><a target="_blank" href="http://www.youtube.com/user/wpitalyplus?sub_confirmation=1">'.ucfirst(__('news:','szgoogleadmin'))."&nbsp;".ucfirst(__('youtube channel','szgoogleadmin')).'</a></li>';
@@ -341,9 +350,9 @@ function sz_google_common_form($title,$setting,$sections,$documentation=false)
 
 function sz_google_common_form_description($description) 
 {
-	echo '<tr valign="top"><td colspan="2"><small style="font-size:0.9em">';
+	echo '<tr valign="top"><td class="description" colspan="2">';
 	echo ucfirst(trim($description));
-	echo '</small></td></tr>';
+	echo '</td></tr>';
 }
 
 /* ************************************************************************** */
@@ -394,6 +403,20 @@ function sz_google_common_form_checkbox_yesno($optionset,$name,$class='medium')
 
 	echo '<label class="sz-google"><input name="'.$optionset.'['.$name.']" type="checkbox" value="1" ';
 	echo 'class="'.$class.'" '.checked(1,$options[$name],false).'/><span class="checkbox" style="display:none">'.__('YES / NO','szgoogleadmin').'</span></label>';
+}
+
+/* ************************************************************************** */
+/* ADMIN Funzioni per disegno parte del form (campi con checkbox S/N)         */
+/* ************************************************************************** */
+
+function sz_google_common_form_checkbox_yn($optionset,$name,$class='small') 
+{
+	$options = get_option($optionset);
+
+	if (!isset($options[$name])) $options[$name] = '0';
+
+	echo '<label class="sz-google"><input name="'.$optionset.'['.$name.']" type="checkbox" value="1" ';
+	echo 'class="'.$class.'" '.checked(1,$options[$name],false).'/><span class="checkbox checkboxsmall" style="display:none">'.__('Y/N','szgoogleadmin').'</span></label>';
 }
 
 /* ************************************************************************** */

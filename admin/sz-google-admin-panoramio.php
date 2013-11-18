@@ -87,7 +87,7 @@ function sz_google_admin_panoramio_callback()
 function sz_google_admin_panoramio_shortcode()
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_panoramio','panoramio_shortcode');
-	sz_google_common_form_description(__('if you enable this option you can use the shortcode <code>[sz-panoramio]</code> and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option you can use the shortcode [sz-panoramio] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_panoramio_widget()
@@ -123,7 +123,7 @@ function sz_google_admin_panoramio_s_orientation()
 {
 	$values = array('horizontal'=>'horizontal','vertical'=>'vertical'); 
 	sz_google_common_form_select('sz_google_options_panoramio','panoramio_s_orientation',$values,'medium','');
-	sz_google_common_form_description(__('the orientation of the list. Valid values are horizontal and vertical. This controls the position of the arrows, the scrolling direction, and how the photos are sorted. The shape of the list, i.e. whether it is a horizontal or a vertical strip of photos (or a grid) is controlled by the rows and columns options.','szgoogleadmin'));
+	sz_google_common_form_description(__('the orientation of the list. Valid values are horizontal and vertical. This controls the position of the arrows, the scrolling direction, and how the photos are sorted. The shape of the list, grid is controlled by the rows and columns options.','szgoogleadmin'));
 }
 
 function sz_google_admin_panoramio_s_list_size()
@@ -142,7 +142,7 @@ function sz_google_admin_panoramio_s_position()
 function sz_google_admin_panoramio_s_paragraph() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_panoramio','panoramio_s_paragraph');
-	sz_google_common_form_description(__('if you enable this option will add a paragraph at the end of the widget, this to be compatible with the theme and use the same features css defined for the block section. If you do not want the spacing connected to the paragraph in wordpress disable this option and use your own CSS to customize.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option will add a paragraph at the end of the widget, this to be compatible with the theme and use the same features css defined for the block section. If you do not want spacing paragraph disable this option.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -172,7 +172,7 @@ function sz_google_admin_panoramio_w_orientation()
 {
 	$values = array('horizontal'=>'horizontal','vertical'=>'vertical'); 
 	sz_google_common_form_select('sz_google_options_panoramio','panoramio_w_orientation',$values,'medium','');
-	sz_google_common_form_description(__('the orientation of the list. Valid values are horizontal and vertical. This controls the position of the arrows, the scrolling direction, and how the photos are sorted. The shape of the list, i.e. whether it is a horizontal or a vertical strip of photos (or a grid) is controlled by the rows and columns options.','szgoogleadmin'));
+	sz_google_common_form_description(__('the orientation of the list. Valid values are horizontal and vertical. This controls the position of the arrows, the scrolling direction, and how the photos are sorted. The shape of the list, grid is controlled by the rows and columns options.','szgoogleadmin'));
 }
 
 function sz_google_admin_panoramio_w_list_size()

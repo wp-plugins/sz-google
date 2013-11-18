@@ -86,7 +86,7 @@ function sz_google_admin_translate_callback()
 function sz_google_admin_translate_meta() 
 {
 	sz_google_common_form_text('sz_google_options_translate','translate_meta','large',__('insert your META code','szgoogleadmin'));
-	sz_google_common_form_description(__('before you use the google translate module must register the site that you want to manage on their google account using the following official link <a target="_blank" href="https://translate.google.com/manager/website/">Google Translate Tools</a>. Once inserit your site to perform the action "get code", display meta code and insert this in the field.','szgoogleadmin'));
+	sz_google_common_form_description(__('before you use the google translate module must register the site in google account using Google Translate Tools. Once inserit your site to perform the action "get code", display meta code and insert this in the field.','szgoogleadmin'));
 }
 
 function sz_google_admin_translate_mode() 
@@ -98,7 +98,7 @@ function sz_google_admin_translate_mode()
 	); 
 
 	sz_google_common_form_select('sz_google_options_translate','translate_mode',$values,'medium','');
-	sz_google_common_form_description(__('with this parameter you can set the type of view you want to use for the widget to translate the language selection, you can choose for example vertical, horizontal or simple. If you want to use a custom positioning can use the function <code>szgoogle_get_translate_code()</code>.','szgoogleadmin'));
+	sz_google_common_form_description(__('with this parameter you can set the type of view you want to use for the widget to translate the language selection, you can choose for example vertical, horizontal or simple. If you want to use a custom positioning can use the function PHP.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -107,10 +107,10 @@ function sz_google_admin_translate_mode()
 
 function sz_google_admin_translate_language() 
 {
-	$values = sz_google_get_languages(); 
+	$values = SZGoogleCommon::getLanguages();
 
 	sz_google_common_form_select('sz_google_options_translate','translate_language',$values,'medium','');
-	sz_google_common_form_description(__('specify the language code associated with your website, if you do not specify any value will be called the <code>get_bloginfo(\'language\')</code> and set the same language related to the theme of wordpress. Supported languages ​​can be found on <a target="_blank" href="http://translate.google.com/about/">http://translate.google.com/about/</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('specify the language associated with your website, if you do not specify any value will be called get_bloginfo(\'language\') and set the same language related to the theme of wordpress. Supported languages ​​http://translate.google.com/about/.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
@@ -136,25 +136,25 @@ function sz_google_admin_translate_shortcode()
 function sz_google_admin_translate_automatic() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_translate','translate_automatic');
-	sz_google_common_form_description(__('automatically display translation banner to users speaking languages other than the language of your page. If the language set on the visitor\'s browser is different from that of the website page displays the banner of translation. For details read the <a target="_blank" href="https://support.google.com/translate/">official documentation</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('automatically display translation banner to users speaking languages other than the language of your page. If the language set on the visitor\'s browser is different from that of the website page displays the banner of translation.','szgoogleadmin'));
 }
 
 function sz_google_admin_translate_multiple() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_translate','translate_multiple');
-	sz_google_common_form_description(__('your page contains content in multiple languages. Enable this option only if your pages contain content in different languages, in this case Google will use an algorithm of analysis other than the standard. For details read the official documentation <a target="_blank" href="https://support.google.com/translate/">https://support.google.com/translate/</a>.','szgoogleadmin'));
+	sz_google_common_form_description(__('your page contains content in multiple languages. Enable this option only if your pages contain content in different languages, in this case Google will use an algorithm of analysis other than the standard. For details read the official documentation.','szgoogleadmin'));
 }
 
 function sz_google_admin_translate_analytics() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_translate','translate_analytics');
-	sz_google_common_form_description(__('track translation traffic using google analytics. If you enable this option, you can check the requirements and the translation statistics directly to your google analytics account. If you enable this option, you can check the requirements and the translation statistics directly to your google analytics account. Remember that to run this option you must specify the code assigned to your profile analytics.','szgoogleadmin'));
+	sz_google_common_form_description(__('if you enable this option, you can check the requirements and the translation statistics directly to your google analytics account. Remember that to run this option you must specify the code assigned to your profile analytics.','szgoogleadmin'));
 }
 
 function sz_google_admin_translate_analytics_ua() 
 {
 	sz_google_common_form_text('sz_google_options_translate','translate_analytics_ua','medium',__('google analytics UA','szgoogleadmin'));
-	sz_google_common_form_description(__('enter the code assigned to the profile of google analytics on which to collect statistical data relating to requests for translation. If you have the google analytics module of the plugin is automatically taken into the UA code shown in the specific module. Example UA-12345-12.','szgoogleadmin'));
+	sz_google_common_form_description(__('enter the code assigned to the profile of google analytics on which to collect statistical data relating to requests for translation. If you have the google analytics module of the plugin is automatically taken into the UA code of module.','szgoogleadmin'));
 }
 
 /* ************************************************************************** */
