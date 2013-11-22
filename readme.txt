@@ -260,6 +260,9 @@ We take into consideration qualsiaqsi request is made by the community, of cours
 = You can use the functions of the plugin with PHP? =
 Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
 
+= How to activate Google+ recommendation for mobile? =
+The plugin provides an option to enable this feature, however, to obtain a complete result you need to perform operations outside the context of wordpress. For a complete explanation of the necessary steps you'll want to read the official page on <a href="https://developers.google.com/+/web/recommendations/">Content recommendations for mobile websites</a>.
+
 = How to find the code meta google translate? =
 Before you use the google translate module must register the site that you want to manage on their google account using the following official link <a href="https://translate.google.com/manager/website/">Google Translate Tools</a>. Once inserit your site to perform the action "get code", display meta code and insert this in the field.
 
