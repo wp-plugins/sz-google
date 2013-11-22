@@ -116,6 +116,9 @@ if (!class_exists('SZGooglePlugin'))
 				'plus_system_javascript'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'plus_post_enable_widget'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
 				'plus_post_enable_shortcode'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'plus_enable_author'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'plus_enable_publisher'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'plus_enable_recommendations'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -277,7 +280,7 @@ if (!class_exists('SZGooglePlugin'))
 		}
 
 		/**
-		 * Esecuzione funzione di attivazionbe plugin, questo metodo viene
+		 * Esecuzione funzione di attivazione plugin, questo metodo viene
 		 * collegato in wordpress tramite la funzione register_activation_hook()
 		 *
 		 * @param  string,array $name,$values
@@ -309,5 +312,22 @@ if (!class_exists('SZGooglePlugin'))
 				}
 			}
 		}
+
+		/**
+		 * Esecuzione funzione per aggiungere dei valori alla sezione <head>
+		 * della pagina HTML collegata con WP_HEAD tramite action(szgoogle-head)
+		 *
+		 * @return void
+		 */
+		function addSectionHead() 
+		{
+			if(has_action('szgoogle_head'))
+			{				
+				echo "\n<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." - https://wpitalyplus.com -->\n";
+				do_action('szgoogle_head');
+				echo "<!-- / SZ-Google for WordPress plugin -->\n\n";
+			}
+		}
+
 	}
 }

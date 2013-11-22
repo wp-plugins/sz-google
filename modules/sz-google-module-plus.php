@@ -15,6 +15,8 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModulePlus extends SZGoogleModule
 {
+	protected $setMetaPublisher = false;
+
 	function __construct()
 	{
 		parent::__construct();
@@ -103,6 +105,9 @@ class SZGoogleModulePlus extends SZGoogleModule
 			'plus_system_javascript'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			'plus_post_enable_widget'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			'plus_post_enable_shortcode'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_enable_author'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_enable_publisher'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_enable_recommendations'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		));
 
 		// Controllo delle opzioni in caso di valori non conformi
@@ -154,6 +159,9 @@ class SZGoogleModulePlus extends SZGoogleModule
 			'plus_redirect_flush'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			'plus_system_javascript'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			'plus_post_enable_widget'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_enable_author'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_enable_publisher'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			'plus_enable_recommendations'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
 		));
 
 		// Ritorno indietro il gruppo di opzioni corretto dai
@@ -197,6 +205,70 @@ class SZGoogleModulePlus extends SZGoogleModule
 			}
 			add_action('init','sz_google_module_plus_rewrite_rules');
 		}
+
+		// Controllo se devo attivare la sezione HEAD per author
+		// quindi aggiungere author ID nella configurazione generale
+
+		if ($options['plus_enable_author'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			add_action('szgoogle_head',array($this,'moduleAddMetaAuthor'),20);
+		}
+
+		// Controllo se devo attivare la sezione HEAD per publisher
+		// quindi aggiungere publisher ID nella configurazione generale
+
+		if ($options['plus_enable_publisher'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			add_action('szgoogle_head',array($this,'moduleAddMetaPublisher'),20);
+		}
+
+		// Controllo se devo attivare le raccomandazioni per mobile,
+		// quindi aggiungere publisher ID su codice javascript e sezione HEAD
+
+		if ($options['plus_enable_recommendations'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			add_action('szgoogle_head',array($this,'moduleAddMetaPublisher'),20);
+			add_action('wp_footer','sz_google_module_plus_add_script_footer');
+		}
+	}
+
+	/**
+	 * Aggiungo informazione in <head> per il link di tipo publisher
+	 * questa funzione viene aggiunta all'azione WP_HEAD() di wordpress
+	 *
+	 * @return void
+	 */
+	function moduleAddMetaPublisher()
+	{
+		// Se ho inserito il meta tag una volta salto la richiesta
+		// altrimento imposta la variabile oggetto in (true)
+
+		if ($setMetaPublisher) return;
+			else $this->setMetaPublisher = true;
+
+		$options = $this->getOptions();
+
+		if (trim($options['plus_page']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			echo '<link rel="publisher" href="https://plus.google.com/'.esc_attr(trim($options['plus_page'])).'">'."\n";
+		}
+	}
+
+	/**
+	 * Aggiungo informazione in <head> per il link di tipo publisher
+	 * questa funzione viene aggiunta all'azione WP_HEAD() di wordpress
+	 *
+	 * @return void
+	 */
+	function moduleAddMetaAuthor()
+	{
+		// Se ho inserito il meta tag una volta salto la richiesta
+		// altrimento imposta la variabile oggetto in (true)
+
+		if ($setMetaAuthor) return;
+			else $this->setMetaAuthor = true; 
+
+		$options = $this->getOptions();
+
+		if (trim($options['plus_profile']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			echo '<link rel="author" href="https://plus.google.com/'.esc_attr(trim($options['plus_profile'])).'">'."\n";
+		}
 	}
 }
 
@@ -204,6 +276,7 @@ class SZGoogleModulePlus extends SZGoogleModule
 global $SZ_PLUS_OBJECT;
 
 $SZ_PLUS_OBJECT = new SZGoogleModulePlus();
+
 $SZ_PLUS_OBJECT->moduleAddActions();
 $SZ_PLUS_OBJECT->moduleAddWidgets();
 $SZ_PLUS_OBJECT->moduleAddShortcodes();
@@ -1441,6 +1514,7 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 
 	$DEFAULT_SIZE       = 'standard';
 	$DEFAULT_ANNOTATION = 'none';
+	$DEFAULT_FLOAT      = 'none';
 	$DEFAULT_ALIGN      = 'none';
 	$DEFAULT_POSITION   = 'outside';
 
@@ -1449,6 +1523,7 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1471,6 +1546,7 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 	$size         = strtolower(trim($size));
 	$annotation   = strtolower(trim($annotation));
 	$align        = strtolower(trim($align));
+	$float        = strtolower(trim($float));
 	$position     = strtolower(trim($position));
 	$margintop    = strtolower(trim($margintop));
 	$marginright  = strtolower(trim($marginright));
@@ -1481,10 +1557,11 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if (!in_array($size,array('small','medium','standard','tail'))) $size = $DEFAULT_SIZE;
-	if (!in_array($annotation,array('inline','bubble','none'))) $annotation = $DEFAULT_ANNOTATION; 
-	if (!in_array($align,array('none','left','right','center'))) $align = $DEFAULT_ALIGN; 
-	if (!in_array($position,array('top','center','bottom','outside'))) $position = $DEFAULT_POSITION; 
+	if (!in_array($size,array('small','medium','standard','tail')))    $size       = $DEFAULT_SIZE;
+	if (!in_array($annotation,array('inline','bubble','none')))        $annotation = $DEFAULT_ANNOTATION; 
+	if (!in_array($float,array('none','left','right')))                $float      = $DEFAULT_FLOAT; 
+	if (!in_array($align,array('none','left','right','center')))       $align      = $DEFAULT_ALIGN; 
+	if (!in_array($position,array('top','center','bottom','outside'))) $position   = $DEFAULT_POSITION; 
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
@@ -1507,6 +1584,7 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 		'text'         => $text,
 		'image'        => $img,
 		'content'      => $content,
+		'float'        => $float,
 		'align'        => $align,
 		'position'     => $position,
 		'margintop'    => $margintop,
@@ -1542,6 +1620,7 @@ function sz_google_module_plus_shortcodes_plusone($atts,$content=null)
 		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1585,6 +1664,7 @@ class sz_google_module_plus_widget_plusone extends SZGoogleWidget
 			'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1711,6 +1791,7 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 
 	$DEFAULT_SIZE       = 'medium';
 	$DEFAULT_ANNOTATION = 'inline';
+	$DEFAULT_FLOAT      = 'none';
 	$DEFAULT_ALIGN      = 'none';
 	$DEFAULT_POSITION   = 'outside';
 
@@ -1719,6 +1800,7 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1740,6 +1822,7 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 	$width        = strtolower(trim($width));
 	$size         = strtolower(trim($size));
 	$annotation   = strtolower(trim($annotation));
+	$float        = strtolower(trim($float));
 	$align        = strtolower(trim($align));
 	$position     = strtolower(trim($position));
 	$margintop    = strtolower(trim($margintop));
@@ -1751,10 +1834,11 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if (!in_array($size,array('small','medium','large'))) $size = $DEFAULT_SIZE;
+	if (!in_array($size,array('small','medium','large')))                         $size       = $DEFAULT_SIZE;
 	if (!in_array($annotation,array('inline','bubble','vertical-bubble','none'))) $annotation = $DEFAULT_ANNOTATION; 
-	if (!in_array($align,array('none','left','right','center'))) $align = $DEFAULT_ALIGN; 
-	if (!in_array($position,array('top','center','bottom','outside'))) $position = $DEFAULT_POSITION; 
+	if (!in_array($float,array('none','left','right')))                           $float      = $DEFAULT_FLOAT; 
+	if (!in_array($align,array('none','left','right','center')))                  $align      = $DEFAULT_ALIGN; 
+	if (!in_array($position,array('top','center','bottom','outside')))            $position   = $DEFAULT_POSITION; 
 
 	// Se non specifico un URL fisso imposto il permalink attuale
 
@@ -1780,6 +1864,7 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 		'text'         => $text,
 		'image'        => $img,
 		'content'      => $content,
+		'float'        => $float,
 		'align'        => $align,
 		'position'     => $position,
 		'margintop'    => $margintop,
@@ -1815,6 +1900,7 @@ function sz_google_module_plus_shortcodes_share($atts,$content=null)
 		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1858,6 +1944,7 @@ class sz_google_module_plus_widget_share extends SZGoogleWidget
 			'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -1985,6 +2072,7 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 	$DEFAULT_SIZE       = 'medium';
 	$DEFAULT_ANNOTATION = 'bubble';
 	$DEFAULT_REL        = 'none';
+	$DEFAULT_FLOAT      = 'none';
 	$DEFAULT_ALIGN      = 'none';
 	$DEFAULT_POSITION   = 'outside';
 
@@ -1993,6 +2081,7 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -2015,6 +2104,7 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 	$width        = strtolower(trim($width));
 	$size         = strtolower(trim($size));
 	$annotation   = strtolower(trim($annotation));
+	$float        = strtolower(trim($float));
 	$align        = strtolower(trim($align));
 	$rel          = strtolower(trim($rel));
 	$position     = strtolower(trim($position));
@@ -2027,11 +2117,12 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 	// Imposto i valori di default nel caso siano specificati dei valori
 	// che non appartengono al range dei valori accettati
 
-	if (!in_array($size,array('small','medium','large'))) $size = $DEFAULT_SIZE;
+	if (!in_array($size,array('small','medium','large')))                         $size       = $DEFAULT_SIZE;
 	if (!in_array($annotation,array('inline','bubble','vertical-bubble','none'))) $annotation = $DEFAULT_ANNOTATION; 
-	if (!in_array($align,array('none','left','right','center'))) $align = $DEFAULT_ALIGN; 
-	if (!in_array($rel,array('author','publisher'))) $rel = $DEFAULT_REL; 
-	if (!in_array($position,array('top','center','bottom','outside'))) $position = $DEFAULT_POSITION; 
+	if (!in_array($float,array('none','left','right')))                           $float      = $DEFAULT_FLOAT; 
+	if (!in_array($align,array('none','left','right','center')))                  $align      = $DEFAULT_ALIGN; 
+	if (!in_array($rel,array('author','publisher')))                              $rel        = $DEFAULT_REL; 
+	if (!in_array($position,array('top','center','bottom','outside')))            $position   = $DEFAULT_POSITION; 
 
 	// Lettura opzioni generali per impostazione dei dati di default
 
@@ -2073,6 +2164,7 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 		'text'         => $text,
 		'image'        => $img,
 		'content'      => $content,
+		'float'        => $float,
 		'align'        => $align,
 		'position'     => $position,
 		'margintop'    => $margintop,
@@ -2108,6 +2200,7 @@ function sz_google_module_plus_shortcodes_follow($atts,$content=null)
 		'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+		'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 		'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -2152,6 +2245,7 @@ class sz_google_module_plus_widget_follow extends SZGoogleWidget
 			'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -2933,10 +3027,19 @@ function sz_google_module_plus_add_script_footer()
 	global $SZ_PLUS_OBJECT;
 	$options = $SZ_PLUS_OBJECT->getOptions();
 
-	if ($options['plus_system_javascript'] == SZ_PLUGIN_GOOGLE_VALUE_YES) return;	
+	if ($options['plus_system_javascript'] == SZ_PLUGIN_GOOGLE_VALUE_YES) return;
 
 	if ($options['plus_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
 		else $language = trim($options['plus_language']);
+
+	// Controllo se devo attivare raccomandazioni mobile e quindi aggiungere publisher id
+	// in mancanza del plublisher di defaul o funzione disattivata non aggiungo niente
+
+	if ($options['plus_enable_recommendations'] == SZ_PLUGIN_GOOGLE_VALUE_YES and trim($options['plus_page']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+		$addURLforScript = "?publisherid=".trim($options['plus_page']);
+	} else {
+		$addURLforScript = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	};
 
 	// Codice javascript per il rendering dei componenti google plus
 	
@@ -2944,7 +3047,7 @@ function sz_google_module_plus_add_script_footer()
   	$javascript .= "window.___gcfg = {lang:'".trim($language)."'};";
 	$javascript .= "(function() {";
 	$javascript .= "var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;";
-	$javascript .= "po.src = 'https://apis.google.com/js/plusone.js';";
+	$javascript .= "po.src = 'https://apis.google.com/js/plusone.js".$addURLforScript."';";
 	$javascript .=  "var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);";
 	$javascript .=  "})();";
 	$javascript .=	"</script>"."\n";

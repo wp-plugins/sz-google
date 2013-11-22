@@ -28,7 +28,9 @@ function sz_google_admin_plus_fields()
 
 	add_settings_section('sz_google_plus_section','','sz_google_admin_plus_section','sz-google-admin-plus.php');
 	add_settings_field('plus_profile',ucwords(__('google+ Profile','szgoogleadmin')),'sz_google_admin_plus_profile','sz-google-admin-plus.php','sz_google_plus_section');
+	add_settings_field('plus_enable_author',ucwords(__('enable HEAD Author','szgoogleadmin')),'sz_google_admin_plus_enable_author','sz-google-admin-plus.php','sz_google_plus_section');
 	add_settings_field('plus_page',ucwords(__('google+ Page','szgoogleadmin')),'sz_google_admin_plus_page','sz-google-admin-plus.php','sz_google_plus_section');
+	add_settings_field('plus_enable_publisher',ucwords(__('enable HEAD Publisher','szgoogleadmin')),'sz_google_admin_plus_enable_publisher','sz-google-admin-plus.php','sz_google_plus_section');
 	add_settings_field('plus_community',ucwords(__('google+ Community','szgoogledmin')),'sz_google_admin_plus_community','sz-google-admin-plus.php','sz_google_plus_section');
 
 	// Definizione sezione per configurazione GOOGLE+ LANGUAGE
@@ -105,6 +107,7 @@ function sz_google_admin_plus_fields()
 	// Definizione sezione per configurazione GOOGLE+ SYSTEM
 
 	add_settings_section('sz_google_plus_system','','sz_google_admin_plus_section','sz-google-admin-plus-system.php');
+	add_settings_field('plus_enable_recommendations',ucwords(__('recommendations for mobile','szgoogleadmin')),'sz_google_admin_plus_enable_recommendations','sz-google-admin-plus-system.php','sz_google_plus_system');
 	add_settings_field('plus_system_javascript',ucwords(__('disable file javascript','szgoogleadmin')),'sz_google_admin_plus_system_javascript','sz-google-admin-plus-system.php','sz_google_plus_system');
 }
 
@@ -153,10 +156,22 @@ function sz_google_admin_plus_profile()
 	sz_google_common_form_description(__('enter the code that identifies the profile on google+, get to know the code of a profile just look at the profile link and copy the 21 digit number located on the URL string. For example a profile ID is 106567288702045182616.','szgoogleadmin'));
 }
 
+function sz_google_admin_plus_enable_author() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_enable_author');
+	sz_google_common_form_description(__('enabling this option will be placed in the HEAD section of the code necessary indication of the author connected to the current website and is generated string rel=author with the attribute href=author address.','szgoogleadmin'));
+}
+
 function sz_google_admin_plus_page() 
 {
 	sz_google_common_form_text('sz_google_options_plus','plus_page','medium',__('insert ID your page','szgoogleadmin'));
 	sz_google_common_form_description(__('enter the code that identifies the page on google+, get to know the code of a profile just look at the page link and copy the 21 digit number located on the URL string. For example a page ID is 117259631219963935481.','szgoogleadmin'));
+}
+
+function sz_google_admin_plus_enable_publisher() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_enable_publisher');
+	sz_google_common_form_description(__('enabling this option will be placed in the HEAD section of the code necessary indication of the publisher connected to the current website and is generated string rel=publisher with the attribute href=publisher address.','szgoogleadmin'));
 }
 
 function sz_google_admin_plus_community() 
@@ -528,6 +543,12 @@ function sz_google_admin_plus_redirect_curl_target()
 /* ************************************************************************** */
 /* Funzioni per la definizione dei campi legati a G+ SYSTEM                   */
 /* ************************************************************************** */
+
+function sz_google_admin_plus_enable_recommendations() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_plus','plus_enable_recommendations');
+	sz_google_common_form_description(__('google+ content recommendations combines search with social data to greet mobile visitors with additional relevant recommended content on your site. You will add markup to link your web page to your Google+ Page and to load a JavaScript file.','szgoogleadmin'));
+}
 
 function sz_google_admin_plus_system_javascript() 
 {

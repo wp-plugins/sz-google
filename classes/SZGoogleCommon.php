@@ -175,6 +175,7 @@ if (!class_exists('SZGoogleCommon'))
 				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'image'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'content'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'class'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -198,18 +199,22 @@ if (!class_exists('SZGoogleCommon'))
 			// Calcolo il codice HTML per eseguire un WRAP sul
 			// codice del bottone preparato in precedenza dal chiamante
 	
-			$HTML   = '<div class="'.$class.'">';
-			$HTML  .= '<div class="sz-google-button" style="';
+			$HTML  = '<div class="'.$class.'" style="';
+				if (!empty($float) and $float != 'none') $HTML .= 'float:'.$float.';';
+				if (!empty($align) and $align != 'none') $HTML .= 'text-align:'.$align.';';
+			$HTML .= '"">';
+
+			$HTML .= '<div class="sz-google-button" style="';
 
 			if (!empty($margintop)    and $margintop    != 'none') $HTML .= 'margin-top:'   .$margintop   .$marginunit.';';
 			if (!empty($marginright)  and $marginright  != 'none') $HTML .= 'margin-right:' .$marginright .$marginunit.';';
 			if (!empty($marginbottom) and $marginbottom != 'none') $HTML .= 'margin-bottom:'.$marginbottom.$marginunit.';';
 			if (!empty($marginleft)   and $marginleft   != 'none') $HTML .= 'margin-left:'  .$marginleft  .$marginunit.';';
 
-			$HTML  .= '">';
+			$HTML .= '">';
 
-			$HTML  .= '<div class="sz-google-button-wrap" style="position:relative;display:inline-block;">';
-			$HTML  .= '<div class="sz-google-button-body">';
+			$HTML .= '<div class="sz-google-button-wrap" style="position:relative;display:inline-block;">';
+			$HTML .= '<div class="sz-google-button-body">';
 
 			// Se trovo contenuto per il parametro "text" dello shortcode
 			// lo aggiungo prima del codice embed originale di google
