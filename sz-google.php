@@ -29,7 +29,7 @@ if (!defined('ABSPATH')) die("Accesso diretto al file non permesso");
  */
 define('SZ_PLUGIN_GOOGLE',true);
 define('SZ_PLUGIN_GOOGLE_DEBUG',false);
-define('SZ_PLUGIN_GOOGLE_VERSION','1.6.5');
+define('SZ_PLUGIN_GOOGLE_VERSION','1.6.6');
 define('SZ_PLUGIN_GOOGLE_PATH',plugin_dir_url(__FILE__));
 define('SZ_PLUGIN_GOOGLE_BASENAME',dirname(__FILE__ ));
 define('SZ_PLUGIN_GOOGLE_BASENAMP',dirname(plugin_basename(__FILE__ )));
