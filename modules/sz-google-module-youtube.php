@@ -17,7 +17,7 @@ class SZGoogleModuleYoutube extends SZGoogleModule
 {
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct('SZGoogleModuleYoutube');
 
 		$this->moduleShortcodes = array(
 			'youtube_shortcode'          => array('sz-ytvideo'   ,'sz_google_shortcodes_youtube_video'),

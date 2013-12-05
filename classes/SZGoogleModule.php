@@ -36,10 +36,8 @@ if (!class_exists('SZGoogleModule'))
 		protected $moduleWidgets    = array();
 		protected $moduleShortcodes = array();
 
-		function __construct()
+		function __construct($classname="")
 		{
-			$classname = get_called_class();
-
 			// Controllo costante di DEBUG per scrittura messaggio di
 			// breakpoint nel file di log PHP indicato in php.ini
 
@@ -47,13 +45,13 @@ if (!class_exists('SZGoogleModule'))
 				SZGoogleDebug::log('execute construct class '.$classname);
 			}
 
-		    if ($classname == 'SZGoogleModulePlus')        self::$SZGoogleModulePlus = $this;
-		    if ($classname == 'SZGoogleModuleAnalytics')   self::$SZGoogleModuleAnalytics = $this;
-		    if ($classname == 'SZGoogleModuleDrive')       self::$SZGoogleModuleDrive = $this;
-		    if ($classname == 'SZGoogleModuleGroups')      self::$SZGoogleModuleGroups = $this;
-		    if ($classname == 'SZGoogleModulePanoramio')   self::$SZGoogleModulePanoramio = $this;
-		    if ($classname == 'SZGoogleModuleTranslate')   self::$SZGoogleModuleTranslate = $this;
-		    if ($classname == 'SZGoogleModuleYoutube')     self::$SZGoogleModuleYoutube = $this;
+			if ($classname == 'SZGoogleModulePlus')        self::$SZGoogleModulePlus      = $this;
+			if ($classname == 'SZGoogleModuleAnalytics')   self::$SZGoogleModuleAnalytics = $this;
+			if ($classname == 'SZGoogleModuleDrive')       self::$SZGoogleModuleDrive     = $this;
+			if ($classname == 'SZGoogleModuleGroups')      self::$SZGoogleModuleGroups    = $this;
+			if ($classname == 'SZGoogleModulePanoramio')   self::$SZGoogleModulePanoramio = $this;
+			if ($classname == 'SZGoogleModuleTranslate')   self::$SZGoogleModuleTranslate = $this;
+			if ($classname == 'SZGoogleModuleYoutube')     self::$SZGoogleModuleYoutube   = $this;
  		}
 
 		/**

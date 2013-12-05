@@ -17,7 +17,7 @@ class SZGoogleModuleDrive extends SZGoogleModule
 {
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct('SZGoogleModuleDrive');
 
 		$this->moduleShortcodes = array(
 			'drive_savebutton_shortcode' => array('sz-drive-save','sz_google_module_drive_shortcodes_savebutton'),

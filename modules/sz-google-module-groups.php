@@ -17,7 +17,7 @@ class SZGoogleModuleGroups extends SZGoogleModule
 {
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct('SZGoogleModuleGroups');
 
 		$this->moduleShortcodes = array(
 			'groups_shortcode' => array('sz-ggroups','sz_google_module_groups_shortcode_iframe'),

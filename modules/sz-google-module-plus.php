@@ -19,7 +19,7 @@ class SZGoogleModulePlus extends SZGoogleModule
 
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct('SZGoogleModulePlus');
 
 		$this->moduleShortcodes = array(
 			'plus_shortcode_pr_enable'          => array('sz-gplus-profile'  ,'sz_google_module_plus_shortcodes_profile'),
@@ -2985,7 +2985,9 @@ function sz_google_module_plus_parse_query(&$wp)
 
 	if (array_key_exists('szgoogleplusredirectsign',$wp->query_vars)) {
 		if (trim($options['plus_redirect_sign_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
-			header("location:".trim($options['plus_redirect_sign_url'])); exit();
+			header('HTTP/1.1 301 Moved Permanently');
+ 			header('Location:'.trim($options['plus_redirect_sign_url']));
+			exit();
 		}
 	}
 
@@ -2993,7 +2995,9 @@ function sz_google_module_plus_parse_query(&$wp)
 	
 	if (array_key_exists('szgoogleplusredirectplus',$wp->query_vars)) {
 		if (trim($options['plus_redirect_plus_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
-			header("location:".trim($options['plus_redirect_plus_url'])); exit();
+			header('HTTP/1.1 301 Moved Permanently');
+			header('Location:'.trim($options['plus_redirect_plus_url']));
+			exit();
 		}
 	}
 
@@ -3001,7 +3005,9 @@ function sz_google_module_plus_parse_query(&$wp)
 	
 	if (array_key_exists('szgoogleplusredirectcurl',$wp->query_vars)) {
 		if (trim($options['plus_redirect_curl_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
-			header("location:".trim($options['plus_redirect_curl_url'])); exit();
+			header('HTTP/1.1 301 Moved Permanently');
+			header('Location:'.trim($options['plus_redirect_curl_url']));
+			exit();
 		}
 	}
 }

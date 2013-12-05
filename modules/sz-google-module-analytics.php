@@ -17,7 +17,7 @@ class SZGoogleModuleAnalytics extends SZGoogleModule
 {
 	function __construct() 
 	{
-		parent::__construct();
+		parent::__construct('SZGoogleModuleAnalytics');
 	}
 
 	/**

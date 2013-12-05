@@ -17,7 +17,7 @@ class SZGoogleModulePanoramio extends SZGoogleModule
 {
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct('SZGoogleModulePanoramio');
 
 		$this->moduleShortcodes = array(
 			'panoramio_shortcode' => array('sz-panoramio','sz_google_module_panoramio_shortcode'),

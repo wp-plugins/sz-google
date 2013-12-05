@@ -17,7 +17,7 @@ class SZGoogleModuleTranslate extends SZGoogleModule
 {
 	function __construct()
 	{
-		parent::__construct();
+		parent::__construct('SZGoogleModuleTranslate');
 
 		$this->moduleShortcodes = array(
 			'translate_shortcode' => array('sz-gtranslate','sz_google_shortcodes_translate_widget'),
