@@ -142,6 +142,9 @@ To be informed about the features that gradually will be released you can follow
 
 * `szgoogle_get_groups_code()`
 
+= Google Hangouts module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
 **Google Hangouts:** In this plugin are available google hangouts widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget hangouts with starter button`
