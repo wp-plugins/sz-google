@@ -153,9 +153,9 @@ To be informed about the features that gradually will be released you can follow
 
 * `[sz-hangouts-start] .: google hangouts starter button`
 
-**Google Groups Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Hangouts Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_groups_code()`
+* `szgoogle_get_hangouts_code_start()`
 
 = Google Panoramio module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
