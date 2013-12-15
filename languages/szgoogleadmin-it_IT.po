@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogleadmin\n"
-"POT-Creation-Date: 2013-11-21 21:45-0500\n"
-"PO-Revision-Date: 2013-11-21 22:56-0500\n"
+"POT-Creation-Date: 2013-12-15 00:19-0500\n"
+"PO-Revision-Date: 2013-12-15 00:25-0500\n"
 "Last-Translator: Massimo <massimo@startbyzero.com>\n"
 "Language-Team: wpitalyplus <wpitalyplus@gmail.com>\n"
 "Language: it_IT\n"
@@ -16,12 +16,21 @@ msgstr ""
 "X-Poedit-SearchPath-0: /home/massimo/Common/files/subversion/sz-google/"
 "trunk\n"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:14
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:53
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:58
-msgid "google groups"
-msgstr "google gruppi"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:33
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:34
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:57
+msgid "google hangouts"
+msgstr "google hangouts"
 
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:40
+msgid "hangouts start button"
+msgstr "bottone partenza hangouts"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:43
+msgid "google hangouts configuration"
+msgstr "configurazione google hangouts"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:65
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:30
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:41
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-drive.php:35
@@ -29,12 +38,50 @@ msgstr "google gruppi"
 msgid "enable widget"
 msgstr "abilitare widget"
 
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:66
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:31
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:42
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-drive.php:36
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:30
 msgid "enable shortcode"
 msgstr "abilitare shortcodes"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:76
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:85
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:123
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:129
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:135
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:141
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-drive.php:83
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:96
+msgid ""
+"if you enable this option you will find the widget required in the "
+"administration menu of your widget and you can plug it into any sidebar "
+"defined in your theme. If you disable this option, remember not to leave the "
+"widget connected to existing sidebar."
+msgstr ""
+"se abiliti questa opzione troverai il widget richiesto nel menu di "
+"amministrazione dei tuoi widget e potrai inserirlo in qualsiasi sidebar "
+"definita nel tuo tema. Se disattivi questa opzione ricordati di non lasciare "
+"il widget collegato alle sidebar esistenti."
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-hangouts.php:82
+msgid ""
+"if you enable this option you can use this shortcode and enter the "
+"corresponding components directly in your article or page. Normally in the "
+"shortcodes can be specified the options for customizations. See the "
+"documentation section."
+msgstr ""
+"Se abiliti questa opzione potrai utilizzare lo shortcode ed inserire il "
+"componente corrispondente direttamente nel tuo articolo. Normalmente negli "
+"shortcodes possono essere specificate delle opzioni per alcune "
+"personalizzazioni."
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:14
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:56
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:58
+msgid "google groups"
+msgstr "google gruppi"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:36
 msgid "default language"
@@ -96,24 +143,6 @@ msgstr "impostazione visualizzazione"
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:75
 msgid "google groups configuration"
 msgstr "configurazione google gruppi"
-
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:85
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:123
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:129
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:135
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:141
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-drive.php:83
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:96
-msgid ""
-"if you enable this option you will find the widget required in the "
-"administration menu of your widget and you can plug it into any sidebar "
-"defined in your theme. If you disable this option, remember not to leave the "
-"widget connected to existing sidebar."
-msgstr ""
-"se abiliti questa opzione troverai il widget richiesto nel menu di "
-"amministrazione dei tuoi widget e potrai inserirlo in qualsiasi sidebar "
-"definita nel tuo tema. Se disattivi questa opzione ricordati di non lasciare "
-"il widget collegato alle sidebar esistenti."
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-groups.php:91
 msgid ""
@@ -224,7 +253,7 @@ msgstr ""
 "delle dimensioni troppo eccessive."
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:14
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:55
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:59
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:60
 msgid "google translate"
 msgstr "google translate"
@@ -234,7 +263,7 @@ msgid "code for META"
 msgstr "codice per META"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:31
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:548
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:551
 msgid "display mode"
 msgstr "Modalità visualizzazione"
 
@@ -243,7 +272,7 @@ msgid "website language"
 msgstr "lingua sito web"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:47
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:549
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:552
 msgid "automatic banner"
 msgstr "banner automatico"
 
@@ -252,17 +281,17 @@ msgid "multiple language"
 msgstr "lingua multipla"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:49
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:50
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:53
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:76
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:56
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:550
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:553
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-analytics.php:31
 msgid "google analytics"
 msgstr "google analytics"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:50
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-translate.php:156
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:551
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:554
 msgid "google analytics UA"
 msgstr "google analytics UA"
 
@@ -392,7 +421,7 @@ msgstr ""
 "è attivo il modulo google analytics del plugin viene preso in automatico il "
 "codice UA indicato nel modulo."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:33
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:36
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:127
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:129
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:141
@@ -402,32 +431,29 @@ msgstr ""
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:165
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:167
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:168
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:204
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:335
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:336
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:337
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:206
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:338
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:339
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:340
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:341
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:342
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:343
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:474
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:475
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:476
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:344
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:345
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:346
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:477
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:478
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:479
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:480
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:481
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:547
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:548
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:549
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:482
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:483
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:484
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:550
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:551
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:711
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:712
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:713
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:552
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:553
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:554
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:714
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:715
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:716
@@ -443,62 +469,66 @@ msgstr ""
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:726
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:727
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:728
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:729
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:730
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:731
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:732
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:740
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:741
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:742
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:734
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:735
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:743
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:744
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:745
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:746
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:750
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:758
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:764
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:747
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:748
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:749
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:753
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:761
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:767
 msgid "configuration"
 msgstr "configurazione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:49
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:52
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:55
 msgid "google+"
 msgstr "google+"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:51
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:54
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-drive.php:14
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:57
 msgid "google drive"
 msgstr "google drive"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:52
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:14
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:55
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:39
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:40
 msgid "google fonts"
 msgstr "google fonts"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:54
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:58
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:59
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:14
 msgid "google panoramio"
 msgstr "google panoramio"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:56
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:60
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:14
 msgid "google youtube"
 msgstr "google youtube"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:57
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:61
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:14
 msgid "documentation"
 msgstr "documentazione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:114
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:118
 msgid "activation modules"
 msgstr "attivazione moduli"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:120
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:124
 msgid "configuration version"
 msgstr "configurazione versione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:130
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:134
 msgid ""
 "with this module you can manage some widgets in the social network google+, "
 "for example, we can insert badge of the profiles, badge of the pages, badge "
@@ -510,7 +540,7 @@ msgstr ""
 "follow, quelli per la condivisione, il bottone +1, il sistema di commenti "
 "integrato e molte cose ancora."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:136
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:140
 msgid ""
 "activating this module can handle the tracking code present in google "
 "analytics, so as to store the access statistics related to our website. Once "
@@ -522,7 +552,7 @@ msgstr ""
 "volta integrato il codice nelle nostre pagine web possiamo analizzare "
 "centinaia di statistiche."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:142
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:146
 msgid ""
 "through this module you can insert into wordpress some features of google "
 "drive, you will find widgets and shortcodes to help you with this task. "
@@ -534,7 +564,7 @@ msgstr ""
 "Ovviamente molte funzioni possono funzionare solo se si effettua il login su "
 "google."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:148
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:152
 msgid ""
 "with this module you can load into your wordpress theme fonts made ​​available "
 "on Google CDN. Simply select the desired font and HTML parts concerned. The "
@@ -545,7 +575,7 @@ msgstr ""
 "e la sezione HTML, il plugin aggiungerà automaticamente il codice "
 "necessario. "
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:154
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:158
 msgid ""
 "enabling this module you get a widget and a shortcode to perform embed on "
 "google groups. Then you can insert into a wordpress page or in a sidebar "
@@ -556,7 +586,17 @@ msgstr ""
 "wordpress o nella sidebar laterale. È possibile specificare varie opzioni di "
 "personalizzazione."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:160
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:164
+msgid ""
+"activating this module you can use the functions for the hangouts of google. "
+"For example, you can insert the buttons for the start of hangout directly in "
+"the page of your site. You can also create a widget to put on your sidebar."
+msgstr ""
+"attivando questo modulo puoi utilizzare alcune funzioni messe a disposizione "
+"dagli hangout di google. Ad esempio puoi inserire i bottoni per la partenza "
+"di hangout direttamente dalla pagina del tuo sito o nella tua sidebar."
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:170
 msgid ""
 "through this module you can insert some features of photos panoramio, you "
 "will find widgets and shortcodes to help you with this task and use the "
@@ -568,7 +608,7 @@ msgstr ""
 "vostro tema preferito. È inoltre possibile specificare i parametri per la "
 "selezione di utenti, gruppi, tag ecc."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:166
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:176
 msgid ""
 "with this module you can place the widget for automatic content translate on "
 "your website made ​​available by google translate tools. The widget can be "
@@ -578,7 +618,7 @@ msgstr ""
 "automatica messo a disposizione da Google. Il widget può essere inserito nel "
 "contesto di un post o di una barra laterale definito nel tema."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:172
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:182
 msgid ""
 "with this module can be inserted in wordpress a video youtube, you can also "
 "use a widget to the inclusion of video in the sidebar on your theme. Through "
@@ -590,7 +630,7 @@ msgstr ""
 "personalizzare molti parametri con lo shortcode dedicato. Puoi scegliere tra "
 "modalità IFRAME o API."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:178
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:188
 msgid ""
 "activating this option you can see the documentation in the main menu of "
 "this plugin with the parameters to be used in [shortcodes] or PHP functions "
@@ -601,104 +641,104 @@ msgstr ""
 "configurare nel plugin e i parametri usati dagli shortcodes o dalle funzioni "
 "PHP."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:219
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:230
 msgid "overriding the default settings with your own specific preferences"
 msgstr "modifica le impostazioni predefinite secondo le tue esigenze"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:220
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:231
 msgid "select the module documentation to read"
 msgstr "seleziona la documentazione del modulo da leggere"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:245
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:275
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:289
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:299
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:312
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:325
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:256
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:286
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:300
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:310
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:323
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:336
 msgid "click to toggle"
 msgstr "clicca per chiudere/aprire"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:257
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:268
 msgid "save changes"
 msgstr "salva modifiche"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:276
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:287
 msgid "give us a little help"
 msgstr "Dacci un piccolo aiuto"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:279
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:290
 msgid "rate the plugin"
 msgstr "Vota il plugin"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:280
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:291
 msgid "join our community"
 msgstr "iscriviti alla community"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:281
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:292
 msgid "join our google+ page"
 msgstr "iscriviti alla pagina google+"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:290
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:329
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:301
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:340
 msgid "official page"
 msgstr "pagina ufficiale"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:300
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:311
 msgid "support"
 msgstr "supporto"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:303
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:314
 msgid "support for bugs and reports"
 msgstr "supporto per errori e report"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:304
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:315
 msgid "support for new requests"
 msgstr "supporto per nuove richieste"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:313
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:324
 msgid "authors"
 msgstr "autori"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:326
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:337
 msgid "latest news"
 msgstr "Ultime notizie"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:329
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:330
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:331
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:332
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:333
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:340
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:341
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:342
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:343
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:344
 msgid "news:"
 msgstr "notizie:"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:330
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:341
 msgid "official website"
 msgstr "sito ufficiale"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:331
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:342
 msgid "community WordPress"
 msgstr "community WordPress"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:332
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:343
 msgid "youtube channel"
 msgstr "canale youtube"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:333
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:344
 msgid "official documentation"
 msgstr "documentazione ufficiale"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:405
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:416
 msgid "YES / NO"
 msgstr "SI / NO"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:419
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin.php:430
 msgid "Y/N"
 msgstr "Y/N"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:30
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:750
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:758
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:764
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:753
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:761
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:767
 msgid "channel name or ID"
 msgstr "nome del canale o ID"
 
@@ -735,7 +775,7 @@ msgid "enable shortcode playlist"
 msgstr "abilitare shortcode playlist"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:51
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:711
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:714
 msgid "responsive mode"
 msgstr "modalità responsive"
 
@@ -772,52 +812,52 @@ msgid "schema.org"
 msgstr "schema.org"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:63
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:180
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:196
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:213
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:404
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:714
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:742
-msgid "margin top"
-msgstr "margine alto"
-
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:64
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:181
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:197
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:214
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:405
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:715
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:743
-msgid "margin right"
-msgstr "margine destro"
-
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:65
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:182
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:198
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:215
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:406
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:716
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:744
-msgid "margin bottom"
-msgstr "margine basso"
-
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:66
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:183
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:199
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:216
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:407
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:717
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:745
-msgid "margin left"
-msgstr "margine sinistro"
+msgid "margin top"
+msgstr "margine alto"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:67
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:184
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:200
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:64
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:182
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:199
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:217
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:408
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:718
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:746
+msgid "margin right"
+msgstr "margine destro"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:65
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:183
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:200
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:218
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:409
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:719
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:747
+msgid "margin bottom"
+msgstr "margine basso"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:66
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:184
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:201
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:219
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:410
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:720
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:748
+msgid "margin left"
+msgstr "margine sinistro"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:67
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:185
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:202
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:220
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:411
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:721
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:749
 msgid "margin unit"
 msgstr "misura per margine"
 
@@ -826,12 +866,12 @@ msgid "force SSL"
 msgstr "forzare SSL"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:73
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:721
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:724
 msgid "enable fullscreen"
 msgstr "schermo intero"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-youtube.php:74
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:722
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:725
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-youtube-video.php:179
 msgid "disable keyboard"
 msgstr "disabilitare tastiera"
@@ -1286,14 +1326,15 @@ msgstr "modalità"
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:156
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:167
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:174
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:190
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:206
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:475
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:191
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:208
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:478
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-page.php:89
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-comments.php:75
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-followers.php:80
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-community.php:86
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-groups-iframe.php:77
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:88
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-panoramio.php:123
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-youtube-video.php:135
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-youtube-playlist.php:62
@@ -1305,13 +1346,14 @@ msgstr "larghezza"
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:144
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:157
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:166
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:176
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:192
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:208
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:223
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:228
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:403
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:177
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:194
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:211
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:226
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:231
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:406
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:125
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:139
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:125
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:125
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:105
@@ -1374,7 +1416,7 @@ msgid "page or profile"
 msgstr "pagina o profilo"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:168
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:476
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:479
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-followers.php:86
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-groups-iframe.php:83
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-panoramio.php:129
@@ -1384,23 +1426,23 @@ msgid "height"
 msgstr "altezza"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:172
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:188
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:221
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:227
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:189
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:224
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:230
 msgid "complete URL address"
 msgstr "indirizzo URL completo"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:172
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:188
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:221
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:227
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:397
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:189
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:224
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:230
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:400
 msgid "current post"
 msgstr "post corrente"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:173
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:189
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:205
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:190
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:207
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:139
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:139
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:139
@@ -1408,43 +1450,52 @@ msgid "size"
 msgstr "dimensione"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:175
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:191
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:207
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:192
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:209
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:153
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:152
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:153
 msgid "annotation"
 msgstr "annotazione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:177
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:176
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:193
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:210
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:400
+msgid "float"
+msgstr "float"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:178
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:195
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:213
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:403
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:96
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:110
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:96
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:96
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:76
 msgid "text"
 msgstr "testo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:178
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:194
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:211
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:401
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:179
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:196
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:214
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:404
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:103
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:117
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:103
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:103
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:83
 msgid "image"
 msgstr "immagine"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:179
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:195
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:212
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:336
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:402
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:180
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:197
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:215
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:339
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:405
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-analytics.php:48
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:111
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:125
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-panoramio.php:158
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:111
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:111
@@ -1452,326 +1503,326 @@ msgstr "immagine"
 msgid "position"
 msgstr "posizione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:204
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:206
 msgid "URL page or profile"
 msgstr "URL pagina o profilo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:209
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:212
 msgid "relation"
 msgstr "relazione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:222
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:225
 msgid "fixed width"
 msgstr "larghezza fissa"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:265
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:268
 msgid "documentation for shortcodes - badges"
 msgstr "documentazione  per shortcodes - badges"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:272
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:275
 msgid "documentation for shortcodes - buttons"
 msgstr "documentazione  per shortcodes - bottoni"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:278
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:281
 msgid "documentation for shortcodes - widgets"
 msgstr "documentazione  per shortcodes - widgets"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:286
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:289
 msgid "documentation for PHP functions - badges"
 msgstr "documentazione  per funzioni PHP - badges"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:293
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:296
 msgid "documentation for PHP functions - buttons"
 msgstr "documentazione  per funzioni PHP - bottoni"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:299
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:302
 msgid "documentation for PHP functions - widgets"
 msgstr "documentazione  per funzioni PHP - widgets"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:323
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:326
 msgid "google analytics get account ID"
 msgstr "google analytics account ID"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:324
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:327
 msgid "google analytics get tracking code"
 msgstr "google analytics codice di tracciamento"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:335
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:338
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-analytics.php:47
 msgid "UA code"
 msgstr "codice UA"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:337
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:340
 msgid "enable for front"
 msgstr "abilitare per frontend"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:338
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:341
 msgid "enable for admin"
 msgstr "abilitare per pannello admin "
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:339
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:342
 msgid "enable for administrator"
 msgstr "abilitare per amministratore "
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:340
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:343
 msgid "enable for logged"
 msgstr "abilitare utente loggato "
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:341
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:344
 msgid "enable for subdomain"
 msgstr "abilitare per sottodominio"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:342
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:345
 msgid "enable for multiple"
 msgstr "abilitare per multipli domini"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:343
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:346
 msgid "enable for advertiser"
 msgstr "abilitare per advertiser"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:358
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:436
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:506
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:578
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:660
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:804
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:361
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:439
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:509
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:581
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:663
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:807
 msgid "documentation for PHP functions"
 msgstr "documentazione  per funzioni PHP"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:388
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:391
 msgid "google drive save button"
 msgstr "google drive bottone salva"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:397
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:400
 msgid "URL address file"
 msgstr "indirizzo URL del file"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:398
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:401
 msgid "name of file"
 msgstr "nome del file"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:399
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:402
 msgid "name of site"
 msgstr "nome del sito"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:429
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:502
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:574
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:653
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:796
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:432
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:505
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:577
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:656
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:799
 msgid "documentation for shortcodes"
 msgstr "documentazione per shortcodes"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:466
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:469
 msgid "google groups embedded widget "
 msgstr "widget google groups"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:474
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:477
 msgid "name of groups"
 msgstr "nome del gruppo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:477
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:480
 msgid "display search"
 msgstr "visualizzare ricerca"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:478
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:481
 msgid "display tabs"
 msgstr "visualizzare tabs"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:479
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:482
 msgid "hidden title"
 msgstr "nascondi titolo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:480
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:483
 msgid "hidden subject"
 msgstr "nascondi soggetto"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:481
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:484
 msgid "language"
 msgstr "linguaggio"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:537
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:540
 msgid "google translate widget"
 msgstr "google translate widget"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:538
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:541
 msgid "google translate get meta code"
 msgstr "google translate meta code"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:539
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:542
 msgid "google translate get meta ID"
 msgstr "google translate ID"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:547
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:550
 msgid "language for widget"
 msgstr "lingua del widget"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:609
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:612
 msgid "google panoramio widget"
 msgstr "google panoramio widget"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:618
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:621
 msgid "widget type"
 msgstr "tipo di widget"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:619
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:622
 msgid "search for user"
 msgstr "ricerca per utente"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:620
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:623
 msgid "search for group"
 msgstr "ricerca per gruppo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:621
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:624
 msgid "search for tag"
 msgstr "ricerca per tag"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:622
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:625
 msgid "select type"
 msgstr "selezionare tipo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:623
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:626
 msgid "widget width in pixels"
 msgstr "larghezza per widget in pixel"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:624
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:627
 msgid "widget height in pixels"
 msgstr "altezza per widget in pixel"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:625
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:628
 msgid "background color"
 msgstr "colore di sfondo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:626
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:629
 msgid "columns of photos"
 msgstr "colonne per foto"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:627
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:630
 msgid "rows of photos"
 msgstr "righe per foto"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:628
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:631
 msgid "orientation of the list"
 msgstr "orientamento della lista"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:629
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:632
 msgid "photos the list"
 msgstr "lista di fotografie"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:630
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:633
 msgid "position photo list"
 msgstr "posizione della lista di foto"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:631
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:634
 msgid "delay in seconds"
 msgstr "attesa in secondi"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:632
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:635
 msgid "dummy paragraph"
 msgstr "paragrafo dummy"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:697
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:733
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:700
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:736
 msgid "youtube video"
 msgstr "video youtube"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:698
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:701
 msgid "youtube playlist"
 msgstr "youtube playlist"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:699
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:702
 msgid "youtube channel badge"
 msgstr "canale youtube con badge"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:700
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:703
 msgid "youtube channel button"
 msgstr "canale youtube con bottone"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:701
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:704
 msgid "youtube channel link"
 msgstr "canale youtube con link"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:710
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:713
 msgid "youtube address URL"
 msgstr "indirizzo URL youtube"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:712
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:740
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:751
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:715
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:743
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:754
 msgid "size pixel width"
 msgstr "larghezza in pixel"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:713
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:741
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:752
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:716
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:744
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:755
 msgid "size pixel height"
 msgstr "altezza in pixel"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:719
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:722
 msgid "enable autoplay"
 msgstr "attivazione autoplay"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:720
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:723
 msgid "enable loop"
 msgstr "attivazione loop"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:723
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:726
 msgid "theme name"
 msgstr "nome del tema"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:724
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:727
 msgid "cover image"
 msgstr "immagine copertina"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:725
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:728
 msgid "title for video"
 msgstr "titolo del video"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:726
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:729
 msgid "disable IFRAME mode"
 msgstr "disattivare IFRAME"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:727
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:730
 msgid "enable google analytics"
 msgstr "google analytics"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:728
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:731
 msgid "enable loading delayed"
 msgstr "caricamento ritardato"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:729
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:732
 msgid "time of start"
 msgstr "tempo di inizio"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:730
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:733
 msgid "time of end"
 msgstr "tempo di fine"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:731
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:734
 msgid "deactive related video"
 msgstr "disattivare video correlati"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:732
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:735
 msgid "schema.org enable"
 msgstr "abilitare schema.org"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:733
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:736
 msgid "schema.org name"
 msgstr "schema.org nome"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:734
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:737
 msgid "schema.org description"
 msgstr "schema.org descrizione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:734
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:737
 msgid "value of title"
 msgstr "valore del titolo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:735
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:738
 msgid "schema.org duration"
 msgstr "schema.org durata"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:735
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:738
 msgid ""
 "<a target=\"_blank\" href=\"http://en.wikipedia.org/wiki/ISO_8601\">format "
 "ISO 8601</a>"
@@ -1779,55 +1830,55 @@ msgstr ""
 "<a target=\"_blank\" href=\"http://it.wikipedia.org/wiki/ISO_8601\">format "
 "ISO 8601</a>"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:739
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:742
 msgid "youtube playlist ID"
 msgstr "youtube playlist ID"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:753
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:756
 msgid "unit for width"
 msgstr "unità per larghezza"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:754
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:757
 msgid "unit for height"
 msgstr "unità per altezza"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:759
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:762
 msgid "layout type"
 msgstr "tipo di  layout"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:760
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:763
 msgid "theme for button"
 msgstr "tema del bottone"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:765
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:768
 msgid "subscription mode"
 msgstr "modalità sottoscrizione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:766
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:769
 msgid "anchor text for link"
 msgstr "testo di ancoraggio per link"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:766
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:769
 msgid "channel youtube"
 msgstr "canale youtube"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:848
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:851
 msgid "parameter"
 msgstr "parametro"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:849
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:852
 msgid "description"
 msgstr "descrizione"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:850
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:853
 msgid "values"
 msgstr "valori"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:851
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:854
 msgid "default"
 msgstr "default"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:865
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-documentation.php:868
 msgid "example"
 msgstr "esempio"
 
@@ -2611,41 +2662,80 @@ msgstr ""
 "google. Se abiliti questa funzione il nostro plugin non inserirerà il "
 "framework javascript."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:30
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:35
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:36
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:37
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:38
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:39
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:40
-msgid "font family"
-msgstr "font family"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:46
+msgid "font setting loader"
+msgstr "configurazione font per caricamento"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:57
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:47
 msgid "font setting general"
-msgstr ""
+msgstr "configurazione font per generale"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:58
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:48
 msgid "font setting headings"
-msgstr ""
+msgstr "configurazione font per intestazioni"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:64
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:51
 msgid "google fonts configuration"
 msgstr "configurazione google fonts"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:70
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:73
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:74
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:75
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:76
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:80
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:77
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:78
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:83
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:84
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:88
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:85
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:90
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:91
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:92
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:96
-msgid "insert your fonts family"
-msgstr "inserisci il font familiy"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:93
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:94
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:95
+msgid "font family"
+msgstr "font family"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:71
-msgid "some ."
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:119
+msgid "no fonts"
+msgstr "nessun font"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:138
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:145
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:152
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:159
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:166
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:173
+msgid ""
+"specify the name of a font to create download from google CDN. This option "
+"is only concerned of loading, the assignment you have to manually enter in "
+"your CSS file. If you want to do it all automatically use the options found "
+"below."
 msgstr ""
+"specifica il nome di un font per eseguire il download tramite google CDN. "
+"Questa opzione carica solo il font, l'assegnazione deve essere fatta "
+"manualmente sul file CSS. Se vuoi tutto automatico guarda le opzioni nelle "
+"sezioni di seguito."
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:180
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:187
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:194
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:201
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:208
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:215
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:222
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:229
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-fonts.php:236
+msgid ""
+"choose the font name to associate with the HTML indicated, the plugin will "
+"generate the code to download the font from the google CDN and CSS code to "
+"link with the specified HTML element. It is not necessary to change the "
+"original CSS file."
+msgstr ""
+"seleziona il none del font che vuoi assegnare all'elemento HTML indicato, il "
+"plugin genererà automaticamente il codice per il download da google e il "
+"codice CSS necessario. In questo caso non bisogna cambiare il codice dello "
+"stile del tema."
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:36
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:47
@@ -2761,6 +2851,7 @@ msgstr ""
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:137
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:186
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:117
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:131
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:117
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:117
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:97
@@ -2770,6 +2861,7 @@ msgstr "posizione in basso"
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:137
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/sz-google-admin-panoramio.php:186
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:115
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:129
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:115
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:115
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:95
@@ -3030,6 +3122,7 @@ msgstr ""
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-groups-iframe.php:61
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:58
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-post.php:37
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:58
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-panoramio.php:68
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:58
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:58
@@ -3037,7 +3130,7 @@ msgstr ""
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-youtube-playlist.php:46
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-profile.php:61
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:49
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-translate.php:321
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-translate.php:329
 msgid "title"
 msgstr "titolo"
 
@@ -3048,6 +3141,7 @@ msgstr "titolo"
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-groups-iframe.php:62
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:59
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-post.php:38
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:59
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-panoramio.php:69
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:59
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:59
@@ -3091,6 +3185,7 @@ msgstr "inserire ID specifico"
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-community.php:88
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-groups-iframe.php:79
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-groups-iframe.php:85
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:90
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-panoramio.php:125
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-youtube-playlist.php:64
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-youtube-playlist.php:71
@@ -3248,6 +3343,7 @@ msgid "insert group name"
 msgstr "inserire nome gruppo"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:84
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:98
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:84
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:84
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:64
@@ -3255,6 +3351,7 @@ msgid "type"
 msgstr "tipo"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:87
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:101
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:87
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:87
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:67
@@ -3262,13 +3359,15 @@ msgid "button without badge"
 msgstr "bottone senza badge"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:88
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:102
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:88
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:88
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:68
 msgid "button with badge"
-msgstr "larghezza del bottone di badge "
+msgstr "bottone con badge "
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:97
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:111
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:97
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:97
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:77
@@ -3276,6 +3375,7 @@ msgid "insert text for badge"
 msgstr "inserire un testo per il badge"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:104
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:118
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:104
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:104
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:84
@@ -3283,6 +3383,7 @@ msgid "choose image for badge"
 msgstr "scegliere l'immagine per il badge"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:105
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:119
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:105
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:105
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:58
@@ -3291,6 +3392,7 @@ msgid "select file"
 msgstr "seleziona un file"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:105
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:119
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:105
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:105
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:58
@@ -3299,6 +3401,7 @@ msgid "select or upload a file"
 msgstr "seleziona o carica un file"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:105
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:119
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:105
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:105
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:58
@@ -3307,6 +3410,7 @@ msgid "confirm selection"
 msgstr "conferma selezione"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:114
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:128
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:114
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:114
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:94
@@ -3314,6 +3418,7 @@ msgid "position outside"
 msgstr "posizione esterna"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:116
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:130
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:116
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:116
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:96
@@ -3321,6 +3426,7 @@ msgid "position center"
 msgstr "posizione centrale"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:128
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:142
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:128
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:128
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:108
@@ -3328,6 +3434,7 @@ msgid "alignment none"
 msgstr "allineamento disattivato"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:129
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:143
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:129
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:129
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:109
@@ -3335,6 +3442,7 @@ msgid "alignment left"
 msgstr "allineamento a sinistra"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:130
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:144
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:130
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:130
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:110
@@ -3342,6 +3450,7 @@ msgid "alignment center"
 msgstr "allineamento centrale"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-plusone.php:131
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:145
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-follow.php:131
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-share.php:131
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-drive-savebutton.php:111
@@ -3391,6 +3500,30 @@ msgstr "annotazione bubble"
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-plus-post.php:45
 msgid "insert google+ post URL"
 msgstr "inserire URL del post di google+"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:65
+msgid "hangout"
+msgstr "hangout"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:68
+msgid "normal"
+msgstr "normale"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:69
+msgid "onair"
+msgstr "in diretta"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:70
+msgid "party"
+msgstr "party"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:71
+msgid "moderated"
+msgstr "moderato"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-hangouts-start.php:79
+msgid "topic"
+msgstr "argomento"
 
 #: /home/massimo/Common/files/subversion/sz-google/trunk/admin/widgets/sz-google-widget-panoramio.php:75
 msgid "template"
@@ -3594,125 +3727,154 @@ msgstr "file"
 msgid "insert URL file to save"
 msgstr "inserire URL del file da salvare"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-translate.php:248
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-translate.php:256
 msgid "SZ-Google - Translate"
 msgstr "SZ-Google - Translate"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-translate.php:250
-msgid "widget for google translate"
-msgstr "widget per google translate"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-translate.php:258
+msgid "select language for google translate."
+msgstr "seleziona la lingua per google translate."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:506
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:517
 msgid "SZ-Google - G+ Profile"
 msgstr "SZ-Google - G+ Profilo"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:508
-msgid "widget for google+ profile"
-msgstr "widget per google+ profilo"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:519
+msgid "badge for google+ profile."
+msgstr "badge per google+ community."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:844
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:855
 msgid "SZ-Google - G+ Page"
 msgstr "SZ-Google - G+ Pagina"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:846
-msgid "widget for google+ page"
-msgstr "widget per google+ pagina"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:857
+msgid "badge for google+ page."
+msgstr "badge per google+ community."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1141
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1152
 msgid "SZ-Google - G+ Community"
 msgstr "SZ-Google - G+ Community"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1143
-msgid "widget for google+ community"
-msgstr "widget per google+ community"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1154
+msgid "badge for google+ community."
+msgstr "badge per google+ community."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1395
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1406
 msgid "SZ-Google - G+ Followers"
 msgstr "SZ-Google - G+ Followers"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1397
-msgid "widget for google+ followers"
-msgstr "widget per google+ followers"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1408
+msgid "badge for google+ followers."
+msgstr "badge per google+ followers."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1642
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1659
 msgid "SZ-Google - G+ Plus one"
 msgstr "SZ-Google - G+ Plus one"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1644
-msgid "widget for google+ button +1"
-msgstr "widget per google+ bottone +1"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1661
+msgid "button for google +1."
+msgstr "bottone google +1."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1915
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1939
 msgid "SZ-Google - G+ Share"
 msgstr "SZ-Google - G+ Share"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1917
-msgid "widget for google+ share"
-msgstr "widget per google+ share"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:1941
+msgid "button for google+ share."
+msgstr "bottone google+ per condivisione."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2209
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2240
 msgid "SZ-Google - G+ Follow"
 msgstr "SZ-Google - G+ Follow"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2211
-msgid "widget for google+ follow"
-msgstr "widget per google+ follow"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2242
+msgid "button for google+ follow."
+msgstr "bottone google+ per follow."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2500
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2532
 msgid "SZ-Google - G+ Comments"
 msgstr "SZ-Google - G+ Commenti"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2502
-msgid "widget for google+ comments"
-msgstr "widget per google+ commenti"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2534
+msgid "google+ comments for URL."
+msgstr "commenti google+ legati ad un URL."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2827
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2859
 msgid "SZ-Google - G+ Post"
 msgstr "SZ-Google - G+ Post"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2829
-msgid "widget for google+ post"
-msgstr "widget per google+ post"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-plus.php:2861
+msgid "embed google+ post."
+msgstr "inserisci un post presente in google+."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-panoramio.php:341
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-panoramio.php:349
 msgid "SZ-Google - Panoramio"
 msgstr "SZ-Google - Panoramio"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-panoramio.php:343
-msgid "widget for photos in panoramio"
-msgstr "widget per fotografie in panoramio"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-panoramio.php:351
+msgid "list photos in panoramio."
+msgstr "elenco fotografie di panoramio."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-drive.php:217
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-drive.php:225
 msgid "SZ-Google - Drive Save Button"
 msgstr "SZ-Google - Drive Save Button"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-drive.php:219
-msgid "widget for google drive save button"
-msgstr "widget per google drive save button"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-drive.php:227
+msgid "save file to google drive with button."
+msgstr "salva un file su google drive con un bottone."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:692
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:700
 msgid "SZ-Google - Youtube video"
 msgstr "SZ-Google - Youtube video"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:694
-msgid "widget for youtube video"
-msgstr "widget per youtube video"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:702
+msgid "embed youtube video."
+msgstr "inserisci un video di youtube."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:1338
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:1346
 msgid "SZ-Google - Youtube playlist"
 msgstr "SZ-Google - Youtube playlist"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:1340
-msgid "widget for youtube playlist"
-msgstr "widget per youtube playlist"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-youtube.php:1348
+msgid "embed youtube playlist."
+msgstr "inserisci una playlist di youtube."
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-groups.php:218
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-groups.php:226
 msgid "SZ-Google - Groups iframe"
 msgstr "SZ-Google - Groups iframe"
 
-#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-groups.php:220
-msgid "widget for google groups iframe"
-msgstr "widget per google groups iframe"
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-groups.php:228
+msgid "embed google groups iframe."
+msgstr "inserisci un google groups iframe"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-hangouts.php:262
+msgid "SZ-Google - Hangouts button"
+msgstr "SZ-Google - Hangouts bottone"
+
+#: /home/massimo/Common/files/subversion/sz-google/trunk/modules/sz-google-module-hangouts.php:264
+msgid "button for starting Hangout."
+msgstr "bottone per la partenza di un hangout."
+
+#~ msgid "insert your fonts family"
+#~ msgstr "inserisci il font familiy"
+
+#~ msgid "widget for google+ button +1"
+#~ msgstr "widget per google+ bottone +1"
+
+#~ msgid "widget for google+ comments"
+#~ msgstr "widget per google+ commenti"
+
+#~ msgid "widget for google+ post"
+#~ msgstr "widget per google+ post"
+
+#~ msgid "widget for google drive save button"
+#~ msgstr "widget per google drive save button"
+
+#~ msgid "widget for youtube video"
+#~ msgstr "widget per youtube video"
+
+#~ msgid "widget for youtube playlist"
+#~ msgstr "widget per youtube playlist"
 
 #~ msgid "group name"
 #~ msgstr "nome del gruppo"

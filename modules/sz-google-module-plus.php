@@ -17,9 +17,16 @@ class SZGoogleModulePlus extends SZGoogleModule
 {
 	protected $setMetaPublisher = false;
 
+	/**
+	 * Definizione della funzione costruttore che viene richiamata
+	 * nel momento della creazione di un'istanza con questa classe
+	 */
 	function __construct()
 	{
 		parent::__construct('SZGoogleModulePlus');
+
+		// Definizione degli shortcode collegati al modulo con un array in cui bisogna
+		// specificare l'opzione di attivazione il nome dello shortcode e la funzione da eseguire
 
 		$this->moduleShortcodes = array(
 			'plus_shortcode_pr_enable'          => array('sz-gplus-profile'  ,'sz_google_module_plus_shortcodes_profile'),
@@ -225,7 +232,7 @@ class SZGoogleModulePlus extends SZGoogleModule
 
 		if ($options['plus_enable_recommendations'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 			add_action('szgoogle_head',array($this,'moduleAddMetaPublisher'),20);
-			add_action('wp_footer','sz_google_module_plus_add_script_footer');
+			add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 		}
 	}
 
@@ -275,6 +282,10 @@ class SZGoogleModulePlus extends SZGoogleModule
 
 global $SZ_PLUS_OBJECT;
 
+/**
+ * Creazione oggetto principale per creazione ed elaborazione del
+ * modulo richiesto, controllare il costruttore per azioni iniziali
+ */
 $SZ_PLUS_OBJECT = new SZGoogleModulePlus();
 
 $SZ_PLUS_OBJECT->moduleAddActions();
@@ -459,7 +470,7 @@ function sz_google_module_plus_get_code_profile($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -505,7 +516,7 @@ class sz_google_module_plus_widget_profile extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Profile',__('SZ-Google - G+ Profile','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-profile', 
-			'description' => ucfirst(__('widget for google+ profile','szgoogleadmin'))
+			'description' => ucfirst(__('badge for google+ profile.','szgoogleadmin'))
 		));
 	}
 
@@ -797,7 +808,7 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -843,7 +854,7 @@ class sz_google_module_plus_widget_page extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Page',__('SZ-Google - G+ Page','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-page', 
-			'description' => ucfirst(__('widget for google+ page','szgoogleadmin'))
+			'description' => ucfirst(__('badge for google+ page.','szgoogleadmin'))
 		));
 	}
 
@@ -1098,7 +1109,7 @@ function sz_google_module_plus_get_code_community($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1140,7 +1151,7 @@ class sz_google_module_plus_widget_community extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Community',__('SZ-Google - G+ Community','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-community', 
-			'description' => ucfirst(__('widget for google+ community','szgoogleadmin'))
+			'description' => ucfirst(__('badge for google+ community.','szgoogleadmin'))
 		));
 	}
 
@@ -1355,7 +1366,7 @@ function sz_google_module_plus_get_code_followers($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1394,7 +1405,7 @@ class sz_google_module_plus_widget_followers extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Followers',__('SZ-Google - G+ Followers','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-followers', 
-			'description' => ucfirst(__('widget for google+ followers','szgoogleadmin'))
+			'description' => ucfirst(__('badge for google+ followers.','szgoogleadmin'))
 		));
 	}
 
@@ -1598,7 +1609,7 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1647,7 +1658,7 @@ class sz_google_module_plus_widget_plusone extends SZGoogleWidget
 	{
 		parent::__construct('SZ-GOOGLE-PLUS-ONE',__('SZ-Google - G+ Plus one','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-one', 
-			'description' => ucfirst(__('widget for google+ button +1','szgoogleadmin'))
+			'description' => ucfirst(__('button for google +1.','szgoogleadmin'))
 		));
 	}
 
@@ -1878,7 +1889,7 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1927,7 +1938,7 @@ class sz_google_module_plus_widget_share extends SZGoogleWidget
 	{
 		parent::__construct('SZ-GOOGLE-PLUS-SHARING',__('SZ-Google - G+ Share','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-share', 
-			'description' => ucfirst(__('widget for google+ share','szgoogleadmin'))
+			'description' => ucfirst(__('button for google+ share.','szgoogleadmin'))
 		));
 	}
 
@@ -2178,7 +2189,7 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -2228,7 +2239,7 @@ class sz_google_module_plus_widget_follow extends SZGoogleWidget
 	{
 		parent::__construct('SZ-GOOGLE-PLUS-FOLLOW',__('SZ-Google - G+ Follow','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-follow', 
-			'description' => ucfirst(__('widget for google+ follow','szgoogleadmin'))
+			'description' => ucfirst(__('button for google+ follow.','szgoogleadmin'))
 		));
 	}
 
@@ -2479,7 +2490,7 @@ function sz_google_module_plus_get_code_comments($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -2520,7 +2531,7 @@ class sz_google_module_plus_widget_comments extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Comments',__('SZ-Google - G+ Comments','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-comments', 
-			'description' => ucfirst(__('widget for google+ comments','szgoogleadmin'))
+			'description' => ucfirst(__('google+ comments for URL.','szgoogleadmin'))
 		));
 	}
 
@@ -2706,7 +2717,7 @@ function sz_google_module_plus_comments_system($include)
 	// Aggiunta del codice javascript per il rendering dei widget		 
 	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno stesso template passato alla funzione nel caso in cui
 	// devo mantenere i commenti standard dopo quelli di google plus
@@ -2747,7 +2758,7 @@ function sz_google_module_plus_comments_content($content)
 	// Aggiunta del codice javascript per il rendering dei widget		 
 	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	return $content.$HTML;
 }
@@ -2810,7 +2821,7 @@ function sz_google_module_plus_get_code_post($atts=array())
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -2847,7 +2858,7 @@ class sz_google_module_plus_widget_post extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Post',__('SZ-Google - G+ Post','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-plus sz-widget-google-plus-post', 
-			'description' => ucfirst(__('widget for google+ post','szgoogleadmin'))
+			'description' => ucfirst(__('embed google+ post.','szgoogleadmin'))
 		));
 	}
 

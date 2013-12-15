@@ -15,6 +15,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModuleTranslate extends SZGoogleModule
 {
+	/**
+	 * Definizione della funzione costruttore che viene richiamata
+	 * nel momento della creazione di un'istanza con questa classe
+	 */
 	function __construct()
 	{
 		parent::__construct('SZGoogleModuleTranslate');
@@ -83,6 +87,10 @@ class SZGoogleModuleTranslate extends SZGoogleModule
 
 global $SZ_TRANSLATE_OBJECT;
 
+/**
+ * Creazione oggetto principale per creazione ed elaborazione del
+ * modulo richiesto, controllare il costruttore per azioni iniziali
+ */
 $SZ_TRANSLATE_OBJECT = new SZGoogleModuleTranslate();
 $SZ_TRANSLATE_OBJECT->moduleAddWidgets();
 $SZ_TRANSLATE_OBJECT->moduleAddShortcodes();
@@ -247,7 +255,7 @@ class SZ_Widget_Google_Translate extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Translate',__('SZ-Google - Translate','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-translate sz-widget-translate-widget', 
-			'description' => ucfirst(__('widget for google translate','szgoogleadmin'))
+			'description' => ucfirst(__('select language for google translate.','szgoogleadmin'))
 		));
 	}
 

@@ -19,7 +19,7 @@ if (!class_exists('SZGoogleDebug'))
 		 * Progressivo break point per numerazione automatica
 		 *
 		 * @var numeric
-		*/
+		 */
 		private static $point = 0;
 
 		/**

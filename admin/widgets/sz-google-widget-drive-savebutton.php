@@ -41,7 +41,7 @@ $VALUE_align      = esc_attr($align);
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 
-<table style="width:100%">
+<p><table style="width:100%">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 
@@ -64,7 +64,7 @@ $VALUE_align      = esc_attr($align);
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_badge ?>"><?php echo ucfirst(__('type','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
 		<select class="sz-google-switch-hidden widefat" id="<?php echo $ID_badge ?>" name="<?php echo $NAME_badge ?>" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display" data-close="0">
-			<option value="0" <?php echo selected("0",$VALUE_badge) ?>><?php echo __('button without badge','szgoogleadin') ?></option>
+			<option value="0" <?php echo selected("0",$VALUE_badge) ?>><?php echo __('button without badge','szgoogleadmin') ?></option>
 			<option value="1" <?php echo selected("1",$VALUE_badge) ?>><?php echo __('button with badge','szgoogleadmin') ?></option>
 		</select>
 	</td>
@@ -115,7 +115,7 @@ $VALUE_align      = esc_attr($align);
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
 
-</table>
+</table></p>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 

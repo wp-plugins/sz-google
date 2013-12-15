@@ -19,6 +19,7 @@ define('SZ_PLUGIN_GOOGLE_PATH_CSS'              ,SZ_PLUGIN_GOOGLE_PATH.'includes
 define('SZ_PLUGIN_GOOGLE_PATH_CSS_IMAGE'        ,SZ_PLUGIN_GOOGLE_PATH.'includes/css/images/');
 
 define('SZ_PLUGIN_GOOGLE_BASENAME_CLASSES'      ,SZ_PLUGIN_GOOGLE_BASENAME.'/classes/');
+define('SZ_PLUGIN_GOOGLE_BASENAME_DATA'         ,SZ_PLUGIN_GOOGLE_BASENAME.'/data/');
 define('SZ_PLUGIN_GOOGLE_BASENAME_MODULES'      ,SZ_PLUGIN_GOOGLE_BASENAME.'/modules/');
 define('SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE'     ,SZ_PLUGIN_GOOGLE_BASENAMP.'/languages');
 define('SZ_PLUGIN_GOOGLE_BASENAME_ADMIN'        ,SZ_PLUGIN_GOOGLE_BASENAME.'/admin/');
@@ -41,6 +42,8 @@ define('SZ_PLUGIN_GOOGLE_VALUE_YEAR' ,sprintf('%04d',date('Y')));
 define('SZ_PLUGIN_GOOGLE_VALUE_OLD_DAY','01');
 define('SZ_PLUGIN_GOOGLE_VALUE_OLD_MONTH','01');
 define('SZ_PLUGIN_GOOGLE_VALUE_OLD_YEAR','2000');
+define('SZ_PLUGIN_GOOGLE_VALUE_TITLEFIX','SZ-Google - ');
+define('SZ_PLUGIN_GOOGLE_VALUE_CAPABILITY','manage_options');
 
 define('SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET','widget');
 define('SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE','shortcode');
@@ -49,6 +52,9 @@ define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT','none');
 define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM','1');
 define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_LEFT','none');
 define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_UNITS','em');
+define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_FLOAT','none');
+define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_ALIGN','none');
+define('SZ_PLUGIN_GOOGLE_VALUE_BUTTON_POSITION','outside');
 
 /**
  * Definizione delle costanti per il modulo di GOOGLE PLUS,
@@ -103,6 +109,7 @@ define('SZ_PLUGIN_GOOGLE_DRIVE_SITENAME','Website');
  * Definizione delle costanti per il modulo di GOOGLE FONTS,
  * qui vanno definite le costanti che contengono valori speciali e opzioni.
  */
+define('SZ_PLUGIN_GOOGLE_FONTS_NULL','nofonts');
 define('SZ_PLUGIN_GOOGLE_FONTS_FAMILY','Roboto');
 
 /**
@@ -112,6 +119,15 @@ define('SZ_PLUGIN_GOOGLE_FONTS_FAMILY','Roboto');
 define('SZ_PLUGIN_GOOGLE_GROUPS_NAME'  ,'adsense-api');
 define('SZ_PLUGIN_GOOGLE_GROUPS_WIDTH' ,'0');
 define('SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT','700');
+
+/**
+ * Definizione delle costanti per il modulo di GOOGLE HANGOUTS,
+ * qui vanno definite le costanti che contengono valori speciali e opzioni.
+ */
+define('SZ_PLUGIN_GOOGLE_HANGOUTS_TYPE','normal');
+define('SZ_PLUGIN_GOOGLE_HANGOUTS_BUTTON_CLASS','sz-google-hangouts-button');
+define('SZ_PLUGIN_GOOGLE_HANGOUTS_BUTTON_SIZE_WIDGET','180');
+define('SZ_PLUGIN_GOOGLE_HANGOUTS_BUTTON_SIZE_SHORTCODE','180');
 
 /**
  * Definizione delle costanti per il modulo di GOOGLE PANORAMIO,

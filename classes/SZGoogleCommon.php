@@ -184,6 +184,7 @@ if (!class_exists('SZGoogleCommon'))
 				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'uniqueID'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			),$atts));
 
 			// Imposto i valori di default nel caso siano specificati dei valori
@@ -196,13 +197,21 @@ if (!class_exists('SZGoogleCommon'))
 
 			if (!in_array($marginunit,array('px','pt','em'))) $marginunit = 'em';
 
+			// Calcolo il codice CSS da inserire nel primo wrapper
+			// del bottone su cui si sta elaborando il rendering
+
+			$CSS = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+			if (!empty($float) and $float != 'none') $CSS .= 'float:'.$float.';';
+			if (!empty($align) and $align != 'none') $CSS .= 'text-align:'.$align.';';
+
 			// Calcolo il codice HTML per eseguire un WRAP sul
 			// codice del bottone preparato in precedenza dal chiamante
 	
-			$HTML  = '<div class="'.$class.'" style="';
-				if (!empty($float) and $float != 'none') $HTML .= 'float:'.$float.';';
-				if (!empty($align) and $align != 'none') $HTML .= 'text-align:'.$align.';';
-			$HTML .= '"">';
+			$HTML .= '<div class="'.$class.'"';
+				if ($CSS      != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= ' style="'.$CSS.'"';
+				if ($uniqueID != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= ' id="'.$uniqueID.'"';
+			$HTML .= '>';
 
 			$HTML .= '<div class="sz-google-button" style="';
 

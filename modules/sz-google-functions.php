@@ -121,6 +121,20 @@ function szgoogle_get_groups_code($atts=array()) {
 	} else return false;
 }
 
+/**
+ * Modulo Google Hangouts e funzioni PHP disponibili
+ * Codice per partenza hangout tramite bottone di google
+ *
+ * @param  array $options
+ * @return string
+ */
+function szgoogle_get_hangouts_code_start($options=array()) 
+{
+	if ($object = SZGoogleModule::$SZGoogleModuleHangouts) {
+		return $object->getHangoutsStartCode($options);
+	} else return false; 
+}
+
 /* ************************************************************************** */
 /* GOOGLE PANORAMIO funzioni PHP da richiamare direttamente                   */
 /* ************************************************************************** */

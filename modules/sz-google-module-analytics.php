@@ -15,6 +15,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModuleAnalytics extends SZGoogleModule
 {
+	/**
+	 * Definizione della funzione costruttore che viene richiamata
+	 * nel momento della creazione di un'istanza con questa classe
+	 */
 	function __construct() 
 	{
 		parent::__construct('SZGoogleModuleAnalytics');
@@ -86,7 +90,7 @@ class SZGoogleModuleAnalytics extends SZGoogleModule
 			}
 
 			if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_HEADER) add_action('wp_head'  ,'sz_google_module_analytics_add_script');
-			if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('wp_footer','sz_google_module_analytics_add_script');
+			if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('SZGoogleFooter','sz_google_module_analytics_add_script');
 		}
 	}
 }
@@ -94,6 +98,10 @@ class SZGoogleModuleAnalytics extends SZGoogleModule
 
 global $SZ_ANALYTICS_OBJECT;
 
+/**
+ * Creazione oggetto principale per creazione ed elaborazione del
+ * modulo richiesto, controllare il costruttore per azioni iniziali
+ */
 $SZ_ANALYTICS_OBJECT = new SZGoogleModuleAnalytics();
 $SZ_ANALYTICS_OBJECT->moduleAddActions();
 

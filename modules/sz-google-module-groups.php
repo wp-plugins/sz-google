@@ -15,6 +15,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModuleGroups extends SZGoogleModule
 {
+	/**
+	 * Definizione della funzione costruttore che viene richiamata
+	 * nel momento della creazione di un'istanza con questa classe
+	 */
 	function __construct()
 	{
 		parent::__construct('SZGoogleModuleGroups');
@@ -84,6 +88,10 @@ class SZGoogleModuleGroups extends SZGoogleModule
 
 global $SZ_GROUPS_OBJECT;
 
+/**
+ * Creazione oggetto principale per creazione ed elaborazione del
+ * modulo richiesto, controllare il costruttore per azioni iniziali
+ */
 $SZ_GROUPS_OBJECT = new SZGoogleModuleGroups();
 $SZ_GROUPS_OBJECT->moduleAddWidgets();
 $SZ_GROUPS_OBJECT->moduleAddShortcodes();
@@ -217,7 +225,7 @@ class sz_google_module_groups_widget_iframe extends SZGoogleWidget
 	{
 		parent::__construct('sz-google-groups-iframe',__('SZ-Google - Groups iframe','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-groups sz-widget-google-groups-iframe', 
-			'description' => ucfirst(__('widget for google groups iframe','szgoogleadmin'))
+			'description' => ucfirst(__('embed google groups iframe.','szgoogleadmin'))
 		));
 	}
 

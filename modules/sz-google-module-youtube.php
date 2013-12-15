@@ -15,6 +15,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModuleYoutube extends SZGoogleModule
 {
+	/**
+	 * Definizione della funzione costruttore che viene richiamata
+	 * nel momento della creazione di un'istanza con questa classe
+	 */
 	function __construct()
 	{
 		parent::__construct('SZGoogleModuleYoutube');
@@ -138,6 +142,10 @@ class SZGoogleModuleYoutube extends SZGoogleModule
 
 global $SZ_YOUTUBE_OBJECT;
 
+/**
+ * Creazione oggetto principale per creazione ed elaborazione del
+ * modulo richiesto, controllare il costruttore per azioni iniziali
+ */
 $SZ_YOUTUBE_OBJECT = new SZGoogleModuleYoutube();
 $SZ_YOUTUBE_OBJECT->moduleAddWidgets();
 $SZ_YOUTUBE_OBJECT->moduleAddShortcodes();
@@ -691,7 +699,7 @@ class sz_google_module_youtube_widget_video extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Youtube-Video',__('SZ-Google - Youtube video','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-youtube sz-widget-google-youtube-video', 
-			'description' => ucfirst(__('widget for youtube video','szgoogleadmin'))
+			'description' => ucfirst(__('embed youtube video.','szgoogleadmin'))
 		));
 	}
 
@@ -988,7 +996,7 @@ function sz_google_module_youtube_get_code_button($atts=array())
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_youtube_loading_script');
+	add_action('SZGoogleFooter','sz_google_module_youtube_loading_script');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento di un video youtube 
@@ -1337,7 +1345,7 @@ class sz_google_module_youtube_widget_playlist extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Youtube-Playlist',__('SZ-Google - Youtube playlist','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-youtube sz-widget-google-youtube-playlist', 
-			'description' => ucfirst(__('widget for youtube playlist','szgoogleadmin'))
+			'description' => ucfirst(__('embed youtube playlist.','szgoogleadmin'))
 		));
 	}
 
@@ -1446,7 +1454,7 @@ function sz_google_module_youtube_add_video_API($opts=array())
 
 	if (is_array($opts)) {
 		$SZ_GOOGLE_YOUTUBE_API[] = $opts;
-		add_action('wp_footer','sz_google_module_youtube_add_script_footer');
+		add_action('SZGoogleFooter','sz_google_module_youtube_add_script_footer');
 	}
 }
 

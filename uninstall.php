@@ -1,8 +1,14 @@
 <?php
-/* ************************************************************************** */
-/* Disinstallazione plugin e rimozione opzioni                                */
-/* ************************************************************************** */
+/**
+ * File richiamato in fase di disinstallazione plugin: In questa
+ * fase bisogna eseguire la pulizia delle opzioni memorizzate sul
+ * database wordpress e controllare se ambiente multisite. 
+ *
+ * @package SZGoogle
+ */
 if(!defined('WP_UNINSTALL_PLUGIN')) die();
+
+// CONVERTIRE QUESTO FILE IN OGGETTO
 
 /* ************************************************************************** */
 /* Disinstallazione plugin e rimozione opzioni                                */
@@ -23,6 +29,7 @@ function sz_unistall_google_delete_options()
 	delete_option('sz_google_options_drive');
 	delete_option('sz_google_options_fonts');
 	delete_option('sz_google_options_groups');
+	delete_option('sz_google_options_hangouts');
 	delete_option('sz_google_options_panoramio');
 	delete_option('sz_google_options_translate');
 	delete_option('sz_google_options_youtube');

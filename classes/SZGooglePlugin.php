@@ -58,6 +58,7 @@ if (!class_exists('SZGooglePlugin'))
 				'drive'                             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'fonts'                             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'groups'                            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'hangouts'                          => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'panoramio'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'translate'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'youtube'                           => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -150,20 +151,21 @@ if (!class_exists('SZGooglePlugin'))
 			// il modulo collegato alle funzioni di Google Fonts
 
 			$settings_fonts = array(
-				'fonts_family'                      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'fonts_family_active'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'fonts_family_H1'                   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'fonts_family_H1_active'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'fonts_family_H2'                   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'fonts_family_H2_active'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'fonts_family_H3'                   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'fonts_family_H3_active'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'fonts_family_H4'                   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'fonts_family_H4_active'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'fonts_family_H5'                   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'fonts_family_H5_active'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'fonts_family_H6'                   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'fonts_family_H6_active'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'fonts_family_L1_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_L2_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_L3_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_L4_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_L5_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_L6_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_B1_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_P1_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_B2_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_H1_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_H2_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_H3_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_H4_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_H5_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'fonts_family_H6_name'              => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -180,6 +182,14 @@ if (!class_exists('SZGooglePlugin'))
 				'groups_hidesubject'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'groups_width'                      => SZ_PLUGIN_GOOGLE_GROUPS_WIDTH,
 				'groups_height'                     => SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT,
+			);
+
+			// Impostazione valori di default che riguardano
+			// il modulo collegato alle funzioni di Google Hangouts
+
+			$settings_hangouts = array(
+				'hangouts_start_widget'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'hangouts_start_shortcode'          => SZ_PLUGIN_GOOGLE_VALUE_YES,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -270,6 +280,7 @@ if (!class_exists('SZGooglePlugin'))
 			self::checkOptions('sz_google_options_drive'    ,$settings_drive); 
 			self::checkOptions('sz_google_options_fonts'    ,$settings_fonts); 
 			self::checkOptions('sz_google_options_groups'   ,$settings_groups);
+			self::checkOptions('sz_google_options_hangouts' ,$settings_hangouts);
 			self::checkOptions('sz_google_options_panoramio',$settings_panoramio);
 			self::checkOptions('sz_google_options_translate',$settings_translate);
 			self::checkOptions('sz_google_options_youtube'  ,$settings_youtube);
@@ -297,6 +308,16 @@ if (!class_exists('SZGooglePlugin'))
 				{
 					if (!is_array($options)) $options=array(); 
 
+					// Controllo se nelle opzioni ci sono degli indici che non
+					// vengono più utilizzati li tolgo da array generale
+
+					foreach ($options as $key=>$item) {
+						if (!isset($values[$key])) unset($options[$key]);
+					}
+
+					// Controllo le opzioni che sono state inserite nel nuovo
+					// release e le aggiungo al contenitore array generale
+
 					foreach ($values as $key=>$item) {
 						if (!isset($options[$key])) $options[$key]=$item;
 					}
@@ -314,20 +335,71 @@ if (!class_exists('SZGooglePlugin'))
 		}
 
 		/**
+		 * Esecuzione funzione per aggiungere un testo comune di commento HTML
+		 * nella parte iniziale del codice che viene aggiunto nella varie sezioni
+		 *
+		 * @return void
+		 */
+		function getCommonSectionHead()
+		{
+			$HTML  = "\n";
+			$HTML .= "<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." - https://wpitalyplus.com -->\n";
+			$HTML .= "<!-- =============================================================================================== -->\n";
+
+			return $HTML;
+		}
+
+		/**
+		 * Esecuzione funzione per aggiungere un testo comune di commento HTML
+		 * nella parte finale del codice che viene aggiunto nella varie sezioni
+		 *
+		 * @return void
+		 */
+		function getCommonSectionFooter()
+		{
+			$HTML .= "<!-- =============================================================================================== -->\n";
+			$HTML .= "\n";
+
+			return $HTML;
+		}
+
+		/**
 		 * Esecuzione funzione per aggiungere dei valori alla sezione <head>
 		 * della pagina HTML collegata con WP_HEAD tramite action(szgoogle-head)
 		 *
 		 * @return void
 		 */
-		function addSectionHead() 
+		function addSectionHead()
 		{
-			if(has_action('szgoogle_head'))
-			{				
-				echo "\n<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." - https://wpitalyplus.com -->\n";
-				do_action('szgoogle_head');
-				echo "<!-- / SZ-Google for WordPress plugin -->\n\n";
+			if(has_action('szgoogle_head')) {				
+				echo self::getCommonSectionHead(); do_action('szgoogle_head'); echo self::getCommonSectionFooter();
 			}
 		}
 
+		/**
+		 * Esecuzione funzione per aggiungere dei valori alla sezione <head>
+		 * della pagina HTML collegata con WP_HEAD tramite action(szgoogle-head)
+		 *
+		 * @return void
+		 */
+		function addSectionCSSInline()
+		{
+			if(has_action('szgoogle_css_inline')) {
+				echo self::getCommonSectionHead(); do_action('szgoogle_css_inline'); echo self::getCommonSectionFooter();
+			}
+		}
+
+		/**
+		 * Esecuzione funzione per aggiungere dei valori alla sezione <footer>
+		 * della pagina HTML collegata con WP_FOOTER tramite action(szgoogle-footer)
+		 *
+		 * @return void
+		 */
+		function addSectionFooter()
+		{
+			if(has_action('SZGoogleFooter')) {
+				echo self::getCommonSectionHead(); do_action('SZGoogleFooter'); echo self::getCommonSectionFooter();
+			}
+		}
 	}
 }

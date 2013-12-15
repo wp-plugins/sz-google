@@ -30,17 +30,17 @@ body.mp6 #toplevel_page_sz-google-admin div.wp-menu-image:before {
 	font-weight:bold;
 	vertical-align:middle;
 }
-.mp6 #sz-google-wrap th {
+#sz-google-wrap th {
 	padding-left:10px;
 	border-bottom:none;
 }
 #sz-google-wrap td.description {
 	font-size:0.9em;
 }
-.mp6 #sz-google-wrap td {
+#sz-google-wrap td {
 	border-bottom:none;
 }
-.mp6 #sz-google-wrap td.description {
+#sz-google-wrap td.description {
 	padding-top:0;
 	line-height:1.6em;
 }

@@ -44,7 +44,7 @@ $VALUE_align       = esc_attr($align);
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 
-<table style="width:100%">
+<p><table style="width:100%">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 
@@ -106,7 +106,7 @@ $VALUE_align       = esc_attr($align);
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
 
-</table>
+</table></p>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 

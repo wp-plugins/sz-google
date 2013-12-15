@@ -30,6 +30,7 @@ function sz_google_admin_documentation_fields()
 	add_settings_section('sz_google_documentation_analytics','','sz_google_admin_documentation_analytics','sz-google-admin-documentation-analytics.php');
 	add_settings_section('sz_google_documentation_drive','','sz_google_admin_documentation_drive','sz-google-admin-documentation-drive.php');
 	add_settings_section('sz_google_documentation_groups','','sz_google_admin_documentation_groups','sz-google-admin-documentation-groups.php');
+	add_settings_section('sz_google_documentation_hangouts','','sz_google_admin_documentation_hangouts','sz-google-admin-documentation-hangouts.php');
 	add_settings_section('sz_google_documentation_panoramio','','sz_google_admin_documentation_panoramio','sz-google-admin-documentation-panoramio.php');
 	add_settings_section('sz_google_documentation_translate','','sz_google_admin_documentation_translate','sz-google-admin-documentation-translate.php');
 	add_settings_section('sz_google_documentation_youtube','','sz_google_admin_documentation_youtube','sz-google-admin-documentation-youtube.php');
@@ -56,6 +57,7 @@ function sz_google_admin_documentation_callback()
 		'sz-google-admin-documentation-analytics.php' => ucwords(__('google analytics','szgoogleadmin')),
 		'sz-google-admin-documentation-drive.php'     => ucwords(__('google drive','szgoogleadmin')),
 		'sz-google-admin-documentation-groups.php'    => ucwords(__('google groups','szgoogleadmin')),
+		'sz-google-admin-documentation-hangouts.php'  => ucwords(__('google hangouts','szgoogleadmin')),
 		'sz-google-admin-documentation-panoramio.php' => ucwords(__('google panoramio','szgoogleadmin')),
 		'sz-google-admin-documentation-translate.php' => ucwords(__('google translate','szgoogleadmin')),
 		'sz-google-admin-documentation-youtube.php'   => ucwords(__('youtube','szgoogleadmin')),
@@ -441,9 +443,6 @@ function sz_google_admin_documentation_drive()
 	));
 }
 
-/* ************************************************************************** */
-/* MODULE GOOGLE GROUPS function for create documentation                     */
-/* ************************************************************************** */
 
 function sz_google_admin_documentation_groups()
 {
@@ -505,6 +504,80 @@ function sz_google_admin_documentation_groups()
 	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
 		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
 	));
+
+	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
+		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
+	));
+}
+
+
+function sz_google_admin_documentation_hangouts()
+{
+	// Definizione elenco degli shortcode presenti nella documentazione 
+	// di questo modulo, il nome verrà visualizzato accanto al titolo
+
+	$shortcode = array(
+		'01' => '[sz-hangouts-start]',
+	); 
+
+	// Definizione elenco delle funzioni presenti nella documentazione 
+	// di questo modulo, il nome verrà visualizzato accanto al titolo
+
+	$functions = array(
+		'01' => 'szgoogle_get_hangouts_code_start()',
+	); 
+
+	// Definizione elenco degli shortcode presenti nella documentazione 
+	// di questo modulo, il nome verrà visualizzato accanto al titolo
+
+	$description = array(
+		'01' => __('hangout button start','szgoogleadmin'),
+	); 
+
+	// Definizione elenco parametri con valori consentiti e di default che sono
+	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
+
+	$options = array(
+		'01' => array(
+			'type'         => array(__('type'                ,'szgoogleadmin'),'normal, onair, party, moderated','normal'),
+			'topic'        => array(__('topic'               ,'szgoogleadmin'),'string','null'),
+			'width'        => array(__('width'               ,'szgoogleadmin'),'value, auto','auto'),
+			'float'        => array(__('float'               ,'szgoogleadmin'),'left, right, none','none'),
+			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
+			'text'         => array(__('text'                ,'szgoogleadmin'),'string','null'),
+			'img'          => array(__('image'               ,'szgoogleadmin'),'string','null'),
+			'position'     => array(__('position'            ,'szgoogleadmin'),'top, center, bottom, outside','outside'),
+			'margintop'    => array(__('margin top'          ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_TOP),
+			'marginrigh'   => array(__('margin right'        ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT),
+			'marginbottom' => array(__('margin bottom'       ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM),
+			'marginleft'   => array(__('margin left'         ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_LEFT),
+			'marginunit'   => array(__('margin unit'         ,'szgoogleadmin'),'em, pt, px' ,SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_UNITS),
+		),
+	); 
+
+	// Definizione array per contenere il codice di esempio da aggiungere
+	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
+
+	$shortcode_example = array(
+		'01' => '[sz-hangout-start type="onair"/]',
+	); 
+
+	// Definizione array per contenere il codice di esempio da aggiungere
+	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
+
+	$function_example = array(
+		'01' => 'szgoogle_get_hangouts_start(array("type"=>"onair"));',
+	); 
+
+	// Chiamata alla funzione per la creazione delle singole sezioni con la
+	// suddivisione per shortcodes, functions php and other.
+
+	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
+		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
+	));
+
+	// Chiamata alla funzione per la creazione delle singole sezioni con la
+	// suddivisione per shortcodes, functions php and other.
 
 	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
 		array($functions['01'],$description['01'],$options['01'],$function_example['01']),

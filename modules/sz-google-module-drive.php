@@ -15,6 +15,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModuleDrive extends SZGoogleModule
 {
+	/**
+	 * Definizione della funzione costruttore che viene richiamata
+	 * nel momento della creazione di un'istanza con questa classe
+	 */
 	function __construct()
 	{
 		parent::__construct('SZGoogleModuleDrive');
@@ -64,6 +68,10 @@ class SZGoogleModuleDrive extends SZGoogleModule
 
 global $SZ_DRIVE_OBJECT;
 
+/**
+ * Creazione oggetto principale per creazione ed elaborazione del
+ * modulo richiesto, controllare il costruttore per azioni iniziali
+ */
 $SZ_DRIVE_OBJECT = new SZGoogleModuleDrive();
 $SZ_DRIVE_OBJECT->moduleAddWidgets();
 $SZ_DRIVE_OBJECT->moduleAddShortcodes();
@@ -169,7 +177,7 @@ function sz_google_module_drive_get_code_savebutton($atts=array(),$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('wp_footer','sz_google_module_plus_add_script_footer');
+	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -216,7 +224,7 @@ class sz_google_module_drive_widget_savebutton extends SZGoogleWidget
 	{
 		parent::__construct('SZ-Google-Drive-Save-Button',__('SZ-Google - Drive Save Button','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-drive sz-widget-google-drive-save-button', 
-			'description' => ucfirst(__('widget for google drive save button','szgoogleadmin'))
+			'description' => ucfirst(__('save file to google drive with button.','szgoogleadmin'))
 		));
 	}
 

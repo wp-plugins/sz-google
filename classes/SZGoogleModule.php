@@ -24,18 +24,29 @@ if (!class_exists('SZGoogleModule'))
 		public static $SZGoogleModuleAnalytics = false;
 		public static $SZGoogleModuleDrive     = false;
 		public static $SZGoogleModuleGroups    = false;
+		public static $SZGoogleModuleHangouts  = false;
 		public static $SZGoogleModulePanoramio = false;
 		public static $SZGoogleModuleTranslate = false;
 		public static $SZGoogleModuleYoutube   = false;
 
 		/**
+		 * Definizione delle variabili per controllare se
+		 * javascript in footer con script è già stato caricato
+		 */
+		public static $JavascriptPlusone       = false;
+		public static $JavascriptPlatform      = false;
+
+		/**
 		 * Definizione delle variabili che contengono le configurazioni
 		 * degli oggetti collegati al modulo attuale come widgets e shortcodes
 		 */
-
 		protected $moduleWidgets    = array();
 		protected $moduleShortcodes = array();
 
+		/**
+		 * Definizione della funzione costruttore che viene richiamata
+		 * nel momento della creazione di un'istanza con questa classe
+		 */
 		function __construct($classname="")
 		{
 			// Controllo costante di DEBUG per scrittura messaggio di
@@ -49,6 +60,7 @@ if (!class_exists('SZGoogleModule'))
 			if ($classname == 'SZGoogleModuleAnalytics')   self::$SZGoogleModuleAnalytics = $this;
 			if ($classname == 'SZGoogleModuleDrive')       self::$SZGoogleModuleDrive     = $this;
 			if ($classname == 'SZGoogleModuleGroups')      self::$SZGoogleModuleGroups    = $this;
+			if ($classname == 'SZGoogleModuleHangouts')    self::$SZGoogleModuleHangouts  = $this;
 			if ($classname == 'SZGoogleModulePanoramio')   self::$SZGoogleModulePanoramio = $this;
 			if ($classname == 'SZGoogleModuleTranslate')   self::$SZGoogleModuleTranslate = $this;
 			if ($classname == 'SZGoogleModuleYoutube')     self::$SZGoogleModuleYoutube   = $this;
@@ -72,6 +84,7 @@ if (!class_exists('SZGoogleModule'))
 				'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'analytics'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'groups'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'hangouts'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'panoramio'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'translate'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'youtube'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -86,6 +99,7 @@ if (!class_exists('SZGoogleModule'))
 				'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'analytics'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'groups'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'hangouts'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'panoramio'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'translate'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'youtube'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -112,9 +126,7 @@ if (!class_exists('SZGoogleModule'))
 			{
 				if (isset($options[$optionName]) and $options[$optionName] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
 				{
-					if (SZ_PLUGIN_GOOGLE_DEBUG) {
-						SZGoogleDebug::log('execute exec-mods point register shortcode '.$shortcode[0]);
-					}
+					if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute exec-mods point register shortcode '.$shortcode[0]);
 					add_shortcode($shortcode[0],$shortcode[1]);
 				}
 			}
@@ -134,35 +146,10 @@ if (!class_exists('SZGoogleModule'))
 			{
 				if (isset($options[$optionName]) and $options[$optionName] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
 				{
-					if (SZ_PLUGIN_GOOGLE_DEBUG) {
-						SZGoogleDebug::log('execute exec-mods point register widget '.$optionName);
-					}
+					if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute exec-mods point register widget '.$optionName);
 					add_action('widgets_init',create_function('','return register_widget("'.$classWidgetName.'");'));
 				}
 			}
-		}
-
-		/**
-		 * Aggiunta del domino di traduzione collegato al frontend
-		 * con nome dominio szgoogle mentre su admin useremo szgoogleadmin 
-		 *
-		 * @return void
-		 */
-		function addLanguageDomain() {
-			add_action('init',array($this,'setLanguageDomain'));
-		}
-
-		function setLanguageDomain() 
-		{
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute init-load point textdomain szgoogle');
-			}
-
-			load_plugin_textdomain(
-				'szgoogle',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE);
 		}
 
 		/**
@@ -226,11 +213,41 @@ if (!class_exists('SZGoogleModule'))
 			foreach ($names as $key => $value) {
 				if (isset($options[$key])) { 
 					if (!in_array($options[$key],array(SZ_PLUGIN_GOOGLE_VALUE_YES,SZ_PLUGIN_GOOGLE_VALUE_NO))) {
-					$options[$key] = $value;
+						$options[$key] = $value;
 					}
 				}
 			}
 			return $options;
+		}
+
+		/**
+		 * Funzione per aggiungere codice javascript nel footer di 
+		 * wordpress con caricamento asincrono seguendo metodo google
+		 *
+		 * @return void
+		 */
+		function setJavascriptPlatform()
+		{
+			// Se ho già inserito il codice javascript nella sezione footer
+			// esco dalla funzione altrimenti setto la variabile e continuo
+
+			if ($this->JavascriptPlatform) return;
+				else $this->JavascriptPlatform = true;
+
+			// Codice javascript per il rendering dei componenti google platform
+			// ad esempio richiamare questo script per i bottoni di hangouts
+	
+			$javascript  = '<script type="text/javascript">';
+			$javascript .= "(function(){";
+			$javascript .= "var po=document.createElement('script');po.type='text/javascript';po.async=true;";
+			$javascript .= "po.src='https://apis.google.com/js/platform.js';";
+			$javascript .=  "var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);";
+			$javascript .=  "})();";
+			$javascript .=	"</script>"."\n";
+	
+			// Esecuzione echo su footer del codice javascript generato
+
+			echo $javascript;
 		}
 	}
 }

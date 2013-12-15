@@ -15,6 +15,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModulePanoramio extends SZGoogleModule
 {
+	/**
+	 * Definizione della funzione costruttore che viene richiamata
+	 * nel momento della creazione di un'istanza con questa classe
+	 */
 	function __construct()
 	{
 		parent::__construct('SZGoogleModulePanoramio');
@@ -116,6 +120,10 @@ class SZGoogleModulePanoramio extends SZGoogleModule
 
 global $SZ_PANORAMIO_OBJECT;
 
+/**
+ * Creazione oggetto principale per creazione ed elaborazione del
+ * modulo richiesto, controllare il costruttore per azioni iniziali
+ */
 $SZ_PANORAMIO_OBJECT = new SZGoogleModulePanoramio();
 $SZ_PANORAMIO_OBJECT->moduleAddWidgets();
 $SZ_PANORAMIO_OBJECT->moduleAddShortcodes();
@@ -340,7 +348,7 @@ class sz_google_module_panoramio_widget extends SZGoogleWidget
 	{
 		parent::__construct('sz-google-panoramio',__('SZ-Google - Panoramio','szgoogleadmin'),array(
 			'classname'   => 'sz-widget-google sz-widget-google-panoramio sz-widget-google-panoramio-iframe', 
-			'description' => ucfirst(__('widget for photos in panoramio','szgoogleadmin'))
+			'description' => ucfirst(__('list photos in panoramio.','szgoogleadmin'))
 		));
 	}
 

@@ -15,12 +15,15 @@ define('SZ_PLUGIN_GOOGLE_ADMIN_BASENAME',basename(__FILE__));
 /* ADMIN Caricamento della lingua per il plugin su parte amministrazione      */
 /* ************************************************************************** */
 
-function sz_google_language_init_admin() {
-	load_plugin_textdomain(
-		'szgoogleadmin',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE);
-}
+//function sz_google_language_init_admin() {
+//	load_plugin_textdomain(
+//		'szgoogleadmin',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE);
+//}
 
-add_action('init','sz_google_language_init_admin');
+//add_action('init','sz_google_language_init_admin');
+//add_action('plugins_loaded','sz_google_language_init_admin');
+
+
 
 /* ************************************************************************** */
 /* ADMIN Creazione e aggiunta menu di amministrazione                         */
@@ -29,7 +32,7 @@ add_action('init','sz_google_language_init_admin');
 function sz_google_admin_menu() 
 {
 	if (function_exists('add_submenu_page')) {
-		add_menu_page('SZ Google','SZ Google','manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_callback_generale','div');
+		add_menu_page('SZ Google','SZ Google','manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_callback_generale');
 		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google',ucfirst(__('configuration','szgoogleadmin')),'manage_options',SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'sz_google_admin_base_callback');
 		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
 	}
@@ -51,6 +54,7 @@ function sz_google_admin_fields()
 	add_settings_field('drive',ucwords(__('google drive','szgoogleadmin')),'sz_google_admin_base_drive',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('fonts',ucwords(__('google fonts','szgoogleadmin')),'sz_google_admin_base_fonts',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),'sz_google_admin_base_groups',basename(__FILE__),'sz_google_base_section');
+	add_settings_field('hangouts',ucwords(__('google hangouts','szgoogleadmin')),'sz_google_admin_base_hangouts',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('panoramio',ucwords(__('google panoramio','szgoogleadmin')),'sz_google_admin_base_panoramio',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),'sz_google_admin_base_translate',basename(__FILE__),'sz_google_base_section');
 	add_settings_field('youtube',ucwords(__('google youtube','szgoogleadmin')),'sz_google_admin_base_youtube',basename(__FILE__),'sz_google_base_section');
@@ -154,6 +158,12 @@ function sz_google_admin_base_groups()
 	sz_google_common_form_description(__('enabling this module you get a widget and a shortcode to perform embed on google groups. Then you can insert into a wordpress page or in a sidebar content navigable for a group. You can specify various customization options.','szgoogleadmin'));
 }
 
+function sz_google_admin_base_hangouts() 
+{
+	sz_google_common_form_checkbox_yesno('sz_google_options_base','hangouts');
+	sz_google_common_form_description(__('activating this module you can use the functions for the hangouts of google. For example, you can insert the buttons for the start of hangout directly in the page of your site. You can also create a widget to put on your sidebar.','szgoogleadmin'));
+}
+
 function sz_google_admin_base_panoramio() 
 {
 	sz_google_common_form_checkbox_yesno('sz_google_options_base','panoramio');
@@ -201,6 +211,7 @@ if ($options_admin['analytics']     == '1') @require_once(dirname(__FILE__).'/sz
 if ($options_admin['drive']         == '1') @require_once(dirname(__FILE__).'/sz-google-admin-drive.php');
 if ($options_admin['fonts']         == '1') @require_once(dirname(__FILE__).'/sz-google-admin-fonts.php');
 if ($options_admin['groups']        == '1') @require_once(dirname(__FILE__).'/sz-google-admin-groups.php');
+if ($options_admin['hangouts']      == '1') @require_once(dirname(__FILE__).'/sz-google-admin-hangouts.php');
 if ($options_admin['panoramio']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-panoramio.php');
 if ($options_admin['translate']     == '1') @require_once(dirname(__FILE__).'/sz-google-admin-translate.php');
 if ($options_admin['youtube']       == '1') @require_once(dirname(__FILE__).'/sz-google-admin-youtube.php');
