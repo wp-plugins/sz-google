@@ -297,6 +297,9 @@ Before you use the google translate module must register the site that you want 
 = Version 1.6.7 =
 * Feature: Add Google Fonts support.
 * Feature: Add Admin support for WP 3.8 version.
+* Feature: Add hangout start button shortcode.
+* Feature: Add hangout start button widgets.
+* Feature: Google hangouts documentation.
 
 = Version 1.6.6 =
 * Fix: Remove get_called_class() not run on PHP 5.2.
