@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: https://wpitalyplus.com/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.6.7
+Version: 1.6.8
 Author URI: https://plus.google.com/+MassimoDellaRovere
 License: GPLv2 or later
 Copyright 2012-2013 startbyzero (email: webmaster@startbyzero.com)
@@ -31,11 +31,10 @@ if (!class_exists('SZGoogleInitPlugin'))
 {
 	/**
 	 * Definizione delle costanti da usare nel plugin per uso generale,
-	 * qui vanno definite le costanti per il debug, la versione, ect.
+	 * qui vanno definite le costanti per URL, basename, versione, ect.
 	 */
 	define('SZ_PLUGIN_GOOGLE',true);
-	define('SZ_PLUGIN_GOOGLE_DEBUG',false);
-	define('SZ_PLUGIN_GOOGLE_VERSION','1.6.7');
+	define('SZ_PLUGIN_GOOGLE_VERSION','1.6.8');
 	define('SZ_PLUGIN_GOOGLE_PATH',plugin_dir_url(__FILE__));
 	define('SZ_PLUGIN_GOOGLE_BASENAME',dirname(__FILE__ ));
 	define('SZ_PLUGIN_GOOGLE_BASENAMP',dirname(plugin_basename(__FILE__ )));
@@ -68,11 +67,6 @@ if (!class_exists('SZGoogleInitPlugin'))
 
 			spl_autoload_register(array($this,'autoloaderClasses'));
 
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute init-load point functions');
-
 			// Creazione oggetto per Modulo Base con impostazione del 
 			// dominio di traduzione e memorizzazione delle opzioni configurate
 
@@ -100,10 +94,15 @@ if (!class_exists('SZGoogleInitPlugin'))
 	     */
 		function autoloaderClasses($classname) 
 		{
+			if (substr($classname,0,14) == 'SZGoogleWidget') {
+				if (is_readable(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_CLASSES.$classname.'.php')) {
+					@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_CLASSES.$classname.'.php');
+				}
+			}
+
 			if (substr($classname,0,8) == 'SZGoogle' and is_readable(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES.$classname.'.php')) 
 			{
 				@require(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES.$classname.'.php');
-				if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute auto-load class '.$classname.'.php');
 	    	}
 		}
 
@@ -115,8 +114,6 @@ if (!class_exists('SZGoogleInitPlugin'))
 	     */
 		function setLanguageDomain() 
 		{
-			if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute init-load point textdomain szgoogle');
-
 			load_plugin_textdomain('szgoogle',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE);
 
 			if (is_admin()) {
@@ -132,11 +129,6 @@ if (!class_exists('SZGoogleInitPlugin'))
 	     */
 		function includeHook() 
 		{
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute init-load point hooks');
-
 			// Attivazione hook per la funzione di attivazione e disattivazione
 			// del plugin dal pannello di amministrazione wordpress
 
@@ -175,9 +167,6 @@ if (!class_exists('SZGoogleInitPlugin'))
 	     */
 		function includeModules() 
 		{
-			if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute init-load point PHP code for module');
-			if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute init-load point PHP code for functions');
-
 			@require_once(SZ_PLUGIN_GOOGLE_BASENAME_MODULES.'sz-google-module.php');
 			@require_once(SZ_PLUGIN_GOOGLE_BASENAME_MODULES.'sz-google-functions.php');
 		}
@@ -190,13 +179,10 @@ if (!class_exists('SZGoogleInitPlugin'))
 	     */
 		function includeAdmin() 
 		{
+			// Caricamento del file che contiene tutte le classi e le opzioni
+			// per esecuzione plugin nella parte amministrativa di wordpress
 			if (is_admin()) 
 			{
-				if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute init-load point PHP code for admin');
-
-				// Caricamento del file che contiene tutte le classi e le opzioni
-				// per esecuzione plugin nella parte amministrativa di wordpress
-
 				@include_once(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN.'sz-google-admin.php');
 			}
 		}

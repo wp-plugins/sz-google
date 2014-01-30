@@ -462,6 +462,6 @@ class sz_google_module_panoramio_widget extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-panoramio.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.'sz-google-widget-panoramio.php');
 	}
 }

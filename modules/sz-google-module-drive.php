@@ -327,7 +327,7 @@ class sz_google_module_drive_widget_savebutton extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-drive-savebutton.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.'sz-google-widget-drive-savebutton.php');
 	}
 }
 

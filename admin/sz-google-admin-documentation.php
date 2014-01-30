@@ -1,73 +1,97 @@
 <?php
-/* ************************************************************************** */
-/* Controllo se definita la costante del plugin                               */
-/* ************************************************************************** */
+/**
+ * Modulo GOOGLE DOCUMENTATION per la definizione delle funzioni che riguardano
+ * sia i widget che i shortcode ma anche filtri e azioni che il modulo
+ * può integrare durante l'aggiunta di funzionalità a wordpress.
+ *
+ * @package SZGoogle
+ */
 if (!defined('SZ_PLUGIN_GOOGLE_ADMIN') or !SZ_PLUGIN_GOOGLE_ADMIN) die();
 
-/* ************************************************************************** */
-/* Creazione e aggiunta menu di amministrazione                               */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_menu() 
+/**
+ * Prima della definizione della classe controllo se esiste
+ * una definizione con lo stesso nome o già definita la stessa.
+ */
+if (!class_exists('SZGoogleModuleAdminDocumentation'))
 {
-	if (function_exists('add_submenu_page')) {
-		$pagehook = add_submenu_page(SZ_PLUGIN_GOOGLE_ADMIN_BASENAME,'SZ-Google - '.ucwords(__('documentation','szgoogleadmin')),ucwords(__('documentation','szgoogleadmin')),'manage_options','sz-google-admin-documentation.php','sz_google_admin_documentation_callback'); 
-		add_action('admin_print_scripts-'.$pagehook,'sz_google_admin_add_plugin');
+	/**
+	 * Definizione della classe principale da utilizzare per questo
+	 * modulo. La classe deve essere una extends di SZGoogleAdminModule
+	 * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+	 */
+	class SZGoogleModuleAdminDocumentation extends SZGoogleModuleAdmin
+	{
+		/**
+		 * Creazione del menu sul pannello di amministrazione usando
+		 * come valori di configurazione le variabili object
+		 *
+		 * @return void
+		 */
+		function moduleAddMenu()
+		{
+			$this->menuslug   = 'sz-google-admin-documentation.php';
+			$this->pagetitle  = ucwords(__('documentation','szgoogleadmin'));
+			$this->menutitle  = ucwords(__('documentation','szgoogleadmin'));
+
+			// Definizione delle sezioni che devono essere composte in HTML
+			// le sezioni devono essere passate come un array con nome => titolo
+
+			$this->sections = array(
+				'sz-google-admin-documentation-gplus.php'     => ucwords(__('google+','szgoogleadmin')),
+				'sz-google-admin-documentation-analytics.php' => ucwords(__('google analytics','szgoogleadmin')),
+				'sz-google-admin-documentation-drive.php'     => ucwords(__('google drive','szgoogleadmin')),
+				'sz-google-admin-documentation-groups.php'    => ucwords(__('google groups','szgoogleadmin')),
+				'sz-google-admin-documentation-hangouts.php'  => ucwords(__('google hangouts','szgoogleadmin')),
+				'sz-google-admin-documentation-panoramio.php' => ucwords(__('google panoramio','szgoogleadmin')),
+				'sz-google-admin-documentation-translate.php' => ucwords(__('google translate','szgoogleadmin')),
+				'sz-google-admin-documentation-youtube.php'   => ucwords(__('youtube','szgoogleadmin')),
+			);
+
+			$this->sectionstitle   = ucfirst(__('documentation','szgoogleadmin'));
+			$this->sectionsoptions = 'sz_google_options_documentation';
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddMenu();
+ 		}
+
+		/**
+		 * Funzione per aggiungere i campi del form con la corrispondenza
+		 * delle opzioni specificate nel modulo attualmente utilizzato
+		 *
+		 * @return void
+		 */
+		function moduleAddFields()
+		{
+			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
+
+			// Definizione sezione per configurazione GOOGLE DOCUMENTATION
+
+			add_settings_section('sz_google_documentation_gplus','','sz_google_admin_documentation_gplus','sz-google-admin-documentation-gplus.php');
+			add_settings_section('sz_google_documentation_analytics','','sz_google_admin_documentation_analytics','sz-google-admin-documentation-analytics.php');
+			add_settings_section('sz_google_documentation_drive','','sz_google_admin_documentation_drive','sz-google-admin-documentation-drive.php');
+			add_settings_section('sz_google_documentation_groups','','sz_google_admin_documentation_groups','sz-google-admin-documentation-groups.php');
+			add_settings_section('sz_google_documentation_hangouts','','sz_google_admin_documentation_hangouts','sz-google-admin-documentation-hangouts.php');
+			add_settings_section('sz_google_documentation_panoramio','','sz_google_admin_documentation_panoramio','sz-google-admin-documentation-panoramio.php');
+			add_settings_section('sz_google_documentation_translate','','sz_google_admin_documentation_translate','sz-google-admin-documentation-translate.php');
+			add_settings_section('sz_google_documentation_youtube','','sz_google_admin_documentation_youtube','sz-google-admin-documentation-youtube.php');
+		}
+
+		/**
+		 * Definizione delle funzioni per la creazione delle singole opzioni che vanno
+		 * inserite nel form generale di configurazione e salvate sul database di wordpress
+		 */
 	}
+
+	/**
+	 * Creazione oggetto principale per creazione ed elaborazione del
+	 * modulo richiesto con azioni iniziali specificate nel costruttore
+	 */
+	$SZ_GOOGLE_ADMIN_DOCUMENTATION = new SZGoogleModuleAdminDocumentation();
 }
 
-/* ************************************************************************** */
-/* Registrazione delle opzioni legate al plugin                               */
-/* ************************************************************************** */
 
-function sz_google_admin_documentation_fields()
-{
-	register_setting('sz_google_options_documentation','sz_google_options_documentation','sz_google_admin_documentation_validate');
-
-	// Definizione sezione per configurazione documentazione GOOGLE YOUTUBE 
-
-	add_settings_section('sz_google_documentation_gplus','','sz_google_admin_documentation_gplus','sz-google-admin-documentation-gplus.php');
-	add_settings_section('sz_google_documentation_analytics','','sz_google_admin_documentation_analytics','sz-google-admin-documentation-analytics.php');
-	add_settings_section('sz_google_documentation_drive','','sz_google_admin_documentation_drive','sz-google-admin-documentation-drive.php');
-	add_settings_section('sz_google_documentation_groups','','sz_google_admin_documentation_groups','sz-google-admin-documentation-groups.php');
-	add_settings_section('sz_google_documentation_hangouts','','sz_google_admin_documentation_hangouts','sz-google-admin-documentation-hangouts.php');
-	add_settings_section('sz_google_documentation_panoramio','','sz_google_admin_documentation_panoramio','sz-google-admin-documentation-panoramio.php');
-	add_settings_section('sz_google_documentation_translate','','sz_google_admin_documentation_translate','sz-google-admin-documentation-translate.php');
-	add_settings_section('sz_google_documentation_youtube','','sz_google_admin_documentation_youtube','sz-google-admin-documentation-youtube.php');
-}
-
-/* ************************************************************************** */
-/* Aggiungo le funzioni per l'esecuzione in admin                             */
-/* ************************************************************************** */
-
-add_action('admin_menu','sz_google_admin_documentation_menu');
-add_action('admin_init','sz_google_admin_documentation_fields');
-
-/* ************************************************************************** */
-/* Funzioni per SEZIONE Configurazione Google Documentation                   */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_callback() 
-{
-	// Definizione delle sezioni che devono essere composte in HTML
-	// le sezioni devono essere passate come un array con nome => titolo
-
-	$sections = array(
-		'sz-google-admin-documentation-gplus.php'     => ucwords(__('google+','szgoogleadmin')),
-		'sz-google-admin-documentation-analytics.php' => ucwords(__('google analytics','szgoogleadmin')),
-		'sz-google-admin-documentation-drive.php'     => ucwords(__('google drive','szgoogleadmin')),
-		'sz-google-admin-documentation-groups.php'    => ucwords(__('google groups','szgoogleadmin')),
-		'sz-google-admin-documentation-hangouts.php'  => ucwords(__('google hangouts','szgoogleadmin')),
-		'sz-google-admin-documentation-panoramio.php' => ucwords(__('google panoramio','szgoogleadmin')),
-		'sz-google-admin-documentation-translate.php' => ucwords(__('google translate','szgoogleadmin')),
-		'sz-google-admin-documentation-youtube.php'   => ucwords(__('youtube','szgoogleadmin')),
-	);
-
-	// Chiamata alla funzione generale per la creazione del form generale
-	// le sezioni devono essere passate come un array con nome => titolo
-
-	sz_google_common_form(ucfirst(__('quick plugin documentation','szgoogleadmin')),'sz_google_options_documentation',$sections,true); 
-}
 
 /* ************************************************************************** */
 /* MODULE GOOGLE+ function for create documentation                           */

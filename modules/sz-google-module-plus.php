@@ -15,6 +15,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 class SZGoogleModulePlus extends SZGoogleModule
 {
+	protected $setMetaAuthor = false;
 	protected $setMetaPublisher = false;
 
 	/**
@@ -193,9 +194,6 @@ class SZGoogleModulePlus extends SZGoogleModule
 
 		if ($options['plus_comments_gp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
 		{
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute exec-mods point register comment system');
-			}
 			add_action('init','sz_google_module_plus_comments_system_enable');
 		}
 
@@ -207,9 +205,6 @@ class SZGoogleModulePlus extends SZGoogleModule
 			$options['plus_redirect_curl']  == SZ_PLUGIN_GOOGLE_VALUE_YES or 
 			$options['plus_redirect_flush'] == SZ_PLUGIN_GOOGLE_VALUE_NO) 
 		{
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute exec-mods point register rewrite rules');
-			}
 			add_action('init','sz_google_module_plus_rewrite_rules');
 		}
 
@@ -247,13 +242,13 @@ class SZGoogleModulePlus extends SZGoogleModule
 		// Se ho inserito il meta tag una volta salto la richiesta
 		// altrimento imposta la variabile oggetto in (true)
 
-		if ($setMetaPublisher) return;
+		if ($this->setMetaPublisher) return;
 			else $this->setMetaPublisher = true;
 
 		$options = $this->getOptions();
 
 		if (trim($options['plus_page']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-			echo '<link rel="publisher" href="https://plus.google.com/'.esc_attr(trim($options['plus_page'])).'">'."\n";
+			echo '<link rel="publisher" href="https://plus.google.com/'.esc_attr(trim($options['plus_page'])).'"/>'."\n";
 		}
 	}
 
@@ -268,13 +263,13 @@ class SZGoogleModulePlus extends SZGoogleModule
 		// Se ho inserito il meta tag una volta salto la richiesta
 		// altrimento imposta la variabile oggetto in (true)
 
-		if ($setMetaAuthor) return;
+		if ($this->setMetaAuthor) return;
 			else $this->setMetaAuthor = true; 
 
 		$options = $this->getOptions();
 
 		if (trim($options['plus_profile']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-			echo '<link rel="author" href="https://plus.google.com/'.esc_attr(trim($options['plus_profile'])).'">'."\n";
+			echo '<link rel="author" href="https://plus.google.com/'.esc_attr(trim($options['plus_profile'])).'"/>'."\n";
 		}
 	}
 }
@@ -628,7 +623,7 @@ class sz_google_module_plus_widget_profile extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-profile.php');
 	}
 }
@@ -963,7 +958,7 @@ class sz_google_module_plus_widget_page extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-page.php');
 	}
 }
@@ -1256,7 +1251,7 @@ class sz_google_module_plus_widget_community extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-community.php');
 	}
 }
@@ -1503,7 +1498,7 @@ class sz_google_module_plus_widget_followers extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-followers.php');
 	}
 }
@@ -1780,7 +1775,7 @@ class sz_google_module_plus_widget_plusone extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-plusone.php');
 	}
 }
@@ -2060,7 +2055,7 @@ class sz_google_module_plus_widget_share extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-share.php');
 	}
 }
@@ -2288,13 +2283,6 @@ class sz_google_module_plus_widget_follow extends SZGoogleWidget
 			$options['position'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		}
 
-		// Se sul widget ho selezionato di calcolare l'indirizzo dal 
-		// post corrente annullo la variabile con eventuale indirizzo 
-
-		if ($controls['urltype'] != SZ_PLUGIN_GOOGLE_VALUE_YES) {
-			$options['url'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		}
-
 		// Lettura opzioni generali per impostazione dei dati di default
 
 		global $SZ_PLUS_OBJECT;
@@ -2303,14 +2291,14 @@ class sz_google_module_plus_widget_follow extends SZGoogleWidget
 		// Imposto i valori di default nel caso siano specificati dei valori
 		// che non appartengono al range dei valori accettati
 
-		if ($controls['urltype'] == '0') {
-			if ($options['url'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.$general['plus_page'];
-			if ($options['url'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;
+		if ($controls['urltype'] == '2') {
+			if ($general['plus_page'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;
+				else $options['url'] = 'https://plus.google.com/'.$general['plus_page'];
 		}
 
-		if ($controls['urltype'] == '2') {
-			if ($options['url'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.$general['plus_profile'];
-			if ($options['url'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE;
+		if ($controls['urltype'] == '3') {
+			if ($general['plus_profile'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE;
+				else $options['url'] = 'https://plus.google.com/'.$general['plus_profile'];
 		}
 
 		// Creazione del codice HTML per il widget attuale richiamando la
@@ -2380,7 +2368,7 @@ class sz_google_module_plus_widget_follow extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-follow.php');
 	}
 }
@@ -2621,7 +2609,7 @@ class sz_google_module_plus_widget_comments extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-comments.php');
 	}
 }
@@ -2920,7 +2908,7 @@ class sz_google_module_plus_widget_post extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.
 			'sz-google-widget-plus-post.php');
 	}
 }
@@ -2970,11 +2958,6 @@ function sz_google_module_plus_rewrite_rules()
 	{
 		$options['plus_redirect_flush'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
 		update_option('sz_google_options_plus',$options);
-
-		if (SZ_PLUGIN_GOOGLE_DEBUG) {
-			SZGoogleDebug::log('add action rewrite flush rules from google plus');
-		}
-
 		add_action('wp_loaded',array('SZGoogleCommon','rewriteFlushRules'));
 	}
 

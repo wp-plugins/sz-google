@@ -22,8 +22,10 @@ if (!class_exists('SZGoogleModule'))
 		 */
 		public static $SZGoogleModulePlus      = false;
 		public static $SZGoogleModuleAnalytics = false;
+		public static $SZGoogleModuleCalendar  = false;
 		public static $SZGoogleModuleDrive     = false;
 		public static $SZGoogleModuleGroups    = false;
+		public static $SZGoogleModuleFonts     = false;
 		public static $SZGoogleModuleHangouts  = false;
 		public static $SZGoogleModulePanoramio = false;
 		public static $SZGoogleModuleTranslate = false;
@@ -49,16 +51,11 @@ if (!class_exists('SZGoogleModule'))
 		 */
 		function __construct($classname="")
 		{
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute construct class '.$classname);
-			}
-
 			if ($classname == 'SZGoogleModulePlus')        self::$SZGoogleModulePlus      = $this;
 			if ($classname == 'SZGoogleModuleAnalytics')   self::$SZGoogleModuleAnalytics = $this;
+			if ($classname == 'SZGoogleModuleCalendar')    self::$SZGoogleModuleCalendar  = $this;
 			if ($classname == 'SZGoogleModuleDrive')       self::$SZGoogleModuleDrive     = $this;
+			if ($classname == 'SZGoogleModuleFonts')       self::$SZGoogleModuleFonts     = $this;
 			if ($classname == 'SZGoogleModuleGroups')      self::$SZGoogleModuleGroups    = $this;
 			if ($classname == 'SZGoogleModuleHangouts')    self::$SZGoogleModuleHangouts  = $this;
 			if ($classname == 'SZGoogleModulePanoramio')   self::$SZGoogleModulePanoramio = $this;
@@ -81,8 +78,10 @@ if (!class_exists('SZGoogleModule'))
 
 			$options = $this->checkOptionIsSet($options,array(
 				'plus'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'analytics'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'calendar'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'fonts'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'groups'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'hangouts'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'panoramio'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -96,8 +95,10 @@ if (!class_exists('SZGoogleModule'))
 
 			$options = $this->checkOptionIsZero($options,array(
 				'plus'          => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'analytics'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'calendar'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'drive'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'fonts'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'groups'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'hangouts'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'panoramio'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -124,9 +125,7 @@ if (!class_exists('SZGoogleModule'))
 
 			foreach($this->moduleShortcodes as $optionName=>$shortcode) 
 			{
-				if (isset($options[$optionName]) and $options[$optionName] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
-				{
-					if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute exec-mods point register shortcode '.$shortcode[0]);
+				if (isset($options[$optionName]) and $options[$optionName] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 					add_shortcode($shortcode[0],$shortcode[1]);
 				}
 			}
@@ -144,9 +143,7 @@ if (!class_exists('SZGoogleModule'))
 
 			foreach($this->moduleWidgets as $optionName=>$classWidgetName) 
 			{
-				if (isset($options[$optionName]) and $options[$optionName] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
-				{
-					if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute exec-mods point register widget '.$optionName);
+				if (isset($options[$optionName]) and $options[$optionName] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 					add_action('widgets_init',create_function('','return register_widget("'.$classWidgetName.'");'));
 				}
 			}
@@ -231,8 +228,8 @@ if (!class_exists('SZGoogleModule'))
 			// Se ho già inserito il codice javascript nella sezione footer
 			// esco dalla funzione altrimenti setto la variabile e continuo
 
-			if ($this->JavascriptPlatform) return;
-				else $this->JavascriptPlatform = true;
+			if (self::$JavascriptPlatform) return;
+				else self::$JavascriptPlatform = true;
 
 			// Codice javascript per il rendering dei componenti google platform
 			// ad esempio richiamare questo script per i bottoni di hangouts

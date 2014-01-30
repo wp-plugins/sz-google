@@ -8,8 +8,10 @@
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Definizione dei nome per le variabili CSS id
-
+/**
+ * Creazione HTML CSS (id) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $ID_title              = $this->get_field_id('title');
 $ID_url                = $this->get_field_id('url');
 $ID_responsive         = $this->get_field_id('responsive');
@@ -28,8 +30,10 @@ $ID_end                = $this->get_field_id('end');
 $ID_theme              = $this->get_field_id('theme');
 $ID_cover              = $this->get_field_id('cover');
 
-// Definizione dei nome per le variabili CSS name
-
+/**
+ * Creazione HTML CSS (name) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $NAME_title            = $this->get_field_name('title');
 $NAME_url              = $this->get_field_name('url');
 $NAME_responsive       = $this->get_field_name('responsive');
@@ -48,8 +52,10 @@ $NAME_end              = $this->get_field_name('end');
 $NAME_theme            = $this->get_field_name('theme');
 $NAME_cover            = $this->get_field_name('cover');
 
-// Definizione dei nome per le variabili contenuto
-
+/**
+ * Creazione HTML CSS (value) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $VALUE_title           = esc_attr($title);
 $VALUE_url             = esc_attr($url);
 $VALUE_responsive      = esc_attr($responsive);
@@ -70,18 +76,15 @@ $VALUE_cover           = esc_attr($cover);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-
-<p><table style="width:100%">
+<p><table class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento URL specifico) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_url ?>"><?php echo ucfirst(__('URL video','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_url ?>" name="<?php echo $NAME_url ?>" type="text" value="<?php echo $VALUE_url ?>" placeholder="<?php echo __('insert URL for youtube video','szgoogleadmin') ?>"/></td>
@@ -90,7 +93,6 @@ $VALUE_cover           = esc_attr($cover);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro enable) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_responsive ?>"><?php echo ucfirst(__('responsive','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="y" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display" data-close="y" <?php if ($VALUE_responsive == 'y') echo ' checked class="sz-google-switch-hidden"'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
@@ -130,7 +132,6 @@ $VALUE_cover           = esc_attr($cover);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro width & height) -->
-
 <tr class="sz-google-switch-display">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_width ?>" name="<?php echo $NAME_width ?>" type="number" step="1" min="0" value="<?php echo $VALUE_width ?>"/></td>
@@ -144,7 +145,6 @@ $VALUE_cover           = esc_attr($cover);
 <tr class="sz-google-switch-display"><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro theme & cover) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_theme ?>"><?php echo ucfirst(__('theme','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -168,7 +168,6 @@ $VALUE_cover           = esc_attr($cover);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro disable) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_disableiframe ?>"><?php echo ucfirst(__('disable iframe','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disableiframe ?>" value="y" <?php if ($VALUE_disableiframe == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
@@ -190,7 +189,6 @@ $VALUE_cover           = esc_attr($cover);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro start & end) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_start ?>"><?php echo ucfirst(__('start (secs)','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_start ?>" name="<?php echo $NAME_start ?>" type="number" step="1" min="0" value="<?php echo $VALUE_start ?>" placeholder="<?php echo __('insert value in seconds','szgoogleadmin') ?>"/></td>
@@ -202,7 +200,6 @@ $VALUE_cover           = esc_attr($cover);
 </tr>
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
-
 </table></p>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->

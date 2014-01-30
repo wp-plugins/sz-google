@@ -83,10 +83,6 @@ if (!class_exists('SZGoogleModuleFonts'))
 		{
 			$options = $this->getOptions();
 
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute exec-mods point add actions for fonts');
-			}
-
 			// Controllo se devo attivare il sistema di caricamento per i fonts
 			// indicati nel pannello di amministrazione (attivi e con nome)
 

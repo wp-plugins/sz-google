@@ -8,8 +8,10 @@
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Definizione dei nome per le variabili CSS id
-
+/**
+ * Creazione HTML CSS (id) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $ID_title          = $this->get_field_id('title');
 $ID_template       = $this->get_field_id('template');
 $ID_width          = $this->get_field_id('width');
@@ -24,8 +26,10 @@ $ID_rows           = $this->get_field_id('rows');
 $ID_orientation    = $this->get_field_id('orientation');
 $ID_position       = $this->get_field_id('position');
 
-// Definizione dei nome per le variabili CSS name
-
+/**
+ * Creazione HTML CSS (name) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $NAME_title        = $this->get_field_name('title');
 $NAME_template     = $this->get_field_name('template');
 $NAME_width        = $this->get_field_name('width');
@@ -40,8 +44,10 @@ $NAME_rows         = $this->get_field_name('rows');
 $NAME_orientation  = $this->get_field_name('orientation');
 $NAME_position     = $this->get_field_name('position');
 
-// Definizione dei nome per le variabili contenuto
-
+/**
+ * Creazione HTML CSS (value) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $VALUE_title       = esc_attr($title);
 $VALUE_template    = esc_attr($template);
 $VALUE_width       = esc_attr($width);
@@ -57,20 +63,16 @@ $VALUE_orientation = esc_attr($orientation);
 $VALUE_position    = esc_attr($position);
 
 ?>
-
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-
-<p><table style="width:100%">
+<p><table class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
 
 <!-- WIDGETS (Campo per selezione ID di configurazione o specifico) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_template ?>"><?php echo ucfirst(__('template','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -86,7 +88,6 @@ $VALUE_position    = esc_attr($position);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per selezione campi di ricerca fotografie nel widget) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_user ?>"><?php echo ucfirst(__('user','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_user ?>" name="<?php echo $NAME_user ?>" type="text" value="<?php echo $VALUE_user ?>" placeholder="<?php echo __('specify search user','szgoogleadmin') ?>"/></td>
@@ -103,7 +104,6 @@ $VALUE_position    = esc_attr($position);
 </tr>
 
 <!-- WIDGETS (Campo per selezione campo SET) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_set ?>"><?php echo ucfirst(__('set','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -118,7 +118,6 @@ $VALUE_position    = esc_attr($position);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare la dimensione) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>"/></td>
@@ -143,7 +142,6 @@ $VALUE_position    = esc_attr($position);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per selezione campi orientation e position) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_orientation ?>"><?php echo ucfirst(__('orientation','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -167,11 +165,9 @@ $VALUE_position    = esc_attr($position);
 </tr>
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
-
 </table></p>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
-
 <script type="text/javascript">
 	jQuery(document).ready(function(){
 		szgoogle_switch_hidden_ready();

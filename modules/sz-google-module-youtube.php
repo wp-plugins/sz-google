@@ -832,7 +832,7 @@ class sz_google_module_youtube_widget_video extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-youtube-video.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.'sz-google-widget-youtube-video.php');
 	}
 }
 
@@ -1436,7 +1436,7 @@ class sz_google_module_youtube_widget_playlist extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-youtube-playlist.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.'sz-google-widget-youtube-playlist.php');
 	}
 }
 

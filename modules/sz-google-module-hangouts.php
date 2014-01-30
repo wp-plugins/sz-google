@@ -27,6 +27,9 @@ if (!class_exists('SZGoogleModuleHangouts'))
 		 */
 		function __construct()
 		{
+			// Assegnazione variabile con nome classe per attivare il flag del modulo
+			// nella classe di riferimento e sapere quali moduli risultano attivi
+
 			parent::__construct('SZGoogleModuleHangouts');
 
 			// Definizione degli shortcode collegati al modulo con un array in cui bisogna
@@ -43,7 +46,7 @@ if (!class_exists('SZGoogleModuleHangouts'))
 			// Esecuzione dei componenti esistenti legati al modulo come
 			// le azioni generali e la generazione di shortcode e widget.
 
-			$this->moduleAddActions();	
+			$this->moduleAddActions();
 			$this->moduleAddShortcodes();
 			$this->moduleAddWidgets();
 		}
@@ -90,8 +93,6 @@ if (!class_exists('SZGoogleModuleHangouts'))
 		function moduleAddActions()
 		{
 			$options = $this->getOptions();
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute exec-mods point add actions for hangouts');
 		}
 
 		/**
@@ -99,7 +100,7 @@ if (!class_exists('SZGoogleModuleHangouts'))
 		 * eseguire la funzione di start button hangout su google+
 		 * Questa funzione definisce il codice HTML che deve essere generato.
 		 *
-		 * @return void
+		 * @return string
 		 */
 		function getHangoutsStartCode($atts=array(),$content=null)
 		{
@@ -213,7 +214,7 @@ if (!class_exists('SZGoogleModuleHangouts'))
 		 * Funzione per shortcode [sz-hangouts-start] che permette di
 		 * eseguire il start button hangout su google+
 		 *
-		 * @return void
+		 * @return string
 		 */
 		function getHangoutsStartShortcode($atts,$content=null) 
 		{
@@ -384,7 +385,7 @@ if (!class_exists('SZGoogleWidgetHangoutsStart'))
 			// Richiamo il template per la visualizzazione della
 			// parte che riguarda il pannello di amministrazione
 
-			@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-hangouts-start.php');
+			@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.'sz-google-widget-hangouts-start.php');
 		}
 	}
 }

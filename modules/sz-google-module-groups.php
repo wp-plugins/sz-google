@@ -184,8 +184,10 @@ function sz_google_module_groups_get_code_iframe($atts=array())
 	$HTML .=	'"&hideforumtitle='.$hideforumtitle.'" + ';
 	$HTML .=	'"&hidesubject='.$hidesubject.'" + ';
 
-	$HTML .= '"&showpopout=true" + ';
-	$HTML .= '"&parenturl=" + encodeURIComponent(window.location.href);';
+	$HTML .= '"&showpopout=true";';
+
+//	$HTML .= '"&showpopout=true" + ';
+//	$HTML .= '"&parenturl=" + encodeURIComponent(window.location.href);';
 	$HTML .= '</script>';
 
 	return $HTML;
@@ -332,6 +334,6 @@ class sz_google_module_groups_widget_iframe extends SZGoogleWidget
 		// Richiamo il template per la visualizzazione della
 		// parte che riguarda il pannello di amministrazione
 
-		@require(SZ_PLUGIN_GOOGLE_BASENAME_ADMIN_WIDGETS.'sz-google-widget-groups-iframe.php');
+		@require(SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND.'sz-google-widget-groups-iframe.php');
 	}
 }

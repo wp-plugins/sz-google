@@ -24,13 +24,6 @@ if (!class_exists('SZGooglePlugin'))
 		 */
 		public static function deactivate() 
 		{
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute addaction hooks register_deactivation_hook()');
-			}
-
 			SZGoogleCommon::rewriteFlushRules();
 		}
 
@@ -42,19 +35,13 @@ if (!class_exists('SZGooglePlugin'))
 		 */
 		public static function activate()
 		{
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute addaction hooks register_activation_hook()');
-			}
-
 			// Impostazione valori di default che riguardano  
 			// parametri di base come l'attivazione dei moduli 
 
 			$settings_base = array(
 				'plus'                              => SZ_PLUGIN_GOOGLE_VALUE_YES,
 				'analytics'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'calendar'                          => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'drive'                             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'fonts'                             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'groups'                            => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -136,6 +123,42 @@ if (!class_exists('SZGooglePlugin'))
 				'ga_enable_subdomain'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'ga_enable_multiple'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'ga_enable_advertiser'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			);
+
+			// Impostazione valori di default che riguardano
+			// il modulo collegato alle funzioni di Google Calendar
+
+			$settings_calendar = array(
+				'calendar_o_calendars'              => SZ_PLUGIN_GOOGLE_CALENDAR_O_CALENDARS,
+				'calendar_o_title'                  => SZ_PLUGIN_GOOGLE_CALENDAR_O_TITLE,
+				'calendar_o_mode'                   => SZ_PLUGIN_GOOGLE_CALENDAR_O_MODE,
+				'calendar_o_weekstart'              => SZ_PLUGIN_GOOGLE_CALENDAR_O_WEEKSTART,
+				'calendar_o_language'               => SZ_PLUGIN_GOOGLE_CALENDAR_O_LANGUAGE,
+				'calendar_o_timezone'               => SZ_PLUGIN_GOOGLE_CALENDAR_O_TIMEZONE,
+				'calendar_s_enable'                 => SZ_PLUGIN_GOOGLE_CALENDAR_S_ENABLE,
+				'calendar_s_calendars'              => SZ_PLUGIN_GOOGLE_CALENDAR_S_CALENDARS,
+				'calendar_s_title'                  => SZ_PLUGIN_GOOGLE_CALENDAR_S_TITLE,
+				'calendar_s_width'                  => SZ_PLUGIN_GOOGLE_CALENDAR_S_WIDTH,
+				'calendar_s_height'                 => SZ_PLUGIN_GOOGLE_CALENDAR_S_HEIGHT,
+				'calendar_s_show_title'             => SZ_PLUGIN_GOOGLE_CALENDAR_S_SHOW_TITLE,
+				'calendar_s_show_navs'              => SZ_PLUGIN_GOOGLE_CALENDAR_S_SHOW_NAVS,
+				'calendar_s_show_date'              => SZ_PLUGIN_GOOGLE_CALENDAR_S_SHOW_DATE,
+				'calendar_s_show_print'             => SZ_PLUGIN_GOOGLE_CALENDAR_S_SHOW_PRINT,
+				'calendar_s_show_tabs'              => SZ_PLUGIN_GOOGLE_CALENDAR_S_SHOW_TABS,
+				'calendar_s_show_calendars'         => SZ_PLUGIN_GOOGLE_CALENDAR_S_SHOW_CALENDARS,
+				'calendar_s_show_timezone'          => SZ_PLUGIN_GOOGLE_CALENDAR_S_SHOW_TIMEZONE,
+				'calendar_w_enable'                 => SZ_PLUGIN_GOOGLE_CALENDAR_W_ENABLE,
+				'calendar_w_calendars'              => SZ_PLUGIN_GOOGLE_CALENDAR_W_CALENDARS,
+				'calendar_w_title'                  => SZ_PLUGIN_GOOGLE_CALENDAR_W_TITLE,
+				'calendar_w_width'                  => SZ_PLUGIN_GOOGLE_CALENDAR_W_WIDTH,
+				'calendar_w_height'                 => SZ_PLUGIN_GOOGLE_CALENDAR_W_HEIGHT,
+				'calendar_w_show_title'             => SZ_PLUGIN_GOOGLE_CALENDAR_W_SHOW_TITLE,
+				'calendar_w_show_navs'              => SZ_PLUGIN_GOOGLE_CALENDAR_W_SHOW_NAVS,
+				'calendar_w_show_date'              => SZ_PLUGIN_GOOGLE_CALENDAR_W_SHOW_DATE,
+				'calendar_w_show_print'             => SZ_PLUGIN_GOOGLE_CALENDAR_W_SHOW_PRINT,
+				'calendar_w_show_tabs'              => SZ_PLUGIN_GOOGLE_CALENDAR_W_SHOW_TABS,
+				'calendar_w_show_calendars'         => SZ_PLUGIN_GOOGLE_CALENDAR_W_SHOW_CALENDARS,
+				'calendar_w_show_timezone'          => SZ_PLUGIN_GOOGLE_CALENDAR_W_SHOW_TIMEZONE,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -264,19 +287,13 @@ if (!class_exists('SZGooglePlugin'))
 				'youtube_disablerelated'            => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			);
 
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) {
-				SZGoogleDebug::log('execute init-load check options until activated plugin');
-			}
-
 			// Controllo formale delle opzioni e memorizzazione sul database
 			// in base ad una prima installazione o update del plugin 
 
 			self::checkOptions('sz_google_options_base'     ,$settings_base); 
 			self::checkOptions('sz_google_options_plus'     ,$settings_plus); 
 			self::checkOptions('sz_google_options_ga'       ,$settings_ga);
+			self::checkOptions('sz_google_options_calendar' ,$settings_calendar); 
 			self::checkOptions('sz_google_options_drive'    ,$settings_drive); 
 			self::checkOptions('sz_google_options_fonts'    ,$settings_fonts); 
 			self::checkOptions('sz_google_options_groups'   ,$settings_groups);
@@ -297,7 +314,7 @@ if (!class_exists('SZGooglePlugin'))
 		 * @param  string,array $name,$values
 		 * @return void
 		 */
-		function checkOptions($name,$values) 
+		public static function checkOptions($name,$values) 
 		{
 			if (is_array($values)) {
 
@@ -340,11 +357,11 @@ if (!class_exists('SZGooglePlugin'))
 		 *
 		 * @return void
 		 */
-		function getCommonSectionHead()
+		public static function getCommonSectionHead()
 		{
 			$HTML  = "\n";
-			$HTML .= "<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." - https://wpitalyplus.com -->\n";
-			$HTML .= "<!-- =============================================================================================== -->\n";
+			$HTML .= "<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." -->\n";
+			$HTML .= "<!-- ===================================================================== -->\n";
 
 			return $HTML;
 		}
@@ -355,9 +372,9 @@ if (!class_exists('SZGooglePlugin'))
 		 *
 		 * @return void
 		 */
-		function getCommonSectionFooter()
+		public static function getCommonSectionFooter()
 		{
-			$HTML .= "<!-- =============================================================================================== -->\n";
+			$HTML  = "<!-- ===================================================================== -->\n";
 			$HTML .= "\n";
 
 			return $HTML;
@@ -369,7 +386,7 @@ if (!class_exists('SZGooglePlugin'))
 		 *
 		 * @return void
 		 */
-		function addSectionHead()
+		public static function addSectionHead()
 		{
 			if(has_action('szgoogle_head')) {				
 				echo self::getCommonSectionHead(); do_action('szgoogle_head'); echo self::getCommonSectionFooter();
@@ -382,7 +399,7 @@ if (!class_exists('SZGooglePlugin'))
 		 *
 		 * @return void
 		 */
-		function addSectionCSSInline()
+		public static function addSectionCSSInline()
 		{
 			if(has_action('szgoogle_css_inline')) {
 				echo self::getCommonSectionHead(); do_action('szgoogle_css_inline'); echo self::getCommonSectionFooter();
@@ -395,7 +412,7 @@ if (!class_exists('SZGooglePlugin'))
 		 *
 		 * @return void
 		 */
-		function addSectionFooter()
+		public static function addSectionFooter()
 		{
 			if(has_action('SZGoogleFooter')) {
 				echo self::getCommonSectionHead(); do_action('SZGoogleFooter'); echo self::getCommonSectionFooter();

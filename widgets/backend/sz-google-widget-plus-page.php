@@ -8,8 +8,10 @@
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Definizione dei nome per le variabili CSS id
-
+/**
+ * Creazione HTML CSS (id) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $ID_title         = $this->get_field_id('title');
 $ID_method        = $this->get_field_id('method');
 $ID_specific      = $this->get_field_id('specific');
@@ -22,8 +24,10 @@ $ID_tagline       = $this->get_field_id('tagline');
 $ID_publisher     = $this->get_field_id('publisher');
 $ID_align         = $this->get_field_id('align');
 
-// Definizione dei nome per le variabili CSS name
-
+/**
+ * Creazione HTML CSS (name) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $NAME_title       = $this->get_field_name('title');
 $NAME_method      = $this->get_field_name('method');
 $NAME_specific    = $this->get_field_name('specific');
@@ -36,8 +40,10 @@ $NAME_tagline     = $this->get_field_name('tagline');
 $NAME_publisher   = $this->get_field_name('publisher');
 $NAME_align       = $this->get_field_name('align');
 
-// Definizione dei nome per le variabili contenuto
-
+/**
+ * Creazione HTML CSS (value) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $VALUE_title      = esc_attr($title);
 $VALUE_method     = esc_attr($method);
 $VALUE_specific   = esc_attr($specific);
@@ -52,18 +58,15 @@ $VALUE_align      = esc_attr($align);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-
-<p><table style="width:100%">
+<p><table class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </td></tr>
 
 <!-- WIDGETS (Campo per selezione ID di configurazione o specifico) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_method ?>"><?php echo ucfirst(__('page ID','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -75,16 +78,14 @@ $VALUE_align      = esc_attr($align);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento di uno specifico ID) -->
-
 <tr class="sz-google-switch-specific">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_specific ?>"><?php echo ucfirst(__('page ID','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_specific ?>" name="<?php echo $NAME_specific ?>" type="text" value="<?php echo $VALUE_specific ?>" placeholder="<?php echo __('insert specific ID','szgoogleadmin') ?>"/></td>
 </tr>
 
-<!-- WIDGETS (Campo per specificare la dimensione) -->
-
 <tr><td colspan="3"><hr></td></tr>
 
+<!-- WIDGETS (Campo per specificare la dimensione) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>"/></td>
@@ -94,7 +95,6 @@ $VALUE_align      = esc_attr($align);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro layout -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_layout ?>"><?php echo ucfirst(__('layout','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_layout ?>" value="portrait"  <?php if ($VALUE_layout == 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('portrait','szgoogleadmin')) ?></td>
@@ -102,7 +102,6 @@ $VALUE_align      = esc_attr($align);
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro theme -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_theme ?>"><?php echo ucfirst(__('theme','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_theme ?>" value="light" <?php if ($VALUE_theme == 'light') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('light','szgoogleadmin')) ?></td>
@@ -110,7 +109,6 @@ $VALUE_align      = esc_attr($align);
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro cover -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_cover ?>"><?php echo ucfirst(__('cover','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_cover ?>" value="true"  <?php if ($VALUE_cover == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('enabled','szgoogleadmin')) ?></td>
@@ -118,7 +116,6 @@ $VALUE_align      = esc_attr($align);
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro tagline -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_tagline ?>"><?php echo ucfirst(__('tagline','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_tagline ?>" value="true"  <?php if ($VALUE_tagline == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('enabled','szgoogleadmin')) ?></td>
@@ -126,7 +123,6 @@ $VALUE_align      = esc_attr($align);
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro publisher -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_publisher ?>"><?php echo ucfirst(__('publisher','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_publisher ?>" value="true"  <?php if ($VALUE_publisher == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('enabled','szgoogleadmin')) ?></td>
@@ -136,7 +132,6 @@ $VALUE_align      = esc_attr($align);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro align -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_align ?>"><?php echo ucfirst(__('align','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -150,7 +145,6 @@ $VALUE_align      = esc_attr($align);
 </tr>
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
-
 </table></p>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->

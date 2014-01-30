@@ -95,20 +95,20 @@ function szgoogle_get_drive_savebutton($atts=array()) {
 	} else return false;
 }
 
-/* ************************************************************************** */
-/* GOOGLE ANALYTICS funzioni PHP da richiamare direttamente                   */
-/* ************************************************************************** */
-
+/**
+ * Modulo Google Analytics e funzioni PHP disponibili
+ * generazione codice di monitoraggio e reperimento informazioni
+ */
 function szgoogle_get_ga_ID() {
-	if (function_exists('sz_google_module_analytics_get_ID')) {
-		return sz_google_module_analytics_get_ID();
-	} else return false;
+	if ($object = SZGoogleModule::$SZGoogleModuleAnalytics) {
+		return $object->getGAId();
+	} else return false; 
 }
 
-function szgoogle_get_ga_code($atts=array()) {
-	if (function_exists('sz_google_module_analytics_get_code')) {
-		return sz_google_module_analytics_get_code($atts);
-	} else return false;
+function szgoogle_get_ga_code($options=array()) {
+	if ($object = SZGoogleModule::$SZGoogleModuleAnalytics) {
+		return $object->moduleMonitorCodeCommon($options);
+	} else return false; 
 }
 
 /* ************************************************************************** */
@@ -123,10 +123,7 @@ function szgoogle_get_groups_code($atts=array()) {
 
 /**
  * Modulo Google Hangouts e funzioni PHP disponibili
- * Codice per partenza hangout tramite bottone di google
- *
- * @param  array $options
- * @return string
+ * Avvio hangout tramite bottone messo a disposizione da google+
  */
 function szgoogle_get_hangouts_code_start($options=array()) 
 {

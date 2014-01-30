@@ -59,7 +59,7 @@ if (!class_exists('SZGoogleModuleAdminHangouts'))
 		{
 			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
 
-			// Definizione sezione per configurazione GOOGLE FONTS
+			// Definizione sezione per configurazione GOOGLE HANGOUTS
 
 			add_settings_section('sz_google_hangouts_start','',$this->callbacksection,'sz-google-admin-hangouts-start.php');
 			add_settings_field('hangouts_start_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_hangouts_start_widget'),'sz-google-admin-hangouts-start.php','sz_google_hangouts_start');
@@ -72,14 +72,14 @@ if (!class_exists('SZGoogleModuleAdminHangouts'))
 		 */
 		function get_hangouts_start_widget()
 		{
-			sz_google_common_form_checkbox_yesno('sz_google_options_hangouts','hangouts_start_widget');
-			sz_google_common_form_description(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_hangouts','hangouts_start_widget');
+			$this->moduleCommonFormDescription(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
 		}
 
 		function get_hangouts_start_shortcode()
 		{
-			sz_google_common_form_checkbox_yesno('sz_google_options_hangouts','hangouts_start_shortcode');
-			sz_google_common_form_description(__('if you enable this option you can use this shortcode and enter the corresponding components directly in your article or page. Normally in the shortcodes can be specified the options for customizations. See the documentation section.','szgoogleadmin'));
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_hangouts','hangouts_start_shortcode');
+			$this->moduleCommonFormDescription(__('if you enable this option you can use this shortcode and enter the corresponding components directly in your article or page. Normally in the shortcodes can be specified the options for customizations. See the documentation section.','szgoogleadmin'));
 		}
 	}
 

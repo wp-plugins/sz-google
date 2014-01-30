@@ -162,6 +162,26 @@ body.mp6 #toplevel_page_sz-google-admin div.wp-menu-image:before {
 #sz-google-wrap table.docs td.def {
 }
 
+#sz-google-wrap table.docs td.def {
+}
+
+/* CSS for widget backend */
+
+table.sz-google-table-widget {
+	width:100%;
+}
+
+table.sz-google-table-widget td.sz-cell-keys,
+table.sz-google-table-widget td.sz-cell-vals {
+	white-space:nowrap;
+}
+
+table.sz-google-table-widget td.sz-cell-keys {
+	padding-right:1em;
+}
+
+/* CSS correzioni con media query */
+
 @media (min-width:0) and (max-width:760px)
 {
 	#sz-google-admin-options,

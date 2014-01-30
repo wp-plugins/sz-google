@@ -8,8 +8,10 @@
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Definizione dei nome per le variabili CSS id
-
+/**
+ * Creazione HTML CSS (id) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $ID_title         = $this->get_field_id('title');
 $ID_urltype       = $this->get_field_id('urltype');
 $ID_url           = $this->get_field_id('url');
@@ -21,8 +23,10 @@ $ID_align         = $this->get_field_id('align');
 $ID_size          = $this->get_field_id('size');
 $ID_annotation    = $this->get_field_id('annotation');
 
-// Definizione dei nome per le variabili per CSS name
-
+/**
+ * Creazione HTML CSS (name) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $NAME_title       = $this->get_field_name('title');
 $NAME_urltype     = $this->get_field_name('urltype');
 $NAME_url         = $this->get_field_name('url');
@@ -34,8 +38,10 @@ $NAME_align       = $this->get_field_name('align');
 $NAME_size        = $this->get_field_name('size');
 $NAME_annotation  = $this->get_field_name('annotation');
 
-// Definizione dei nome per le variabili contenuto
-
+/**
+ * Creazione HTML CSS (value) per tutte le variabili 
+ * elencate sopra e presenti nelle opzioni del widget.
+ */
 $VALUE_title      = esc_attr($title);
 $VALUE_urltype    = esc_attr($urltype);
 $VALUE_url        = esc_attr($url);
@@ -49,18 +55,15 @@ $VALUE_annotation = esc_attr($annotation);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-
-<p><table style="width:100%">
+<p><table class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento tipo di URL) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_urltype ?>"><?php echo ucfirst(__('URL','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -72,14 +75,12 @@ $VALUE_annotation = esc_attr($annotation);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento URL specifico) -->
-
 <tr class="sz-google-switch-url">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_url ?>"><?php echo ucfirst(__('URL','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="sz-upload-image-url widefat" id="<?php echo $ID_url ?>" name="<?php echo $NAME_url ?>" type="text" value="<?php echo $VALUE_url ?>" placeholder="<?php echo __('insert source URL','szgoogleadmin') ?>"/></td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento tipologia di badge) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_badge ?>"><?php echo ucfirst(__('type','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -90,15 +91,13 @@ $VALUE_annotation = esc_attr($annotation);
 	</td>
 </tr>
 
-<!-- WIDGETS (Campo per inserimento immagine da usare come badge) -->
-
+<!-- WIDGETS (Campo per inserimento del testo da usare come badge) -->
 <tr class="sz-google-switch-display">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_text ?>"><?php echo ucfirst(__('text','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2"><textarea class="widefat" rows="3" cols="20" id="<?php echo $ID_text ?>" name="<?php echo $NAME_text ?>" placeholder="<?php echo __('insert text for badge','szgoogleadmin') ?>"><?php echo $VALUE_text ?></textarea></td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento immagine da usare come badge) -->
-
 <tr class="sz-google-switch-display">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_img ?>"><?php echo ucfirst(__('image','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input class="sz-upload-image-url-2 widefat" id="<?php echo $ID_img ?>" name="<?php echo $NAME_img ?>" type="text" value="<?php echo $VALUE_img ?>" placeholder="<?php echo __('choose image for badge','szgoogleadmin') ?>"/></td>
@@ -106,7 +105,6 @@ $VALUE_annotation = esc_attr($annotation);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento della posizione) -->
-
 <tr class="sz-google-switch-display">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_position ?>"><?php echo ucfirst(__('position','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -120,7 +118,6 @@ $VALUE_annotation = esc_attr($annotation);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento allineamento) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_align ?>"><?php echo ucfirst(__('alignment','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -134,20 +131,19 @@ $VALUE_annotation = esc_attr($annotation);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento button size) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_size ?>"><?php echo ucfirst(__('size','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
 		<select class="widefat" id="<?php echo $ID_size ?>" name="<?php echo $NAME_size ?>">
-			<option value="medium" <?php echo selected("medium",$VALUE_size) ?>><?php echo __('size medium','szgoogleadmin') ?></option>
-			<option value="small"  <?php echo selected("small" ,$VALUE_size) ?>><?php echo __('size small' ,'szgoogleadmin') ?></option>
-			<option value="large"  <?php echo selected("large" ,$VALUE_size) ?>><?php echo __('size large' ,'szgoogleadmin') ?></option>
+			<option value="standard" <?php echo selected("standard",$VALUE_size) ?>><?php echo __('size standard','szgoogleadmin') ?></option>
+			<option value="small"    <?php echo selected("small"   ,$VALUE_size) ?>><?php echo __('size small'   ,'szgoogleadmin') ?></option>
+			<option value="medium"   <?php echo selected("medium"  ,$VALUE_size) ?>><?php echo __('size medium'  ,'szgoogleadmin') ?></option>
+			<option value="tail"     <?php echo selected("tail"    ,$VALUE_size) ?>><?php echo __('size tail'    ,'szgoogleadmin') ?></option>
 		</select>
 	</td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento button annotation) -->
-
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_annotation ?>"><?php echo ucfirst(__('annotation','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -158,12 +154,11 @@ $VALUE_annotation = esc_attr($annotation);
 		</select>
 	</td>
 </tr>
-<!-- WIDGETS (Chiusura tabella principale widget form) -->
 
+<!-- WIDGETS (Chiusura tabella principale widget form) -->
 </table></p>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
-
 <script type="text/javascript">
 	jQuery(document).ready(function(){
 		szgoogle_switch_hidden_ready();

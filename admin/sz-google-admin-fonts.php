@@ -25,7 +25,7 @@ if (!class_exists('SZGoogleModuleAdminFonts'))
 		 * Definizione delle variabili che contengono le configurazioni
 		 * specifiche sulla creazione dell'istanza corrente
 		 */
-		protected $fontlist = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $fontslist = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
 		/**
 		 * Creazione del menu sul pannello di amministrazione usando
@@ -134,106 +134,106 @@ if (!class_exists('SZGoogleModuleAdminFonts'))
 		function get_fonts_family_L1() 
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_L1_name',$values,'medium','');
-			sz_google_common_form_description(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_L1_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_L2() 
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_L2_name',$values,'medium','');
-			sz_google_common_form_description(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_L2_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_L3() 
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_L3_name',$values,'medium','');
-			sz_google_common_form_description(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_L3_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_L4() 
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_L4_name',$values,'medium','');
-			sz_google_common_form_description(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_L4_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_L5() 
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_L5_name',$values,'medium','');
-			sz_google_common_form_description(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_L5_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_L6() 
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_L6_name',$values,'medium','');
-			sz_google_common_form_description(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_L6_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('specify the name of a font to create download from google CDN. This option is only concerned of loading, the assignment you have to manually enter in your CSS file. If you want to do it all automatically use the options found below.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_B1()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_B1_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_B1_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_P1()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_P1_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_P1_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_B2()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_B2_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_B2_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_H1()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_H1_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_H1_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_H2()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_H2_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_H2_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_H3()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_H3_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_H3_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_H4()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_H4_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_H4_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_H5()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_H5_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_H5_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 
 		function get_fonts_family_H6()
 		{
 			$values = $this->getGoogleFontsList();
-			sz_google_common_form_select('sz_google_options_fonts','fonts_family_H6_name',$values,'medium','');
-			sz_google_common_form_description(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
+			$this->moduleCommonFormSelect('sz_google_options_fonts','fonts_family_H6_name',$values,'medium','');
+			$this->moduleCommonFormDescription(__('choose the font name to associate with the HTML indicated, the plugin will generate the code to download the font from the google CDN and CSS code to link with the specified HTML element. It is not necessary to change the original CSS file.','szgoogleadmin'));
 		}
 	}
 

@@ -33,11 +33,6 @@ if (!class_exists('SZGoogleInitModules'))
 		 */
 		function __construct() 
 		{
-			// Controllo costante di DEBUG per scrittura messaggio di
-			// breakpoint nel file di log PHP indicato in php.ini
-
-			if (SZ_PLUGIN_GOOGLE_DEBUG) SZGoogleDebug::log('execute construct class SZGoogleInitModules');
-
 			// Creazione oggetto per Modulo Base con impostazione del 
 			// dominio di traduzione e memorizzazione delle opzioni configurate
 
@@ -62,6 +57,7 @@ if (!class_exists('SZGoogleInitModules'))
 
 			if ($this->options['plus']      == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once($dirname.'/sz-google-module-plus.php');
 			if ($this->options['analytics'] == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once($dirname.'/sz-google-module-analytics.php');
+			if ($this->options['calendar']  == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once($dirname.'/sz-google-module-calendar.php');
 			if ($this->options['drive']     == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once($dirname.'/sz-google-module-drive.php');
 			if ($this->options['fonts']     == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once($dirname.'/sz-google-module-fonts.php');
 			if ($this->options['groups']    == SZ_PLUGIN_GOOGLE_VALUE_YES) @require_once($dirname.'/sz-google-module-groups.php');
