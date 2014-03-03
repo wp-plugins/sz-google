@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 1.6.8
+Stable tag: 1.6.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -295,9 +295,16 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 1.6.9 =
+* Fix: Google groups not embed with firefox.
+* Fix: Widget image problem with browser firefox.
+* Fix: Google Analytics code when access with admin.
+* Fix: Change method for autoloading class.
+
 = Version 1.6.8 =
 * Feature: Add google calendar shortcode.
 * Feature: Add google calendar widgets.
+* Feature: Change core for create widgets.
 * Fix: Bug widget google plus follow botton.
 
 = Version 1.6.7 =
