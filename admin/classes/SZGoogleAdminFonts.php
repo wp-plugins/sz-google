@@ -60,7 +60,7 @@ if (!class_exists('SZGoogleAdminFonts'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
+			register_setting($this->sectionsoptions,$this->sectionsoptions);
 
 			// Definizione sezione per configurazione GOOGLE FONTS
 

@@ -132,6 +132,8 @@ function szgoogle_get_hangouts_code_start($options=array())
 	} else return false; 
 }
 
+
+
 /* ************************************************************************** */
 /* GOOGLE PANORAMIO funzioni PHP da richiamare direttamente                   */
 /* ************************************************************************** */

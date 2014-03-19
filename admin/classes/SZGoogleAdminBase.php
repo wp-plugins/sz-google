@@ -93,11 +93,11 @@ if (!class_exists('SZGoogleAdminBase'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
+			register_setting($this->sectionsoptions,$this->sectionsoptions);
 
 			// Definizione sezione per configurazione generale
 
-			add_settings_section('sz_google_base_section','',$this->callbacksection,SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG);
+			add_settings_section('sz_google_base_section',$this->null,$this->callbacksection,SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG);
 			add_settings_field('plus',ucfirst(__('google+','szgoogleadmin')),array($this,'get_base_plus'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
 			add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),array($this,'get_base_analytics'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
 			add_settings_field('calendar',ucwords(__('google calendar','szgoogleadmin')),array($this,'get_base_calendar'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
@@ -112,7 +112,7 @@ if (!class_exists('SZGoogleAdminBase'))
 		}
 
 		/**
-		 * Aggiungere il foglio stile e gli script javsscript nelle 
+		 * Aggiungere il foglio stile e gli script javascript nelle 
 		 * pagine di amministrazione che servono al plugin stesso
 		 *
 		 * @return void

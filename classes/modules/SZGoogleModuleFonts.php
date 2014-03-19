@@ -80,7 +80,7 @@ if (!class_exists('SZGoogleModuleFonts'))
 		 * @return void
 		 */
 		function moduleAddActions()
-		{
+		{ 
 			$options = $this->getOptions();
 
 			// Controllo se devo attivare il sistema di caricamento per i fonts
@@ -200,10 +200,4 @@ if (!class_exists('SZGoogleModuleFonts'))
 			echo "</style>\n";
 		}
 	}
-
-	/**
-	 * Creazione oggetto principale per creazione ed elaborazione del
-	 * modulo richiesto con azioni iniziali specificate nel costruttore
-	 */
-	$SZ_GOOGLE_MODULE_FONTS = new SZGoogleModuleFonts();
 }

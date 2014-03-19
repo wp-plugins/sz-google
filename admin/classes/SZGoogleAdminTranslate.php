@@ -55,7 +55,7 @@ if (!class_exists('SZGoogleAdminTranslate'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
+			register_setting($this->sectionsoptions,$this->sectionsoptions);
 
 			// Definizione sezione per configurazione GOOGLE TRANSLATE ID
 

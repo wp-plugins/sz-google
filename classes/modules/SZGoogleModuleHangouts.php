@@ -237,10 +237,4 @@ if (!class_exists('SZGoogleModuleHangouts'))
 			),$atts),$content);
 		}
 	}
-
-	/**
-	 * Creazione oggetto principale per creazione ed elaborazione del
-	 * modulo richiesto con azioni iniziali specificate nel costruttore
-	 */
-	$SZ_GOOGLE_MODULE_HANGOUTS = new SZGoogleModuleHangouts();
 }

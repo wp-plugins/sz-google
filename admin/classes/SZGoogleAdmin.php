@@ -20,6 +20,7 @@ if (!class_exists('SZGoogleAdmin'))
 		 * Definizione delle variabili che contengono le configurazioni
 		 * da applicare alle varie chiamate delle funzioni wordpress
 		 */
+		protected $null            = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $pagetitle       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $menutitle       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $menuslug        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
@@ -33,6 +34,8 @@ if (!class_exists('SZGoogleAdmin'))
 		protected $callback        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $callbackstart   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $callbacksection = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $formHTML        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $formsavebutton  = SZ_PLUGIN_GOOGLE_VALUE_YES;
 
 		/**
 		 * Definizione della funzione costruttore che viene richiamata
@@ -89,7 +92,10 @@ if (!class_exists('SZGoogleAdmin'))
 		 */
 		function moduleCallback()
 		{
-			$this->moduleCommonForm($this->sectionstitle,$this->sectionsoptions,$this->sections); 
+			$this->moduleCommonForm(
+				$this->sectionstitle,$this->sectionsoptions,
+				$this->sections,$this->formsavebutton,$this->formHTML
+			); 
 		}
 
 		/**
@@ -143,13 +149,10 @@ if (!class_exists('SZGoogleAdmin'))
 		 *
 		 * @return void
 		 */
-		function moduleCommonForm($title,$setting,$sections,$documentation=false)
+		function moduleCommonForm($title,$setting,$sections,$formsavebutton,$HTML)
 		{
 			echo '<div id="sz-google-wrap" class="wrap">';
 			echo '<h2>'.ucwords($title).'</h2>';
-
-			if (!$documentation) echo '<p>'.ucfirst(__('overriding the default settings with your own specific preferences','szgoogleadmin')).'</p>';
-				else echo '<p>'.ucfirst(__('select the module documentation to read','szgoogleadmin')).'</p>';
 
 			// Contenitore principale con zona dedicata ai parametri di configurazione
 			// definiti tramite le chiamate dei singoli moduli attivati da pannello ammnistrativo
@@ -161,7 +164,7 @@ if (!class_exists('SZGoogleAdmin'))
 			// Se la chiamata contiene un array di documentazione posso disattivare
 			// il form per la modifica di parametri dato che si tratta di solo lettura
 
-			if (!$documentation) {
+			if ($formsavebutton == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				echo '<input type="hidden" name="sz_google_options_plus[plus_redirect_flush]" value="0">';
 			}
@@ -169,24 +172,39 @@ if (!class_exists('SZGoogleAdmin'))
 			// Se la chiamata non contiene un array di documentazione eseguo
 			// la creazione del codice HTML con tutti i campi opzione da modificare
 
-			settings_fields($setting);
-
-			foreach ($sections as $section => $title) 
+			if ($HTML != SZ_PLUGIN_GOOGLE_VALUE_NULL) 
 			{
-				echo '<div class="postbox'; if ($documentation) echo " closed";
-				echo '">';
+				echo '<div class="postbox">'; 
 				echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
-				echo '<h3 class="hndle"><span>'.$title.'</span></h3>';
+				echo '<h3 class="hndle"><span>'.ucfirst(__('documentation','szgoogleadmin')).'</span></h3>';
 				echo '<div class="inside">';
-				do_settings_sections($section);
+				echo '<div class="help">';
+				echo $HTML;
 				echo '</div>';
 				echo '</div>';
-			}	
+				echo '</div>';
+
+			} else {
+
+				settings_fields($setting);
+
+				foreach ($sections as $section => $title) 
+				{
+					echo '<div class="postbox'; 
+					echo '">';
+					echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
+					echo '<h3 class="hndle"><span>'.$title.'</span></h3>';
+					echo '<div class="inside">';
+					do_settings_sections($section);
+					echo '</div>';
+					echo '</div>';
+				}
+			}
 
 			// Se la chiamata contiene un array di documentazione posso disattivare
 			// il form per la modifica di parametri dato che si tratta di solo lettura
 
-			if (!$documentation) {
+			if ($formsavebutton == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 				echo '<p class="submit"><input name="Submit" type="submit" class="button-primary" value="'.ucfirst(__('save changes','szgoogleadmin')).'"/></p>';
 				echo '</form>';
 			}

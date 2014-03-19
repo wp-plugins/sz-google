@@ -295,10 +295,4 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 			return $guacode;
 		}
 	}
-
-	/**
-	 * Creazione oggetto principale per creazione ed elaborazione del
-	 * modulo richiesto con azioni iniziali specificate nel costruttore
-	 */
-	$SZ_GOOGLE_MODULE_ANALYTICS = new SZGoogleModuleAnalytics();
 }

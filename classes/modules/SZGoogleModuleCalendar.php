@@ -371,8 +371,13 @@ if (!class_exists('SZGoogleModuleCalendar'))
 	}
 
 	/**
-	 * Creazione oggetto principale per creazione ed elaborazione del
-	 * modulo richiesto con azioni iniziali specificate nel costruttore
+	 * Elenco PHP functions per permettere agli sviluppatori di 
+	 * richiamarei vari moduli del plugin direttamente da codice
 	 */
-	$SZ_GOOGLE_MODULE_CALENDAR = new SZGoogleModuleCalendar();
+	function szgoogle_get_calendar_widget($options=array()) 
+	{
+		if ($object = SZGoogleModule::$SZGoogleModuleCalendar) {
+			return $object->getCalendarEmbedShortcode($options);
+		} else return false; 
+	}
 }

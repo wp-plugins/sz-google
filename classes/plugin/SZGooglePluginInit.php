@@ -109,7 +109,7 @@ if (!class_exists('SZGooglePluginInit'))
 	     */
 		function includeAdmin() 
 		{
-			if (is_admin()) $SZ_GOOGLE_ADMIN_BASE = new SZGoogleAdminBase();
+			if (is_admin()) new SZGoogleAdminBase();
 		}
 	}
 }

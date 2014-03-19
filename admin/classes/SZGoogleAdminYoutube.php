@@ -57,7 +57,7 @@ if (!class_exists('SZGoogleAdminYoutube'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
+			register_setting($this->sectionsoptions,$this->sectionsoptions);
 
 			// Definizione sezione per configurazione GOOGLE YOUTUBE CONFIG
 

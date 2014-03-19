@@ -52,7 +52,7 @@ if (!class_exists('SZGoogleAdminHangouts'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
+			register_setting($this->sectionsoptions,$this->sectionsoptions);
 
 			// Definizione sezione per configurazione GOOGLE HANGOUTS
 

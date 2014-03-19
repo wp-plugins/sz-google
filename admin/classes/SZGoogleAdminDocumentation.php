@@ -34,6 +34,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			$this->sections = array(
 				'sz-google-admin-documentation-gplus.php'     => ucwords(__('google+','szgoogleadmin')),
 				'sz-google-admin-documentation-analytics.php' => ucwords(__('google analytics','szgoogleadmin')),
+				'sz-google-admin-documentation-calendar.php'  => ucwords(__('google calendar','szgoogleadmin')),
 				'sz-google-admin-documentation-drive.php'     => ucwords(__('google drive','szgoogleadmin')),
 				'sz-google-admin-documentation-groups.php'    => ucwords(__('google groups','szgoogleadmin')),
 				'sz-google-admin-documentation-hangouts.php'  => ucwords(__('google hangouts','szgoogleadmin')),
@@ -42,6 +43,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 				'sz-google-admin-documentation-youtube.php'   => ucwords(__('youtube','szgoogleadmin')),
 			);
 
+			$this->formsavebutton  = SZ_PLUGIN_GOOGLE_VALUE_NO;
 			$this->sectionstitle   = ucfirst(__('documentation','szgoogleadmin'));
 			$this->sectionsoptions = 'sz_google_options_documentation';
 
@@ -52,6 +54,35 @@ if (!class_exists('SZGoogleAdminDocumentation'))
  		}
 
 		/**
+		 * Chiamata alla funzione generale per la creazione del form generale
+		 * le sezioni devono essere passate come un array con nome => titolo
+		 *
+		 * @return void
+		 */
+		function moduleCallback()
+		{
+			// Controllo se viene specificata una sezione di documentazione
+			// help presente nella directory dei file e se questa risulta esistente
+
+			if (isset($_GET['help'])) 
+			{
+				$LANGUAGE = get_bloginfo('language');
+				$FILENAM1 = SZ_PLUGIN_GOOGLE_BASENAME_HELP.$LANGUAGE.'/'.trim($_GET['help']);
+				$FILENAM2 = SZ_PLUGIN_GOOGLE_BASENAME_HELP.substr($LANGUAGE,0,2).'/'.trim($_GET['help']);
+				$FILENAM3 = SZ_PLUGIN_GOOGLE_BASENAME_HELP.'en/'.trim($_GET['help']);
+
+				if (is_readable($FILENAM1)) { @include($FILENAM1); return; }
+				if (is_readable($FILENAM2)) { @include($FILENAM2); return; }
+				if (is_readable($FILENAM3)) { @include($FILENAM3); return; }
+			}
+
+			// Se non trovo nessun file di documentazione specifico o 
+			// semplicemente viene richiamata la pagina principale
+
+			parent::moduleCallback();
+		}
+
+		/**
 		 * Funzione per aggiungere i campi del form con la corrispondenza
 		 * delle opzioni specificate nel modulo attualmente utilizzato
 		 *
@@ -59,901 +90,173 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions,$this->validate);
+			register_setting($this->sectionsoptions,$this->sectionsoptions);
 
 			// Definizione sezione per configurazione GOOGLE DOCUMENTATION
 
-			add_settings_section('sz_google_documentation_gplus','','sz_google_admin_documentation_gplus','sz-google-admin-documentation-gplus.php');
-			add_settings_section('sz_google_documentation_analytics','','sz_google_admin_documentation_analytics','sz-google-admin-documentation-analytics.php');
-			add_settings_section('sz_google_documentation_drive','','sz_google_admin_documentation_drive','sz-google-admin-documentation-drive.php');
-			add_settings_section('sz_google_documentation_groups','','sz_google_admin_documentation_groups','sz-google-admin-documentation-groups.php');
-			add_settings_section('sz_google_documentation_hangouts','','sz_google_admin_documentation_hangouts','sz-google-admin-documentation-hangouts.php');
-			add_settings_section('sz_google_documentation_panoramio','','sz_google_admin_documentation_panoramio','sz-google-admin-documentation-panoramio.php');
-			add_settings_section('sz_google_documentation_translate','','sz_google_admin_documentation_translate','sz-google-admin-documentation-translate.php');
-			add_settings_section('sz_google_documentation_youtube','','sz_google_admin_documentation_youtube','sz-google-admin-documentation-youtube.php');
+			add_settings_section('sz_google_documentation_gplus'    ,'',array($this,'moduleAddHelpPlus')     ,'sz-google-admin-documentation-gplus.php');
+			add_settings_section('sz_google_documentation_analytics','',array($this,'moduleAddHelpAnalytics'),'sz-google-admin-documentation-analytics.php');
+			add_settings_section('sz_google_documentation_calendar' ,'',array($this,'moduleAddHelpCalendar') ,'sz-google-admin-documentation-calendar.php');
+			add_settings_section('sz_google_documentation_drive'    ,'',array($this,'moduleAddHelpDriveSave'),'sz-google-admin-documentation-drive.php');
+			add_settings_section('sz_google_documentation_groups'   ,'',array($this,'moduleAddHelpGroups')   ,'sz-google-admin-documentation-groups.php');
+			add_settings_section('sz_google_documentation_hangouts' ,'',array($this,'moduleAddHelpHangouts') ,'sz-google-admin-documentation-hangouts.php');
+			add_settings_section('sz_google_documentation_panoramio','',array($this,'moduleAddHelpPanoramio'),'sz-google-admin-documentation-panoramio.php');
+			add_settings_section('sz_google_documentation_translate','',array($this,'moduleAddHelpTranslate'),'sz-google-admin-documentation-translate.php');
+			add_settings_section('sz_google_documentation_youtube'  ,'',array($this,'moduleAddHelpYoutube')  ,'sz-google-admin-documentation-youtube.php');
+		}
+
+		/**
+		 * Funzione per aggiungere le icone di sezione con array
+		 * contenete lo slug del link e il titolo della documentazione
+		 */
+		function moduleAddHelpLinks($options)
+		{
+			echo '<div class="help-index">';
+
+			foreach ($options as $key => $value) 
+			{
+				echo '<div class="help-items">';
+				echo '<div class="help-image"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'"><img src="'.SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'/help/'.$value['slug'].'.png" alt=""></a></div>';
+				echo '<div class="help-title"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'">'.ucwords($value['title']).'</a></div>';
+				echo '</div>';
+			}
+
+			echo '</div>';
+		}
+
+		/**
+		 * Funzione per aggiungere il navigatore degli argomenti
+		 * in fondo alla pagina di help singola visualizzata
+		 */
+		function moduleAddHelpNavs($prev=NULL,$next=NULL)
+		{
+			if (!is_array($prev)) $CODEPREV = NULL;
+				else $CODEPREV = '<a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$prev['slug'].'""><-- '.ucfirst($prev['title']).'</a>';
+
+			if (!is_array($next)) $CODENEXT = NULL;
+				else $CODENEXT = '<a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$next['slug'].'"">'.ucfirst($next['title']).' --></a>';
+
+			$HTML  = '<div class="navs">';
+			$HTML .= '<div class="prev">'.$CODEPREV.'</div>';
+			$HTML .= '<div class="capo"><a href="'.menu_page_url($this->menuslug,false).'">'.$this->pagetitle.'</a></div>';
+			$HTML .= '<div class="next">'.$CODENEXT.'</div>';
+			$HTML .= '</div>';
+
+			return $HTML;
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE PLUS
+		 */
+		function moduleAddHelpPlus()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-plus-profile.php'          ,'title'=>__('badge profile','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-page.php'             ,'title'=>__('badge page','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-community.php'        ,'title'=>__('badge community','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-plusone.php'          ,'title'=>__('button +1','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-share.php'            ,'title'=>__('button share','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-follow.php'           ,'title'=>__('button follow','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-comments.php'         ,'title'=>__('widget comments','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-post.php'             ,'title'=>__('embedded post','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-followers.php'        ,'title'=>__('badge followers','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-author-publisher.php' ,'title'=>__('author & publisher','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-redirect.php'         ,'title'=>__('redirect +','szgoogleadmin')),
+				array('slug'=>'sz-google-help-plus-recommendations.php'  ,'title'=>__('recommendations','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE ANALYTICS
+		 */
+		function moduleAddHelpAnalytics()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-ga-setup.php'    ,'title'=>__('analytics setup','szgoogleadmin')),
+				array('slug'=>'sz-google-help-ga-functions.php','title'=>__('analytics PHP functions','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE CALENDAR
+		 */
+		function moduleAddHelpCalendar()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-calendar.php','title'=>__('widget calendar','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE DRIVE
+		 */
+		function moduleAddHelpDriveSave()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-drive-save.php','title'=>__('drive save button','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE GROUPS
+		 */
+		function moduleAddHelpGroups()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-groups.php','title'=>__('widget groups','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE HANGOUTS
+		 */
+		function moduleAddHelpHangouts()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-hangout-start.php','title'=>__('hangout start button','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE PANORAMIO
+		 */
+		function moduleAddHelpPanoramio()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-panoramio.php','title'=>__('widget panoramio','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE TRANSLATE
+		 */
+		function moduleAddHelpTranslate()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-translate.php'          ,'title'=>__('translate setup','szgoogleadmin')),
+				array('slug'=>'sz-google-help-translate-functions.php','title'=>__('translate PHP functions','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE YOUTUBE
+		 */
+		function moduleAddHelpYoutube()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-youtube-video.php'   ,'title'=>__('youtube video'   ,'szgoogleadmin')),
+				array('slug'=>'sz-google-help-youtube-playlist.php','title'=>__('youtube playlist','szgoogleadmin')),
+				array('slug'=>'sz-google-help-youtube-link.php'    ,'title'=>__('youtube link'    ,'szgoogleadmin')),
+			));
 		}
 	}
-}
-
-
-
-/* ************************************************************************** */
-/* MODULE GOOGLE+ function for create documentation                           */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_gplus()
-{
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$shortcode = array(
-		'01' => '[sz-gplus-profile]',
-		'02' => '[sz-gplus-page]',
-		'03' => '[sz-gplus-community]',
-		'04' => '[sz-gplus-followers]',
-		'05' => '[sz-gplus-one]',
-		'06' => '[sz-gplus-share]',
-		'07' => '[sz-gplus-follow]',
-		'08' => '[sz-gplus-comments]',
-		'09' => '[sz-gplus-post]',
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_gplus_badge_profile()',
-		'02' => 'szgoogle_get_gplus_badge_page()',
-		'03' => 'szgoogle_get_gplus_badge_community()',
-		'04' => 'szgoogle_get_gplus_badge_followers()',
-		'05' => 'szgoogle_get_gplus_button_one()',
-		'06' => 'szgoogle_get_gplus_button_share()',
-		'07' => 'szgoogle_get_gplus_button_follow()',
-		'08' => 'szgoogle_get_gplus_comments()',
-		'09' => 'szgoogle_get_gplus_post()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('google+ badge for profile','szgoogleadmin'),
-		'02' => __('google+ badge for page','szgoogleadmin'),
-		'03' => __('google+ badge for community','szgoogleadmin'),
-		'04' => __('google+ badge for followers','szgoogleadmin'),
-		'05' => __('google+ button for +1','szgoogleadmin'),
-		'06' => __('google+ button for sharing','szgoogleadmin'),
-		'07' => __('google+ button for follow','szgoogleadmin'),
-		'08' => __('google+ comment system','szgoogleadmin'),
-		'09' => __('google+ embedded post','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-
-		'01' => array(
-			'id'           => array(__('profile'             ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'type'         => array(__('type mode'           ,'szgoogleadmin'),'standard, popup','standard'),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'integer, auto',__('configuration','szgoogleadmin')),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'layout'       => array(__('layout'              ,'szgoogleadmin'),'portrait, landscape','portrait'),
-			'theme'        => array(__('theme'               ,'szgoogleadmin'),'light, dark','light'),
-			'cover'        => array(__('cover'               ,'szgoogleadmin'),'true, false','true' ),
-			'tagline'      => array(__('tagline'             ,'szgoogleadmin'),'true, false','true' ),
-			'author'       => array(__('rel=author'          ,'szgoogleadmin'),'true, false','false'),
-			'text'         => array(__('pop-up text'         ,'szgoogleadmin'),'string','null'),
-			'image'        => array(__('pop-up image URL'    ,'szgoogleadmin'),'string','null'),
-		),
-
-		'02' => array(
-			'id'           => array(__('page'                ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'type'         => array(__('type mode'           ,'szgoogleadmin'),'standard, popup','standard'),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'value, auto',__('configuration','szgoogleadmin')),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'layout'       => array(__('layout'              ,'szgoogleadmin'),'portrait, landscape','portrait'),
-			'theme'        => array(__('theme'               ,'szgoogleadmin'),'light, dark','light'),
-			'cover'        => array(__('cover'               ,'szgoogleadmin'),'true, false','true' ),
-			'tagline'      => array(__('tagline'             ,'szgoogleadmin'),'true, false','true' ),
-			'publisher'    => array(__('rel=publisher'       ,'szgoogleadmin'),'true, false','false'),
-			'text'         => array(__('pop-up text'         ,'szgoogleadmin'),'string','null'),
-			'image'        => array(__('pop-up image URL'    ,'szgoogleadmin'),'string','null'),
-		),
-
-		'03' => array(
-			'id'           => array(__('community'           ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'value, auto',__('configuration','szgoogleadmin')),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'layout'       => array(__('layout'              ,'szgoogleadmin'),'portrait, landscape','portrait'),
-			'theme'        => array(__('theme'               ,'szgoogleadmin'),'light, dark','light'),
-			'photo'        => array(__('photo'               ,'szgoogleadmin'),'true, false','true' ),
-			'owner'        => array(__('owners'              ,'szgoogleadmin'),'true, false','false'),
-		),
-
-		'04' => array(
-			'id'           => array(__('page or profile'     ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'value, auto',__('configuration','szgoogleadmin')),
-			'height'       => array(__('height'              ,'szgoogleadmin'),'value, auto',__('configuration','szgoogleadmin')),
-		),
-
-		'05' => array(
-			'url'          => array(__('complete URL address','szgoogleadmin'),'string',__('current post','szgoogleadmin')),
-			'size'         => array(__('size'                ,'szgoogleadmin'),'small, medium, standard, tail','standard'),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'value','null'),
-			'annotation'   => array(__('annotation'          ,'szgoogleadmin'),'inline, bubble, none','none'),
-			'float'        => array(__('float'               ,'szgoogleadmin'),'left, right, none','none'),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'text'         => array(__('text'                ,'szgoogleadmin'),'string','null'),
-			'img'          => array(__('image'               ,'szgoogleadmin'),'string','null'),
-			'position'     => array(__('position'            ,'szgoogleadmin'),'top, center, bottom, outside','outside'),
-			'margintop'    => array(__('margin top'          ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_TOP),
-			'marginrigh'   => array(__('margin right'        ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT),
-			'marginbottom' => array(__('margin bottom'       ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM),
-			'marginleft'   => array(__('margin left'         ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_LEFT),
-			'marginunit'   => array(__('margin unit'         ,'szgoogleadmin'),'em, pt, px' ,SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_UNITS),
-		),
-
-		'06' => array(
-			'url'          => array(__('complete URL address','szgoogleadmin'),'string',__('current post','szgoogleadmin')),
-			'size'         => array(__('size'                ,'szgoogleadmin'),'small, medium, large','medium'),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'value','null'),
-			'annotation'   => array(__('annotation'          ,'szgoogleadmin'),'inline, bubble, none','none'),
-			'float'        => array(__('float'               ,'szgoogleadmin'),'left, right, none','none'),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'text'         => array(__('text'                ,'szgoogleadmin'),'string','null'),
-			'img'          => array(__('image'               ,'szgoogleadmin'),'string','null'),
-			'position'     => array(__('position'            ,'szgoogleadmin'),'top, center, bottom, outside','outside'),
-			'margintop'    => array(__('margin top'          ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_TOP),
-			'marginrigh'   => array(__('margin right'        ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT),
-			'marginbottom' => array(__('margin bottom'       ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM),
-			'marginleft'   => array(__('margin left'         ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_LEFT),
-			'marginunit'   => array(__('margin unit'         ,'szgoogleadmin'),'em, pt, px' ,SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_UNITS),
-		),
-
-		'07' => array(
-			'url'          => array(__('URL page or profile' ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'size'         => array(__('size'                ,'szgoogleadmin'),'small, medium, large','medium'),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'value','null'),
-			'annotation'   => array(__('annotation'          ,'szgoogleadmin'),'inline, bubble, none','none'),
-			'float'        => array(__('float'               ,'szgoogleadmin'),'left, right, none','none'),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'rel'          => array(__('relation'            ,'szgoogleadmin'),'author, publisher, none','none'),
-			'text'         => array(__('text'                ,'szgoogleadmin'),'string','null'),
-			'img'          => array(__('image'               ,'szgoogleadmin'),'string','null'),
-			'position'     => array(__('position'            ,'szgoogleadmin'),'top, center, bottom, outside','outside'),
-			'margintop'    => array(__('margin top'          ,'szgoogleadmin'),'integer, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_TOP),
-			'marginrigh'   => array(__('margin right'        ,'szgoogleadmin'),'integer, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT),
-			'marginbottom' => array(__('margin bottom'       ,'szgoogleadmin'),'integer, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM),
-			'marginleft'   => array(__('margin left'         ,'szgoogleadmin'),'integer, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_LEFT),
-			'marginunit'   => array(__('margin unit'         ,'szgoogleadmin'),'em, pt, px',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_UNITS),
-		),
-
-		'08' => array(
-			'url'          => array(__('complete URL address','szgoogleadmin'),'string',__('current post','szgoogleadmin')),
-			'width'        => array(__('fixed width'         ,'szgoogleadmin'),'value, auto','auto'),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-		),
-
-		'09' => array(
-			'url'          => array(__('complete URL address','szgoogleadmin'),'string',__('current post','szgoogleadmin')),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-		),
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
-
-	$shortcode_example = array(
-		'01' => '[sz-gplus-profile id="106567288702045182616"/]',
-		'02' => '[sz-gplus-page id="117259631219963935481"/]',
-		'03' => '[sz-gplus-community id="109254048492234113886"/]',
-		'04' => '[sz-gplus-followers id="106567288702045182616"/]',
-		'05' => '[sz-gplus-one size="medium" annotation="bubble"/]',
-		'06' => '[sz-gplus-share size="small" annotation="bubble"/]',
-		'07' => '[sz-gplus-follow size="medium"/]',
-		'08' => '[sz-gplus-comments url="https://startbyzero.com/webmaster" width="600"/]',
-		'09' => '[sz-gplus-post url="URL_GOOGLE_PLUS_POST" align="center"/]',
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => 'szgoogle_get_gplus_badge_profile(array("id"=>"106567288702045182616"));',
-		'02' => 'szgoogle_get_gplus_badge_page(array("id"=>"117259631219963935481"));',
-		'03' => 'szgoogle_get_gplus_badge_community(array("id"=>"109254048492234113886"));',
-		'04' => 'szgoogle_get_gplus_badge_followers(array("id"=>"106567288702045182616"));',
-		'05' => 'szgoogle_get_gplus_button_one(array("size"=>"medium"));',
-		'06' => 'szgoogle_get_gplus_button_share(array("size"=>"small"));',
-		'07' => 'szgoogle_get_gplus_button_follow(array("size"=>"medium"));',
-		'08' => 'szgoogle_get_gplus_comments(array("width"=>"600"));',
-		'09' => 'szgoogle_get_gplus_post(array("align"=>"center"));',
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes - badges','szgoogleadmin'),array(
-		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
-		array($shortcode['02'],$description['02'],$options['02'],$shortcode_example['02']),
-		array($shortcode['03'],$description['03'],$options['03'],$shortcode_example['03']),
-		array($shortcode['04'],$description['04'],$options['04'],$shortcode_example['04']),
-	));
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes - buttons','szgoogleadmin'),array(
-		array($shortcode['05'],$description['05'],$options['05'],$shortcode_example['05']),
-		array($shortcode['06'],$description['06'],$options['06'],$shortcode_example['06']),
-		array($shortcode['07'],$description['07'],$options['07'],$shortcode_example['07']),
-	));
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes - widgets','szgoogleadmin'),array(
-		array($shortcode['08'],$description['08'],$options['08'],$shortcode_example['08']),
-		array($shortcode['09'],$description['09'],$options['09'],$shortcode_example['09']),
-	));
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions - badges','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-		array($functions['02'],$description['02'],$options['02'],$function_example['02']),
-		array($functions['03'],$description['03'],$options['03'],$function_example['03']),
-		array($functions['04'],$description['04'],$options['04'],$function_example['04']),
-	));
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions - buttons','szgoogleadmin'),array(
-		array($functions['05'],$description['05'],$options['05'],$function_example['05']),
-		array($functions['06'],$description['06'],$options['06'],$function_example['06']),
-		array($functions['07'],$description['07'],$options['07'],$function_example['07']),
-	));
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions - widgets','szgoogleadmin'),array(
-		array($functions['08'],$description['08'],$options['08'],$function_example['08']),
-		array($functions['09'],$description['09'],$options['09'],$function_example['09']),
-	));
-}
-
-/* ************************************************************************** */
-/* MODULE GOOGLE ANALYTICS function for create documentation                  */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_analytics() 
-{
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_ga_ID()',
-		'02' => 'szgoogle_get_ga_code()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('google analytics get account ID','szgoogleadmin'),
-		'02' => __('google analytics get tracking code','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-
-		'01' => array(),
-
-		'02' => array(
-			'ga_uacode'               => array(__('UA code'                 ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'ga_position'             => array(__('position'                ,'szgoogleadmin'),'H=Header,F=Footer',__('configuration','szgoogleadmin')),
-			'ga_enable_front'         => array(__('enable for front'        ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'ga_enable_admin'         => array(__('enable for admin'        ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'ga_enable_administrator' => array(__('enable for administrator','szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'ga_enable_logged'        => array(__('enable for logged'       ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'ga_enable_subdomain'     => array(__('enable for subdomain'    ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'ga_enable_multiple'      => array(__('enable for multiple'     ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'ga_enable_advertiser'    => array(__('enable for advertiser'   ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-		),
-	);
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => '$id = szgoogle_get_ga_ID();',
-		'02' => '$code = szgoogle_get_ga_code();',
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-		array($functions['02'],$description['02'],$options['02'],$function_example['02']),
-	));
-}
-
-/* ************************************************************************** */
-/* MODULE GOOGLE DRIVE function for create documentation                      */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_drive()
-{
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$shortcode = array(
-		'01' => '[sz-drive-save]',
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_drive_savebutton()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('google drive save button','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-
-		'01' => array(
-			'url'          => array(__('URL address file','szgoogleadmin'),'string',__('current post','szgoogleadmin')),
-			'filename'     => array(__('name of file'    ,'szgoogleadmin'),'small, medium, standard, tail','standard'),
-			'sitename'     => array(__('name of site'    ,'szgoogleadmin'),'value' ,'null'),
-			'text'         => array(__('text'            ,'szgoogleadmin'),'string','null'),
-			'img'          => array(__('image'           ,'szgoogleadmin'),'string','null'),
-			'position'     => array(__('position'        ,'szgoogleadmin'),'top, center, bottom, outside','outside'),
-			'align'        => array(__('alignment'       ,'szgoogleadmin'),'left, center, right, none','none'),
-			'margintop'    => array(__('margin top'      ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_TOP),
-			'marginrigh'   => array(__('margin right'    ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT),
-			'marginbottom' => array(__('margin bottom'   ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM),
-			'marginleft'   => array(__('margin left'     ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_LEFT),
-			'marginunit'   => array(__('margin unit'     ,'szgoogleadmin'),'em, pt, px' ,SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_UNITS),
-		),
-	);
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
-
-	$shortcode_example = array(
-		'01' => '[sz-drive-save url="/public/images/myphoto.jpg"/]',
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => 'szgoogle_get_drive_savebutton(array("url"=>"/public/images/myphoto.jpg"));',
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
-		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
-	));
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-	));
-}
-
-
-function sz_google_admin_documentation_groups()
-{
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$shortcode = array(
-		'01' => '[sz-ggroups]',
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_groups_code()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('google groups embedded widget ','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-		'01' => array(
-			'name'           => array(__('name of groups','szgoogleadmin'),'string'       ,__('configuration','szgoogleadmin')),
-			'width'          => array(__('width'         ,'szgoogleadmin'),'value'        ,__('configuration','szgoogleadmin')),
-			'height'         => array(__('height'        ,'szgoogleadmin'),'value'        ,__('configuration','szgoogleadmin')),
-			'showsearch'     => array(__('display search','szgoogleadmin'),'true, false'  ,__('configuration','szgoogleadmin')),
-			'showtabs'       => array(__('display tabs'  ,'szgoogleadmin'),'true, false'  ,__('configuration','szgoogleadmin')),
-			'hideforumtitle' => array(__('hidden title'  ,'szgoogleadmin'),'true, false'  ,__('configuration','szgoogleadmin')),
-			'hidesubject'    => array(__('hidden subject','szgoogleadmin'),'true, false'  ,__('configuration','szgoogleadmin')),
-			'hl'             => array(__('language'      ,'szgoogleadmin'),'language code',__('configuration','szgoogleadmin')),
-		),
-	);
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
-
-	$shortcode_example = array(
-		'01' => '[sz-ggroups name="adsense-api" showtabs="false"/]',
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => 'echo szgoogle_get_groups_code(array("name"=>"adsense-api"));',
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
-		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
-	));
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-	));
-}
-
-
-function sz_google_admin_documentation_hangouts()
-{
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$shortcode = array(
-		'01' => '[sz-hangouts-start]',
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_hangouts_code_start()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('hangout button start','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-		'01' => array(
-			'type'         => array(__('type'                ,'szgoogleadmin'),'normal, onair, party, moderated','normal'),
-			'topic'        => array(__('topic'               ,'szgoogleadmin'),'string','null'),
-			'width'        => array(__('width'               ,'szgoogleadmin'),'value, auto','auto'),
-			'float'        => array(__('float'               ,'szgoogleadmin'),'left, right, none','none'),
-			'align'        => array(__('alignment'           ,'szgoogleadmin'),'left, center, right, none','none'),
-			'text'         => array(__('text'                ,'szgoogleadmin'),'string','null'),
-			'img'          => array(__('image'               ,'szgoogleadmin'),'string','null'),
-			'position'     => array(__('position'            ,'szgoogleadmin'),'top, center, bottom, outside','outside'),
-			'margintop'    => array(__('margin top'          ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_TOP),
-			'marginrigh'   => array(__('margin right'        ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_RIGHT),
-			'marginbottom' => array(__('margin bottom'       ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_BOTTOM),
-			'marginleft'   => array(__('margin left'         ,'szgoogleadmin'),'value, none',SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_LEFT),
-			'marginunit'   => array(__('margin unit'         ,'szgoogleadmin'),'em, pt, px' ,SZ_PLUGIN_GOOGLE_VALUE_BUTTON_MARGIN_UNITS),
-		),
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
-
-	$shortcode_example = array(
-		'01' => '[sz-hangout-start type="onair"/]',
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => 'szgoogle_get_hangouts_start(array("type"=>"onair"));',
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
-		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
-	));
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-	));
-}
-
-/* ************************************************************************** */
-/* MODULE GOOGLE TRANSLATE function for create documentation                  */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_translate() 
-{
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$shortcode = array(
-		'01' => '[sz-translate]',
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_translate_code()',
-		'02' => 'szgoogle_get_translate_meta()',
-		'03' => 'szgoogle_get_translate_meta_ID()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('google translate widget','szgoogleadmin'),
-		'02' => __('google translate get meta code','szgoogleadmin'),
-		'03' => __('google translate get meta ID','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-		'01' => array(
-			'language'  => array(__('language for widget','szgoogleadmin'),'string'     ,__('configuration','szgoogleadmin')),
-			'mode'      => array(__('display mode'       ,'szgoogleadmin'),'V, H, D'    ,__('configuration','szgoogleadmin')),
-			'automatic' => array(__('automatic banner'   ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'analytics' => array(__('google analytics'   ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'uacode'    => array(__('google analytics UA','szgoogleadmin'),'string'     ,__('configuration','szgoogleadmin')),
-		),
-	);
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
-
-	$shortcode_example = array(
-		'01' => '[sz-translate language="it" mode="V"/]',
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => 'echo szgoogle_get_translate_code(array("parameter"=>"value"));',
-		'02' => 'echo szgoogle_get_translate_meta();',
-		'03' => 'echo szgoogle_get_translate_meta_ID();',
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
-		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
-	));
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-		array($functions['02'],$description['02'],array(),$function_example['02']),
-		array($functions['03'],$description['03'],array(),$function_example['03']),
-	));
-}
-
-/* ************************************************************************** */
-/* MODULE GOOGLE PANORAMIO function for create documentation                  */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_panoramio()
-{
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$shortcode = array(
-		'01' => '[sz-panoramio]',
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_panoramio_code()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('google panoramio widget','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-
-		'01' => array(
-			'template'     => array(__('widget type'            ,'szgoogleadmin'),'photo,slideshow,list,photo_list',SZ_PLUGIN_GOOGLE_PANORAMIO_S_TEMPLATE),
-			'user'         => array(__('search for user'        ,'szgoogleadmin'),'string','null'),
-			'group'        => array(__('search for group'       ,'szgoogleadmin'),'string','null'),
-			'tag'          => array(__('search for tag'         ,'szgoogleadmin'),'string','null'),
-			'set'          => array(__('select type'            ,'szgoogleadmin'),'all,public,recent','all'),
-			'widht'        => array(__('widget width in pixels' ,'szgoogleadmin'),'numeric'                 ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH),
-			'height'       => array(__('widget height in pixels','szgoogleadmin'),'numeric'                 ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT),
-			'bgcolor'      => array(__('background color'       ,'szgoogleadmin'),'hexadecimal','null'),
-			'columns'      => array(__('columns of photos'      ,'szgoogleadmin'),'numeric'                 ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_COLUMNS),
-			'rows'         => array(__('rows of photos'         ,'szgoogleadmin'),'numeric'                 ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_ROWS),
-			'orientation'  => array(__('orientation of the list','szgoogleadmin'),'horizontal,vertical'     ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_ORIENTATION),
-			'list_size'    => array(__('photos the list'        ,'szgoogleadmin'),'numeric'                 ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE),
-			'position'     => array(__('position photo list'    ,'szgoogleadmin'),'left,top,right,bottom'   ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_POSITION),
-			'delay'        => array(__('delay in seconds'       ,'szgoogleadmin'),'numeric'                 ,SZ_PLUGIN_GOOGLE_PANORAMIO_S_DELAY),
-			'paragraph'    => array(__('dummy paragraph'        ,'szgoogleadmin'),'true,false','true'),
-		),
-	);
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
-
-	$shortcode_example = array(
-		'01' => '[sz-panoramio template="slideshow" delay="2.0"/]',
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => 'szgoogle_get_drive_savebutton(array("template"=>"photo"));',
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
-		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
-	));
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-	));
-}
-
-/* ************************************************************************** */
-/* MODULE GOOGLE YOUTUBE function for create documentation                   */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_youtube() 
-{
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$shortcode = array(
-		'01' => '[sz-ytvideo]',
-		'02' => '[sz-ytplaylist]',
-		'03' => '[sz-ytbadge]',
-		'04' => '[sz-ytbutton]',
-		'05' => '[sz-ytlink]',
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'01' => 'szgoogle_get_youtube_code_video()',
-		'02' => 'szgoogle_get_youtube_code_playlist()',
-		'03' => 'szgoogle_get_youtube_code_badge()',
-		'04' => 'szgoogle_get_youtube_code_button()',
-		'05' => 'szgoogle_get_youtube_code_link()',
-	); 
-
-	// Definizione elenco degli shortcode presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$description = array(
-		'01' => __('youtube video','szgoogleadmin'),
-		'02' => __('youtube playlist','szgoogleadmin'),
-		'03' => __('youtube channel badge','szgoogleadmin'),
-		'04' => __('youtube channel button','szgoogleadmin'),
-		'05' => __('youtube channel link','szgoogleadmin'),
-	); 
-
-	// Definizione elenco parametri con valori consentiti e di default che sono
-	// collegati alo shortcode interessato, molti parametri valgono anche per le funzioni
-
-	$options = array(
-
-		'01' => array(
-			'url'             => array(__('youtube address URL'    ,'szgoogleadmin'),'string','null'),
-			'responsive'      => array(__('responsive mode'        ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'width'           => array(__('size pixel width'       ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'height'          => array(__('size pixel height'      ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'margintop'       => array(__('margin top'             ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginright'     => array(__('margin right'           ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginbottom'    => array(__('margin bottom'          ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginleft'      => array(__('margin left'            ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginunit'      => array(__('margin unit'            ,'szgoogleadmin'),'px, em',__('configuration','szgoogleadmin')),
-			'autoplay'        => array(__('enable autoplay'        ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'loop'            => array(__('enable loop'            ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'fullscreen'      => array(__('enable fullscreen'      ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'disablekeyboard' => array(__('disable keyboard'       ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'theme'           => array(__('theme name'             ,'szgoogleadmin'),'dark, light',__('configuration','szgoogleadmin')),
-			'cover'           => array(__('cover image'            ,'szgoogleadmin'),'local, youtube, URL, ID',__('configuration','szgoogleadmin')),
-			'title'           => array(__('title for video'        ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'disableiframe'   => array(__('disable IFRAME mode'    ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'analytics'       => array(__('enable google analytics','szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'delayed'         => array(__('enable loading delayed' ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'start'           => array(__('time of start'          ,'szgoogleadmin'),'seconds','null'),
-			'end'             => array(__('time of end'            ,'szgoogleadmin'),'seconds','null'),
-			'disablerelated'  => array(__('deactive related video' ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'schemaorg'       => array(__('schema.org enable'      ,'szgoogleadmin'),'y=yes, n=no',__('configuration','szgoogleadmin')),
-			'name'            => array(__('schema.org name'        ,'szgoogleadmin'),'string',__('youtube video','szgoogleadmin')),
-			'description'     => array(__('schema.org description' ,'szgoogleadmin'),'string',__('value of title','szgoogleadmin')),
-			'duration'        => array(__('schema.org duration'    ,'szgoogleadmin'),__('<a target="_blank" href="http://en.wikipedia.org/wiki/ISO_8601">format ISO 8601</a>','szgoogleadmin'),'null'),
-		),
-
-		'02' => array(
-			'id'              => array(__('youtube playlist ID'    ,'szgoogleadmin'),'string','null'),
-			'width'           => array(__('size pixel width'       ,'szgoogleadmin'),'value,auto',__('configuration','szgoogleadmin')),
-			'height'          => array(__('size pixel height'      ,'szgoogleadmin'),'value,auto',__('configuration','szgoogleadmin')),
-			'margintop'       => array(__('margin top'             ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginright'     => array(__('margin right'           ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginbottom'    => array(__('margin bottom'          ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginleft'      => array(__('margin left'            ,'szgoogleadmin'),'value',__('configuration','szgoogleadmin')),
-			'marginunit'      => array(__('margin unit'            ,'szgoogleadmin'),'px, em',__('configuration','szgoogleadmin')),
-		),
-
-		'03' => array(
-			'channel'         => array(__('channel name or ID'     ,'szgoogleadmin'),'string'   ,__('configuration','szgoogleadmin')),
-			'width'           => array(__('size pixel width'       ,'szgoogleadmin'),'value'    ,'300'),
-			'height'          => array(__('size pixel height'      ,'szgoogleadmin'),'value'    ,'150'),
-			'widthunit'       => array(__('unit for width'         ,'szgoogleadmin'),'px, em, %','px' ),
-			'heightunit'      => array(__('unit for height'        ,'szgoogleadmin'),'px, em, %','px' ),
-		),
-
-		'04' => array(
-			'channel'         => array(__('channel name or ID'     ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'layout'          => array(__('layout type'            ,'szgoogleadmin'),'default, full','default'),
-			'theme'           => array(__('theme for button'       ,'szgoogleadmin'),'default, dark','default'),
-		),
-
-		'05' => array(
-			'channel'         => array(__('channel name or ID'     ,'szgoogleadmin'),'string',__('configuration','szgoogleadmin')),
-			'subscription'    => array(__('subscription mode'      ,'szgoogleadmin'),'y=yes, n=no','y=yes'),
-			'text'            => array(__('anchor text for link'   ,'szgoogleadmin'),'string',__('channel youtube','szgoogleadmin')),
-		),
-
-	);
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sullo shortcode 
-
-	$shortcode_example = array(
-		'01' => '[sz-ytvideo url="http://www.youtube.com/watch?v=Xz2unftv_l4"/]',
-		'02' => '[sz-ytplaylist id="PL1wZKxf9cUnICoU0usAWMbyURT40rJD71"/]',
-		'03' => '[sz-ytbadge channel="startbyzero"/]',
-		'04' => '[sz-ytbutton layout="full" theme="dark"/]',
-		'05' => '[sz-ytlink text="iscriviti al mio canale"/]',
-	); 
-
-	// Definizione array per contenere il codice di esempio da aggiungere
-	// in fondo alla tabella delle singole opzioni permesse sulla funzione 
-
-	$function_example = array(
-		'01' => "echo szgoogle_get_youtube_code_video(array('parameter'=>'value'));",
-		'02' => "echo szgoogle_get_youtube_code_playlist(array('parameter'=>'value'));",
-		'03' => "echo szgoogle_get_youtube_code_badge(array('parameter'=>'value'));",
-		'04' => "echo szgoogle_get_youtube_code_button(array('parameter'=>'value'));",
-		'05' => "echo szgoogle_get_youtube_code_link(array('parameter'=>'value'));",
-	); 
-
-	// Chiamata alla funzione per la creazione delle singole sezioni con la
-	// suddivisione per shortcodes, functions php and other.
-
-	echo sz_google_admin_documentation_table(__('documentation for shortcodes','szgoogleadmin'),array(
-		array($shortcode['01'],$description['01'],$options['01'],$shortcode_example['01']),
-		array($shortcode['02'],$description['02'],$options['02'],$shortcode_example['02']),
-		array($shortcode['03'],$description['03'],$options['03'],$shortcode_example['03']),
-		array($shortcode['04'],$description['04'],$options['04'],$shortcode_example['04']),
-		array($shortcode['05'],$description['05'],$options['05'],$shortcode_example['05']),
-	));
-
-	echo sz_google_admin_documentation_table(__('documentation for PHP functions','szgoogleadmin'),array(
-		array($functions['01'],$description['01'],$options['01'],$function_example['01']),
-		array($functions['02'],$description['02'],$options['02'],$function_example['02']),
-		array($functions['03'],$description['03'],$options['03'],$function_example['03']),
-		array($functions['04'],$description['04'],$options['04'],$function_example['04']),
-		array($functions['05'],$description['05'],$options['05'],$function_example['05']),
-	));
-}
-
-/* ************************************************************************** */
-/* Funzioni per la definizione dei campi legati a modulo                      */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_validate($plugin_options) {
-  return $plugin_options;
-}
-
-/* ************************************************************************** */
-/* Funzioni per contenuto documentazione con stampa della tabella             */
-/* ************************************************************************** */
-
-function sz_google_admin_documentation_table($title,$values)
-{
-	echo '<div class="postbox closed">';
-	echo '<div class="handlediv" title="Click to toggle"><br></div>';
-	echo '<h3 class="hndle"><span>'.ucfirst($title).'</span></h3>';
-	echo '<div class="inside">';
-
-	foreach ($values as $key=>$value) 
-	{
-		$name    = $value[0];
-		$titolo  = $value[1];
-		$tabella = $value[2];
-		$esempio = $value[3];
-
-		echo '<table class="docs"><tr>';
-
-		if ($titolo) {
-			echo '<tr>';
-			echo '<th class="tit" colspan="4"><h4 style="font-size:1.1em;">'.ucfirst($titolo).'</span><span style="float:right;color:green">'.$name.'</span></h4></th>';
-			echo '</tr>';
-		}
-
-		if (!empty($tabella)) {
-			echo "<th>".__('parameter','szgoogleadmin')."</th>";
-			echo "<th>".__('description','szgoogleadmin')."</th>";
-			echo "<th>".__('values','szgoogleadmin')."</th>";
-			echo "<th>".__('default','szgoogleadmin')."</th></tr>";
-		}
-
-		foreach ($tabella as $key => $value) { 
-			echo "<tr>";
-			echo '<td class="key">'.$key."</td>";
-			echo '<td class="des">'.$value[0]."</td>";
-			echo '<td class="val">'.$value[1]."</td>";
-			echo '<td class="def">'.$value[2]."</td>";
-			echo "</tr>";
-		}
-
-		if ($esempio) {
-			echo "<tr>";
-			echo '<td class="key">'.__('example','szgoogleadmin').'</td>';
-			echo '<td colspan="3"><code>'.$esempio."</code></td>";
-			echo "</tr>";
-		}
-
-		echo "</table>";
-	}
-
-	echo "</div>";
-	echo "</div>";
 }
