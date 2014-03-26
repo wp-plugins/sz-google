@@ -67,7 +67,7 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 				'sz-google-admin-analytics-classic.php' => ucwords(__('options for classic analytics','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google analytics configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_ga';
 
 			// Richiamo la funzione della classe padre per elaborare le

@@ -7,7 +7,7 @@
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-post.png';
+$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-post.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -47,6 +47,16 @@ CORRECT    => https://plus.google.com/110174288943220639247/posts/cfjDgZ7zK8o
 NO CORRECT => https://plus.google.com/+LarryPage/posts/MtVcQaAi684
 NO CORRECT => https://plus.google.com/u/0/106189723444098348646/posts/MtVcQaAi684
 </pre>
+
+<h2>Unsupported posts</h2>
+
+<ul>
+<li>Posts that are restricted to a Google Apps domain.</li>
+<li>Private posts.</li>
+<li>Events posts.</li>
+<li>Hangout on Air posts.</li>
+<li>Posts from within a community, including publicly reshared posts from a community.</li>
+</ul>
 
 <h2>Shortcode example</h2>
 

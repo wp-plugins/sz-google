@@ -43,7 +43,7 @@ if (!class_exists('SZGoogleAdminFonts'))
 				'sz-google-admin-fonts-HX.php'    => ucwords(__('font setting headings','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google fonts configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_fonts';
 
 			// Richiamo la funzione della classe padre per elaborare le

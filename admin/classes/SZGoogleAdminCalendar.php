@@ -38,7 +38,7 @@ if (!class_exists('SZGoogleAdminCalendar'))
 				'sz-google-admin-calendar-w-options.php' => ucwords(__('default options for widget','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google calendar configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_calendar';
 
 			// Richiamo la funzione della classe padre per elaborare le

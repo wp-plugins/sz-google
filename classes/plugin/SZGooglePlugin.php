@@ -41,6 +41,7 @@ if (!class_exists('SZGooglePlugin'))
 			$settings_base = array(
 				'plus'                              => SZ_PLUGIN_GOOGLE_VALUE_YES,
 				'analytics'                         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'authenticator'                     => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'calendar'                          => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'drive'                             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'fonts'                             => SZ_PLUGIN_GOOGLE_VALUE_NO,
@@ -123,6 +124,15 @@ if (!class_exists('SZGooglePlugin'))
 				'ga_enable_subdomain'               => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'ga_enable_multiple'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'ga_enable_advertiser'              => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			);
+
+			// Impostazione valori di default che riguardano
+			// il modulo collegato alle funzioni di Google Authenticator
+
+			$settings_authenticator = array(
+				'authenticator_login_enable'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'authenticator_login_type'          => SZ_PLUGIN_GOOGLE_VALUE_ONE,
+				'authenticator_discrepancy'         => SZ_PLUGIN_GOOGLE_VALUE_ONE,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -290,17 +300,18 @@ if (!class_exists('SZGooglePlugin'))
 			// Controllo formale delle opzioni e memorizzazione sul database
 			// in base ad una prima installazione o update del plugin 
 
-			self::checkOptions('sz_google_options_base'     ,$settings_base); 
-			self::checkOptions('sz_google_options_plus'     ,$settings_plus); 
-			self::checkOptions('sz_google_options_ga'       ,$settings_ga);
-			self::checkOptions('sz_google_options_calendar' ,$settings_calendar); 
-			self::checkOptions('sz_google_options_drive'    ,$settings_drive); 
-			self::checkOptions('sz_google_options_fonts'    ,$settings_fonts); 
-			self::checkOptions('sz_google_options_groups'   ,$settings_groups);
-			self::checkOptions('sz_google_options_hangouts' ,$settings_hangouts);
-			self::checkOptions('sz_google_options_panoramio',$settings_panoramio);
-			self::checkOptions('sz_google_options_translate',$settings_translate);
-			self::checkOptions('sz_google_options_youtube'  ,$settings_youtube);
+			self::checkOptions('sz_google_options_base'         ,$settings_base); 
+			self::checkOptions('sz_google_options_plus'         ,$settings_plus); 
+			self::checkOptions('sz_google_options_ga'           ,$settings_ga);
+			self::checkOptions('sz_google_options_authenticator',$settings_authenticator);
+			self::checkOptions('sz_google_options_calendar'     ,$settings_calendar); 
+			self::checkOptions('sz_google_options_drive'        ,$settings_drive); 
+			self::checkOptions('sz_google_options_fonts'        ,$settings_fonts); 
+			self::checkOptions('sz_google_options_groups'       ,$settings_groups);
+			self::checkOptions('sz_google_options_hangouts'     ,$settings_hangouts);
+			self::checkOptions('sz_google_options_panoramio'    ,$settings_panoramio);
+			self::checkOptions('sz_google_options_translate'    ,$settings_translate);
+			self::checkOptions('sz_google_options_youtube'      ,$settings_youtube);
 
 			// Esecuzione flush rules per regole di rewrite personalizzate
 

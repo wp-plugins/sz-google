@@ -32,20 +32,21 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			// le sezioni devono essere passate come un array con nome => titolo
 
 			$this->sections = array(
-				'sz-google-admin-documentation-gplus.php'     => ucwords(__('google+','szgoogleadmin')),
-				'sz-google-admin-documentation-analytics.php' => ucwords(__('google analytics','szgoogleadmin')),
-				'sz-google-admin-documentation-calendar.php'  => ucwords(__('google calendar','szgoogleadmin')),
-				'sz-google-admin-documentation-drive.php'     => ucwords(__('google drive','szgoogleadmin')),
-				'sz-google-admin-documentation-groups.php'    => ucwords(__('google groups','szgoogleadmin')),
-				'sz-google-admin-documentation-hangouts.php'  => ucwords(__('google hangouts','szgoogleadmin')),
-				'sz-google-admin-documentation-panoramio.php' => ucwords(__('google panoramio','szgoogleadmin')),
-				'sz-google-admin-documentation-translate.php' => ucwords(__('google translate','szgoogleadmin')),
-				'sz-google-admin-documentation-youtube.php'   => ucwords(__('youtube','szgoogleadmin')),
+				'sz-google-admin-documentation-gplus.php'         => ucwords(__('google+','szgoogleadmin')),
+				'sz-google-admin-documentation-analytics.php'     => ucwords(__('google analytics','szgoogleadmin')),
+				'sz-google-admin-documentation-authenticator.php' => ucwords(__('google authenticator','szgoogleadmin')),
+				'sz-google-admin-documentation-calendar.php'      => ucwords(__('google calendar','szgoogleadmin')),
+				'sz-google-admin-documentation-drive.php'         => ucwords(__('google drive','szgoogleadmin')),
+				'sz-google-admin-documentation-groups.php'        => ucwords(__('google groups','szgoogleadmin')),
+				'sz-google-admin-documentation-hangouts.php'      => ucwords(__('google hangouts','szgoogleadmin')),
+				'sz-google-admin-documentation-panoramio.php'     => ucwords(__('google panoramio','szgoogleadmin')),
+				'sz-google-admin-documentation-translate.php'     => ucwords(__('google translate','szgoogleadmin')),
+				'sz-google-admin-documentation-youtube.php'       => ucwords(__('youtube','szgoogleadmin')),
 			);
 
-			$this->formsavebutton  = SZ_PLUGIN_GOOGLE_VALUE_NO;
-			$this->sectionstitle   = ucfirst(__('documentation','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_documentation';
+			$this->formsavebutton  = SZ_PLUGIN_GOOGLE_VALUE_NO;
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione
@@ -94,15 +95,16 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 
 			// Definizione sezione per configurazione GOOGLE DOCUMENTATION
 
-			add_settings_section('sz_google_documentation_gplus'    ,'',array($this,'moduleAddHelpPlus')     ,'sz-google-admin-documentation-gplus.php');
-			add_settings_section('sz_google_documentation_analytics','',array($this,'moduleAddHelpAnalytics'),'sz-google-admin-documentation-analytics.php');
-			add_settings_section('sz_google_documentation_calendar' ,'',array($this,'moduleAddHelpCalendar') ,'sz-google-admin-documentation-calendar.php');
-			add_settings_section('sz_google_documentation_drive'    ,'',array($this,'moduleAddHelpDriveSave'),'sz-google-admin-documentation-drive.php');
-			add_settings_section('sz_google_documentation_groups'   ,'',array($this,'moduleAddHelpGroups')   ,'sz-google-admin-documentation-groups.php');
-			add_settings_section('sz_google_documentation_hangouts' ,'',array($this,'moduleAddHelpHangouts') ,'sz-google-admin-documentation-hangouts.php');
-			add_settings_section('sz_google_documentation_panoramio','',array($this,'moduleAddHelpPanoramio'),'sz-google-admin-documentation-panoramio.php');
-			add_settings_section('sz_google_documentation_translate','',array($this,'moduleAddHelpTranslate'),'sz-google-admin-documentation-translate.php');
-			add_settings_section('sz_google_documentation_youtube'  ,'',array($this,'moduleAddHelpYoutube')  ,'sz-google-admin-documentation-youtube.php');
+			add_settings_section('sz_google_documentation_gplus'        ,'',array($this,'moduleAddHelpPlus')         ,'sz-google-admin-documentation-gplus.php');
+			add_settings_section('sz_google_documentation_analytics'    ,'',array($this,'moduleAddHelpAnalytics')    ,'sz-google-admin-documentation-analytics.php');
+			add_settings_section('sz_google_documentation_authenticator','',array($this,'moduleAddHelpAuthenticator'),'sz-google-admin-documentation-authenticator.php');
+			add_settings_section('sz_google_documentation_calendar'     ,'',array($this,'moduleAddHelpCalendar')     ,'sz-google-admin-documentation-calendar.php');
+			add_settings_section('sz_google_documentation_drive'        ,'',array($this,'moduleAddHelpDriveSave')    ,'sz-google-admin-documentation-drive.php');
+			add_settings_section('sz_google_documentation_groups'       ,'',array($this,'moduleAddHelpGroups')       ,'sz-google-admin-documentation-groups.php');
+			add_settings_section('sz_google_documentation_hangouts'     ,'',array($this,'moduleAddHelpHangouts')     ,'sz-google-admin-documentation-hangouts.php');
+			add_settings_section('sz_google_documentation_panoramio'    ,'',array($this,'moduleAddHelpPanoramio')    ,'sz-google-admin-documentation-panoramio.php');
+			add_settings_section('sz_google_documentation_translate'    ,'',array($this,'moduleAddHelpTranslate')    ,'sz-google-admin-documentation-translate.php');
+			add_settings_section('sz_google_documentation_youtube'      ,'',array($this,'moduleAddHelpYoutube')      ,'sz-google-admin-documentation-youtube.php');
 		}
 
 		/**
@@ -116,7 +118,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			foreach ($options as $key => $value) 
 			{
 				echo '<div class="help-items">';
-				echo '<div class="help-image"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'"><img src="'.SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'/help/'.$value['slug'].'.png" alt=""></a></div>';
+				echo '<div class="help-image"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'"><img src="'.SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'help/'.basename($value['slug'],".php").'.png" alt=""></a></div>';
 				echo '<div class="help-title"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'">'.ucwords($value['title']).'</a></div>';
 				echo '</div>';
 			}
@@ -176,6 +178,19 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			$this->moduleAddHelpLinks(array(
 				array('slug'=>'sz-google-help-ga-setup.php'    ,'title'=>__('analytics setup','szgoogleadmin')),
 				array('slug'=>'sz-google-help-ga-functions.php','title'=>__('analytics PHP functions','szgoogleadmin')),
+			));
+		}
+
+		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * l'indice fatto ad icone della documentazione GOOGLE AUTHENTICATOR
+		 */
+		function moduleAddHelpAuthenticator()
+		{
+			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-authenticator-setup.php'    ,'title'=>__('authenticator setup','szgoogleadmin')),
+				array('slug'=>'sz-google-help-authenticator-functions.php','title'=>__('authenticator PHP','szgoogleadmin')),
+				array('slug'=>'sz-google-help-authenticator-device.php'   ,'title'=>__('authenticator device','szgoogleadmin')),
 			));
 		}
 

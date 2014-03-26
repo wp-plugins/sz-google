@@ -40,7 +40,7 @@ if (!class_exists('SZGoogleAdminYoutube'))
 				'sz-google-admin-youtube-advanced.php' => ucwords(__('video advanced setting','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google youtube configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_youtube';
 
 			// Richiamo la funzione della classe padre per elaborare le

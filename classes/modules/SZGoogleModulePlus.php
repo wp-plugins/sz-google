@@ -429,7 +429,7 @@ function sz_google_module_plus_get_code_profile($atts,$content=null)
 		// Blocco principale della divisione con codice javascript
 		// per il calcolo della dimensione automatica e contenitore
 
-		$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+		$HTML .= '<div class="sz-google-profile-iframe" id="'.$uniqueID.'" style="display:block;';
 
 		if ($align == 'left')   $HTML .= 'text-align:left;';
 		if ($align == 'center') $HTML .= 'text-align:center;';
@@ -439,8 +439,9 @@ function sz_google_module_plus_get_code_profile($atts,$content=null)
 
 		$HTML .= '<script type="text/javascript">';
 		$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-		$HTML .= "document.write('";
-		$HTML .= '<div class="g-person"';
+		$HTML .= "var h='<'+'";
+
+		$HTML .= 'div class="g-person"';
 		$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
 		$HTML .= ' data-width="'         .$width  .'"';
 		$HTML .= ' data-layout="'        .$layout .'"';
@@ -450,7 +451,8 @@ function sz_google_module_plus_get_code_profile($atts,$content=null)
 
 		if ($author == 'true') $HTML .= ' data-rel="author"';
 
-		$HTML .= '></div>'."');";
+		$HTML .= "></'+'div'+'>';";
+		$HTML .= "document.write(h);";
 		$HTML .= '</script>';
 
 		$HTML .= '</div>';
@@ -637,7 +639,7 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 		$HTML .= '<div class="sz-google-page">';
 		$HTML .= '<div class="sz-google-page-wrap">';
 
-		$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+		$HTML .= '<div class="sz-google-page-iframe" id="'.$uniqueID.'" style="display:block;';
 
 		if ($align == 'left')   $HTML .= 'text-align:left;';
 		if ($align == 'center') $HTML .= 'text-align:center;';
@@ -647,8 +649,9 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 
 		$HTML .= '<script type="text/javascript">';
 		$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-		$HTML .= "document.write('";
-		$HTML .= '<div class="g-page"';
+		$HTML .= "var h='<'+'";
+
+		$HTML .= 'div class="g-page"';
 		$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
 		$HTML .= ' data-width="'         .$width  .'"';
 		$HTML .= ' data-layout="'        .$layout .'"';
@@ -658,7 +661,8 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 
 		if ($publisher == 'true') $HTML .= ' data-rel="publisher"';
 
-		$HTML .= '></div>'."');";
+		$HTML .= "></'+'div'+'>';";
+		$HTML .= "document.write(h);";
 		$HTML .= '</script>';
 
 		$HTML .= '</div>';
@@ -815,7 +819,7 @@ function sz_google_module_plus_get_code_community($atts,$content=null)
 	$HTML .= '<div class="sz-google-community">';
 	$HTML .= '<div class="sz-google-community-wrap">';
 
-	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+	$HTML .= '<div class="sz-google-community-iframe" id="'.$uniqueID.'" style="display:block;';
 
 	if ($align == 'left')   $HTML .= 'text-align:left;';
 	if ($align == 'center') $HTML .= 'text-align:center;';
@@ -825,15 +829,18 @@ function sz_google_module_plus_get_code_community($atts,$content=null)
 
 	$HTML .= '<script type="text/javascript">';
 	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-	$HTML .= "document.write('";
-	$HTML .= '<div class="g-community"';
+	$HTML .= "var h='<'+'";
+
+	$HTML .= 'div class="g-community"';
 	$HTML .= ' data-href="https://plus.google.com/communities/'.$id.'"';
 	$HTML .= ' data-width="'     .$width .'"';
 	$HTML .= ' data-layout="'    .$layout.'"';
 	$HTML .= ' data-theme="'     .$theme .'"';
 	$HTML .= ' data-showphoto="' .$photo .'"';
 	$HTML .= ' data-showowners="'.$owner .'"';
-	$HTML .= '></div>'."');";
+
+	$HTML .= "></'+'div'+'>';";
+	$HTML .= "document.write(h);";
 	$HTML .= '</script>';
 
 	$HTML .= '</div>';
@@ -954,7 +961,7 @@ function sz_google_module_plus_get_code_followers($atts,$content=null)
 	$HTML  = '<div class="sz-google-followers">';
 	$HTML .= '<div class="sz-google-followers-wrap">';
 
-	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+	$HTML .= '<div class="sz-google-followers-iframe" id="'.$uniqueID.'" style="display:block;';
 
 	if ($align == 'left')   $HTML .= 'text-align:left;';
 	if ($align == 'center') $HTML .= 'text-align:center;';
@@ -964,14 +971,17 @@ function sz_google_module_plus_get_code_followers($atts,$content=null)
 
 	$HTML .= '<script type="text/javascript">';
 	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-	$HTML .= "document.write('";
-	$HTML .= '<div class="g-plus"';
+	$HTML .= "var h='<'+'";
+
+	$HTML .= 'div class="g-plus"';
 	$HTML .= ' data-action="followers"';
 	$HTML .= ' data-href="https://plus.google.com/'.$id.'"';
 	$HTML .= ' data-width="' .$width .'"';
 	$HTML .= ' data-height="'.$height.'"';
 	$HTML .= ' data-source="blogger:blog:followers"';
-	$HTML .= '></div>'."');";
+
+	$HTML .= "></'+'div'+'>';";
+	$HTML .= "document.write(h);";
 	$HTML .= '</script>';
 
 	$HTML .= '</div>';
@@ -1523,7 +1533,7 @@ function sz_google_module_plus_get_code_comments($atts,$content=null)
 	if (!empty($title)) $HTML .= $title;
 	$HTML .= '<div class="sz-google-comments-wrap'.$class2.'">';
 
-	$HTML .= '<div id="'.$uniqueID.'" style="display:block;';
+	$HTML .= '<div "sz-google-comments-iframe" id="'.$uniqueID.'" style="display:block;';
 
 	if ($align == 'left')   $HTML .= 'text-align:left;';
 	if ($align == 'center') $HTML .= 'text-align:center;';
@@ -1533,14 +1543,17 @@ function sz_google_module_plus_get_code_comments($atts,$content=null)
 
 	$HTML .= '<script type="text/javascript">';
 	$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-	$HTML .= "document.write('";
-	$HTML .= '<div class="g-comments"';
+	$HTML .= "var h='<'+'";
+
+	$HTML .= 'div class="g-comments"';
 	$HTML .= ' data-href="'.$url.'"';
 	$HTML .= ' data-width="'.$width.'"';
-	$HTML .= ' data-height="50" ';
+	$HTML .= ' data-height="50"';
 	$HTML .= ' data-first_party_property="BLOGGER"';
 	$HTML .= ' data-view_type="FILTERED_POSTMOD"';
-	$HTML .= '></div>'."');";
+
+	$HTML .= "></'+'div'+'>';";
+	$HTML .= "document.write(h);";
 	$HTML .= '</script>';
 
 	$HTML .= '</div>';

@@ -38,7 +38,7 @@ if (!class_exists('SZGoogleAdminTranslate'))
 				'sz-google-admin-translate-advanced.php' => ucwords(__('advanced setting','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google translate configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_translate';
 
 			// Richiamo la funzione della classe padre per elaborare le

@@ -4,10 +4,10 @@ Plugin Name: SZ - Google
 Plugin URI: https://wpitalyplus.com/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.7.0
+Version: 1.7.1
 Author URI: https://plus.google.com/+MassimoDellaRovere
 License: GPLv2 or later
-Copyright 2012-2013 startbyzero (email: webmaster@startbyzero.com)
+Copyright 2012-2014 startbyzero (email: webmaster@startbyzero.com)
 */
 
 /**
@@ -20,6 +20,12 @@ Copyright 2012-2013 startbyzero (email: webmaster@startbyzero.com)
  * 
  * @Website..: https://wpitalyplus.com
  * @Community: https://plus.google.com/communities/109254048492234113886
+ *
+ * Thanks to Eugenio Petullà for support and developer code.
+ * Thanks to Patrizio Dell'Anna for plugin translate in english.
+ * Thanks to Henrik Schack for inspiration in authenticator found in repository.
+ * Thanks to Michael Kliewe for PHP part of code found in @PHPGangsta.
+ *
  */
 if (!defined('ABSPATH')) die("Accesso diretto al file non permesso");
 
@@ -35,7 +41,7 @@ if (!class_exists('SZGoogleInitPlugin'))
 	 */
 	define('SZ_PLUGIN_GOOGLE',true);
 	define('SZ_PLUGIN_GOOGLE_MAIN',__FILE__);
-	define('SZ_PLUGIN_GOOGLE_VERSION','1.7.0');
+	define('SZ_PLUGIN_GOOGLE_VERSION','1.7.1');
 
 	/**
 	 * Il plugin necessita di alcuni controllo sugli utenti collegati prima che questi

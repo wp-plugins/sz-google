@@ -37,7 +37,7 @@ if (!class_exists('SZGoogleAdminGroups'))
 				'sz-google-admin-groups-display.php'  => ucwords(__('display setting','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google groups configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_groups';
 
 			// Richiamo la funzione della classe padre per elaborare le

@@ -44,7 +44,7 @@ if (!class_exists('SZGoogleAdminPlus'))
 				'sz-google-admin-plus-system.php'          => ucwords(__('google+ system','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google+ configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_plus';
 
 			// Richiamo la funzione della classe padre per elaborare le

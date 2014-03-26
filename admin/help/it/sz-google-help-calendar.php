@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-calendar.png';
+$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-calendar.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -106,8 +106,8 @@ EOD;
  * Definizione array per la creazione del navigatore di fondo
  * con i link seguenti e precedenti della documentazione
  */
-$prev = array('title'=>__('analytics PHP functions','szgoogleadmin'),'slug'=>'sz-google-help-ga-functions.php');
-$next = array('title'=>__('drive save button'      ,'szgoogleadmin'),'slug'=>'sz-google-help-drive-save.php');
+$prev = array('title'=>__('authenticator device','szgoogleadmin'),'slug'=>'sz-google-help-autenticator-device.php');
+$next = array('title'=>__('drive save button'   ,'szgoogleadmin'),'slug'=>'sz-google-help-drive-save.php');
 
 $HTML .= $this->moduleAddHelpNavs($prev,$next);
 

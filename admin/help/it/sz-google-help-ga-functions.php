@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-analytics.png';
+$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-analytics.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -25,8 +25,8 @@ utilizzare il pannello di amministrazione per i parametri relativi all'account, 
 disposizione del plugin e implementarle con il vostro codice. Le funzioni messe a disposizione sono le seguenti:</p>
 
 <ul>
-<li>szgoogle_get_ga_ID()
-<li>szgoogle_get_ga_code()
+<li><b>szgoogle_get_ga_ID()</b></li>
+<li><b>szgoogle_get_ga_code()</b></li>
 </ul>
 
 <p>Ad esempio se volessimo inserire il codice nel nostro tema e prendere solo le opzioni che riguardano l'account potremmo utilizzare
@@ -58,7 +58,7 @@ utilizzare la funzione PHP <b>szgoogle_get_ga_code()</b> e inserirla nel punto p
 
 <h2>Schermata</h2>
 
-<p>Via allego una schermata che riporta alcuni grafici presenti su google analytics, uno strumento indispensabile per tutti i
+<p>Vi allego una schermata che riporta alcuni grafici presenti su google analytics, uno strumento indispensabile per tutti i
 proprietari di siti web e ancora di più per i webmaster che li gestiscono.</p>
 
 <img class="screen" src="$IMAGE1" alt=""/>
@@ -75,8 +75,8 @@ EOD;
  * Definizione array per la creazione del navigatore di fondo
  * con i link seguenti e precedenti della documentazione
  */
-$prev = array('title'=>__('analytics setup','szgoogleadmin'),'slug'=>'sz-google-help-ga-setup.php');
-$next = array('title'=>__('widget calendar','szgoogleadmin'),'slug'=>'sz-google-help-calendar.php');
+$prev = array('title'=>__('analytics setup','szgoogleadmin')    ,'slug'=>'sz-google-help-ga-setup.php');
+$next = array('title'=>__('authenticator setup','szgoogleadmin'),'slug'=>'sz-google-help-authenticator-setup.php');
 
 $HTML .= $this->moduleAddHelpNavs($prev,$next);
 

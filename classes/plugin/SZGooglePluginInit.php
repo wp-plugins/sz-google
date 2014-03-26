@@ -37,11 +37,11 @@ if (!class_exists('SZGooglePluginInit'))
 		}
 
 		/**
-	     * Creazione oggetto per Modulo Base con impostazione del 
-	     * dominio di traduzione e memorizzazione delle opzioni configurate
-	     *
-	     * @return void
-	     */
+		 * Creazione oggetto per Modulo Base con impostazione del 
+		 * dominio di traduzione e memorizzazione delle opzioni configurate
+		 *
+		 * @return void
+		 */
 		function setLanguageDomain() 
 		{
 			load_plugin_textdomain('szgoogle',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE_FRONT);
@@ -52,11 +52,11 @@ if (!class_exists('SZGooglePluginInit'))
 		}
 
 		/**
-	     * Richiamo le funzioni per la registrazione delle azioni legate
-	     * alle azioni di attivazione e disattivazione plugin
-	     *
-	     * @return void
-	     */
+		 * Richiamo le funzioni per la registrazione delle azioni legate
+		 * alle azioni di attivazione e disattivazione plugin
+		 *
+		 * @return void
+		 */
 		function includeHook() 
 		{
 			// Attivazione hook per la funzione di attivazione e disattivazione
@@ -90,11 +90,11 @@ if (!class_exists('SZGooglePluginInit'))
 		}
 
 		/**
-	     * Richiamo gli script per la definizione dei moduli e delle funzioni PHP 
-	     * da poter utilizzare direttamente in fase di programmazione sui temi di wordpress
-	     *
-	     * @return void
-	     */
+		 * Richiamo gli script per la definizione dei moduli e delle funzioni PHP 
+		 * da poter utilizzare direttamente in fase di programmazione sui temi di wordpress
+		 *
+		 * @return void
+		 */
 		function includeModules() 
 		{
 			$SZ_GOOGLE_MODULE = new SZGoogleModuleInit();			
@@ -102,11 +102,11 @@ if (!class_exists('SZGooglePluginInit'))
 		}
 
 		/**
-	     * Richiamo gli script per integrazine plugin con il pannello di amministrazione,
-	     * viene aggiunto un menu dedicato al plugin con tutte le opzioni collegate ai moduli
-	     *
-	     * @return void
-	     */
+		 * Richiamo gli script per integrazine plugin con il pannello di amministrazione,
+		 * viene aggiunto un menu dedicato al plugin con tutte le opzioni collegate ai moduli
+		 *
+		 * @return void
+		 */
 		function includeAdmin() 
 		{
 			if (is_admin()) new SZGoogleAdminBase();

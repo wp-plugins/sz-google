@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-analytics.png';
+$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-analytics.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -25,24 +25,21 @@ him monitoring and collection of information related to visitors.</p>
 
 <p>Through this module present in the SZ-plugin Google can do the same thing without knowing any aspect of programming that covers 
 HTML or PHP. In fact, just enter the required information and the code will be entered manually on your web pages. Obviously you 
-already have a valid account on google analytics. See <a target="_blank" href="www.google.com/analytics/‎">www.google.com/analytics/‎</a></p>
+already have a valid account on google analytics. See <a target="_blank" href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>.</p>
 
 <h2>Module activation</h2>
 
-<p>Una volta che avete verificato di avere un’account valido in google analytics potete attivare il modulo nella sezione generale del
-plugin ed inserire il codice UA da associare al monitoraggio. Controllate bene anche i parametri di abilitazione per scegliere quando
-il plugin deve inserire il monitoraggio, ad esempio solo nel frontend o anche nel pannello di amministrazione ? Possiamo anche escludere 
-gli accessi fatti dagli amministratori o dagli utenti loggati per non aumentare le statistiche con i nostri accessi, i quali potrebbero 
-falsare le medie che dobbiamo analizzare e ci potrebbero far sbagliare le nostre previsioni.<p>
+<p>Once you verified you have got a valid Google Analytics account you can go on activating the specific module into plugin’s 
+general section and you can insert the monitoring related UA code. Double check your options to choose when the plugin should put 
+the monitoring on, do you need it only in front-end pages or into administration panel too? You can also exclude administrators 
+access or logged users access from monitoring in order not to have them counted into your statistics and falsify your results.</p>
 
 <h2>Tracking code</h2>
 
-<p>Il codice per default viene inserito nella sezione &lt;head&gt; della pagina HTML, esattamente dove google raccomanda di 
-inserirlo, in ogni caso è possibile modificare questo comportamento e specificare di inserirlo in fondo alla pagina o manualmente 
-utilizzando una funzione PHP che potete inserire in qualsiasi punto della vostra pagina HTML, magari aggiungendo anche dei controlli 
-personalizzati per includere o escludere il monitoraggio. La funzione da usare per l’inserimento manuale è chiamata 
-<b>szgoogle_get_ga_code()</b> e non necessita di nessun parametro particolare, basta richiamarla con il comando “echo” 
-in qualsiasi parte del vostro tema.</p>
+<p>By default the code is written into the &lt;head&gt; section of your HTML page, in the exact position recommended by Google, 
+anyway you can modify this feature and decide to put it on the bottom of page or manually using a PHP function you can insert 
+anywhere in your page code, even adding some custom PHP conditions to include or exclude monitoring. Manual insert can be made 
+using <b>szgoogle_get_ga_code()</b> function; it doesn’t need parameters and can be invoked anywhere in your theme.</p>
 
 <pre>
 if (function_exists('szgoogle_get_ga_code')) {
@@ -52,16 +49,16 @@ if (function_exists('szgoogle_get_ga_code')) {
 
 <h2>Universal Analytics</h2>
 
-<p>Google ha rilasciato un nuovo codice di monitoraggio chiamato Universal Analytics che introduce una serie di caratteristiche che
-cambiano il modo in cui i dati sono raccolti e organizzati nel tuo account di Google Analytics, in modo da poter ottenere una migliore
-comprensione dei contenuti online. Per tutti i siti web che sono stati configurati nel vecchio metodo si necessità di una conversione
-che viene fatta direttamente dal pannello di amministrazione di GA. Solo dopo questa conversione potete attivare l'opzione di Universal
-Analytics sul plugin SZ-Google che in ogni caso gestisce automaticamente sia il vecchio codice che il nuovo.</p>
+<p>Google has released a new tracking code called the Universal Analytics, which introduces a number of features that change the way 
+in which data are collected and organized in your Google Analytics account, so you can get a better understanding of online content. 
+For all the websites that have been configured in the old method is the need for a conversion that is made directly from the admin 
+panel of the GA. Only after this conversion can activate the option of Universal Analytics on plugin SZ-Google which in any case 
+automatically manages both the old and the new code.</p>
 
 <h2>Screenshot</h2>
 
-<p>Via allego una schermata che riporta alcuni grafici presenti su google analytics, uno strumento indispensabile per tutti i
-proprietari di siti web e ancora di più per i webmaster che li gestiscono.</p>
+<p>I am attaching a screen that shows some graphs found on google analytics, an indispensable tool for all website owners and even 
+more to webmasters who run them. Visit official site <a target="_blank" href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>.</p>
 
 <img class="screen" src="$IMAGE1" alt=""/>
 

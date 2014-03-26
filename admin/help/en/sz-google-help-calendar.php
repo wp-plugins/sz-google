@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-calendar.png';
+$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-calendar.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -19,9 +19,9 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-calendar.png';
  */
 $HTML = <<<EOD
 
-<p>Tramite questa funzione è possibile inserire in embed sul proprio sito il calendario di google. Potete specificare anche diversi 
-calendari, basta specificare nel parametro <b>"calendar"</b> una stringa con il nomi dei calendari separati da una virgola. Se non
-viene specificato nessun calendario sarà utilizzato quello memorizzato nella configurazione generale.</p>
+<p>With this function you can put in on your site embed the google calendar. You can also specify different calendars, 
+just specify the parameter <b>"calendar"</b> a string with the calendar names separated by a comma. If you do not specify a calendar 
+that will be used is stored in the general configuration.</p>
 
 <p>To add this module you have to use the shortcode <b>[sz-calendar]</b>, but if you want to use it in a sidebar then you have to use 
 the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
@@ -37,21 +37,21 @@ format option = "value". If you would like additional information you can visit 
 <h2>Parameters and options</h2>
 
 <table>
-	<tr><th>Parameter</th>     <th>Description</th>            <th>Allowed values</th>    <th>Default</th></tr>
-	<tr><td>calendar</td>      <td>calendario</td>             <td>stringa</td>           <td>configurazione</td></tr>
-	<tr><td>title</td>         <td>titolo</td>                 <td>stringa</td>           <td>configurazione</td></tr>
-	<tr><td>mode</td>          <td>modalità</td>               <td>AGENDA,WEEK,MONTH</td> <td>configurazione</td></tr>
-	<tr><td>weekstart</td>     <td>partenza su settimana</td>  <td>1,2,7</td>             <td>configurazione</td></tr>
-	<tr><td>language</td>      <td>lingua</td>                 <td>stringa</td>           <td>configurazione</td></tr>
-	<tr><td>timezone</td>      <td>zona oraria</td>            <td>stringa</td>           <td>configurazione</td></tr>
-	<tr><td>width</td>         <td>larghezza</td>              <td>valore,auto</td>       <td>configurazione</td></tr>
-	<tr><td>height</td>        <td>altezza</td>                <td>valore</td>            <td>configurazione</td></tr>
-	<tr><td>showtitle</td>     <td>visualizza titolo</td>      <td>yes,no</td>            <td>configurazione</td></tr>
-	<tr><td>shownavs</td>      <td>visualizza navigatore</td>  <td>yes,no</td>            <td>configurazione</td></tr>
-	<tr><td>showdate</td>      <td>visualizza data</td>        <td>yes,no</td>            <td>configurazione</td></tr>
-	<tr><td>showprint</td>     <td>visualizza stampa</td>      <td>yes,no</td>            <td>configurazione</td></tr>
-	<tr><td>showcalendars</td> <td>visualizza calendario</td>  <td>yes,no</td>            <td>configurazione</td></tr>
-	<tr><td>showtimezone</td>  <td>visualizza zona oraria</td> <td>yes,no</td>            <td>configurazione</td></tr>
+	<tr><th>Parameter</th>     <th>Description</th>       <th>Allowed values</th>    <th>Default</th></tr>
+	<tr><td>calendar</td>      <td>calendar</td>          <td>string</td>            <td>configuration</td></tr>
+	<tr><td>title</td>         <td>title</td>             <td>string</td>            <td>configuration</td></tr>
+	<tr><td>mode</td>          <td>agenda mode</td>       <td>AGENDA,WEEK,MONTH</td> <td>configuration</td></tr>
+	<tr><td>weekstart</td>     <td>day start of week</td> <td>1,2,7</td>             <td>configuration</td></tr>
+	<tr><td>language</td>      <td>language</td>          <td>string</td>            <td>configuration</td></tr>
+	<tr><td>timezone</td>      <td>timezone</td>          <td>string</td>            <td>configuration</td></tr>
+	<tr><td>width</td>         <td>width</td>             <td>value,auto</td>        <td>configuration</td></tr>
+	<tr><td>height</td>        <td>height</td>            <td>value</td>             <td>configuration</td></tr>
+	<tr><td>showtitle</td>     <td>display title</td>     <td>yes,no</td>            <td>configuration</td></tr>
+	<tr><td>shownavs</td>      <td>display navigator</td> <td>yes,no</td>            <td>configuration</td></tr>
+	<tr><td>showdate</td>      <td>display date</td>      <td>yes,no</td>            <td>configuration</td></tr>
+	<tr><td>showprint</td>     <td>display print</td>     <td>yes,no</td>            <td>configuration</td></tr>
+	<tr><td>showcalendars</td> <td>display calendar</td>  <td>yes,no</td>            <td>configuration</td></tr>
+	<tr><td>showtimezone</td>  <td>display timezone</td>  <td>yes,no</td>            <td>configuration</td></tr>
 </table>
 
 <h2>Shortcode example</h2>
@@ -103,8 +103,8 @@ EOD;
  * Definizione array per la creazione del navigatore di fondo
  * con i link seguenti e precedenti della documentazione
  */
-$prev = array('title'=>__('analytics PHP functions','szgoogleadmin'),'slug'=>'sz-google-help-ga-functions.php');
-$next = array('title'=>__('drive save button'      ,'szgoogleadmin'),'slug'=>'sz-google-help-drive-save.php');
+$prev = array('title'=>__('authenticator device','szgoogleadmin'),'slug'=>'sz-google-help-autenticator-device.php');
+$next = array('title'=>__('drive save button'   ,'szgoogleadmin'),'slug'=>'sz-google-help-drive-save.php');
 
 $HTML .= $this->moduleAddHelpNavs($prev,$next);
 

@@ -37,7 +37,7 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 				'sz-google-admin-panoramio-w-options.php' => ucwords(__('default options for widget','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google panoramio configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_panoramio';
 
 			// Richiamo la funzione della classe padre per elaborare le

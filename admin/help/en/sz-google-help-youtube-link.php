@@ -1,17 +1,4 @@
 <?php 
-
-
-	$shortcode = array(
-	); 
-
-	// Definizione elenco delle funzioni presenti nella documentazione 
-	// di questo modulo, il nome verrà visualizzato accanto al titolo
-
-	$functions = array(
-		'03' => 'szgoogle_get_youtube_code_badge()',
-		'04' => 'szgoogle_get_youtube_code_button()',
-		'05' => 'szgoogle_get_youtube_code_link()',
-	); 
 /**
  * Controllo se il file viene richiamato direttamente senza
  * essere incluso dalla procedura standard del plugin.
@@ -24,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-youtube-link.png';
+$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-youtube-link.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa

@@ -166,8 +166,8 @@ function sz_google_module_groups_get_code_iframe($atts=array())
 	// prima praparo il codice del bottone singolo e poi chiamo funzione di wrapping
 
 	$HTML  = '<script type="text/javascript">';
-	$HTML .= "document.write('";
-	$HTML .= '<iframe src="https://groups.google.com/forum/embed/?place='.urlencode('forum/'.$name);
+	$HTML .= "var h='<'+'";
+	$HTML .= 'iframe src="https://groups.google.com/forum/embed/?place='.urlencode('forum/'.$name);
 	$HTML .= '&amp;hl='.$hl;
 	$HTML .= '&amp;showsearch='.$showsearch;
 	$HTML .= '&amp;showtabs='.$showtabs;
@@ -192,7 +192,8 @@ function sz_google_module_groups_get_code_iframe($atts=array())
 	$HTML .= 'height="'.$height.'" ';
 	$HTML .= 'style="border-width:0" ';
 	$HTML .= 'frameborder="0" scrolling="no"';
-	$HTML .= '></iframe>'."');";
+	$HTML .= "></'+'iframe'+'>';";
+	$HTML .= "document.write(h);";
 	$HTML .= '</script>';
 
 	// Ritorno per la funzione con tutta la stringa contenente

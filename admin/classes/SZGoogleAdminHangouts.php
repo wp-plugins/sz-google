@@ -35,7 +35,7 @@ if (!class_exists('SZGoogleAdminHangouts'))
 				'sz-google-admin-hangouts-start.php' => ucwords(__('hangouts start button','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google hangouts configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_hangouts';
 
 			// Richiamo la funzione della classe padre per elaborare le

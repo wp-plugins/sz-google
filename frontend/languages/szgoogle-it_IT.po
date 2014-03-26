@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogle\n"
-"POT-Creation-Date: 2014-03-02 13:50-0500\n"
-"PO-Revision-Date: 2014-03-02 13:51-0500\n"
+"POT-Creation-Date: 2014-03-23 16:00-0500\n"
+"PO-Revision-Date: 2014-03-23 16:02-0500\n"
 "Last-Translator: Massimo <massimo@startbyzero.com>\n"
 "Language-Team: wpitalyplus <wpitalyplus@gmail.com>\n"
 "Language: it_IT\n"
@@ -1451,26 +1451,38 @@ msgstr ""
 msgid "(GMT+14:00) Kiritimati"
 msgstr ""
 
-#: ../../modules/sz-google-module-plus.php:1515
-#: ../../modules/sz-google-module-plus.php:1705
-msgid "leave a Reply"
-msgstr "lascia un commento"
-
-#: ../../modules/sz-google-module-youtube.php:410
+#: ../../classes/modules/SZGoogleModuleYoutube.php:410
 msgid "youtube URL string specified is not valid."
 msgstr "stringa specificata per URL youtube non è valida."
 
-#: ../../modules/sz-google-module-youtube.php:483
+#: ../../classes/modules/SZGoogleModuleYoutube.php:483
 msgid "youtube video"
 msgstr "video youtube"
 
-#: ../../modules/sz-google-module-youtube.php:924
+#: ../../classes/modules/SZGoogleModuleYoutube.php:924
 msgid "channel youtube"
 msgstr "canale youtube"
 
-#: ../../modules/sz-google-module-youtube.php:1091
+#: ../../classes/modules/SZGoogleModuleYoutube.php:1091
 msgid "youtube playlist ID is not valid."
 msgstr "codice specificato su ID playlist non è valido."
+
+#: ../../classes/modules/SZGoogleModulePlus.php:1515
+#: ../../classes/modules/SZGoogleModulePlus.php:1705
+msgid "leave a Reply"
+msgstr "lascia un commento"
+
+#: ../../classes/modules/SZGoogleModuleAuthenticator.php:140
+msgid "<strong>ERROR</strong>: Authenticator code is incorrect."
+msgstr "<strong>ERROR</strong>: Codice Authenticator non corretto."
+
+#: ../../classes/modules/SZGoogleModuleAuthenticator.php:258
+msgid "If you don't use Authenticator leave this field empty."
+msgstr "Lascia questo campo vuoto se non usi Authenticator"
+
+#: ../../classes/modules/SZGoogleModuleAuthenticator.php:258
+msgid "google authenticator code"
+msgstr "codice google authenticator"
 
 #~ msgid "SZ-Google - Translate"
 #~ msgstr "SZ-Google - Translate"
@@ -2423,9 +2435,6 @@ msgstr "codice specificato su ID playlist non è valido."
 
 #~ msgid "google analytics get account ID"
 #~ msgstr "google analytics account ID"
-
-#~ msgid "google analytics get tracking code"
-#~ msgstr "google analytics codice di tracciamento"
 
 #~ msgid "documentation for PHP functions"
 #~ msgstr "documentazione  per funzioni PHP"

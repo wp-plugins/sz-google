@@ -36,7 +36,7 @@ if (!class_exists('SZGoogleAdminDrive'))
 				'sz-google-admin-drive-savebutton-enable.php' => ucwords(__('save to drive button','szgoogleadmin')),
 			);
 
-			$this->sectionstitle   = ucfirst(__('google drive configuration','szgoogleadmin'));
+			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_drive';
 
 			// Richiamo la funzione della classe padre per elaborare le

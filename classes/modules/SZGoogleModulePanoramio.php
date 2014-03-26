@@ -260,13 +260,13 @@ function sz_google_module_panoramio_get_code($atts=array())
 
 	$HTML  = '<div class="sz-google-panoramio">';
 	$HTML .= '<div class="sz-google-panoramio-wrap">';
-	$HTML .= '<div class="sz-google-panoramio-iframe" id="'.$keyIDs.'"></div>';
+	$HTML .= '<div class="sz-google-panoramio-iframe" id="'.$keyIDs.'">';
 
 	$HTML .= '<script type="text/javascript">';
 	$HTML .= "var w=document.getElementById('".$keyIDs."').offsetWidth;";
-	$HTML .= "document.write('";
+	$HTML .= "var h='<'+'";
 
-	$HTML .= '<iframe src="https://ssl.panoramio.com/wapi/template/'.$template.'.html?';
+	$HTML .= 'iframe src="https://ssl.panoramio.com/wapi/template/'.$template.'.html?';
 	$HTML .= 'width='       .$width;
 	$HTML .= '&height='     .$height;
 	$HTML .= '&bgcolor='    .rawurlencode($bgcolor);
@@ -290,9 +290,11 @@ function sz_google_module_panoramio_get_code($atts=array())
 	$HTML .= 'scrolling="no" frameborder="0" marginwidth="0" marginheight="0" ';
  	$HTML .= 'width="'.$width.'" ';
 	$HTML .= 'height="'.$height.'"';
-	$HTML .= '></iframe>'."');";
+	$HTML .= "></'+'iframe'+'>';";
+	$HTML .= "document.write(h);";
 	$HTML .= '</script>';
 
+	$HTML .= '</div>';
 	$HTML .= '</div>';
 	$HTML .= '</div>';
 

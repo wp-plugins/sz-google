@@ -53,16 +53,17 @@ if (!class_exists('SZGoogleModuleInit'))
 		 */
 		function loadModules() 
 		{
-			if ($this->options['plus']      == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModulePlus();
-			if ($this->options['analytics'] == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleAnalytics();
-			if ($this->options['calendar']  == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleCalendar();
-			if ($this->options['drive']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleDrive();
-			if ($this->options['fonts']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleFonts();
-			if ($this->options['groups']    == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleGroups();
-			if ($this->options['hangouts']  == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleHangouts();
-			if ($this->options['panoramio'] == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModulePanoramio();
-			if ($this->options['translate'] == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleTranslate();
-			if ($this->options['youtube']   == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleYoutube();
+			if ($this->options['plus']          == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModulePlus();
+			if ($this->options['analytics']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleAnalytics();
+			if ($this->options['authenticator'] == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleAuthenticator();
+			if ($this->options['calendar']      == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleCalendar();
+			if ($this->options['drive']         == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleDrive();
+			if ($this->options['fonts']         == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleFonts();
+			if ($this->options['groups']        == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleGroups();
+			if ($this->options['hangouts']      == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleHangouts();
+			if ($this->options['panoramio']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModulePanoramio();
+			if ($this->options['translate']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleTranslate();
+			if ($this->options['youtube']       == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleModuleYoutube();
 		}
 	}
 }

@@ -40,6 +40,7 @@ if (!class_exists('SZGoogleAdminBase'))
 
 			if ($options['plus']          == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminPlus();
 			if ($options['analytics']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminAnalytics();
+			if ($options['authenticator'] == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminAuthenticator();
 			if ($options['calendar']      == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminCalendar();
 			if ($options['drive']         == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminDrive();
 			if ($options['fonts']         == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminFonts();
@@ -100,6 +101,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			add_settings_section('sz_google_base_section',$this->null,$this->callbacksection,SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG);
 			add_settings_field('plus',ucfirst(__('google+','szgoogleadmin')),array($this,'get_base_plus'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
 			add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),array($this,'get_base_analytics'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
+			add_settings_field('authenticator',ucwords(__('google authenticator','szgoogleadmin')),array($this,'get_base_authenticator'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
 			add_settings_field('calendar',ucwords(__('google calendar','szgoogleadmin')),array($this,'get_base_calendar'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
 			add_settings_field('drive',ucwords(__('google drive','szgoogleadmin')),array($this,'get_base_drive'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
 			add_settings_field('fonts',ucwords(__('google fonts','szgoogleadmin')),array($this,'get_base_fonts'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
@@ -149,6 +151,12 @@ if (!class_exists('SZGoogleAdminBase'))
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_base','analytics');
 			$this->moduleCommonFormDescription(__('activating this module can handle the tracking code present in google analytics, so as to store the access statistics related to our website. Once you have entered the tracking code, you can view hundreds of statistics from the admin panel of google analytics.','szgoogleadmin'));
+		}
+
+		function get_base_authenticator() 
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_base','authenticator');
+			$this->moduleCommonFormDescription(__('with this module you can enable two-factor authentication to be added to the standard wordpress. Before starting this option carefully read the documentation. Each authorized user must synchronize the code with a mobile device.','szgoogleadmin'));
 		}
 
 		function get_base_calendar()

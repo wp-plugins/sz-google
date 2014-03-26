@@ -169,14 +169,17 @@ if (!class_exists('SZGoogleModuleHangouts'))
 
 			$HTML  = '<script type="text/javascript">';
 			$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
-			$HTML .= "document.write('";
-			$HTML .= '<div class="g-hangout" data-render="createhangout"';
+			$HTML .= "var h='<'+'";
+
+			$HTML .= 'div class="g-hangout"';
+			$HTML .= ' data-render="createhangout"';
 			$HTML .= ' data-hangout_type="'.$type .'"';
 			$HTML .= ' data-widget_size="' .$width.'"';
 
 			if ($topic != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= ' data-topic="'.$topic.'"';
 
-			$HTML .= '></div>'."');";
+			$HTML .= "></'+'div'+'>';";
+			$HTML .= "document.write(h);";
 			$HTML .= '</script>';
 
 			// Creazione codice HTML con funzione di wrapping comune a tutti i bottoni in maniera

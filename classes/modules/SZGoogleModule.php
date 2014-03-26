@@ -20,23 +20,24 @@ if (!class_exists('SZGoogleModule'))
 		 * Definizione delle variabili che contengono il puntatore
 		 * oggetto al modulo di riferimento se attivato
 		 */
-		public static $SZGoogleModulePlus      = false;
-		public static $SZGoogleModuleAnalytics = false;
-		public static $SZGoogleModuleCalendar  = false;
-		public static $SZGoogleModuleDrive     = false;
-		public static $SZGoogleModuleGroups    = false;
-		public static $SZGoogleModuleFonts     = false;
-		public static $SZGoogleModuleHangouts  = false;
-		public static $SZGoogleModulePanoramio = false;
-		public static $SZGoogleModuleTranslate = false;
-		public static $SZGoogleModuleYoutube   = false;
+		public static $SZGoogleModulePlus          = false;
+		public static $SZGoogleModuleAuthenticator = false;
+		public static $SZGoogleModuleAnalytics     = false;
+		public static $SZGoogleModuleCalendar      = false;
+		public static $SZGoogleModuleDrive         = false;
+		public static $SZGoogleModuleGroups        = false;
+		public static $SZGoogleModuleFonts         = false;
+		public static $SZGoogleModuleHangouts      = false;
+		public static $SZGoogleModulePanoramio     = false;
+		public static $SZGoogleModuleTranslate     = false;
+		public static $SZGoogleModuleYoutube       = false;
 
 		/**
 		 * Definizione delle variabili per controllare se
 		 * javascript in footer con script è già stato caricato
 		 */
-		public static $JavascriptPlusone       = false;
-		public static $JavascriptPlatform      = false;
+		public static $JavascriptPlusone  = false;
+		public static $JavascriptPlatform = false;
 
 		/**
 		 * Definizione delle variabili che contengono le configurazioni
@@ -51,16 +52,17 @@ if (!class_exists('SZGoogleModule'))
 		 */
 		function __construct($classname="")
 		{
-			if ($classname == 'SZGoogleModulePlus')        self::$SZGoogleModulePlus      = $this;
-			if ($classname == 'SZGoogleModuleAnalytics')   self::$SZGoogleModuleAnalytics = $this;
-			if ($classname == 'SZGoogleModuleCalendar')    self::$SZGoogleModuleCalendar  = $this;
-			if ($classname == 'SZGoogleModuleDrive')       self::$SZGoogleModuleDrive     = $this;
-			if ($classname == 'SZGoogleModuleFonts')       self::$SZGoogleModuleFonts     = $this;
-			if ($classname == 'SZGoogleModuleGroups')      self::$SZGoogleModuleGroups    = $this;
-			if ($classname == 'SZGoogleModuleHangouts')    self::$SZGoogleModuleHangouts  = $this;
-			if ($classname == 'SZGoogleModulePanoramio')   self::$SZGoogleModulePanoramio = $this;
-			if ($classname == 'SZGoogleModuleTranslate')   self::$SZGoogleModuleTranslate = $this;
-			if ($classname == 'SZGoogleModuleYoutube')     self::$SZGoogleModuleYoutube   = $this;
+			if ($classname == 'SZGoogleModulePlus')          self::$SZGoogleModulePlus          = $this;
+			if ($classname == 'SZGoogleModuleAnalytics')     self::$SZGoogleModuleAnalytics     = $this;
+			if ($classname == 'SZGoogleModuleAuthenticator') self::$SZGoogleModuleAuthenticator = $this;
+			if ($classname == 'SZGoogleModuleCalendar')      self::$SZGoogleModuleCalendar      = $this;
+			if ($classname == 'SZGoogleModuleDrive')         self::$SZGoogleModuleDrive         = $this;
+			if ($classname == 'SZGoogleModuleFonts')         self::$SZGoogleModuleFonts         = $this;
+			if ($classname == 'SZGoogleModuleGroups')        self::$SZGoogleModuleGroups        = $this;
+			if ($classname == 'SZGoogleModuleHangouts')      self::$SZGoogleModuleHangouts      = $this;
+			if ($classname == 'SZGoogleModulePanoramio')     self::$SZGoogleModulePanoramio     = $this;
+			if ($classname == 'SZGoogleModuleTranslate')     self::$SZGoogleModuleTranslate     = $this;
+			if ($classname == 'SZGoogleModuleYoutube')       self::$SZGoogleModuleYoutube       = $this;
  		}
 
 		/**

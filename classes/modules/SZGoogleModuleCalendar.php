@@ -326,13 +326,14 @@ if (!class_exists('SZGoogleModuleCalendar'))
 			// prima praparo il codice del bottone singolo e poi chiamo funzione di wrapping
 
 			$HTML  = '<script type="text/javascript">';
-			$HTML .= "document.write('";
-			$HTML .= '<iframe src="https://www.google.com/calendar/embed?'.implode("&amp;",$URLarray).'" ';
+			$HTML .= "var h='<'+'";
+			$HTML .= 'iframe src="https://www.google.com/calendar/embed?'.implode("&amp;",$URLarray).'" ';
 			$HTML .= 'style="border-width:0" ';
 			$HTML .= 'width="' .$width .'" ';
 			$HTML .= 'height="'.$height.'" ';
 			$HTML .= 'frameborder="0" scrolling="no"';
-			$HTML .= '></iframe>'."');";
+			$HTML .= "></'+'iframe'+'>';";
+			$HTML .= "document.write(h);";
 			$HTML .= '</script>';
 
 			// Ritorno per la funzione con tutta la stringa contenente

@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-analytics.png';
+$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-analytics.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -60,7 +60,7 @@ Analytics sul plugin SZ-Google che in ogni caso gestisce automaticamente sia il 
 
 <h2>Schermata</h2>
 
-<p>Via allego una schermata che riporta alcuni grafici presenti su google analytics, uno strumento indispensabile per tutti i
+<p>Vi allego una schermata che riporta alcuni grafici presenti su google analytics, uno strumento indispensabile per tutti i
 proprietari di siti web e ancora di più per i webmaster che li gestiscono.</p>
 
 <img class="screen" src="$IMAGE1" alt=""/>
