@@ -15,7 +15,7 @@ Plugin to integrate Google's products in WordPress with particular attention for
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote. In any case, we will always be willing to consider new requests for anyone who wants to ask for a new feature to be developed in the plugin. Write all your requests on our <a href="https://plus.google.com/communities/109254048492234113886">official community</a>.
 
-To be informed about the features that gradually will be released you can follow this link page <a href="https://wpitalyplus.com/sz-google/">sz-google for wordpress</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
+To be informed about the features that gradually will be released you can follow this link page <a href="https://wpitalyplus.com/sz-google/">sz-google for wordpress</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WP Italyplus</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
 
 = Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -65,7 +65,7 @@ To be informed about the features that gradually will be released you can follow
 * `Widget google+ comments system`
 * `Widget google+ embedded posts`
 
-**Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the <a href="https://wpitalyplus.com/sz-google/">official documentation</a>.
+**Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
 * `[sz-gplus-profile] ..: g+ profile`
 * `[sz-gplus-page] .....: g+ page`
@@ -92,7 +92,7 @@ To be informed about the features that gradually will be released you can follow
 = Google Analytics module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-**Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website. You can choose to hide the code when using the administration panel, or when a user is connected to both as a normal user or as an administrator. For more informations see <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-modulo-google-analytics/">official documentation</a>.
+**Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website. You can choose to hide the code when using the administration panel, or when a user is connected.
 
 * `Google analytics classic and universal.`
 * `Google analytics enable frontend.`
@@ -109,6 +109,23 @@ To be informed about the features that gradually will be released you can follow
 
 * `szgoogle_get_ga_ID()`
 * `szgoogle_get_ga_code()`
+
+= Google Authenticator module =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+**Google Authenticator:** The plugin provides the authorization process in two phases designed by google authenticator, it is possible to 
+strengthen the security of our login screen asking for a code-time in addition to the normal credentials. This is made ​​possible by 
+the Google Authenticator that you can install on our smartphones whether it's an iphone, android or blackberry. As we will see below 
+the configuration and synchronization of the key will be performed quickly and easily using a code QR Code to display on your device.
+
+**Google Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
+
+* `szgoogle_authenticator_get_object()`
+* `szgoogle_authenticator_get_secret()`
+* `szgoogle_authenticator_get_login_field()`
+* `szgoogle_authenticator_verify_code()`
+* `szgoogle_authenticator_create_secret()`
+* `szgoogle_authenticator_create_secret_backup()`
 
 = Google Drive module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
