@@ -118,7 +118,7 @@ strengthen the security of our login screen asking for a code-time in addition t
 the Google Authenticator that you can install on our smartphones whether it's an iphone, android or blackberry. As we will see below 
 the configuration and synchronization of the key will be performed quickly and easily using a code QR Code to display on your device.
 
-**Google Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
+**Google Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_authenticator_get_object()`
 * `szgoogle_authenticator_get_secret()`
