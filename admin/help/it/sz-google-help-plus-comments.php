@@ -27,7 +27,7 @@ della pagina visualizzata, però è possibile cambiare questo comportamento tram
 
 <p>Per inserire un widget di commenti dovete usare lo shortcode <b>[sz-gplus-comments]</b>, se invece desiderate utilizzarlo
 in una sidebar dovete utilizzare il widget che trovate nel menu aspetto -> widgets. Per i più esigenti esiste anche un'altra 
-possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin <b>szgoogle_get_gplus_comments(\$options)</b>.</p>
+possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin <b>szgoogle_gplus_get_comments(\$options)</b>.</p>
 
 <h2>Configurazione commenti</h2>
 
@@ -78,8 +78,8 @@ in questa maniera non si avranno errori PHP in caso di plugin disattivato o disi
   'align' => 'center',
 );
 
-if (function_exists('szgoogle_get_gplus_comments')) {
-  echo szgoogle_get_gplus_comments(\$options);
+if (function_exists('szgoogle_gplus_get_comments')) {
+  echo szgoogle_gplus_get_comments(\$options);
 }
 </pre>
 
@@ -100,16 +100,7 @@ attivata tramite il campo opzione dedicato che trovate nel pannello di amministr
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('google+ button follow','szgoogleadmin'),'slug'=>'sz-google-help-plus-follow.php');
-$next = array('title'=>__('google+ embedded post','szgoogleadmin'),'slug'=>'sz-google-help-plus-post.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('google+ widget comments','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('google+ widget comments','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

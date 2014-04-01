@@ -27,7 +27,7 @@ a persone che parlano altre lingue e non si ha la possibilità di eseguire delle
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-gtranslate]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin 
-<b>szgoogle_get_translate_code(\$options)</b>.</p>
+<b>szgoogle_translate_get_code(\$options)</b>.</p>
 
 <h2>Configurazione</h2>
 
@@ -78,8 +78,8 @@ in questa maniera non si avranno errori PHP in caso di plugin disattivato o disi
   'automatic' => 'yes',
 );
 
-if (function_exists('szgoogle_get_translate_code')) {
-  echo szgoogle_get_translate_code(\$options);
+if (function_exists('szgoogle_translate_get_code')) {
+  echo szgoogle_translate_get_code(\$options);
 }
 </pre>
 
@@ -100,16 +100,7 @@ risulti attivata tramite il campo opzione dedicato che trovate nel pannello di a
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('widget panoramio'       ,'szgoogleadmin'),'slug'=>'sz-google-help-panoramio.php');
-$next = array('title'=>__('translate PHP functions','szgoogleadmin'),'slug'=>'sz-google-help-translate-functions.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('translate setup','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('translate setup','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

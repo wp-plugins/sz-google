@@ -25,7 +25,7 @@ widget dei gruppi presenti su google. Per ottenere ulteriori informazioni sui gr
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-ggroups]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP chiamata 
-<b>szgoogle_get_groups_code(\$options)</b>.</p>
+<b>szgoogle_groups_get_code(\$options)</b>.</p>
 
 <h2>Personalizzazione</h2>
 
@@ -72,8 +72,8 @@ in questa maniera non si avranno errori PHP in caso di plugin disattivato o disi
   'showtabs'=> 'true',
 );
 
-if (function_exists('szgoogle_get_groups_code')) {
-  echo szgoogle_get_groups_code(\$options);
+if (function_exists('szgoogle_groups_get_code')) {
+  echo szgoogle_groups_get_code(\$options);
 }
 </pre>
 
@@ -94,16 +94,7 @@ attivata tramite il campo opzione dedicato che trovate nel pannello di amministr
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('drive save button'   ,'szgoogleadmin'),'slug'=>'sz-google-help-drive-save.php');
-$next = array('title'=>__('hangout start button','szgoogleadmin'),'slug'=>'sz-google-help-hangout-start.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('google groups','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('google groups','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

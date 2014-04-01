@@ -151,7 +151,7 @@ if (!class_exists('SZGoogleAdminCalendar'))
 		function get_calendar_s_enable()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_calendar','calendar_s_enable');
-			$this->moduleCommonFormDescription(__('if you enable this option you can use the shortcode [sz-calendar] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(sprintf(__('if you enable this option you can use the shortcode %s and enter the corresponding component directly in your article or page. Normally in the shortcodes can be specified the options for customizations.','szgoogleadmin'),'[sz-calendar]'));
 		}
 
 		function get_calendar_s_calendars()

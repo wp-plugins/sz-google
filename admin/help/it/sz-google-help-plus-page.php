@@ -21,7 +21,7 @@ se ad esempio lo desideri inserire dentro un'articolo o nel contenuto di un qual
 messo a disposizione <b>[sz-gplus-page]</b>, se invece desideri utilizzarlo in una sidebar allora devi utilizzare il
 widget sviluppato per questa funzione che trovi nel menu aspetto -> widgets. Per i più esigenti esiste anche un'altra
 possibilità che permette l'inserimento del badge in qualsiasi parte del vostro tema, infatti basta utilizzare una
-funzione PHP messa a disposizione dal plugin <b>szgoogle_get_gplus_badge_page(\$options)</b>.</p>
+funzione PHP messa a disposizione dal plugin <b>szgoogle_gplus_get_badge_page(\$options)</b>.</p>
 
 <h2>Personalizzazione</h2>
 
@@ -88,8 +88,8 @@ in questa maniera non si avranno errori PHP in caso di plugin disattivato o disi
   'layout' => 'portrait'
 );
 
-if (function_exists('szgoogle_get_gplus_badge_page')) {
-  echo szgoogle_get_gplus_badge_page(\$options);
+if (function_exists('szgoogle_gplus_get_badge_page')) {
+  echo szgoogle_gplus_get_badge_page(\$options);
 }
 </pre>
 
@@ -110,16 +110,7 @@ attivata tramite il campo opzione dedicato che trovate nel pannello di amministr
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('google+ badge profile'  ,'szgoogleadmin'),'slug'=>'sz-google-help-plus-profile.php');
-$next = array('title'=>__('google+ badge community','szgoogleadmin'),'slug'=>'sz-google-help-plus-community.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('google+ badge page','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('google+ badge page','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

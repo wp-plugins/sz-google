@@ -26,7 +26,7 @@ viene specificato nessun calendario sarà utilizzato quello memorizzato nella co
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-calendar]</b>, se invece desiderate utilizzarlo in una sidebar 
 allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin 
-<b>szgoogle_get_calendar(\$options)</b>.</p>
+<b>szgoogle_calendar_get_widget(\$options)</b>.</p>
 
 <h2>Personalizzazione</h2>
 
@@ -81,8 +81,8 @@ in questa maniera non si avranno errori PHP in caso di plugin disattivato o disi
   'showdate'  => 'no'
 );
 
-if (function_exists('szgoogle_get_calendar_widget')) {
-  echo szgoogle_get_calendar_widget(\$options);
+if (function_exists('szgoogle_calendar_get_widget')) {
+  echo szgoogle_calendar_get_widget(\$options);
 }
 </pre>
 
@@ -103,16 +103,7 @@ attivata tramite il campo opzione dedicato che trovate nel pannello di amministr
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('authenticator device','szgoogleadmin'),'slug'=>'sz-google-help-autenticator-device.php');
-$next = array('title'=>__('drive save button'   ,'szgoogleadmin'),'slug'=>'sz-google-help-drive-save.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('widget calendar','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('widget calendar','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

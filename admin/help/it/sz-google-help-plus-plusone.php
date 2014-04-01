@@ -24,7 +24,7 @@ nella stessa pagina.</p>
 <p>Per inserire questo bottone dovete usare lo shortcode <b>[sz-gplus-one]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin 
-<b>szgoogle_get_gplus_button_one(\$options)</b>.</p>
+<b>szgoogle_gplus_get_button_one(\$options)</b>.</p>
 
 <h2>Personalizzazione</h2>
 
@@ -86,8 +86,8 @@ in questa maniera non si avranno errori PHP in caso di plugin disattivato o disi
   'annotation' => 'bubble',
 );
 
-if (function_exists('szgoogle_get_gplus_button_one')) {
-  echo szgoogle_get_gplus_button_one(\$options);
+if (function_exists('szgoogle_gplus_get_button_one')) {
+  echo szgoogle_gplus_get_button_one(\$options);
 }
 </pre>
 
@@ -108,16 +108,7 @@ attivata tramite il campo opzione dedicato che trovate nel pannello di amministr
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('google+ badge community','szgoogleadmin'),'slug'=>'sz-google-help-plus-community.php');
-$next = array('title'=>__('google+ button share'   ,'szgoogleadmin'),'slug'=>'sz-google-help-plus-share.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('google+ button +1','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('google+ button +1','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

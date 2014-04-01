@@ -17,6 +17,12 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 	class SZGoogleAdminDocumentation extends SZGoogleAdmin
 	{
 		/**
+		 * Definizione delle variabili che contengono le configurazioni
+		 * da applicare alle varie elaborazione della classe attuale
+		 */
+		protected $HelpIndexItems = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+		/**
 		 * Creazione del menu sul pannello di amministrazione usando
 		 * come valori di configurazione le variabili object
 		 *
@@ -52,6 +58,40 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			// variabili contenenti i valori di configurazione sezione
 
 			parent::moduleAddMenu();
+
+			// Creazione indice di documentazione per la composizione del navigatore
+
+			$this->HelpIndexItems = array(
+					array('slug'=>'sz-google-help-plus-profile.php'           ,'title'=>__('google+ badge profile'     ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-page.php'              ,'title'=>__('google+ badge page'        ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-community.php'         ,'title'=>__('google+ badge community'   ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-plusone.php'           ,'title'=>__('google+ button +1'         ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-share.php'             ,'title'=>__('google+ button share'      ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-follow.php'            ,'title'=>__('google+ button follow'     ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-comments.php'          ,'title'=>__('google+ widget comments'   ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-post.php'              ,'title'=>__('google+ embedded post'     ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-followers.php'         ,'title'=>__('google+ badge followers'   ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-author-publisher.php'  ,'title'=>__('google+ author & publisher','szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-redirect.php'          ,'title'=>__('google+ redirect'          ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-plus-recommendations.php'   ,'title'=>__('google+ recommendations'   ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-ga-setup.php'               ,'title'=>__('analytics setup'           ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-ga-functions.php'           ,'title'=>__('analytics PHP functions'   ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-authenticator-setup.php'    ,'title'=>__('authenticator setup'       ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-authenticator-functions.php','title'=>__('authenticator PHP'         ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-authenticator-device.php'   ,'title'=>__('authenticator device'      ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-calendar.php'               ,'title'=>__('widget calendar'           ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-drive-embed.php'            ,'title'=>__('drive embed'               ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-drive-viewer.php'           ,'title'=>__('drive viewer'              ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-drive-save.php'             ,'title'=>__('drive save button'         ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-groups.php'                 ,'title'=>__('widget groups'             ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-hangout-start.php'          ,'title'=>__('hangout start button'      ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-panoramio.php'              ,'title'=>__('widget panoramio'          ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-translate.php'              ,'title'=>__('translate setup'           ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-translate-functions.php'    ,'title'=>__('translate PHP functions'   ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-youtube-video.php'          ,'title'=>__('youtube video'             ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-youtube-playlist.php'       ,'title'=>__('youtube playlist'          ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-youtube-link.php'           ,'title'=>__('youtube link'              ,'szgoogleadmin')),
+			);
  		}
 
 		/**
@@ -127,27 +167,6 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzione per aggiungere il navigatore degli argomenti
-		 * in fondo alla pagina di help singola visualizzata
-		 */
-		function moduleAddHelpNavs($prev=NULL,$next=NULL)
-		{
-			if (!is_array($prev)) $CODEPREV = NULL;
-				else $CODEPREV = '<a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$prev['slug'].'""><-- '.ucfirst($prev['title']).'</a>';
-
-			if (!is_array($next)) $CODENEXT = NULL;
-				else $CODENEXT = '<a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$next['slug'].'"">'.ucfirst($next['title']).' --></a>';
-
-			$HTML  = '<div class="navs">';
-			$HTML .= '<div class="prev">'.$CODEPREV.'</div>';
-			$HTML .= '<div class="capo"><a href="'.menu_page_url($this->menuslug,false).'">'.$this->pagetitle.'</a></div>';
-			$HTML .= '<div class="next">'.$CODENEXT.'</div>';
-			$HTML .= '</div>';
-
-			return $HTML;
-		}
-
-		/**
 		 * Funzioni per aggiungere le varie sezioni che riguardano
 		 * l'indice fatto ad icone della documentazione GOOGLE PLUS
 		 */
@@ -212,7 +231,9 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		function moduleAddHelpDriveSave()
 		{
 			$this->moduleAddHelpLinks(array(
-				array('slug'=>'sz-google-help-drive-save.php','title'=>__('drive save button','szgoogleadmin')),
+				array('slug'=>'sz-google-help-drive-embed.php' ,'title'=>__('drive embed','szgoogleadmin')),
+				array('slug'=>'sz-google-help-drive-viewer.php','title'=>__('drive viewer','szgoogleadmin')),
+				array('slug'=>'sz-google-help-drive-save.php'  ,'title'=>__('drive save button','szgoogleadmin')),
 			));
 		}
 
@@ -273,5 +294,53 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 				array('slug'=>'sz-google-help-youtube-link.php'    ,'title'=>__('youtube link'    ,'szgoogleadmin')),
 			));
 		}
+
+		/**
+		 * Chiamata alla funzione generale per la creazione del form generale
+		 * le sezioni devono essere passate come un array con nome => titolo
+		 *
+		 * @return void
+		 */
+		function moduleAddNavs($name)
+		{
+			// Calcolo le chiavi per elementi presenti negli array che 
+			// corrispondono a quello attuale, precedente e successivo.
+
+			$KeyPrecedente = false;
+			$KeyAttuale    = false;
+			$KeySeguente   = false;
+
+			foreach ($this->HelpIndexItems as $key => $value) {
+				if($value['slug'] == $name) {
+					$KeyAttuale = $key; break;
+				}
+			}
+
+			if ($KeyAttuale > 0) $KeyPrecedente = $KeyAttuale - 1;
+			if ($KeyAttuale < (count($this->HelpIndexItems)-1)) $KeySeguente = $KeyAttuale + 1;
+
+			// Creazione dei link per successivo e seguente
+			// Creazione codice HTML per il navigatore di help
+
+			$LINKPREV = ''; $LINKNEXT = '';
+
+			if ($KeyPrecedente !== false) $LINKPREV = '<a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$this->HelpIndexItems[$KeyPrecedente]['slug'].'""><-- '.ucfirst($this->HelpIndexItems[$KeyPrecedente]['title']).'</a>';
+			if ($KeySeguente   !== false) $LINKNEXT = '<a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$this->HelpIndexItems[$KeySeguente]['slug'].'"">'.ucfirst($this->HelpIndexItems[$KeySeguente]['title']).' --></a>';
+
+			$HTML  = '<div class="navs">';
+			$HTML .= '<div class="prev">'.$LINKPREV.'</div>';
+			$HTML .= '<div class="capo"><a href="'.menu_page_url($this->menuslug,false).'">'.$this->pagetitle.'</a></div>';
+			$HTML .= '<div class="next">'.$LINKNEXT.'</div>';
+			$HTML .= '</div>';
+
+			return $HTML;
+		}
+
+		function moduleCommonFormHelp($title,$setting,$sections,$formsavebutton,$HTML,$slug)
+		{
+			$HTML .= $this->moduleAddNavs($slug);
+			$this->moduleCommonForm($title,$setting,$sections,$formsavebutton,$HTML);
+		}
+
 	}
 }

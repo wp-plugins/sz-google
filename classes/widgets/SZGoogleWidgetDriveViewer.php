@@ -12,18 +12,18 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Creazione WIDGET per il modulo del plugin richiesto.
  * Creazione della classe con riferimento a quella generica.
  */
-if (!class_exists('SZGoogleWidgetDriveSaveButton'))
+if (!class_exists('SZGoogleWidgetDriveViewer'))
 {
-	class SZGoogleWidgetDriveSaveButton extends SZGoogleWidget
+	class SZGoogleWidgetDriveViewer extends SZGoogleWidget
 	{
 		// Costruttore principale della classe widget, definizione 
 		// delle opzioni legate al widget e al controllo dello stesso
 
 		function __construct() 
 		{
-			parent::__construct('SZ-Google-Drive-Save-Button',__('SZ-Google - Drive Save Button','szgoogleadmin'),array(
-				'classname'   => 'sz-widget-google sz-widget-google-drive sz-widget-google-drive-save-button', 
-				'description' => ucfirst(__('google drive save button.','szgoogleadmin'))
+			parent::__construct('SZ-Google-Drive-Viewer',__('SZ-Google - Drive Viewer','szgoogleadmin'),array(
+				'classname'   => 'sz-widget-google sz-widget-google-drive sz-widget-google-drive-viewer', 
+				'description' => ucfirst(__('google drive viewer.','szgoogleadmin'))
 			));
 		}
 
@@ -36,43 +36,37 @@ if (!class_exists('SZGoogleWidgetDriveSaveButton'))
 			// dello script e assegno dei valori di default nel caso non fossero specificati
 
 			$options = $this->common_empty(array(
-				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'filename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'sitename'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'       => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
+				'title'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'height' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
 			),$instance);
 
 			// Definizione delle variabili di controllo del widget, questi valori non
 			// interessano le opzioni della funzione base ma incidono su alcuni aspetti
 
 			$controls = $this->common_empty(array(
-				'badge'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			),$instance);
 
-			// Se sul widget ho escluso il badeg dal pulsante azzero anche
-			// le variabili del badge eventualmente impostate e memorizzate 
+			// Correzione del valore di dimensione nel caso venga
+			// specificata la maniera automatica e quindi usare javascript
 
-			if ($controls['badge'] != SZ_PLUGIN_GOOGLE_VALUE_YES) 
-			{
-				$options['img']      = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-				$options['text']     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-				$options['position'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-			}
+			if ($controls['width_auto']  == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['width']  = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+			if ($controls['height_auto'] == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['height'] = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+
+			// Annullo la variabile titolo che appartiene al componente in 
+			// quanto esiste il titolo del widget e hanno lo stesso nome
+
+			$options['title'] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente
 
 			if ($object = SZGoogleModule::$SZGoogleModuleDrive) {
-				$HTML = $object->getDriveSaveButtonCode($options);
+				$HTML = $object->getDriveViewerCode($options);
 			}
 
 			// Output del codice HTML legato al widget da visualizzare
@@ -87,13 +81,12 @@ if (!class_exists('SZGoogleWidgetDriveSaveButton'))
 		function update($new_instance,$old_instance) 
 		{
 			return $this->common_update(array(
-				'title'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
-				'badge'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
-				'url'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'text'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'img'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'align'    => SZ_PLUGIN_GOOGLE_VALUE_YES,
-				'position' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'title'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'width'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'height'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
 			),$new_instance,$old_instance);
 		}
 
@@ -103,13 +96,12 @@ if (!class_exists('SZGoogleWidgetDriveSaveButton'))
 		function form($instance) 
 		{
 			$array = array(
-				'title'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'badge'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'url'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'title'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'width'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'height'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
 			);
 
 			// Creazione array per elenco campi da recuperare su FORM

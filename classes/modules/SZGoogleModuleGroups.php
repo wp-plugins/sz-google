@@ -222,3 +222,9 @@ function sz_google_module_groups_shortcode_iframe($atts,$content=null)
 		'hl'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 	),$atts),$content);
 }
+
+function szgoogle_groups_get_code($atts=array()) {
+	if (function_exists('sz_google_module_groups_get_code')) {
+		return sz_google_module_groups_get_code($atts);
+	} else return false;
+}

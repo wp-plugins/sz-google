@@ -227,7 +227,7 @@ class SZGoogleModulePlus extends SZGoogleModule
 
 		if ($options['plus_enable_recommendations'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
 			add_action('szgoogle_head',array($this,'moduleAddMetaPublisher'),20);
-			add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+			add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 		}
 	}
 
@@ -467,7 +467,7 @@ function sz_google_module_plus_get_code_profile($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -677,7 +677,7 @@ function sz_google_module_plus_get_code_page($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -854,7 +854,7 @@ function sz_google_module_plus_get_code_community($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -991,7 +991,7 @@ function sz_google_module_plus_get_code_followers($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1118,7 +1118,7 @@ function sz_google_module_plus_get_code_plusone($atts=array(),$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1258,7 +1258,7 @@ function sz_google_module_plus_get_code_share($atts=array(),$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1418,7 +1418,7 @@ function sz_google_module_plus_get_code_follow($atts=array(),$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1563,7 +1563,7 @@ function sz_google_module_plus_get_code_comments($atts,$content=null)
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1682,7 +1682,7 @@ function sz_google_module_plus_comments_system($include)
 	// Aggiunta del codice javascript per il rendering dei widget		 
 	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno stesso template passato alla funzione nel caso in cui
 	// devo mantenere i commenti standard dopo quelli di google plus
@@ -1723,7 +1723,7 @@ function sz_google_module_plus_comments_content($content)
 	// Aggiunta del codice javascript per il rendering dei widget		 
 	// Questo codice viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	return $content.$HTML;
 }
@@ -1786,7 +1786,7 @@ function sz_google_module_plus_get_code_post($atts=array())
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_plus_add_script_footer');
+	add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento del codice nella pagina
@@ -1963,4 +1963,61 @@ function sz_google_module_plus_get_canonical_url($url=null)
 	$url = str_ireplace('://plus.google.com/u/0/'  ,'://plus.google.com/',$url);
 
 	return $url;
+}
+
+
+
+function szgoogle_gplus_get_badge_profile($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_profile')) {
+		return sz_google_module_plus_get_code_profile($atts);
+	} else return false;
+}
+
+function szgoogle_gplus_get_badge_page($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_page')) {
+		return sz_google_module_plus_get_code_page($atts);
+	} else return false;
+}
+
+function szgoogle_gplus_get_badge_community($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_community')) {
+		return sz_google_module_plus_get_code_community($atts);
+	} else return false;
+}
+
+function szgoogle_gplus_get_badge_followers($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_followers')) {
+		return sz_google_module_plus_get_code_followers($atts);
+	} else return false;
+}
+
+
+function szgoogle_gplus_get_button_one($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_plusone')) {
+		return sz_google_module_plus_get_code_plusone($atts);
+	} else return false;
+}
+
+function szgoogle_gplus_get_button_share($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_sharing')) {
+		return sz_google_module_plus_get_code_sharing($atts);
+	} else return false;
+}
+
+function szgoogle_gplus_get_button_follow($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_follow')) {
+		return sz_google_module_plus_get_code_follow($atts);
+	} else return false;
+}
+
+function szgoogle_gplus_get_comments($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_comments')) {
+		return sz_google_module_plus_get_code_comments($atts);
+	} else return false;
+}
+
+function szgoogle_gplus_get_post($atts=array()) {
+	if (function_exists('sz_google_module_plus_get_code_post')) {
+		return sz_google_module_plus_get_code_post($atts);
+	} else return false;
 }

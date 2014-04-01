@@ -25,7 +25,7 @@ Google Drive or we could see a picture and give you the opportunity to store it 
 
 <p>To add this module you have to use the shortcode <b>[sz-drive-save]</b>, but if you want to use it in a sidebar then you have to use 
 the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
-in fact just use a PHP function provided by the plugin <b>szgoogle_get_drive_savebutton(\$options)</b>.</p>
+in fact just use a PHP function provided by the plugin <b>szgoogle_drive_get_savebutton(\$options)</b>.</p>
 
 <h2>Customization</h2>
 
@@ -54,9 +54,9 @@ format option = "value". If you would like additional information you can visit 
 
 <h2>Button wrapper</h2>
 
-<p>The default behavior of the button of google is to draw only the button and connect it to the interactive actions allowed. 
-The plugin <b>SZ-Google</b> has tried to improve this behavior, and added parameters to allow the design of a container on which the 
-button can be face down. For example, we can specify an image and place it inside the button overlay and in the position we want.</p>
+<p>The behavior of the button of google is to draw the component and connect it to the permitted actions. The <b>SZ-Google</b>
+plugin has improved this feature and added parameters to allow the drawing of a container on which the button can be placed. For 
+example, we can specify an image and place the button within it and specifying the position.</p>
 
 <pre>[sz-drive-save url="URL" img="http://domain.com/image.jpg" position="bottom"/]</pre>
 
@@ -70,10 +70,9 @@ form and with the customization options allowed. To insert a shortcode in our po
 
 <h2>PHP code example</h2>
 
-<p>If you want to use PHP functions provided by the plugin you must make sure that the corresponding module is active, once verified 
-inserted in the desired location of your theme code similar to the following example, then prepared an array with the options you want 
-and call up the required function. It is advisable to use before the function check if this exists, in this way you will not have 
-PHP errors when plugin disabled or uninstalled.</p>
+<p>If you want to use PHP functions of the plugin you need to be sure that the specific module is active, when you have verified this,
+include the functions in your theme and specifies the various options through an array. It is advisable to use before the function 
+check if this exists, in this way you will not have PHP errors when plugin disabled or uninstalled.</p>
 
 <pre>
 \$options = array(
@@ -82,8 +81,8 @@ PHP errors when plugin disabled or uninstalled.</p>
   'align'    => 'center',
 );
 
-if (function_exists('szgoogle_get_drive_savebutton')) {
-  echo szgoogle_get_drive_savebutton(\$options);
+if (function_exists('szgoogle_drive_get_savebutton')) {
+  echo szgoogle_drive_get_savebutton(\$options);
 }
 </pre>
 
@@ -104,16 +103,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('widget calendar','szgoogleadmin'),'slug'=>'sz-google-help-calendar.php');
-$next = array('title'=>__('widget groups'  ,'szgoogleadmin'),'slug'=>'sz-google-help-groups.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('drive save button','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('drive save button','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

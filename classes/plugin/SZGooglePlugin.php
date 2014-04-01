@@ -1,8 +1,8 @@
 <?php
 /**
- * Classe SZGooglePlugin per la definizione di alcuni metodi statici
- * legati al plugin che devono eseguire alcune funzioni particolari,
- * come ad esempio la funzione di attivazione o disattivazione. 
+ * Classe SZGoogleModule per la creazione di istanze che controllino le
+ * opzioni e le funzioni comuni che ogni modulo del plugin deve richiamare
+ * o elaborare. Tutti i moduli devo fare riferimento a questa classe. 
  *
  * @package SZGoogle
  */
@@ -16,13 +16,123 @@ if (!class_exists('SZGooglePlugin'))
 {
 	class SZGooglePlugin
 	{
+		function __construct() 
+		{
+			// Creazione oggetto per modulo base con impostazione del 
+			// dominio di traduzione e memorizzazione delle opzioni configurate
+
+			add_action('plugins_loaded',array($this,'setLanguageDomain'));
+
+			// Aggingo il link di setting nella escrizione di plugin presente
+			// sul pannello di amministrazione dopo attivazione e disattivazione
+
+			if (is_admin()) {
+				add_filter("plugin_action_links_".plugin_basename(SZ_PLUGIN_GOOGLE_MAIN),array($this,'AddPluginSetting'));
+			}
+
+			// (1) includeHook    = Registrazione hook di attivazione e disattivazione
+			// (2) includeHead    = Registrazione funzioni per esecuzione HEAD
+			// (3) includeFooter  = Registrazione funzioni per esecuzione FOOTER
+			// (4) includeModules = Registrazione funzioni per esecuzione dei moduli
+			// (5) includeAdmin   = Registrazione funzioni per pannello di amministrazione
+
+			$this->includeHook();
+			$this->includeHead();
+			$this->includeFooter();
+			$this->includeModules();
+			$this->includeAdmin();
+		}
+
+		/**
+		 * Creazione link aggiuntivi da inserire nello snippets del plugin
+		 * presente nel pannello di amministrazione dopo active e deactive
+		 *
+		 * @return void
+		 */
+		function AddPluginSetting($links)
+		{
+			$links[] = '<a href="'.menu_page_url('sz-google-admin.php',false).'">'.ucfirst(__('settings','szgoogleadmin')).'</a>'; 
+			return $links; 
+ 		}
+
+		/**
+		 * Creazione oggetto per modulo base con impostazione del 
+		 * dominio di traduzione e memorizzazione delle opzioni configurate
+		 *
+		 * @return void
+		 */
+		function setLanguageDomain() 
+		{
+			load_plugin_textdomain('szgoogle',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE_FRONT);
+
+			if (is_admin()) {
+				load_plugin_textdomain('szgoogleadmin',false,SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE_ADMIN);
+			}
+		}
+
+		/**
+		 * Richiamo le funzioni per la registrazione delle azioni legate
+		 * alle azioni di attivazione e disattivazione plugin
+		 *
+		 * @return void
+		 */
+		function includeHook() 
+		{
+			// Attivazione hook per la funzione di attivazione e disattivazione
+			// del plugin dal pannello di amministrazione wordpress
+
+			register_activation_hook  (SZ_PLUGIN_GOOGLE_MAIN,array($this,'activation'));
+			register_deactivation_hook(SZ_PLUGIN_GOOGLE_MAIN,array($this,'deactivation'));
+		}
+
+		/**
+		 * Esecuzione funzione per aggiungere dei valori alla sezione <head>
+		 * della pagina HTML collegata con WP_HEAD tramite action(szgoogle-head)
+		 *
+		 * @return void
+		 */
+		function includeHead() {
+			add_action('wp_head',array($this,'addSectionHead'),1);
+			add_action('wp_head',array($this,'addSectionCSSInline'),99);
+		}
+
+		/**
+		 * Esecuzione funzione per aggiungere dei valori alla sezione <footer>
+		 * della pagina HTML collegata con WP_FOOTER tramite action(szgoogle-footer)
+		 *
+		 * @return void
+		 */
+		function includeFooter() {
+			add_action('wp_footer',array($this,'addSectionFooter'));
+		}
+
+		/**
+		 * Richiamo gli script per la definizione dei moduli e delle funzioni PHP 
+		 * da poter utilizzare direttamente in fase di programmazione sui temi di wordpress
+		 *
+		 * @return void
+		 */
+		function includeModules() {
+			new SZGoogleModuleInit();			
+		}
+
+		/**
+		 * Richiamo gli script per integrazine plugin con il pannello di amministrazione,
+		 * viene aggiunto un menu dedicato al plugin con tutte le opzioni collegate ai moduli
+		 *
+		 * @return void
+		 */
+		function includeAdmin() {
+			if (is_admin()) new SZGoogleAdminBase();
+		}
+
 		/**
 		 * Esecuzione funzione di disattivazionbe plugin, questo metodo viene
 		 * collegato in wordpress tramite la funzione register_deactivation_hook()
 		 *
 		 * @return void
 		 */
-		public static function deactivate() 
+		function deactivation() 
 		{
 			SZGooglePluginCommon::rewriteFlushRules();
 		}
@@ -33,7 +143,7 @@ if (!class_exists('SZGooglePlugin'))
 		 *
 		 * @return void
 		 */
-		public static function activate()
+		function activation()
 		{
 			// Impostazione valori di default che riguardano  
 			// parametri di base come l'attivazione dei moduli 
@@ -176,8 +286,24 @@ if (!class_exists('SZGooglePlugin'))
 
 			$settings_drive = array(
 				'drive_sitename'                    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'drive_savebutton_widget'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'drive_embed_shortcode'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'drive_embed_s_width'               => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_WIDTH,
+				'drive_embed_s_height'              => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT,
+				'drive_embed_widget'                => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'drive_embed_w_width'               => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_WIDTH,
+				'drive_embed_w_height'              => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT,
+				'drive_viewer_shortcode'            => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'drive_viewer_s_width'              => SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_S_WIDTH,
+				'drive_viewer_s_height'             => SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_S_HEIGHT,
+				'drive_viewer_s_t_position'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_viewer_s_t_align'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_viewer_widget'               => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'drive_viewer_w_width'              => SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_W_WIDTH,
+				'drive_viewer_w_height'             => SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_W_HEIGHT,
+				'drive_viewer_w_t_position'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_viewer_w_t_align'            => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_savebutton_shortcode'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'drive_savebutton_widget'           => SZ_PLUGIN_GOOGLE_VALUE_YES,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -300,18 +426,18 @@ if (!class_exists('SZGooglePlugin'))
 			// Controllo formale delle opzioni e memorizzazione sul database
 			// in base ad una prima installazione o update del plugin 
 
-			self::checkOptions('sz_google_options_base'         ,$settings_base); 
-			self::checkOptions('sz_google_options_plus'         ,$settings_plus); 
-			self::checkOptions('sz_google_options_ga'           ,$settings_ga);
-			self::checkOptions('sz_google_options_authenticator',$settings_authenticator);
-			self::checkOptions('sz_google_options_calendar'     ,$settings_calendar); 
-			self::checkOptions('sz_google_options_drive'        ,$settings_drive); 
-			self::checkOptions('sz_google_options_fonts'        ,$settings_fonts); 
-			self::checkOptions('sz_google_options_groups'       ,$settings_groups);
-			self::checkOptions('sz_google_options_hangouts'     ,$settings_hangouts);
-			self::checkOptions('sz_google_options_panoramio'    ,$settings_panoramio);
-			self::checkOptions('sz_google_options_translate'    ,$settings_translate);
-			self::checkOptions('sz_google_options_youtube'      ,$settings_youtube);
+			$this->checkOptions('sz_google_options_base'         ,$settings_base); 
+			$this->checkOptions('sz_google_options_plus'         ,$settings_plus); 
+			$this->checkOptions('sz_google_options_ga'           ,$settings_ga);
+			$this->checkOptions('sz_google_options_authenticator',$settings_authenticator);
+			$this->checkOptions('sz_google_options_calendar'     ,$settings_calendar); 
+			$this->checkOptions('sz_google_options_drive'        ,$settings_drive); 
+			$this->checkOptions('sz_google_options_fonts'        ,$settings_fonts); 
+			$this->checkOptions('sz_google_options_groups'       ,$settings_groups);
+			$this->checkOptions('sz_google_options_hangouts'     ,$settings_hangouts);
+			$this->checkOptions('sz_google_options_panoramio'    ,$settings_panoramio);
+			$this->checkOptions('sz_google_options_translate'    ,$settings_translate);
+			$this->checkOptions('sz_google_options_youtube'      ,$settings_youtube);
 
 			// Esecuzione flush rules per regole di rewrite personalizzate
 
@@ -325,7 +451,7 @@ if (!class_exists('SZGooglePlugin'))
 		 * @param  string,array $name,$values
 		 * @return void
 		 */
-		public static function checkOptions($name,$values) 
+		function checkOptions($name,$values) 
 		{
 			if (is_array($values)) {
 
@@ -363,70 +489,32 @@ if (!class_exists('SZGooglePlugin'))
 		}
 
 		/**
-		 * Esecuzione funzione per aggiungere un testo comune di commento HTML
-		 * nella parte iniziale del codice che viene aggiunto nella varie sezioni
-		 *
-		 * @return void
+		 * Funzioni per la creazione di "action" e elaborazione codice HTML
+		 * da inserire nelle varie sezioni della pagina WEB Head & Footer.
 		 */
-		public static function getCommonSectionHead()
-		{
-			$HTML  = "\n";
-			$HTML .= "<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." -->\n";
-			$HTML .= "<!-- ===================================================================== -->\n";
-
-			return $HTML;
-		}
+		function addSectionHead()      { $this->addSectionCommon('szgoogle_head'); }
+		function addSectionCSSInline() { $this->addSectionCommon('szgoogle_css_inline'); }
+		function addSectionFooter()    { $this->addSectionCommon('szgoogle_footer'); }
 
 		/**
-		 * Esecuzione funzione per aggiungere un testo comune di commento HTML
-		 * nella parte finale del codice che viene aggiunto nella varie sezioni
+		 * Funzione per la creazione di "action" e elaborazione codice HTML
+		 * da inserire nelle varie sezioni della pagina WEB Head & Footer.
 		 *
+		 * @param  string $action
 		 * @return void
 		 */
-		public static function getCommonSectionFooter()
+		function addSectionCommon($action) 
 		{
-			$HTML  = "<!-- ===================================================================== -->\n";
-			$HTML .= "\n";
+			if(has_action($action)) 
+			{
+				echo "\n";
+				echo "<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." -->\n";
+				echo "<!-- ===================================================================== -->\n";
 
-			return $HTML;
-		}
+				do_action($action); 
 
-		/**
-		 * Esecuzione funzione per aggiungere dei valori alla sezione <head>
-		 * della pagina HTML collegata con WP_HEAD tramite action(szgoogle-head)
-		 *
-		 * @return void
-		 */
-		public static function addSectionHead()
-		{
-			if(has_action('szgoogle_head')) {				
-				echo self::getCommonSectionHead(); do_action('szgoogle_head'); echo self::getCommonSectionFooter();
-			}
-		}
-
-		/**
-		 * Esecuzione funzione per aggiungere dei valori alla sezione <head>
-		 * della pagina HTML collegata con WP_HEAD tramite action(szgoogle-head)
-		 *
-		 * @return void
-		 */
-		public static function addSectionCSSInline()
-		{
-			if(has_action('szgoogle_css_inline')) {
-				echo self::getCommonSectionHead(); do_action('szgoogle_css_inline'); echo self::getCommonSectionFooter();
-			}
-		}
-
-		/**
-		 * Esecuzione funzione per aggiungere dei valori alla sezione <footer>
-		 * della pagina HTML collegata con WP_FOOTER tramite action(szgoogle-footer)
-		 *
-		 * @return void
-		 */
-		public static function addSectionFooter()
-		{
-			if(has_action('SZGoogleFooter')) {
-				echo self::getCommonSectionHead(); do_action('SZGoogleFooter'); echo self::getCommonSectionFooter();
+				echo "<!-- ===================================================================== -->\n";
+				echo "\n";
 			}
 		}
 	}

@@ -23,7 +23,7 @@ $HTML = <<<EOD
 be embedded in two different ways. You can use the <b>[sz-gplus-profile]</b> shortcode in order to place 
 the badge into your articles or pages. Use the specific widget, located into the widgets menu, in order to make it appear 
 into your sidebars. For the themes and plugin makers, we developed a specific function to recall the badge 
-directly from PHP: <b>szgoogle_get_gplus_badge_profile(\$options)</b>.</p>
+directly from PHP: <b>szgoogle_gplus_get_badge_profile(\$options)</b>.</p>
 
 <h2>Customization</h2>
 
@@ -73,10 +73,9 @@ form and with the customization options allowed. To insert a shortcode in our po
 
 <h2>PHP code example</h2>
 
-<p>If you want to use PHP functions provided by the plugin you must make sure that the corresponding module is active, once verified 
-inserted in the desired location of your theme code similar to the following example, then prepared an array with the options you want 
-and call up the required function. It is advisable to use before the function check if this exists, in this way you will not have 
-PHP errors when plugin disabled or uninstalled.</p>
+<p>If you want to use PHP functions of the plugin you need to be sure that the specific module is active, when you have verified this,
+include the functions in your theme and specifies the various options through an array. It is advisable to use before the function 
+check if this exists, in this way you will not have PHP errors when plugin disabled or uninstalled.</p>
 
 <pre>
 \$options = array(
@@ -87,8 +86,8 @@ PHP errors when plugin disabled or uninstalled.</p>
   'layout' => 'portrait'
 );
 
-if (function_exists('szgoogle_get_gplus_badge_profile')) {
-  echo szgoogle_get_gplus_badge_profile(\$options);
+if (function_exists('szgoogle_gplus_get_badge_profile')) {
+  echo szgoogle_gplus_get_badge_profile(\$options);
 }
 </pre>
 
@@ -109,16 +108,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = NULL;
-$next = array('title'=>__('google+ badge page','szgoogleadmin'),'slug'=>'sz-google-help-plus-page.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('google+ badge profile','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('google+ badge profile','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

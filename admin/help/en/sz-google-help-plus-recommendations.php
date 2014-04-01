@@ -62,16 +62,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('google+ redirect','szgoogleadmin'),'slug'=>'sz-google-help-plus-redirect.php');
-$next = array('title'=>__('analytics setup' ,'szgoogleadmin'),'slug'=>'sz-google-help-ga-setup.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('google+ recommendations','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('google+ recommendations','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

@@ -22,7 +22,7 @@ essere molto utile a chi vuole sviluppare un'applicazione su Hangout ed invitare
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-hangouts-start]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP chiamata 
-<b>szgoogle_get_hangouts_code_start(\$options)</b>.</p>
+<b>szgoogle_hangouts_get_code_start(\$options)</b>.</p>
 
 <h2>Personalizzazione</h2>
 
@@ -82,8 +82,8 @@ in questa maniera non si avranno errori PHP in caso di plugin disattivato o disi
   'align' => 'center',
 );
 
-if (function_exists('szgoogle_get_hangouts_code_start')) {
-  echo szgoogle_get_hangouts_code_start(\$options);
+if (function_exists('szgoogle_hangouts_get_code_start')) {
+  echo szgoogle_hangouts_get_code_start(\$options);
 }
 </pre>
 
@@ -104,16 +104,7 @@ attivata tramite il campo opzione dedicato che trovate nel pannello di amministr
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('widget groups'   ,'szgoogleadmin'),'slug'=>'sz-google-help-groups.php');
-$next = array('title'=>__('widget panoramio','szgoogleadmin'),'slug'=>'sz-google-help-panoramio.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('hangout start button','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('hangout start button','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

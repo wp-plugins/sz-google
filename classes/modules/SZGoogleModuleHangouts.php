@@ -205,7 +205,7 @@ if (!class_exists('SZGoogleModuleHangouts'))
 			// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 			// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-			add_action('SZGoogleFooter',array($this,'setJavascriptPlatform'));
+			add_action('szgoogle_footer',array($this,'setJavascriptPlatform'));
 
 			// Ritorno per la funzione con tutta la stringa contenente
 			// il codice HTML per l'inserimento del codice nella pagina
@@ -240,4 +240,11 @@ if (!class_exists('SZGoogleModuleHangouts'))
 			),$atts),$content);
 		}
 	}
+}
+
+function szgoogle_hangouts_get_code_start($options=array()) 
+{
+	if ($object = SZGoogleModule::$SZGoogleModuleHangouts) {
+		return $object->getHangoutsStartCode($options);
+	} else return false; 
 }

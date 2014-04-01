@@ -375,7 +375,7 @@ if (!class_exists('SZGoogleModuleCalendar'))
 	 * Elenco PHP functions per permettere agli sviluppatori di 
 	 * richiamarei vari moduli del plugin direttamente da codice
 	 */
-	function szgoogle_get_calendar_widget($options=array()) 
+	function szgoogle_calendar_get_widget($options=array()) 
 	{
 		if ($object = SZGoogleModule::$SZGoogleModuleCalendar) {
 			return $object->getCalendarEmbedShortcode($options);

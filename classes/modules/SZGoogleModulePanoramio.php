@@ -336,3 +336,10 @@ function sz_google_module_panoramio_shortcode($atts,$content=null)
 		'default'        => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
 	),$atts),$content);
 }
+
+
+function szgoogle_panoramio_get_code($atts=array()) {
+	if (function_exists('sz_google_module_panoramio_get_code')) {
+		return sz_google_module_panoramio_get_code($atts);
+	} else return false;
+}

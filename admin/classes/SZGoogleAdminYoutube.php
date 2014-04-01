@@ -144,31 +144,31 @@ if (!class_exists('SZGoogleAdminYoutube'))
 		function get_youtube_shortcode() 
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_shortcode');
-			$this->moduleCommonFormDescription(__('if you enable this option you can use the shortcode [sz-ytvideo] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(sprintf(__('if you enable this option you can use the shortcode %s and enter the corresponding component directly in your article or page. Normally in the shortcodes can be specified the options for customizations.','szgoogleadmin'),'[sz-ytvideo]'));
 		}
 
 		function get_youtube_shortcode_badge() 
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_shortcode_badge');
-			$this->moduleCommonFormDescription(__('if you enable this option you can use the shortcode [sz-ytbadge] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(sprintf(__('if you enable this option you can use the shortcode %s and enter the corresponding component directly in your article or page. Normally in the shortcodes can be specified the options for customizations.','szgoogleadmin'),'[sz-ytbadge]'));
 		}
 
 		function get_youtube_shortcode_button() 
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_shortcode_button');
-			$this->moduleCommonFormDescription(__('if you enable this option you can use the shortcode [sz-ytbutton] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(sprintf(__('if you enable this option you can use the shortcode %s and enter the corresponding component directly in your article or page. Normally in the shortcodes can be specified the options for customizations.','szgoogleadmin'),'[sz-ytbutton]'));
 		}
 
 		function get_youtube_shortcode_link() 
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_shortcode_link');
-			$this->moduleCommonFormDescription(__('if you enable this option you can use the shortcode [sz-ytlink] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(sprintf(__('if you enable this option you can use the shortcode %s and enter the corresponding component directly in your article or page. Normally in the shortcodes can be specified the options for customizations.','szgoogleadmin'),'[sz-ytlink]'));
 		}
 
 		function get_youtube_shortcode_playlist() 
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_shortcode_playlist');
-			$this->moduleCommonFormDescription(__('if you enable this option you can use the shortcode [sz-ytplaylist] and enter the corresponding component directly in your article or page. Normally shortcodes can be specified in the options, to control parameters given read the official documentation.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(sprintf(__('if you enable this option you can use the shortcode %s and enter the corresponding component directly in your article or page. Normally in the shortcodes can be specified the options for customizations.','szgoogleadmin'),'[sz-ytplaylist]'));
 		}
 
 		function get_youtube_responsive()

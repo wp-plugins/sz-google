@@ -41,12 +41,12 @@ falsare le medie che dobbiamo analizzare e ci potrebbero far sbagliare le nostre
 inserirlo, in ogni caso è possibile modificare questo comportamento e specificare di inserirlo in fondo alla pagina o manualmente 
 utilizzando una funzione PHP che potete inserire in qualsiasi punto della vostra pagina HTML, magari aggiungendo anche dei controlli 
 personalizzati per includere o escludere il monitoraggio. La funzione da usare per l’inserimento manuale è chiamata 
-<b>szgoogle_get_ga_code()</b> e non necessita di nessun parametro particolare, basta richiamarla con il comando “echo” 
+<b>szgoogle_analytics_get_code()</b> e non necessita di nessun parametro particolare, basta richiamarla con il comando “echo” 
 in qualsiasi parte del vostro tema.</p>
 
 <pre>
-if (function_exists('szgoogle_get_ga_code')) {
-  echo szgoogle_get_ga_code();
+if (function_exists('szgoogle_analytics_get_code')) {
+  echo szgoogle_analytics_get_code();
 }
 </pre>
 
@@ -74,16 +74,7 @@ risulti attivata tramite il campo opzione dedicato che trovate nel pannello di a
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('google+ recommendations','szgoogleadmin'),'slug'=>'sz-google-help-plus-recommendations.php');
-$next = array('title'=>__('analytics PHP functions','szgoogleadmin'),'slug'=>'sz-google-help-ga-functions.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('analytics setup','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('analytics setup','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

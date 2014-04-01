@@ -34,8 +34,9 @@ logical flow of the program the terms of these functions when they are called.</
 
 <h2>PHP code example</h2>
 
-<p>In this example, call the function verification code and store it in a variable called \$check that we can use to check the controls 
-in our program. The function returns a boolean value with true or false.</p>
+<p>If you want to use PHP functions of the plugin you need to be sure that the specific module is active, when you have verified this,
+include the functions in your theme and specifies the various options through an array. It is advisable to use before the function 
+check if this exists, in this way you will not have PHP errors when plugin disabled or uninstalled.</p>
 
 <pre>
 if (function_exists('szgoogle_authenticator_verify_code')) {
@@ -68,16 +69,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('authenticator setup','szgoogleadmin') ,'slug'=>'sz-google-help-authenticator-setup.php');
-$next = array('title'=>__('authenticator device','szgoogleadmin'),'slug'=>'sz-google-help-authenticator-device.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('authenticator PHP','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('authenticator PHP','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

@@ -241,3 +241,21 @@ function sz_google_shortcodes_translate_widget($atts,$content=null)
 
 	return $HTML;
 }
+
+function szgoogle_translate_get_meta_ID() {
+	if (function_exists('sz_google_module_translate_get_meta_ID()')) {
+		return sz_google_module_translate_get_meta_ID();
+	} else return false;
+}
+
+function szgoogle_translate_get_meta() {
+	if (function_exists('sz_google_module_translate_get_meta()')) {
+		return sz_google_module_translate_get_meta();
+	} else return false;
+}
+
+function szgoogle_translate_get_code($atts=array()) {
+	if (function_exists('sz_google_module_translate_get_code()')) {
+		return sz_google_module_translate_get_code($atts);
+	} else return false;
+}

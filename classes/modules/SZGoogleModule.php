@@ -248,5 +248,58 @@ if (!class_exists('SZGoogleModule'))
 
 			echo $javascript;
 		}
+
+		/**
+		 * Creazione del codice CSS per la composizione dei margini
+		 * usando le opzioni specificate negli shortcode o nelle funzioni PHP
+		 *
+		 * @return string
+		 */
+		function getStyleCSSfromAlign($align)
+		{
+			// Se non viene specificata una valori di allineamento valido
+			// viene impostato il valore speciale "left" e sara applicato al testo.
+
+			if (!in_array(strtolower($align),array('left','right','center'))) $align = 'none'; 
+				else $align = strtolower($align);
+
+			if (!empty($align) and $align != 'none') return 'text-align:'.$align.';';
+				else return SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		}
+
+		/**
+		 * Creazione del codice CSS per la composizione dei margini
+		 * usando le opzioni specificate negli shortcode o nelle funzioni PHP
+		 *
+		 * @return string
+		 */
+		function getStyleCSSfromMargins($margintop,$marginright,$marginbottom,$marginleft,$marginunit)
+		{
+			// Se non viene specificata una unità di misura corretta verrà
+			// impostato il valore speciale "em" e sara applicato ai margini.
+
+			if (!in_array(strtolower($marginunit),array('pt','px','em'))) $marginunit = 'em'; 
+				else $marginunit = strtolower($marginunit);
+
+			// Imposto i valori di default nel caso siano specificati dei valori
+			// che non appartengono al range dei valori accettati
+
+			if (!ctype_digit($margintop)    and $margintop    != 'none') $margintop    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+			if (!ctype_digit($marginright)  and $marginright  != 'none') $marginright  = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+			if (!ctype_digit($marginbottom) and $marginbottom != 'none') $marginbottom = SZ_PLUGIN_GOOGLE_VALUE_ONE;
+			if (!ctype_digit($marginleft)   and $marginleft   != 'none') $marginleft   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+
+			// Creazione del codice CSS per la composizione dei margini
+			// usando le opzioni specificate negli shortcode o nelle funzioni PHP
+
+			$HTML = '';
+
+			if (!empty($margintop)    and $margintop    != 'none') $HTML .= 'margin-top:'   .$margintop   .$marginunit.';';
+			if (!empty($marginright)  and $marginright  != 'none') $HTML .= 'margin-right:' .$marginright .$marginunit.';';
+			if (!empty($marginbottom) and $marginbottom != 'none') $HTML .= 'margin-bottom:'.$marginbottom.$marginunit.';';
+			if (!empty($marginleft)   and $marginleft   != 'none') $HTML .= 'margin-left:'  .$marginleft  .$marginunit.';';
+
+			return $HTML;
+		}
 	}
 }

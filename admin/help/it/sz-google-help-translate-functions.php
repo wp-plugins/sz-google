@@ -25,24 +25,24 @@ ma continuando ad utilizzare il pannello di amministrazione per i parametri rela
 PHP messe a disposizione dal plugin e implementarle con il vostro codice. Le funzioni messe a disposizione sono le seguenti:</p>
 
 <ul>
-<li>szgoogle_get_translate_code()</li>
-<li>szgoogle_get_translate_meta()</li>
-<li>szgoogle_get_translate_meta_ID()</li>
+<li>szgoogle_translate_get_code()</li>
+<li>szgoogle_translate_get_meta()</li>
+<li>szgoogle_translate_get_meta_ID()</li>
 </ul>
 
 <p>Ad esempio se volessimo inserire il codice nel nostro tema e prendere solo le opzioni che riguardano l'account potremmo utilizzare
-un codice PHP simile al seguente dove viene utilizzata la funzione <b>szgoogle_get_translate_meta_ID()</b>.</p>
+un codice PHP simile al seguente dove viene utilizzata la funzione <b>szgoogle_translate_get_meta_ID()</b>.</p>
 <pre>
-&lt;meta name="google-translate-customization" content="&lt;?php echo szgoogle_get_translate_meta_ID() ?&gt"/&gt;
+&lt;meta name="google-translate-customization" content="&lt;?php echo szgoogle_translate_get_meta_ID() ?&gt"/&gt;
 </pre>
 
 <p>Se invece volessimo inserire il codice generato automaticamente dal plugin ma in una posizione ben definita del nostro tema possiamo
-utilizzare la funzione PHP <b>szgoogle_get_translate_meta()</b> e inserirla nel punto preciso che desideriamo.</p>
+utilizzare la funzione PHP <b>szgoogle_translate_get_meta()</b> e inserirla nel punto preciso che desideriamo.</p>
 
 <pre>
 &lt;head&gt;
-  if (function_exists('szgoogle_get_translate_meta')) {
-    echo szgoogle_get_translate_meta();
+  if (function_exists('szgoogle_translate_get_meta')) {
+    echo szgoogle_translate_get_meta();
   }
 &lt;/head&gt;
 </pre>
@@ -64,16 +64,7 @@ risulti attivata tramite il campo opzione dedicato che trovate nel pannello di a
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('analytics setup','szgoogleadmin'),'slug'=>'sz-google-help-translate-setup.php');
-$next = array('title'=>__('youtube video'  ,'szgoogleadmin'),'slug'=>'sz-google-help-youtube-video.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('translate PHP functions','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('translate PHP functions','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

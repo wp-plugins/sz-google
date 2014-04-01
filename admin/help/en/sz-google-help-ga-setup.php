@@ -39,11 +39,11 @@ access or logged users access from monitoring in order not to have them counted 
 <p>By default the code is written into the &lt;head&gt; section of your HTML page, in the exact position recommended by Google, 
 anyway you can modify this feature and decide to put it on the bottom of page or manually using a PHP function you can insert 
 anywhere in your page code, even adding some custom PHP conditions to include or exclude monitoring. Manual insert can be made 
-using <b>szgoogle_get_ga_code()</b> function; it doesn’t need parameters and can be invoked anywhere in your theme.</p>
+using <b>szgoogle_analytics_get_code()</b> function; it doesn’t need parameters and can be invoked anywhere in your theme.</p>
 
 <pre>
-if (function_exists('szgoogle_get_ga_code')) {
-  echo szgoogle_get_ga_code();
+if (function_exists('szgoogle_analytics_get_code')) {
+  echo szgoogle_analytics_get_code();
 }
 </pre>
 
@@ -71,16 +71,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('google+ recommendations','szgoogleadmin'),'slug'=>'sz-google-help-plus-recommendations.php');
-$next = array('title'=>__('analytics PHP functions','szgoogleadmin'),'slug'=>'sz-google-help-ga-functions.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('analytics setup','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('analytics setup','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

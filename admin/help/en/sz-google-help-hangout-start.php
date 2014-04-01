@@ -15,13 +15,13 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-hangout-start.jpg
  */
 $HTML = <<<EOD
 
-<p>Tramite questa funzione presente nel plugin <b>SZ-Google</b> è possibile inserire in un post di wordpress o su una sidebar il 
-bottone per avviare una sessione video con Hangout e la possibilità di lanciare un'applicazione determinata. Questa funzione può
-essere molto utile a chi vuole sviluppare un'applicazione su Hangout ed invitare gli utenti all'utilizzo.</p>
+<p>Using this function in the <b>SZ-Google</b> plugin you can place button start hangout inside a wordpress post or in a sidebar.
+This button is used to start a video session with google hangout and the ability to launch a specific application. This feature can be 
+very useful to develop an application on hangout and invite users to use.</p>
 
 <p>To add this module you have to use the shortcode <b>[sz-hangouts-start]</b>, but if you want to use it in a sidebar then you have to use 
 the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
-in fact just use a PHP function provided by the plugin <b>szgoogle_get_hangouts_code_start(\$options)</b>.</p>
+in fact just use a PHP function provided by the plugin <b>szgoogle_hangouts_get_code_start(\$options)</b>.</p>
 
 <h2>Customization</h2>
 
@@ -33,28 +33,27 @@ format option = "value". If you would like additional information you can visit 
 <h2>Parameters and options</h2>
 
 <table>
-	<tr><th>Parameter</th>    <th>Description</th>        <th>Allowed values</th>               <th>Default</th></tr>
-	<tr><td>type</td>         <td>tipo</td>               <td>normal,onair,party,moderated</td> <td>normal</td></tr>
-	<tr><td>topic</td>        <td>argomento</td>          <td>stringa</td>                      <td>null</td></tr>
-	<tr><td>width</td>        <td>larghezza</td>          <td>valore,auto</td>                  <td>auto</td></tr>
-	<tr><td>float</td>        <td>float</td>              <td>left,right,none</td>              <td>none</td></tr>
-	<tr><td>align</td>        <td>allineamento</td>       <td>left,center,right,none</td>       <td>none</td></tr>
-	<tr><td>text</td>         <td>testo</td>              <td>stringa</td>                      <td>null</td></tr>
-	<tr><td>img</td>          <td>immagine</td>           <td>stringa</td>                      <td>null</td></tr>
-	<tr><td>position</td>     <td>posizione</td>          <td>top,center,bottom,outside</td>    <td>outside</td></tr>
-	<tr><td>margintop</td>    <td>margine alto</td>       <td>valore,none</td>                  <td>none</td></tr>
-	<tr><td>marginrigh</td>   <td>margine destro</td>     <td>valore,none</td>                  <td>none</td></tr>
-	<tr><td>marginbottom</td> <td>margine basso</td>      <td>valore,none</td>                  <td>1</td></tr>
-	<tr><td>marginleft</td>   <td>margine sinistro</td>   <td>valore,none</td>                  <td>none</td></tr>
-	<tr><td>marginunit</td>   <td>misura per margine</td> <td>em,pt,px</td>                     <td>em</td></tr>
+	<tr><th>Parameter</th>    <th>Description</th>   <th>Allowed values</th>               <th>Default</th></tr>
+	<tr><td>type</td>         <td>type</td>          <td>normal,onair,party,moderated</td> <td>normal</td></tr>
+	<tr><td>topic</td>        <td>topic</td>         <td>string</td>                       <td>null</td></tr>
+	<tr><td>width</td>        <td>width</td>         <td>value,auto</td>                   <td>auto</td></tr>
+	<tr><td>float</td>        <td>float</td>         <td>left,right,none</td>              <td>none</td></tr>
+	<tr><td>align</td>        <td>alignment</td>     <td>left,center,right,none</td>       <td>none</td></tr>
+	<tr><td>text</td>         <td>text</td>          <td>string</td>                       <td>null</td></tr>
+	<tr><td>img</td>          <td>image</td>         <td>string</td>                       <td>null</td></tr>
+	<tr><td>position</td>     <td>position</td>      <td>top,center,bottom,outside</td>    <td>outside</td></tr>
+	<tr><td>margintop</td>    <td>margin top</td>    <td>value,none</td>                   <td>none</td></tr>
+	<tr><td>marginrigh</td>   <td>margin righ</td>   <td>value,none</td>                   <td>none</td></tr>
+	<tr><td>marginbottom</td> <td>margin bottom</td> <td>value,none</td>                   <td>1</td></tr>
+	<tr><td>marginleft</td>   <td>margin left</td>   <td>value,none</td>                   <td>none</td></tr>
+	<tr><td>marginunit</td>   <td>margin unit</td>   <td>em,pt,px</td>                     <td>em</td></tr>
 </table>
 
 <h2>Button wrapper</h2>
 
-<p>Il comportamento standard del bottone di google è quello di disegnare solo il bottone e collegare ad esso le azioni interattive 
-permesse. Il plugin <b>SZ-Google</b> ha cercato di migliorare questo comportamento ed ha aggiunto dei parametri per permettere 
-il disegno di un contenitore su cui il bottone può essere positionato. Ad esempio possiamo specificare un'immagine e posizionare il
-bottone all'interno di essa in overlay e nella posizione che vogliamo. Qui di seguito un'esempio per chiarire:</p>
+<p>The behavior of the button of google is to draw the component and connect it to the permitted actions. The <b>SZ-Google</b>
+plugin has improved this feature and added parameters to allow the drawing of a container on which the button can be placed. For 
+example, we can specify an image and place the button within it and specifying the position.</p>
 
 <pre>[sz-hangouts-start img="http://domain.com/image.jpg" position="bottom"/]</pre>
 
@@ -68,10 +67,9 @@ form and with the customization options allowed. To insert a shortcode in our po
 
 <h2>PHP code example</h2>
 
-<p>If you want to use PHP functions provided by the plugin you must make sure that the corresponding module is active, once verified 
-inserted in the desired location of your theme code similar to the following example, then prepared an array with the options you want 
-and call up the required function. It is advisable to use before the function check if this exists, in this way you will not have 
-PHP errors when plugin disabled or uninstalled.</p>
+<p>If you want to use PHP functions of the plugin you need to be sure that the specific module is active, when you have verified this,
+include the functions in your theme and specifies the various options through an array. It is advisable to use before the function 
+check if this exists, in this way you will not have PHP errors when plugin disabled or uninstalled.</p>
 
 <pre>
 \$options = array(
@@ -79,8 +77,8 @@ PHP errors when plugin disabled or uninstalled.</p>
   'align' => 'center',
 );
 
-if (function_exists('szgoogle_get_hangouts_code_start')) {
-  echo szgoogle_get_hangouts_code_start(\$options);
+if (function_exists('szgoogle_hangouts_get_code_start')) {
+  echo szgoogle_hangouts_get_code_start(\$options);
 }
 </pre>
 
@@ -101,16 +99,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('widget groups'   ,'szgoogleadmin'),'slug'=>'sz-google-help-groups.php');
-$next = array('title'=>__('widget panoramio','szgoogleadmin'),'slug'=>'sz-google-help-panoramio.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('hangout start button','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('hangout start button','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

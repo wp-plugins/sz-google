@@ -19,15 +19,14 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-youtube-video.jpg
  */
 $HTML = <<<EOD
 
-<p>Questa funzione permette l'inserimento di un <b>video youtube</b> su una pagina web. Il modulo youtube ha molti parametri che servono per 
-aggiungere funzionalità o personalizzare alcuni aspetti che riguardano la modalità di inserimento, ad esempio possiamo decidere tra 
-una dimensione fissa del player o una di tipo responsive design, è possibile scegliere tra un tema “dark” e uno “light”, 
-agganciare automaticamente il codice di google analytics per tracciare le operazioni che vengono eseguite sul video, 
-impostare alcuni parametri come fullscreen, disablekeyboard, autoplay e loop e molto altro ancora.</p>
+<p>This function allows you to insert a <b>youtube video</b> on a web page. The module youtube has many parameters that are used to add 
+functionality or customize some aspects concerning the insertion mode, for example, we can choose between a fixed size of the player 
+or a type of responsive design, you can choose between a "dark" theme and a "light", generate code for google analytics 
+to track the operations on the video, set some parameters such as fullscreen, disablekeyboard, autoplay and loop.</p>
 
 <p>To add this module you have to use the shortcode <b>[sz-ytvideo]</b>, but if you want to use it in a sidebar then you have to use 
 the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
-in fact just use a PHP function provided by the plugin <b>szgoogle_get_youtube_code_video(\$options)</b>.</p>
+in fact just use a PHP function provided by the plugin <b>szgoogle_youtube_get_code_video(\$options)</b>.</p>
 
 <h2>Customization</h2>
 
@@ -39,33 +38,33 @@ format option = "value". If you would like additional information you can visit 
 <h2>Parameters and options</h2>
 
 <table>
-	<tr><th>Parameter</th>       <th>Description</th>                 <th>Allowed values</th>       <th>Default</th></tr>
-	<tr><td>url</td>             <td>indirizzo URL youtube</td>       <td>string</td>               <td>null</td></tr>
-	<tr><td>responsive</td>      <td>modalità responsive</td>         <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>width</td>           <td>larghezza in pixel</td>          <td>valore</td>               <td>configurazione</td></tr>
-	<tr><td>height</td>          <td>altezza in pixel</td>            <td>valore</td>               <td>configurazione</td></tr>
-	<tr><td>margintop</td>       <td>margine alto</td>                <td>valore</td>               <td>configurazione</td></tr>
-	<tr><td>marginright</td>     <td>margine destro</td>              <td>valore</td>               <td>configurazione</td></tr>
-	<tr><td>marginbottom</td>    <td>margine basso</td>               <td>valore</td>               <td>configurazione</td></tr>
-	<tr><td>marginleft</td>      <td>margine sinistro</td>            <td>valore</td>               <td>configurazione</td></tr>
-	<tr><td>marginunit</td>      <td>misura per margine</td>          <td>px,em</td>                <td>configurazione</td></tr>
-	<tr><td>autoplay</td>        <td>attivazione autoplay</td>        <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>loop</td>            <td>attivazione loop</td>            <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>fullscreen</td>      <td>schermo intero</td>              <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>disablekeyboard</td> <td>disabilitare tastiera</td>       <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>theme</td>           <td>nome del tema</td>               <td>dark,light</td>           <td>configurazione</td></tr>
-	<tr><td>cover</td>           <td>immagine copertina</td>          <td>local,youtube,URL,ID</td> <td>configurazione</td></tr>
-	<tr><td>title</td>           <td>titolo del video</td>            <td>stringa</td>              <td>configurazione</td></tr>
-	<tr><td>disableiframe</td>   <td>disattivare IFRAME</td>          <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>analytics</td>       <td>google analytics</td>            <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>delayed</td>         <td>caricamento ritardato</td>       <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>start</td>           <td>tempo di inizio</td>             <td>seconds</td>              <td>null</td></tr>
-	<tr><td>end</td>             <td>tempo di fine</td>               <td>seconds</td>              <td>null</td></tr>
-	<tr><td>disablerelated</td>  <td>disattivare video correlati</td> <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>schemaorg</td>       <td>abilitare schema.org</td>        <td>y=yes,n=no</td>           <td>configurazione</td></tr>
-	<tr><td>name</td>            <td>schema.org nome</td>             <td>stringa</td>              <td>video youtube</td></tr>
-	<tr><td>description</td>     <td>schema.org descrizione</td>      <td>stringa</td>              <td>valore del titolo</td></tr>
-	<tr><td>duration</td>        <td>schema.org durata</td>           <td><a target="_blank" href="http://it.wikipedia.org/wiki/ISO_8601">format ISO 8601</a></td><td>null</td></tr>
+	<tr><th>Parameter</th>       <th>Description</th>            <th>Allowed values</th>       <th>Default</th></tr>
+	<tr><td>url</td>             <td>address URL youtube</td>    <td>string</td>               <td>null</td></tr>
+	<tr><td>responsive</td>      <td>responsive mode</td>        <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>width</td>           <td>width</td>                  <td>value</td>                <td>configuration</td></tr>
+	<tr><td>height</td>          <td>height</td>                 <td>value</td>                <td>configuration</td></tr>
+	<tr><td>margintop</td>       <td>margin top</td>             <td>value</td>                <td>configuration</td></tr>
+	<tr><td>marginright</td>     <td>margin right</td>           <td>value</td>                <td>configuration</td></tr>
+	<tr><td>marginbottom</td>    <td>margin bottom</td>          <td>value</td>                <td>configuration</td></tr>
+	<tr><td>marginleft</td>      <td>margin left</td>            <td>value</td>                <td>configuration</td></tr>
+	<tr><td>marginunit</td>      <td>margin unit</td>            <td>px,em</td>                <td>configuration</td></tr>
+	<tr><td>autoplay</td>        <td>enable autoplay</td>        <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>loop</td>            <td>enable loop</td>            <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>fullscreen</td>      <td>full screen</td>            <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>disablekeyboard</td> <td>disablekeyboard</td>        <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>theme</td>           <td>theme</td>                  <td>dark,light</td>           <td>configuration</td></tr>
+	<tr><td>cover</td>           <td>cover image</td>            <td>local,youtube,URL,ID</td> <td>configuration</td></tr>
+	<tr><td>title</td>           <td>video title</td>            <td>string</td>               <td>configuration</td></tr>
+	<tr><td>disableiframe</td>   <td>disable iframe</td>         <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>analytics</td>       <td>google analytics</td>       <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>delayed</td>         <td>delayed</td>                <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>start</td>           <td>time start</td>             <td>seconds</td>              <td>null</td></tr>
+	<tr><td>end</td>             <td>time end</td>               <td>seconds</td>              <td>null</td></tr>
+	<tr><td>disablerelated</td>  <td>disable related video</td>  <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>schemaorg</td>       <td>schema.org enable</td>      <td>y=yes,n=no</td>           <td>configuration</td></tr>
+	<tr><td>name</td>            <td>schema.org name</td>        <td>string</td>               <td>youtube video</td></tr>
+	<tr><td>description</td>     <td>schema.org description</td> <td>string</td>               <td>title</td></tr>
+	<tr><td>duration</td>        <td>schema.org duration</td>    <td><a target="_blank" href="http://it.wikipedia.org/wiki/ISO_8601">format ISO 8601</a></td><td>null</td></tr>
 </table>
 
 <h2>Shortcode example</h2>
@@ -78,10 +77,9 @@ form and with the customization options allowed. To insert a shortcode in our po
 
 <h2>PHP code example</h2>
 
-<p>If you want to use PHP functions provided by the plugin you must make sure that the corresponding module is active, once verified 
-inserted in the desired location of your theme code similar to the following example, then prepared an array with the options you want 
-and call up the required function. It is advisable to use before the function check if this exists, in this way you will not have 
-PHP errors when plugin disabled or uninstalled.</p>
+<p>If you want to use PHP functions of the plugin you need to be sure that the specific module is active, when you have verified this,
+include the functions in your theme and specifies the various options through an array. It is advisable to use before the function 
+check if this exists, in this way you will not have PHP errors when plugin disabled or uninstalled.</p>
 
 <pre>
 \$options = array(
@@ -91,8 +89,8 @@ PHP errors when plugin disabled or uninstalled.</p>
   'schemaorg'  => 'yes',
 );
 
-if (function_exists('szgoogle_get_youtube_code_video')) {
-  echo szgoogle_get_youtube_code_video(\$options);
+if (function_exists('szgoogle_youtube_get_code_video')) {
+  echo szgoogle_youtube_get_code_video(\$options);
 }
 </pre>
 
@@ -113,16 +111,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('translate PHP functions','szgoogleadmin'),'slug'=>'sz-google-help-translate-functions.php');
-$next = array('title'=>__('youtube playlist'       ,'szgoogleadmin'),'slug'=>'sz-google-help-youtube-playlist.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('youtube video','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('youtube video','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

@@ -849,7 +849,7 @@ function sz_google_module_youtube_get_code_button($atts=array())
 	// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 	// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-	add_action('SZGoogleFooter','sz_google_module_youtube_loading_script');
+	add_action('szgoogle_footer','sz_google_module_youtube_loading_script');
 
 	// Ritorno per la funzione con tutta la stringa contenente
 	// il codice HTML per l'inserimento di un video youtube 
@@ -1202,7 +1202,7 @@ function sz_google_module_youtube_add_video_API($opts=array())
 
 	if (is_array($opts)) {
 		$SZ_GOOGLE_YOUTUBE_API[] = $opts;
-		add_action('SZGoogleFooter','sz_google_module_youtube_add_script_footer');
+		add_action('szgoogle_footer','sz_google_module_youtube_add_script_footer');
 	}
 }
 
@@ -1357,4 +1357,34 @@ function sz_google_module_youtube_check_channel($channel)
 {
 	if (strlen($channel) == 24 and substr($channel,0,2) == 'UC') return "ID";
 		else return "NAME";
+}
+
+function szgoogle_youtube_get_code_video($atts=array()) {
+	if (function_exists('sz_google_module_youtube_get_code_video()')) {
+		return sz_google_module_youtube_get_code_video($atts);
+	} else return false;
+}
+
+function szgoogle_youtube_get_code_playlist($atts=array()) {
+	if (function_exists('sz_google_module_youtube_get_code_playlist()')) {
+		return sz_google_module_youtube_get_code_playlist($atts);
+	} else return false;
+}
+
+function szgoogle_youtube_get_code_badge($atts=array()) {
+	if (function_exists('sz_google_module_youtube_get_code_badge()')) {
+		return sz_google_module_youtube_get_code_badge($atts);
+	} else return false;
+}
+
+function szgoogle_youtube_get_code_button($atts=array()) {
+	if (function_exists('sz_google_module_youtube_get_code_button()')) {
+		return sz_google_module_youtube_get_code_button($atts);
+	} else return false;
+}
+
+function szgoogle_youtube_get_code_link($atts=array()) {
+	if (function_exists('sz_google_module_youtube_get_code_link()')) {
+		return sz_google_module_youtube_get_code_link($atts);
+	} else return false;
 }

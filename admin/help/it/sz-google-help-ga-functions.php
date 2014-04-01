@@ -25,12 +25,12 @@ utilizzare il pannello di amministrazione per i parametri relativi all'account, 
 disposizione del plugin e implementarle con il vostro codice. Le funzioni messe a disposizione sono le seguenti:</p>
 
 <ul>
-<li><b>szgoogle_get_ga_ID()</b></li>
-<li><b>szgoogle_get_ga_code()</b></li>
+<li><b>szgoogle_analytics_get_ID()</b></li>
+<li><b>szgoogle_analytics_get_code()</b></li>
 </ul>
 
 <p>Ad esempio se volessimo inserire il codice nel nostro tema e prendere solo le opzioni che riguardano l'account potremmo utilizzare
-un codice PHP simile al seguente dove viene utilizzata la funzione <b>szgoogle_get_ga_ID()</b>.</p>
+un codice PHP simile al seguente dove viene utilizzata la funzione <b>szgoogle_analytics_get_ID()</b>.</p>
 <pre>
 &lt;script&gt;
 
@@ -39,19 +39,19 @@ un codice PHP simile al seguente dove viene utilizzata la funzione <b>szgoogle_g
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create',&lt;?php echo szgoogle_get_ga_ID() ?&gt;,'dominio.com');
+  ga('create',&lt;?php echo szgoogle_analytics_get_ID() ?&gt;,'dominio.com');
   ga('send','pageview');
 
 &lt;/script&gt;
 </pre>
 
 <p>Se invece volessimo inserire il codice generato automaticamente dal plugin ma in una posizione ben definita del nostro tema possiamo
-utilizzare la funzione PHP <b>szgoogle_get_ga_code()</b> e inserirla nel punto preciso che desideriamo.</p>
+utilizzare la funzione PHP <b>szgoogle_analytics_get_code()</b> e inserirla nel punto preciso che desideriamo.</p>
 
 <pre>
 &lt;head&gt;
-  if (function_exists('szgoogle_get_ga_code')) {
-    echo szgoogle_get_ga_code();
+  if (function_exists('szgoogle_analytics_get_code')) {
+    echo szgoogle_analytics_get_code();
   }
 &lt;/head&gt;
 </pre>
@@ -72,16 +72,7 @@ risulti attivata tramite il campo opzione dedicato che trovate nel pannello di a
 EOD;
 
 /**
- * Definizione array per la creazione del navigatore di fondo
- * con i link seguenti e precedenti della documentazione
- */
-$prev = array('title'=>__('analytics setup','szgoogleadmin')    ,'slug'=>'sz-google-help-ga-setup.php');
-$next = array('title'=>__('authenticator setup','szgoogleadmin'),'slug'=>'sz-google-help-authenticator-setup.php');
-
-$HTML .= $this->moduleAddHelpNavs($prev,$next);
-
-/**
  * Richiamo della funzione per la creazione della pagina di 
  * documentazione standard in base al contenuto della variabile HTML
  */
-$this->moduleCommonForm(__('analytics PHP functions','szgoogleadmin'),NULL,NULL,false,$HTML);
+$this->moduleCommonFormHelp(__('analytics PHP functions','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

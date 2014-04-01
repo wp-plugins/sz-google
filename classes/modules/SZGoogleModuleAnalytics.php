@@ -97,7 +97,7 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 			if (!is_admin() and $options['ga_enable_front'] == SZ_PLUGIN_GOOGLE_VALUE_YES)
 			{
 				if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_HEADER) add_action('wp_head',array($this,'moduleMonitorCode'));
-				if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('SZGoogleFooter',array($this,'moduleMonitorCode'));
+				if ($options['ga_position'] == SZ_PLUGIN_GOOGLE_GA_FOOTER) add_action('szgoogle_footer',array($this,'moduleMonitorCode'));
 			}
 		}
 
@@ -295,4 +295,17 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 			return $guacode;
 		}
 	}
+}
+
+
+function szgoogle_analytics_get_ID() {
+	if ($object = SZGoogleModule::$SZGoogleModuleAnalytics) {
+		return $object->getGAId();
+	} else return false; 
+}
+
+function szgoogle_analytics_get_code($options=array()) {
+	if ($object = SZGoogleModule::$SZGoogleModuleAnalytics) {
+		return $object->moduleMonitorCodeCommon($options);
+	} else return false; 
 }

@@ -38,8 +38,8 @@ if (!class_exists('SZGoogleWidgetCalendar'))
 			// dello script e assegno dei valori di default nel caso non fossero specificati
 
 			$options = $this->common_empty(array(
-				'calendars'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'title'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'calendars'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'mode'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'weekstart'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'language'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
@@ -60,6 +60,7 @@ if (!class_exists('SZGoogleWidgetCalendar'))
 			// interessano le opzioni della funzione base ma incidono su alcuni aspetti
 
 			$controls = $this->common_empty(array(
+				'calendarT'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'width_auto'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'height_auto'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			),$instance);
@@ -69,6 +70,11 @@ if (!class_exists('SZGoogleWidgetCalendar'))
 
 			if ($controls['width_auto']  == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['width']  = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
 			if ($controls['height_auto'] == SZ_PLUGIN_GOOGLE_VALUE_YES) $options['height'] = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
+
+			// Annullo la variabile titolo che appartiene al componente in 
+			// quanto esiste il titolo del widget e hanno lo stesso nome
+
+			$options['title'] = $controls['calendarT'];
 
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente

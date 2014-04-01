@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -79,15 +79,15 @@ To be informed about the features that gradually will be released you can follow
 
 **Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_gplus_badge_profile()`
-* `szgoogle_get_gplus_badge_page()`
-* `szgoogle_get_gplus_badge_community()`
-* `szgoogle_get_gplus_badge_followers()`
-* `szgoogle_get_gplus_button_one()`
-* `szgoogle_get_gplus_button_share()`
-* `szgoogle_get_gplus_button_follow()`
-* `szgoogle_get_gplus_comments()`
-* `szgoogle_get_gplus_post()`
+* `szgoogle_gplus_get_badge_profile()`
+* `szgoogle_gplus_get_badge_page()`
+* `szgoogle_gplus_get_badge_community()`
+* `szgoogle_gplus_get_badge_followers()`
+* `szgoogle_gplus_get_button_one()`
+* `szgoogle_gplus_get_button_share()`
+* `szgoogle_gplus_get_button_follow()`
+* `szgoogle_gplus_get_comments()`
+* `szgoogle_gplus_get_post()`
 
 = Google Analytics module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -103,12 +103,12 @@ To be informed about the features that gradually will be released you can follow
 * `Google analytics enable multiple top domains.`
 * `Google analytics enable advertiser.`
 
-**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function directly `szgoogle_get_ga_code()` in your theme manually.
+**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function directly `szgoogle_analytics_get_code()` in your theme manually.
 
 **Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
 
-* `szgoogle_get_ga_ID()`
-* `szgoogle_get_ga_code()`
+* `szgoogle_analytics_get_ID()`
+* `szgoogle_analytics_get_code()`
 
 = Google Authenticator module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -134,15 +134,22 @@ the configuration and synchronization of the key will be performed quickly and e
 
 **Google Drive Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
+* `Widget google drive embed`
+* `Widget google drive viewer`
 * `Widget google drive for button save`
 
 **Google Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
 
+* `[sz-drive-embed].....: googe drive embed`
+* `[sz-drive-viewer]....: googe drive viewer`
 * `[sz-drive-save]......: googe drive save button`
 
 **Google Drive Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_drive_savebutton()`
+* `szgoogle_drive_get_object()`
+* `szgoogle_drive_get_embed()`
+* `szgoogle_drive_get_viewer()`
+* `szgoogle_drive_get_savebutton()`
 
 = Google Groups module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -159,7 +166,7 @@ the configuration and synchronization of the key will be performed quickly and e
 
 **Google Groups Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_groups_code()`
+* `szgoogle_groups_get_code()`
 
 = Google Hangouts module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -174,7 +181,7 @@ the configuration and synchronization of the key will be performed quickly and e
 
 **Google Hangouts Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_hangouts_code_start()`
+* `szgoogle_hangouts_get_code_start()`
 
 = Google Panoramio module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -193,7 +200,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 **Google Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_panoramio_code()`
+* `szgoogle_panoramio_get_code()`
 
 = Google Translate module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -208,9 +215,9 @@ With this module you can insert widgets with photo galleries present on panorami
 
 **Google Translate Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_translate_code()`
-* `szgoogle_get_translate_meta()`
-* `szgoogle_get_translate_meta_ID()`
+* `szgoogle_translate_get_code()`
+* `szgoogle_translate_get_meta()`
+* `szgoogle_translate_get_meta_ID()`
 
 = Google Youtube module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -236,11 +243,11 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_get_youtube_code_video()`
-* `szgoogle_get_youtube_code_playlist()`
-* `szgoogle_get_youtube_code_badge()`
-* `szgoogle_get_youtube_code_button()`
-* `szgoogle_get_youtube_code_link()`
+* `szgoogle_youtube_get_code_video()`
+* `szgoogle_youtube_get_code_playlist()`
+* `szgoogle_youtube_get_code_badge()`
+* `szgoogle_youtube_get_code_button()`
+* `szgoogle_youtube_get_code_link()`
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -312,6 +319,15 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.7.2 =
+* Feature: Google Drive widget embed.
+* Feature: Google Drive widget viewer.
+* Feature: Google Drive shortcode embed.
+* Feature: Google Drive shortcode viewer.
+* Feature: completed the English translation.
+* Feature: Translate plugin description.
+* Fix: Calendar title if used in widget.
 
 = Version 1.7.1 =
 * Feature: Google Authenticator two step login.
@@ -484,8 +500,8 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add option for remove google analytics if administrator.
 * Feature: Add option for remove google analytics if user logged.
 * Feature: Add option for remove google analytics if frontend.
-* Feature: Add function for analytics szgoogle_get_ga_ID().
-* Feature: Add function for analytics szgoogle_get_ga_code().
+* Feature: Add function for analytics szgoogle_analytics_get_ID().
+* Feature: Add function for analytics szgoogle_analytics_get_code().
 
 = Version 0.3.0 =
 * Feature: Add Google+ switch for loading javascript code.

@@ -128,7 +128,7 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 			);
 
 			$this->moduleCommonFormSelect('sz_google_options_ga','ga_position',$values,'medium','');
-			$this->moduleCommonFormDescription(__('specifies the location of the tracking code in the page HTML. The recommended position is the header that does not allow the loss of access statistics. If you specify the manual mode you have to use szgoogle_get_analytics_code().','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('specifies the location of the tracking code in the page HTML. The recommended position is the header that does not allow the loss of access statistics. If you specify the manual mode you have to use szgoogle_analytics_get_code().','szgoogleadmin'));
 		}
 
 		function get_analytics_type() 
