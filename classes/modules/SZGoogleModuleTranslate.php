@@ -9,253 +9,326 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 /**
- * Definizione della classe principale da utilizzare per questo
- * modulo. La classe deve essere una extends di SZGoogleModule
- * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
+ * Prima della definizione della classe controllo se esiste
+ * una definizione con lo stesso nome o già definita la stessa.
  */
-class SZGoogleModuleTranslate extends SZGoogleModule
+if (!class_exists('SZGoogleModuleTranslate'))
 {
 	/**
-	 * Definizione della funzione costruttore che viene richiamata
-	 * nel momento della creazione di un'istanza con questa classe
+	 * Definizione della classe principale da utilizzare per questo
+	 * modulo. La classe deve essere una extends di SZGoogleModule
+	 * dove bisogna ridefinire il metodo per il calcolo delle opzioni.
 	 */
-	function __construct()
+	class SZGoogleModuleTranslate extends SZGoogleModule
 	{
-		parent::__construct('SZGoogleModuleTranslate');
+		static protected $NUMBERCALLS = 0;
+		static protected $JAVASCRIPTS = array();
 
-		$this->moduleShortcodes = array(
-			'translate_shortcode' => array('sz-gtranslate','sz_google_shortcodes_translate_widget'),
-		);
-
-		$this->moduleWidgets = array(
-			'translate_widget'    => 'SZGoogleWidgetTranslate',
-		);
-	}
-
-	/**
-	 * Calcolo le opzioni legate al modulo con esecuzione dei 
-	 * controlli formali di coerenza e impostazione dei default
-	 *
-	 * @return array
-	 */
-	function getOptions()
-	{
-		$options = get_option('sz_google_options_translate');
-
-		// Controllo delle opzioni in caso di valori non esistenti
-		// richiamo della funzione per il controllo isset()
-
-		$options = $this->checkOptionIsSet($options,array(
-			'translate_meta'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-			'translate_mode'         => SZ_PLUGIN_GOOGLE_TRANSLATE_MODE,
-			'translate_language'     => SZ_PLUGIN_GOOGLE_VALUE_LANG,
-			'translate_to'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
-			'translate_widget'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
-			'translate_shortcode'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-			'translate_automatic'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-			'translate_multiple'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
-			'translate_analytics'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-			'translate_analytics_ua' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		));
-
-		// Controllo delle opzioni in caso di valori non conformi
-		// richiamo della funzione per il controllo isnull()
-
-		$options = $this->checkOptionIsNull($options,array(
-			'translate_language'     => SZ_PLUGIN_GOOGLE_VALUE_LANG,
-		));
-
-		// Controllo opzione di codice GA-UA nel caso debba pendere il valore
-		// specificato nel modulo corrispondente se risulta attivo.
-
-		if (is_object(self::$SZGoogleModuleAnalytics) and $options['translate_analytics_ua'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+		/**
+		 * Definizione della funzione costruttore che viene richiamata
+		 * nel momento della creazione di un'istanza con questa classe
+		 */
+		function __construct()
 		{
-			$options_ga = self::$SZGoogleModuleAnalytics->getOptions();
-			$options['translate_analytics_ua'] = $options_ga['ga_uacode'];   
+			parent::__construct('SZGoogleModuleTranslate');
+
+			$this->moduleShortcodes = array(
+				'translate_shortcode' => array('sz-gtranslate',array($this,'getTranslateShortcode')),
+			);
+
+			$this->moduleWidgets = array(
+				'translate_widget'    => 'SZGoogleWidgetTranslate',
+			);
+
+			// Esecuzione dei componenti esistenti legati al modulo come
+			// le azioni generali e la generazione di shortcode e widget.
+
+			$this->moduleAddActions();
+			$this->moduleAddShortcodes();
+			$this->moduleAddWidgets();
 		}
 
-		// Ritorno indietro il gruppo di opzioni corretto dai
-		// controlli formali della funzione di reperimento opzioni
+		/**
+		 * Calcolo le opzioni legate al modulo con esecuzione dei 
+		 * controlli formali di coerenza e impostazione dei default
+		 *
+		 * @return array
+		 */
+		function getOptions()
+		{
+			$options = get_option('sz_google_options_translate');
 
-		return $options;
+			// Controllo delle opzioni in caso di valori non esistenti
+			// richiamo della funzione per il controllo isset()
+
+			$options = $this->checkOptionIsSet($options,array(
+				'translate_meta'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_mode'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_language'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_to'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_widget'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_shortcode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_automatic'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_multiple'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_analytics'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'translate_analytics_ua' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			));
+
+			// Controllo delle opzioni in caso di valori non conformi
+			// richiamo della funzione per il controllo isnull()
+
+			$options = $this->checkOptionIsNull($options,array(
+				'translate_mode'         => SZ_PLUGIN_GOOGLE_TRANSLATE_MODE,
+				'translate_language'     => SZ_PLUGIN_GOOGLE_VALUE_LANG,
+			));
+
+			// Chiamata alla funzione comune per controllare le variabili che devono avere
+			// un valore di YES o NO e nel caso non fosse possibile forzare il valore (NO)
+
+			$options = $this->checkOptionIsYesNo($options,array(
+				'translate_to'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'translate_widget'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'translate_shortcode'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'translate_automatic'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'translate_multiple'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'translate_analytics'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
+			));
+
+			// Controllo opzione di codice GA-UA nel caso debba pendere il valore
+			// specificato nel modulo corrispondente se risulta attivo.
+
+			if (is_object(self::$SZGoogleModuleAnalytics) and 
+				$options['translate_analytics_ua'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+			{
+				$options_ga = self::$SZGoogleModuleAnalytics->getOptions();
+				$options['translate_analytics_ua'] = $options_ga['ga_uacode'];   
+			}
+
+			// Ritorno indietro il gruppo di opzioni corretto dai
+			// controlli formali della funzione di reperimento opzioni
+
+			return $options;
+		}
+
+		/**
+		 * Aggiungo le azioni del modulo corrente, questa funzione deve
+		 * essere implementate per ogni modulo in maniera personalizzata
+		 * non è possibile creare una funzione di standardizzazione
+		 *
+		 * @return void
+		 */
+		function moduleAddActions() {
+			add_action('szgoogle_head'  ,array($this,'getTranslateMetaHead'));
+			add_action('szgoogle_footer',array($this,'addJavascriptToFooter'));
+		}
+
+		/**
+		 * Funzione per generazione codice HTML da inserire nella     
+		 * sezione HEAD come <meta name="google-translate-customization">
+		 *
+		 * @return string
+		 */
+		function getTranslateMeta() {
+			if ($this->getTranslateMetaID() == SZ_PLUGIN_GOOGLE_VALUE_NULL) return NULL;
+				else return '<meta name="google-translate-customization" content="'.$this->getTranslateMetaID().'"></meta>'."\n";
+		}
+
+		/**
+		 * Funzione per calcolare il codice ID univoco di google da aggiungere 
+		 * alla sezione HEAD come <meta name="google-translate-customization">
+		 *
+		 * @return void
+		 */
+		function getTranslateMetaID() {
+			$options = $this->getOptions();
+			return trim($options['translate_meta']);
+		}
+
+		/**
+		 * Funzione per generazione codice HTML da inserire nella     
+		 * sezione HEAD come <meta name="google-translate-customization">
+		 *
+		 * @return void
+		 */
+		function getTranslateMetaHead() {
+			echo $this->getTranslateMeta();
+		}
+
+		/**
+		 * Funzione per shortcode [sz-gtranslate] che permette di eseguire
+		 * un selettore di lingua da utilizzare nella traduzione automatica
+		 *
+		 * @return string
+		 */
+		function getTranslateShortcode($atts,$content=null) 
+		{
+			return $this->getTranslateCode(shortcode_atts(array(
+				'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action'    => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+			),$atts),$content);
+		}
+
+		/**
+		 * Aggiungo il modulo generale con lo shortcode e il widget per
+		 * eseguire la funzione di start button hangout su google+
+		 * Questa funzione definisce il codice HTML che deve essere generato.
+		 *
+		 * @return string
+		 */
+		function getTranslateCode($atts=array(),$content=null)
+		{
+			$options = $this->getOptions();
+
+			// Estrazione dei valori specificati nello shortcode, i valori ritornati
+			// sono contenuti nei nomi di variabili corrispondenti alla chiave
+
+			if (!is_array($atts)) $atts = array();
+
+			extract(shortcode_atts(array(
+				'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			),$atts));
+
+			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
+			// stringa minuscolo per il controllo di valori speciali come "auto"
+
+			$uacode    = trim($uacode);
+			$language  = strtolower(trim($language));
+			$mode      = strtolower(trim($mode));
+			$automatic = strtolower(trim($automatic));
+			$multiple  = strtolower(trim($multiple));
+			$analytics = strtolower(trim($analytics));
+
+			// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+			// precedenti metto dei default assoluti che possono essere cambiati
+
+			if ($language  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $language  = $options['translate_language'];
+			if ($mode      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $mode      = $options['translate_mode'];
+			if ($automatic == SZ_PLUGIN_GOOGLE_VALUE_NULL) $automatic = $options['translate_automatic'];
+			if ($multiple  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $multiple  = $options['translate_multiple'];
+			if ($analytics == SZ_PLUGIN_GOOGLE_VALUE_NULL) $analytics = $options['translate_analytics'];
+			if ($uacode    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $uacode    = $options['translate_analytics_ua'];
+
+			if ($options['translate_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
+				else $language = trim($options['translate_language']);
+
+			// Incremento la variabile che tiene il conto del numero dei componenti
+			// elaborati e creo un id univoco da assegnare al contenitore HTML
+
+			self::$NUMBERCALLS++;
+			$uniqueID = 'sz-google-translate-unique-'.self::$NUMBERCALLS;
+
+			// Creazione codice HTML per inserimento javascript di google 
+			// inserimento del risultato dentro array globale per scrittura footer
+
+			$JAVA  = '<script type="text/javascript">';
+			$JAVA .= 'function szgoogleTranslateElementInit_'.self::$NUMBERCALLS.'() {';
+			$JAVA .= 'new google.translate.TranslateElement({';
+			$JAVA .= "pageLanguage:'".$language."'";
+
+			if ($options['translate_mode'] == 'I2') $JAVA .= ",layout:google.translate.TranslateElement.InlineLayout.HORIZONTAL";
+			if ($options['translate_mode'] == 'I3') $JAVA .= ",layout:google.translate.TranslateElement.InlineLayout.SIMPLE";
+
+			if ($automatic <> SZ_PLUGIN_GOOGLE_VALUE_YES ) $JAVA .= ",autoDisplay:false";
+			if ($multiple  == SZ_PLUGIN_GOOGLE_VALUE_YES ) $JAVA .= ",multilanguagePage:true";
+			if ($analytics == SZ_PLUGIN_GOOGLE_VALUE_YES ) $JAVA .= ",gaTrack:true";
+
+			if ($options['translate_analytics_ua'] <> '' ) $JAVA .= ",gaID:'".$options['translate_analytics_ua']."'";
+
+			$JAVA .= "},'$uniqueID');}";
+			$JAVA .= '</script>';
+
+			// Creazione codice HTML per inserimento javascript di google 
+			// inserimento del risultato dentro array globale per scrittura footer
+
+			self::$JAVASCRIPTS[self::$NUMBERCALLS] = $JAVA;
+
+			// Ritorno come codice HTML solo il contenitore con ID univoco in quanto
+			// il resto del codcie javascript sarà inserito in fondo alla pagina
+
+			return '<div id="'.$uniqueID.'"></div>';
+		}
+
+		/**
+		 * Funzione per aggiungere il codice javascript della composizione
+		 * widget di traduzione in fondo alla pagina e gestendo anche i casi
+		 * di inserimento componenti multipli sulla stessa pagina.
+		 *
+		 * @return void
+		 */
+		function addJavascriptToFooter() 
+		{
+			if(is_array(self::$JAVASCRIPTS) && count(self::$JAVASCRIPTS) > 0) 
+			{
+				// Per ogni elemento presente in array scrivo la riga singola
+				// di codice Javascript con la definizione della funzione
+
+				foreach (self::$JAVASCRIPTS as $key=>$value) {
+					echo $value."\n";
+				}
+
+				// Creazione di una funzione generica di callback per 
+				// richiamare le singole funzioni precedentemente definite
+
+				echo '<script type="text/javascript">';
+				echo 'function szgoogleTranslateElementInit_0() { ';
+
+				foreach (self::$JAVASCRIPTS as $key=>$value) {
+					echo 'szgoogleTranslateElementInit_'.$key.'(); '; 
+				}
+
+				echo "}";
+				echo '</script>'."\n";
+
+				// Richiamo dello script ufficiale di google specificando una
+				// funzione di callback che corrisponde a quella generica
+
+				echo '<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=szgoogleTranslateElementInit_0"></script>'."\n";
+			}
+		}
 	}
-}
 
-/* ************************************************************************** */ 
-/* Controllo le opzioni per sapere quali componenti risultano attivati        */ 
-/* ************************************************************************** */ 
+	/**
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 */
+	if (!function_exists('szgoogle_translate_get_object')) {
+		function szgoogle_translate_get_object() { 
+			if (!is_a(SZGoogleModule::$SZGoogleModuleTranslate,'SZGoogleModuleTranslate')) return false;
+				else return SZGoogleModule::$SZGoogleModuleTranslate;
+		}
+	}
 
-global $SZ_TRANSLATE_OBJECT;
+	if (!function_exists('szgoogle_translate_get_code')) {
+		function szgoogle_translate_get_code($options=array()) {
+			if (!$object = szgoogle_translate_get_object()) return false;
+				else return $object->getTranslateCode($options);
+		}
+	}
 
-/**
- * Creazione oggetto principale per creazione ed elaborazione del
- * modulo richiesto, controllare il costruttore per azioni iniziali
- */
-$SZ_TRANSLATE_OBJECT = new SZGoogleModuleTranslate();
-$SZ_TRANSLATE_OBJECT->moduleAddWidgets();
-$SZ_TRANSLATE_OBJECT->moduleAddShortcodes();
+	if (!function_exists('szgoogle_translate_get_meta')) {
+		function szgoogle_translate_get_meta() {
+			if (!$object = szgoogle_translate_get_object()) return false;
+				else return $object->getTranslateMeta();
+		}
+	}
 
-
-
-
-
-
-
-/* ************************************************************************** */ 
-/* Funzion per caricamento parte header con meta ID di translate              */
-/* ************************************************************************** */ 
-
-function sz_google_module_translate_meta() {
-	echo sz_google_module_translate_get_meta();
-}
-
-add_action('wp_head','sz_google_module_translate_meta');
-
-/* ************************************************************************** */ 
-/* Funzione per la generazione di codice legato a google translate            */
-/* ************************************************************************** */ 
-
-function sz_google_module_translate_get_meta_ID() 
-{
-	global $SZ_TRANSLATE_OBJECT;
-	$options = $SZ_TRANSLATE_OBJECT->getOptions();
-
-	return trim($options['translate_meta']);
-}
-
-/* ************************************************************************** */ 
-/* Funzione per la generazione di codice legato a google translate            */
-/* ************************************************************************** */ 
-
-function sz_google_module_translate_get_meta()
-{
-	if (sz_google_module_translate_get_meta_ID() <> SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-		$HTML  = '<meta name="google-translate-customization" ';
-		$HTML .= 'content="'.sz_google_module_translate_get_meta_ID().'">';
-		$HTML .= '</meta>';
-	}   
-
-	if (isset($HTML)) return $HTML; else return '';
-}
-
-/* ************************************************************************** */ 
-/* Funzione per la generazione di codice legato a google translate            */
-/* ************************************************************************** */ 
-
-function sz_google_module_translate_get_code($atts=array())
-{
-	global $SZ_TRANSLATE_OBJECT;
-	$options = $SZ_TRANSLATE_OBJECT->getOptions();
-
-	// Estrazione dei valori specificati nello shortcode, i valori ritornati
-	// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
-	if (!is_array($atts)) $atts = array();
-
-	extract(shortcode_atts(array(
-		'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-	),$atts));
-
-	// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
-	// stringa minuscolo per il controllo di valori speciali come "auto"
-
-	$uacode    = trim($uacode);
-	$language  = strtolower(trim($language));
-	$mode      = strtolower(trim($mode));
-	$automatic = strtolower(trim($automatic));
-	$multiple  = strtolower(trim($multiple));
-	$analytics = strtolower(trim($analytics));
-
-	// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-	// precedenti metto dei default assoluti che possono essere cambiati
-
-	if ($language  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $language  = $options['translate_language'];
-	if ($mode      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $mode      = $options['translate_mode'];
-	if ($automatic == SZ_PLUGIN_GOOGLE_VALUE_NULL) $automatic = $options['translate_automatic'];
-	if ($multiple  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $multiple  = $options['translate_multiple'];
-	if ($analytics == SZ_PLUGIN_GOOGLE_VALUE_NULL) $analytics = $options['translate_analytics'];
-	if ($uacode    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $uacode    = $options['translate_analytics_ua'];
-
-
-	if ($options['translate_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
-		else $language = trim($options['translate_language']);
-
-	// Creazione codice HTML per inserimento javascript di google 
-
-	$HTML  = '<div id="google_translate_element"></div>';
-	$HTML .= '<script type="text/javascript">';
-	$HTML .= 'function googleTranslateElementInit() {';
-	$HTML .= 'new google.translate.TranslateElement({';
-	$HTML .= "pageLanguage:'".$language."'";
-
-	if ($options['translate_mode']         == 'I2') $HTML .= ",layout:google.translate.TranslateElement.InlineLayout.HORIZONTAL";
-	if ($options['translate_mode']         == 'I3') $HTML .= ",layout:google.translate.TranslateElement.InlineLayout.SIMPLE";
-
-	if ($automatic   <> SZ_PLUGIN_GOOGLE_VALUE_YES ) $HTML .= ",autoDisplay:false";
-	if ($multiple    == SZ_PLUGIN_GOOGLE_VALUE_YES ) $HTML .= ",multilanguagePage:true";
-	if ($analytics   == SZ_PLUGIN_GOOGLE_VALUE_YES ) $HTML .= ",gaTrack:true";
-
-	if ($options['translate_analytics_ua'] <> ''  ) $HTML .= ",gaID:'".$options['translate_analytics_ua']."'";
-
-	$HTML .= "},'google_translate_element');}";
-	$HTML .= '</script>';
-	$HTML .= '<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>';
-
-	return $HTML;
-}
-
-/* ************************************************************************** */
-/* Funzione shortcode per inserimento G+ BADGE su PAGE                        */
-/* ************************************************************************** */
-
-function sz_google_shortcodes_translate_widget($atts,$content=null) 
-{
-	// Estrazione dei valori specificati nello shortcode, i valori ritornati
-	// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
-	extract(shortcode_atts(array(
-		'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-		'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-	),$atts));
-
-	// Preparazione codice HTML dello shortcode tramite la funzione
-	// standard di preparazione codice sia per shortcode che widgets
-
-	$HTML  = sz_google_module_translate_get_code(array(
-		'language'  => trim($language),
-		'mode'      => trim($mode),
-		'automatic' => trim($automatic),
-		'multiple'  => trim($multiple),
-		'analytics' => trim($analytics),
-		'uacode'    => trim($uacode),
-	));
-
-	return $HTML;
-}
-
-function szgoogle_translate_get_meta_ID() {
-	if (function_exists('sz_google_module_translate_get_meta_ID()')) {
-		return sz_google_module_translate_get_meta_ID();
-	} else return false;
-}
-
-function szgoogle_translate_get_meta() {
-	if (function_exists('sz_google_module_translate_get_meta()')) {
-		return sz_google_module_translate_get_meta();
-	} else return false;
-}
-
-function szgoogle_translate_get_code($atts=array()) {
-	if (function_exists('sz_google_module_translate_get_code()')) {
-		return sz_google_module_translate_get_code($atts);
-	} else return false;
+	if (!function_exists('szgoogle_translate_get_meta_ID')) {
+		function szgoogle_translate_get_meta_ID() {
+			if (!$object = szgoogle_translate_get_object()) return false;
+				else return $object->getTranslateMetaID();
+		}
+	}
 }

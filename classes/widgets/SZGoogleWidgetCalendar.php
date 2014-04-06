@@ -177,20 +177,8 @@ if (!class_exists('SZGoogleWidgetCalendar'))
 				if (!ctype_digit($instance['width']))  $instance['width']  = $options['calendar_w_width'];
 				if (!ctype_digit($instance['height'])) $instance['height'] = $options['calendar_w_height'];
 
-				if (!ctype_digit($instance['width']))  $instance['width']  = '300';
-				if (!ctype_digit($instance['height'])) $instance['height'] = '400';
-
-				if ($instance['width_auto'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-					if ($options['calendar_w_width'] == SZ_PLUGIN_GOOGLE_VALUE_NULL or $options['calendar_w_width'] == SZ_PLUGIN_GOOGLE_VALUE_AUTO) {
-						$instance['width_auto'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
-					}
-				}
-
-				if ($instance['height_auto'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) {
-					if ($options['calendar_w_height'] == SZ_PLUGIN_GOOGLE_VALUE_NULL or $options['calendar_w_height'] == SZ_PLUGIN_GOOGLE_VALUE_AUTO) {
-						$instance['height_auto'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
-					}
-				}
+				if (!ctype_digit($instance['width']))  { $instance['width']  = '300'; $instance['width_auto']  = SZ_PLUGIN_GOOGLE_VALUE_YES; }
+				if (!ctype_digit($instance['height'])) { $instance['height'] = '400'; $instance['height_auto'] = SZ_PLUGIN_GOOGLE_VALUE_YES; }
 			}
 
 			// Richiamo il template per la visualizzazione della

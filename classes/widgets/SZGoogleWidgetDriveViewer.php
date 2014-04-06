@@ -36,11 +36,16 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 			// dello script e assegno dei valori di default nel caso non fossero specificati
 
 			$options = $this->common_empty(array(
-				'title'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'url'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'height' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
+				'title'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'height'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_ZERO,
+				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action'       => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
 			),$instance);
 
 			// Definizione delle variabili di controllo del widget, questi valori non
@@ -99,14 +104,28 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 				'title'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'url'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'width'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'width_auto'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'height'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+				'height_auto' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			);
 
 			// Creazione array per elenco campi da recuperare su FORM
 
 			$instance = wp_parse_args((array) $instance,$array);
+
+			// Lettura delle opzioni per il controllo dei valori di default
+			// da assegnare al widget nel momento che viene inserito in sidebar
+
+			if ($object = SZGoogleModule::$SZGoogleModuleDrive) 
+			{
+				$options = $object->getOptions();
+
+				if (!ctype_digit($instance['width']))  $instance['width']  = $options['drive_viewer_w_width'];
+				if (!ctype_digit($instance['height'])) $instance['height'] = $options['drive_viewer_w_height'];
+
+				if (!ctype_digit($instance['width']))  { $instance['width']  = '300'; $instance['width_auto']  = SZ_PLUGIN_GOOGLE_VALUE_YES; }
+				if (!ctype_digit($instance['height'])) { $instance['height'] = '400'; $instance['height_auto'] = SZ_PLUGIN_GOOGLE_VALUE_YES; }
+			}
 
 			// Richiamo il template per la visualizzazione della
 			// parte che riguarda il pannello di amministrazione

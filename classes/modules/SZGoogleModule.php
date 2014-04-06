@@ -36,8 +36,8 @@ if (!class_exists('SZGoogleModule'))
 		 * Definizione delle variabili per controllare se
 		 * javascript in footer con script è già stato caricato
 		 */
-		public static $JavascriptPlusone  = false;
-		public static $JavascriptPlatform = false;
+		static protected $JavascriptPlusone  = false;
+		static protected $JavascriptPlatform = false;
 
 		/**
 		 * Definizione delle variabili che contengono le configurazioni
@@ -241,6 +241,63 @@ if (!class_exists('SZGoogleModule'))
 			$javascript .= "var po=document.createElement('script');po.type='text/javascript';po.async=true;";
 			$javascript .= "po.src='https://apis.google.com/js/platform.js';";
 			$javascript .=  "var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);";
+			$javascript .=  "})();";
+			$javascript .=	"</script>"."\n";
+	
+			// Esecuzione echo su footer del codice javascript generato
+
+			echo $javascript;
+		}
+
+		/**
+		 * Funzione per aggiungere codice javascript nel footer di 
+		 * wordpress con caricamento asincrono seguendo metodo google
+		 *
+		 * @return void
+		 */
+		function setJavascriptPlusOne()
+		{
+			// Se ho già inserito il codice javascript nella sezione footer
+			// esco dalla funzione altrimenti setto la variabile e continuo
+
+			if (self::$JavascriptPlusone) return;
+				else self::$JavascriptPlusone = true;
+
+			$addLanguage     = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$addURLforScript = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+	
+			// Controllo se istanza di google plus è attiva altrimenti
+			// isnerisco il codice senza parametri di personalizzazione
+
+			if (is_a(self::$SZGoogleModulePlus,'SZGoogleModulePlus')) 
+			{
+				$options = self::$SZGoogleModulePlus->getOptions();
+
+				if ($options['plus_system_javascript'] == SZ_PLUGIN_GOOGLE_VALUE_YES) return;
+
+				if ($options['plus_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $addLanguage = substr(get_bloginfo('language'),0,2);	
+					else $addLanguage = trim($options['plus_language']);
+
+				// Controllo se devo attivare raccomandazioni mobile e quindi aggiungere publisher id
+				// in mancanza del plublisher di defaul o funzione disattivata non aggiungo niente
+
+				if (trim($options['plus_enable_recommendations']) == SZ_PLUGIN_GOOGLE_VALUE_YES and 
+					trim($options['plus_page']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+				{
+					$addURLforScript = "?publisherid=".trim($options['plus_page']);
+				}
+			}
+
+			// Codice javascript per il rendering dei componenti google plus
+	
+			$javascript  = '<script type="text/javascript">';
+
+			if ($addLanguage != SZ_PLUGIN_GOOGLE_VALUE_NULL) $javascript .= "window.___gcfg = {lang:'".trim($addLanguage)."'};";
+
+			$javascript .= "(function() {";
+			$javascript .= "var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;";
+			$javascript .= "po.src = 'https://apis.google.com/js/plusone.js".$addURLforScript."';";
+			$javascript .=  "var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);";
 			$javascript .=  "})();";
 			$javascript .=	"</script>"."\n";
 	

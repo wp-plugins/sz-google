@@ -15,6 +15,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-post.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Con questa funzione del plugin <b>SZ-Google</b> è possibile inserire un post di google plus completamente funzionante in una 
 pagina web. Infatti una volta inserito sarà possibile eseguire tutte le azioni sociali e inserire i commenti senza lasciare la 
 pagina e rimanendo nel post originale di wordpress. Praticamente come un video youtube in embed, solamente che questa volta viene

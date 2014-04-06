@@ -31,13 +31,19 @@ if (!class_exists('SZGoogleAdminDrive'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general' ,'description' => __('general','szgoogleadmin')),
+				'02' => array('anchor' => 'embed'   ,'description' => __('embed'  ,'szgoogleadmin')),
+				'03' => array('anchor' => 'viewer'  ,'description' => __('viewer' ,'szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-drive.php'                   => ucwords(__('general setting','szgoogleadmin')),
-				'sz-google-admin-drive-embed-enable-s.php'    => ucwords(__('drive embed shortcode','szgoogleadmin')),
-				'sz-google-admin-drive-embed-enable-w.php'    => ucwords(__('drive embed widget','szgoogleadmin')),
-				'sz-google-admin-drive-viewer-enable-s.php'   => ucwords(__('drive viewer shortcode','szgoogleadmin')),
-				'sz-google-admin-drive-viewer-enable-w.php'   => ucwords(__('drive viewer widget','szgoogleadmin')),
-				'sz-google-admin-drive-savebutton-enable.php' => ucwords(__('save to drive button','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-drive.php'                  ,'title' => ucwords(__('general setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-drive-savebutton-enable.php','title' => ucwords(__('save to drive button','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-drive-embed-enable-s.php'   ,'title' => ucwords(__('drive embed shortcode','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-drive-embed-enable-w.php'   ,'title' => ucwords(__('drive embed widget','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-drive-viewer-enable-s.php'  ,'title' => ucwords(__('drive viewer shortcode','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-drive-viewer-enable-w.php'  ,'title' => ucwords(__('drive viewer widget','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -70,6 +76,8 @@ if (!class_exists('SZGoogleAdminDrive'))
 			add_settings_field('drive_embed_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_drive_embed_shortcode'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
 			add_settings_field('drive_embed_s_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_drive_embed_s_width'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
 			add_settings_field('drive_embed_s_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_drive_embed_s_height'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
+			add_settings_field('drive_embed_s_height_p',ucfirst(__('presentation height','szgoogleadmin')),array($this,'get_drive_embed_s_height_p'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
+			add_settings_field('drive_embed_s_height_v',ucfirst(__('video height','szgoogleadmin')),array($this,'get_drive_embed_s_height_v'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
 
 			// Definizione sezione per configurazione GOOGLE DRIVE EMBED
 
@@ -77,6 +85,8 @@ if (!class_exists('SZGoogleAdminDrive'))
 			add_settings_field('drive_embed_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_drive_embed_widget'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
 			add_settings_field('drive_embed_w_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_drive_embed_w_width'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
 			add_settings_field('drive_embed_w_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_drive_embed_w_height'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
+			add_settings_field('drive_embed_w_height_p',ucfirst(__('presentation height','szgoogleadmin')),array($this,'get_drive_embed_w_height_p'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
+			add_settings_field('drive_embed_w_height_v',ucfirst(__('video height','szgoogleadmin')),array($this,'get_drive_embed_w_height_v'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
 
 			// Definizione sezione per configurazione GOOGLE DRIVE VIEWER
 
@@ -131,6 +141,18 @@ if (!class_exists('SZGoogleAdminDrive'))
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
+		function get_drive_embed_s_height_p()
+		{
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height_p','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT);
+			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
+		}
+
+		function get_drive_embed_s_height_v()
+		{
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height_v','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT);
+			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
+		}
+
 		function get_drive_embed_widget() 
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_drive','drive_embed_widget');
@@ -146,6 +168,18 @@ if (!class_exists('SZGoogleAdminDrive'))
 		function get_drive_embed_w_height()
 		{
 			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT);
+			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
+		}
+
+		function get_drive_embed_w_height_p()
+		{
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height_p','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT);
+			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
+		}
+
+		function get_drive_embed_w_height_v()
+		{
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height_w','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT);
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 

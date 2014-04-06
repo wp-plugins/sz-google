@@ -1,16 +1,29 @@
-body #toplevel_page_sz-google-admin div.wp-menu-image {
-	background-position:-331px -33px;
-	background-image:url(images/menu.png);
+/* ----------------------------------------------- */
+/* CSS per la gestione dei TABS tramite javascript */
+/* ----------------------------------------------- */
+#sz-google-tab {
+	margin-bottom: 0.5em;
 }
-body #toplevel_page_sz-google-admin:hover div.wp-menu-image {
-	background-position:-331px -1px;
+.sz-google-tab-div,
+.sz-google-row-tab {
+	display:none;
 }
-body.mp6 #toplevel_page_sz-google-admin div.wp-menu-image {
-	background-image:none !important;
+.sz-google-tab-div.sz-google-active {
+	display:block;
 }
-body.mp6 #toplevel_page_sz-google-admin div.wp-menu-image:before {
-	content: '\f111';
+
+/* ----------------------------------------------- */
+/* CSS per la classi da usare sui template W&S     */
+/* ----------------------------------------------- */
+.sz-google-hidden {
+	display:none;
 }
+
+
+
+
+
+
 #sz-google-admin-options {
 	width:77%;
 	margin-right:1%;
@@ -244,6 +257,15 @@ table.sz-google-table-widget td.sz-cell-keys {
 }
 
 #sz-google-wrap .help .navs {
+	padding:0.5em;
+	background-color:#f1f1f1;
+}
+
+#sz-google-wrap .help .navs:first-child {
+	margin-bottom:1em;
+}
+
+#sz-google-wrap .help .navs:last-child {
 	margin-top:2em;
 }
 

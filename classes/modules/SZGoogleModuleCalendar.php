@@ -372,13 +372,22 @@ if (!class_exists('SZGoogleModuleCalendar'))
 	}
 
 	/**
-	 * Elenco PHP functions per permettere agli sviluppatori di 
-	 * richiamarei vari moduli del plugin direttamente da codice
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
 	 */
-	function szgoogle_calendar_get_widget($options=array()) 
-	{
-		if ($object = SZGoogleModule::$SZGoogleModuleCalendar) {
-			return $object->getCalendarEmbedShortcode($options);
-		} else return false; 
+	if (!function_exists('szgoogle_calendar_get_object')) {
+		function szgoogle_calendar_get_object() { 
+			if (!is_a(SZGoogleModule::$SZGoogleModuleCalendar,'SZGoogleModuleCalendar')) return false;
+				else return SZGoogleModule::$SZGoogleModuleCalendar;
+		}
+	}
+
+	if (!function_exists('szgoogle_calendar_get_widget')) {
+		function szgoogle_calendar_get_widget($options=array()) { 
+			if (!$object = szgoogle_calendar_get_object()) return false;
+				else return $object->getCalendarEmbedShortcode($options);
+		}
 	}
 }

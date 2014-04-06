@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-translate-php.jpg
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Il plugin <b>SZ-Google</b> mette a disposizione delle funzioni per inserire automaticamente il codice del selettore di lingua
 nel proprio tema, però se per qualche esigenza particolare volete utilizzare l'inserimento del codice manualmente sul vostro sito 
 ma continuando ad utilizzare il pannello di amministrazione per i parametri relativi all'account, potete utilizzare le funzioni 

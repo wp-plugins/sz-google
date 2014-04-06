@@ -42,7 +42,7 @@ $VALUE_align      = esc_attr($align);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table class="sz-google-table-widget">
+<p><table id="SZGoogleWidgetPlusPost" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 <tr>
@@ -74,7 +74,7 @@ $VALUE_align      = esc_attr($align);
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		szgoogle_switch_hidden_ready();
+	jQuery(document).ready(function() {
+		szgoogle_switch_hidden_onload('SZGoogleWidgetPlusPost');
 	});
 </script>

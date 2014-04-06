@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-badge-follow
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Tramite questa feature è possibile inserire in una pagina web un badge contenente la lista dei followers collegati ad una pagina
 o ad un profilo presente su google+. Nel badge verranno visualizzate le miniature dei profili che seguono la risorsa su google+ e viene
 anche inserito un bottone per aggiungere la pagina o il profilo direttamente ad una cerchia. In questo momento il badge rilasciato

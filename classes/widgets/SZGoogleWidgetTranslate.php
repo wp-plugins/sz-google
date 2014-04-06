@@ -32,36 +32,23 @@ if (!class_exists('SZGoogleWidgetTranslate'))
 
 		function widget($args,$instance) 
 		{
-			extract($args);
+			// Controllo se esistono le variabili che servono durante l'elaborazione
+			// dello script e assegno dei valori di default nel caso non fossero specificati
 
-			// Costruzione del titolo del widget
-
-			if (empty($instance['title'])) $title = '';
-				else $title = trim($instance['title']);
-
-			$title = apply_filters('widget_title',$title,$instance,$this->id_base);
-
-			if (!isset($before_title)) $before_title = '';
-			if (!isset($after_title))  $after_title = '';
-
-			if ($title and $title <> '') {
-				$title = $before_title.$title.$after_title;
-			}
+			$options = $this->common_empty(array(
+				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
+			),$instance);
 
 			// Creazione del codice per widget google translate
 
-			$HTML = sz_google_module_translate_get_code();
-      
-			// Output del codice HTML legato al widget da visualizzare		 
+			if ($object = SZGoogleModule::$SZGoogleModuleTranslate) {
+				$HTML = $object->getTranslateCode($options);
+			}
 
-			$output  = '';
-			$output .= $before_widget;
-			$output .= $title;
-			$output .= $HTML;
-			$output .= $after_widget;
+			// Output del codice HTML legato al widget da visualizzare
+			// chiamata alla funzione generale per wrap standard
 
-			echo $output;
-
+			echo $this->common_widget($args,$instance,$HTML);
 		}
 
 		// Funzione per modifica parametri collegati al widget con 
@@ -69,10 +56,9 @@ if (!class_exists('SZGoogleWidgetTranslate'))
 
 		function update($new_instance,$old_instance) 
 		{
-			$instance = $old_instance;
-			$instance['title'] = trim(strip_tags($new_instance['title']));
-
-			return $instance;
+			return $this->common_update(array(
+				'title' => SZ_PLUGIN_GOOGLE_VALUE_YES,
+			),$new_instance,$old_instance);
 		}
 
 		// Funzione per la visualizzazione del form presente sulle 
@@ -80,16 +66,15 @@ if (!class_exists('SZGoogleWidgetTranslate'))
 	
 		function form($instance) 
 		{
-			// Creazione array per elenco campi da recuperare su FORM
-
 			$array = array(
-				'title'    => '',
+				'title' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			);
 
-			// Creazione array per elenco campi da recuperare su FORM
+			// Creazione array per elenco campi da recuperare su FORM e
+			// caricamento del file con il template HTML da visualizzare
 
 			$instance = wp_parse_args((array) $instance,$array);
-			$title    = trim(strip_tags($instance['title']));
+			$title    = $instance['title'];
 
 			// Campo di selezione parametro badge per TITOLO
 

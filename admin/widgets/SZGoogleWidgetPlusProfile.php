@@ -74,7 +74,7 @@ $VALUE_align      = esc_attr($align);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table class="sz-google-table-widget">
+<p><table id="SZGoogleWidgetPlusProfile" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 <tr>
@@ -84,9 +84,9 @@ $VALUE_align      = esc_attr($align);
 
 <!-- WIDGETS (Campo per selezione ID di configurazione o specifico) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_method ?>"><?php echo ucfirst(__('profile ID','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_method ?>"><?php echo ucfirst(__('profile','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
-		<select class="sz-google-switch-hidden widefat" data-switch="sz-google-switch-specific" data-close="1" onchange="szgoogle_switch_hidden(this);" id="<?php echo $ID_method ?>" name="<?php echo $NAME_method ?>">
+		<select class="sz-google-switch-hidden widefat" data-switch="sz-google-switch-specific" data-close="1" onchange="szgoogle_switch_hidden_onchange(this);" id="<?php echo $ID_method ?>" name="<?php echo $NAME_method ?>">
 			<option value="1" <?php selected("1",$VALUE_method) ?>><?php echo ucfirst(__('configuration ID','szgoogleadmin')) ?></option>
 			<option value="2" <?php selected("2",$VALUE_method) ?>><?php echo ucfirst(__('specific ID','szgoogleadmin')) ?></option>
 		</select>
@@ -94,7 +94,7 @@ $VALUE_align      = esc_attr($align);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento di uno specifico ID) -->
-<tr class="sz-google-switch-specific">
+<tr class="sz-google-switch-specific sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_specific ?>"><?php echo ucfirst(__('profile ID','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_specific ?>" name="<?php echo $NAME_specific ?>" type="text" value="<?php echo $VALUE_specific ?>" placeholder="<?php echo __('insert specific ID','szgoogleadmin') ?>"/></td>
 </tr>
@@ -105,7 +105,7 @@ $VALUE_align      = esc_attr($align);
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>"/></td>
-	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
 <tr><td colspan="3"><hr></td></tr>
@@ -165,8 +165,8 @@ $VALUE_align      = esc_attr($align);
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		szgoogle_switch_hidden_ready();
-		szgoogle_checks_hidden_ready();
+	jQuery(document).ready(function() {
+		szgoogle_switch_hidden_onload('SZGoogleWidgetPlusProfile');
+		szgoogle_checks_hidden_onload('SZGoogleWidgetPlusProfile');
 	});
 </script>

@@ -15,6 +15,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-badge-page.j
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Se hai una pagina su Google+ e vuoi inserirla sul tuo sito web o integrarla con il tuo badge publisher allora questo è 
 lo strumento adatto. Il badge della pagina può essere inserito in differenti metodi in base all'ambiente specifico, 
 se ad esempio lo desideri inserire dentro un'articolo o nel contenuto di un qualsiasi post devi utilizzare lo shortcode

@@ -59,6 +59,7 @@ if (!class_exists('SZGoogleWidgetYoutubeVideo'))
 				'end'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'theme'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'cover'           => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action'          => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
 			),$instance);
 
 			// Azzeramento variabile title per non confonderla con il title che deve
@@ -69,7 +70,9 @@ if (!class_exists('SZGoogleWidgetYoutubeVideo'))
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente
 
-			$HTML = sz_google_module_youtube_get_code_video($options);
+			if ($object = SZGoogleModule::$SZGoogleModuleYoutube) {
+				$HTML = $object->getYoutubeVideoCode($options);
+			}
 
 			// Output del codice HTML legato al widget da visualizzare
 			// chiamata alla funzione generale per wrap standard

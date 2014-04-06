@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-comments.jpg
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>In addition to badges and buttons Google+ offers a widget to manage a complete comment system linked to a web page URL. Once you 
 got your widget on line it will look as simple as a traditional comment system, except for the necessary login to a Google+ profile 
 in order to comment a post. When in use this widget automatically links the URL of the page your visitors are navigating, anyway 

@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-authenticator-dev
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>To use this feature, you must install the application on your smartphone made ​​available by google in a free environment both 
 in IOS Android and Blackberry. So first download the application and install it on your smartphone, as the first operation carried 
 out the operation "set up account" and select the mode that is referred to as "read bar code" at this point you configure your 

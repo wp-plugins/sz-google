@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-groups-embed.jpg'
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Tramite questa funzione presente nel plugin <b>SZ-Google</b> è possibile inserire in un post di wordpress o su una sidebar il 
 widget dei gruppi presenti su google. Per ottenere ulteriori informazioni sui gruppi leggi la pagina ufficiale su <a target="_blank" href="https://groups.google.com">https://groups.google.com</a>.</p>
 

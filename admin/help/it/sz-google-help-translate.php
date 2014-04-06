@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-translate.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Tramite questa opzione possiamo inserire nel nostro sito un selettore di lingua che esegua la traduzione automatica della
 pagina web visualizzata senza abbandonare il sito di origine. Ovviamente non possiamo pretendere una traduzione di qualità come
 quelle eseguite manualmente, però è comunque uno strumento che ritorna utile a chi pubblica articoli che possono interessare

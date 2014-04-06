@@ -65,8 +65,8 @@ if (!class_exists('SZGoogleModuleHangouts'))
 			// richiamo della funzione per il controllo isset()
 
 			$options = $this->checkOptionIsSet($options,array(
-				'hangouts_start_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'hangouts_start_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'hangouts_start_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'hangouts_start_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			));
 
 			// Chiamata alla funzione comune per controllare le variabili che devono avere
@@ -124,6 +124,7 @@ if (!class_exists('SZGoogleModuleHangouts'))
 				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'class'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed eseguo la trasformazione in
@@ -185,7 +186,7 @@ if (!class_exists('SZGoogleModuleHangouts'))
 			// Creazione codice HTML con funzione di wrapping comune a tutti i bottoni in maniera
 			// da essere utilizzati anche come dei piccoli badge con immagine e posizionamento
 
-			$HTML = SZGooglePluginCommon::getCodeButtonWrap(array(
+			$HTML = SZGoogleModuleButton::getButton(array(
 				'html'         => $HTML,
 				'text'         => $text,
 				'image'        => $img,
@@ -240,11 +241,24 @@ if (!class_exists('SZGoogleModuleHangouts'))
 			),$atts),$content);
 		}
 	}
-}
 
-function szgoogle_hangouts_get_code_start($options=array()) 
-{
-	if ($object = SZGoogleModule::$SZGoogleModuleHangouts) {
-		return $object->getHangoutsStartCode($options);
-	} else return false; 
+	/**
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 */
+	if (!function_exists('szgoogle_hangouts_get_object')) {
+		function szgoogle_hangouts_get_object() { 
+			if (!is_a(SZGoogleModule::$SZGoogleModuleHangouts,'SZGoogleModuleHangouts')) return false;
+				else return SZGoogleModule::$SZGoogleModuleHangouts;
+		}
+	}
+
+	if (!function_exists('szgoogle_hangouts_get_code_start')) {
+		function szgoogle_hangouts_get_code_start($options=array()) {
+			if (!$object = szgoogle_hangouts_get_object()) return false;
+				else return $object->getHangoutsStartCode($options);
+		}
+	}
 }

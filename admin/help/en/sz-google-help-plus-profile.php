@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-badge-profil
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>If you have a Google+ profile and your goal is to fully integrate it in your website, this is the rigth tool. Profile badge could
 be embedded in two different ways. You can use the <b>[sz-gplus-profile]</b> shortcode in order to place 
 the badge into your articles or pages. Use the specific widget, located into the widgets menu, in order to make it appear 

@@ -82,7 +82,7 @@ $VALUE_position    = esc_attr($position);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table class="sz-google-table-widget">
+<p><table id="SZGoogleWidgetPanoramio" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 <tr>
@@ -139,7 +139,7 @@ $VALUE_position    = esc_attr($position);
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>"/></td>
-	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
@@ -187,8 +187,8 @@ $VALUE_position    = esc_attr($position);
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		szgoogle_switch_hidden_ready();
-		szgoogle_checks_hidden_ready();
+	jQuery(document).ready(function() {
+		szgoogle_switch_hidden_onload('SZGoogleWidgetPanoramio');
+		szgoogle_checks_hidden_onload('SZGoogleWidgetPanoramio');
 	});
 </script>

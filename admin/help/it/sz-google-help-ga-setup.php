@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-analytics.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Google Analytics è un servizio gratuito messo a disposizione da Google per controllare le statistiche di accesso che riguardano
 un sito web, questo strumento è usato specialmente da web marketing e webmaster che usufruiscono del servizio aggiungendo un piccolo 
 codice HTML alle pagine web, il quale gli permette il monitoraggio e la raccolta delle informazioni legate ai visitatori.</p>

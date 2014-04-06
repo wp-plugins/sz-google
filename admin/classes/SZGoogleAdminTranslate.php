@@ -31,11 +31,16 @@ if (!class_exists('SZGoogleAdminTranslate'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general' ,'description' => __('general' ,'szgoogleadmin')),
+				'02' => array('anchor' => 'advanced','description' => __('advanced','szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-translate.php'          => ucwords(__('general setting','szgoogleadmin')),
-				'sz-google-admin-translate-language.php' => ucwords(__('language setting','szgoogleadmin')),
-				'sz-google-admin-translate-enable.php'   => ucwords(__('activation components','szgoogleadmin')),
-				'sz-google-admin-translate-advanced.php' => ucwords(__('advanced setting','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-translate.php'         ,'title' => ucwords(__('general setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-translate-language.php','title' => ucwords(__('language setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-translate-enable.php'  ,'title' => ucwords(__('activation components','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-translate-advanced.php','title' => ucwords(__('advanced setting','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;

@@ -28,16 +28,22 @@ if (!class_exists('SZGoogleAdminYoutube'))
 			$this->pagetitle  = ucwords(__('google youtube','szgoogleadmin'));
 			$this->menutitle  = ucwords(__('google youtube','szgoogleadmin'));
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general' ,'description' => __('general' ,'szgoogleadmin')),
+				'02' => array('anchor' => 'setup'   ,'description' => __('setup'   ,'szgoogleadmin')),
+				'03' => array('anchor' => 'advanced','description' => __('advanced','szgoogleadmin')),
+			);
+
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
 			$this->sections = array(
-				'sz-google-admin-youtube-config.php'   => ucwords(__('general setting','szgoogleadmin')),
-				'sz-google-admin-youtube-enable-w.php' => ucwords(__('activation widgets','szgoogleadmin')),
-				'sz-google-admin-youtube-enable-s.php' => ucwords(__('activation shortcodes','szgoogleadmin')),
-				'sz-google-admin-youtube-display.php'  => ucwords(__('video display setting','szgoogleadmin')),
-				'sz-google-admin-youtube-margins.php'  => ucwords(__('video setting default margins','szgoogleadmin')),
-				'sz-google-admin-youtube-advanced.php' => ucwords(__('video advanced setting','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-youtube-config.php'  ,'title' => ucwords(__('general setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-youtube-enable-w.php','title' => ucwords(__('activation widgets','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-youtube-enable-s.php','title' => ucwords(__('activation shortcodes','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-youtube-display.php' ,'title' => ucwords(__('video display setting','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-youtube-margins.php' ,'title' => ucwords(__('video setting default margins','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-youtube-advanced.php','title' => ucwords(__('video advanced setting','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;

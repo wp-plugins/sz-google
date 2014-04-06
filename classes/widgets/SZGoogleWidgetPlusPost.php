@@ -36,14 +36,17 @@ if (!class_exists('SZGoogleWidgetPlusPost'))
 			// dello script e assegno dei valori di default nel caso non fossero specificati
 
 			$options = $this->common_empty(array(
-				'url'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
 			),$instance);
 
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente
 
-			$HTML = sz_google_module_plus_get_code_post($options);
+			if ($object = SZGoogleModule::$SZGoogleModulePlus) {
+				$HTML = $object->getPlusPostShortcode($options);
+			}
 
 			// Output del codice HTML legato al widget da visualizzare
 			// chiamata alla funzione generale per wrap standard

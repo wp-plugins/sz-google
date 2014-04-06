@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-comments.jpg
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Google+ mette a disposizione oltre ai badge e ai bottoni anche un widget per gestire un sistema di commenti completo che
 viene collegato con il valore URL di una pagina web. Una volta che il widget viene visualizzato sarà possibile eseguire tutte
 le funzioni interattive di un sistema di commenti tradizionale, ovviamente può essere utilizzato solo se l'utente ha effettuato

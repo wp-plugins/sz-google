@@ -15,6 +15,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-post.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>With this plugin function <b>SZ-Google</b> you can enter a post from google plus fully functional in a web page. In fact, once 
 inserted will be able to perform all social actions and comment without leaving the page and remaining in the original post of 
 wordpress. Almost like a youtube embed video, only this time it is inserted into the post published on Google+ instead of a video.</p>

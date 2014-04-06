@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-calendar.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Tramite questa funzione è possibile inserire in embed sul proprio sito il calendario di google. Potete specificare anche diversi 
 calendari, basta specificare nel parametro <b>"calendar"</b> una stringa con il nomi dei calendari separati da una virgola. Se non
 viene specificato nessun calendario sarà utilizzato quello memorizzato nella configurazione generale.</p>

@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-drive-viewer.jpg'
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>Google Drive Viewer is a universal document viewer that can be embedded in a web page in wordpress, with this component, 
 we can view many file formats without having to install special plugins or flash. The use of the component is very simple,
 just use the dedicated shortcode and specify the file URL. The file can be stored locally or remotely.</p>

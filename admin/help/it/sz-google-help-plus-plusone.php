@@ -15,6 +15,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-button-pluso
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Se utilizzate Google+ sicuramente conoscete la funzione del pulsante +1 che serve ad indicare una preferenza circa un post
 pubblicato su google plus. Tramite questo plugin è possibile aggiungere un pulsante +1 riferito a qualsiasi URL del vostro sito.
 Normalmente l'insertimento di questo pulsante si collega automaticamente alla stringa URL della pagina visualizzata, però è 

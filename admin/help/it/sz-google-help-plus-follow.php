@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-button-follo
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Anche Google+ come tutti gli altri social network mette a disposizione un bottone per seguire un profilo o una pagina. A differenza
 degli altri social network però il bottone follow di G+ presenterà l'elenco delle nostre cerchie dove dovremmo selezionare quelle 
 desiderate e inserire il profilo o la pagina da seguire. Tramite questo plugin il bottone può essere inserito in un sito web e fare 

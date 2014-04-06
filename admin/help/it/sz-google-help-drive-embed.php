@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-drive-embed.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Tramite il componente <b>Google Drive Embed</b> presente nel plugin <b>SZ-Google</b> è possibile inserire in una pagina web di wordpress
 la visualizzazione di un documento presente su google drive. Possiamo inserire in embed una presentazione, uno spreadsheet, il contenuto 
 di una cartella, etc,etc. La cosa importante è che il documento sia memorizzato su google drive è che sia pubblicato, quindi prima di
@@ -41,7 +43,7 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 
 <table>
 	<tr><th>Parametro</th>    <th>Descrizione</th>              <th>Valori ammessi</th>         <th>Default</th></tr>
-	<tr><td>type</td>         <td>tipo documento</td>           <td>document,folder,spreadsheet,<br/>presentation,pdf,video</td> <td>document</td></tr>
+	<tr><td>type</td>         <td>tipo documento</td>           <td>document,folder,spreadsheet,<br/>presentation,forms,pdf,video</td> <td>document</td></tr>
 	<tr><td>id</td>           <td>id univoco documento</td>     <td>stringa</td>                <td>nessuno</td></tr>
 	<tr><td>single</td>       <td>spreadsheet singolo</td>      <td>true,false</td>             <td>false</td></tr>
 	<tr><td>gid</td>          <td>spreadsheet id</td>           <td>0,1,2,3,4,5,6 etc</td>      <td>0</td></tr>
@@ -98,6 +100,7 @@ qui di seguito alcuni shortcode che potete provare per controllare il corretto f
 [sz-drive-embed type="document" id="1nIKhA_U41fGLC_99hp_uB8lM6Ef0IffspkwTp2Sk_eI"/]
 [sz-drive-embed type="spreadsheet" id="0AsB1V5PwB8NjdGdLRm1MYW9SSUNWRWNrVXdqQ2hKTmc"/]
 [sz-drive-embed type="presentation" id="1BS67-bJr41NtMdfvD5pOZL9ZeNfeUvK8Gg4gZFyeqM8"/]
+[sz-drive-embed type="forms" id="1XK4lmkJ1_DPrrxhF8zY7QCpyfX7Ux2_W_DBkgbMTzeo"/]
 [sz-drive-embed type="pdf" id="0B8B1V5PwB8NjTDhMckQ5MlVENjQ"/]
 [sz-drive-embed type="video" id="0B8B1V5PwB8NjZFpNNG0tS3dmNTQ" height="300"/]
 [sz-drive-embed type="folder" id="0B8B1V5PwB8NjdHpXR0dhck1EaW8" folderview="list"/]

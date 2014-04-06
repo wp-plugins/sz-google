@@ -13,6 +13,8 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Ci possono essere dei casi dove non sia possibile inserire automaticamente i campi e le funzioni di controllo del codice authenticator
 automaticamente, ad esempio quando sono state apportate al tema corrente delle forti personalizzazioni. In questo caso lo sviluppatore
 può continuare ad utilizzare il plugin ma deve implementare le funzioni PHP direttamente nel suo tema o plugin.</p>
@@ -32,7 +34,7 @@ Ovviamente dovrete prevedere nel flusso logico del programma le condizioni di qu
 	<tr><td>szgoogle_authenticator_create_secret_backup()</td><td>Creazione chiavi segrete di backup.</td></tr>
 </table>
 
-<h2>Codice PHP di esempio</h2>
+<h2>Esempio codice PHP</h2>
 
 <p>In questo esempio richiamiamo la funzione di verifica codice e lo memorizziamo in una variabile chiamata \$check che possiamo
 utilizzare per i controlli nel nostro programma. La funzione ritorna un valore booleano con true o false.</p>

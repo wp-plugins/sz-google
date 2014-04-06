@@ -74,7 +74,7 @@ $VALUE_hl             = esc_attr($hl);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table class="sz-google-table-widget">
+<p><table id="SZGoogleWidgetGroups" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 <tr>
@@ -94,27 +94,27 @@ $VALUE_hl             = esc_attr($hl);
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>"/></td>
-	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_height ?>"><?php echo ucfirst(__('height','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height ?>" class="sz-google-checks-height" name="<?php echo $NAME_height ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_height ?>"/></td>
-	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-height" onchange="szgoogle_checks_hidden(this);" name="<?php echo $NAME_height_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_height_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-height" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_height_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_height_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro showsearch -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_showsearch ?>"><?php echo ucfirst(__('show search','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_showsearch ?>"><?php echo ucfirst(__('search','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_showsearch ?>" value="true"  <?php if ($VALUE_showsearch == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('enabled','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_showsearch ?>" value="false" <?php if ($VALUE_showsearch != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('disabled','szgoogleadmin')) ?></td>
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro showtabs -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_showtabs ?>"><?php echo ucfirst(__('show tabs','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_showtabs ?>"><?php echo ucfirst(__('tabs','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_showtabs ?>" value="true"  <?php if ($VALUE_showtabs == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('enabled','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_showtabs ?>" value="false" <?php if ($VALUE_showtabs != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('disabled','szgoogleadmin')) ?></td>
 </tr>
@@ -138,7 +138,7 @@ $VALUE_hl             = esc_attr($hl);
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		szgoogle_checks_hidden_ready();
+	jQuery(document).ready(function() {
+		szgoogle_checks_hidden_onload('SZGoogleWidgetGroups');
 	});
 </script>

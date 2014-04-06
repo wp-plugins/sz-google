@@ -49,16 +49,24 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 			// richiamo della funzione per il controllo isset()
 
 			$options = $this->checkOptionIsSet($options,array(
-				'ga_type'                 => SZ_PLUGIN_GOOGLE_GA_TYPE,
+				'ga_type'                 => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'ga_uacode'               => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_position'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_enable_front'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_enable_admin'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_enable_administrator' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_enable_logged'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_enable_subdomain'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_enable_multiple'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'ga_enable_advertiser'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			));
+
+			// Controllo delle opzioni in caso di valori non conformi
+			// richiamo della funzione per il controllo isnull()
+
+			$options = $this->checkOptionIsNull($options,array(
+				'ga_type'                 => SZ_PLUGIN_GOOGLE_GA_TYPE,
 				'ga_position'             => SZ_PLUGIN_GOOGLE_GA_HEADER,
-				'ga_enable_front'         => SZ_PLUGIN_GOOGLE_VALUE_YES,
-				'ga_enable_admin'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'ga_enable_administrator' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'ga_enable_logged'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'ga_enable_subdomain'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'ga_enable_multiple'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'ga_enable_advertiser'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			));
 
 			// Controllo delle opzioni in caso di valori non conformi
@@ -283,29 +291,41 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 		}
 
 		/**
-		 * Funzione per calcolare il codice di GA da
-		 * utilizzare nel codice di monitoraggio
+		 * Funzione per calcolare il codice di Google Analytics
+		 * da utilizzare nel codice di monitoraggio inserito manualmente.
 		 *
 		 * @return string
 		 */
-		function getGAId($atts=array())
-		{
+		function getGAId($atts=array()) {
 			$options = $this->getOptions();
-			$guacode = trim($options['ga_uacode']);   
-			return $guacode;
+			return trim($options['ga_uacode']);   
 		}
 	}
-}
 
+	/**
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 */
+	if (!function_exists('szgoogle_analytics_get_object')) {
+		function szgoogle_analytics_get_object() { 
+			if (!is_a(SZGoogleModule::$SZGoogleModuleAnalytics,'SZGoogleModuleAnalytics')) return false;
+				else return SZGoogleModule::$SZGoogleModuleAnalytics;
+		}
+	}
 
-function szgoogle_analytics_get_ID() {
-	if ($object = SZGoogleModule::$SZGoogleModuleAnalytics) {
-		return $object->getGAId();
-	} else return false; 
-}
+	if (!function_exists('szgoogle_analytics_get_code')) {
+		function szgoogle_analytics_get_code($options=array()) { 
+			if (!$object = szgoogle_analytics_get_object()) return false;
+				else return $object->moduleMonitorCodeCommon($options);
+		}
+	}
 
-function szgoogle_analytics_get_code($options=array()) {
-	if ($object = SZGoogleModule::$SZGoogleModuleAnalytics) {
-		return $object->moduleMonitorCodeCommon($options);
-	} else return false; 
+	if (!function_exists('szgoogle_analytics_get_ID')) {
+		function szgoogle_analytics_get_ID() { 
+			if (!$object = szgoogle_analytics_get_object()) return false;
+				else return $object->getGAId();
+		}
+	}
 }

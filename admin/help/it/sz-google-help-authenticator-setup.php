@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-authenticator-set
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Il plugin <b>SZ-Google</b> mette a disposizione il processo di autorizzazione a due fasi progettato da google authenticator, infatti
 è possibile rafforzare la sicurezza del nostro pannello di login chiedendo un codice a tempo oltre alle credenziali normali. Questa
 operazione è resa possibile grazie all'applicazione di Google Authenticator che è possibile installare sul nostro smartphone sia che 
@@ -35,6 +37,14 @@ il pulsante apposito un nuovo "<b>codice segreto</b>" e visualizzate il codice <
 nuovo account sulla vostra applicazione mobile, se questa operazione termina correttamente aggiornate il profilo. Il fatto di 
 aggiornare il profilo solo dopo la configurazione dello smartphone è dettato solo dal fatto che se aggiornate prima il profilo e
 qualcosa va male sulla sincronizzazione del telefono dopo avrete problemi di login che devono essere risolti dall'amministratore.
+
+<h2>File di emergenza</h2>
+
+<p>Attivando questa opzione presente nel pannello di amministrazione del plugin è possibile disattivare il controllo del codice a tempo
+eseguendo un FTP di un determinato file nella directory principale di wordpress. Questa funzione può essere utile nel caso qualche utente
+abbia grossi problemi di collegamento o l'amministratore non abbia più accesso al suo device. In questo caso il proprietario del sito
+potrebbe fare un FTP di un file vuoto ad esempio chiamato <b>google-authenticator-disable.php</b> nella directory root e sospendere
+temporaneamente il controllo del codice, questo perchè ovviamente anche lui potrebbe non riuscire a fare il login.</p>
 
 <h2>Schermata</h2>
 

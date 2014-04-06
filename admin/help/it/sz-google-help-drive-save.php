@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-drive-save-button
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Tramite questa funzione presente nel plugin <b>SZ-Google</b> è possibile inserire in un post di wordpress o su una sidebar il 
 bottone per salvare una risorsa statica presente nel nostro sito su Google Drive. Ad esempio possiamo pubblicare un link di un 
 manuale in PDF e richiedere all’utente se vuole salvarlo sul suo spazio Google Drive o potremmo visualizzare una foto e dare 

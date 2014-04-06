@@ -21,6 +21,8 @@ if (!class_exists('SZGoogleModuleDrive'))
 	 */
 	class SZGoogleModuleDrive extends SZGoogleModule
 	{
+		protected $setJavascriptPlusone = false;
+
 		/**
 		 * Definizione della funzione costruttore che viene richiamata
 		 * nel momento della creazione di un'istanza con questa classe
@@ -36,6 +38,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 			);
 
 			$this->moduleWidgets = array(
+				'drive_embed_widget'         => 'SZGoogleWidgetDriveEmbed',
 				'drive_viewer_widget'        => 'SZGoogleWidgetDriveViewer',
 				'drive_savebutton_widget'    => 'SZGoogleWidgetDriveSaveButton',
 			);
@@ -62,24 +65,28 @@ if (!class_exists('SZGoogleModuleDrive'))
 
 			$options = $this->checkOptionIsSet($options,array(
 				'drive_sitename'             => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'drive_embed_shortcode'      => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'drive_embed_shortcode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_embed_s_width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_embed_s_height'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'drive_embed_widget'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'drive_embed_s_height_p'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_embed_s_height_v'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_embed_widget'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_embed_w_width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_embed_w_height'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'drive_viewer_shortcode'     => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'drive_embed_w_height_p'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_embed_w_height_v'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_viewer_shortcode'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_s_width'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_s_height'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_s_t_position'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_s_t_align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'drive_viewer_widget'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'drive_viewer_widget'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_w_width'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_w_height'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_w_t_position'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'drive_viewer_w_t_align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'drive_savebutton_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'drive_savebutton_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'drive_savebutton_widget'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'drive_savebutton_shortcode' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			));
 
 			// Controllo delle opzioni in caso di valori non conformi
@@ -159,7 +166,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 				'marginbottom'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginleft'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginunit'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'        => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'action'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			),$atts));
 
 			// Caricamento opzioni per le variabili di configurazione che 
@@ -192,22 +199,49 @@ if (!class_exists('SZGoogleModuleDrive'))
 
 			if (empty($id)) { return SZ_PLUGIN_GOOGLE_VALUE_NULL; }
 
+			// Controllo le impostazioni che riguardano la dimensione del componente
+			// in quanto alcuni documenti hanno una dimensione di default specifica
+
+			if ($action == SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
+			{
+				if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width  = $options['drive_embed_w_width'];
+				if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+				{
+					if ($type == 'document')     $height = $options['drive_embed_w_height'];
+					if ($type == 'folder')       $height = $options['drive_embed_w_height'];
+					if ($type == 'pdf')          $height = $options['drive_embed_w_height'];
+					if ($type == 'forms')        $height = $options['drive_embed_w_height'];
+					if ($type == 'presentation') $height = $options['drive_embed_w_height_p'];
+					if ($type == 'spreadsheet')  $height = $options['drive_embed_w_height'];
+					if ($type == 'video')        $height = $options['drive_embed_w_height_v'];
+				}
+
+			// Controllo le impostazioni che riguardano la dimensione del componente
+			// in quanto alcuni documenti hanno una dimensione di default specifica
+
+			} else {
+
+				if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width  = $options['drive_embed_s_width'];
+				if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+				{
+					if ($type == 'document')     $height = $options['drive_embed_s_height'];
+					if ($type == 'folder')       $height = $options['drive_embed_s_height'];
+					if ($type == 'pdf')          $height = $options['drive_embed_s_height'];
+					if ($type == 'forms')        $height = $options['drive_embed_s_height'];
+					if ($type == 'presentation') $height = $options['drive_embed_s_height_p'];
+					if ($type == 'spreadsheet')  $height = $options['drive_embed_s_height'];
+					if ($type == 'video')        $height = $options['drive_embed_s_height_v'];
+				}
+			}
+
 			// Controllo le variabili usate come opzioni da utilizzare nel caso
 			// non esistano valori specificati o valori non coerenti con quelli ammessi
-
-			if ($action == SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) {
-				if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width  = $options['drive_embed_w_width'];
-				if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = $options['drive_embed_w_height'];
-			} else {
-				if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width  = $options['drive_embed_s_width'];
-				if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = $options['drive_embed_s_height'];
-			}
 
 			if (!in_array($start ,array('true','false'))) $start  = 'false'; 
 			if (!in_array($loop  ,array('true','false'))) $loop   = 'false'; 
 			if (!in_array($single,array('true','false'))) $single = 'false'; 
 
-			if (!in_array($type,array('folder','document','presentation','spreadsheet','pdf','video'))) $type = 'document'; 
+			if (!in_array($type,array('folder','document','presentation','spreadsheet','forms','pdf','video'))) $type = 'document'; 
 			if (!in_array($folderview,array('list','grid'))) $folderview = 'list'; 
 
 			// Controllo dei campi numerici e verifica che non contengano
@@ -225,6 +259,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 			if ($type == 'document')     $optionSRC = 'https://docs.google.com/document/d/%s/pub?embedded=true';
 			if ($type == 'presentation') $optionSRC = 'https://docs.google.com/presentation/d/%s/embed?start=%s&amp;loop=%s&amp;delayms=%s';
 			if ($type == 'spreadsheet')  $optionSRC = 'https://docs.google.com/spreadsheet/pub?key=%s&amp;output=html&amp;widget=true&amp;single=%s&amp;gid=%s';
+			if ($type == 'forms')        $optionSRC = 'https://docs.google.com/forms/d/%s/viewform?embedded=true';
 			if ($type == 'pdf')          $optionSRC = 'https://docs.google.com/file/d/%s/preview';
 			if ($type == 'video')        $optionSRC = 'https://docs.google.com/file/d/%s/preview';
 
@@ -234,8 +269,13 @@ if (!class_exists('SZGoogleModuleDrive'))
 			if ($width  == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "100%";
 			if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "100%";
 
-			if ($height == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $height = '400';
-			if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = '400';
+			if (in_array($type,array('presentation','video'))) {
+				if ($height == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $height = '250';
+				if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = '250';
+			} else {
+				if ($height == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $height = '400';
+				if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = '400';
+			} 
 
 			// Creazione del codice CSS per la composizione dei margini
 			// usando le opzioni specificate negli shortcode o nelle funzioni PHP
@@ -250,6 +290,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 			if ($type == 'document')     $optionSRC = sprintf($optionSRC,urlencode($id));
 			if ($type == 'spreadsheet')  $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($single),urlencode($gid),urlencode($range));
 			if ($type == 'presentation') $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($start),urlencode($loop),urlencode($delay.'000'));
+			if ($type == 'forms')        $optionSRC = sprintf($optionSRC,urlencode($id));
 			if ($type == 'pdf')          $optionSRC = sprintf($optionSRC,urlencode($id));
 			if ($type == 'video')        $optionSRC = sprintf($optionSRC,urlencode($id));
 
@@ -342,7 +383,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 				'marginbottom'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginleft'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginunit'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'        => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'action'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			),$atts));
 
 			// Caricamento opzioni per le variabili di configurazione che 
@@ -500,6 +541,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			),$atts));
 
 			$DEFAULT_ALIGN      = 'none';
@@ -555,7 +597,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 			$HTML .= ' data-sitename="'.$sitename.'"';
 			$HTML .= '></div>';
 
-			$HTML = SZGooglePluginCommon::getCodeButtonWrap(array(
+			$HTML = SZGoogleModuleButton::getButton(array(
 				'html'         => $HTML,
 				'text'         => $text,
 				'image'        => $img,
@@ -573,12 +615,33 @@ if (!class_exists('SZGoogleModuleDrive'))
 			// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 			// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 
-			add_action('szgoogle_footer','sz_google_module_plus_add_script_footer');
+			$this->addCodeJavascriptFooter();
 
 			// Ritorno per la funzione con tutta la stringa contenente
 			// il codice HTML per l'inserimento del codice nella pagina
 
 			return $HTML;
+		}
+
+		/**
+		 * Funzione per aggiungere il codice javascript dei vari
+		 * componenti di google plus nel footer e controllo se 
+		 * la richiesta è stata eseguita già in qualche parte diversa
+		 *
+		 * @return void
+		 */
+		function addCodeJavascriptFooter()
+		{
+			// Se ho già inserito il codice javascript nella sezione footer
+			// esco dalla funzione altrimenti setto la variabile e continuo
+
+			if ($this->setJavascriptPlusone) return;
+				else $this->setJavascriptPlusone = true;
+
+			// Caricamento azione nel footer del plugin per il caricamento
+			// del framework javascript messo a disposizione da google
+
+			add_action('szgoogle_footer',array($this,'setJavascriptPlusOne'));
 		}
 	}
 

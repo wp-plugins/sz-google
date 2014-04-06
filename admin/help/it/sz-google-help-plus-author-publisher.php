@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-authorship.j
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Per configurare una pagina web con l'attribuzione di autore o publisher basta utilizzare il badge del profilo e/o quello della
 pagina specificando l'attivazione delle relative opzioni con author="true" e/o publisher="true". Se per esigenze particolari non volete
 utilizzare i badge di google+ sul vostro sito, il plugin <b>SZ-Google</b> mette a disposizione un metodo alternativo per raggiungere
@@ -41,11 +43,41 @@ sul sito web in questione dovessero scrivere autori diversi non attivate la funz
 <h2>Codice verificato</h2>
 
 <p>Per completare l'operazione di verifica sia per il publisher che per l'autore non basta attivare le funzioni del plugin, ma bisogna
-specificare il nome del proprio dominio nella pagina e nel profilo corrispondente su google plus. Per l'autore esiste una sezione apposita 
-nel profilo chiamata "Informazioni" dove potete inserire tutti i siti web per cui scrivete, mentre il publisher viene verificato quando
-viene inserito il proprio domino sul campo sito web della pagina stessa. Se dovessi riscontrare dei problemi che riguardano l'assegnazione
-Authorship leggi con attenzione la pagina ufficiale <a target="_blank" href="https://plus.google.com/authorship">Collega il tuo profilo Google+</a>.</p>
-</p>
+specificare il nome del proprio dominio nella pagina e nel profilo corrispondente su google plus. Per l'autore esiste una sezione apposita nel 
+profilo chiamata "Informazioni" dove potete inserire tutti i siti web per cui scrivete, mentre il publisher viene verificato quando viene inserito 
+il proprio domino sul campo sito web della pagina stessa. Se dovessi riscontrare dei problemi che riguardano l'assegnazione Authorship 
+leggi con attenzione la pagina ufficiale <a target="_blank" href="https://plus.google.com/authorship">Collega il tuo profilo Google+</a>.</p>
+
+<h2>Funzioni PHP</h2>
+
+<table>
+	<tr><td>szgoogle_gplus_get_contact_page()</td><td>Reperimento del campo profilo per google+ pagina.</td></tr>
+	<tr><td>szgoogle_gplus_get_contact_community()</td><td>Reperimento del campo profilo per google+ community</td></tr>
+	<tr><td>szgoogle_gplus_get_contact_betspost()</td><td>Reperimento del campo profilo per google+ best post.</td></tr>
+</table>
+
+<h2>Esempio codice PHP</h2>
+
+<p>Se volete utilizzare le funzioni PHP messe a disposizione dal plugin dovete accertarvi che il modulo corrispondente sia attivo, una 
+volta verificato inserite nel punto desiderato del vostro tema un codice simile al seguente esempio, quindi preparate un array con le
+opzioni desiderate e richiamate la funzione richiesta. É consigliabile utilizzare prima della funzione il controllo se questa esista,
+in questa maniera non si avranno errori PHP in caso di plugin disattivato o disinstallato.</p> 
+
+<pre>
+echo '&lt;div id="author"&gt;';
+
+echo '&lt;div class="image"&gt;';
+echo '&lt;img src="http://domain.com/image.jpg" alt="author"/&gt;';
+echo '&lt;/div&gt;';'
+
+if (function_exists('szgoogle_gplus_get_contact_page')) {
+  echo '&lt;div class="link"&gt;';
+  echo '&lt;a href="'.szgoogle_gplus_get_contact_page().'"&gt;My G+ Page&lt;/a&gt;';
+  echo '&lt;/div&gt;';'
+} 
+
+echo '&lt;/div&gt;';
+</pre>
 
 <h2>Structured Data Testing Tool</h2>
 

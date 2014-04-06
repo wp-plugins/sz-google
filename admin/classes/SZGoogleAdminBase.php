@@ -73,8 +73,12 @@ if (!class_exists('SZGoogleAdminBase'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'modules','description' => __('modules','szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG => ucwords(__('activation modules','szgoogleadmin')),
+				array('tab' => '01','section' => SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'title' => ucwords(__('activation modules','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = ucfirst(__('configuration version','szgoogleadmin').'&nbsp;'.SZ_PLUGIN_GOOGLE_VERSION);
@@ -121,19 +125,45 @@ if (!class_exists('SZGoogleAdminBase'))
 		 */
 		function moduleAdminInit() 
 		{
-			wp_register_style('sz-google-style-admin',SZ_PLUGIN_GOOGLE_PATH_ADMIN_CSS.'sz-google-style-admin.css');
-			wp_enqueue_style('sz-google-style-admin');
-
-			// Caricamento framework javasctipt per media uploader da
-			// utilizzare nelle funzioni di scelta attachment come i widgets
-
 			global $pagenow;
 
+			if (isset($_GET['page'])) $adminpage = $_GET['page']; 
+				else $adminpage = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+
+			// Registrazione dei file CSS e dei file javascript che devono
+			// essere caricati nella pagina in base alla funzione richiesta
+
+			$JS1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_JS .'jquery.szgoogle.widgets.js';
+			$JS2 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_JS .'jquery.szgoogle.pages.js';
+			$CSS = SZ_PLUGIN_GOOGLE_PATH_ADMIN_CSS.'sz-google-style-admin.css';
+
+			wp_register_style ('sz-google-style-admin',$CSS,array(),SZ_PLUGIN_GOOGLE_VERSION);
+			wp_register_script('sz-google-javascript-widgets',$JS1);
+			wp_register_script('sz-google-javascript-pages',$JS2);
+
+			// Controllo le zone di caricamento file in base alle necessità
+			// del plugin durante la visualizzazione delle pagine di amministrazione
+
 			if ($pagenow == 'widgets.php') 
-			{
+				$widgets = true; else $widgets = false;
+
+			if ($pagenow == 'admin.php' && preg_match('#^sz-google#',$adminpage) === 1) 
+				$optionpage = true; else $optionpage = false;
+
+			// Controllo in che pagina di amministrazione mi trovo per 
+			// caricare i componenti CSS e javascript solamente quando servono
+
+			if ($widgets or $optionpage) {
+				wp_enqueue_style('sz-google-style-admin');
+			}
+
+			if ($widgets) {
 				if (!did_action('wp_enqueue_media')) wp_enqueue_media();
-				wp_register_script('sz_google_javascript',SZ_PLUGIN_GOOGLE_PATH_ADMIN_JS.'sz-google.js');
-				wp_enqueue_script('sz_google_javascript');
+				wp_enqueue_script('sz-google-javascript-widgets');
+			}
+
+			if ($optionpage) {
+				wp_enqueue_script('sz-google-javascript-pages');
 			}
 		}
 

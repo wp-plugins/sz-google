@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-redirect.jpg
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Il formato degli URL utilizzato da Google+ per identificare le sue pagine non è sicuramente un friendly url, infatti vengono
 utilizzati degli id numerici molto lunghi che rendono la stringa URL impossibile da ricordare o memorizzare. Per questo motivo G+
 ha messo a disposizione per i profili e le pagine un URL personalizzato da associare al proprio profilo o pagina. Purtroppo però

@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-button-share
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Se utilizzate Google+ sicuramente conoscete la funzione del pulsante di condivisione che serve a pubblicare sul proprio profilo
 un post esistente su google+. Tramite questo plugin è possibile aggiungere un pulsante di condivisione riferito ad una pagina di un
 sito web. Normalmente l'insertimento di questo pulsante si collega automaticamente alla pagina visualizzata, però è possibile 

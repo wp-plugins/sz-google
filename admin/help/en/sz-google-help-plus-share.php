@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-button-share
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>If you are comfortable with Google+ you know the share button, the function that share a post pubblished on Google+. Using this 
 plugin you can easely put a share button pointing at every url of your website. If you simply insert the button it will be linked to 
 the url of the actual page you are in. If you want to change the pointment of the share button use the parameter url="URL" in the 

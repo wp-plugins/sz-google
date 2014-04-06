@@ -15,6 +15,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-button-pluso
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>If you are comfortable with Google+ you know the +1 button, the function that suggests your appreciacion to a post pubblished
 on Google+. Using this plugin you can easely put a +1 button pointing at every url of your website. If you simply insert the button
 it will be linked to the url of the actual page you are in. If you want to change the pointment of the +1 button use the parameter

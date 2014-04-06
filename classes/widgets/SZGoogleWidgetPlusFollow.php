@@ -74,26 +74,31 @@ if (!class_exists('SZGoogleWidgetPlusFollow'))
 
 			// Lettura opzioni generali per impostazione dei dati di default
 
-			global $SZ_PLUS_OBJECT;
-			$general = $SZ_PLUS_OBJECT->getOptions();
+			if ($object = SZGoogleModule::$SZGoogleModulePlus) 
+			{
+				$general = $object->getOptions($options);
 
-			// Imposto i valori di default nel caso siano specificati dei valori
-			// che non appartengono al range dei valori accettati
+				// Imposto i valori di default nel caso siano specificati dei valori
+				// che non appartengono al range dei valori accettati
 
-			if ($controls['urltype'] == '2') {
-				if ($general['plus_page'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;
-					else $options['url'] = 'https://plus.google.com/'.$general['plus_page'];
-			}
+				if ($controls['urltype'] == '2') {
+					if ($general['plus_page'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;
+						else $options['url'] = 'https://plus.google.com/'.$general['plus_page'];
+				}
 
-			if ($controls['urltype'] == '3') {
-				if ($general['plus_profile'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE;
-					else $options['url'] = 'https://plus.google.com/'.$general['plus_profile'];
+				if ($controls['urltype'] == '3') {
+					if ($general['plus_profile'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) $options['url'] = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE;
+						else $options['url'] = 'https://plus.google.com/'.$general['plus_profile'];
+				}
+
 			}
 
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente
 
-			$HTML = sz_google_module_plus_get_code_follow($options);
+			if ($object = SZGoogleModule::$SZGoogleModulePlus) {
+				$HTML = $object->getPlusFollowShortcode($options);
+			}
 
 			// Output del codice HTML legato al widget da visualizzare
 			// chiamata alla funzione generale per wrap standard

@@ -51,9 +51,19 @@ if (!class_exists('SZGoogleModuleAuthenticator'))
 			// richiamo della funzione per il controllo isset()
 
 			$options = $this->checkOptionIsSet($options,array(
-				'authenticator_login_enable' => SZ_PLUGIN_GOOGLE_VALUE_NO,
-				'authenticator_login_type'   => SZ_PLUGIN_GOOGLE_VALUE_ONE,
-				'authenticator_discrepancy'  => SZ_PLUGIN_GOOGLE_VALUE_ONE,
+				'authenticator_login_enable'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'authenticator_login_type'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'authenticator_discrepancy'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'authenticator_emergency'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'authenticator_emergency_file' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+			));
+
+			// Controllo delle opzioni in caso di valori non conformi
+			// richiamo della funzione per il controllo isnull()
+
+			$options = $this->checkOptionIsNull($options,array(
+				'authenticator_login_type'     => SZ_PLUGIN_GOOGLE_VALUE_ONE,
+				'authenticator_discrepancy'    => SZ_PLUGIN_GOOGLE_VALUE_ONE,
 			));
 
 			// Controllo delle opzioni in caso di valori non conformi
@@ -61,6 +71,7 @@ if (!class_exists('SZGoogleModuleAuthenticator'))
 
 			$options = $this->checkOptionIsYesNo($options,array(
 				'authenticator_login_enable' => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'authenticator_emergency'    => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			));	
 
 			// Ritorno indietro il gruppo di opzioni corretto dai
@@ -83,11 +94,9 @@ if (!class_exists('SZGoogleModuleAuthenticator'))
 			// Controllo se opzione autenticazione di login risulta attiva.
 			// In questo caso aggiungo filtri e azioni su fase di login.
 
-			if ($options['authenticator_login_enable']) 
-			{
-				add_action('login_form'  ,array($this,'addAuthenticatorToLoginForm'));
-				add_action('login_footer',array($this,'addAuthenticatorToLoginJavascript'));
-				add_filter('authenticate',array($this,'addAuthenticatorCheckCode'),30,3);
+			if ($options['authenticator_login_enable']) {
+				if (!$this->is_emergency_file()) $this->moduleAddActionsLogin();
+					else if (is_admin()) add_action('admin_notices',array($this,'addAdminAuthenticatorNotices'));
 			}
 
 			// Aggiungo le opzioni al profilo che vengono viste solo se user=current nelle
@@ -102,13 +111,62 @@ if (!class_exists('SZGoogleModuleAuthenticator'))
 			// la funzione di generazione codice secret tramite bottone e javascript
 
 			if (defined('DOING_AJAX') && DOING_AJAX) {
-				add_action( 'wp_ajax_SZGoogleAuthenticatorSecret',array($this,'getAuthenticatorCreateSecretAjax'));
+				add_action('wp_ajax_SZGoogleAuthenticatorSecret',array($this,'getAuthenticatorCreateSecretAjax'));
 			}
 
 			// Aggiungo il file javascript per la creazione di un codice QR Code 
 			// rispetto ad un contenitore <div> usando il nome hook per un caricamento mirato
 
 			add_action('admin_enqueue_scripts', array($this,'addAuthenticatorQRCodeScript'));
+		}
+
+		/**
+		 * Funzione per aggiungere azioni e/o filtri alla funzione
+		 * di collegamento utente standard presente in wordpress.
+		 *
+		 * @return void
+		 */
+		function moduleAddActionsLogin() 
+		{
+			add_action('login_form'  ,array($this,'addAuthenticatorToLoginForm'));
+			add_action('login_footer',array($this,'addAuthenticatorToLoginJavascript'));
+			add_filter('authenticate',array($this,'addAuthenticatorCheckCode'),30,3);
+		}
+
+		/**
+		 * Funzione per il controllo del file di emergenza, se viene
+		 * trovato questo file il processo viene temporaneamente sospeso.
+		 *
+		 * @return void
+		 */
+		function is_emergency_file() 
+		{
+			$options = $this->getOptions();
+
+			if (!isset($options['authenticator_emergency']) or $options['authenticator_emergency'] != SZ_PLUGIN_GOOGLE_VALUE_YES) {
+				return false;
+			} 
+
+			// Calcolo il nome del file da controllare prendendo il valore di default o
+			// il valore specificato nella configurazione generale di google authenticator
+
+			if (trim($options['authenticator_emergency_file']) == SZ_PLUGIN_GOOGLE_VALUE_NULL) $filename = ABSPATH.'google-authenticator-disable.php';
+				else $filename = ABSPATH.trim($options['authenticator_emergency_file']);
+
+			// Controllo esistenza del file google-authenticator-emergency.php
+
+			if (file_exists($filename)) return true;
+				else return false;
+		}
+
+		/**
+		 * Funzione per indicare il messaggio di sospensione modulo
+		 * sulla bacheca principale del pannello di amministrazione.
+		 *
+		 * @return void
+		 */
+		function addAdminAuthenticatorNotices() {
+			echo '<div class="error"><p>(<b>sz-google</b>) - '.__('Google Authenticator is suspended because it was found the file of emergency in the root directory.','szgoogleadmin').'</p></div>';
 		}
 
 		/**
@@ -598,7 +656,6 @@ ENDOFJS;
 	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
 	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
 	 */
-
 	if (!function_exists('szgoogle_authenticator_get_object')) {
 		function szgoogle_authenticator_get_object() { 
 			if (!is_a(SZGoogleModule::$SZGoogleModuleAuthenticator,'SZGoogleModuleAuthenticator')) return false;
@@ -606,26 +663,12 @@ ENDOFJS;
 		}
 	}
 
-	/**
-	 * Funzione per reperire il valore della chiave segreta assegnata
-	 * ad un profilo utente che deve essere passato alla funzione come ID.
-	 *
-	 * @param int $user
-	 * @return string
-	 */
 	if (!function_exists('szgoogle_authenticator_get_secret')) {
 		function szgoogle_authenticator_get_secret($user) { 
 			return trim(get_user_option('sz_google_authenticator_secret',$user));
 		}
 	}
 
-	/**
-	 * Funzione per reperire il codice HTML da inserire in un form di login.
-	 * Utilizzare questa funzionalità per personalizzare il login e disattivare
-	 * l'inserimento automatico da parte del plugin nel pannello di amministrazione.
-	 *
-	 * @return string
-	 */
 	if (!function_exists('szgoogle_authenticator_get_login_field')) {
 		function szgoogle_authenticator_get_login_field() {
 			if (!$object = szgoogle_authenticator_get_object()) return false;
@@ -633,15 +676,13 @@ ENDOFJS;
 		}
 	}
 
-	/**
-	 * Funzione per controllare la validità di un codice authenticator,
-	 * bisogna specificare un ID utente per associazione con secret code.
-	 *
-	 * @param int $user
-	 * @param string $code
-	 * @param int $discrepancy in 30 second units (8 means 4 minutes before or after)
-	 * @return bool
-	 */
+	if (!function_exists('szgoogle_authenticator_check_emergency')) {
+		function szgoogle_authenticator_check_emergency() {
+			if (!$object = szgoogle_authenticator_get_object()) return false;
+				else return $object->is_emergency_file();
+		}
+	}
+
 	if (!function_exists('szgoogle_authenticator_verify_code')) {
 		function szgoogle_authenticator_verify_code($user,$code,$discrepancy=1) {
 			if (!$object = szgoogle_authenticator_get_object()) return false;
@@ -649,13 +690,6 @@ ENDOFJS;
 		}
 	}
 
-	/**
-	 * Funzione per la creazione di una chiave segreta random da utilizzare
-	 * nella propria applicazione. Ogni volta che viene creata una chiave bisogna
-	 * eseguire l'operazione di sincronizzazione per utilizzarla sul device.
-	 *
-	 * @return string
-	 */
 	if (!function_exists('szgoogle_authenticator_create_secret')) {
 		function szgoogle_authenticator_create_secret() { 
 			if (!$object = szgoogle_authenticator_get_object()) return false;
@@ -663,13 +697,6 @@ ENDOFJS;
 		}
 	}
 
-	/**
-	 * Funzione per la creazione di alcune chiavi di backup che
-	 * devono essere utilizzate in caso di smarrimento del device
-	 * fisico o comunque non momentanemente disponibile.
-	 *
-	 * @return array
-	 */
 	if (!function_exists('szgoogle_authenticator_create_secret_backup')) {
 		function szgoogle_authenticator_create_secret_backup() { 
 			if (!$object = szgoogle_authenticator_get_object()) return false;

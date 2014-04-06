@@ -23,7 +23,7 @@ if (!class_exists('SZGooglePlugin'))
 
 			add_action('plugins_loaded',array($this,'setLanguageDomain'));
 
-			// Aggingo il link di setting nella escrizione di plugin presente
+			// Aggingo il link di setting nella descrizione di plugin presente
 			// sul pannello di amministrazione dopo attivazione e disattivazione
 
 			if (is_admin()) {
@@ -218,6 +218,9 @@ if (!class_exists('SZGooglePlugin'))
 				'plus_enable_author'                => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'plus_enable_publisher'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
 				'plus_enable_recommendations'       => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'plus_usercontact_page'             => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'plus_usercontact_community'        => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'plus_usercontact_bestpost'         => SZ_PLUGIN_GOOGLE_VALUE_NO,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -243,6 +246,8 @@ if (!class_exists('SZGooglePlugin'))
 				'authenticator_login_enable'        => SZ_PLUGIN_GOOGLE_VALUE_YES,
 				'authenticator_login_type'          => SZ_PLUGIN_GOOGLE_VALUE_ONE,
 				'authenticator_discrepancy'         => SZ_PLUGIN_GOOGLE_VALUE_ONE,
+				'authenticator_emergency'           => SZ_PLUGIN_GOOGLE_VALUE_NO,
+				'authenticator_emergency_file'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 			);
 
 			// Impostazione valori di default che riguardano
@@ -289,9 +294,13 @@ if (!class_exists('SZGooglePlugin'))
 				'drive_embed_shortcode'             => SZ_PLUGIN_GOOGLE_VALUE_YES,
 				'drive_embed_s_width'               => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_WIDTH,
 				'drive_embed_s_height'              => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT,
+				'drive_embed_s_height_p'            => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT,
+				'drive_embed_s_height_v'            => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT,
 				'drive_embed_widget'                => SZ_PLUGIN_GOOGLE_VALUE_YES,
 				'drive_embed_w_width'               => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_WIDTH,
 				'drive_embed_w_height'              => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT,
+				'drive_embed_w_height_p'            => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT,
+				'drive_embed_w_height_v'            => SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT,
 				'drive_viewer_shortcode'            => SZ_PLUGIN_GOOGLE_VALUE_YES,
 				'drive_viewer_s_width'              => SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_S_WIDTH,
 				'drive_viewer_s_height'             => SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_S_HEIGHT,
@@ -514,7 +523,6 @@ if (!class_exists('SZGooglePlugin'))
 				do_action($action); 
 
 				echo "<!-- ===================================================================== -->\n";
-				echo "\n";
 			}
 		}
 	}

@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-youtube-playlist.
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Questa funzione permette l'inserimento di una <b>playlist youtube</b> su una pagina web. Il modulo youtube ha molti parametri che 
 servono per aggiungere funzionalità o personalizzare alcuni aspetti che riguardano la modalità di inserimento, ad esempio possiamo 
 decidere tra una dimensione fissa del player o una di tipo responsive design, è possibile scegliere tra un tema “dark” e uno “light”, 

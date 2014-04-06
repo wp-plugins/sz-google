@@ -66,7 +66,9 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente
 
-			$HTML = sz_google_module_plus_get_code_page($options);
+			if ($object = SZGoogleModule::$SZGoogleModulePlus) {
+				$HTML = $object->getPlusPageShortcode($options);
+			}
 
 			// Output del codice HTML legato al widget da visualizzare
 			// chiamata alla funzione generale per wrap standard

@@ -37,10 +37,15 @@ if (!class_exists('SZGoogleAdminFonts'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general' ,'description' => __('general','szgoogleadmin')),
+				'02' => array('anchor' => 'header'  ,'description' => __('header' ,'szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-fonts.php'       => ucwords(__('font setting loader','szgoogleadmin')),
-				'sz-google-admin-fonts-BX.php'    => ucwords(__('font setting general','szgoogleadmin')),
-				'sz-google-admin-fonts-HX.php'    => ucwords(__('font setting headings','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-fonts.php'   ,'title' => ucwords(__('font setting loader','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-fonts-BX.php','title' => ucwords(__('font setting general','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-fonts-HX.php','title' => ucwords(__('font setting headings','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;

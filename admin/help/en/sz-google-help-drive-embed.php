@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-drive-embed.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>Through <b>Google Drive Embed</b> component, present in the SZ-Google plugin you can insert into a wordpress web page a document 
 present on google drive. We can insert a presentation, a spreadsheet, the contents a folder, etc, etc. The important thing is that the 
 document is stored on google drive is that it is published, so before you use this component entries in the document from the File 
@@ -39,7 +41,7 @@ format option = "value". If you would like additional information you can visit 
 
 <table>
 	<tr><th>Parameter</th>    <th>Description</th>            <th>Allowed values</th>         <th>Default</th></tr>
-	<tr><td>type</td>         <td>document type</td>          <td>document,folder,spreadsheet,<br/>presentation,pdf,video</td> <td>document</td></tr>
+	<tr><td>type</td>         <td>document type</td>          <td>document,folder,spreadsheet,<br/>presentation,forms,pdf,video</td> <td>document</td></tr>
 	<tr><td>id</td>           <td>document id</td>            <td>string</td>                 <td>null</td></tr>
 	<tr><td>single</td>       <td>spreadsheet single</td>     <td>true,false</td>             <td>false</td></tr>
 	<tr><td>gid</td>          <td>spreadsheet id</td>         <td>0,1,2,3,4,5,6 etc</td>      <td>0</td></tr>
@@ -94,6 +96,7 @@ some shortcode that you can try to control the correct functioning.</p>
 [sz-drive-embed type="document" id="1nIKhA_U41fGLC_99hp_uB8lM6Ef0IffspkwTp2Sk_eI"/]
 [sz-drive-embed type="spreadsheet" id="0AsB1V5PwB8NjdGdLRm1MYW9SSUNWRWNrVXdqQ2hKTmc"/]
 [sz-drive-embed type="presentation" id="1BS67-bJr41NtMdfvD5pOZL9ZeNfeUvK8Gg4gZFyeqM8"/]
+[sz-drive-embed type="forms" id="1XK4lmkJ1_DPrrxhF8zY7QCpyfX7Ux2_W_DBkgbMTzeo"/]
 [sz-drive-embed type="pdf" id="0B8B1V5PwB8NjTDhMckQ5MlVENjQ"/]
 [sz-drive-embed type="video" id="0B8B1V5PwB8NjZFpNNG0tS3dmNTQ" height="300"/]
 [sz-drive-embed type="folder" id="0B8B1V5PwB8NjdHpXR0dhck1EaW8" folderview="list"/]

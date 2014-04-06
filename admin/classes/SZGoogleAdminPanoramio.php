@@ -31,10 +31,16 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'shortcodes' ,'description' => __('shortcodes','szgoogleadmin')),
+				'02' => array('anchor' => 'widgets'    ,'description' => __('widgets'   ,'szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-panoramio-enable.php'    => ucwords(__('activation components','szgoogleadmin')),
-				'sz-google-admin-panoramio-s-options.php' => ucwords(__('default options for shortcode','szgoogleadmin')),
-				'sz-google-admin-panoramio-w-options.php' => ucwords(__('default options for widget','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-panoramio-s-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-panoramio-s-options.php','title' => ucwords(__('default options for shortcode','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-panoramio-w-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-panoramio-w-options.php','title' => ucwords(__('default options for widget','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -58,9 +64,8 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 
 			// Definizione sezione per configurazione GOOGLE PANORAMIO ACTIVATED
 		
-			add_settings_section('sz_google_panoramio_active','',$this->callbacksection,'sz-google-admin-panoramio-enable.php');
-			add_settings_field('panoramio_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_panoramio_shortcode'),'sz-google-admin-panoramio-enable.php','sz_google_panoramio_active');
-			add_settings_field('panoramio_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_panoramio_widget'),'sz-google-admin-panoramio-enable.php','sz_google_panoramio_active');
+			add_settings_section('sz_google_panoramio_s_active','',$this->callbacksection,'sz-google-admin-panoramio-s-enable.php');
+			add_settings_field('panoramio_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_panoramio_shortcode'),'sz-google-admin-panoramio-s-enable.php','sz_google_panoramio_s_active');
 
 			// Definizione sezione per configurazione GOOGLE PANORAMIO SHORTCODE
 
@@ -72,6 +77,11 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 			add_settings_field('panoramio_s_list_size',ucfirst(__('default list size','szgoogleadmin')),array($this,'get_panoramio_s_list_size'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
 			add_settings_field('panoramio_s_position',ucfirst(__('default position','szgoogleadmin')),array($this,'get_panoramio_s_position'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
 			add_settings_field('panoramio_s_paragraph',ucfirst(__('enable paragraph','szgoogleadmin')),array($this,'get_panoramio_s_paragraph'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
+
+			// Definizione sezione per configurazione GOOGLE PANORAMIO ACTIVATED
+		
+			add_settings_section('sz_google_panoramio_w_active','',$this->callbacksection,'sz-google-admin-panoramio-w-enable.php');
+			add_settings_field('panoramio_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_panoramio_widget'),'sz-google-admin-panoramio-w-enable.php','sz_google_panoramio_w_active');
 
 			// Definizione sezione per configurazione GOOGLE PANORAMIO WIDGET
 

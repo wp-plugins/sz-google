@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-mobile-recommenda
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Con questa feature è possibile inserire sul proprio sito web un widget che visualizza le raccomandazioni legate alle
 pagine del vostro sito web in base alle iterazioni sociali. Questa funzionalità sarà visualizzata solo sulla versione
 mobile del sito web e ignorata su device diversi. Per attivare questa opzione bisogna selezionare il campo specifico che

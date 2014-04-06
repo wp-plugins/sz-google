@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-authenticator-dev
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Per utilizzare questa funzionalità bisogna installare sul proprio smartphone l'applicazione messa a disposizione da google in
 maniera gratuita sia in ambiente IOS che Android e Blackberry. Quindi per prima cosa scaricate l'applicazione e installatela sul
 vostro smartphone, come prima operazione eseguite l'operazione "configura account" e selezionate la modalità che viene indicata 

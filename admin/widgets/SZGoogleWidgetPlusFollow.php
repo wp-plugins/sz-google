@@ -71,7 +71,7 @@ $VALUE_annotation = esc_attr($annotation);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table class="sz-google-table-widget">
+<p><table id="SZGoogleWidgetPlusFollow" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 <tr>
@@ -83,7 +83,7 @@ $VALUE_annotation = esc_attr($annotation);
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_urltype ?>"><?php echo ucfirst(__('type','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
-		<select class="sz-google-switch-hidden widefat" id="<?php echo $ID_urltype ?>" name="<?php echo $NAME_urltype ?>" onchange="szgoogle_switch_hidden(this);" data-open="0" data-switch="sz-google-switch-url">
+		<select class="sz-google-switch-hidden widefat" id="<?php echo $ID_urltype ?>" name="<?php echo $NAME_urltype ?>" onchange="szgoogle_switch_hidden_onchange(this);" data-open="1" data-switch="sz-google-switch-url">
 			<option value="1" <?php echo selected("1",$VALUE_urltype) ?>><?php echo __('URL for page or profile','szgoogleadmin') ?></option>
 			<option value="2" <?php echo selected("2",$VALUE_urltype) ?>><?php echo __('configuration page','szgoogleadmin') ?></option>
 			<option value="3" <?php echo selected("3",$VALUE_urltype) ?>><?php echo __('configuration profile','szgoogleadmin') ?></option>
@@ -92,7 +92,7 @@ $VALUE_annotation = esc_attr($annotation);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento URL specifico) -->
-<tr class="sz-google-switch-url">
+<tr class="sz-google-switch-url sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_url ?>"><?php echo ucfirst(__('URL','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="sz-upload-image-url widefat" id="<?php echo $ID_url ?>" name="<?php echo $NAME_url ?>" type="text" value="<?php echo $VALUE_url ?>" placeholder="<?php echo __('insert destination URL','szgoogleadmin') ?>"/></td>
 </tr>
@@ -101,7 +101,7 @@ $VALUE_annotation = esc_attr($annotation);
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_badge ?>"><?php echo ucfirst(__('type','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
-		<select class="sz-google-switch-hidden widefat" id="<?php echo $ID_badge ?>" name="<?php echo $NAME_badge ?>" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display" data-close="0">
+		<select class="sz-google-switch-hidden widefat" id="<?php echo $ID_badge ?>" name="<?php echo $NAME_badge ?>" onchange="szgoogle_switch_hidden_onchange(this);" data-switch="sz-google-switch-display" data-close="0">
 			<option value="0" <?php echo selected("0",$VALUE_badge) ?>><?php echo __('button without badge','szgoogleadmin') ?></option>
 			<option value="1" <?php echo selected("1",$VALUE_badge) ?>><?php echo __('button with badge','szgoogleadmin') ?></option>
 		</select>
@@ -109,20 +109,20 @@ $VALUE_annotation = esc_attr($annotation);
 </tr>
 
 <!-- WIDGETS (Campo per inserimento immagine da usare come badge) -->
-<tr class="sz-google-switch-display">
+<tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_text ?>"><?php echo ucfirst(__('text','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2"><textarea class="widefat" rows="3" cols="20" id="<?php echo $ID_text ?>" name="<?php echo $NAME_text ?>" placeholder="<?php echo __('insert text for badge','szgoogleadmin') ?>"><?php echo $VALUE_text ?></textarea></td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento immagine da usare come badge) -->
-<tr class="sz-google-switch-display">
+<tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_img ?>"><?php echo ucfirst(__('image','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input class="sz-upload-image-url-2 widefat" id="<?php echo $ID_img ?>" name="<?php echo $NAME_img ?>" type="text" value="<?php echo $VALUE_img ?>" placeholder="<?php echo __('choose image for badge','szgoogleadmin') ?>"/></td>
 	<td colspan="1" class="sz-cell-vals"><input class="sz-upload-image-button button" type="button" value="<?php echo ucfirst(__('select file','szgoogleadmin')) ?>" data-field-url="sz-upload-image-url-2" data-title="<?php echo ucfirst(__('select or upload a file','szgoogleadmin')) ?>" data-button-text="<?php echo ucfirst(__('confirm selection','szgoogleadmin')) ?>"/></td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento della posizione) -->
-<tr class="sz-google-switch-display">
+<tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_position ?>"><?php echo ucfirst(__('position','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
 		<select class="widefat" id="<?php echo $ID_position ?>" name="<?php echo $NAME_position ?>">
@@ -176,8 +176,8 @@ $VALUE_annotation = esc_attr($annotation);
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		szgoogle_switch_hidden_ready();
-		szgoogle_media_uploader();
+	jQuery(document).ready(function() {
+		szgoogle_switch_hidden_onload('SZGoogleWidgetPlusFollow');
+		szgoogle_upload_select_media();
 	});
 </script>

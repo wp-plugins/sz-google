@@ -200,4 +200,17 @@ if (!class_exists('SZGoogleModuleFonts'))
 			echo "</style>\n";
 		}
 	}
+
+	/**
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 */
+	if (!function_exists('szgoogle_fonts_get_object')) {
+		function szgoogle_fonts_get_object() { 
+			if (!is_a(SZGoogleModule::$SZGoogleModuleFonts,'SZGoogleModuleFonts')) return false;
+				else return SZGoogleModule::$SZGoogleModuleFonts;
+		}
+	}
 }

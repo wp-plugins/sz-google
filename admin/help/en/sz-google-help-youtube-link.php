@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-youtube-link.jpg'
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>With this option, you can insert in a web page link to a youtube channel in different ways. For example, you can insert a 
 simple text link or an image, a more elaborate button or an entire badge. All components provide a parameter or an action to 
 subscribe to the channel automatically and the presentation of a pop-up window.</p>

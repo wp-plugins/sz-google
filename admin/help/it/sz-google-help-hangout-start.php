@@ -15,6 +15,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-hangout-start.jpg
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Tramite questa funzione presente nel plugin <b>SZ-Google</b> è possibile inserire in un post di wordpress o su una sidebar il 
 bottone per avviare una sessione video con Hangout e la possibilità di lanciare un'applicazione determinata. Questa funzione può
 essere molto utile a chi vuole sviluppare un'applicazione su Hangout ed invitare gli utenti all'utilizzo.</p>

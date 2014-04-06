@@ -61,10 +61,15 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general','description' => __('general','szgoogleadmin')),
+				'02' => array('anchor' => 'classic','description' => __('classic','szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-analytics.php'         => ucwords(__('general settings','szgoogleadmin')),
-				'sz-google-admin-analytics-enabled.php' => ucwords(__('activation tracking code','szgoogleadmin')),
-				'sz-google-admin-analytics-classic.php' => ucwords(__('options for classic analytics','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-analytics.php'         ,'title' => ucwords(__('general settings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-analytics-enabled.php' ,'title' => ucwords(__('activation tracking code','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-analytics-classic.php' ,'title' => ucwords(__('options for classic analytics','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;

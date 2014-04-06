@@ -31,8 +31,13 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general' ,'description' => __('general','szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-authenticator.php'     => ucwords(__('general settings','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-authenticator.php'          ,'title' => ucwords(__('general settings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-authenticator-emergency.php','title' => ucwords(__('emergency file','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -59,6 +64,12 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 			add_settings_section('sz_google_authenticator_enabled','',$this->callbacksection,'sz-google-admin-authenticator.php');
 			add_settings_field('authenticator_login_enable',ucfirst(__('enable login','szgoogleadmin')),array($this,'get_authenticator_login_enable'),'sz-google-admin-authenticator.php','sz_google_authenticator_enabled');
 			add_settings_field('authenticator_discrepancy',ucfirst(__('discrepancy','szgoogleadmin')),array($this,'get_authenticator_discrepancy'),'sz-google-admin-authenticator.php','sz_google_authenticator_enabled');
+
+			// Definizione sezione per configurazione GOOGLE EMERGENCY
+
+			add_settings_section('sz_google_authenticator_emergency','',$this->callbacksection,'sz-google-admin-authenticator-emergency.php');
+			add_settings_field('authenticator_emergency',ucfirst(__('emergency enable','szgoogleadmin')),array($this,'get_authenticator_emergency_enable'),'sz-google-admin-authenticator-emergency.php','sz_google_authenticator_emergency');
+			add_settings_field('authenticator_emergency_file',ucfirst(__('emergency file','szgoogleadmin')),array($this,'get_authenticator_emergency_file'),'sz-google-admin-authenticator-emergency.php','sz_google_authenticator_emergency');
 		}
 
 		/**
@@ -84,6 +95,18 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 
 			$this->moduleCommonFormSelect('sz_google_options_authenticator','authenticator_discrepancy',$values,'medium','');
 			$this->moduleCommonFormDescription(__('indicate time of discrepancy that should be used by the plugin. This value indicates the time of tolerance that is applied to the generation of the authenticator code with respect to time auto-generation. Default value is 30 seconds.','szgoogleadmin'));
+		}
+
+		function get_authenticator_emergency_enable() 
+		{ 
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_authenticator','authenticator_emergency');
+			$this->moduleCommonFormDescription(__('Enable this option to manage the files of an emergency. With this option enabled you can disable the authenticator will be sending in FTP a file in the root directory of wordpress. The file name is specified in the next field.','szgoogleadmin'));
+		}
+
+		function get_authenticator_emergency_file() 
+		{ 
+			$this->moduleCommonFormText('sz_google_options_authenticator','authenticator_emergency_file','large',__('google-authenticator-disable.php','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('Indicates the name of the file to be used for the emergency function. If the file specified in this field is found on the root of the wordpress function authenticator is temporarily suspended. Default name is <b>google-authenticator-disable.php<b/>.','szgoogleadmin'));
 		}
 	}
 }

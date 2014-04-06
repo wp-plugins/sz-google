@@ -31,8 +31,12 @@ if (!class_exists('SZGoogleAdminHangouts'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general','description' => __('general','szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-hangouts-start.php' => ucwords(__('hangouts start button','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-hangouts-start.php','title' => ucwords(__('hangouts start button','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;

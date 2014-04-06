@@ -28,6 +28,7 @@ if (!class_exists('SZGoogleAdmin'))
 		protected $parentslug      = SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG;
 		protected $titlefix        = SZ_PLUGIN_GOOGLE_VALUE_TITLEFIX;
 		protected $sections        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $sectionstabs    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $sectionstitle   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $sectionsoptions = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $validate        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
@@ -151,8 +152,16 @@ if (!class_exists('SZGoogleAdmin'))
 		 */
 		function moduleCommonForm($title,$setting,$sections,$formsavebutton,$HTML)
 		{
+			// Creazione codice HTML per contenitore principale a cui si 
+			// aggiunge un titolo, le notifiche di sistema e gli eventuali tabs
+
 			echo '<div id="sz-google-wrap" class="wrap">';
 			echo '<h2>'.ucwords($title).'</h2>';
+
+			// Emissione messaggi di setting dopo il titolo come ad esempio
+			// il messaggio di aggiornamento opzioni in configurazione
+
+			settings_errors();
 
 			// Contenitore principale con zona dedicata ai parametri di configurazione
 			// definiti tramite le chiamate dei singoli moduli attivati da pannello ammnistrativo
@@ -186,18 +195,68 @@ if (!class_exists('SZGoogleAdmin'))
 
 			} else {
 
+				// Creazione sessione del form per aggiungere l'elenco dei
+				// campi in hidden che sono necessari alla sottomissione
+
 				settings_fields($setting);
 
-				foreach ($sections as $section => $title) 
+				// Composizione modello con i tab specificati in sectionstabs
+				// in caso contrario eseguo la composizione HTML delle sezioni
+
+				if (is_array($this->sectionstabs)) 
 				{
-					echo '<div class="postbox'; 
-					echo '">';
-					echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
-					echo '<h3 class="hndle"><span>'.$title.'</span></h3>';
-					echo '<div class="inside">';
-					do_settings_sections($section);
-					echo '</div>';
-					echo '</div>';
+					// Composizione HTML del titolo H2 con i vari tab che
+					// compongono la pagina di configurazione del modulo
+
+					echo '<h2 id="sz-google-tab" class="nav-tab-wrapper">';
+
+					foreach ($this->sectionstabs as $TABKey => $TABValue) {
+						echo '<a class="nav-tab" ';
+						echo 'id="sz-google-tab-'.$TABValue['anchor'].'" ';
+						echo 'href="#'.$TABValue['anchor'].'"';
+						echo '>'.ucfirst($TABValue['description']).'</a>';
+					}
+				
+					echo '</h2>';
+
+					// Per ogni tab che trovo in array disegno la sezione HTML
+					// in modalità hidden che sarà attivata tramite selezione tab
+
+					foreach ($this->sectionstabs as $TABKey => $TABValue) 
+					{
+						echo '<div class="sz-google-tab-div" id="sz-google-tab-div-'.$TABValue['anchor'].'">';
+
+						foreach ($sections as $key => $value) 
+						{
+							if ($TABKey == $value['tab']) {
+								echo '<div class="postbox">'; 
+								echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
+								echo '<h3 class="hndle"><span>'.$value['title'].'</span></h3>';
+								echo '<div class="inside">';
+								do_settings_sections($value['section']);
+								echo '</div>';
+								echo '</div>';
+							}
+						}
+
+						echo '</div>';
+					}
+
+				// Composizione modello semplice senza leggere array dei tabs
+				// scrivo le sezioni HTML in ordine di definizione standard
+
+				} else {
+
+					foreach ($sections as $key => $value)	
+					{
+						echo '<div class="postbox">'; 
+						echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
+						echo '<h3 class="hndle"><span>'.$value['title'].'</span></h3>';
+						echo '<div class="inside">';
+						do_settings_sections($value['section']);
+						echo '</div>';
+						echo '</div>';
+					}
 				}
 			}
 
@@ -302,9 +361,9 @@ if (!class_exists('SZGoogleAdmin'))
 		 */
 		function moduleCommonFormDescription($description) 
 		{
-			echo '<tr valign="top"><td class="description" colspan="2">';
-			echo ucfirst(trim($description));
 			echo '</td></tr>';
+			echo '<tr><td class="description" colspan="2">';
+			echo ucfirst(trim($description));
 		}
 
 		function moduleCommonFormText($optionset,$name,$class='medium',$placeholder='') 

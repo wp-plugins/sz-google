@@ -15,6 +15,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-panoramio.jpg';
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Questo modulo del plugin <b>SZ-Google</b> permette di inserire nei propri articoli delle gallerie fotografiche presenti in panoramio, 
 basta specificare il template desiderato e le opzioni richieste. Potete usare quattro template diversi, photo, list, slideshow e 
 photo_list. Per ulteriori informazioni sui parametri richiesti leggete la pagina ufficiale <a href="http://www.panoramio.com/api/widget/api.html">Panoramio Widget API </a>.</p>

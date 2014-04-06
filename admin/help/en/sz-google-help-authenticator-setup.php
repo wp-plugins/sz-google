@@ -19,6 +19,7 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-authenticator-set
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
 
 <p>The <b>SZ-Google</b> plugin provides the authorization process in two phases designed by google authenticator, it is possible to 
 strengthen the security of our login screen asking for a code-time in addition to the normal credentials. This is made ​​possible by 
@@ -34,6 +35,13 @@ Authenticator, generated with the appropriate button a new "secret code" and che
 account on your mobile application if this operation completes successfully updated your profile. The fact that we update your profile 
 only after the configuration of the smartphone is dictated only by the fact that if  you update your profile, and before something 
 goes wrong on the timing of your phone after you have login problems that must be solved by the administrator.</p>
+
+<h2>Emergency file</h2>
+
+<p>Enabling this option in the admin panel of the plugin you can disable the control of the time code running an FTP of a file in the 
+root directory of wordpress. This feature can be useful if you have some big problems connecting or the administrator has more access 
+to its devices. In this case the owner of the site could do an FTP to an empty file, for example <b>google-authenticator-disable.php</b>
+in root directory and temporarily suspend code control, this is because he may not be able to login.</p>
 
 <h2>Screenshot</h2>
 

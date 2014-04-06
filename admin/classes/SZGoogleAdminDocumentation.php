@@ -37,17 +37,23 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general','description' => __('general','szgoogleadmin')),
+				'02' => array('anchor' => 'reviews','description' => __('reviews','szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-documentation-gplus.php'         => ucwords(__('google+','szgoogleadmin')),
-				'sz-google-admin-documentation-analytics.php'     => ucwords(__('google analytics','szgoogleadmin')),
-				'sz-google-admin-documentation-authenticator.php' => ucwords(__('google authenticator','szgoogleadmin')),
-				'sz-google-admin-documentation-calendar.php'      => ucwords(__('google calendar','szgoogleadmin')),
-				'sz-google-admin-documentation-drive.php'         => ucwords(__('google drive','szgoogleadmin')),
-				'sz-google-admin-documentation-groups.php'        => ucwords(__('google groups','szgoogleadmin')),
-				'sz-google-admin-documentation-hangouts.php'      => ucwords(__('google hangouts','szgoogleadmin')),
-				'sz-google-admin-documentation-panoramio.php'     => ucwords(__('google panoramio','szgoogleadmin')),
-				'sz-google-admin-documentation-translate.php'     => ucwords(__('google translate','szgoogleadmin')),
-				'sz-google-admin-documentation-youtube.php'       => ucwords(__('youtube','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-gplus.php'        ,'title' => ucwords(__('google+','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-analytics.php'    ,'title' => ucwords(__('google analytics','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-authenticator.php','title' => ucwords(__('google authenticator','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-calendar.php'     ,'title' => ucwords(__('google calendar','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-drive.php'        ,'title' => ucwords(__('google drive','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-groups.php'       ,'title' => ucwords(__('google groups','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-hangouts.php'     ,'title' => ucwords(__('google hangouts','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-panoramio.php'    ,'title' => ucwords(__('google panoramio','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-translate.php'    ,'title' => ucwords(__('google translate','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-documentation-youtube.php'      ,'title' => ucwords(__('youtube','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-documentation-reviews.php'      ,'title' => ucwords(__('reviews','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -145,6 +151,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			add_settings_section('sz_google_documentation_panoramio'    ,'',array($this,'moduleAddHelpPanoramio')    ,'sz-google-admin-documentation-panoramio.php');
 			add_settings_section('sz_google_documentation_translate'    ,'',array($this,'moduleAddHelpTranslate')    ,'sz-google-admin-documentation-translate.php');
 			add_settings_section('sz_google_documentation_youtube'      ,'',array($this,'moduleAddHelpYoutube')      ,'sz-google-admin-documentation-youtube.php');
+			add_settings_section('sz_google_documentation_reviews'      ,'',array($this,'moduleAddHelpReviews')      ,'sz-google-admin-documentation-reviews.php');
 		}
 
 		/**
@@ -296,6 +303,14 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
+		 * Funzioni per aggiungere le varie sezioni che riguardano
+		 * il tab delle reviews presente nella documentazione del plugin
+		 */
+		function moduleAddHelpReviews() {
+			@include(SZ_PLUGIN_GOOGLE_BASENAME_TEMPLATE_ADMIN.'sz-google-template-reviews.php');
+		}
+
+		/**
 		 * Chiamata alla funzione generale per la creazione del form generale
 		 * le sezioni devono essere passate come un array con nome => titolo
 		 *
@@ -338,9 +353,9 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 
 		function moduleCommonFormHelp($title,$setting,$sections,$formsavebutton,$HTML,$slug)
 		{
-			$HTML .= $this->moduleAddNavs($slug);
+			$NAVS = $this->moduleAddNavs($slug);
+			$HTML = $NAVS.$HTML.$NAVS;
 			$this->moduleCommonForm($title,$setting,$sections,$formsavebutton,$HTML);
 		}
-
 	}
 }

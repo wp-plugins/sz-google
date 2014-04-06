@@ -18,6 +18,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-mobile-recommenda
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>With this feature you can place on its website a widget that displays the recommendations related to the pages of your website 
 based on social iterations. This feature will be displayed only on the mobile version of the web site and ignored on different 
 devices. To enable this option, you must select the specific field that you find the admin panel but you also need to perform 

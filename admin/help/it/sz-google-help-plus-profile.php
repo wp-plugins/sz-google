@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-badge-profil
  */
 $HTML = <<<EOD
 
+<h2>Descrizione</h2>
+
 <p>Se hai un profilo su Google+ e vuoi inserirlo sul tuo sito web o integrarlo con il tuo badge autore allora questo è 
 lo strumento adatto. Il badge del profilo può essere inserito in differenti metodi in base all'ambiente specifico, 
 se ad esempio lo desideri inserire dentro un'articolo o nel contenuto di un qualsiasi post devi utilizzare lo shortcode

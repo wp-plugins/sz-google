@@ -48,6 +48,7 @@ if (!class_exists('SZGoogleWidgetPanoramio'))
 				'rows'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'orientation' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
 				'position'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'action'      => SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET,
 			),$instance);
 
 			// Definizione delle variabili di controllo del widget, questi valori non
@@ -65,7 +66,9 @@ if (!class_exists('SZGoogleWidgetPanoramio'))
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente
 
-			$HTML = sz_google_module_panoramio_get_code($options);
+			if ($object = SZGoogleModule::$SZGoogleModulePanoramio) {
+				$HTML = $object->getPanoramioCode($options);
+			}
 
 			// Output del codice HTML legato al widget da visualizzare
 			// chiamata alla funzione generale per wrap standard

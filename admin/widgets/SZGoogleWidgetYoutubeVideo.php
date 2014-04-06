@@ -98,7 +98,7 @@ $VALUE_cover           = esc_attr($cover);
 
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table class="sz-google-table-widget">
+<p><table id="SZGoogleWidgetYoutubeVideo" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
 <tr>
@@ -117,8 +117,8 @@ $VALUE_cover           = esc_attr($cover);
 <!-- WIDGETS (Campo per specificare il parametro enable) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_responsive ?>"><?php echo ucfirst(__('responsive','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="y" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display" data-close="y" <?php if ($VALUE_responsive == 'y') echo ' checked class="sz-google-switch-hidden"'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="n" onchange="szgoogle_switch_hidden(this);" data-switch="sz-google-switch-display" data-close="y" <?php if ($VALUE_responsive != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="y" onchange="szgoogle_switch_hidden_onchange(this);" data-switch="sz-google-switch-display" data-open="n" <?php if ($VALUE_responsive == 'y') echo ' checked '?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="n" onchange="szgoogle_switch_hidden_onchange(this);" data-switch="sz-google-switch-display" data-open="n" <?php if ($VALUE_responsive != 'y') echo ' checked  class="sz-google-switch-hidden"'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
@@ -154,17 +154,17 @@ $VALUE_cover           = esc_attr($cover);
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro width & height) -->
-<tr class="sz-google-switch-display">
+<tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_width ?>" name="<?php echo $NAME_width ?>" type="number" step="1" min="0" value="<?php echo $VALUE_width ?>"/></td>
 </tr>
 
-<tr class="sz-google-switch-display">
+<tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_height ?>"><?php echo ucfirst(__('height','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_height ?>" name="<?php echo $NAME_height ?>" type="number" step="1" min="0" value="<?php echo $VALUE_height ?>"/></td>
 </tr>
 
-<tr class="sz-google-switch-display"><td colspan="3"><hr></td></tr>
+<tr class="sz-google-switch-display sz-google-hidden"><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro theme & cover) -->
 <tr>
@@ -225,9 +225,8 @@ $VALUE_cover           = esc_attr($cover);
 </table></p>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
-
 <script type="text/javascript">
-	jQuery(document).ready(function(){
-		szgoogle_switch_hidden_ready();
+	jQuery(document).ready(function() {
+		szgoogle_switch_hidden_onload('SZGoogleWidgetYoutubeVideo');
 	});
 </script>

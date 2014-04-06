@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-badge-follow
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>With this feature you can put a badge on a web page containing the list of followers attached to a page or a profile on this 
 google+. The badge will display the thumbnails of the profiles that follow the resource on google+ and is also added a button to add 
 your profile page or directly to a circle. At this time the badge issued by google is not responsive, however, the plugin adds a 

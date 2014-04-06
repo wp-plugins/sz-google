@@ -19,6 +19,8 @@ $IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-plus-button-follo
  */
 $HTML = <<<EOD
 
+<h2>Documentation</h2>
+
 <p>Google+ give us the possibility to insert a follow button for pages and profiles. Clicking on the follow button will allow you to 
 put the page/profile into one or more of your circle instantly. Any Google+ page or profile can be pointed using the follow button 
 and you can use it anytime you want into the same post or page in order to link more than one profile.</p>

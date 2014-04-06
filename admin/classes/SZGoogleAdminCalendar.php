@@ -31,11 +31,18 @@ if (!class_exists('SZGoogleAdminCalendar'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general'    ,'description' => __('general'   ,'szgoogleadmin')),
+				'02' => array('anchor' => 'shortcodes' ,'description' => __('shortcodes','szgoogleadmin')),
+				'03' => array('anchor' => 'widgets'    ,'description' => __('widgets'   ,'szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-calendar-general.php'   => ucwords(__('general configuration','szgoogleadmin')),
-				'sz-google-admin-calendar-enable.php'    => ucwords(__('activation components','szgoogleadmin')),
-				'sz-google-admin-calendar-s-options.php' => ucwords(__('default options for shortcode','szgoogleadmin')),
-				'sz-google-admin-calendar-w-options.php' => ucwords(__('default options for widget','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-calendar-general.php'  ,'title' => ucwords(__('general configuration','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-calendar-s-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-calendar-s-options.php','title' => ucwords(__('default options for shortcode','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-calendar-w-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-calendar-w-options.php','title' => ucwords(__('default options for widget','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -69,10 +76,9 @@ if (!class_exists('SZGoogleAdminCalendar'))
 
 			// Definizione sezione per configurazione GOOGLE CALENDAR ACTIVATED
 		
-			add_settings_section('sz_google_calendar_active','',$this->callbacksection,'sz-google-admin-calendar-enable.php');
-			add_settings_field('calendar_s_enable',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_calendar_s_enable'),'sz-google-admin-calendar-enable.php','sz_google_calendar_active');
-			add_settings_field('calendar_w_enable',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_calendar_w_enable'),'sz-google-admin-calendar-enable.php','sz_google_calendar_active');
-
+			add_settings_section('sz_google_calendar_s_active','',$this->callbacksection,'sz-google-admin-calendar-s-enable.php');
+			add_settings_field('calendar_s_enable',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_calendar_s_enable'),'sz-google-admin-calendar-s-enable.php','sz_google_calendar_s_active');
+			
 			// Definizione sezione per configurazione GOOGLE CALENDAR SHORTCODE
 
 			add_settings_section('sz_google_calendar_s_options','',$this->callbacksection,'sz-google-admin-calendar-s-options.php');
@@ -87,6 +93,11 @@ if (!class_exists('SZGoogleAdminCalendar'))
 			add_settings_field('calendar_s_show_tabs',ucfirst(__('show tabs','szgoogleadmin')),array($this,'get_calendar_s_show_tabs'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
 			add_settings_field('calendar_s_show_calendars',ucfirst(__('show calendars','szgoogleadmin')),array($this,'get_calendar_s_show_calendars'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
 			add_settings_field('calendar_s_show_timezone',ucfirst(__('show time zone','szgoogleadmin')),array($this,'get_calendar_s_show_timezone'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
+
+			// Definizione sezione per configurazione GOOGLE CALENDAR ACTIVATED
+		
+			add_settings_section('sz_google_calendar_w_active','',$this->callbacksection,'sz-google-admin-calendar-w-enable.php');
+			add_settings_field('calendar_w_enable',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_calendar_w_enable'),'sz-google-admin-calendar-w-enable.php','sz_google_calendar_w_active');
 
 			// Definizione sezione per configurazione GOOGLE CALENDAR WIDGET
 

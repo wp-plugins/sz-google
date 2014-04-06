@@ -31,10 +31,14 @@ if (!class_exists('SZGoogleAdminGroups'))
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
+			$this->sectionstabs = array(
+				'01' => array('anchor' => 'general','description' => __('general','szgoogleadmin')),
+			);
+
 			$this->sections = array(
-				'sz-google-admin-groups-enable.php'   => ucwords(__('activation components','szgoogleadmin')),
-				'sz-google-admin-groups-language.php' => ucwords(__('language setting','szgoogleadmin')),
-				'sz-google-admin-groups-display.php'  => ucwords(__('display setting','szgoogleadmin')),
+				array('tab' => '01','section' => 'sz-google-admin-groups-enable.php'  ,'title' => ucwords(__('activation components','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-groups-language.php','title' => ucwords(__('language setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-groups-display.php' ,'title' => ucwords(__('display setting','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
