@@ -5,70 +5,9 @@
  * codice è su file separato per escluderlo dal frontend
  *
  * @package SZGoogle
+ * @subpackage SZGoogleWidgets 
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
-
-/**
- * Definizione variabili che sono legata alla istanza del 
- * widget richiamato com memorizzazione delle opzioni.
- */
-$url        = trim($instance['url']);
-$text       = trim($instance['text']);
-$img        = trim($instance['img']);
-
-$urltype    = trim(strip_tags($instance['urltype']));
-$badge      = trim(strip_tags($instance['badge']));
-$title      = trim(strip_tags($instance['title']));
-$align      = trim(strip_tags($instance['align']));
-$position   = trim(strip_tags($instance['position']));
-$size       = trim(strip_tags($instance['size']));
-$annotation = trim(strip_tags($instance['annotation']));
-
-/**
- * Creazione HTML CSS (id) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$ID_title         = $this->get_field_id('title');
-$ID_urltype       = $this->get_field_id('urltype');
-$ID_url           = $this->get_field_id('url');
-$ID_badge         = $this->get_field_id('badge');
-$ID_text          = $this->get_field_id('text');
-$ID_img           = $this->get_field_id('img');
-$ID_position      = $this->get_field_id('position');
-$ID_align         = $this->get_field_id('align');
-$ID_size          = $this->get_field_id('size');
-$ID_annotation    = $this->get_field_id('annotation');
-
-/**
- * Creazione HTML CSS (name) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$NAME_title       = $this->get_field_name('title');
-$NAME_urltype     = $this->get_field_name('urltype');
-$NAME_url         = $this->get_field_name('url');
-$NAME_badge       = $this->get_field_name('badge');
-$NAME_text        = $this->get_field_name('text');
-$NAME_img         = $this->get_field_name('img');
-$NAME_position    = $this->get_field_name('position');
-$NAME_align       = $this->get_field_name('align');
-$NAME_size        = $this->get_field_name('size');
-$NAME_annotation  = $this->get_field_name('annotation');
-
-/**
- * Creazione HTML CSS (value) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$VALUE_title      = esc_attr($title);
-$VALUE_urltype    = esc_attr($urltype);
-$VALUE_url        = esc_attr($url);
-$VALUE_badge      = esc_attr($badge);
-$VALUE_text       = esc_attr($text);
-$VALUE_img        = esc_attr($img);
-$VALUE_position   = esc_attr($position);
-$VALUE_align      = esc_attr($align);
-$VALUE_size       = esc_attr($size);
-$VALUE_annotation = esc_attr($annotation);
-
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 <p><table id="SZGoogleWidgetPlusFollow" class="sz-google-table-widget">
@@ -118,7 +57,7 @@ $VALUE_annotation = esc_attr($annotation);
 <tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_img ?>"><?php echo ucfirst(__('image','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input class="sz-upload-image-url-2 widefat" id="<?php echo $ID_img ?>" name="<?php echo $NAME_img ?>" type="text" value="<?php echo $VALUE_img ?>" placeholder="<?php echo __('choose image for badge','szgoogleadmin') ?>"/></td>
-	<td colspan="1" class="sz-cell-vals"><input class="sz-upload-image-button button" type="button" value="<?php echo ucfirst(__('select file','szgoogleadmin')) ?>" data-field-url="sz-upload-image-url-2" data-title="<?php echo ucfirst(__('select or upload a file','szgoogleadmin')) ?>" data-button-text="<?php echo ucfirst(__('confirm selection','szgoogleadmin')) ?>"/></td>
+	<td colspan="1" class="sz-cell-vals"><input class="sz-upload-image-button button" type="button" value="<?php echo ucfirst(__('file','szgoogleadmin')) ?>" data-field-url="sz-upload-image-url-2" data-title="<?php echo ucfirst(__('select or upload a file','szgoogleadmin')) ?>" data-button-text="<?php echo ucfirst(__('confirm selection','szgoogleadmin')) ?>"/></td>
 </tr>
 
 <!-- WIDGETS (Campo per inserimento della posizione) -->

@@ -20,8 +20,10 @@ $reviewsLINK =  array(
 	array('language' => ucfirst(__('italian' ,'szgoogleadmin')),'author'=>'Roberto Rota'      ,'authorlink'=>'https://plus.google.com/+RobertoRota'          ,'url'=>'http://robrota.com/sz-google-plugin-wordpress/'),
 	array('language' => ucfirst(__('italian' ,'szgoogleadmin')),'author'=>'WP Italyplus'      ,'authorlink'=>'https://plus.google.com/+wpitalyplus'          ,'url'=>'https://wpitalyplus.com/sz-google/'),
 	array('language' => ucfirst(__('italian' ,'szgoogleadmin')),'author'=>'wpAndMore'         ,'authorlink'=>'https://plus.google.com/113990373278589561509/','url'=>'https://www.youtube.com/watch?v=cB2CKY1fkvY'),
+	array('language' => ucfirst(__('spanish' ,'szgoogleadmin')),'author'=>'Miguel Cubas	'     ,'authorlink'=>'http://www.mundowordpress.net/author/admin/'   ,'url'=>'http://www.mundowordpress.net/como-integrar-los-productos-de-google-en-wordpress/'),
 	array('language' => ucfirst(__('korean'  ,'szgoogleadmin')),'author'=>'@Veteran'          ,'authorlink'=>'http://wpu.kr/tip/author/veteran/'             ,'url'=>'http://wpu.kr/tip/plugin-sz-google-for-wordpress/'),
 	array('language' => ucfirst(__('japanese','szgoogleadmin')),'author'=>'オスミツキ'          ,'authorlink'=>'http://osumituki.com/author/オスミツキ/'         ,'url'=>'http://osumituki.com/web-front/687.html'),
+	array('language' => ucfirst(__('russian' ,'szgoogleadmin')),'author'=>'Tatyana Leskova'   ,'authorlink'=>'https://plus.google.com/116691044222072795783/','url'=>'http://drago-fly.ru/plagin-sz-google/'),
 );
 
 // Creazione tabella per elenco delle risorse internet che

@@ -34,10 +34,10 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 			if (is_admin() and $SZ_ANALYTICS_OPTION_ADMIN['ga_enable_admin'] == '1') 
 			{
 				if ($SZ_ANALYTICS_OPTION_ADMIN['ga_position'] == 'H') 
-					add_action('admin_head'  ,array($SZ_ANALYTICS_OBJECT_ADMIN,'moduleMonitorCode'));
+					add_action('admin_head',array(new SZGoogleActionAnalytics($this),'action'));
 
 				if ($SZ_ANALYTICS_OPTION_ADMIN['ga_position'] == 'F') 
-					add_action('admin_footer',array($SZ_ANALYTICS_OBJECT_ADMIN,'moduleMonitorCode'));
+					add_action('admin_footer',array(new SZGoogleActionAnalytics($this),'action'));
 			}
 
 			// Richiamo la funzione della classe padre per elaborare le
@@ -67,9 +67,9 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-analytics.php'         ,'title' => ucwords(__('general settings','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-analytics-enabled.php' ,'title' => ucwords(__('activation tracking code','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-analytics-classic.php' ,'title' => ucwords(__('options for classic analytics','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-analytics.php'         ,'title' => ucwords(__('settings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-analytics-enabled.php' ,'title' => ucwords(__('tracking','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-analytics-classic.php' ,'title' => ucwords(__('classic analytics','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -89,29 +89,50 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE ANALYTICS ID
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_analytics_section','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics.php'),
+				'02' => array('section' => 'sz_google_analytics_enabled','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics-enabled.php'),
+				'03' => array('section' => 'sz_google_analytics_classic','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics-classic.php'),
+			);
 
-			add_settings_section('sz_google_analytics_section','',$this->callbacksection,'sz-google-admin-analytics.php');
-			add_settings_field('ga_uacode',ucfirst(__('UA code','szgoogleadmin')),array($this,'get_analytics_uacode'),'sz-google-admin-analytics.php','sz_google_analytics_section');
-			add_settings_field('ga_position',ucfirst(__('position','szgoogleadmin')),array($this,'get_analytics_position'),'sz-google-admin-analytics.php','sz_google_analytics_section');
-			add_settings_field('ga_type',ucfirst(__('type code analytics','szgoogleadmin')),array($this,'get_analytics_type'),'sz-google-admin-analytics.php','sz_google_analytics_section');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			// Definizione sezione per configurazione GOOGLE ANALYTICS ENABLED
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE ANALYTICS ID
 
-			add_settings_section('sz_google_analytics_enabled','',$this->callbacksection,'sz-google-admin-analytics-enabled.php');
-			add_settings_field('ga_enable_front',ucfirst(__('enable frontend','szgoogleadmin')),array($this,'get_analytics_enable_front'),'sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
-			add_settings_field('ga_enable_admin',ucfirst(__('enable admin panel','szgoogleadmin')),array($this,'get_analytics_enable_admin'),'sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
-			add_settings_field('ga_enable_admin_administrator',ucfirst(__('enable administrator','szgoogleadmin')),array($this,'get_analytics_enable_administrator'),'sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
-			add_settings_field('ga_enable_admin_logged',ucfirst(__('enable user logged','szgoogleadmin')),array($this,'get_analytics_enable_logged'),'sz-google-admin-analytics-enabled.php','sz_google_analytics_enabled');
+				'01' => array(
+					array('field' => 'ga_uacode'                    ,'title' => ucwords(__('UA code'             ,'szgoogleadmin')),'callback' => array($this,'get_analytics_uacode')),
+					array('field' => 'ga_position'                  ,'title' => ucfirst(__('position'            ,'szgoogleadmin')),'callback' => array($this,'get_analytics_position')),
+					array('field' => 'ga_type'                      ,'title' => ucfirst(__('type code'           ,'szgoogleadmin')),'callback' => array($this,'get_analytics_type')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE ANALYTICS CLASSIC
+				// Definizione sezione per configurazione GOOGLE ANALYTICS ENABLED
 
-			add_settings_section('sz_google_analytics_classic','',$this->callbacksection,'sz-google-admin-analytics-classic.php');
-			add_settings_field('ga_enable_subdomains',ucfirst(__('enable tracking subdomains','szgoogleadmin')),array($this,'get_analytics_enable_subdomains'),'sz-google-admin-analytics-classic.php','sz_google_analytics_classic');
-			add_settings_field('ga_enable_multiple',ucfirst(__('enable multiple top domains','szgoogleadmin')),array($this,'get_analytics_enable_multiple'),'sz-google-admin-analytics-classic.php','sz_google_analytics_classic');
-			add_settings_field('ga_enable_advertiser',ucfirst(__('enable advertiser','szgoogleadmin')),array($this,'get_analytics_enable_advertiser'),'sz-google-admin-analytics-classic.php','sz_google_analytics_classic');
+				'02' => array(
+					array('field' => 'ga_enable_front'              ,'title' => ucfirst(__('frontend'            ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_front')),
+					array('field' => 'ga_enable_admin'              ,'title' => ucfirst(__('backend'             ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_admin')),
+					array('field' => 'ga_enable_admin_administrator','title' => ucfirst(__('administrator'       ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_administrator')),
+					array('field' => 'ga_enable_admin_logged'       ,'title' => ucfirst(__('user logged'         ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_logged')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE ANALYTICS CLASSIC
+
+				'03' => array(
+					array('field' => 'ga_enable_subdomains'         ,'title' => ucfirst(__('tracking subdomains' ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_subdomains')),
+					array('field' => 'ga_enable_multiple'           ,'title' => ucfirst(__('multiple top domains','szgoogleadmin')),'callback' => array($this,'get_analytics_enable_multiple')),
+					array('field' => 'ga_enable_advertiser'         ,'title' => ucfirst(__('advertiser'          ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_advertiser')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**

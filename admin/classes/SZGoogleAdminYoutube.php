@@ -29,21 +29,22 @@ if (!class_exists('SZGoogleAdminYoutube'))
 			$this->menutitle  = ucwords(__('google youtube','szgoogleadmin'));
 
 			$this->sectionstabs = array(
-				'01' => array('anchor' => 'general' ,'description' => __('general' ,'szgoogleadmin')),
-				'02' => array('anchor' => 'setup'   ,'description' => __('setup'   ,'szgoogleadmin')),
-				'03' => array('anchor' => 'advanced','description' => __('advanced','szgoogleadmin')),
+				'01' => array('anchor' => 'general'   ,'description' => __('general'   ,'szgoogleadmin')),
+				'02' => array('anchor' => 'shortcodes','description' => __('shortcodes','szgoogleadmin')),
+				'03' => array('anchor' => 'widgets'   ,'description' => __('widgets'   ,'szgoogleadmin')),
+				'04' => array('anchor' => 'setup'     ,'description' => __('setup'     ,'szgoogleadmin')),
 			);
 
 			// Definizione delle sezioni che devono essere composte in HTML
 			// le sezioni devono essere passate come un array con nome => titolo
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-youtube-config.php'  ,'title' => ucwords(__('general setting','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-youtube-enable-w.php','title' => ucwords(__('activation widgets','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-youtube-enable-s.php','title' => ucwords(__('activation shortcodes','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-youtube-display.php' ,'title' => ucwords(__('video display setting','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-youtube-margins.php' ,'title' => ucwords(__('video setting default margins','szgoogleadmin'))),
-				array('tab' => '03','section' => 'sz-google-admin-youtube-advanced.php','title' => ucwords(__('video advanced setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-youtube-config.php'  ,'title' => ucwords(__('settings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-youtube-advanced.php','title' => ucwords(__('advanced settings','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-youtube-enable-s.php','title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-youtube-enable-w.php','title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '04','section' => 'sz-google-admin-youtube-display.php' ,'title' => ucwords(__('display','szgoogleadmin'))),
+				array('tab' => '04','section' => 'sz-google-admin-youtube-margins.php' ,'title' => ucwords(__('margins ','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -63,60 +64,87 @@ if (!class_exists('SZGoogleAdminYoutube'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE YOUTUBE CONFIG
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_youtube_config'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-youtube-config.php'),
+				'02' => array('section' => 'sz_google_youtube_advanced','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-youtube-advanced.php'),
+				'03' => array('section' => 'sz_google_youtube_active_s','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-youtube-enable-s.php'),
+				'04' => array('section' => 'sz_google_youtube_active_w','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-youtube-enable-w.php'),
+				'05' => array('section' => 'sz_google_youtube_display' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-youtube-display.php'),
+				'06' => array('section' => 'sz_google_youtube_margins' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-youtube-margins.php'),
+			);
 
-			add_settings_section('sz_google_youtube_config','',$this->callbacksection,'sz-google-admin-youtube-config.php');
-			add_settings_field('youtube_channel',ucfirst(__('channel name or ID','szgoogleadmin')),array($this,'get_youtube_channel'),'sz-google-admin-youtube-config.php','sz_google_youtube_config');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			// Definizione sezione per configurazione GOOGLE YOUTUBE ACTIVATED
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE YOUTUBE CONFIG
 
-			add_settings_section('sz_google_youtube_active_w','',$this->callbacksection,'sz-google-admin-youtube-enable-w.php');
-			add_settings_field('youtube_widget',ucwords(__('enable widget video','szgoogleadmin')),array($this,'get_youtube_widget'),'sz-google-admin-youtube-enable-w.php','sz_google_youtube_active_w');
-			add_settings_field('youtube_widget_badge',ucwords(__('enable widget badge','szgoogleadmin')),array($this,'get_youtube_widget_badge'),'sz-google-admin-youtube-enable-w.php','sz_google_youtube_active_w');
-			add_settings_field('youtube_widget_playlist',ucwords(__('enable widget playlist','szgoogleadmin')),array($this,'get_youtube_widget_playlist'),'sz-google-admin-youtube-enable-w.php','sz_google_youtube_active_w');
+				'01' => array(
+					array('field' => 'youtube_channel'           ,'title' => ucfirst(__('channel name or ID'        ,'szgoogleadmin')),'callback' => array($this,'get_youtube_channel')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE YOUTUBE ACTIVATED
+				// Definizione sezione per configurazione GOOGLE YOUTUBE ADVANCED
 
-			add_settings_section('sz_google_youtube_active_s','',$this->callbacksection,'sz-google-admin-youtube-enable-s.php');
-			add_settings_field('youtube_shortcode',ucwords(__('enable shortcode video','szgoogleadmin')),array($this,'get_youtube_shortcode'),'sz-google-admin-youtube-enable-s.php','sz_google_youtube_active_s');
-			add_settings_field('youtube_shortcode_badge',ucwords(__('enable shortcode badge','szgoogleadmin')),array($this,'get_youtube_shortcode_badge'),'sz-google-admin-youtube-enable-s.php','sz_google_youtube_active_s');
-			add_settings_field('youtube_shortcode_button',ucwords(__('enable shortcode button','szgoogleadmin')),array($this,'get_youtube_shortcode_button'),'sz-google-admin-youtube-enable-s.php','sz_google_youtube_active_s');
-			add_settings_field('youtube_shortcode_link',ucwords(__('enable shortcode link','szgoogleadmin')),array($this,'get_youtube_shortcode_link'),'sz-google-admin-youtube-enable-s.php','sz_google_youtube_active_s');
-			add_settings_field('youtube_shortcode_playlist',ucwords(__('enable shortcode playlist','szgoogleadmin')),array($this,'get_youtube_shortcode_playlist'),'sz-google-admin-youtube-enable-s.php','sz_google_youtube_active_s');
+				'02' => array(
+					array('field' => 'youtube_force_ssl'         ,'title' => ucfirst(__('force SSL'                 ,'szgoogleadmin')),'callback' => array($this,'get_youtube_force_ssl')),
+					array('field' => 'youtube_fullscreen'        ,'title' => ucfirst(__('enable fullscreen'         ,'szgoogleadmin')),'callback' => array($this,'get_youtube_fullscreen')),
+					array('field' => 'youtube_disablekeyboard'   ,'title' => ucfirst(__('disable keyboard'          ,'szgoogleadmin')),'callback' => array($this,'get_youtube_disablekeyboard')),
+					array('field' => 'youtube_disableiframe'     ,'title' => ucfirst(__('disable IFRAME and use API','szgoogleadmin')),'callback' => array($this,'get_youtube_disableiframe')),
+					array('field' => 'youtube_analytics'         ,'title' => ucfirst(__('google analytics'          ,'szgoogleadmin')),'callback' => array($this,'get_youtube_analytics')),
+					array('field' => 'youtube_delayed'           ,'title' => ucfirst(__('delayed loading'           ,'szgoogleadmin')),'callback' => array($this,'get_youtube_delayed')),
+					array('field' => 'youtube_disablerelated'    ,'title' => ucfirst(__('disable related'           ,'szgoogleadmin')),'callback' => array($this,'get_youtube_disablerelated')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE YOUTUBE DISPLAY
+				// Definizione sezione per configurazione GOOGLE YOUTUBE SHORTCODES
 
-			add_settings_section('sz_google_youtube_display','',$this->callbacksection,'sz-google-admin-youtube-display.php');
-			add_settings_field('youtube_responsive',ucfirst(__('responsive mode','szgoogleadmin')),array($this,'get_youtube_responsive'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
-			add_settings_field('youtube_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_youtube_width'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
-			add_settings_field('youtube_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_youtube_height'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
-			add_settings_field('youtube_autoplay',ucfirst(__('video autoplay','szgoogleadmin')),array($this,'get_youtube_autoplay'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
-			add_settings_field('youtube_loop',ucfirst(__('video loop','szgoogleadmin')),array($this,'get_youtube_loop'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
-			add_settings_field('youtube_theme',ucfirst(__('theme','szgoogleadmin')),array($this,'get_youtube_theme'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
-			add_settings_field('youtube_cover',ucfirst(__('cover','szgoogleadmin')),array($this,'get_youtube_cover'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
-			add_settings_field('youtube_schemaorg',ucfirst(__('schema.org','szgoogleadmin')),array($this,'get_youtube_schemaorg'),'sz-google-admin-youtube-display.php','sz_google_youtube_display');
+				'03' => array(
+					array('field' => 'youtube_shortcode'         ,'title' => ucfirst(__('youtube video'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_shortcode')),
+					array('field' => 'youtube_shortcode_badge'   ,'title' => ucfirst(__('youtube badge'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_shortcode_badge')),
+					array('field' => 'youtube_shortcode_button'  ,'title' => ucfirst(__('youtube button'            ,'szgoogleadmin')),'callback' => array($this,'get_youtube_shortcode_button')),
+					array('field' => 'youtube_shortcode_link'    ,'title' => ucfirst(__('youtube link'              ,'szgoogleadmin')),'callback' => array($this,'get_youtube_shortcode_link')),
+					array('field' => 'youtube_shortcode_playlist','title' => ucfirst(__('youtube playlist'          ,'szgoogleadmin')),'callback' => array($this,'get_youtube_shortcode_playlist')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE YOUTUBE MARGINS
+				// Definizione sezione per configurazione GOOGLE YOUTUBE WIDGETS
 
-			add_settings_section('sz_google_youtube_margins','',$this->callbacksection,'sz-google-admin-youtube-margins.php');
-			add_settings_field('youtube_margin_top',ucfirst(__('margin top','szgoogleadmin')),array($this,'get_youtube_margin_top'),'sz-google-admin-youtube-margins.php','sz_google_youtube_margins');
-			add_settings_field('youtube_margin_right',ucfirst(__('margin right','szgoogleadmin')),array($this,'get_youtube_margin_right'),'sz-google-admin-youtube-margins.php','sz_google_youtube_margins');
-			add_settings_field('youtube_margin_bottom',ucfirst(__('margin bottom','szgoogleadmin')),array($this,'get_youtube_margin_bottom'),'sz-google-admin-youtube-margins.php','sz_google_youtube_margins');
-			add_settings_field('youtube_margin_left',ucfirst(__('margin left','szgoogleadmin')),array($this,'get_youtube_margin_left'),'sz-google-admin-youtube-margins.php','sz_google_youtube_margins');
-			add_settings_field('youtube_margin_unit',ucfirst(__('margin unit','szgoogleadmin')),array($this,'get_youtube_margin_unit'),'sz-google-admin-youtube-margins.php','sz_google_youtube_margins');
+				'04' => array(
+					array('field' => 'youtube_widget'            ,'title' => ucfirst(__('youtube video'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget')),
+					array('field' => 'youtube_widget_badge'      ,'title' => ucfirst(__('youtube badge'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget_badge')),
+					array('field' => 'youtube_widget_playlist'   ,'title' => ucfirst(__('youtube playlist'          ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget_playlist')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE YOUTUBE ADVANCED
+				// Definizione sezione per configurazione GOOGLE YOUTUBE DISPLAY
 
-			add_settings_section('sz_google_youtube_advanced','',$this->callbacksection,'sz-google-admin-youtube-advanced.php');
-			add_settings_field('youtube_force_ssl',ucfirst(__('force SSL','szgoogleadmin')),array($this,'get_youtube_force_ssl'),'sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
-			add_settings_field('youtube_fullscreen',ucfirst(__('enable fullscreen','szgoogleadmin')),array($this,'get_youtube_fullscreen'),'sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
-			add_settings_field('youtube_disablekeyboard',ucfirst(__('disable keyboard','szgoogleadmin')),array($this,'get_youtube_disablekeyboard'),'sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
-			add_settings_field('youtube_disableiframe',ucfirst(__('disable IFRAME and use API','szgoogleadmin')),array($this,'get_youtube_disableiframe'),'sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
-			add_settings_field('youtube_analytics',ucwords(__('google analytics','szgoogleadmin')),array($this,'get_youtube_analytics'),'sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
-			add_settings_field('youtube_delayed',ucwords(__('delayed loading','szgoogleadmin')),array($this,'get_youtube_delayed'),'sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
-			add_settings_field('youtube_disablerelated',ucwords(__('disable related','szgoogleadmin')),array($this,'get_youtube_disablerelated'),'sz-google-admin-youtube-advanced.php','sz_google_youtube_advanced');
+				'05' => array(
+					array('field' => 'youtube_responsive'        ,'title' => ucfirst(__('responsive mode'           ,'szgoogleadmin')),'callback' => array($this,'get_youtube_responsive')),
+					array('field' => 'youtube_width'             ,'title' => ucfirst(__('default width'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_width')),
+					array('field' => 'youtube_height'            ,'title' => ucfirst(__('default height'            ,'szgoogleadmin')),'callback' => array($this,'get_youtube_height')),
+					array('field' => 'youtube_autoplay'          ,'title' => ucfirst(__('video autoplay'            ,'szgoogleadmin')),'callback' => array($this,'get_youtube_autoplay')),
+					array('field' => 'youtube_loop'              ,'title' => ucfirst(__('video loop'                ,'szgoogleadmin')),'callback' => array($this,'get_youtube_loop')),
+					array('field' => 'youtube_theme'             ,'title' => ucfirst(__('theme'                     ,'szgoogleadmin')),'callback' => array($this,'get_youtube_theme')),
+					array('field' => 'youtube_cover'             ,'title' => ucfirst(__('cover'                     ,'szgoogleadmin')),'callback' => array($this,'get_youtube_cover')),
+					array('field' => 'youtube_schemaorg'         ,'title' => ucfirst(__('schema.org'                ,'szgoogleadmin')),'callback' => array($this,'get_youtube_schemaorg')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE YOUTUBE MARGINS
+
+				'06' => array(
+					array('field' => 'youtube_margin_top'        ,'title' => ucfirst(__('margin top'                ,'szgoogleadmin')),'callback' => array($this,'get_youtube_margin_top')),
+					array('field' => 'youtube_margin_right'      ,'title' => ucfirst(__('margin right'              ,'szgoogleadmin')),'callback' => array($this,'get_youtube_margin_right')),
+					array('field' => 'youtube_margin_bottom'     ,'title' => ucfirst(__('margin bottom'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_margin_bottom')),
+					array('field' => 'youtube_margin_left'       ,'title' => ucfirst(__('margin left'               ,'szgoogleadmin')),'callback' => array($this,'get_youtube_margin_left')),
+					array('field' => 'youtube_margin_unit'       ,'title' => ucfirst(__('margin unit'               ,'szgoogleadmin')),'callback' => array($this,'get_youtube_margin_unit')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**
@@ -185,13 +213,13 @@ if (!class_exists('SZGoogleAdminYoutube'))
 
 		function get_youtube_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_width','medium',SZ_PLUGIN_GOOGLE_YOUTUBE_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_width','medium','auto');
 			$this->moduleCommonFormDescription(__('enter the default size of the video, if you do not specify a value in this field, the default size will be 600px. If you specified a value of "0" or is activated the responsive mode will be used the special value 100% which will occupy the entire space of the container.','szgoogleadmin'));
 		}
 
 		function get_youtube_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_height','medium',SZ_PLUGIN_GOOGLE_YOUTUBE_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_height','medium','auto');
 			$this->moduleCommonFormDescription(__('Enter the default size of the video, if you do not specify a value in this field, the default size will be 400px. In the responsive version this value will be ignored, in fact the height will change automatically according to the width of the parent container.','szgoogleadmin'));
 		}
 
@@ -243,7 +271,7 @@ if (!class_exists('SZGoogleAdminYoutube'))
 
 		function get_youtube_margin_right()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_margin_right','medium',SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO);
+			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_margin_right','medium','auto');
 			$this->moduleCommonFormDescription(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value for this field will be used the special value "auto". If you use responsive mode this value will be ignored.','szgoogleadmin'));
 		}
 
@@ -255,7 +283,7 @@ if (!class_exists('SZGoogleAdminYoutube'))
 
 		function get_youtube_margin_left()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_margin_left','medium',SZ_PLUGIN_GOOGLE_YOUTUBE_MARGIN_AUTO);
+			$this->moduleCommonFormNumberStep1('sz_google_options_youtube','youtube_margin_left','medium','auto');
 			$this->moduleCommonFormDescription(__('enter the value of the margin to be applied to the container that will contain the iframe youtube video to display. If you do not specify any value for this field will be used the special value "auto". If you use responsive mode this value will be ignored.','szgoogleadmin'));
 		}
 

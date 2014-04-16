@@ -137,21 +137,27 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE DOCUMENTATION
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_documentation_gplus'        ,'title' => $this->null,'callback' => array($this,'moduleAddHelpPlus')         ,'slug' => 'sz-google-admin-documentation-gplus.php'),
+				'02' => array('section' => 'sz_google_documentation_analytics'    ,'title' => $this->null,'callback' => array($this,'moduleAddHelpAnalytics')    ,'slug' => 'sz-google-admin-documentation-analytics.php'),
+				'03' => array('section' => 'sz_google_documentation_authenticator','title' => $this->null,'callback' => array($this,'moduleAddHelpAuthenticator'),'slug' => 'sz-google-admin-documentation-authenticator.php'),
+				'04' => array('section' => 'sz_google_documentation_calendar'     ,'title' => $this->null,'callback' => array($this,'moduleAddHelpCalendar')     ,'slug' => 'sz-google-admin-documentation-calendar.php'),
+				'05' => array('section' => 'sz_google_documentation_drive'        ,'title' => $this->null,'callback' => array($this,'moduleAddHelpDriveSave')    ,'slug' => 'sz-google-admin-documentation-drive.php'),
+				'06' => array('section' => 'sz_google_documentation_groups'       ,'title' => $this->null,'callback' => array($this,'moduleAddHelpGroups')       ,'slug' => 'sz-google-admin-documentation-groups.php'),
+				'07' => array('section' => 'sz_google_documentation_hangouts'     ,'title' => $this->null,'callback' => array($this,'moduleAddHelpHangouts')     ,'slug' => 'sz-google-admin-documentation-hangouts.php'),
+				'08' => array('section' => 'sz_google_documentation_panoramio'    ,'title' => $this->null,'callback' => array($this,'moduleAddHelpPanoramio')    ,'slug' => 'sz-google-admin-documentation-panoramio.php'),
+				'09' => array('section' => 'sz_google_documentation_translate'    ,'title' => $this->null,'callback' => array($this,'moduleAddHelpTranslate')    ,'slug' => 'sz-google-admin-documentation-translate.php'),
+				'10' => array('section' => 'sz_google_documentation_youtube'      ,'title' => $this->null,'callback' => array($this,'moduleAddHelpYoutube')      ,'slug' => 'sz-google-admin-documentation-youtube.php'),
+				'11' => array('section' => 'sz_google_documentation_reviews'      ,'title' => $this->null,'callback' => array($this,'moduleAddHelpReviews')      ,'slug' => 'sz-google-admin-documentation-reviews.php'),
+			);
 
-			add_settings_section('sz_google_documentation_gplus'        ,'',array($this,'moduleAddHelpPlus')         ,'sz-google-admin-documentation-gplus.php');
-			add_settings_section('sz_google_documentation_analytics'    ,'',array($this,'moduleAddHelpAnalytics')    ,'sz-google-admin-documentation-analytics.php');
-			add_settings_section('sz_google_documentation_authenticator','',array($this,'moduleAddHelpAuthenticator'),'sz-google-admin-documentation-authenticator.php');
-			add_settings_section('sz_google_documentation_calendar'     ,'',array($this,'moduleAddHelpCalendar')     ,'sz-google-admin-documentation-calendar.php');
-			add_settings_section('sz_google_documentation_drive'        ,'',array($this,'moduleAddHelpDriveSave')    ,'sz-google-admin-documentation-drive.php');
-			add_settings_section('sz_google_documentation_groups'       ,'',array($this,'moduleAddHelpGroups')       ,'sz-google-admin-documentation-groups.php');
-			add_settings_section('sz_google_documentation_hangouts'     ,'',array($this,'moduleAddHelpHangouts')     ,'sz-google-admin-documentation-hangouts.php');
-			add_settings_section('sz_google_documentation_panoramio'    ,'',array($this,'moduleAddHelpPanoramio')    ,'sz-google-admin-documentation-panoramio.php');
-			add_settings_section('sz_google_documentation_translate'    ,'',array($this,'moduleAddHelpTranslate')    ,'sz-google-admin-documentation-translate.php');
-			add_settings_section('sz_google_documentation_youtube'      ,'',array($this,'moduleAddHelpYoutube')      ,'sz-google-admin-documentation-youtube.php');
-			add_settings_section('sz_google_documentation_reviews'      ,'',array($this,'moduleAddHelpReviews')      ,'sz-google-admin-documentation-reviews.php');
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**

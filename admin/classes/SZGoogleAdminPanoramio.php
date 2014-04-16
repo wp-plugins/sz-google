@@ -37,10 +37,10 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-panoramio-s-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-panoramio-s-options.php','title' => ucwords(__('default options for shortcode','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-panoramio-w-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-panoramio-w-options.php','title' => ucwords(__('default options for widget','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-panoramio-s-enable.php' ,'title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-panoramio-s-options.php','title' => ucwords(__('options','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-panoramio-w-enable.php' ,'title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-panoramio-w-options.php','title' => ucwords(__('options','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -60,38 +60,63 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE PANORAMIO ACTIVATED
-		
-			add_settings_section('sz_google_panoramio_s_active','',$this->callbacksection,'sz-google-admin-panoramio-s-enable.php');
-			add_settings_field('panoramio_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_panoramio_shortcode'),'sz-google-admin-panoramio-s-enable.php','sz_google_panoramio_s_active');
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_panoramio_s_active' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-panoramio-s-enable.php'),
+				'02' => array('section' => 'sz_google_panoramio_s_options','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-panoramio-s-options.php'),
+				'03' => array('section' => 'sz_google_panoramio_w_active' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-panoramio-w-enable.php'),
+				'04' => array('section' => 'sz_google_panoramio_w_options','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-panoramio-w-options.php'),
+			);
 
-			// Definizione sezione per configurazione GOOGLE PANORAMIO SHORTCODE
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			add_settings_section('sz_google_panoramio_s_options','',$this->callbacksection,'sz-google-admin-panoramio-s-options.php');
-			add_settings_field('panoramio_s_template',ucfirst(__('default template','szgoogleadmin')),array($this,'get_panoramio_s_template'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
-			add_settings_field('panoramio_s_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_panoramio_s_width'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
-			add_settings_field('panoramio_s_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_panoramio_s_height'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
-			add_settings_field('panoramio_s_orientation',ucfirst(__('default orientation','szgoogleadmin')),array($this,'get_panoramio_s_orientation'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
-			add_settings_field('panoramio_s_list_size',ucfirst(__('default list size','szgoogleadmin')),array($this,'get_panoramio_s_list_size'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
-			add_settings_field('panoramio_s_position',ucfirst(__('default position','szgoogleadmin')),array($this,'get_panoramio_s_position'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
-			add_settings_field('panoramio_s_paragraph',ucfirst(__('enable paragraph','szgoogleadmin')),array($this,'get_panoramio_s_paragraph'),'sz-google-admin-panoramio-s-options.php','sz_google_panoramio_s_options');
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE PANORAMIO ACTIVATED
 
-			// Definizione sezione per configurazione GOOGLE PANORAMIO ACTIVATED
-		
-			add_settings_section('sz_google_panoramio_w_active','',$this->callbacksection,'sz-google-admin-panoramio-w-enable.php');
-			add_settings_field('panoramio_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_panoramio_widget'),'sz-google-admin-panoramio-w-enable.php','sz_google_panoramio_w_active');
+				'01' => array(
+					array('field' => 'panoramio_shortcode'    ,'title' => ucfirst(__('shortcode'          ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_shortcode')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE PANORAMIO WIDGET
+				// Definizione sezione per configurazione GOOGLE PANORAMIO SHORTCODE
 
-			add_settings_section('sz_google_panoramio_w_options','',$this->callbacksection,'sz-google-admin-panoramio-w-options.php');
-			add_settings_field('panoramio_w_template',ucfirst(__('default template','szgoogleadmin')),array($this,'get_panoramio_w_template'),'sz-google-admin-panoramio-w-options.php','sz_google_panoramio_w_options');
-			add_settings_field('panoramio_w_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_panoramio_w_width'),'sz-google-admin-panoramio-w-options.php','sz_google_panoramio_w_options');
-			add_settings_field('panoramio_w_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_panoramio_w_height'),'sz-google-admin-panoramio-w-options.php','sz_google_panoramio_w_options');
-			add_settings_field('panoramio_w_orientation',ucfirst(__('default orientation','szgoogleadmin')),array($this,'get_panoramio_w_orientation'),'sz-google-admin-panoramio-w-options.php','sz_google_panoramio_w_options');
-			add_settings_field('panoramio_w_list_size',ucfirst(__('default list size','szgoogleadmin')),array($this,'get_panoramio_w_list_size'),'sz-google-admin-panoramio-w-options.php','sz_google_panoramio_w_options');
-			add_settings_field('panoramio_w_position',ucfirst(__('default position','szgoogleadmin')),array($this,'get_panoramio_w_position'),'sz-google-admin-panoramio-w-options.php','sz_google_panoramio_w_options');
+				'02' => array(
+					array('field' => 'panoramio_s_template'   ,'title' => ucfirst(__('default template'   ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_s_template')),
+					array('field' => 'panoramio_s_width'      ,'title' => ucfirst(__('default width'      ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_s_width')),
+					array('field' => 'panoramio_s_height'     ,'title' => ucfirst(__('default height'     ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_s_height')),
+					array('field' => 'panoramio_s_orientation','title' => ucfirst(__('default orientation','szgoogleadmin')),'callback' => array($this,'get_panoramio_s_orientation')),
+					array('field' => 'panoramio_s_list_size'  ,'title' => ucfirst(__('default list size'  ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_s_list_size')),
+					array('field' => 'panoramio_s_position'   ,'title' => ucfirst(__('default position'   ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_s_position')),
+					array('field' => 'panoramio_s_paragraph'  ,'title' => ucfirst(__('enable paragraph'   ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_s_paragraph')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE PANORAMIO ACTIVATED
+
+				'03' => array(
+					array('field' => 'panoramio_widget'       ,'title' => ucfirst(__('widget'             ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_widget')),
+				),
+
+
+				// Definizione sezione per configurazione GOOGLE PANORAMIO WIDGET
+
+				'04' => array(
+					array('field' => 'panoramio_w_template'   ,'title' => ucfirst(__('default template'   ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_w_template')),
+					array('field' => 'panoramio_w_width'      ,'title' => ucfirst(__('default width'      ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_w_width')),
+					array('field' => 'panoramio_w_height'     ,'title' => ucfirst(__('default height'     ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_w_height')),
+					array('field' => 'panoramio_w_orientation','title' => ucfirst(__('default orientation','szgoogleadmin')),'callback' => array($this,'get_panoramio_w_orientation')),
+					array('field' => 'panoramio_w_list_size'  ,'title' => ucfirst(__('default list size'  ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_w_list_size')),
+					array('field' => 'panoramio_w_position'   ,'title' => ucfirst(__('default position'   ,'szgoogleadmin')),'callback' => array($this,'get_panoramio_w_position')),
+				),
+
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**
@@ -119,13 +144,13 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 
 		function get_panoramio_s_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_s_width','medium',SZ_PLUGIN_GOOGLE_PANORAMIO_S_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_s_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_panoramio_s_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_s_height','medium',SZ_PLUGIN_GOOGLE_PANORAMIO_S_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_s_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 300 pixels.','szgoogleadmin'));
 		}
 
@@ -138,7 +163,7 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 
 		function get_panoramio_s_list_size()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_s_list_size','medium',SZ_PLUGIN_GOOGLE_PANORAMIO_S_LIST_SIZE);
+			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_s_list_size','medium','6');
 			$this->moduleCommonFormDescription(__('How many photos to show in the list. This option can only be specified with the template photo_list, for the other template, the option will be ignored. The list can be positioned in different ways, set the parameter "position" to the required value.','szgoogleadmin'));
 		}
 
@@ -164,13 +189,13 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 
 		function get_panoramio_w_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_w_width','medium',SZ_PLUGIN_GOOGLE_PANORAMIO_W_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_w_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the widget, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_panoramio_w_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_w_height','medium',SZ_PLUGIN_GOOGLE_PANORAMIO_W_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_w_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the widget, if you see a value equal "auto", the default size will be 300 pixels.','szgoogleadmin'));
 		}
 
@@ -183,7 +208,7 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 
 		function get_panoramio_w_list_size()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_w_list_size','medium',SZ_PLUGIN_GOOGLE_PANORAMIO_W_LIST_SIZE);
+			$this->moduleCommonFormNumberStep1('sz_google_options_panoramio','panoramio_w_list_size','medium','6');
 			$this->moduleCommonFormDescription(__('How many photos to show in the list. This option can only be specified with the template photo_list, for the other template, the option will be ignored. The list can be positioned in different ways, set the parameter "position" to the required value.','szgoogleadmin'));
 		}
 

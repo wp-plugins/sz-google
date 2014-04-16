@@ -30,17 +30,11 @@ define('SZ_PLUGIN_GOOGLE_PATH_FRONT_JS'           ,SZ_PLUGIN_GOOGLE_PATH.'fronte
 define('SZ_PLUGIN_GOOGLE_PATH_FRONT_CSS'          ,SZ_PLUGIN_GOOGLE_PATH.'frontend/files/css/');
 define('SZ_PLUGIN_GOOGLE_PATH_FRONT_IMAGE'        ,SZ_PLUGIN_GOOGLE_PATH.'frontend/files/images/');
 
+define('SZ_PLUGIN_GOOGLE_BASENAME_CLASSES'        ,SZ_PLUGIN_GOOGLE_BASENAME.'/classes/');
 define('SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_ADMIN'  ,SZ_PLUGIN_GOOGLE_BASENAME.'/admin/classes/');
-define('SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_MODULES',SZ_PLUGIN_GOOGLE_BASENAME.'/classes/modules/');
-define('SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_PLUGIN' ,SZ_PLUGIN_GOOGLE_BASENAME.'/classes/plugin/');
-define('SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_WIDGETS',SZ_PLUGIN_GOOGLE_BASENAME.'/classes/widgets/');
-
 define('SZ_PLUGIN_GOOGLE_BASENAME_DATA'           ,SZ_PLUGIN_GOOGLE_BASENAME.'/data/');
 define('SZ_PLUGIN_GOOGLE_BASENAME_FUNCTIONS'      ,SZ_PLUGIN_GOOGLE_BASENAME.'/functions/');
 define('SZ_PLUGIN_GOOGLE_BASENAME_HELP'           ,SZ_PLUGIN_GOOGLE_BASENAME.'/admin/help/');
-define('SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE_ADMIN' ,SZ_PLUGIN_GOOGLE_BASENAMP.'/admin/languages');
-define('SZ_PLUGIN_GOOGLE_BASENAME_LANGUAGE_FRONT' ,SZ_PLUGIN_GOOGLE_BASENAMP.'/frontend/languages');
-define('SZ_PLUGIN_GOOGLE_BASENAME_WIDGETS_BACKEND',SZ_PLUGIN_GOOGLE_BASENAME.'/admin/widgets/');
 define('SZ_PLUGIN_GOOGLE_BASENAME_TEMPLATE_ADMIN' ,SZ_PLUGIN_GOOGLE_BASENAME.'/admin/templates/');
 define('SZ_PLUGIN_GOOGLE_BASENAME_TEMPLATE_FRONT' ,SZ_PLUGIN_GOOGLE_BASENAME.'/frontend/templates/');
 
@@ -120,17 +114,6 @@ define('SZ_PLUGIN_GOOGLE_PLUS_CLASS_COMMENTS'      ,'comments-area');
 define('SZ_PLUGIN_GOOGLE_PLUS_CLASS_FOLLOW'        ,'sz-google-follow');
 define('SZ_PLUGIN_GOOGLE_PLUS_CLASS_SHARE'         ,'sz-google-share');
 define('SZ_PLUGIN_GOOGLE_PLUS_CLASS_PLUSONE'       ,'sz-google-plusone');
-
-/**
- * Definizione delle costanti per il modulo di GOOGLE ANALYTICS,
- * qui vanno definite le costanti che contengono valori speciali e opzioni.
- */
-define('SZ_PLUGIN_GOOGLE_GA_TYPE','classic');
-define('SZ_PLUGIN_GOOGLE_GA_CLASSIC','classic');
-define('SZ_PLUGIN_GOOGLE_GA_UNIVERSAL','universal');
-define('SZ_PLUGIN_GOOGLE_GA_HEADER','H');
-define('SZ_PLUGIN_GOOGLE_GA_FOOTER','F');
-define('SZ_PLUGIN_GOOGLE_GA_MANUAL','M');
 
 /**
  * Definizione delle costanti per il modulo di GOOGLE CALENDAR,

@@ -5,85 +5,9 @@
  * codice è su file separato per escluderlo dal frontend
  *
  * @package SZGoogle
+ * @subpackage SZGoogleWidgets 
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
-
-/**
- * Definizione variabili che sono legata alla istanza del 
- * widget richiamato com memorizzazione delle opzioni.
- */
-$id                = trim($instance['id']);
-$title             = trim(strip_tags($instance['title']));
-$type              = trim(strip_tags($instance['type']));
-$folderview        = trim(strip_tags($instance['folderview']));
-$single            = trim(strip_tags($instance['single']));
-$gid               = trim(strip_tags($instance['gid']));
-$range             = trim(strip_tags($instance['range']));
-$start             = trim(strip_tags($instance['start']));
-$loop              = trim(strip_tags($instance['loop']));
-$delay             = trim(strip_tags($instance['delay']));
-$width             = trim(strip_tags($instance['width']));
-$width_auto        = trim(strip_tags($instance['width_auto']));
-$height            = trim(strip_tags($instance['height']));
-$height_auto       = trim(strip_tags($instance['height_auto']));
-
-/**
- * Creazione HTML CSS (id) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$ID_id             = $this->get_field_id('id');
-$ID_title          = $this->get_field_id('title');
-$ID_type           = $this->get_field_id('type');
-$ID_folderview     = $this->get_field_id('folderview');
-$ID_single         = $this->get_field_id('single');
-$ID_gid            = $this->get_field_id('gid');
-$ID_range          = $this->get_field_id('range');
-$ID_start          = $this->get_field_id('start');
-$ID_loop           = $this->get_field_id('loop');
-$ID_delay          = $this->get_field_id('delay');
-$ID_width          = $this->get_field_id('width');
-$ID_width_auto     = $this->get_field_id('width_auto');
-$ID_height         = $this->get_field_id('height');
-$ID_height_auto    = $this->get_field_id('height_auto');
-
-/**
- * Creazione HTML CSS (name) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$NAME_id           = $this->get_field_name('id');
-$NAME_title        = $this->get_field_name('title');
-$NAME_type         = $this->get_field_name('type');
-$NAME_folderview   = $this->get_field_name('folderview');
-$NAME_single       = $this->get_field_name('single');
-$NAME_gid          = $this->get_field_name('gid');
-$NAME_range        = $this->get_field_name('range');
-$NAME_start        = $this->get_field_name('start');
-$NAME_loop         = $this->get_field_name('loop');
-$NAME_delay        = $this->get_field_name('delay');
-$NAME_width        = $this->get_field_name('width');
-$NAME_width_auto   = $this->get_field_name('width_auto');
-$NAME_height       = $this->get_field_name('height');
-$NAME_height_auto  = $this->get_field_name('height_auto');
-
-/**
- * Creazione HTML CSS (value) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$VALUE_id          = esc_attr($id);
-$VALUE_title       = esc_attr($title);
-$VALUE_type        = esc_attr($type);
-$VALUE_folderview  = esc_attr($folderview);
-$VALUE_single      = esc_attr($single);
-$VALUE_gid         = esc_attr($gid);
-$VALUE_range       = esc_attr($range);
-$VALUE_start       = esc_attr($start);
-$VALUE_loop        = esc_attr($loop);
-$VALUE_delay       = esc_attr($delay);
-$VALUE_width       = esc_attr($width);
-$VALUE_width_auto  = esc_attr($width_auto);
-$VALUE_height      = esc_attr($height);
-$VALUE_height_auto = esc_attr($height_auto);
-
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 <p><table id="SZGoogleWidgetDriveEmbed" class="sz-google-table-widget">
@@ -121,13 +45,13 @@ $VALUE_height_auto = esc_attr($height_auto);
 <!-- WIDGETS (Campo per specificare la dimensione) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>"/></td>
+	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width ?>" class="sz-google-checks-width widefat" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_height ?>"><?php echo ucfirst(__('height','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height ?>" class="sz-google-checks-height" name="<?php echo $NAME_height ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_height ?>"/></td>
+	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height ?>" class="sz-google-checks-height widefat" name="<?php echo $NAME_height ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_height ?>"/></td>
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-height" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_height_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_height_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 

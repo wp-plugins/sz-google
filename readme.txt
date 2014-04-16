@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -90,7 +90,6 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_gplus_get_contact_page`
 * `szgoogle_gplus_get_contact_community`
 * `szgoogle_gplus_get_contact_bestpost`
-* `szgoogle_gplus_get_object()`
 * `szgoogle_gplus_get_post()`
 
 = Google Analytics module =
@@ -113,7 +112,6 @@ To be informed about the features that gradually will be released you can follow
 
 * `szgoogle_analytics_get_ID()`
 * `szgoogle_analytics_get_code()`
-* `szgoogle_analytics_get_object()`
 
 = Google Authenticator module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -128,7 +126,6 @@ the configuration and synchronization of the key will be performed quickly and e
 * `szgoogle_authenticator_check_emergency()`
 * `szgoogle_authenticator_create_secret()`
 * `szgoogle_authenticator_create_secret_backup()`
-* `szgoogle_authenticator_get_object()`
 * `szgoogle_authenticator_get_secret()`
 * `szgoogle_authenticator_get_login_field()`
 * `szgoogle_authenticator_verify_code()`
@@ -152,7 +149,6 @@ the configuration and synchronization of the key will be performed quickly and e
 
 **Google Drive Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
-* `szgoogle_drive_get_object()`
 * `szgoogle_drive_get_embed()`
 * `szgoogle_drive_get_viewer()`
 * `szgoogle_drive_get_savebutton()`
@@ -173,7 +169,6 @@ the configuration and synchronization of the key will be performed quickly and e
 **Google Groups Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_groups_get_code()`
-* `szgoogle_groups_get_object()`
 
 = Google Hangouts module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -189,7 +184,6 @@ the configuration and synchronization of the key will be performed quickly and e
 **Google Hangouts Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_hangouts_get_code_start()`
-* `szgoogle_hangouts_get_object()`
 
 = Google Panoramio module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -209,7 +203,6 @@ With this module you can insert widgets with photo galleries present on panorami
 **Google Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_panoramio_get_code()`
-* `szgoogle_panoramio_get_object()`
 
 = Google Translate module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -227,7 +220,6 @@ With this module you can insert widgets with photo galleries present on panorami
 * `szgoogle_translate_get_code()`
 * `szgoogle_translate_get_meta()`
 * `szgoogle_translate_get_meta_ID()`
-* `szgoogle_translate_get_object()`
 
 = Google Youtube module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -258,7 +250,6 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `szgoogle_youtube_get_code_badge()`
 * `szgoogle_youtube_get_code_button()`
 * `szgoogle_youtube_get_code_link()`
-* `szgoogle_youtube_get_object()`
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -330,6 +321,12 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.7.4 =
+* Fix: Widget Live for Wordpress 3.9 release.
+* Fix: Active any option after disable plugin.
+* Feature: Google+ automatic author badge.
+* Feature: New model developer for object.
 
 = Version 1.7.3 =
 * Feature: Google Drive embed forms.

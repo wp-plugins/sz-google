@@ -37,10 +37,10 @@ if (!class_exists('SZGoogleAdminTranslate'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-translate.php'         ,'title' => ucwords(__('general setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-translate.php'         ,'title' => ucwords(__('settings','szgoogleadmin'))),
 				array('tab' => '01','section' => 'sz-google-admin-translate-language.php','title' => ucwords(__('language setting','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-translate-enable.php'  ,'title' => ucwords(__('activation components','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-translate-advanced.php','title' => ucwords(__('advanced setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-translate-enable.php'  ,'title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-translate-advanced.php','title' => ucwords(__('advanced settings','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -60,32 +60,55 @@ if (!class_exists('SZGoogleAdminTranslate'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE TRANSLATE ID
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_translate_section' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-translate.php'),
+				'02' => array('section' => 'sz_google_translate_language','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-translate-language.php'),
+				'03' => array('section' => 'sz_google_translate_active'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-translate-enable.php'),
+				'04' => array('section' => 'sz_google_translate_advanced','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-translate-advanced.php'),
+			);
 
-			add_settings_section('sz_google_translate_section','',$this->callbacksection,'sz-google-admin-translate.php');
-			add_settings_field('translate_meta',ucfirst(__('code for META','szgoogleadmin')),array($this,'get_translate_meta'),'sz-google-admin-translate.php','sz_google_translate_section');
-			add_settings_field('translate_mode',ucfirst(__('display mode','szgoogleadmin')),array($this,'get_translate_mode'),'sz-google-admin-translate.php','sz_google_translate_section');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			// Definizione sezione per configurazione GOOGLE TRANSLATE LANGUAGE
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE TRANSLATE ID
 
-			add_settings_section('sz_google_translate_language','',$this->callbacksection,'sz-google-admin-translate-language.php');
-			add_settings_field('translate_language',ucfirst(__('website language','szgoogleadmin')),array($this,'get_translate_language'),'sz-google-admin-translate-language.php','sz_google_translate_language');
+				'01' => array(
+					array('field' => 'translate_meta'        ,'title' => ucfirst(__('code META'          ,'szgoogleadmin')),'callback' => array($this,'get_translate_meta')),
+					array('field' => 'translate_mode'        ,'title' => ucfirst(__('display mode'       ,'szgoogleadmin')),'callback' => array($this,'get_translate_mode')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE TRANSLATE ACTIVATED
+				// Definizione sezione per configurazione GOOGLE TRANSLATE LANGUAGE
 
-			add_settings_section('sz_google_translate_active','',$this->callbacksection,'sz-google-admin-translate-enable.php');
-			add_settings_field('translate_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_translate_widget'),'sz-google-admin-translate-enable.php','sz_google_translate_active');
-			add_settings_field('translate_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_translate_shortcode'),'sz-google-admin-translate-enable.php','sz_google_translate_active');
+				'02' => array(
+					array('field' => 'translate_language'    ,'title' => ucfirst(__('website language'   ,'szgoogleadmin')),'callback' => array($this,'get_translate_language')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE TRANSLATE ADVANCED
+				// Definizione sezione per configurazione GOOGLE TRANSLATE ACTIVATED
 
-			add_settings_section('sz_google_translate_advanced','',$this->callbacksection,'sz-google-admin-translate-advanced.php');
-			add_settings_field('translate_automatic',ucfirst(__('automatic banner','szgoogleadmin')),array($this,'get_translate_automatic'),'sz-google-admin-translate-advanced.php','sz_google_translate_advanced');
-			add_settings_field('translate_multiple',ucfirst(__('multiple language','szgoogleadmin')),array($this,'get_translate_multiple'),'sz-google-admin-translate-advanced.php','sz_google_translate_advanced');
-			add_settings_field('translate_analytics',ucwords(__('google analytics','szgoogleadmin')),array($this,'get_translate_analytics'),'sz-google-admin-translate-advanced.php','sz_google_translate_advanced');
-			add_settings_field('translate_analytics_ua',ucwords(__('google analytics UA','szgoogleadmin')),array($this,'get_translate_analytics_ua'),'sz-google-admin-translate-advanced.php','sz_google_translate_advanced');
+				'03' => array(
+					array('field' => 'translate_shortcode'   ,'title' => ucfirst(__('shortcode'          ,'szgoogleadmin')),'callback' => array($this,'get_translate_shortcode')),
+					array('field' => 'translate_widget'      ,'title' => ucfirst(__('widget'             ,'szgoogleadmin')),'callback' => array($this,'get_translate_widget')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE TRANSLATE ADVANCED
+
+				'04' => array(
+					array('field' => 'translate_automatic'   ,'title' => ucfirst(__('automatic banner'   ,'szgoogleadmin')),'callback' => array($this,'get_translate_automatic')),
+					array('field' => 'translate_multiple'    ,'title' => ucfirst(__('multiple language'  ,'szgoogleadmin')),'callback' => array($this,'get_translate_multiple')),
+					array('field' => 'translate_analytics'   ,'title' => ucwords(__('google analytics'   ,'szgoogleadmin')),'callback' => array($this,'get_translate_analytics')),
+					array('field' => 'translate_analytics_ua','title' => ucwords(__('google analytics UA','szgoogleadmin')),'callback' => array($this,'get_translate_analytics_ua')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**
@@ -112,7 +135,7 @@ if (!class_exists('SZGoogleAdminTranslate'))
 
 		function get_translate_language() 
 		{
-			$values = SZGooglePluginCommon::getLanguages();
+			$values = SZGoogleCommon::getLanguages();
 			$this->moduleCommonFormSelect('sz_google_options_translate','translate_language',$values,'medium','');
 			$this->moduleCommonFormDescription(__('specify the language associated with your website, if you do not specify any value will be called get_bloginfo(\'language\') and set the same language related to the theme of wordpress. Supported languages ​​http://translate.google.com/about/.','szgoogleadmin'));
 		}

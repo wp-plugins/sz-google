@@ -38,11 +38,11 @@ if (!class_exists('SZGoogleAdminCalendar'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-calendar-general.php'  ,'title' => ucwords(__('general configuration','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-calendar-s-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-calendar-s-options.php','title' => ucwords(__('default options for shortcode','szgoogleadmin'))),
-				array('tab' => '03','section' => 'sz-google-admin-calendar-w-enable.php' ,'title' => ucwords(__('activation components','szgoogleadmin'))),
-				array('tab' => '03','section' => 'sz-google-admin-calendar-w-options.php','title' => ucwords(__('default options for widget','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-calendar-general.php'  ,'title' => ucwords(__('settings','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-calendar-s-enable.php' ,'title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-calendar-s-options.php','title' => ucwords(__('options','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-calendar-w-enable.php' ,'title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-calendar-w-options.php','title' => ucwords(__('options','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -62,57 +62,83 @@ if (!class_exists('SZGoogleAdminCalendar'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE CALENDAR GENERAL
-		
-			add_settings_section('sz_google_calendar_general','',$this->callbacksection,'sz-google-admin-calendar-general.php');
-			add_settings_field('calendar_o_calendars',ucfirst(__('default calendars','szgoogleadmin')),array($this,'get_calendar_o_calendars'),'sz-google-admin-calendar-general.php','sz_google_calendar_general');
-			add_settings_field('calendar_o_title',ucfirst(__('default title','szgoogleadmin')),array($this,'get_calendar_o_title'),'sz-google-admin-calendar-general.php','sz_google_calendar_general');
-			add_settings_field('calendar_o_mode',ucfirst(__('default mode','szgoogleadmin')),array($this,'get_calendar_o_mode'),'sz-google-admin-calendar-general.php','sz_google_calendar_general');
-			add_settings_field('calendar_o_weekstart',ucfirst(__('default week start','szgoogleadmin')),array($this,'get_calendar_o_weekstart'),'sz-google-admin-calendar-general.php','sz_google_calendar_general');
-			add_settings_field('calendar_o_language',ucfirst(__('select language','szgoogleadmin')),array($this,'get_calendar_o_language'),'sz-google-admin-calendar-general.php','sz_google_calendar_general');
-			add_settings_field('calendar_o_timezone',ucfirst(__('select time zone','szgoogleadmin')),array($this,'get_calendar_o_timezone'),'sz-google-admin-calendar-general.php','sz_google_calendar_general');
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_calendar_general'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-calendar-general.php'),
+				'02' => array('section' => 'sz_google_calendar_s_active' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-calendar-s-enable.php'),
+				'03' => array('section' => 'sz_google_calendar_s_options','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-calendar-s-options.php'),
+				'04' => array('section' => 'sz_google_calendar_w_active' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-calendar-w-enable.php'),
+				'05' => array('section' => 'sz_google_calendar_w_options','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-calendar-w-options.php'),
+			);
 
-			// Definizione sezione per configurazione GOOGLE CALENDAR ACTIVATED
-		
-			add_settings_section('sz_google_calendar_s_active','',$this->callbacksection,'sz-google-admin-calendar-s-enable.php');
-			add_settings_field('calendar_s_enable',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_calendar_s_enable'),'sz-google-admin-calendar-s-enable.php','sz_google_calendar_s_active');
-			
-			// Definizione sezione per configurazione GOOGLE CALENDAR SHORTCODE
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			add_settings_section('sz_google_calendar_s_options','',$this->callbacksection,'sz-google-admin-calendar-s-options.php');
-			add_settings_field('calendar_s_calendars',ucfirst(__('default calendars','szgoogleadmin')),array($this,'get_calendar_s_calendars'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_title',ucfirst(__('default title','szgoogleadmin')),array($this,'get_calendar_s_title'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_calendar_s_width'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_calendar_s_height'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_show_title',ucfirst(__('show title','szgoogleadmin')),array($this,'get_calendar_s_show_title'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_show_navs',ucfirst(__('show navigation','szgoogleadmin')),array($this,'get_calendar_s_show_navs'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_show_date',ucfirst(__('show date','szgoogleadmin')),array($this,'get_calendar_s_show_date'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_show_print',ucfirst(__('show print icon','szgoogleadmin')),array($this,'get_calendar_s_show_print'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_show_tabs',ucfirst(__('show tabs','szgoogleadmin')),array($this,'get_calendar_s_show_tabs'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_show_calendars',ucfirst(__('show calendars','szgoogleadmin')),array($this,'get_calendar_s_show_calendars'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
-			add_settings_field('calendar_s_show_timezone',ucfirst(__('show time zone','szgoogleadmin')),array($this,'get_calendar_s_show_timezone'),'sz-google-admin-calendar-s-options.php','sz_google_calendar_s_options');
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE CALENDAR GENERAL
 
-			// Definizione sezione per configurazione GOOGLE CALENDAR ACTIVATED
-		
-			add_settings_section('sz_google_calendar_w_active','',$this->callbacksection,'sz-google-admin-calendar-w-enable.php');
-			add_settings_field('calendar_w_enable',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_calendar_w_enable'),'sz-google-admin-calendar-w-enable.php','sz_google_calendar_w_active');
+				'01' => array(
+					array('field' => 'calendar_o_calendars'     ,'title' => ucfirst(__('default calendars' ,'szgoogleadmin')),'callback' => array($this,'get_calendar_o_calendars')),
+					array('field' => 'calendar_o_title'         ,'title' => ucfirst(__('default title'     ,'szgoogleadmin')),'callback' => array($this,'get_calendar_o_title')),
+					array('field' => 'calendar_o_mode'          ,'title' => ucfirst(__('default mode'      ,'szgoogleadmin')),'callback' => array($this,'get_calendar_o_mode')),
+					array('field' => 'calendar_o_weekstart'     ,'title' => ucfirst(__('default week start','szgoogleadmin')),'callback' => array($this,'get_calendar_o_weekstart')),
+					array('field' => 'calendar_o_language'      ,'title' => ucfirst(__('select language'   ,'szgoogleadmin')),'callback' => array($this,'get_calendar_o_language')),
+					array('field' => 'calendar_o_timezone'      ,'title' => ucfirst(__('select time zone'  ,'szgoogleadmin')),'callback' => array($this,'get_calendar_o_timezone')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE CALENDAR WIDGET
+				// Definizione sezione per configurazione GOOGLE CALENDAR SHORTCODES
 
-			add_settings_section('sz_google_calendar_w_options','',$this->callbacksection,'sz-google-admin-calendar-w-options.php');
-			add_settings_field('calendar_w_calendars',ucfirst(__('default calendars','szgoogleadmin')),array($this,'get_calendar_w_calendars'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_title',ucfirst(__('default title','szgoogleadmin')),array($this,'get_calendar_w_title'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_calendar_w_width'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_calendar_w_height'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_show_title',ucfirst(__('show title','szgoogleadmin')),array($this,'get_calendar_w_show_title'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_show_navs',ucfirst(__('show navigation','szgoogleadmin')),array($this,'get_calendar_w_show_navs'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_show_date',ucfirst(__('show date','szgoogleadmin')),array($this,'get_calendar_w_show_date'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_show_print',ucfirst(__('show print icon','szgoogleadmin')),array($this,'get_calendar_w_show_print'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_show_tabs',ucfirst(__('show tabs','szgoogleadmin')),array($this,'get_calendar_w_show_tabs'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_show_calendars',ucfirst(__('show calendars','szgoogleadmin')),array($this,'get_calendar_w_show_calendars'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
-			add_settings_field('calendar_w_show_timezone',ucfirst(__('show time zone','szgoogleadmin')),array($this,'get_calendar_w_show_timezone'),'sz-google-admin-calendar-w-options.php','sz_google_calendar_w_options');
+				'02' => array(
+					array('field' => 'calendar_s_enable'        ,'title' => ucfirst(__('shortcode'         ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_enable')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE CALENDAR SHORTCODES
+
+				'03' => array(
+					array('field' => 'calendar_s_calendars'     ,'title' => ucfirst(__('default calendars' ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_calendars')),
+					array('field' => 'calendar_s_title'         ,'title' => ucfirst(__('default title'     ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_title')),
+					array('field' => 'calendar_s_width'         ,'title' => ucfirst(__('default width'     ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_width')),
+					array('field' => 'calendar_s_height'        ,'title' => ucfirst(__('default height'    ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_height')),
+					array('field' => 'calendar_s_show_title'    ,'title' => ucfirst(__('show title'        ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_show_title')),
+					array('field' => 'calendar_s_show_navs'     ,'title' => ucfirst(__('show navigation'   ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_show_navs')),
+					array('field' => 'calendar_s_show_date'     ,'title' => ucfirst(__('show date'         ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_show_date')),
+					array('field' => 'calendar_s_show_print'    ,'title' => ucfirst(__('show print icon'   ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_show_print')),
+					array('field' => 'calendar_s_show_tabs'     ,'title' => ucfirst(__('show tabs'         ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_show_tabs')),
+					array('field' => 'calendar_s_show_calendars','title' => ucfirst(__('show calendars'    ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_show_calendars')),
+					array('field' => 'calendar_s_show_timezone' ,'title' => ucfirst(__('show time zone'    ,'szgoogleadmin')),'callback' => array($this,'get_calendar_s_show_timezone')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE CALENDAR WIDGETS
+
+				'04' => array(
+					array('field' => 'calendar_w_enable'        ,'title' => ucfirst(__('widget'            ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_enable')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE CALENDAR WIDGETS
+
+				'05' => array(
+					array('field' => 'calendar_w_calendars'     ,'title' => ucfirst(__('default calendars' ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_calendars')),
+					array('field' => 'calendar_w_title'         ,'title' => ucfirst(__('default title'     ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_title')),
+					array('field' => 'calendar_w_width'         ,'title' => ucfirst(__('default width'     ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_width')),
+					array('field' => 'calendar_w_height'        ,'title' => ucfirst(__('default height'    ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_height')),
+					array('field' => 'calendar_w_show_title'    ,'title' => ucfirst(__('show title'        ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_show_title')),
+					array('field' => 'calendar_w_show_navs'     ,'title' => ucfirst(__('show navigation'   ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_show_navs')),
+					array('field' => 'calendar_w_show_date'     ,'title' => ucfirst(__('show date'         ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_show_date')),
+					array('field' => 'calendar_w_show_print'    ,'title' => ucfirst(__('show print icon'   ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_show_print')),
+					array('field' => 'calendar_w_show_tabs'     ,'title' => ucfirst(__('show tabs'         ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_show_tabs')),
+					array('field' => 'calendar_w_show_calendars','title' => ucfirst(__('show calendars'    ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_show_calendars')),
+					array('field' => 'calendar_w_show_timezone' ,'title' => ucfirst(__('show time zone'    ,'szgoogleadmin')),'callback' => array($this,'get_calendar_w_show_timezone')),
+				),
+
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**
@@ -147,14 +173,14 @@ if (!class_exists('SZGoogleAdminCalendar'))
 
 		function get_calendar_o_language()
 		{
-			$values = SZGooglePluginCommon::getLanguages();
+			$values = SZGoogleCommon::getLanguages();
 			$this->moduleCommonFormSelect('sz_google_options_calendar','calendar_o_language',$values,'medium','');
 			$this->moduleCommonFormDescription(__('specify the language code associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress.','szgoogleadmin'));
 		}
 
 		function get_calendar_o_timezone()
 		{
-			$values = SZGooglePluginCommon::getTimeZone();
+			$values = SZGoogleCommon::getTimeZone();
 			$this->moduleCommonFormSelect('sz_google_options_calendar','calendar_o_timezone',$values,'medium','');
 			$this->moduleCommonFormDescription(__('this field specifies the time zone to be used by default by the calendar that will be inserted into the page wordpress. If you do not specify any value, google will automatically calculate the time zone based on its configuration.','szgoogleadmin'));
 		}

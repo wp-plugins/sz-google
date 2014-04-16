@@ -36,8 +36,8 @@ if (!class_exists('SZGoogleAdminGroups'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-groups-enable.php'  ,'title' => ucwords(__('activation components','szgoogleadmin'))),
 				array('tab' => '01','section' => 'sz-google-admin-groups-language.php','title' => ucwords(__('language setting','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-groups-enable.php'  ,'title' => ucwords(__('activation','szgoogleadmin'))),
 				array('tab' => '01','section' => 'sz-google-admin-groups-display.php' ,'title' => ucwords(__('display setting','szgoogleadmin'))),
 			);
 
@@ -58,29 +58,50 @@ if (!class_exists('SZGoogleAdminGroups'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE GROUPS ACTIVATED
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_groups_language','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-groups-language.php'),
+				'02' => array('section' => 'sz_google_groups_active'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-groups-enable.php'),
+				'03' => array('section' => 'sz_google_groups_display' ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-groups-display.php'),
+			);
 
-			add_settings_section('sz_google_groups_active','',$this->callbacksection,'sz-google-admin-groups-enable.php');
-			add_settings_field('groups_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_groups_widget'),'sz-google-admin-groups-enable.php','sz_google_groups_active');
-			add_settings_field('groups_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_groups_shortcode'),'sz-google-admin-groups-enable.php','sz_google_groups_active');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			// Definizione sezione per configurazione GOOGLE GROUPS LANGUAGE
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE GROUPS LANGUAGE
 
-			add_settings_section('sz_google_groups_language','',$this->callbacksection,'sz-google-admin-groups-language.php');
-			add_settings_field('groups_language',ucfirst(__('default language','szgoogleadmin')),array($this,'get_groups_language'),'sz-google-admin-groups-language.php','sz_google_groups_language');
+				'01' => array(
+					array('field' => 'groups_language' ,'title' => ucfirst(__('default language','szgoogleadmin')),'callback' => array($this,'get_groups_language')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE GROUPS DISPLAY
+				// Definizione sezione per configurazione GOOGLE GROUPS ACTIVATED
 
-			add_settings_section('sz_google_groups_display','',$this->callbacksection,'sz-google-admin-groups-display.php');
-			add_settings_field('groups_name',ucfirst(__('default group name','szgoogleadmin')),array($this,'get_groups_name'),'sz-google-admin-groups-display.php','sz_google_groups_display');
-			add_settings_field('groups_showsearch',ucfirst(__('show search','szgoogleadmin')),array($this,'get_groups_showsearch'),'sz-google-admin-groups-display.php','sz_google_groups_display');
-			add_settings_field('groups_showtabs',ucfirst(__('show tabs','szgoogleadmin')),array($this,'get_groups_showtabs'),'sz-google-admin-groups-display.php','sz_google_groups_display');
-			add_settings_field('groups_hidetitle',ucfirst(__('hide title','szgoogleadmin')),array($this,'get_groups_hidetitle'),'sz-google-admin-groups-display.php','sz_google_groups_display');
-			add_settings_field('groups_hidesubject',ucfirst(__('hide subject','szgoogleadmin')),array($this,'get_groups_hidesubject'),'sz-google-admin-groups-display.php','sz_google_groups_display');
-			add_settings_field('groups_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_groups_width'),'sz-google-admin-groups-display.php','sz_google_groups_display');
-			add_settings_field('groups_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_groups_height'),'sz-google-admin-groups-display.php','sz_google_groups_display');
+				'02' => array(
+					array('field' => 'groups_shortcode','title' => ucfirst(__('shortcode'       ,'szgoogleadmin')),'callback' => array($this,'get_groups_shortcode')),
+					array('field' => 'groups_widget'   ,'title' => ucfirst(__('widget'          ,'szgoogleadmin')),'callback' => array($this,'get_groups_widget')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE GROUPS DISPLAY
+
+				'03' => array(
+					array('field' => 'groups_name'       ,'title' => ucfirst(__('group name'    ,'szgoogleadmin')),'callback' => array($this,'get_groups_name')),
+					array('field' => 'groups_showsearch' ,'title' => ucfirst(__('show search'   ,'szgoogleadmin')),'callback' => array($this,'get_groups_showsearch')),
+					array('field' => 'groups_showtabs'   ,'title' => ucfirst(__('show tabs'     ,'szgoogleadmin')),'callback' => array($this,'get_groups_showtabs')),
+					array('field' => 'groups_hidetitle'  ,'title' => ucfirst(__('hide title'    ,'szgoogleadmin')),'callback' => array($this,'get_groups_hidetitle')),
+					array('field' => 'groups_hidesubject','title' => ucfirst(__('hide subject'  ,'szgoogleadmin')),'callback' => array($this,'get_groups_hidesubject')),
+					array('field' => 'groups_width'      ,'title' => ucfirst(__('default width' ,'szgoogleadmin')),'callback' => array($this,'get_groups_width')),
+					array('field' => 'groups_height'     ,'title' => ucfirst(__('default height','szgoogleadmin')),'callback' => array($this,'get_groups_height')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**
@@ -101,7 +122,7 @@ if (!class_exists('SZGoogleAdminGroups'))
 
 		function get_groups_language() 
 		{
-			$values = SZGooglePluginCommon::getLanguages();
+			$values = SZGoogleCommon::getLanguages();
 			$this->moduleCommonFormSelect('sz_google_options_groups','groups_language',$values,'medium','');
 			$this->moduleCommonFormDescription(__('specify the language associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress. Supported languages ​​http://translate.google.com/about/.','szgoogleadmin'));
 		}
@@ -138,13 +159,13 @@ if (!class_exists('SZGoogleAdminGroups'))
 
 		function get_groups_width() 
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_groups','groups_width','medium',0);
+			$this->moduleCommonFormNumberStep1('sz_google_options_groups','groups_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the widget or the shortcode, if you see a value equal to zero, the default size will be 100% and will occupy the entire space.','szgoogleadmin'));
 		}
 
 		function get_groups_height() 
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_groups','groups_height','medium',700);
+			$this->moduleCommonFormNumberStep1('sz_google_options_groups','groups_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the widget or the shortcode, if you see a value equal to zero, the default size will be 700 pixels.','szgoogleadmin'));
 		}
 	}

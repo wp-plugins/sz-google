@@ -5,97 +5,9 @@
  * codice è su file separato per escluderlo dal frontend
  *
  * @package SZGoogle
+ * @subpackage SZGoogleWidgets 
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
-
-/**
- * Definizione variabili che sono legata alla istanza del 
- * widget richiamato com memorizzazione delle opzioni.
- */
-$title           = trim(strip_tags($instance['title']));
-$url             = trim(strip_tags($instance['url']));
-$responsive      = trim(strip_tags($instance['responsive']));
-$width           = trim(strip_tags($instance['width']));
-$height          = trim(strip_tags($instance['height']));
-$delayed         = trim(strip_tags($instance['delayed']));
-$autoplay        = trim(strip_tags($instance['autoplay']));
-$loop            = trim(strip_tags($instance['loop']));
-$fullscreen      = trim(strip_tags($instance['fullscreen']));
-$schemaorg       = trim(strip_tags($instance['schemaorg']));
-$disableiframe   = trim(strip_tags($instance['disableiframe']));
-$disablekeyboard = trim(strip_tags($instance['disablekeyboard']));
-$disablerelated  = trim(strip_tags($instance['disablerelated']));
-$start           = trim(strip_tags($instance['start']));
-$end             = trim(strip_tags($instance['end']));
-$theme           = trim(strip_tags($instance['theme']));
-$cover           = trim(strip_tags($instance['cover']));
-
-/**
- * Creazione HTML CSS (id) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$ID_title              = $this->get_field_id('title');
-$ID_url                = $this->get_field_id('url');
-$ID_responsive         = $this->get_field_id('responsive');
-$ID_width              = $this->get_field_id('width');
-$ID_height             = $this->get_field_id('height');
-$ID_delayed            = $this->get_field_id('delayed');
-$ID_autoplay           = $this->get_field_id('autoplay');
-$ID_loop               = $this->get_field_id('loop');
-$ID_fullscreen         = $this->get_field_id('fullscreen');  
-$ID_schemaorg          = $this->get_field_id('schemaorg'); 
-$ID_disableiframe      = $this->get_field_id('disableiframe');
-$ID_disablekeyboard    = $this->get_field_id('disablekeyboard');
-$ID_disablerelated     = $this->get_field_id('disablerelated');
-$ID_start              = $this->get_field_id('start');
-$ID_end                = $this->get_field_id('end');
-$ID_theme              = $this->get_field_id('theme');
-$ID_cover              = $this->get_field_id('cover');
-
-/**
- * Creazione HTML CSS (name) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$NAME_title            = $this->get_field_name('title');
-$NAME_url              = $this->get_field_name('url');
-$NAME_responsive       = $this->get_field_name('responsive');
-$NAME_width            = $this->get_field_name('width');
-$NAME_height           = $this->get_field_name('height');
-$NAME_delayed          = $this->get_field_name('delayed');
-$NAME_autoplay         = $this->get_field_name('autoplay');
-$NAME_loop             = $this->get_field_name('loop');
-$NAME_fullscreen       = $this->get_field_name('fullscreen');  
-$NAME_schemaorg        = $this->get_field_name('schemaorg'); 
-$NAME_disableiframe    = $this->get_field_name('disableiframe');
-$NAME_disablekeyboard  = $this->get_field_name('disablekeyboard');
-$NAME_disablerelated   = $this->get_field_name('disablerelated');
-$NAME_start            = $this->get_field_name('start');
-$NAME_end              = $this->get_field_name('end');
-$NAME_theme            = $this->get_field_name('theme');
-$NAME_cover            = $this->get_field_name('cover');
-
-/**
- * Creazione HTML CSS (value) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$VALUE_title           = esc_attr($title);
-$VALUE_url             = esc_attr($url);
-$VALUE_responsive      = esc_attr($responsive);
-$VALUE_width           = esc_attr($width);
-$VALUE_height          = esc_attr($height);
-$VALUE_delayed         = esc_attr($delayed);
-$VALUE_autoplay        = esc_attr($autoplay);
-$VALUE_loop            = esc_attr($loop);
-$VALUE_fullscreen      = esc_attr($fullscreen);  
-$VALUE_schemaorg       = esc_attr($schemaorg); 
-$VALUE_disableiframe   = esc_attr($disableiframe);
-$VALUE_disablekeyboard = esc_attr($disablekeyboard);
-$VALUE_disablerelated  = esc_attr($disablerelated);
-$VALUE_start           = esc_attr($start);
-$VALUE_end             = esc_attr($end);
-$VALUE_theme           = esc_attr($theme);
-$VALUE_cover           = esc_attr($cover);
-
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 <p><table id="SZGoogleWidgetYoutubeVideo" class="sz-google-table-widget">
@@ -156,12 +68,12 @@ $VALUE_cover           = esc_attr($cover);
 <!-- WIDGETS (Campo per specificare il parametro width & height) -->
 <tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
-	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_width ?>" name="<?php echo $NAME_width ?>" type="number" step="1" min="0" value="<?php echo $VALUE_width ?>"/></td>
+	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_width ?>" name="<?php echo $NAME_width ?>" class="widefat" type="text" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
 </tr>
 
 <tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_height ?>"><?php echo ucfirst(__('height','szgoogleadmin')) ?>:</label></td>
-	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_height ?>" name="<?php echo $NAME_height ?>" type="number" step="1" min="0" value="<?php echo $VALUE_height ?>"/></td>
+	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_height ?>" name="<?php echo $NAME_height ?>" class="widefat" type="text" placeholder="auto" value="<?php echo $VALUE_height ?>"/></td>
 </tr>
 
 <tr class="sz-google-switch-display sz-google-hidden"><td colspan="3"><hr></td></tr>

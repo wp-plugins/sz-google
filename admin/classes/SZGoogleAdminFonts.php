@@ -43,9 +43,9 @@ if (!class_exists('SZGoogleAdminFonts'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-fonts.php'   ,'title' => ucwords(__('font setting loader','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-fonts-BX.php','title' => ucwords(__('font setting general','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-fonts-HX.php','title' => ucwords(__('font setting headings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-fonts.php'   ,'title' => ucwords(__('fonts loader','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-fonts-BX.php','title' => ucwords(__('fonts general','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-fonts-HX.php','title' => ucwords(__('fonts headings','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -65,34 +65,55 @@ if (!class_exists('SZGoogleAdminFonts'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE FONTS
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_fonts_section'   ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts.php'),
+				'02' => array('section' => 'sz_google_fonts_section_BX','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts-BX.php'),
+				'03' => array('section' => 'sz_google_fonts_section_HX','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts-HX.php'),
+			);
 
-			add_settings_section('sz_google_fonts_section','',$this->callbacksection,'sz-google-admin-fonts.php');
-			add_settings_field('fonts_family_L1',ucfirst(__('font family','szgoogleadmin').' (1)'),array($this,'get_fonts_family_L1'),'sz-google-admin-fonts.php','sz_google_fonts_section');
-			add_settings_field('fonts_family_L2',ucfirst(__('font family','szgoogleadmin').' (2)'),array($this,'get_fonts_family_L2'),'sz-google-admin-fonts.php','sz_google_fonts_section');
-			add_settings_field('fonts_family_L3',ucfirst(__('font family','szgoogleadmin').' (3)'),array($this,'get_fonts_family_L3'),'sz-google-admin-fonts.php','sz_google_fonts_section');
-			add_settings_field('fonts_family_L4',ucfirst(__('font family','szgoogleadmin').' (4)'),array($this,'get_fonts_family_L4'),'sz-google-admin-fonts.php','sz_google_fonts_section');
-			add_settings_field('fonts_family_L5',ucfirst(__('font family','szgoogleadmin').' (5)'),array($this,'get_fonts_family_L5'),'sz-google-admin-fonts.php','sz_google_fonts_section');
-			add_settings_field('fonts_family_L6',ucfirst(__('font family','szgoogleadmin').' (6)'),array($this,'get_fonts_family_L6'),'sz-google-admin-fonts.php','sz_google_fonts_section');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			// Definizione sezione per configurazione GOOGLE FONTS BX
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE FONTS BX
 
-			add_settings_section('sz_google_fonts_section_BX','',$this->callbacksection,'sz-google-admin-fonts-BX.php');
-			add_settings_field('fonts_family_B1',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <body>')),array($this,'get_fonts_family_B1'),'sz-google-admin-fonts-BX.php','sz_google_fonts_section_BX');
-			add_settings_field('fonts_family_P1',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <p>')),array($this,'get_fonts_family_P1'),'sz-google-admin-fonts-BX.php','sz_google_fonts_section_BX');
-			add_settings_field('fonts_family_B2',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <blockquote>')),array($this,'get_fonts_family_B2'),'sz-google-admin-fonts-BX.php','sz_google_fonts_section_BX');
+				'01' => array(
+					array('field' => 'fonts_family_L1','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L1')),
+					array('field' => 'fonts_family_L2','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L2')),
+					array('field' => 'fonts_family_L3','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L3')),
+					array('field' => 'fonts_family_L4','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L4')),
+					array('field' => 'fonts_family_L5','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L5')),
+					array('field' => 'fonts_family_L6','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L6')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE FONTS HX
+				// Definizione sezione per configurazione GOOGLE FONTS BX
 
-			add_settings_section('sz_google_fonts_section_HX','',$this->callbacksection,'sz-google-admin-fonts-HX.php');
-			add_settings_field('fonts_family_H1',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h1>')),array($this,'get_fonts_family_H1'),'sz-google-admin-fonts-HX.php','sz_google_fonts_section_HX');
-			add_settings_field('fonts_family_H2',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h2>')),array($this,'get_fonts_family_H2'),'sz-google-admin-fonts-HX.php','sz_google_fonts_section_HX');
-			add_settings_field('fonts_family_H3',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h3>')),array($this,'get_fonts_family_H3'),'sz-google-admin-fonts-HX.php','sz_google_fonts_section_HX');
-			add_settings_field('fonts_family_H4',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h4>')),array($this,'get_fonts_family_H4'),'sz-google-admin-fonts-HX.php','sz_google_fonts_section_HX');
-			add_settings_field('fonts_family_H5',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h5>')),array($this,'get_fonts_family_H5'),'sz-google-admin-fonts-HX.php','sz_google_fonts_section_HX');
-			add_settings_field('fonts_family_H6',ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h6>')),array($this,'get_fonts_family_H6'),'sz-google-admin-fonts-HX.php','sz_google_fonts_section_HX');
+				'02' => array(
+					array('field' => 'fonts_family_B1','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <body>'))      ,'callback' => array($this,'get_fonts_family_B1')),
+					array('field' => 'fonts_family_P1','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <p>'))         ,'callback' => array($this,'get_fonts_family_P1')),
+					array('field' => 'fonts_family_B2','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <blockquote>')),'callback' => array($this,'get_fonts_family_B2')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE FONTS BX
+
+				'03' => array(
+					array('field' => 'fonts_family_H1','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h1>')),'callback' => array($this,'get_fonts_family_H1')),
+					array('field' => 'fonts_family_H2','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h2>')),'callback' => array($this,'get_fonts_family_H2')),
+					array('field' => 'fonts_family_H3','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h3>')),'callback' => array($this,'get_fonts_family_H3')),
+					array('field' => 'fonts_family_H4','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h4>')),'callback' => array($this,'get_fonts_family_H4')),
+					array('field' => 'fonts_family_H5','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h5>')),'callback' => array($this,'get_fonts_family_H5')),
+					array('field' => 'fonts_family_H6','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h6>')),'callback' => array($this,'get_fonts_family_H6')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**

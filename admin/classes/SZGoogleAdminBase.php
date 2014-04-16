@@ -27,16 +27,25 @@ if (!class_exists('SZGoogleAdminBase'))
 
 			parent::__construct();
 
+
+			// Aggiungo il link di setting nella descrizione di plugin presente
+			// sul pannello di amministrazione dopo attivazione e disattivazione
+
+			if (is_admin()) {
+				add_filter("plugin_action_links_".plugin_basename(SZ_PLUGIN_GOOGLE_MAIN),array($this,'AddPluginSetting'));
+			}
+
 			// Aggiungere il foglio stile e gli script javsscript nelle 
 			// pagine di amministrazione che servono al plugin stesso
 
-			add_action('admin_init',array($this,'moduleAdminInit'));
+			add_action('admin_init',array($this,'moduleAdminAddCSS'));
+			add_action('admin_enqueue_scripts',array($this,'moduleAdminAddJavascript'));
 
 			// Controllo le opzioni dei moduli da caricare e richiamo
 			// il file di amministrazione necessario se risulta attivo
 
 			$object  = new SZGoogleModule();
-			$options = $object->getOptions();
+			$options = $object->getOptionsSet('sz_google_options_base');
 
 			if ($options['plus']          == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminPlus();
 			if ($options['analytics']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminAnalytics();
@@ -50,6 +59,18 @@ if (!class_exists('SZGoogleAdminBase'))
 			if ($options['translate']     == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminTranslate();
 			if ($options['youtube']       == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminYoutube();
 			if ($options['documentation'] == SZ_PLUGIN_GOOGLE_VALUE_YES) new SZGoogleAdminDocumentation();
+ 		}
+
+		/**
+		 * Creazione link aggiuntivi da inserire nello snippets del plugin
+		 * presente nel pannello di amministrazione dopo active e deactive
+		 *
+		 * @return void
+		 */
+		function AddPluginSetting($links)
+		{
+			$links[] = '<a href="'.menu_page_url('sz-google-admin.php',false).'">'.ucfirst(__('settings','szgoogleadmin')).'</a>'; 
+			return $links; 
  		}
 
  		/**
@@ -78,7 +99,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'title' => ucwords(__('activation modules','szgoogleadmin'))),
+				array('tab' => '01','section' => SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'title' => ucwords(__('activation','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = ucfirst(__('configuration version','szgoogleadmin').'&nbsp;'.SZ_PLUGIN_GOOGLE_VERSION);
@@ -98,23 +119,38 @@ if (!class_exists('SZGoogleAdminBase'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione generale
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_base_section','title' => $this->null,'callback' => $this->callbacksection,'slug' => SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG),
+			);
 
-			add_settings_section('sz_google_base_section',$this->null,$this->callbacksection,SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG);
-			add_settings_field('plus',ucfirst(__('google+','szgoogleadmin')),array($this,'get_base_plus'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('analytics',ucwords(__('google analytics','szgoogleadmin')),array($this,'get_base_analytics'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('authenticator',ucwords(__('google authenticator','szgoogleadmin')),array($this,'get_base_authenticator'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('calendar',ucwords(__('google calendar','szgoogleadmin')),array($this,'get_base_calendar'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('drive',ucwords(__('google drive','szgoogleadmin')),array($this,'get_base_drive'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('fonts',ucwords(__('google fonts','szgoogleadmin')),array($this,'get_base_fonts'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('groups',ucwords(__('google groups','szgoogleadmin')),array($this,'get_base_groups'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('hangouts',ucwords(__('google hangouts','szgoogleadmin')),array($this,'get_base_hangouts'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('panoramio',ucwords(__('google panoramio','szgoogleadmin')),array($this,'get_base_panoramio'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('translate',ucwords(__('google translate','szgoogleadmin')),array($this,'get_base_translate'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('youtube',ucwords(__('google youtube','szgoogleadmin')),array($this,'get_base_youtube'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
-			add_settings_field('documentation',ucwords(__('documentation','szgoogleadmin')),array($this,'get_base_documentation'),SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG,'sz_google_base_section');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
+
+			$this->sectionsfields = array
+			(
+				'01' => array(
+					array('field' => 'plus'         ,'title' => ucwords(__('google+'             ,'szgoogleadmin')),'callback' => array($this,'get_base_plus')),
+					array('field' => 'analytics'    ,'title' => ucwords(__('google analytics'    ,'szgoogleadmin')),'callback' => array($this,'get_base_analytics')),
+					array('field' => 'authenticator','title' => ucwords(__('google authenticator','szgoogleadmin')),'callback' => array($this,'get_base_authenticator')),
+					array('field' => 'calendar'     ,'title' => ucwords(__('google calendar'     ,'szgoogleadmin')),'callback' => array($this,'get_base_calendar')),
+					array('field' => 'drive'        ,'title' => ucwords(__('google drive'        ,'szgoogleadmin')),'callback' => array($this,'get_base_drive')),
+					array('field' => 'fonts'        ,'title' => ucwords(__('google fonts'        ,'szgoogleadmin')),'callback' => array($this,'get_base_fonts')),
+					array('field' => 'groups'       ,'title' => ucwords(__('google groups'       ,'szgoogleadmin')),'callback' => array($this,'get_base_groups')),
+					array('field' => 'hangouts'     ,'title' => ucwords(__('google hangouts'     ,'szgoogleadmin')),'callback' => array($this,'get_base_hangouts')),
+					array('field' => 'panoramio'    ,'title' => ucwords(__('google panoramio'    ,'szgoogleadmin')),'callback' => array($this,'get_base_panoramio')),
+					array('field' => 'translate'    ,'title' => ucwords(__('google translate'    ,'szgoogleadmin')),'callback' => array($this,'get_base_translate')),
+					array('field' => 'youtube'      ,'title' => ucwords(__('google youtube'      ,'szgoogleadmin')),'callback' => array($this,'get_base_youtube')),
+					array('field' => 'documentation','title' => ucwords(__('documentation '      ,'szgoogleadmin')),'callback' => array($this,'get_base_documentation')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**
@@ -123,28 +159,24 @@ if (!class_exists('SZGoogleAdminBase'))
 		 *
 		 * @return void
 		 */
-		function moduleAdminInit() 
+		function moduleAdminAddCSS() 
 		{
 			global $pagenow;
 
 			if (isset($_GET['page'])) $adminpage = $_GET['page']; 
-				else $adminpage = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+				else $adminpage = '';
 
 			// Registrazione dei file CSS e dei file javascript che devono
 			// essere caricati nella pagina in base alla funzione richiesta
 
-			$JS1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_JS .'jquery.szgoogle.widgets.js';
-			$JS2 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_JS .'jquery.szgoogle.pages.js';
 			$CSS = SZ_PLUGIN_GOOGLE_PATH_ADMIN_CSS.'sz-google-style-admin.css';
 
 			wp_register_style ('sz-google-style-admin',$CSS,array(),SZ_PLUGIN_GOOGLE_VERSION);
-			wp_register_script('sz-google-javascript-widgets',$JS1);
-			wp_register_script('sz-google-javascript-pages',$JS2);
 
 			// Controllo le zone di caricamento file in base alle necessità
 			// del plugin durante la visualizzazione delle pagine di amministrazione
 
-			if ($pagenow == 'widgets.php') 
+			if ($pagenow == 'widgets.php' or $pagenow == 'customize.php') 
 				$widgets = true; else $widgets = false;
 
 			if ($pagenow == 'admin.php' && preg_match('#^sz-google#',$adminpage) === 1) 
@@ -156,6 +188,41 @@ if (!class_exists('SZGoogleAdminBase'))
 			if ($widgets or $optionpage) {
 				wp_enqueue_style('sz-google-style-admin');
 			}
+		}
+
+		/**
+		 * Aggiungere il foglio stile e gli script javascript nelle 
+		 * pagine di amministrazione che servono al plugin stesso
+		 *
+		 * @return void
+		 */
+		function moduleAdminAddJavascript() 
+		{
+			global $pagenow;
+
+			if (isset($_GET['page'])) $adminpage = $_GET['page']; 
+				else $adminpage = '';
+
+			// Registrazione dei file CSS e dei file javascript che devono
+			// essere caricati nella pagina in base alla funzione richiesta
+
+			$JS1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_JS .'jquery.szgoogle.widgets.js';
+			$JS2 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_JS .'jquery.szgoogle.pages.js';
+
+			wp_register_script('sz-google-javascript-widgets',$JS1);
+			wp_register_script('sz-google-javascript-pages',$JS2);
+
+			// Controllo le zone di caricamento file in base alle necessità
+			// del plugin durante la visualizzazione delle pagine di amministrazione
+
+			if ($pagenow == 'widgets.php' or $pagenow == 'customize.php') 
+				$widgets = true; else $widgets = false;
+
+			if ($pagenow == 'admin.php' && preg_match('#^sz-google#',$adminpage) === 1) 
+				$optionpage = true; else $optionpage = false;
+
+			// Controllo in che pagina di amministrazione mi trovo per 
+			// caricare i componenti CSS e javascript solamente quando servono
 
 			if ($widgets) {
 				if (!did_action('wp_enqueue_media')) wp_enqueue_media();

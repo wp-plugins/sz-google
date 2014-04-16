@@ -36,7 +36,7 @@ if (!class_exists('SZGoogleAdminHangouts'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-hangouts-start.php','title' => ucwords(__('hangouts start button','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-hangouts-start.php','title' => ucwords(__('start hangout','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -56,13 +56,28 @@ if (!class_exists('SZGoogleAdminHangouts'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE HANGOUTS
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_hangouts_start','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-hangouts-start.php'),
+			);
 
-			add_settings_section('sz_google_hangouts_start','',$this->callbacksection,'sz-google-admin-hangouts-start.php');
-			add_settings_field('hangouts_start_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_hangouts_start_widget'),'sz-google-admin-hangouts-start.php','sz_google_hangouts_start');
-			add_settings_field('hangouts_start_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_hangouts_start_shortcode'),'sz-google-admin-hangouts-start.php','sz_google_hangouts_start');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
+
+			$this->sectionsfields = array
+			(
+				'01' => array(
+					array('field' => 'hangouts_start_shortcode','title' => ucfirst(__('shortcode','szgoogleadmin')),'callback' => array($this,'get_hangouts_start_shortcode')),
+					array('field' => 'hangouts_start_widget'   ,'title' => ucfirst(__('widget'   ,'szgoogleadmin')),'callback' => array($this,'get_hangouts_start_widget')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**

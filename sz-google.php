@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: https://wpitalyplus.com/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.7.3
+Version: 1.7.4
 Author URI: https://plus.google.com/+MassimoDellaRovere
 License: GPLv2 or later
 Copyright 2012-2014 startbyzero (email: webmaster@startbyzero.com)
@@ -37,7 +37,7 @@ if (!defined('ABSPATH')) die("Accesso diretto al file non permesso");
 
 define('SZ_PLUGIN_GOOGLE',true);
 define('SZ_PLUGIN_GOOGLE_MAIN',__FILE__);
-define('SZ_PLUGIN_GOOGLE_VERSION','1.7.3');
+define('SZ_PLUGIN_GOOGLE_VERSION','1.7.4');
 
 // Il plugin necessita di alcuni controllo sugli utenti collegati prima che questi
 // vengano caricati dal core. Quindi in assensa si anticipa il caricamento.
@@ -48,15 +48,15 @@ if (!function_exists('is_user_logged_in()')) {
 	}
 }
 
-// Prima della definizione della classe controllo se esiste
-// una definizione con lo stesso nome o già definita la stessa.
+// Prima di eseguire il caricamento della classe controllo
+// se per caso esiste già una definizione con lo stesso nome.
 
 if (!class_exists('SZGoogleCheck'))
 {
 	class SZGoogleCheck
 	{
-		protected $PHP       = '5.2.0'; // Requisito minimo PHP
-		protected $WORDPRESS = '3.5.0'; // Requisito minimo WORDPRESS
+		private $PHP       = '5.2.0'; // Requisito minimo PHP
+		private $WORDPRESS = '3.5.0'; // Requisito minimo WORDPRESS
 
 		// Funzione costruttore per controlli e operazioni iniziali.
 		// Il controllo principale di questa classe è legato ai controlli di versione.
@@ -151,7 +151,7 @@ if (!class_exists('SZGoogleCheck'))
 			// Attivazione del caricamento dinamico delle classi senza dover
 			// utilizzare la funzione di require prima della definizione di classe
 
-			spl_autoload_register(array($this,'autoloaderClasses'));
+			spl_autoload_register(array($this,'auto_loader_classes'));
 
 			// Creazione oggetto da classe che esegue il caricamento
 			// completo del plugin con i moduli attivati, i filtri ect, ect
@@ -162,8 +162,10 @@ if (!class_exists('SZGoogleCheck'))
 		// Attivazione funzione di autoloader per le classi del plugin, se la funzione dovesse
 		// essere richiamata per classi diverse da SZGoogle il sistema di autoloading viene ignorato.
 
-		function autoloaderClasses($classname) 
+		function auto_loader_classes($classname) 
 		{
+			if (substr($classname,0,8) != 'SZGoogle') return;
+
 			// Caricamento delle classi che interessano la parte di amministrazione
 			// queste classi inizieranno con il prefisso "SZGoogleAdmin"
 
@@ -173,31 +175,13 @@ if (!class_exists('SZGoogleCheck'))
 				}
 			}
 
-			// Caricamento delle classi che interessano la parte dei moduli
-			// queste classi inizieranno con il prefisso "SZGoogleModule"
+			// Caricamento delle classi che appartengono al plugin cercando il prefisso
+			// dopo il nome "SZGoogle" e usandolo come parte di directory di "classes".
 
-			if (substr($classname,0,14) == 'SZGoogleModule') {
-				if (is_readable(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_MODULES.$classname.'.php')) {
-					   @require(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_MODULES.$classname.'.php'); return;
-				}
-			}
+			$prefix = preg_split('#([A-Z][^A-Z]*)#',$classname,null,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
-			// Caricamento delle classi che interessano la parte del plugin
-			// queste classi inizieranno con il prefisso "SZGooglePlugin"
-
-			if (substr($classname,0,14) == 'SZGooglePlugin') {
-				if (is_readable(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_PLUGIN.$classname.'.php')) {
-					   @require(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_PLUGIN.$classname.'.php'); return;
-				}
-			}
-
-			// Caricamento delle classi che interessano la parte dei widgets
-			// queste classi inizieranno con il prefisso "SZGoogleWidget"
-
-			if (substr($classname,0,14) == 'SZGoogleWidget') {
-				if (is_readable(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_WIDGETS.$classname.'.php')) {
-					   @require(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_WIDGETS.$classname.'.php'); return;
-				}
+			if (is_readable(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES.strtolower($prefix[3]).'/'.$classname.'.php')) {
+				   @require(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES.strtolower($prefix[3]).'/'.$classname.'.php'); return;
 			}
 		}
 	}

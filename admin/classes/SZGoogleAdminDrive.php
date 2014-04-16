@@ -38,12 +38,12 @@ if (!class_exists('SZGoogleAdminDrive'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-drive.php'                  ,'title' => ucwords(__('general setting','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-drive-savebutton-enable.php','title' => ucwords(__('save to drive button','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-drive-embed-enable-s.php'   ,'title' => ucwords(__('drive embed shortcode','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-drive-embed-enable-w.php'   ,'title' => ucwords(__('drive embed widget','szgoogleadmin'))),
-				array('tab' => '03','section' => 'sz-google-admin-drive-viewer-enable-s.php'  ,'title' => ucwords(__('drive viewer shortcode','szgoogleadmin'))),
-				array('tab' => '03','section' => 'sz-google-admin-drive-viewer-enable-w.php'  ,'title' => ucwords(__('drive viewer widget','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-drive.php'                  ,'title' => ucwords(__('settings'        ,'szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-drive-savebutton-enable.php','title' => ucwords(__('save to drive'   ,'szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-drive-embed-enable-s.php'   ,'title' => ucwords(__('embed shortcode' ,'szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-drive-embed-enable-w.php'   ,'title' => ucwords(__('embed widget'    ,'szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-drive-viewer-enable-s.php'  ,'title' => ucwords(__('viewer shortcode','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-drive-viewer-enable-w.php'  ,'title' => ucwords(__('viewer widget'   ,'szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -63,54 +63,82 @@ if (!class_exists('SZGoogleAdminDrive'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE DRIVE
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_drive_section'   ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-drive.php'),
+				'02' => array('section' => 'sz_google_drive_savebutton','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-drive-savebutton-enable.php'),
+				'03' => array('section' => 'sz_google_drive_embed_s'   ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-drive-embed-enable-s.php'),
+				'04' => array('section' => 'sz_google_drive_embed_w'   ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-drive-embed-enable-w.php'),
+				'05' => array('section' => 'sz_google_drive_viewer_s'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-drive-viewer-enable-s.php'),
+				'06' => array('section' => 'sz_google_drive_viewer_w'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-drive-viewer-enable-w.php'),
+			);
 
-			add_settings_section('sz_google_drive_section','',$this->callbacksection,'sz-google-admin-drive.php');
-			add_settings_field('drive_sitename',ucfirst(__('site name','szgoogleadmin')),array($this,'get_drive_sitename'),'sz-google-admin-drive.php','sz_google_drive_section');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			// Definizione sezione per configurazione GOOGLE DRIVE EMBED
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE DRIVE
 
-			add_settings_section('sz_google_drive_embed_s','',$this->callbacksection,'sz-google-admin-drive-embed-enable-s.php');
-			add_settings_field('drive_embed_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_drive_embed_shortcode'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
-			add_settings_field('drive_embed_s_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_drive_embed_s_width'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
-			add_settings_field('drive_embed_s_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_drive_embed_s_height'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
-			add_settings_field('drive_embed_s_height_p',ucfirst(__('presentation height','szgoogleadmin')),array($this,'get_drive_embed_s_height_p'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
-			add_settings_field('drive_embed_s_height_v',ucfirst(__('video height','szgoogleadmin')),array($this,'get_drive_embed_s_height_v'),'sz-google-admin-drive-embed-enable-s.php','sz_google_drive_embed_s');
+				'01' => array(
+					array('field' => 'drive_sitename'            ,'title' => ucfirst(__('site name'          ,'szgoogleadmin')),'callback' => array($this,'get_drive_sitename')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE DRIVE EMBED
+				// Definizione sezione per configurazione GOOGLE DRIVE SAVE BUTTON
 
-			add_settings_section('sz_google_drive_embed_w','',$this->callbacksection,'sz-google-admin-drive-embed-enable-w.php');
-			add_settings_field('drive_embed_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_drive_embed_widget'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
-			add_settings_field('drive_embed_w_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_drive_embed_w_width'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
-			add_settings_field('drive_embed_w_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_drive_embed_w_height'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
-			add_settings_field('drive_embed_w_height_p',ucfirst(__('presentation height','szgoogleadmin')),array($this,'get_drive_embed_w_height_p'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
-			add_settings_field('drive_embed_w_height_v',ucfirst(__('video height','szgoogleadmin')),array($this,'get_drive_embed_w_height_v'),'sz-google-admin-drive-embed-enable-w.php','sz_google_drive_embed_w');
+				'02' => array(
+					array('field' => 'drive_savebutton_shortcode','title' => ucfirst(__('shortcode'          ,'szgoogleadmin')),'callback' => array($this,'get_drive_savebutton_shortcode')),
+					array('field' => 'drive_savebutton_widget'   ,'title' => ucfirst(__('widget'             ,'szgoogleadmin')),'callback' => array($this,'get_drive_savebutton_widget')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE DRIVE VIEWER
+				// Definizione sezione per configurazione GOOGLE DRIVE EMBED
 
-			add_settings_section('sz_google_drive_viewer_s','',$this->callbacksection,'sz-google-admin-drive-viewer-enable-s.php');
-			add_settings_field('drive_viewer_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_drive_viewer_shortcode'),'sz-google-admin-drive-viewer-enable-s.php','sz_google_drive_viewer_s');
-			add_settings_field('drive_viewer_s_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_drive_viewer_s_width'),'sz-google-admin-drive-viewer-enable-s.php','sz_google_drive_viewer_s');
-			add_settings_field('drive_viewer_s_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_drive_viewer_s_height'),'sz-google-admin-drive-viewer-enable-s.php','sz_google_drive_viewer_s');
-			add_settings_field('drive_viewer_s_t_position',ucfirst(__('title position','szgoogleadmin')),array($this,'get_drive_viewer_s_t_position'),'sz-google-admin-drive-viewer-enable-s.php','sz_google_drive_viewer_s');
-			add_settings_field('drive_viewer_s_t_align',ucfirst(__('title alignment','szgoogleadmin')),array($this,'get_drive_viewer_s_t_align'),'sz-google-admin-drive-viewer-enable-s.php','sz_google_drive_viewer_s');
+				'03' => array(
+					array('field' => 'drive_embed_shortcode'     ,'title' => ucfirst(__('shortcode'          ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_shortcode')),
+					array('field' => 'drive_embed_s_width'       ,'title' => ucfirst(__('default width'      ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_s_width')),
+					array('field' => 'drive_embed_s_height'      ,'title' => ucfirst(__('default height'     ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_s_height')),
+					array('field' => 'drive_embed_s_height_p'    ,'title' => ucfirst(__('presentation height','szgoogleadmin')),'callback' => array($this,'get_drive_embed_s_height_p')),
+					array('field' => 'drive_embed_s_height_v'    ,'title' => ucfirst(__('video height'       ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_s_height_v')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE DRIVE VIEWER
+				// Definizione sezione per configurazione GOOGLE DRIVE EMBED
 
-			add_settings_section('sz_google_drive_viewer_w','',$this->callbacksection,'sz-google-admin-drive-viewer-enable-w.php');
-			add_settings_field('drive_viewer_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_drive_viewer_widget'),'sz-google-admin-drive-viewer-enable-w.php','sz_google_drive_viewer_w');
-			add_settings_field('drive_viewer_w_width',ucfirst(__('default width','szgoogleadmin')),array($this,'get_drive_viewer_w_width'),'sz-google-admin-drive-viewer-enable-w.php','sz_google_drive_viewer_w');
-			add_settings_field('drive_viewer_w_height',ucfirst(__('default height','szgoogleadmin')),array($this,'get_drive_viewer_w_height'),'sz-google-admin-drive-viewer-enable-w.php','sz_google_drive_viewer_w');
-			add_settings_field('drive_viewer_w_t_position',ucfirst(__('title position','szgoogleadmin')),array($this,'get_drive_viewer_w_t_position'),'sz-google-admin-drive-viewer-enable-w.php','sz_google_drive_viewer_w');
-			add_settings_field('drive_viewer_w_t_align',ucfirst(__('title alignment','szgoogleadmin')),array($this,'get_drive_viewer_w_t_align'),'sz-google-admin-drive-viewer-enable-w.php','sz_google_drive_viewer_w');
+				'04' => array(
+					array('field' => 'drive_embed_widget'        ,'title' => ucfirst(__('widget'             ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_widget')),
+					array('field' => 'drive_embed_w_width'       ,'title' => ucfirst(__('default width'      ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_w_width')),
+					array('field' => 'drive_embed_w_height'      ,'title' => ucfirst(__('default height'     ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_w_height')),
+					array('field' => 'drive_embed_w_height_p'    ,'title' => ucfirst(__('presentation height','szgoogleadmin')),'callback' => array($this,'get_drive_embed_w_height_p')),
+					array('field' => 'drive_embed_w_height_v'    ,'title' => ucfirst(__('video height'       ,'szgoogleadmin')),'callback' => array($this,'get_drive_embed_w_height_v')),
+				),
 
-			// Definizione sezione per configurazione GOOGLE DRIVE SAVE BUTTON
+				// Definizione sezione per configurazione GOOGLE DRIVE VIEWER
 
-			add_settings_section('sz_google_drive_savebutton','',$this->callbacksection,'sz-google-admin-drive-savebutton-enable.php');
-			add_settings_field('drive_savebutton_shortcode',ucwords(__('enable shortcode','szgoogleadmin')),array($this,'get_drive_savebutton_shortcode'),'sz-google-admin-drive-savebutton-enable.php','sz_google_drive_savebutton');
-			add_settings_field('drive_savebutton_widget',ucwords(__('enable widget','szgoogleadmin')),array($this,'get_drive_savebutton_widget'),'sz-google-admin-drive-savebutton-enable.php','sz_google_drive_savebutton');
+				'05' => array(
+					array('field' => 'drive_viewer_shortcode'    ,'title' => ucfirst(__('shortcode'          ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_shortcode')),
+					array('field' => 'drive_viewer_s_width'      ,'title' => ucfirst(__('default width'      ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_s_width')),
+					array('field' => 'drive_viewer_s_height'     ,'title' => ucfirst(__('default height'     ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_s_height')),
+					array('field' => 'drive_viewer_s_t_position' ,'title' => ucfirst(__('title position'     ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_s_t_position')),
+					array('field' => 'drive_viewer_s_t_align'    ,'title' => ucfirst(__('title alignment'    ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_s_t_align')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE DRIVE VIEWER
+
+				'06' => array(
+					array('field' => 'drive_viewer_widget'       ,'title' => ucfirst(__('widget'             ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_widget')),
+					array('field' => 'drive_viewer_w_width'      ,'title' => ucfirst(__('default width'      ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_w_width')),
+					array('field' => 'drive_viewer_w_height'     ,'title' => ucfirst(__('default height'     ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_w_height')),
+					array('field' => 'drive_viewer_w_t_position' ,'title' => ucfirst(__('title position'     ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_w_t_position')),
+					array('field' => 'drive_viewer_w_t_align'    ,'title' => ucfirst(__('title alignment'    ,'szgoogleadmin')),'callback' => array($this,'get_drive_viewer_w_t_align')),
+				),
+
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**

@@ -28,6 +28,8 @@ if (!class_exists('SZGoogleAdmin'))
 		protected $parentslug      = SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG;
 		protected $titlefix        = SZ_PLUGIN_GOOGLE_VALUE_TITLEFIX;
 		protected $sections        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $sectionsmenu    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $sectionsfields  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $sectionstabs    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $sectionstitle   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
 		protected $sectionsoptions = SZ_PLUGIN_GOOGLE_VALUE_NULL;
@@ -83,6 +85,26 @@ if (!class_exists('SZGoogleAdmin'))
 		 */
 		function moduleAddFields()
 		{
+			register_setting($this->sectionsoptions,$this->sectionsoptions);
+
+			if (!is_array($this->sectionsmenu))   $this->sectionsmenu   = array();
+			if (!is_array($this->sectionsfields)) $this->sectionsfields = array();
+
+			// Lettura array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
+
+			foreach($this->sectionsmenu as $key=>$value) {
+				add_settings_section($value['section'],$value['title'],$value['callback'],$value['slug']);
+			}
+
+			// Lettura array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
+
+			foreach($this->sectionsfields as $key=>$sectionsfield) {
+				foreach($sectionsfield as $value) {
+					add_settings_field($value['field'],$value['title'],$value['callback'],$this->sectionsmenu[$key]['slug'],$this->sectionsmenu[$key]['section']);
+				}
+			}
  		}
 
 		/**
@@ -400,18 +422,9 @@ if (!class_exists('SZGoogleAdmin'))
 
 			if (!isset($options[$name])) $options[$name] = '0';
 
+			echo '<input type="hidden" name="'.$optionset.'['.$name.']" value="0"/>';
 			echo '<label class="sz-google"><input name="'.$optionset.'['.$name.']" type="checkbox" value="1" ';
 			echo 'class="'.$class.'" '.checked(1,$options[$name],false).'/><span class="checkbox" style="display:none">'.__('YES / NO','szgoogleadmin').'</span></label>';
-		}
-
-		function moduleCommonFormCheckboxYN($optionset,$name,$class='small') 
-		{
-			$options = get_option($optionset);
-
-			if (!isset($options[$name])) $options[$name] = '0';
-
-			echo '<label class="sz-google"><input name="'.$optionset.'['.$name.']" type="checkbox" value="1" ';
-			echo 'class="'.$class.'" '.checked(1,$options[$name],false).'/><span class="checkbox checkboxsmall" style="display:none">'.__('Y/N','szgoogleadmin').'</span></label>';
 		}
 
 		function moduleCommonFormNumberStep1($optionset,$name,$class='medium',$placeholder='') 

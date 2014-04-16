@@ -5,41 +5,9 @@
  * codice è su file separato per escluderlo dal frontend
  *
  * @package SZGoogle
+ * @subpackage SZGoogleWidgets 
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
-
-/**
- * Definizione variabili che sono legata alla istanza del 
- * widget richiamato com memorizzazione delle opzioni.
- */
-$url   = trim($instance['url']);
-$title = trim(strip_tags($instance['title']));
-$align = trim(strip_tags($instance['align']));
-
-/**
- * Creazione HTML CSS (id) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$ID_title         = $this->get_field_id('title');
-$ID_url           = $this->get_field_id('url');
-$ID_align         = $this->get_field_id('align');
-
-/**
- * Creazione HTML CSS (name) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$NAME_title       = $this->get_field_name('title');
-$NAME_url         = $this->get_field_name('url');
-$NAME_align       = $this->get_field_name('align');
-
-/**
- * Creazione HTML CSS (value) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$VALUE_title      = esc_attr($title);
-$VALUE_url        = esc_attr($url);
-$VALUE_align      = esc_attr($align);
-
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 <p><table id="SZGoogleWidgetPlusPost" class="sz-google-table-widget">

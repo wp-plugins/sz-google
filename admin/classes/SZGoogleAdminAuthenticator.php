@@ -36,7 +36,7 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-authenticator.php'          ,'title' => ucwords(__('general settings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-authenticator.php'          ,'title' => ucwords(__('settings','szgoogleadmin'))),
 				array('tab' => '01','section' => 'sz-google-admin-authenticator-emergency.php','title' => ucwords(__('emergency file','szgoogleadmin'))),
 			);
 
@@ -57,19 +57,38 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			// Definizione array generale contenente elenco delle sezioni
+			// Su ogni sezione bisogna definire un array per elenco campi
 
-			// Definizione sezione per configurazione GOOGLE AUTHENTICATOR
+			$this->sectionsmenu = array(
+				'01' => array('section' => 'sz_google_authenticator_enabled'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-authenticator.php'),
+				'02' => array('section' => 'sz_google_authenticator_emergency','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-authenticator-emergency.php'),
+			);
 
-			add_settings_section('sz_google_authenticator_enabled','',$this->callbacksection,'sz-google-admin-authenticator.php');
-			add_settings_field('authenticator_login_enable',ucfirst(__('enable login','szgoogleadmin')),array($this,'get_authenticator_login_enable'),'sz-google-admin-authenticator.php','sz_google_authenticator_enabled');
-			add_settings_field('authenticator_discrepancy',ucfirst(__('discrepancy','szgoogleadmin')),array($this,'get_authenticator_discrepancy'),'sz-google-admin-authenticator.php','sz_google_authenticator_enabled');
+			// Definizione array generale contenente elenco dei campi
+			// che bisogna aggiungere alle sezioni precedentemente definite
 
-			// Definizione sezione per configurazione GOOGLE EMERGENCY
+			$this->sectionsfields = array
+			(
+				// Definizione sezione per configurazione GOOGLE AUTHENTICATOR
 
-			add_settings_section('sz_google_authenticator_emergency','',$this->callbacksection,'sz-google-admin-authenticator-emergency.php');
-			add_settings_field('authenticator_emergency',ucfirst(__('emergency enable','szgoogleadmin')),array($this,'get_authenticator_emergency_enable'),'sz-google-admin-authenticator-emergency.php','sz_google_authenticator_emergency');
-			add_settings_field('authenticator_emergency_file',ucfirst(__('emergency file','szgoogleadmin')),array($this,'get_authenticator_emergency_file'),'sz-google-admin-authenticator-emergency.php','sz_google_authenticator_emergency');
+				'01' => array(
+					array('field' => 'authenticator_login_enable'  ,'title' => ucfirst(__('enable'          ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_login_enable')),
+					array('field' => 'authenticator_discrepancy'   ,'title' => ucfirst(__('discrepancy'     ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_discrepancy')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE EMERGENCY
+
+				'02' => array(
+					array('field' => 'authenticator_emergency'     ,'title' => ucfirst(__('emergency enable','szgoogleadmin')),'callback' => array($this,'get_authenticator_emergency_enable')),
+					array('field' => 'authenticator_emergency_file','title' => ucfirst(__('emergency file'  ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_emergency_file')),
+				),
+			);
+
+			// Richiamo la funzione della classe padre per elaborare le
+			// variabili contenenti i valori di configurazione sezione
+
+			parent::moduleAddFields();
 		}
 
 		/**

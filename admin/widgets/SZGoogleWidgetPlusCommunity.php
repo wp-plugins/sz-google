@@ -5,69 +5,9 @@
  * codice è su file separato per escluderlo dal frontend
  *
  * @package SZGoogle
+ * @subpackage SZGoogleWidgets 
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
-
-/**
- * Definizione variabili che sono legata alla istanza del 
- * widget richiamato com memorizzazione delle opzioni.
- */
-$title      = trim(strip_tags($instance['title']));
-$method     = trim(strip_tags($instance['method']));
-$specific   = trim(strip_tags($instance['specific']));
-$width      = trim(strip_tags($instance['width']));
-$width_auto = trim(strip_tags($instance['width_auto']));
-$align      = trim(strip_tags($instance['align']));
-$layout     = trim(strip_tags($instance['layout']));
-$theme      = trim(strip_tags($instance['theme']));
-$photo      = trim(strip_tags($instance['photo']));
-$owner      = trim(strip_tags($instance['owner']));
-
-/**
- * Creazione HTML CSS (id) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$ID_title         = $this->get_field_id('title');
-$ID_method        = $this->get_field_id('method');
-$ID_specific      = $this->get_field_id('specific');
-$ID_width         = $this->get_field_id('width');
-$ID_width_auto    = $this->get_field_id('width_auto');
-$ID_layout        = $this->get_field_id('layout');
-$ID_theme         = $this->get_field_id('theme');
-$ID_photo         = $this->get_field_id('photo');
-$ID_owner         = $this->get_field_id('owner');
-$ID_align         = $this->get_field_id('align');
-
-/**
- * Creazione HTML CSS (name) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$NAME_title       = $this->get_field_name('title');
-$NAME_method      = $this->get_field_name('method');
-$NAME_specific    = $this->get_field_name('specific');
-$NAME_width       = $this->get_field_name('width');
-$NAME_width_auto  = $this->get_field_name('width_auto');
-$NAME_layout      = $this->get_field_name('layout');
-$NAME_theme       = $this->get_field_name('theme');
-$NAME_photo       = $this->get_field_name('photo');
-$NAME_owner       = $this->get_field_name('owner');
-$NAME_align       = $this->get_field_name('align');
-
-/**
- * Creazione HTML CSS (value) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$VALUE_title      = esc_attr($title);
-$VALUE_method     = esc_attr($method);
-$VALUE_specific   = esc_attr($specific);
-$VALUE_width      = esc_attr($width);
-$VALUE_width_auto = esc_attr($width_auto);
-$VALUE_layout     = esc_attr($layout);
-$VALUE_theme      = esc_attr($theme);
-$VALUE_photo      = esc_attr($photo);
-$VALUE_owner      = esc_attr($owner);
-$VALUE_align      = esc_attr($align);
-
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 <p><table id="SZGoogleWidgetPlusCommunity" class="sz-google-table-widget">
@@ -100,7 +40,7 @@ $VALUE_align      = esc_attr($align);
 <!-- WIDGETS (Campo per specificare la dimensione) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>"/></td>
+	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width widefat" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
 	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
@@ -109,8 +49,8 @@ $VALUE_align      = esc_attr($align);
 <!-- WIDGETS (Campo per specificare il parametro layout -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_layout ?>"><?php echo ucfirst(__('layout','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_layout ?>" value="portrait"  <?php if ($VALUE_layout == 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('portrait','szgoogleadmin')) ?></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_layout ?>" value="landscape" <?php if ($VALUE_layout != 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('landscape','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_layout ?>" value="portrait"  <?php if ($VALUE_layout == 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('V','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_layout ?>" value="landscape" <?php if ($VALUE_layout != 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('H','szgoogleadmin')) ?></td>
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro theme -->
@@ -123,15 +63,15 @@ $VALUE_align      = esc_attr($align);
 <!-- WIDGETS (Campo per specificare il parametro photo -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_photo ?>"><?php echo ucfirst(__('photo','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_photo ?>" value="true"  <?php if ($VALUE_photo == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('enabled','szgoogleadmin')) ?></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_photo ?>" value="false" <?php if ($VALUE_photo != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('disabled','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_photo ?>" value="true"  <?php if ($VALUE_photo == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_photo ?>" value="false" <?php if ($VALUE_photo != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no','szgoogleadmin')) ?></td>
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro owner -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_owner ?>"><?php echo ucfirst(__('owner','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_owner ?>" value="true"  <?php if ($VALUE_owner == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('enabled','szgoogleadmin')) ?></td>
-	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_owner ?>" value="false" <?php if ($VALUE_owner != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('disabled','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_owner ?>" value="true"  <?php if ($VALUE_owner == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_owner ?>" value="false" <?php if ($VALUE_owner != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no','szgoogleadmin')) ?></td>
 </tr>
 
 <tr><td colspan="3"><hr></td></tr>

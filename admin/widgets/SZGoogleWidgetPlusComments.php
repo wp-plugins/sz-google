@@ -5,53 +5,9 @@
  * codice è su file separato per escluderlo dal frontend
  *
  * @package SZGoogle
+ * @subpackage SZGoogleWidgets
  */
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
-
-/**
- * Definizione variabili che sono legata alla istanza del 
- * widget richiamato com memorizzazione delle opzioni.
- */
-$url        = trim($instance['url']);
-$title      = trim(strip_tags($instance['title']));
-$method     = trim(strip_tags($instance['method']));
-$width      = trim(strip_tags($instance['width']));
-$width_auto = trim(strip_tags($instance['width_auto']));
-$align      = trim(strip_tags($instance['align']));
-
-/**
- * Creazione HTML CSS (id) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$ID_title         = $this->get_field_id('title');
-$ID_method        = $this->get_field_id('method');
-$ID_url           = $this->get_field_id('url');
-$ID_width         = $this->get_field_id('width');
-$ID_width_auto    = $this->get_field_id('width_auto');
-$ID_align         = $this->get_field_id('align');
-
-/**
- * Creazione HTML CSS (name) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$NAME_title       = $this->get_field_name('title');
-$NAME_method      = $this->get_field_name('method');
-$NAME_url         = $this->get_field_name('url');
-$NAME_width       = $this->get_field_name('width');
-$NAME_width_auto  = $this->get_field_name('width_auto');
-$NAME_align       = $this->get_field_name('align');
-
-/**
- * Creazione HTML CSS (value) per tutte le variabili 
- * elencate sopra e presenti nelle opzioni del widget.
- */
-$VALUE_title      = esc_attr($title);
-$VALUE_method     = esc_attr($method);
-$VALUE_url        = esc_attr($url);
-$VALUE_width      = esc_attr($width);
-$VALUE_width_auto = esc_attr($width_auto);
-$VALUE_align      = esc_attr($align);
-
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
 <p><table id="SZGoogleWidgetPlusComments" class="sz-google-table-widget">
@@ -84,7 +40,7 @@ $VALUE_align      = esc_attr($align);
 <!-- WIDGETS (Campo per specificare la dimensione) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="number" size="5" step="1" min="180" max="450" value="<?php echo $VALUE_width ?>" placeholder="auto"/></td>
+	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width widefat" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>" placeholder="auto"/></td>
 	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
