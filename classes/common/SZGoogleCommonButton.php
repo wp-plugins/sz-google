@@ -23,36 +23,36 @@ if (!class_exists('SZGoogleCommonButton'))
 		static function getButton($atts) 
 		{
 			extract(shortcode_atts(array(
-				'html'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'image'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'content'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'uniqueID'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'html'         => '',
+				'text'         => '',
+				'image'        => '',
+				'content'      => '',
+				'float'        => '',
+				'align'        => '',
+				'position'     => '',
+				'class'        => '',
+				'margintop'    => '',
+				'marginright'  => '',
+				'marginbottom' => '',
+				'marginleft'   => '',
+				'marginunit'   => '',
+				'uniqueID'     => '',
 			),$atts));
 
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
-			if (!ctype_digit($margintop)    and $margintop    != 'none') $margintop    = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
-			if (!ctype_digit($marginright)  and $marginright  != 'none') $marginright  = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+			if (!ctype_digit($margintop)    and $margintop    != 'none') $margintop    = ''; 
+			if (!ctype_digit($marginright)  and $marginright  != 'none') $marginright  = ''; 
 			if (!ctype_digit($marginbottom) and $marginbottom != 'none') $marginbottom = '1'; 
-			if (!ctype_digit($marginleft)   and $marginleft   != 'none') $marginleft   = SZ_PLUGIN_GOOGLE_VALUE_NULL; 
+			if (!ctype_digit($marginleft)   and $marginleft   != 'none') $marginleft   = ''; 
 
 			if (!in_array($marginunit,array('px','pt','em'))) $marginunit = 'em';
 
 			// Calcolo il codice CSS da inserire nel primo wrapper
 			// del bottone su cui si sta elaborando il rendering
 
-			$CSS = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$CSS = '';
 
 			if (!empty($float) and $float != 'none') $CSS .= 'float:'.$float.';';
 			if (!empty($align) and $align != 'none') $CSS .= 'text-align:'.$align.';';
@@ -61,8 +61,8 @@ if (!class_exists('SZGoogleCommonButton'))
 			// codice del bottone preparato in precedenza dal chiamante
 	
 			$HTML  = '<div class="'.$class.'"';
-				if ($CSS      != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= ' style="'.$CSS.'"';
-				if ($uniqueID != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= ' id="'.$uniqueID.'"';
+				if ($CSS      != '') $HTML .= ' style="'.$CSS.'"';
+				if ($uniqueID != '') $HTML .= ' id="'.$uniqueID.'"';
 			$HTML .= '>';
 
 			$HTML .= '<div class="sz-google-button" style="';
@@ -80,7 +80,7 @@ if (!class_exists('SZGoogleCommonButton'))
 			// Se trovo contenuto per il parametro "text" dello shortcode
 			// lo aggiungo prima del codice embed originale di google
 
-			if ($text != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if ($text != '') {
 				$HTML .= '<div class="sz-google-button-text">';
 				$HTML .= '<p>'.$text.'</p>';
 				$HTML .= '</div>';
@@ -89,7 +89,7 @@ if (!class_exists('SZGoogleCommonButton'))
 			// Se trovo contenuto per il parametro "image" dello shortcode
 			// lo aggiungo prima del codice embed originale di google
 
-			if ($image != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if ($image != '') {
 				$HTML .= '<div class="sz-google-button-imgs">';
 				$HTML .= '<p><img src="'.$image.'" alt=""/></p>';
 				$HTML .= '</div>';
@@ -98,7 +98,7 @@ if (!class_exists('SZGoogleCommonButton'))
 			// Se trovo contenuto tra inizio e fine dello shortcode
 			// lo aggiungo prima del codice embed originale di google
 
-			if ($content != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if ($content != '') {
 				$HTML .= '<div class="sz-google-button-cont">';
 				$HTML .= $content;
 				$HTML .= '</div>';

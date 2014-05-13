@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-drive-viewer.jpg';
+$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-drive-viewer.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -43,6 +43,8 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 <table>
 	<tr><th>Parametro</th>     <th>Descrizione</th>             <th>Valori ammessi</th>    <th>Default</th></tr>
 	<tr><td>url</td>           <td>indirizzo URL completo</td>  <td>stringa</td>           <td>nessuno</td></tr>
+	<tr><td>width</td>         <td>larghezza</td>               <td>valore</td>            <td>configurazione</td></tr>
+	<tr><td>height</td>        <td>altezza</td>                 <td>valore</td>            <td>configurazione</td></tr>
 	<tr><td>title</td>         <td>aggiungere un titolo</td>    <td>stringa</td>           <td>nessuno</td></tr>
 	<tr><td>titleposition</td> <td>posizione del titolo</td>    <td>top,bottom</td>        <td>configurazione</td></tr>
 	<tr><td>titlealign</td>    <td>allineamento del titolo</td> <td>left,right,center</td> <td>configurazione</td></tr>

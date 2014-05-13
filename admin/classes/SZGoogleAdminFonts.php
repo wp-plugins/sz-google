@@ -20,7 +20,7 @@ if (!class_exists('SZGoogleAdminFonts'))
 		 * Definizione delle variabili che contengono le configurazioni
 		 * specifiche sulla creazione dell'istanza corrente
 		 */
-		protected $fontslist = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $fontslist = '';
 
 		/**
 		 * Creazione del menu sul pannello di amministrazione usando
@@ -127,17 +127,17 @@ if (!class_exists('SZGoogleAdminFonts'))
 			// Se ho già eseguito l'operazione di lista fonts ritorno
 			// array collegato alla variabile e salto elaborazione
 
-			if($this->fontslist != SZ_PLUGIN_GOOGLE_VALUE_NULL)
+			if($this->fontslist != '')
 				return $this->fontslist;
 
 			// Se è la prima volta che viene richiamata questa funziona
 			// eseguo l'elaborazione del file data in formato json con fonts
 
-			$file = file_get_contents(SZ_PLUGIN_GOOGLE_BASENAME_DATA.'webfonts.json');
+			$file = file_get_contents(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/data/webfonts.json');
 			$file = json_decode($file,true);
 
 			$this->fontslist = array(
-				SZ_PLUGIN_GOOGLE_FONTS_NULL => __('no fonts','szgoogleadmin')
+				'nofonts' => __('no fonts','szgoogleadmin')
 			);
 
 			foreach ($file['items'] as $key=>$name) {

@@ -21,8 +21,8 @@ if (!class_exists('SZGoogleActionGroups'))
 	class SZGoogleActionGroups extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode [sz-calendar] che permette di
-		 * eseguire un codice embed per il prodotto google calendar
+		 * Funzione per shortcode per widget gruppo che permette di
+		 * eseguire un codice embed per il prodotto google groups
 		 *
 		 * @return string
 		 */
@@ -101,7 +101,7 @@ if (!class_exists('SZGoogleActionGroups'))
 			// precedenti metto dei default assoluti che possono essere cambiati
 
 			if ($name == '') $name = $options['groups_name'];
-			if ($name == '') $name = SZ_PLUGIN_GOOGLE_GROUPS_NAME;
+			if ($name == '') $name = 'adsense-api';
 
 			// Se non sono riuscito ad assegnare nessun valore con le istruzioni
 			// precedenti metto dei default assoluti che possono essere cambiati
@@ -110,7 +110,7 @@ if (!class_exists('SZGoogleActionGroups'))
 			if ($height == '' or $height == '0' or !is_numeric($height)) $height = $options['groups_height'];
 
 			if ($width  == '' or $width  == '0' or !is_numeric($width))  $width  = '100%';
-			if ($height == '' or $height == '0' or !is_numeric($height)) $height = SZ_PLUGIN_GOOGLE_GROUPS_HEIGHT;
+			if ($height == '' or $height == '0' or !is_numeric($height)) $height = '700';
 
 			// Creazione codice HTML per embed code da inserire nella pagina wordpress
 			// prima praparo il codice del bottone singolo e poi chiamo funzione di wrapping

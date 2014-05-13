@@ -44,7 +44,7 @@ if (!class_exists('SZGoogleModuleFonts'))
 			// Controllo se devo attivare il sistema di caricamento per i fonts
 			// indicati nel pannello di amministrazione (attivi e con nome)
 
-			$testvalue = array(SZ_PLUGIN_GOOGLE_VALUE_NULL,SZ_PLUGIN_GOOGLE_FONTS_NULL);
+			$testvalue = array('','nofonts');
 
 			if (!in_array($options['fonts_family_L1_name'],$testvalue) or
 		    	!in_array($options['fonts_family_L2_name'],$testvalue) or
@@ -97,7 +97,7 @@ if (!class_exists('SZGoogleModuleFonts'))
 
 			$fontslist = array();
 			$fontsload = array();
-			$testvalue = array(SZ_PLUGIN_GOOGLE_VALUE_NULL,SZ_PLUGIN_GOOGLE_FONTS_NULL);
+			$testvalue = array('','nofonts');
 
 			if (!in_array($options['fonts_family_L1_name'],$testvalue)) $fontslist[] = $options['fonts_family_L1_name'];
 			if (!in_array($options['fonts_family_L2_name'],$testvalue)) $fontslist[] = $options['fonts_family_L2_name'];
@@ -141,7 +141,7 @@ if (!class_exists('SZGoogleModuleFonts'))
 		function moduleAddCSS()
 		{
 			$options = $this->getOptions();
-			$testvalue = array(SZ_PLUGIN_GOOGLE_VALUE_NULL,SZ_PLUGIN_GOOGLE_FONTS_NULL);
+			$testvalue = array('','nofonts');
 
 			echo "<style>\n";
 

@@ -53,6 +53,9 @@ if (!class_exists('SZGoogleModulePlus'))
 				'plus_post_enable_shortcode'        => array('sz-gplus-post'     ,array($this,'getPlusPostShortcode')),
 			));
 
+			// Definizione widget collegati al modulo con un array in cui bisogna
+			// specificare il nome opzione di attivazione e la classe da caricare
+
 			$this->moduleSetWidgets(array(
 				'plus_widget_pr_enable'             => 'SZGoogleWidgetPlusProfile',
 				'plus_widget_pa_enable'             => 'SZGoogleWidgetPlusPage',
@@ -78,7 +81,7 @@ if (!class_exists('SZGoogleModulePlus'))
 
 			foreach($this->moduleActions as $key=>$classname) 
 			{
-				if (isset($options->$key) and $options->$key == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+				if (isset($options->$key) and $options->$key == '1') {
 					add_action('init',array(new $classname($this),'addAction'));
 				}
 			}
@@ -86,10 +89,10 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Controllo se devo eseguire delle funzioni di redirect
 			// e aggiungo la funzione specifica al contesto (init)
 
-			if (	$options->plus_redirect_sign  == SZ_PLUGIN_GOOGLE_VALUE_YES or
-					$options->plus_redirect_plus  == SZ_PLUGIN_GOOGLE_VALUE_YES or
-					$options->plus_redirect_curl  == SZ_PLUGIN_GOOGLE_VALUE_YES or 
-					$options->plus_redirect_flush == SZ_PLUGIN_GOOGLE_VALUE_NO) 
+			if (	$options->plus_redirect_sign  == '1' or
+					$options->plus_redirect_plus  == '1' or
+					$options->plus_redirect_curl  == '1' or 
+					$options->plus_redirect_flush == '0') 
 			{
 				add_action('init',array($this,'addPlusRewriteRules'));
 			}
@@ -97,21 +100,21 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Controllo se devo attivare la sezione HEAD per author
 			// quindi aggiungere author ID nella configurazione generale
 
-			if ($options->plus_enable_author == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			if ($options->plus_enable_author == '1') {
 				add_action('SZ_HEAD',array($this,'moduleAddMetaAuthor'),20);
 			}
 
 			// Controllo se devo attivare la sezione HEAD per publisher
 			// quindi aggiungere publisher ID nella configurazione generale
 
-			if ($options->plus_enable_publisher == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			if ($options->plus_enable_publisher == '1') {
 				add_action('SZ_HEAD',array($this,'moduleAddMetaPublisher'),20);
 			}
 
 			// Controllo se devo attivare le raccomandazioni per mobile,
 			// quindi aggiungere publisher ID su codice javascript e sezione HEAD
 
-			if ($options->plus_enable_recommendations == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			if ($options->plus_enable_recommendations == '1') {
 				add_action('SZ_HEAD',array($this,'moduleAddMetaPublisher'),20);
 				$this->addCodeJavascriptFooter();
 			}
@@ -163,7 +166,7 @@ if (!class_exists('SZGoogleModulePlus'))
 
 			$options = $this->getOptions();
 
-			if (trim($options['plus_page']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if (trim($options['plus_page']) != '') {
 				echo '<link rel="publisher" href="https://plus.google.com/'.esc_attr(trim($options['plus_page'])).'"/>'."\n";
 			}
 		}
@@ -184,7 +187,7 @@ if (!class_exists('SZGoogleModulePlus'))
 
 			$options = $this->getOptions();
 
-			if (trim($options['plus_profile']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if (trim($options['plus_profile']) != '') {
 				echo '<link rel="author" href="https://plus.google.com/'.esc_attr(trim($options['plus_profile'])).'"/>'."\n";
 			}
 		}
@@ -198,18 +201,18 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusProfileShortcode($atts,$content=null) 
 		{
 			return $this->getPlusProfileCode(shortcode_atts(array(
-				'id'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'type'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
-				'align'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'layout'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
-				'theme'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
-				'cover'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
-				'tagline' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE,
-				'author'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR,
-				'text'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'image'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'  => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'id'      => '',
+				'type'    => '',
+				'width'   => '',
+				'align'   => '',
+				'layout'  => 'portrait',
+				'theme'   => 'light',
+				'cover'   => 'true',
+				'tagline' => 'true',
+				'author'  => 'false',
+				'text'    => '',
+				'image'   => '',
+				'action'  => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -227,19 +230,19 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'id'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'type'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'layout'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'theme'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'cover'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'tagline' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'author'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'image'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'id'      => '',
+				'type'    => '',
+				'width'   => '',
+				'align'   => '',
+				'layout'  => '',
+				'theme'   => '',
+				'cover'   => '',
+				'tagline' => '',
+				'author'  => '',
+				'action'  => '',
+				'text'    => '',
+				'image'   => '',
+				'action'  => '',
 			),$atts));
 
 			// Esecuzione del trim sui valori specificati nello shortcode
@@ -265,62 +268,62 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = trim($options['plus_profile']); }
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; $author = 'false'; }
+			if ($id == '') { $id = trim($options['plus_profile']); }
+			if ($id == '') { $id = '106189723444098348646'; $author = 'false'; }
 
 			// Controllo se azione di richiesta non è un widget posso conrollare i valori
 			// di default legati allo shortcode che sono gli stessi per la funzione PHP diretta
 
-			if ($action != SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
+			if ($action != 'widget') 
 			{
-				if ($layout  != 'portrait' and $layout  != 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-				if ($theme   != 'light'    and $theme   != 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-				if ($cover   != 'true'     and $cover   != 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
-				if ($tagline != 'true'     and $tagline != 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
-				if ($author  != 'true'     and $author  != 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_AUTHOR; 
+				if ($layout  != 'portrait' and $layout  != 'landscape') $layout  = 'portrait'; 
+				if ($theme   != 'light'    and $theme   != 'dark')      $theme   = 'light'; 
+				if ($cover   != 'true'     and $cover   != 'false')     $cover   = 'true'; 
+				if ($tagline != 'true'     and $tagline != 'false')     $tagline = 'true'; 
+				if ($author  != 'true'     and $author  != 'false')     $author  = 'false'; 
 
 			} else {
 
-				if ($layout  != 'portrait' and $layout  != 'landscape') $layout  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
-				if ($theme   != 'light'    and $theme   != 'dark')      $theme   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
-				if ($cover   != 'true'     and $cover   != 'false')     $cover   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
-				if ($tagline != 'true'     and $tagline != 'false')     $tagline = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
-				if ($author  != 'true'     and $author  != 'false')     $author  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_AUTHOR; 
+				if ($layout  != 'portrait' and $layout  != 'landscape') $layout  = 'portrait'; 
+				if ($theme   != 'light'    and $theme   != 'dark')      $theme   = 'light'; 
+				if ($cover   != 'true'     and $cover   != 'false')     $cover   = 'true'; 
+				if ($tagline != 'true'     and $tagline != 'false')     $tagline = 'true'; 
+				if ($author  != 'true'     and $author  != 'false')     $author  = 'false'; 
 			}
 
 			// Controllo la dimensione del widget se non specificata applico i valori
 			// di default specificati nel pannello di amministrazione o nelle costanti
 
-			if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width) and $width != 'auto') $width = '';
 
-			if ($action != SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
+			if ($action != 'widget') 
 			{
 				if ($layout == 'portrait') {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+					if ($width == '') $width = $options['plus_shortcode_size_portrait'];
+					if ($width == '') $width = '350';
 				} else {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_landscape'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE;
+					if ($width == '') $width = $options['plus_shortcode_size_landscape'];
+					if ($width == '') $width = '350';
 			}
 
 			} else {
 
 				if ($layout == 'portrait') {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+					if ($width == '') $width = $options['plus_widget_size_portrait'];
+					if ($width == '') $width = '180';
 				} else {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_landscape'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
+					if ($width == '') $width = $options['plus_widget_size_landscape'];
+					if ($width == '') $width = '275';
 				}
 			}
 
-			if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width) and $width != 'auto') $width = '';
 
 			// Controllo la dimensione del widget e controllo formale dei valori numerici
 			// se trovo qualche incongruenza applico i valori di default prestabiliti
 
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+			if ($width == 'auto') $width = "'+w+'";
+			if ($width == '') $width = "'+w+'";
 
 			$uniqueID = 'sz-google-profile-'.md5(uniqid(),false);
 
@@ -408,18 +411,18 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusPageShortcode($atts,$content=null) 
 		{
 			return $this->getPlusPageCode(shortcode_atts(array(
-				'id'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'type'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
-				'align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'layout'    => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
-				'theme'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
-				'cover'     => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER,
-				'tagline'   => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE,
-				'publisher' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER,
-				'text'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'image'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'    => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'id'        => '',
+				'type'      => '',
+				'width'     => '',
+				'align'     => '',
+				'layout'    => 'portrait',
+				'theme'     => 'light',
+				'cover'     => 'true',
+				'tagline'   => 'true',
+				'publisher' => 'false',
+				'text'      => '',
+				'image'     => '',
+				'action'    => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -437,19 +440,19 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'id'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'type'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'layout'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'theme'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'cover'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'tagline'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'publisher' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'image'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'id'        => '',
+				'type'      => '',
+				'width'     => '',
+				'align'     => '',
+				'layout'    => '',
+				'theme'     => '',
+				'cover'     => '',
+				'tagline'   => '',
+				'publisher' => '',
+				'action'    => '',
+				'text'      => '',
+				'image'     => '',
+				'action'    => '',
 			),$atts));
 
 			// Esecuzione trim su valori specificati su shortcode
@@ -475,62 +478,62 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = trim($options['plus_page']); }
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE; $publisher = 'false'; }
+			if ($id == '') { $id = trim($options['plus_page']); }
+			if ($id == '') { $id = '117259631219963935481'; $publisher = 'false'; }
 
 			// Controllo se azione di richiesta non è un widget posso conrollare i valori
 			// di default legati allo shortcode che sono gli stessi per la funzione PHP diretta
 
-			if ($action != SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
+			if ($action != 'widget') 
 			{
-				if ($layout    != 'portrait' and $layout    != 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-				if ($theme     != 'light'    and $theme     != 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-				if ($cover     != 'true'     and $cover     != 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_COVER; 
-				if ($tagline   != 'true'     and $tagline   != 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_TAGLINE; 
-				if ($publisher != 'true'     and $publisher != 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PUBLISHER; 
+				if ($layout    != 'portrait' and $layout    != 'landscape') $layout    = 'portrait'; 
+				if ($theme     != 'light'    and $theme     != 'dark')      $theme     = 'light'; 
+				if ($cover     != 'true'     and $cover     != 'false')     $cover     = 'true'; 
+				if ($tagline   != 'true'     and $tagline   != 'false')     $tagline   = 'true'; 
+				if ($publisher != 'true'     and $publisher != 'false')     $publisher = 'false'; 
 
 			} else {
 
-				if ($layout    != 'portrait' and $layout    != 'landscape') $layout    = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
-				if ($theme     != 'light'    and $theme     != 'dark')      $theme     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
-				if ($cover     != 'true'     and $cover     != 'false')     $cover     = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_COVER; 
-				if ($tagline   != 'true'     and $tagline   != 'false')     $tagline   = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_TAGLINE; 
-				if ($publisher != 'true'     and $publisher != 'false')     $publisher = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PUBLISHER; 
+				if ($layout    != 'portrait' and $layout    != 'landscape') $layout    = 'portrait'; 
+				if ($theme     != 'light'    and $theme     != 'dark')      $theme     = 'light'; 
+				if ($cover     != 'true'     and $cover     != 'false')     $cover     = 'true'; 
+				if ($tagline   != 'true'     and $tagline   != 'false')     $tagline   = 'true'; 
+				if ($publisher != 'true'     and $publisher != 'false')     $publisher = 'false'; 
 			}
 
 			// Controllo la dimensione del widget se non specificata applico i valori
 			// di default specificati nel pannello di amministrazione o nelle costanti
 
-			if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width) and $width != 'auto') $width = '';
 
-			if ($action != SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
+			if ($action != 'widget') 
 			{
 				if ($layout == 'portrait') {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+					if ($width == '') $width = $options['plus_shortcode_size_portrait'];
+					if ($width == '') $width = '350';
 				} else {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_landscape'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE;
+					if ($width == '') $width = $options['plus_shortcode_size_landscape'];
+					if ($width == '') $width = '350';
 				}
 
 			} else {
 
 				if ($layout == 'portrait') {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+					if ($width == '') $width = $options['plus_widget_size_portrait'];
+					if ($width == '') $width = '180';
 				} else {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_landscape'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
+					if ($width == '') $width = $options['plus_widget_size_landscape'];
+					if ($width == '') $width = '275';
 				}
 			}
 
-			if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width) and $width != 'auto') $width = '';
 
 			// Controllo la dimensione del widget e controllo formale dei valori numerici
 			// se trovo qualche incongruenza applico i valori di default prestabiliti
 
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+			if ($width == 'auto') $width = "'+w+'";
+			if ($width == '') $width = "'+w+'";
 
 			$uniqueID = 'sz-google-page-'.md5(uniqid(),false);
 
@@ -615,14 +618,14 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusCommunityShortcode($atts,$content=null) 
 		{
 			return $this->getPlusCommunityCode(shortcode_atts(array(
-				'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_WIDTH,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'layout' => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT,
-				'theme'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME,
-				'photo'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO,
-				'owner'  => SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'id'     => '',
+				'width'  => '',
+				'align'  => '',
+				'layout' => 'portrait',
+				'theme'  => 'light',
+				'photo'  => 'true',
+				'owner'  => 'false',
+				'action' => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -640,14 +643,14 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'layout' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'theme'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'photo'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'owner'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'id'     => '',
+				'width'  => '',
+				'align'  => '',
+				'layout' => '',
+				'theme'  => '',
+				'photo'  => '',
+				'owner'  => '',
+				'action' => '',
 			),$atts));
 
 			// Esecuzione trim su valori specificati su shortcode
@@ -668,60 +671,60 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = trim($options['plus_community']); }
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_COMMUNITY; }
+			if ($id == '') { $id = trim($options['plus_community']); }
+			if ($id == '') { $id = '109254048492234113886'; }
 
 			// Controllo se azione di richiesta non è un widget posso conrollare i valori
 			// di default legati allo shortcode che sono gli stessi per la funzione PHP diretta
 
-			if ($action != SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
+			if ($action != 'widget') 
 			{
-				if ($layout != 'portrait' and $layout != 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_LAYOUT; 
-				if ($theme  != 'light'    and $theme  != 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_THEME; 
-				if ($photo  != 'true'     and $photo  != 'false')     $photo  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_PHOTO; 
-				if ($owner  != 'true'     and $owner  != 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_OWNER; 
+				if ($layout != 'portrait' and $layout != 'landscape') $layout = 'portrait'; 
+				if ($theme  != 'light'    and $theme  != 'dark')      $theme  = 'light'; 
+				if ($photo  != 'true'     and $photo  != 'false')     $photo  = 'true'; 
+				if ($owner  != 'true'     and $owner  != 'false')     $owner  = 'false'; 
 
 			} else {
 
-				if ($layout != 'portrait' and $layout != 'landscape') $layout = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_LAYOUT; 
-				if ($theme  != 'light'    and $theme  != 'dark')      $theme  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_THEME; 
-				if ($photo  != 'true'     and $photo  != 'false')     $cover  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_PHOTO; 
-				if ($owner  != 'true'     and $owner  != 'false')     $owner  = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_OWNER; 
+				if ($layout != 'portrait' and $layout != 'landscape') $layout = 'portrait'; 
+				if ($theme  != 'light'    and $theme  != 'dark')      $theme  = 'light'; 
+				if ($photo  != 'true'     and $photo  != 'false')     $cover  = 'true'; 
+				if ($owner  != 'true'     and $owner  != 'false')     $owner  = 'false'; 
 			}
 
 			// Controllo la dimensione del widget se non specificata applico i valori
 			// di default specificati nel pannello di amministrazione o nelle costanti
 
-			if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width) and $width != 'auto') $width = '';
 
-			if ($action != SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) 
+			if ($action != 'widget') 
 			{
 				if ($layout == 'portrait') {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+					if ($width == '') $width = $options['plus_shortcode_size_portrait'];
+					if ($width == '') $width = '350';
 				} else {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_landscape'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE;
+					if ($width == '') $width = $options['plus_shortcode_size_landscape'];
+					if ($width == '') $width = '350';
 				}
 
 			} else {
 
 				if ($layout == 'portrait') {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+					if ($width == '') $width = $options['plus_widget_size_portrait'];
+					if ($width == '') $width = '180';
 				} else {
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_landscape'];
-					if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE;
+					if ($width == '') $width = $options['plus_widget_size_landscape'];
+					if ($width == '') $width = '275';
 				}
 			}
 
-			if (!is_numeric($width) and $width != SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width) and $width != 'auto') $width = '';
 
 			// Controllo la dimensione del widget e controllo formale dei valori numerici
 			// se trovo qualche incongruenza applico i valori di default prestabiliti
 
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+			if ($width == 'auto') $width = "'+w+'";
+			if ($width == '') $width = "'+w+'";
 
 			$uniqueID = 'sz-google-community-'.md5(uniqid(),false);
 
@@ -784,11 +787,11 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusFollowersShortcode($atts,$content=null) 
 		{
 			return $this->getPlusFollowersCode(shortcode_atts(array(
-				'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'height' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'id'     => '',
+				'width'  => '',
+				'height' => '',
+				'align'  => '',
+				'action' => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -806,11 +809,11 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'height' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'id'     => '117259631219963935481',
+				'width'  => '',
+				'height' => '',
+				'align'  => '',
+				'action' => '',
 			),$atts));
 
 			// Esecuzione trim su valori specificati su shortcode
@@ -828,37 +831,37 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_page']; }
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = $options['plus_profile']; }
+			if ($id == '') { $id = $options['plus_page']; }
+			if ($id == '') { $id = $options['plus_profile']; }
 
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE; }
-			if ($id == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $id = SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; }
+			if ($id == '') { $id = '117259631219963935481'; }
+			if ($id == '') { $id = '106189723444098348646'; }
 
 			// Controllo la dimensione del widget e controllo formale dei valori numerici
 			// se trovo qualche incongruenza applico i valori di default prestabiliti
 
-			if (!is_numeric($width)  and $width  != 'auto') $width  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-			if (!is_numeric($height) and $height != 'auto') $height = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width)  and $width  != 'auto') $width  = '';
+			if (!is_numeric($height) and $height != 'auto') $height = '';
 
-			if ($action != SZ_PLUGIN_GOOGLE_VALUE_TEXT_WIDGET) {
-				if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_shortcode_size_portrait'];
-				if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT;
+			if ($action != 'widget') {
+				if ($width == '') $width = $options['plus_shortcode_size_portrait'];
+				if ($width == '') $width = '350';
 			} else {
-				if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_widget_size_portrait'];
-				if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT;
+				if ($width == '') $width = $options['plus_widget_size_portrait'];
+				if ($width == '') $width = '180';
 			}
 
-			if (!is_numeric($width)  and $width  != 'auto') $width  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-			if (!is_numeric($height) and $height != 'auto') $height = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!is_numeric($width)  and $width  != 'auto') $width  = '';
+			if (!is_numeric($height) and $height != 'auto') $height = '';
 
 			// Controllo la dimensione del widget e controllo formale dei valori numerici
 			// se trovo qualche incongruenza applico i valori di default prestabiliti
 
-			if ($width  == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
-			if ($width  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
+			if ($width  == 'auto') $width = "'+w+'";
+			if ($width  == '') $width = "'+w+'";
 
-			if ($height == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $height = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_HEIGHT;
-			if ($height == SZ_PLUGIN_GOOGLE_VALUE_NULL) $height = SZ_PLUGIN_GOOGLE_PLUS_WIDGET_HEIGHT;
+			if ($height == 'auto') $height = '300';
+			if ($height == '') $height = '300';
 
 			$uniqueID = 'sz-google-followers-'.md5(uniqid(),false);
 
@@ -914,21 +917,21 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusPlusoneShortcode($atts,$content=null) 
 		{
 			return $this->getPlusPlusoneCode(shortcode_atts(array(
-				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'       => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'url'          => '',
+				'size'         => '',
+				'width'        => '',
+				'annotation'   => '',
+				'float'        => '',
+				'align'        => '',
+				'text'         => '',
+				'img'          => '',
+				'position'     => '',
+				'margintop'    => '',
+				'marginright'  => '',
+				'marginbottom' => '',
+				'marginleft'   => '',
+				'marginunit'   => '',
+				'action'       => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -955,21 +958,21 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'          => '',
+				'size'         => '',
+				'width'        => '',
+				'annotation'   => '',
+				'float'        => '',
+				'align'        => '',
+				'text'         => '',
+				'img'          => '',
+				'position'     => '',
+				'margintop'    => '',
+				'marginright'  => '',
+				'marginbottom' => '',
+				'marginleft'   => '',
+				'marginunit'   => '',
+				'action'       => '',
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -1002,13 +1005,13 @@ if (!class_exists('SZGoogleModulePlus'))
 
 			// Se non specifico un URL fisso imposto il permalink attuale
 
-			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = get_permalink();
+			if ($url == '') $url = get_permalink();
 
 			// Creazione codice HTML per embed code da inserire nella pagina wordpress
 
 			$HTML  = '<div class="g-plusone"';
 
-			if ($width != SZ_PLUGIN_GOOGLE_VALUE_NULL) $HTML .= ' data-width="'.$width.'"';
+			if ($width != '') $HTML .= ' data-width="'.$width.'"';
 			if ($align == 'right') $HTML .= ' data-align="right"';
 
 			$HTML .= ' data-href="'      .$url       .'"';
@@ -1029,7 +1032,7 @@ if (!class_exists('SZGoogleModulePlus'))
 				'marginbottom' => $marginbottom,
 				'marginleft'   => $marginleft,
 				'marginunit'   => $marginunit,
-				'class'        => SZ_PLUGIN_GOOGLE_PLUS_CLASS_PLUSONE,
+				'class'        => 'sz-google-plusone',
 			));
 
 			// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
@@ -1052,21 +1055,21 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusShareShortcode($atts,$content=null) 
 		{
 			return $this->getPlusShareCode(shortcode_atts(array(
-				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'       => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'url'          => '',
+				'size'         => '',
+				'width'        => '',
+				'annotation'   => '',
+				'float'        => '',
+				'align'        => '',
+				'text'         => '',
+				'img'          => '',
+				'position'     => '',
+				'margintop'    => '',
+				'marginright'  => '',
+				'marginbottom' => '',
+				'marginleft'   => '',
+				'marginunit'   => '',
+				'action'       => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -1093,21 +1096,21 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'          => '',
+				'size'         => '',
+				'width'        => '',
+				'annotation'   => '',
+				'float'        => '',
+				'align'        => '',
+				'text'         => '',
+				'img'          => '',
+				'position'     => '',
+				'margintop'    => '',
+				'marginright'  => '',
+				'marginbottom' => '',
+				'marginleft'   => '',
+				'marginunit'   => '',
+				'action'       => '',
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -1140,7 +1143,7 @@ if (!class_exists('SZGoogleModulePlus'))
 
 			// Se non specifico un URL fisso imposto il permalink attuale
 
-			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = get_permalink();
+			if ($url == '') $url = get_permalink();
 
 			// Preparazione codice HTML per il badge di google plus
 
@@ -1170,7 +1173,7 @@ if (!class_exists('SZGoogleModulePlus'))
 				'marginbottom' => $marginbottom,
 				'marginleft'   => $marginleft,
 				'marginunit'   => $marginunit,
-				'class'        => SZ_PLUGIN_GOOGLE_PLUS_CLASS_SHARE,
+				'class'        => 'sz-google-share',
 			));
 
 			// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
@@ -1193,22 +1196,22 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusFollowShortcode($atts,$content=null) 
 		{
 			return $this->getPlusFollowCode(shortcode_atts(array(
-				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'rel'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'       => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'url'          => '',
+				'size'         => '',
+				'width'        => '',
+				'annotation'   => '',
+				'float'        => '',
+				'align'        => '',
+				'text'         => '',
+				'img'          => '',
+				'rel'          => '',
+				'position'     => '',
+				'margintop'    => '',
+				'marginright'  => '',
+				'marginbottom' => '',
+				'marginleft'   => '',
+				'marginunit'   => '',
+				'action'       => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -1236,22 +1239,22 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'url'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'size'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'annotation'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'float'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'        => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'text'         => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'img'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'rel'          => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'position'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'margintop'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginright'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginbottom' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginleft'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'marginunit'   => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'       => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'          => '',
+				'size'         => '',
+				'width'        => '',
+				'annotation'   => '',
+				'float'        => '',
+				'align'        => '',
+				'text'         => '',
+				'img'          => '',
+				'rel'          => '',
+				'position'     => '',
+				'margintop'    => '',
+				'marginright'  => '',
+				'marginbottom' => '',
+				'marginleft'   => '',
+				'marginunit'   => '',
+				'action'       => '',
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -1291,11 +1294,11 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
-			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.$options['plus_page']; }
-			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.$options['plus_profile']; }
+			if ($url == '') { $url = 'https://plus.google.com/'.$options['plus_page']; }
+			if ($url == '') { $url = 'https://plus.google.com/'.$options['plus_profile']; }
 
-			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PAGE;    $rel = SZ_PLUGIN_GOOGLE_VALUE_NULL; }
-			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) { $url = 'https://plus.google.com/'.SZ_PLUGIN_GOOGLE_PLUS_ID_PROFILE; $rel = SZ_PLUGIN_GOOGLE_VALUE_NULL; }
+			if ($url == '') { $url = 'https://plus.google.com/'.'117259631219963935481'; $rel = ''; }
+			if ($url == '') { $url = 'https://plus.google.com/'.'106189723444098348646'; $rel = ''; }
 
 			// Elimino dal path i riferimenti aggiunti ai link di navigazione e 
 			// riporto il link originale di google plus, senza /u/0/b etc etc
@@ -1331,7 +1334,7 @@ if (!class_exists('SZGoogleModulePlus'))
 				'marginbottom' => $marginbottom,
 				'marginleft'   => $marginleft,
 				'marginunit'   => $marginunit,
-				'class'        => SZ_PLUGIN_GOOGLE_PLUS_CLASS_FOLLOW,
+				'class'        => 'sz-google-follow',
 			));
 
 			// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
@@ -1354,15 +1357,15 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusCommentsShortcode($atts,$content=null) 
 		{
 			return $this->getPlusCommentsCode(shortcode_atts(array(
-				'url'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'title'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class0' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class1' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class2' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'url'    => '',
+				'id'     => '',
+				'width'  => '',
+				'align'  => '',
+				'title'  => '',
+				'class0' => '',
+				'class1' => '',
+				'class2' => '',
+				'action' => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -1380,15 +1383,16 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 			
 			extract(shortcode_atts(array(
-				'url'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'id'     => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'title'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class0' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class1' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class2' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'     => '',
+				'id'      => '',
+				'width'   => '',
+				'align'   => '',
+				'title'   => '',
+				'class0'  => '',
+				'class1'  => '',
+				'class2'  => '',
+				'element' => '',
+				'action'  => '',
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -1398,34 +1402,35 @@ if (!class_exists('SZGoogleModulePlus'))
 
 			$uniqueID = 'sz-google-comments-'.md5(uniqid(),false);
 
-			$url    = trim($url);
-			$title  = trim($title);
-			$class0 = trim($class0);
-			$class1 = trim($class1);
-			$class2 = trim($class2);
+			$url     = trim($url);
+			$title   = trim($title);
+			$class0  = trim($class0);
+			$class1  = trim($class1);
+			$class2  = trim($class2);
+			$element = trim($element);
 
-			$width  = strtolower(trim($width));
-			$align  = strtolower(trim($align));
-
-			// Controllo opzione per dimensione fissa da applicare se esiste 
-			// un valore specificato e il parametro width non è stato specificato. 
-
-			if (!is_numeric($width) and $width != 'auto') $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = $options['plus_comments_fixed_size'];
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = SZ_PLUGIN_GOOGLE_VALUE_AUTO;
-
-			if (!is_numeric($width) and $width != 'auto') $width = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			$width   = strtolower(trim($width));
+			$align   = strtolower(trim($align));
 
 			// Controllo opzione per dimensione fissa da applicare se esiste 
 			// un valore specificato e il parametro width non è stato specificato. 
 
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_NULL) $width = "'+w+'";
-			if ($width == SZ_PLUGIN_GOOGLE_VALUE_AUTO) $width = "'+w+'";
+			if (!is_numeric($width) and $width != 'auto') $width = '';
+
+			if ($width == '') $width = $options['plus_comments_fixed_size'];
+			if ($width == '') $width = 'auto';
+
+			if (!is_numeric($width) and $width != 'auto') $width = '';
+
+			// Controllo opzione per dimensione fissa da applicare se esiste 
+			// un valore specificato e il parametro width non è stato specificato. 
+
+			if ($width == '') $width = "'+w+'";
+			if ($width == 'auto') $width = "'+w+'";
 
 			// Se non specifico un URL fisso imposto il permalink attuale
 
-			if ($url == SZ_PLUGIN_GOOGLE_VALUE_NULL) $url = get_permalink();
+			if ($url == '') $url = get_permalink();
 
 			// Elimino dal path i riferimenti aggiunti ai link di navigazione e 
 			// riporto il link originale di google plus, senza /u/0/b etc etc
@@ -1435,7 +1440,7 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Controllo il valore del titolo per i commenti di google plus
 			// ignoro il parametro se il componente appartiene ad un widget
 
-			if ($action == SZ_PLUGIN_GOOGLE_VALUE_TEXT_TEMPLATE) 
+			if ($action == 'template') 
 			{
 				if (empty($title)) $title = trim($options['plus_comments_title']);
 				if (empty($title)) $title = '<h3>{title}</h3>';
@@ -1464,6 +1469,14 @@ if (!class_exists('SZGoogleModulePlus'))
 			if ($align == 'right')  $HTML .= 'text-align:right;';
 
 			$HTML .= '">';
+
+			// Cambio identificativo del componente HTML si cui bisogna
+			// calcolare la dimensione se viene specificato "element"
+
+			if ($element != '') $uniqueID = $element;
+
+			// Codice javascript per inserire il codice HTML che 
+			// identifica il contenitore dei commenti di google plus
 
 			$HTML .= '<script type="text/javascript">';
 			$HTML .= "var w=document.getElementById('".$uniqueID."').offsetWidth;";
@@ -1504,9 +1517,9 @@ if (!class_exists('SZGoogleModulePlus'))
 		function getPlusPostShortcode($atts,$content=null) 
 		{
 			return $this->getPlusPostCode(shortcode_atts(array(
-				'url'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'url'    => '',
+				'align'  => '',
+				'action' => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -1524,9 +1537,9 @@ if (!class_exists('SZGoogleModulePlus'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'url'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'align'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'url'    => '',
+				'align'  => '',
+				'action' => '',
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -1538,7 +1551,7 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Se non specifico un URL valido per la creazione del bottone
 			// esco dalla funzione e ritorno una stringa vuota
 
-			if (empty($url)) { return SZ_PLUGIN_GOOGLE_VALUE_NULL; }
+			if (empty($url)) { return ''; }
 
 			// Elimino dal path i riferimenti aggiunti ai link di navigazione e 
 			// riporto il link originale di google plus, senza /u/0/b etc etc
@@ -1605,9 +1618,9 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Se trovo almeno una opzione di redirect attiva ma il permalink
 			// risulta disattivo mando un messaggio di informazione in bacheca
 
-			if ($options['plus_redirect_sign'] == SZ_PLUGIN_GOOGLE_VALUE_YES or
-				$options['plus_redirect_plus'] == SZ_PLUGIN_GOOGLE_VALUE_YES or
-				$options['plus_redirect_curl'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+			if ($options['plus_redirect_sign'] == '1' or
+				$options['plus_redirect_plus'] == '1' or
+				$options['plus_redirect_curl'] == '1') 
 			{
 				if (!get_option('permalink_structure')) { 
 					if (is_admin()) add_action('admin_notices',array($this,'addAdminNoticesRewrite'));
@@ -1616,23 +1629,23 @@ if (!class_exists('SZGoogleModulePlus'))
 
 			// Controllo REDIRECT per url con la stringa "+"
 
-			if ($options['plus_redirect_sign'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			if ($options['plus_redirect_sign'] == '1') {
 				add_rewrite_rule('^\+$','index.php?szgoogleplusredirectsign=1','top');		
 				$wp->add_query_var('szgoogleplusredirectsign');
 			}
 
 			// Controllo REDIRECT per url con la stringa "plus"
 
-			if ($options['plus_redirect_plus'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			if ($options['plus_redirect_plus'] == '1') {
 				add_rewrite_rule('^plus$','index.php?szgoogleplusredirectplus=1','top');		
 				$wp->add_query_var('szgoogleplusredirectplus');
 			}
 
 			// Controllo REDIRECT per url con la stringa "URL"
 
-			if ($options['plus_redirect_curl'] == SZ_PLUGIN_GOOGLE_VALUE_YES) {
-				if (trim($options['plus_redirect_curl_dir']) != SZ_PLUGIN_GOOGLE_VALUE_NULL and 
-					trim($options['plus_redirect_curl_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {
+			if ($options['plus_redirect_curl'] == '1') {
+				if (trim($options['plus_redirect_curl_dir']) != '' and 
+					trim($options['plus_redirect_curl_url']) != '') {
 					add_rewrite_rule('^'. preg_quote(trim($options['plus_redirect_curl_dir'])).'$','index.php?szgoogleplusredirectcurl=1','top');		
 					$wp->add_query_var('szgoogleplusredirectcurl');
 				}
@@ -1641,9 +1654,9 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Se opzione di flush è disattivata eseguo il flush_rules ed eseguo
 			// la modifica dell'opzione al valore "1" per non ripetere l'operazione
 
-			if ($options['plus_redirect_flush'] == SZ_PLUGIN_GOOGLE_VALUE_NO) 
+			if ($options['plus_redirect_flush'] == '0') 
 			{
-				$options['plus_redirect_flush'] = SZ_PLUGIN_GOOGLE_VALUE_YES;
+				$options['plus_redirect_flush'] = '1';
 				update_option('sz_google_options_plus',$options);
 				add_action('wp_loaded',array('SZGoogleCommon','rewriteFlushRules'));
 			}
@@ -1666,7 +1679,7 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Controllo REDIRECT per url con la stringa "+"
 
 			if (array_key_exists('szgoogleplusredirectsign',$wp->query_vars)) {
-				if (trim($options['plus_redirect_sign_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+				if (trim($options['plus_redirect_sign_url']) != '') {   
 					header('HTTP/1.1 301 Moved Permanently');
  					header('Location:'.trim($options['plus_redirect_sign_url']));
 					exit();
@@ -1676,7 +1689,7 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Controllo REDIRECT per url con la stringa "plus"
 	
 			if (array_key_exists('szgoogleplusredirectplus',$wp->query_vars)) {
-				if (trim($options['plus_redirect_plus_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+				if (trim($options['plus_redirect_plus_url']) != '') {   
 					header('HTTP/1.1 301 Moved Permanently');
 					header('Location:'.trim($options['plus_redirect_plus_url']));
 					exit();
@@ -1686,7 +1699,7 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Controllo REDIRECT per url con la stringa "URL"
 	
 			if (array_key_exists('szgoogleplusredirectcurl',$wp->query_vars)) {
-				if (trim($options['plus_redirect_curl_url']) != SZ_PLUGIN_GOOGLE_VALUE_NULL) {   
+				if (trim($options['plus_redirect_curl_url']) != '') {   
 					header('HTTP/1.1 301 Moved Permanently');
 					header('Location:'.trim($options['plus_redirect_curl_url']));
 					exit();

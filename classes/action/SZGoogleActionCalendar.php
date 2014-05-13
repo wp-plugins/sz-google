@@ -21,7 +21,7 @@ if (!class_exists('SZGoogleActionCalendar'))
 	class SZGoogleActionCalendar extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode [sz-calendar] che permette di
+		 * Funzione per shortcode widget calendario che permette di
 		 * eseguire un codice embed per il prodotto google calendar
 		 *
 		 * @return string

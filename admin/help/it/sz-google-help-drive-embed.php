@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-drive-embed.jpg';
+$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-drive-embed.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -45,6 +45,8 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 	<tr><th>Parametro</th>    <th>Descrizione</th>              <th>Valori ammessi</th>         <th>Default</th></tr>
 	<tr><td>type</td>         <td>tipo documento</td>           <td>document,folder,spreadsheet,<br/>presentation,forms,pdf,video</td> <td>document</td></tr>
 	<tr><td>id</td>           <td>id univoco documento</td>     <td>stringa</td>                <td>nessuno</td></tr>
+	<tr><td>width</td>        <td>larghezza</td>                <td>valore</td>                 <td>configurazione</td></tr>
+	<tr><td>height</td>       <td>altezza</td>                  <td>valore</td>                 <td>configurazione</td></tr>
 	<tr><td>single</td>       <td>spreadsheet singolo</td>      <td>true,false</td>             <td>false</td></tr>
 	<tr><td>gid</td>          <td>spreadsheet id</td>           <td>0,1,2,3,4,5,6 etc</td>      <td>0</td></tr>
 	<tr><td>range</td>        <td>spreadsheet range</td>        <td>stringa</td>                <td>nessuno</td></tr>

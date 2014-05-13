@@ -77,9 +77,8 @@ if (!class_exists('SZGoogleWidgetYoutubeVideo'))
 			// Creazione del codice HTML per il widget attuale richiamando la
 			// funzione base che viene richiamata anche dallo shortcode corrispondente
 
-			if ($object = SZGoogleModule::getObject('SZGoogleModuleYoutube')) {
-				$HTML = $object->getYoutubeVideoCode($options);
-			}
+			$OBJC = new SZGoogleActionYoutubeVideo();
+			$HTML = $OBJC->getHTMLCode($options);
 
 			// Output del codice HTML legato al widget da visualizzare
 			// chiamata alla funzione generale per wrap standard

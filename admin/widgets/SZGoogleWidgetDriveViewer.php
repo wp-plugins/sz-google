@@ -46,8 +46,8 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
-		szgoogle_checks_hidden_onload('SZGoogleWidgetDriveViewer');
-		szgoogle_switch_hidden_onload('SZGoogleWidgetDriveViewer');
-		szgoogle_upload_select_media();
+		if (typeof(szgoogle_checks_hidden_onload) == 'function') { szgoogle_checks_hidden_onload('SZGoogleWidgetDriveViewer'); }
+		if (typeof(szgoogle_switch_hidden_onload) == 'function') { szgoogle_switch_hidden_onload('SZGoogleWidgetDriveViewer'); }
+		if (typeof(szgoogle_upload_select_media)  == 'function') { szgoogle_upload_select_media(); }
 	});
 </script>

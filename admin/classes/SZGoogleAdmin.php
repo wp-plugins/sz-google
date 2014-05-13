@@ -20,25 +20,25 @@ if (!class_exists('SZGoogleAdmin'))
 		 * Definizione delle variabili che contengono le configurazioni
 		 * da applicare alle varie chiamate delle funzioni wordpress
 		 */
-		protected $null            = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $pagetitle       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $menutitle       = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $menuslug        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $capability      = SZ_PLUGIN_GOOGLE_VALUE_CAPABILITY;
-		protected $parentslug      = SZ_PLUGIN_GOOGLE_VALUE_ADMIN_SLUG;
-		protected $titlefix        = SZ_PLUGIN_GOOGLE_VALUE_TITLEFIX;
-		protected $sections        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $sectionsmenu    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $sectionsfields  = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $sectionstabs    = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $sectionstitle   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $sectionsoptions = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $validate        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $callback        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $callbackstart   = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $callbacksection = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $formHTML        = SZ_PLUGIN_GOOGLE_VALUE_NULL;
-		protected $formsavebutton  = SZ_PLUGIN_GOOGLE_VALUE_YES;
+		protected $null            = '';
+		protected $pagetitle       = '';
+		protected $menutitle       = '';
+		protected $menuslug        = '';
+		protected $capability      = 'manage_options';
+		protected $parentslug      = 'sz-google-admin.php';
+		protected $titlefix        = 'SZ-Google - ';
+		protected $sections        = '';
+		protected $sectionsmenu    = '';
+		protected $sectionsfields  = '';
+		protected $sectionstabs    = '';
+		protected $sectionstitle   = '';
+		protected $sectionsoptions = '';
+		protected $validate        = '';
+		protected $callback        = '';
+		protected $callbackstart   = '';
+		protected $callbacksection = '';
+		protected $formHTML        = '';
+		protected $formsavebutton  = '1';
 
 		/**
 		 * Definizione della funzione costruttore che viene richiamata
@@ -195,7 +195,7 @@ if (!class_exists('SZGoogleAdmin'))
 			// Se la chiamata contiene un array di documentazione posso disattivare
 			// il form per la modifica di parametri dato che si tratta di solo lettura
 
-			if ($formsavebutton == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			if ($formsavebutton == '1') {
 				echo '<form method="post" action="options.php" enctype="multipart/form-data">';
 				echo '<input type="hidden" name="sz_google_options_plus[plus_redirect_flush]" value="0">';
 			}
@@ -203,7 +203,7 @@ if (!class_exists('SZGoogleAdmin'))
 			// Se la chiamata non contiene un array di documentazione eseguo
 			// la creazione del codice HTML con tutti i campi opzione da modificare
 
-			if ($HTML != SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+			if ($HTML != '') 
 			{
 				echo '<div class="postbox">'; 
 				echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
@@ -285,7 +285,7 @@ if (!class_exists('SZGoogleAdmin'))
 			// Se la chiamata contiene un array di documentazione posso disattivare
 			// il form per la modifica di parametri dato che si tratta di solo lettura
 
-			if ($formsavebutton == SZ_PLUGIN_GOOGLE_VALUE_YES) {
+			if ($formsavebutton == '1') {
 				echo '<p class="submit"><input name="Submit" type="submit" class="button-primary" value="'.ucfirst(__('save changes','szgoogleadmin')).'"/></p>';
 				echo '</form>';
 			}
@@ -321,7 +321,7 @@ if (!class_exists('SZGoogleAdmin'))
 			echo '<div class="handlediv" title="'.ucfirst(__('click to toggle','szgoogleadmin')).'"><br></div>';
 			echo '<h3 class="hndle"><span><strong>'.ucwords(__('official page','szgoogleadmin')).'</strong></span></h3>';
 			echo '<div class="inside">';
-			echo '<a target="_blank" href="https://plus.google.com/+wpitalyplus"><img src="'.SZ_PLUGIN_GOOGLE_PATH_FRONT_IMAGE.'wpitalyplus.png'.'" alt="WordPress Italy+" style="width:100%;height:auto;vertical-align:bottom;"></a>';
+			echo '<a target="_blank" href="https://plus.google.com/+wpitalyplus"><img src="'.plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'frontend/files/images/wpitalyplus.png'.'" alt="WordPress Italy+" style="width:100%;height:auto;vertical-align:bottom;"></a>';
 			echo '</div>';
 			echo '</div>';
 
@@ -392,7 +392,7 @@ if (!class_exists('SZGoogleAdmin'))
 		{	
 			$options = get_option($optionset);
 
-			if (!isset($options[$name])) $options[$name] = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+			if (!isset($options[$name])) $options[$name] = '';
 				else $options[$name] =  esc_html($options[$name]);
 
 			echo '<input name="'.$optionset.'['.$name.']" type="text" class="'.$class.'" ';

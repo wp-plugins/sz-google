@@ -21,8 +21,8 @@ if (!class_exists('SZGoogleActionDriveSave'))
 	class SZGoogleActionDriveSave extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode [sz-calendar] che permette di
-		 * eseguire un codice embed per il prodotto google calendar
+		 * Funzione per shortcode drive save che permette di
+		 * eseguire un codice embed per il prodotto google drive
 		 *
 		 * @return string
 		 */
@@ -106,7 +106,7 @@ if (!class_exists('SZGoogleActionDriveSave'))
 			if (!in_array($position,array('top','center','bottom','outside'))) $position = $DEFAULT_POSITION; 
 
 			if (empty($sitename)) $sitename = get_bloginfo('name'); 
-			if (empty($sitename)) $sitename = SZ_PLUGIN_GOOGLE_DRIVE_SITENAME; 
+			if (empty($sitename)) $sitename = 'Website'; 
 			if (empty($filename)) $filename = basename($url);
 
 			// Calcolo il nome host attuale di wordpress in maniera da preparare

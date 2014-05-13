@@ -20,7 +20,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		 * Definizione delle variabili che contengono le configurazioni
 		 * da applicare alle varie elaborazione della classe attuale
 		 */
-		protected $HelpIndexItems = SZ_PLUGIN_GOOGLE_VALUE_NULL;
+		protected $HelpIndexItems = '';
 
 		/**
 		 * Creazione del menu sul pannello di amministrazione usando
@@ -58,7 +58,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 
 			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = 'sz_google_options_documentation';
-			$this->formsavebutton  = SZ_PLUGIN_GOOGLE_VALUE_NO;
+			$this->formsavebutton  = '0';
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione
@@ -114,9 +114,9 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			if (isset($_GET['help'])) 
 			{
 				$LANGUAGE = get_bloginfo('language');
-				$FILENAM1 = SZ_PLUGIN_GOOGLE_BASENAME_HELP.$LANGUAGE.'/'.trim($_GET['help']);
-				$FILENAM2 = SZ_PLUGIN_GOOGLE_BASENAME_HELP.substr($LANGUAGE,0,2).'/'.trim($_GET['help']);
-				$FILENAM3 = SZ_PLUGIN_GOOGLE_BASENAME_HELP.'en/'.trim($_GET['help']);
+				$FILENAM1 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/'.$LANGUAGE.'/'.trim($_GET['help']);
+				$FILENAM2 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/'.substr($LANGUAGE,0,2).'/'.trim($_GET['help']);
+				$FILENAM3 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/en/'.trim($_GET['help']);
 
 				if (is_readable($FILENAM1)) { @include($FILENAM1); return; }
 				if (is_readable($FILENAM2)) { @include($FILENAM2); return; }
@@ -171,7 +171,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			foreach ($options as $key => $value) 
 			{
 				echo '<div class="help-items">';
-				echo '<div class="help-image"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'"><img src="'.SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'help/'.basename($value['slug'],".php").'.png" alt=""></a></div>';
+				echo '<div class="help-image"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'"><img src="'.plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/help/'.basename($value['slug'],".php").'.png" alt=""></a></div>';
 				echo '<div class="help-title"><a href="'.menu_page_url($this->menuslug,false).'&amp;help='.$value['slug'].'">'.ucwords($value['title']).'</a></div>';
 				echo '</div>';
 			}
@@ -313,7 +313,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		 * il tab delle reviews presente nella documentazione del plugin
 		 */
 		function moduleAddHelpReviews() {
-			@include(SZ_PLUGIN_GOOGLE_BASENAME_TEMPLATE_ADMIN.'sz-google-template-reviews.php');
+			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/templates/sz-google-template-reviews.php');
 		}
 
 		/**

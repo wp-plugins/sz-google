@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-youtube-playlist.jpg';
+$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-youtube-playlist.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -43,15 +43,27 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 <h2>Parametri e opzioni</h2>
 
 <table>
-	<tr><th>Parametro</th>    <th>Descrizione</th>         <th>Valori ammessi</th>  <th>default</th></tr>
-	<tr><td>id</td>           <td>youtube playlist ID</td> <td>stringa</td>         <td>null</td></tr>
-	<tr><td>width</td>        <td>larghezza in pixel</td>  <td>valore,auto</td>     <td>configurazione</td></tr>
-	<tr><td>height</td>       <td>altezza in pixel</td>    <td>valore,auto</td>     <td>configurazione</td></tr>
-	<tr><td>margintop</td>    <td>margine alto</td>        <td>valore</td>          <td>configurazione</td></tr>
-	<tr><td>marginright</td>  <td>margine destro</td>      <td>valore</td>          <td>configurazione</td></tr>
-	<tr><td>marginbottom</td> <td>margine basso</td>       <td>valore</td>          <td>configurazione</td></tr>
-	<tr><td>marginleft</td>   <td>margine sinistro</td>    <td>valore</td>          <td>configurazione</td></tr>
-	<tr><td>marginunit</td>   <td>misura per margine</td>  <td>px,em</td>           <td>configurazione</td></tr>
+	<tr><th>Parametro</th>       <th>Descrizione</th>                 <th>Valori ammessi</th> <th>default</th></tr>
+	<tr><td>id</td>              <td>youtube playlist ID</td>         <td>stringa</td>        <td>null</td></tr>
+	<tr><td>responsive</td>      <td>modalità responsive</td>         <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>width</td>           <td>larghezza in pixel</td>          <td>valore</td>         <td>configurazione</td></tr>
+	<tr><td>height</td>          <td>altezza in pixel</td>            <td>valore</td>         <td>configurazione</td></tr>
+	<tr><td>margintop</td>       <td>margine alto</td>                <td>valore</td>         <td>configurazione</td></tr>
+	<tr><td>marginright</td>     <td>margine destro</td>              <td>valore</td>         <td>configurazione</td></tr>
+	<tr><td>marginbottom</td>    <td>margine basso</td>               <td>valore</td>         <td>configurazione</td></tr>
+	<tr><td>marginleft</td>      <td>margine sinistro</td>            <td>valore</td>         <td>configurazione</td></tr>
+	<tr><td>marginunit</td>      <td>misura per margine</td>          <td>px,em</td>          <td>configurazione</td></tr>
+	<tr><td>autoplay</td>        <td>attivazione autoplay</td>        <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>loop</td>            <td>attivazione loop</td>            <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>fullscreen</td>      <td>schermo intero</td>              <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>disablekeyboard</td> <td>disabilitare tastiera</td>       <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>theme</td>           <td>nome del tema</td>               <td>dark,light</td>     <td>configurazione</td></tr>
+	<tr><td>cover</td>           <td>immagine copertina</td>          <td>local,URL,ID</td>   <td>configurazione</td></tr>
+	<tr><td>title</td>           <td>titolo del video</td>            <td>stringa</td>        <td>configurazione</td></tr>
+	<tr><td>disableiframe</td>   <td>disattivare IFRAME</td>          <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>analytics</td>       <td>google analytics</td>            <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>delayed</td>         <td>caricamento ritardato</td>       <td>y=yes,n=no</td>     <td>configurazione</td></tr>
+	<tr><td>disablerelated</td>  <td>disattivare video correlati</td> <td>y=yes,n=no</td>     <td>configurazione</td></tr>
 </table>
 
 <h2>Esempio shortcode</h2>

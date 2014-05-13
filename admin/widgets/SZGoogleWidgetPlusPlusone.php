@@ -116,7 +116,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
-		szgoogle_switch_hidden_onload('SZGoogleWidgetPlusPlusone');
-		szgoogle_upload_select_media();
+		if (typeof(szgoogle_switch_hidden_onload) == 'function') { szgoogle_switch_hidden_onload('SZGoogleWidgetPlusPlusone'); }
+		if (typeof(szgoogle_upload_select_media)  == 'function') { szgoogle_upload_select_media(); }
 	});
 </script>

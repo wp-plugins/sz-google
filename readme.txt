@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -322,11 +322,21 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 1.7.5 =
+* Fix: Documentation drive embed.
+* Fix: Documentation drive viewer.
+* Fix: Margin configuration youtube playlist.
+* Feature: Youtube playlist add responsive.
+* Feature: Youtube playlist add more options.
+* Feature: Youtube playlist object oriented.
+* Feature: Youtube badge with sidebar widget.
+
 = Version 1.7.4 =
 * Fix: Widget Live for Wordpress 3.9 release.
 * Fix: Active any option after disable plugin.
 * Feature: Google+ automatic author badge.
-* Feature: New model developer for object.
+* Feature: New model developer for objects.
+* Feature: New model developer for widgets.
 
 = Version 1.7.3 =
 * Feature: Google Drive embed forms.

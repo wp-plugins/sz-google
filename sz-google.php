@@ -4,7 +4,7 @@ Plugin Name: SZ - Google
 Plugin URI: https://wpitalyplus.com/sz-google/
 Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.7.4
+Version: 1.7.5
 Author URI: https://plus.google.com/+MassimoDellaRovere
 License: GPLv2 or later
 Copyright 2012-2014 startbyzero (email: webmaster@startbyzero.com)
@@ -37,7 +37,7 @@ if (!defined('ABSPATH')) die("Accesso diretto al file non permesso");
 
 define('SZ_PLUGIN_GOOGLE',true);
 define('SZ_PLUGIN_GOOGLE_MAIN',__FILE__);
-define('SZ_PLUGIN_GOOGLE_VERSION','1.7.4');
+define('SZ_PLUGIN_GOOGLE_VERSION','1.7.5');
 
 // Il plugin necessita di alcuni controllo sugli utenti collegati prima che questi
 // vengano caricati dal core. Quindi in assensa si anticipa il caricamento.
@@ -146,8 +146,6 @@ if (!class_exists('SZGoogleCheck'))
 
 		function load_plugin_framework() 
 		{
-			@require(dirname(__FILE__ ).'/classes/plugin/SZGooglePluginConstants.php');
-
 			// Attivazione del caricamento dinamico delle classi senza dover
 			// utilizzare la funzione di require prima della definizione di classe
 
@@ -170,8 +168,8 @@ if (!class_exists('SZGoogleCheck'))
 			// queste classi inizieranno con il prefisso "SZGoogleAdmin"
 
 			if (substr($classname,0,13) == 'SZGoogleAdmin') {
-				if (is_readable(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_ADMIN.$classname.'.php')) {
-					   @require(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES_ADMIN.$classname.'.php'); return;
+				if (is_readable(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/classes/'.$classname.'.php')) {
+					   @require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/classes/'.$classname.'.php'); return;
 				}
 			}
 
@@ -180,8 +178,8 @@ if (!class_exists('SZGoogleCheck'))
 
 			$prefix = preg_split('#([A-Z][^A-Z]*)#',$classname,null,PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 
-			if (is_readable(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES.strtolower($prefix[3]).'/'.$classname.'.php')) {
-				   @require(SZ_PLUGIN_GOOGLE_BASENAME_CLASSES.strtolower($prefix[3]).'/'.$classname.'.php'); return;
+			if (is_readable(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/classes/'.strtolower($prefix[3]).'/'.$classname.'.php')) {
+				   @require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/classes/'.strtolower($prefix[3]).'/'.$classname.'.php'); return;
 			}
 		}
 	}

@@ -159,25 +159,25 @@ if (!class_exists('SZGoogleAdminDrive'))
 
 		function get_drive_embed_s_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_width','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_drive_embed_s_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
 		function get_drive_embed_s_height_p()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height_p','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height_p','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
 		function get_drive_embed_s_height_v()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height_v','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_S_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_s_height_v','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
@@ -189,25 +189,25 @@ if (!class_exists('SZGoogleAdminDrive'))
 
 		function get_drive_embed_w_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_width','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_drive_embed_w_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
 		function get_drive_embed_w_height_p()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height_p','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height_p','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
 		function get_drive_embed_w_height_v()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height_w','medium',SZ_PLUGIN_GOOGLE_DRIVE_EMBED_W_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_embed_w_height_w','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
@@ -219,13 +219,13 @@ if (!class_exists('SZGoogleAdminDrive'))
 
 		function get_drive_viewer_s_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_s_width','medium',SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_S_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_s_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_drive_viewer_s_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_s_height','medium',SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_S_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_s_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
@@ -257,13 +257,13 @@ if (!class_exists('SZGoogleAdminDrive'))
 
 		function get_drive_viewer_w_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_w_width','medium',SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_W_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_w_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_drive_viewer_w_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_w_height','medium',SZ_PLUGIN_GOOGLE_DRIVE_VIEWER_W_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_drive','drive_viewer_w_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 

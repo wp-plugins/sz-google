@@ -26,9 +26,9 @@ if (!class_exists('SZGoogleAdminPlus'))
 			// da aggiungere sul profilo utente standard di wordpress
 
 			if ($options = $this->getOptions()) {
-				if ($options['plus_usercontact_page']      == SZ_PLUGIN_GOOGLE_VALUE_YES) $contacts = true;
-				if ($options['plus_usercontact_community'] == SZ_PLUGIN_GOOGLE_VALUE_YES) $contacts = true;
-				if ($options['plus_usercontact_bestpost']  == SZ_PLUGIN_GOOGLE_VALUE_YES) $contacts = true;
+				if ($options['plus_usercontact_page']      == '1') $contacts = true;
+				if ($options['plus_usercontact_community'] == '1') $contacts = true;
+				if ($options['plus_usercontact_bestpost']  == '1') $contacts = true;
 			}
 
 			// Aggiungo il filtro su user contacts per modificare array
@@ -300,9 +300,9 @@ if (!class_exists('SZGoogleAdminPlus'))
 		function AddContactMethodsPlus($usercontacts) 
 		{
 			if ($options = $this->getOptions()) {
-				if (!isset($usercontacts['googlepluspage'])      && $options['plus_usercontact_page']      == SZ_PLUGIN_GOOGLE_VALUE_YES) $usercontacts['googlepluspage']      = __('Google+ Page','szgoogleadmin');
-				if (!isset($usercontacts['googlepluscommunity']) && $options['plus_usercontact_community'] == SZ_PLUGIN_GOOGLE_VALUE_YES) $usercontacts['googlepluscommunity'] = __('Google+ Community','szgoogleadmin');
-				if (!isset($usercontacts['googleplusbestpost'])  && $options['plus_usercontact_bestpost']  == SZ_PLUGIN_GOOGLE_VALUE_YES) $usercontacts['googleplusbestpost']  = __('Google+ Best post','szgoogleadmin');
+				if (!isset($usercontacts['googlepluspage'])      && $options['plus_usercontact_page']      == '1') $usercontacts['googlepluspage']      = __('Google+ Page','szgoogleadmin');
+				if (!isset($usercontacts['googlepluscommunity']) && $options['plus_usercontact_community'] == '1') $usercontacts['googlepluscommunity'] = __('Google+ Community','szgoogleadmin');
+				if (!isset($usercontacts['googleplusbestpost'])  && $options['plus_usercontact_bestpost']  == '1') $usercontacts['googleplusbestpost']  = __('Google+ Best post','szgoogleadmin');
 			}
 
 			return $usercontacts;
@@ -391,13 +391,13 @@ if (!class_exists('SZGoogleAdminPlus'))
 
 		function get_plus_widget_size_portrait()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_widget_size_portrait','medium',SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_PORTRAIT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_widget_size_portrait','medium','180');
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 180px and height will be calculated.','szgoogleadmin'));
 		}
 
 		function get_plus_widget_size_landscape() 
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_widget_size_landscape','medium',SZ_PLUGIN_GOOGLE_PLUS_WIDGET_SIZE_LANDSCAPE);
+			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_widget_size_landscape','medium','275');
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 275px and height will be automatically.','szgoogleadmin'));
 		}
 
@@ -427,13 +427,13 @@ if (!class_exists('SZGoogleAdminPlus'))
 
 		function get_plus_shortcode_size_portrait() 
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_shortcode_size_portrait','medium',SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_PORTRAIT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_shortcode_size_portrait','medium','350');
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated.','szgoogleadmin'));
 		}
 
 		function get_plus_shortcode_size_landscape() 
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_shortcode_size_landscape','medium',SZ_PLUGIN_GOOGLE_PLUS_SHORTCODE_SIZE_LANDSCAPE);
+			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_shortcode_size_landscape','medium','350');
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated.','szgoogleadmin'));
 		}
 

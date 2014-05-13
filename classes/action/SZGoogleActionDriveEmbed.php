@@ -21,8 +21,8 @@ if (!class_exists('SZGoogleActionDriveEmbed'))
 	class SZGoogleActionDriveEmbed extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode [sz-drive-embed] che permette di
-		 * eseguire un codice embed per il prodotto google calendar
+		 * Funzione per shortcode drive embed che permette di
+		 * eseguire un codice embed per il prodotto google drive
 		 *
 		 * @return string
 		 */

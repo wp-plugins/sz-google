@@ -37,7 +37,7 @@ if (!class_exists('SZGoogleActionPlusComments'))
 			// Se è specificata opzione dopo il contenuto applico il filtro a the_content
 			// altrimenti applico il filtro alla funzione di comment_template
 
-			if ($options['plus_comments_ac_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+			if ($options['plus_comments_ac_enable'] == '1') 
 			{
 				// Applicazione di un filtro al contenuto principale in quanto è
 				// stato specificato di inserire i contenuti subito dopo il contenuto
@@ -47,7 +47,7 @@ if (!class_exists('SZGoogleActionPlusComments'))
 				// Se i commenti di wordpress standard non sono attivati e quindi non
 				// è stato specificato il sistema doppio di commenti aggiungo un dummy
 
-				if ($options['plus_comments_wp_enable'] != SZ_PLUGIN_GOOGLE_VALUE_YES)   
+				if ($options['plus_comments_wp_enable'] != '1')   
 					add_filter('comments_template',array($this,'addPlusCommentsSystemDummy'));
 
 			} else {
@@ -59,6 +59,7 @@ if (!class_exists('SZGoogleActionPlusComments'))
 			}
 
 		}
+
 		/**
 		 * Funzione per aggiungere il sistema dei commenti di google plus
 		 * in fondo al post standard di wordpress, sono ammesse diverse
@@ -77,13 +78,13 @@ if (!class_exists('SZGoogleActionPlusComments'))
 
 			$HTML = $this->Module->getPlusCommentsCode(array(
 				'url'    => get_permalink(),
-				'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMENTS_CONTENT,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'title'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class0' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class1' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class2' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_TEMPLATE,
+				'id'     => 'comments-content',
+				'width'  => '',
+				'title'  => '',
+				'class0' => '',
+				'class1' => '',
+				'class2' => '',
+				'action' => 'template',
 			));
 
 			// Aggiunta del codice javascript per il rendering dei widget		 
@@ -101,7 +102,7 @@ if (!class_exists('SZGoogleActionPlusComments'))
 		 * @return string
 		 */
 		function addPlusCommentsSystemDummy($include) {
-			return SZ_PLUGIN_GOOGLE_BASENAME_TEMPLATE_FRONT.'sz-google-module-plus-comments-dummy.php';
+			return dirname(SZ_PLUGIN_GOOGLE_MAIN).'/frontend/templates/sz-google-module-plus-comments-dummy.php';
 		}
 
 		/**
@@ -127,7 +128,7 @@ if (!class_exists('SZGoogleActionPlusComments'))
 
 			// Calcolo la data di confronto per la funzione dei commenti
 
-			if ($options['plus_comments_dt_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+			if ($options['plus_comments_dt_enable'] == '1') 
 			{
 				$checkdt  = sprintf('%04d',$options['plus_comments_dt_year']);
 				$checkdt .= sprintf('%02d',$options['plus_comments_dt_month']);
@@ -144,8 +145,8 @@ if (!class_exists('SZGoogleActionPlusComments'))
 			// Controllo se devo mantenere i commenti standard di wordpress		 
 			// in caso affermativo eseguo il file prima dei commenti di google plus
 
-			if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and 
-				$options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES) 
+			if ($options['plus_comments_wp_enable'] == '1' and 
+				$options['plus_comments_aw_enable'] == '1') 
 			{   
 				if (file_exists($include)) @require($include);
 			}
@@ -154,13 +155,13 @@ if (!class_exists('SZGoogleActionPlusComments'))
 
 			$HTML = $this->Module->getPlusCommentsCode(array(
 				'url'    => get_permalink(),
-				'id'     => SZ_PLUGIN_GOOGLE_PLUS_ID_COMMENTS_TEMPLATE,
-				'width'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'title'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'class0' => SZ_PLUGIN_GOOGLE_PLUS_CLASS_COMMENTS,
+				'id'     => 'comments-template',
+				'width'  => '',
+				'title'  => '',
+				'class0' => 'comments-area',
 				'class1' => trim($options['plus_comments_css_class_1']),
 				'class2' => trim($options['plus_comments_css_class_2']),
-				'action' => SZ_PLUGIN_GOOGLE_VALUE_TEXT_TEMPLATE,
+				'action' => 'template',
 			));
 
 			echo $HTML;
@@ -173,15 +174,15 @@ if (!class_exists('SZGoogleActionPlusComments'))
 			// Ritorno stesso template passato alla funzione nel caso in cui
 			// devo mantenere i commenti standard dopo quelli di google plus
 	
-			if ($options['plus_comments_wp_enable'] == SZ_PLUGIN_GOOGLE_VALUE_YES and 
-				$options['plus_comments_aw_enable'] == SZ_PLUGIN_GOOGLE_VALUE_NO) 
+			if ($options['plus_comments_wp_enable'] == '1' and 
+				$options['plus_comments_aw_enable'] == '0') 
 			{   
 				return $include;
 			}
 
 			// Ritorno template di commenti dummy con nessuna azione HTML
-	
-			return SZ_PLUGIN_GOOGLE_BASENAME_TEMPLATE_FRONT.'sz-google-module-plus-comments-dummy.php';
+
+			return dirname(SZ_PLUGIN_GOOGLE_MAIN).'/frontend/templates/sz-google-module-plus-comments-dummy.php';
 		}
 	}
 }

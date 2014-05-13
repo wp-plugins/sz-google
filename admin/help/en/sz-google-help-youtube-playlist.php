@@ -11,7 +11,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  * Definizione variabili per calcolare percorsi, immagini
  * e qualsiasi risorsa che debba essere specificata in EOD
  */
-$IMAGE1 = SZ_PLUGIN_GOOGLE_PATH_ADMIN_IMAGES.'others/sz-google-youtube-playlist.jpg';
+$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-youtube-playlist.jpg';
 
 /**
  * Definizione variabile HTML per la preparazione della stringa
@@ -40,15 +40,27 @@ format option = "value". If you would like additional information you can visit 
 <h2>Parameters and options</h2>
 
 <table>
-	<tr><th>Parameter</th>    <th>Description</th>         <th>Allowed values</th> <th>default</th></tr>
-	<tr><td>id</td>           <td>youtube playlist ID</td> <td>stringa</td>        <td>null</td></tr>
-	<tr><td>width</td>        <td>width</td>               <td>value,auto</td>     <td>configuration</td></tr>
-	<tr><td>height</td>       <td>height</td>              <td>value,auto</td>     <td>configuration</td></tr>
-	<tr><td>margintop</td>    <td>margin top</td>          <td>value</td>          <td>configuration</td></tr>
-	<tr><td>marginright</td>  <td>margin right</td>        <td>value</td>          <td>configuration</td></tr>
-	<tr><td>marginbottom</td> <td>margin bottom</td>       <td>value</td>          <td>configuration</td></tr>
-	<tr><td>marginleft</td>   <td>margin left</td>         <td>value</td>          <td>configuration</td></tr>
-	<tr><td>marginunit</td>   <td>margin unit</td>         <td>px,em</td>          <td>configuration</td></tr>
+	<tr><th>Parameter</th>       <th>Description</th>            <th>Allowed values</th> <th>default</th></tr>
+	<tr><td>id</td>              <td>youtube playlist ID</td>    <td>stringa</td>        <td>null</td></tr>
+	<tr><td>responsive</td>      <td>responsive mode</td>        <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>width</td>           <td>width</td>                  <td>value</td>          <td>configuration</td></tr>
+	<tr><td>height</td>          <td>height</td>                 <td>value</td>          <td>configuration</td></tr>
+	<tr><td>margintop</td>       <td>margin top</td>             <td>value</td>          <td>configuration</td></tr>
+	<tr><td>marginright</td>     <td>margin right</td>           <td>value</td>          <td>configuration</td></tr>
+	<tr><td>marginbottom</td>    <td>margin bottom</td>          <td>value</td>          <td>configuration</td></tr>
+	<tr><td>marginleft</td>      <td>margin left</td>            <td>value</td>          <td>configuration</td></tr>
+	<tr><td>marginunit</td>      <td>margin unit</td>            <td>px,em</td>          <td>configuration</td></tr>
+	<tr><td>autoplay</td>        <td>enable autoplay</td>        <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>loop</td>            <td>enable loop</td>            <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>fullscreen</td>      <td>full screen</td>            <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>disablekeyboard</td> <td>disablekeyboard</td>        <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>theme</td>           <td>theme</td>                  <td>dark,light</td>     <td>configuration</td></tr>
+	<tr><td>cover</td>           <td>cover image</td>            <td>local,URL,ID</td>   <td>configuration</td></tr>
+	<tr><td>title</td>           <td>video title</td>            <td>string</td>         <td>configuration</td></tr>
+	<tr><td>disableiframe</td>   <td>disable iframe</td>         <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>analytics</td>       <td>google analytics</td>       <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>delayed</td>         <td>delayed</td>                <td>y=yes,n=no</td>     <td>configuration</td></tr>
+	<tr><td>disablerelated</td>  <td>disable related video</td>  <td>y=yes,n=no</td>     <td>configuration</td></tr>
 </table>
 
 <h2>Shortcode example</h2>

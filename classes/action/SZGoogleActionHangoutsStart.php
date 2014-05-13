@@ -21,8 +21,8 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 	class SZGoogleActionHangoutsStart extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode [sz-calendar] che permette di
-		 * eseguire un codice embed per il prodotto google calendar
+		 * Funzione per shortcode per avvio hangout che permette di
+		 * eseguire un codice embed per il prodotto google hangouts
 		 *
 		 * @return string
 		 */
@@ -30,7 +30,7 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 		{
 			return $this->getHTMLCode(shortcode_atts(array(
 				'type'         => '', // valore predefinito
-				'width'        => SZ_PLUGIN_GOOGLE_HANGOUTS_BUTTON_SIZE_SHORTCODE,
+				'width'        => '180',
 				'topic'        => '', // valore predefinito
 				'float'        => '', // valore predefinito
 				'align'        => '', // valore predefinito
@@ -100,12 +100,12 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
-			if (!in_array($type,array('normal','onair','party','moderate')))   $type     = SZ_PLUGIN_GOOGLE_HANGOUTS_TYPE;
-			if (!in_array($float,array('none','left','right')))                $float    = SZ_PLUGIN_GOOGLE_VALUE_BUTTON_FLOAT;
-			if (!in_array($align,array('none','left','right','center')))       $align    = SZ_PLUGIN_GOOGLE_VALUE_BUTTON_ALIGN;
-			if (!in_array($position,array('top','center','bottom','outside'))) $position = SZ_PLUGIN_GOOGLE_VALUE_BUTTON_POSITION;
+			if (!in_array($type,array('normal','onair','party','moderate')))   $type     = 'normal';
+			if (!in_array($float,array('none','left','right')))                $float    = 'none';
+			if (!in_array($align,array('none','left','right','center')))       $align    = 'none';
+			if (!in_array($position,array('top','center','bottom','outside'))) $position = 'outside';
 
-			if ($class == '') $class = SZ_PLUGIN_GOOGLE_HANGOUTS_BUTTON_CLASS;
+			if ($class == '') $class = 'sz-google-hangouts-button';
 			if (!is_numeric($width) and $width != 'auto') $width = '';
 
 			// Controllo la dimensione del widget e controllo formale dei valori numerici

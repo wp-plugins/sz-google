@@ -58,7 +58,7 @@ if (!class_exists('SZGoogleModuleTranslate'))
 			// specificato nel modulo corrispondente se risulta attivo.
 
 			if ($object = self::getObject('SZGoogleModuleAnalytics') and
-				$this->options['translate_analytics_ua'] == SZ_PLUGIN_GOOGLE_VALUE_NULL) 
+				$this->options['translate_analytics_ua'] == '') 
 			{
 				$options_ga = $object->getOptions();
 				$this->options['translate_analytics_ua'] = $options_ga['ga_uacode'];   
@@ -89,7 +89,7 @@ if (!class_exists('SZGoogleModuleTranslate'))
 		 * @return string
 		 */
 		function getTranslateMeta() {
-			if ($this->getTranslateMetaID() == SZ_PLUGIN_GOOGLE_VALUE_NULL) return NULL;
+			if ($this->getTranslateMetaID() == '') return NULL;
 				else return '<meta name="google-translate-customization" content="'.$this->getTranslateMetaID().'"/>'."\n";
 		}
 
@@ -123,13 +123,13 @@ if (!class_exists('SZGoogleModuleTranslate'))
 		function getTranslateShortcode($atts,$content=null) 
 		{
 			return $this->getTranslateCode(shortcode_atts(array(
-				'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'    => SZ_PLUGIN_GOOGLE_VALUE_TEXT_SHORTCODE,
+				'language'  => '',
+				'mode'      => '',
+				'automatic' => '',
+				'multiple'  => '',
+				'analytics' => '',
+				'uacode'    => '',
+				'action'    => 'shortcode',
 			),$atts),$content);
 		}
 
@@ -150,13 +150,13 @@ if (!class_exists('SZGoogleModuleTranslate'))
 			if (!is_array($atts)) $atts = array();
 
 			extract(shortcode_atts(array(
-				'language'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'mode'      => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'automatic' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'multiple'  => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'analytics' => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'uacode'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
-				'action'    => SZ_PLUGIN_GOOGLE_VALUE_NULL,
+				'language'  => '',
+				'mode'      => '',
+				'automatic' => '',
+				'multiple'  => '',
+				'analytics' => '',
+				'uacode'    => '',
+				'action'    => '',
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -172,14 +172,14 @@ if (!class_exists('SZGoogleModuleTranslate'))
 			// Se non sono riuscito ad assegnare nessun valore con le istruzioni
 			// precedenti metto dei default assoluti che possono essere cambiati
 
-			if ($language  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $language  = $options['translate_language'];
-			if ($mode      == SZ_PLUGIN_GOOGLE_VALUE_NULL) $mode      = $options['translate_mode'];
-			if ($automatic == SZ_PLUGIN_GOOGLE_VALUE_NULL) $automatic = $options['translate_automatic'];
-			if ($multiple  == SZ_PLUGIN_GOOGLE_VALUE_NULL) $multiple  = $options['translate_multiple'];
-			if ($analytics == SZ_PLUGIN_GOOGLE_VALUE_NULL) $analytics = $options['translate_analytics'];
-			if ($uacode    == SZ_PLUGIN_GOOGLE_VALUE_NULL) $uacode    = $options['translate_analytics_ua'];
+			if ($language  == '') $language  = $options['translate_language'];
+			if ($mode      == '') $mode      = $options['translate_mode'];
+			if ($automatic == '') $automatic = $options['translate_automatic'];
+			if ($multiple  == '') $multiple  = $options['translate_multiple'];
+			if ($analytics == '') $analytics = $options['translate_analytics'];
+			if ($uacode    == '') $uacode    = $options['translate_analytics_ua'];
 
-			if ($options['translate_language'] == SZ_PLUGIN_GOOGLE_VALUE_LANG) $language = substr(get_bloginfo('language'),0,2);	
+			if ($options['translate_language'] == '99') $language = substr(get_bloginfo('language'),0,2);	
 				else $language = trim($options['translate_language']);
 
 			// Incremento la variabile che tiene il conto del numero dei componenti
@@ -199,9 +199,9 @@ if (!class_exists('SZGoogleModuleTranslate'))
 			if ($options['translate_mode'] == 'I2') $JAVA .= ",layout:google.translate.TranslateElement.InlineLayout.HORIZONTAL";
 			if ($options['translate_mode'] == 'I3') $JAVA .= ",layout:google.translate.TranslateElement.InlineLayout.SIMPLE";
 
-			if ($automatic <> SZ_PLUGIN_GOOGLE_VALUE_YES ) $JAVA .= ",autoDisplay:false";
-			if ($multiple  == SZ_PLUGIN_GOOGLE_VALUE_YES ) $JAVA .= ",multilanguagePage:true";
-			if ($analytics == SZ_PLUGIN_GOOGLE_VALUE_YES ) $JAVA .= ",gaTrack:true";
+			if ($automatic <> '1' ) $JAVA .= ",autoDisplay:false";
+			if ($multiple  == '1' ) $JAVA .= ",multilanguagePage:true";
+			if ($analytics == '1' ) $JAVA .= ",gaTrack:true";
 
 			if ($options['translate_analytics_ua'] <> '' ) $JAVA .= ",gaID:'".$options['translate_analytics_ua']."'";
 

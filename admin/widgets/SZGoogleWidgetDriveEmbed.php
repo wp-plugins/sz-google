@@ -144,8 +144,8 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
-		szgoogle_checks_hidden_onload('SZGoogleWidgetDriveEmbed');
-		szgoogle_switch_hidden_onload('SZGoogleWidgetDriveEmbed');
-		szgoogle_switch_select_onload('SZGoogleWidgetDriveEmbed');
+		if (typeof(szgoogle_checks_hidden_onload) == 'function') { szgoogle_checks_hidden_onload('SZGoogleWidgetDriveEmbed'); }
+		if (typeof(szgoogle_switch_hidden_onload) == 'function') { szgoogle_switch_hidden_onload('SZGoogleWidgetDriveEmbed'); }
+		if (typeof(szgoogle_switch_select_onload) == 'function') { szgoogle_switch_select_onload('SZGoogleWidgetDriveEmbed'); }
 	});
 </script>

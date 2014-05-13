@@ -205,13 +205,13 @@ if (!class_exists('SZGoogleAdminCalendar'))
 
 		function get_calendar_s_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_s_width','medium',SZ_PLUGIN_GOOGLE_CALENDAR_S_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_s_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_calendar_s_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_s_height','medium',SZ_PLUGIN_GOOGLE_CALENDAR_S_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_s_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
@@ -277,13 +277,13 @@ if (!class_exists('SZGoogleAdminCalendar'))
 
 		function get_calendar_w_width()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_w_width','medium',SZ_PLUGIN_GOOGLE_CALENDAR_W_WIDTH);
+			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_w_width','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the width of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", the default size will be 100% and will occupy the entire space of parent container.','szgoogleadmin'));
 		}
 
 		function get_calendar_w_height()
 		{
-			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_w_height','medium',SZ_PLUGIN_GOOGLE_CALENDAR_W_HEIGHT);
+			$this->moduleCommonFormNumberStep1('sz_google_options_calendar','calendar_w_height','medium','auto');
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 

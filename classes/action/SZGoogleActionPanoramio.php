@@ -21,8 +21,8 @@ if (!class_exists('SZGoogleActionPanoramio'))
 	class SZGoogleActionPanoramio extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode [sz-calendar] che permette di
-		 * eseguire un codice embed per il prodotto google calendar
+		 * Funzione per shortcode per widget panoramio che permette di
+		 * eseguire un codice embed per il prodotto google panoramio
 		 *
 		 * @return string
 		 */
