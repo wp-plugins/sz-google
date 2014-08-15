@@ -15,7 +15,7 @@ Plugin to integrate Google's products in WordPress with particular attention for
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote.
 
-* <a href="https://otherplus.com/tech/wordpress-plugin/sz-google/">(IT) - Documentazione in Italiano</a>
+* <a href="https://otherplus.com/tech/sz-google/">(IT) - Documentazione in Italiano</a>
 
 = Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
