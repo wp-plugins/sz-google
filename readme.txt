@@ -13,9 +13,7 @@ Plugin to integrate Google's products in WordPress with particular attention for
 == Description ==
 <a href="http://wordpress.org/extend/plugins/sz-google/">English</a> - <a href="http://goo.gl/czjnz">Italiano</a> - <a href="http://goo.gl/Jt0YN">Español</a> - <a href="http://goo.gl/jnxWm">Français</a> - <a href="http://goo.gl/eXk1j">Deutsch</a>
 
-Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote. In any case, we will always be willing to consider new requests for anyone who wants to ask for a new feature to be developed in the plugin. Write all your requests on our <a href="https://plus.google.com/communities/109254048492234113886">official community</a>.
-
-To be informed about the features that gradually will be released you can follow this link page <a href="https://wpitalyplus.com/sz-google/">sz-google for wordpress</a>, which will be a sort of official article where as I integrate the new features released, otherwise you can follow the community of <a href="https://plus.google.com/communities/109254048492234113886">WP Italyplus</a> where surely will be included the latest news that will affect this plugin. The plugin sz-google contain several modules, we recommend you activate from the admin panel only the functions that you will use and do not use unnecessary memory resources.
+Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote.
 
 = Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -82,9 +80,9 @@ To be informed about the features that gradually will be released you can follow
 * `szgoogle_gplus_get_button_share()`
 * `szgoogle_gplus_get_button_follow()`
 * `szgoogle_gplus_get_comments()`
-* `szgoogle_gplus_get_contact_page`
-* `szgoogle_gplus_get_contact_community`
-* `szgoogle_gplus_get_contact_bestpost`
+* `szgoogle_gplus_get_contact_page()`
+* `szgoogle_gplus_get_contact_community()`
+* `szgoogle_gplus_get_contact_bestpost()`
 * `szgoogle_gplus_get_post()`
 
 = Google Analytics module =
@@ -128,8 +126,6 @@ the configuration and synchronization of the key will be performed quickly and e
 = Google Drive module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
-* <a href="https://wpitalyplus.com/sz-google/google-drive-save-button/">Demo online - Google drive save button</a>
-
 **Google Drive Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google drive embed`
@@ -150,8 +146,6 @@ the configuration and synchronization of the key will be performed quickly and e
 
 = Google Groups module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
-
-* <a href="https://wpitalyplus.com/sz-google/google-groups/">Demo online - Google Groups</a>
 
 **Google Groups Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -184,8 +178,6 @@ the configuration and synchronization of the key will be performed quickly and e
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
 With this module you can insert widgets with photo galleries present on panoramio. You can select photos by user, group or tag. You can choose between different display layouts as photo, slideshow, list and photo_list with navigation menu.
-
-* <a href="https://wpitalyplus.com/sz-google/google-panoramio/">Demo online - Panoramio</a>
 
 **Google Panoramio Widgets:** In this plugin are available to google panoramio widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -221,10 +213,6 @@ With this module you can insert widgets with photo galleries present on panorami
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
 
-* <a href="https://wpitalyplus.com/sz-google/youtube-video/">Demo online - Youtube video</a>
-* <a href="https://wpitalyplus.com/sz-google/youtube-playlist/">Demo online - Youtube playlist</a>
-* <a href="https://wpitalyplus.com/sz-google/youtube-badges/">Demo online - Youtube buttons and badges</a>
-
 **Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
 
 * `[sz-ytvideo] ........: embed youtube video`
@@ -237,6 +225,7 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 
 * `Widget embed youtube video`
 * `Widget embed youtube playlist`
+* `Widget embed youtube badge`
 
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
