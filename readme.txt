@@ -132,6 +132,14 @@ the configuration and synchronization of the key will be performed quickly and e
 
 * `Widget google calendar`
 
+**Google Calendar Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+
+* `[sz-calendar].....: googe calendar embed`
+
+**Google Calendar Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+
+* `szgoogle_calendar_get_widget()`
+
 = Google Drive module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
@@ -141,7 +149,7 @@ the configuration and synchronization of the key will be performed quickly and e
 * `Widget google drive viewer`
 * `Widget google drive for button save`
 
-**Google Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+**Google Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
 * `[sz-drive-embed].....: googe drive embed`
 * `[sz-drive-viewer]....: googe drive viewer`
@@ -160,7 +168,7 @@ the configuration and synchronization of the key will be performed quickly and e
 
 * `Widget google groups embed`
 
-**Google Groups Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+**Google Groups Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
 * `[sz-ggroups] ........: google translate widget`
 
@@ -175,7 +183,7 @@ the configuration and synchronization of the key will be performed quickly and e
 
 * `Widget hangouts with starter button`
 
-**Google Hangouts Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google hangouts in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+**Google Hangouts Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google hangouts in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
 * `[sz-hangouts-start] .: google hangouts starter button`
 
@@ -192,7 +200,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 * `Widget google panoramio`
 
-**Google Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+**Google Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
 * `[sz-panoramio] ......: google panoramio photo widget`
 
@@ -207,7 +215,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 * `Widget google translate tools`
 
-**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
 * `[sz-gtranslate] .....: google translate widget`
 
@@ -222,7 +230,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
 
-**Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself, to know all the parameters available to read the official documentation.
+**Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
 * `[sz-ytvideo] ........: embed youtube video`
 * `[sz-ytplaylist] .....: embed youtube playlist`
