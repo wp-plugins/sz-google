@@ -40,7 +40,7 @@ if (!class_exists('SZGoogleAdminHangouts'))
 			);
 
 			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_hangouts';
+			$this->sectionsoptions = array('sz_google_options_hangouts');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione

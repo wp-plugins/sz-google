@@ -47,7 +47,7 @@ if (!class_exists('SZGoogleAdminDrive'))
 			);
 
 			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_drive';
+			$this->sectionsoptions = array('sz_google_options_drive');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione

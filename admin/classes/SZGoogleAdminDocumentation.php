@@ -56,9 +56,9 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 				array('tab' => '02','section' => 'sz-google-admin-documentation-reviews.php'      ,'title' => ucwords(__('reviews','szgoogleadmin'))),
 			);
 
-			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_documentation';
 			$this->formsavebutton  = '0';
+			$this->sectionstitle   = $this->menutitle;
+			$this->sectionsoptions = array('sz_google_options_documentation');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione

@@ -66,7 +66,7 @@ if (!class_exists('SZGoogleModule'))
 		 */
 		function __construct()
 		{
-			// Quando la classe viene utilizzata da una definzione di un modulo questa
+			// Quando la classe viene utilizzata da una definizione di un modulo questa
 			// funzione deve essere implementata per la configurazione delle opzioni
 
 			$this->moduleAddSetup();

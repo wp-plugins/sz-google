@@ -42,7 +42,7 @@ if (!class_exists('SZGoogleAdminGroups'))
 			);
 
 			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_groups';
+			$this->sectionsoptions = array('sz_google_options_groups');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione

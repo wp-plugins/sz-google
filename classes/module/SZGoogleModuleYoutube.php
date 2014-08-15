@@ -338,6 +338,7 @@ if (!class_exists('SZGoogleModuleYoutube'))
 						$HTML .= 			"'fs':".$value['fullscreen'].",";
 						$HTML .= 			"'disablekb':".$value['disablekeyboard'].",";
 						$HTML .= 			"'theme':'".$value['theme']."',";
+						$HTML .= 			"'start':'".$value['start']."',";
 						$HTML .= 			"'wmode':'opaque'";
 						$HTML .=			'},';     			
 						$HTML .=			'events: {';

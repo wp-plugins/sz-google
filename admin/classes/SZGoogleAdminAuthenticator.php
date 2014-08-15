@@ -41,7 +41,7 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 			);
 
 			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_authenticator';
+			$this->sectionsoptions = array('sz_google_options_authenticator');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione

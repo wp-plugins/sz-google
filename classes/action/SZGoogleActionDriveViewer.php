@@ -146,7 +146,7 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 			$HTML  = '<div class="sz-google-drive">';
 			$HTML .= '<div class="sz-google-drive-viewer" style="'.$marginCSS.'">';
 
-			if ($titleposition == 'top') $HTML .= $TITLE;
+			if ($title != "" and $titleposition == 'top') $HTML .= $TITLE;
 
 			$HTML .= '<div class="sz-google-drive-viewer-embed">';
 			$HTML .= '<script type="text/javascript">';
@@ -165,7 +165,7 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 
 			// Chiusura delle divisioni che rappresentano il wrapper
 
-			if ($titleposition == 'bottom') $HTML .= $TITLE;
+			if ($title != "" and $titleposition == 'bottom') $HTML .= $TITLE;
 
 			$HTML .= '</div>';
 			$HTML .= '</div>';

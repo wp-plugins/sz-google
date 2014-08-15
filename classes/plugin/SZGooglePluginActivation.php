@@ -21,6 +21,7 @@ if (!class_exists('SZGooglePluginActivation'))
 			// Controllo formale delle opzioni e memorizzazione sul database
 			// in base ad una prima installazione o update del plugin.
 
+			$this->checkOptions('sz_google_options_api'); 
 			$this->checkOptions('sz_google_options_base'); 
 			$this->checkOptions('sz_google_options_plus'); 
 			$this->checkOptions('sz_google_options_ga');

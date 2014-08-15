@@ -44,7 +44,7 @@ if (!class_exists('SZGoogleAdminPanoramio'))
 			);
 
 			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_panoramio';
+			$this->sectionsoptions = array('sz_google_options_panoramio');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione

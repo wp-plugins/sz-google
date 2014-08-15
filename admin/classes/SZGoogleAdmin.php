@@ -20,18 +20,24 @@ if (!class_exists('SZGoogleAdmin'))
 		 * Definizione delle variabili che contengono le configurazioni
 		 * da applicare alle varie chiamate delle funzioni wordpress
 		 */
+		protected $titlefix        = 'SZ-Google - ';
+		protected $capability      = 'manage_options';
+		protected $parentslug      = 'sz-google-admin.php';
+
+		/**
+		 * Definizione delle variabili che contengono le configurazioni
+		 * da applicare alle varie chiamate delle funzioni wordpress
+		 */
 		protected $null            = '';
 		protected $pagetitle       = '';
 		protected $menutitle       = '';
 		protected $menuslug        = '';
-		protected $capability      = 'manage_options';
-		protected $parentslug      = 'sz-google-admin.php';
-		protected $titlefix        = 'SZ-Google - ';
 		protected $sections        = '';
 		protected $sectionsmenu    = '';
 		protected $sectionsfields  = '';
 		protected $sectionstabs    = '';
 		protected $sectionstitle   = '';
+		protected $sectionsgroup   = '';
 		protected $sectionsoptions = '';
 		protected $validate        = '';
 		protected $callback        = '';
@@ -39,6 +45,14 @@ if (!class_exists('SZGoogleAdmin'))
 		protected $callbacksection = '';
 		protected $formHTML        = '';
 		protected $formsavebutton  = '1';
+
+		/**
+		 * Definizione delle variabili che contengono le impostazioni
+		 * fatte durante la chiamata alla funzione moduleAddSetup()
+		 */
+		private $moduleClassName  = false;
+		private $moduleOptions    = false;
+		private $moduleOptionSet  = false;
 
 		/**
 		 * Definizione della funzione costruttore che viene richiamata
@@ -85,10 +99,16 @@ if (!class_exists('SZGoogleAdmin'))
 		 */
 		function moduleAddFields()
 		{
-			register_setting($this->sectionsoptions,$this->sectionsoptions);
+			if (!is_array($this->sectionsoptions)) $this->sectionsoptions = array();
+			if (!is_array($this->sectionsmenu))    $this->sectionsmenu    = array();
+			if (!is_array($this->sectionsfields))  $this->sectionsfields  = array();
 
-			if (!is_array($this->sectionsmenu))   $this->sectionsmenu   = array();
-			if (!is_array($this->sectionsfields)) $this->sectionsfields = array();
+			// Caricamento delle opzioni in riferimento ad un gruppo
+			// predefinito che verrà richiamato nel form finale
+
+			foreach ($this->sectionsoptions as $value) { 
+				register_setting($this->sectionsoptions[0],$value); 
+			}				
 
 			// Lettura array generale contenente elenco delle sezioni
 			// Su ogni sezione bisogna definire un array per elenco campi
@@ -167,12 +187,107 @@ if (!class_exists('SZGoogleAdmin'))
 		}
 
 		/**
+		 * Calcolo il nome della pagina di amministrazione attuale
+		 * che può essere utile per il caricamento di moduli specifici
+		 *
+		 * @return string
+		 */
+		function moduleAdminGetPageNow() {
+			global $pagenow;
+			return $pagenow;
+		}
+
+		/**
+		 * Calcolo il nome della pagina di amministrazione attuale
+		 * che può essere utile per il caricamento di moduli specifici
+		 *
+		 * @return string
+		 */
+		function moduleAdminGetAdminPage() {
+			if (isset($_GET['page'])) return $_GET['page']; 
+				else return '';
+		}
+
+		/**
+		 * Calcolo le opzioni legate al modulo con esecuzione dei 
+		 * controlli formali di coerenza e impostazione dei default
+		 *
+		 * @return array
+		 */
+		function getOptions()
+		{ 
+			if ($this->moduleOptions) return $this->moduleOptions;
+				else $this->moduleOptions = $this->getOptionsSet($this->moduleOptionSet);
+
+			// Ritorno indietro il gruppo di opzioni corretto dai
+			// controlli formali eseguito dalla funzione di controllo
+
+			return $this->moduleOptions;
+		}
+
+		/**
+		 * Calcolo le opzioni legate al modulo con esecuzione dei 
+		 * controlli formali di coerenza e impostazione dei default
+		 *
+		 * @return array
+		 */
+		function getOptionsSet($nameset)
+		{
+			$optionsDB   = get_option($nameset);
+			$optionsList = include(dirname(SZ_PLUGIN_GOOGLE_MAIN)."/options/{$nameset}.php");
+
+			// Controllo delle opzioni in caso di valori non esistenti
+			// richiamo della funzione per il controllo isset()
+
+			foreach($optionsList as $key => $item) 
+			{
+				// Controllo esistenza campo in elenco opzioni wordpress
+				// in caso contrario aggiungo il campo in array orginale
+
+				if (!isset($optionsDB[$key])) $optionsDB[$key] = $item['value'];
+
+				// Controllo se il campo opzione contiene un valore di NULL
+				// in questo caso assegno al valore opzione quello di default
+
+				if (isset($item['N']) and $item['N'] == '1') {
+					if ($optionsDB[$key] == '') $optionsDB[$key] = $item['value'];
+				}
+
+				// Controllo se il campo opzione contiene un valore di ZERO
+				// in questo caso assegno al valore opzione quello di default
+
+				if (isset($item['Z']) and $item['Z'] == '1') {
+					if ($optionsDB[$key] == '0') $optionsDB[$key] = $item['value'];
+				}
+
+				// Controllo se il campo opzione contiene un valore di YES/NO
+				// in questo caso assegno al valore opzione quello di default
+
+				if (isset($item['Y']) and $item['Y'] == '1') {
+					if (!in_array($optionsDB[$key],array('1','0'))) $optionsDB[$key] = '0';
+				}
+			}
+
+			// Ritorno elenco opzioni collegate al set specificato
+			// conversione array in object per accesso diretto
+
+			return (object) $optionsDB;
+		}
+
+		/**
+		 * Funzioni per assegnazione valori che servono alla configurazione
+		 * inziale del modulo come il nome della classe e il set di opzioni
+		 */
+		function moduleSetClassName($classname) { $this->moduleClassName = $classname; }
+		function moduleSetOptionSet($nameset)   { $this->moduleOptionSet = $nameset;   }
+
+		/**
 		 * Definizione funzione per disegnare il form generale delle
 		 * pagine presenti nel pannello di amministrazione con opzioni del plugin
 		 *
 		 * @return void
 		 */
-		function moduleCommonForm($title,$setting,$sections,$formsavebutton,$HTML)
+		function moduleCommonForm($title,$group,$sections,$formsavebutton,$HTML)
 		{
 			// Creazione codice HTML per contenitore principale a cui si 
 			// aggiunge un titolo, le notifiche di sistema e gli eventuali tabs
@@ -220,7 +335,7 @@ if (!class_exists('SZGoogleAdmin'))
 				// Creazione sessione del form per aggiungere l'elenco dei
 				// campi in hidden che sono necessari alla sottomissione
 
-				settings_fields($setting);
+				settings_fields($group[0]);
 
 				// Composizione modello con i tab specificati in sectionstabs
 				// in caso contrario eseguo la composizione HTML delle sezioni
@@ -376,8 +491,8 @@ if (!class_exists('SZGoogleAdmin'))
 		}
 
 		/**
-		 * Definizione funzione per disegnare il form generale delle pagine
-		 * presenti nel pannello di amministrazione con opzioni del plugin
+		 * Descrizione opzione da inserire sotto il campo di input
+		 * presente nel form generale delle pagine con le opzioni
 		 *
 		 * @return void
 		 */
@@ -388,6 +503,12 @@ if (!class_exists('SZGoogleAdmin'))
 			echo ucfirst(trim($description));
 		}
 
+		/**
+		 * Descrizione campo TEXT da inserire sotto il campo di input
+		 * presente nel form generale delle pagine con le opzioni
+		 *
+		 * @return void
+		 */
 		function moduleCommonFormText($optionset,$name,$class='medium',$placeholder='') 
 		{	
 			$options = get_option($optionset);
@@ -399,6 +520,12 @@ if (!class_exists('SZGoogleAdmin'))
 			echo 'value="'.$options[$name].'" placeholder="'.$placeholder.'"/>';
 		}
 
+		/**
+		 * Descrizione campo SELECT da inserire sotto il campo di input
+		 * presente nel form generale delle pagine con le opzioni
+		 *
+		 * @return void
+		 */
 		function moduleCommonFormSelect($optionset,$name,$values,$class='medium',$placeholder='') 
 		{
 			$options = get_option($optionset);
@@ -416,6 +543,12 @@ if (!class_exists('SZGoogleAdmin'))
 			echo '</select>';
 		}
 
+		/**
+		 * Descrizione campo YES/NO da inserire sotto il campo di input
+		 * presente nel form generale delle pagine con le opzioni
+		 *
+		 * @return void
+		 */
 		function moduleCommonFormCheckboxYesNo($optionset,$name,$class='medium') 
 		{
 			$options = get_option($optionset);
@@ -427,6 +560,12 @@ if (!class_exists('SZGoogleAdmin'))
 			echo 'class="'.$class.'" '.checked(1,$options[$name],false).'/><span class="checkbox" style="display:none">'.__('YES / NO','szgoogleadmin').'</span></label>';
 		}
 
+		/**
+		 * Descrizione campo NUMERIC da inserire sotto il campo di input
+		 * presente nel form generale delle pagine con le opzioni
+		 *
+		 * @return void
+		 */
 		function moduleCommonFormNumberStep1($optionset,$name,$class='medium',$placeholder='') 
 		{
 			$options = get_option($optionset);

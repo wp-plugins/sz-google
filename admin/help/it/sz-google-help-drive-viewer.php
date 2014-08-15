@@ -21,7 +21,7 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-p>Google Drive Viewer è un visualizzatore di documenti universale che può essere inserito in una pagina web di wordpress, grazie a
+<p>Google Drive Viewer è un visualizzatore di documenti universale che può essere inserito in una pagina web di wordpress, grazie a
 questo componente possiamo visualizzare molti formati di file senza dover installare plugin particolari o avere flash sul proprio
 browser. L'utilizzo del componente è semplicissimo, basta utilizzare lo shortcode dedicato e specificare URL del file.</p>
 

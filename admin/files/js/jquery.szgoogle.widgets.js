@@ -88,14 +88,13 @@ function szgoogle_upload_select_media()
 		// Creazione frame per la selezione dei file da allegare al link  
 		// impostazione dei parametri per caratteristiche media uploader
 
-		szgoogle_media_frame = wp.media.frames.customHeader = wp.media(
-		{
+		szgoogle_media_frame = wp.media.frames.customHeader = wp.media({
 			frame: 'select',
 			title: jQuery(element).data('title'),
 			button: {
 				text: jQuery(element).data('button-text'),
 				close:true
-				},
+			},
 			multiple:false
 		});
  

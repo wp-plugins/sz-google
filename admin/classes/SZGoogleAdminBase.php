@@ -22,11 +22,18 @@ if (!class_exists('SZGoogleAdminBase'))
 		 */
 		function __construct()
 		{
+			$this->moduleSetClassName(__CLASS__);
+			$this->moduleSetOptionSet('sz_google_options_base');
+
+			// Controllo se devo eseguire operazioni che riguardano
+			// la configurazione e l'assegnazione di Google API
+
+			$this->moduleCheckRequestAPI();
+
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione
 
 			parent::__construct();
-
 
 			// Aggiungo il link di setting nella descrizione di plugin presente
 			// sul pannello di amministrazione dopo attivazione e disattivazione
@@ -44,21 +51,20 @@ if (!class_exists('SZGoogleAdminBase'))
 			// Controllo le opzioni dei moduli da caricare e richiamo
 			// il file di amministrazione necessario se risulta attivo
 
-			$object  = new SZGoogleModule();
-			$options = $object->getOptionsSet('sz_google_options_base');
+			$options = $this->getOptions();
 
-			if ($options['plus']          == '1') new SZGoogleAdminPlus();
-			if ($options['analytics']     == '1') new SZGoogleAdminAnalytics();
-			if ($options['authenticator'] == '1') new SZGoogleAdminAuthenticator();
-			if ($options['calendar']      == '1') new SZGoogleAdminCalendar();
-			if ($options['drive']         == '1') new SZGoogleAdminDrive();
-			if ($options['fonts']         == '1') new SZGoogleAdminFonts();
-			if ($options['groups']        == '1') new SZGoogleAdminGroups();
-			if ($options['hangouts']      == '1') new SZGoogleAdminHangouts();
-			if ($options['panoramio']     == '1') new SZGoogleAdminPanoramio();
-			if ($options['translate']     == '1') new SZGoogleAdminTranslate();
-			if ($options['youtube']       == '1') new SZGoogleAdminYoutube();
-			if ($options['documentation'] == '1') new SZGoogleAdminDocumentation();
+			if ($options->plus          == '1') new SZGoogleAdminPlus();
+			if ($options->analytics     == '1') new SZGoogleAdminAnalytics();
+			if ($options->authenticator == '1') new SZGoogleAdminAuthenticator();
+			if ($options->calendar      == '1') new SZGoogleAdminCalendar();
+			if ($options->drive         == '1') new SZGoogleAdminDrive();
+			if ($options->fonts         == '1') new SZGoogleAdminFonts();
+			if ($options->groups        == '1') new SZGoogleAdminGroups();
+			if ($options->hangouts      == '1') new SZGoogleAdminHangouts();
+			if ($options->panoramio     == '1') new SZGoogleAdminPanoramio();
+			if ($options->translate     == '1') new SZGoogleAdminTranslate();
+			if ($options->youtube       == '1') new SZGoogleAdminYoutube();
+			if ($options->documentation == '1') new SZGoogleAdminDocumentation();
  		}
 
 		/**
@@ -96,14 +102,16 @@ if (!class_exists('SZGoogleAdminBase'))
 
 			$this->sectionstabs = array(
 				'01' => array('anchor' => 'modules','description' => __('modules','szgoogleadmin')),
+				'02' => array('anchor' => 'api'    ,'description' => __('request API','szgoogleadmin')),
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin.php','title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin.php'    ,'title' => ucwords(__('activation','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-api.php','title' => ucwords(__('google API','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = ucfirst(__('configuration version','szgoogleadmin').'&nbsp;'.SZ_PLUGIN_GOOGLE_VERSION);
-			$this->sectionsoptions = 'sz_google_options_base';
+			$this->sectionsoptions = array('sz_google_options_base');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione
@@ -124,6 +132,7 @@ if (!class_exists('SZGoogleAdminBase'))
 
 			$this->sectionsmenu = array(
 				'01' => array('section' => 'sz_google_base_section','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin.php'),
+				'02' => array('section' => 'sz_google_base_api'    ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-api.php'),
 			);
 
 			// Definizione array generale contenente elenco dei campi
@@ -144,6 +153,12 @@ if (!class_exists('SZGoogleAdminBase'))
 					array('field' => 'translate'    ,'title' => ucwords(__('google translate'    ,'szgoogleadmin')),'callback' => array($this,'get_base_translate')),
 					array('field' => 'youtube'      ,'title' => ucwords(__('google youtube'      ,'szgoogleadmin')),'callback' => array($this,'get_base_youtube')),
 					array('field' => 'documentation','title' => ucwords(__('documentation '      ,'szgoogleadmin')),'callback' => array($this,'get_base_documentation')),
+				),
+
+				'02' => array(
+					array('field' => 'API_enable'       ,'title' => ucwords(__('API enable'       ,'szgoogleadmin')),'callback' => array($this,'get_base_api_enable')),
+//					array('field' => 'API_client_ID'    ,'title' => ucwords(__('API Client ID'    ,'szgoogleadmin')),'callback' => array($this,'get_base_api_client_id')),
+//					array('field' => 'API_client_secret','title' => ucwords(__('API Client secret','szgoogleadmin')),'callback' => array($this,'get_base_api_client_secret')),
 				),
 			);
 
@@ -231,25 +246,197 @@ if (!class_exists('SZGoogleAdminBase'))
 		}
 
 		/**
-		 * Calcolo il nome della pagina di amministrazione attuale
-		 * che può essere utile per il caricamento di moduli specifici
+		 * Controllo tramite URL se è in corso una richiesta di autenticazione
+		 * per la configurazione del pannello Google API e relativi token
 		 *
-		 * @return string
+		 * @return void
 		 */
-		function moduleAdminGetPageNow() {
-			global $pagenow;
-			return $pagenow;
+		private function moduleCheckRequestAPI() 
+		{
+			$pagenow   = $this->moduleAdminGetPageNow();
+			$adminpage = $this->moduleAdminGetAdminPage();
+			$adminURI  = admin_url('admin.php?page=sz-google-admin.php');
+
+			// Prima di effettuare i controlli su URL per operazioni speciali che riguardano
+			// le richieste API e gli eventuali redirect controllo se sono su pagina del plugin
+
+			if ($pagenow == 'admin.php' && preg_match('#^sz-google#',$adminpage) === 1) 
+			{
+				// Se esiste su URL la variabile sz-google-request-auth significa che è stata
+				// richiesta una chiamata a Google per autenticare utente e ricevere un token
+
+				if (isset($_GET['sz-google-request-auth']) and $_GET['sz-google-request-auth']=='ok') 
+				{
+					$token = $this->getOptionsAPI('API_token_refresh');
+
+					// Eseguo revoke del token attuale prima di fare una nuova
+					// richiesta di autorizzazione OAuth2 e richiedere nuovo token
+
+					if (!empty($token)) {
+						$this->setOptionsAPI('API_token','');
+						$this->setOptionsAPI('API_token_access','');
+						$this->setOptionsAPI('API_token_refresh','');
+						wp_remote_get('https://accounts.google.com/o/oauth2/revoke?token='.$token);
+					}
+
+					// Definizione array con i valori da spedire alla pagina di 
+					// autorizzazione OAuth2 per i servizi che riguardano Google
+
+					$options = $this->getOptions();
+
+					$scope  = 'https://www.googleapis.com/auth/drive ';
+					$scope .= 'https://www.googleapis.com/auth/plus.me';
+
+					$params = array(
+						'client_id'       => $options->API_client_ID,
+						'scope'           => $scope,
+						'redirect_uri'    => $adminURI,
+						'response_type'   => 'code',
+						'state'           => 'token',
+						'access_type'     => 'offline',
+						'approval_prompt' => 'force'
+					);
+
+					// Richiesta di autenticazione OAuth2 tramite chiamata al servizio Google
+					// dopo questa richiesta si viene reindirizzati su "redirect_uri"
+
+					header('Location: https://accounts.google.com/o/oauth2/auth?'.http_build_query($params));
+					exit();
+				}
+
+				// Quando ritorna il redirect dalla richiesta di autorizzazione se ricevo
+				// un token valido sarà presente la variabile "code" altrimenti errore
+
+				if (isset($_GET['state']) and $_GET['state'] == 'token' and isset($_GET['code'])) 
+				{
+					$options = $this->getOptions();
+
+					// Definizione array con i valori da spedire alla pagina di 
+					// autorizzazione OAuth2 per i servizi che riguardano Google
+
+					$this->setOptionsAPI('API_token',$_GET['code']);
+
+					$post_vars = array(
+						'code'          => $_GET['code'],
+						'client_id'     => $options->API_client_ID,
+						'client_secret' => $options->API_client_secret,
+						'redirect_uri'  => $adminURI,
+						'grant_type'    => 'authorization_code'
+					);
+
+					// Chiamata a Google Service per richiedere un token di refresh e
+					// un token di access che dovranno essere ricreati alla scadenza
+
+					$result = wp_remote_post('https://accounts.google.com/o/oauth2/token', 
+						array('timeout'=>25,'method'=>'POST','body'=>$post_vars));
+
+					// In caqso di errore non proseguo l'assegnazione del token e 
+					// provvedo un messaggio di errore sulla console di wordpress
+
+					if (is_wp_error($result)) {
+						header('Location: '.$adminURI.'&state=error#api'); exit();
+					}
+
+					// Controllo se la risposta ha un body JSON e se 
+					// contiene un refresh token ed un access token
+
+					$json_values = json_decode($result['body'], true);
+
+					if (isset($json_values['refresh_token'])) {
+						$this->setOptionsAPI('API_token_refresh',$json_values['refresh_token']);
+					}
+
+					if (isset($json_values['access_token'])) {
+						$this->setOptionsAPI('API_token_access',$json_values['access_token']);
+					}
+
+					// Se ricevo un token valido eseguo aggiornamento opzione API
+					// altrimenti eseguo un redirect con il flag di errore
+
+					if (isset($json_values['access_token'])) { header('Location: '.$adminURI.'&state=success#api'); exit(); } 
+						else { header('Location: '.$adminURI.'&state=error#api'); exit(); }
+				}
+
+				// Quando ritorna il redirect dalla richiesta di autorizzazione se ricevo
+				// un token valido sarà presente la variabile "code" altrimenti errore
+
+				if (isset($_GET['state']) and $_GET['state'] == 'token' and !isset($_GET['code'])) {
+					header('Location: '.$adminURI.'&state=error#api'); exit();
+				}
+
+				// Controllo lo stato URL per esecuzione con successo o con errore
+				// aggiungo un messaggio di notifica su sezione standard wordpress
+
+				if (isset($_GET['state']) and $_GET['state'] == 'success') {
+					add_action('admin_notices',array($this,'addAdminMessageSuccess'));
+				}
+
+				if (isset($_GET['state']) and $_GET['state'] == 'error') {
+					add_action('admin_notices',array($this,'addAdminMessageError'));
+				}
+			}
+
+
+
+
+/* SE 22222222222222222222 */
+/* SE 22222222222222222222 */
+
+
+		if (isset($_GET['state']) and $_GET['state'] == 'revoke') 
+		{
+			$token  = $this->getOptionsAPI('API_token_refresh');
+			$ignore = wp_remote_get('https://accounts.google.com/o/oauth2/revoke?token='.$token);
+			$this->setOptionsAPI('API_token_refresh','');
+		}
+
+
+
+
 		}
 
 		/**
-		 * Calcolo il nome della pagina di amministrazione attuale
-		 * che può essere utile per il caricamento di moduli specifici
+		 * Funzione per indicare il messaggio dopo la richiesta di
+		 * autenticazione oAuth2 che riguardano i servizi di google
 		 *
-		 * @return string
+		 * @return void
 		 */
-		function moduleAdminGetAdminPage() {
-			if (isset($_GET['page'])) return $_GET['page']; 
+		function addAdminMessageSuccess()
+		{
+			echo '<div class="updated"><p>(<b>sz-google</b>) - ';
+			echo ucfirst(__('google API configuration was successful.','szgoogleadmin'));
+			echo '</p></div>';
+		}
+
+		/**
+		 * Funzione per indicare il messaggio dopo la richiesta di
+		 * autenticazione oAuth2 che riguardano i servizi di google
+		 *
+		 * @return void
+		 */
+		function addAdminMessageError()
+		{
+			echo '<div class="error"><p>(<b>sz-google</b>) - ';
+			echo ucfirst(__('google API configuration is terminated with error.','szgoogleadmin'));
+			echo '</p></div>';
+		}
+
+		/**
+		 * Memorizzazione e lettura delle opzioni collegate alle
+		 * configurazione delle API e dei token autorizzati
+		 *
+		 * @return void
+		 */
+		private function getOptionsAPI($name) {
+			$options = get_option('sz_google_options_api');
+			if (isset($options[$name])) return $options[$name];
 				else return '';
+		}
+
+		private function setOptionsAPI($name,$value) {
+			$options = get_option('sz_google_options_api');
+			$options[$name] = $value;
+			update_option('sz_google_options_api',$options);
 		}
 
 		/**
@@ -326,6 +513,40 @@ if (!class_exists('SZGoogleAdminBase'))
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_base','documentation');
 			$this->moduleCommonFormDescription(__('activating this option you can see the documentation in the main menu of this plugin with the parameters to be used in [shortcodes] or PHP functions provided. There is a series of boxes in alphabetical order.','szgoogleadmin'));
+		}
+
+		/**
+		 * Definizione funzioni per le opzioni che riguardano la parte relativa
+		 * agli accessi tramite API e la richiesta di un token di autorizzazione
+		 */
+		function get_base_api_enable() 
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_base','API_enable');
+			$this->moduleCommonFormDescription(__('enable this option if you want to use the features of the plugin that need a personal authorization code from google. If you do not enable this option and you do not configure the authentication phase, some functions of the plugin will be disabled.','szgoogleadmin'));
+		}
+
+		function get_base_api_client_id() {
+			$this->moduleCommonFormText('sz_google_options_base','API_client_ID','large',__('insert your client ID','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('enter the value (Client ID) that you can find in the project that you created in the official page of Google APIs console. If you are not familiar with this procedure, carefully read the guide written just for this operation.','szgoogleadmin'));
+		}
+
+		function get_base_api_client_secret() {
+			$this->moduleCommonFormText('sz_google_options_base','API_client_secret','large',__('insert your client secret','szgoogleadmin'));
+
+
+$a  = '<a href="'.menu_page_url('sz-google-admin.php',false).'&amp;sz-google-request-auth=ok">aaa</a><br>';
+$a .= 'Token '        .$this->getOptionsAPI('API_token').'<br>';
+$a .= 'Token access ' .$this->getOptionsAPI('API_token_access').'<br>';
+$a .= 'Token refresh '.$this->getOptionsAPI('API_token_refresh').'<br>';
+
+$a .= admin_url('wp-admin/admin.php?page=sz-google-admin.php');
+
+
+//update_option('TEST_API_token','');
+//update_option('TEST_API_token_access','');
+//update_option('TEST_API_token_refresh','');
+
+			$this->moduleCommonFormDescription(__($a,'szgoogleadmin'));
 		}
 	}
 }

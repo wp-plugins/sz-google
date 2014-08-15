@@ -73,7 +73,7 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 			);
 
 			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_ga';
+			$this->sectionsoptions = array('sz_google_options_ga');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione

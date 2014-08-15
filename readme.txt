@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 1.7.5
+Stable tag: 1.7.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -35,11 +35,6 @@ To be informed about the features that gradually will be released you can follow
 
 = Google+ social network module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
-
-* <a href="https://wpitalyplus.com/sz-google/google-badges/">Demo online - Google plus badges</a>
-* <a href="https://wpitalyplus.com/sz-google/google-buttons/">Demo online - Google plus buttons</a>
-* <a href="https://wpitalyplus.com/sz-google/google-comments/">Demo online - Google plus comments</a>
-* <a href="https://wpitalyplus.com/sz-google/google-posts/">Demo online - Google plus embedded post</a>
 
 **Google+ Badges:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These components can be used as a widget for use in or as a sidebar and as shortcode to use in the articles. You can also use the php functions to customize your own theme directly with programming code.
 
@@ -321,6 +316,13 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.7.6 =
+* Fix: Widget Youtube playlist with autoplay.
+* Fix: File README for new link and contents.
+* Fix: Enable google api (beta version).
+* Fix: Documentazione bug and incorrect words.
+* Fix: Youtube option start/end seconds.
 
 = Version 1.7.5 =
 * Fix: Documentation drive embed.

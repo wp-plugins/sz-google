@@ -49,7 +49,7 @@ if (!class_exists('SZGoogleAdminFonts'))
 			);
 
 			$this->sectionstitle   = $this->menutitle;
-			$this->sectionsoptions = 'sz_google_options_fonts';
+			$this->sectionsoptions = array('sz_google_options_fonts');
 
 			// Richiamo la funzione della classe padre per elaborare le
 			// variabili contenenti i valori di configurazione sezione
