@@ -15,6 +15,8 @@ Plugin to integrate Google's products in WordPress with particular attention for
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote.
 
+* <a href="https://otherplus.com/tech/wordpress-plugin/sz-google/">(IT) - Documentazione in Italiano</a>
+
 = Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
 
@@ -99,7 +101,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `Google analytics enable multiple top domains.`
 * `Google analytics enable advertiser.`
 
-**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function directly `szgoogle_analytics_get_code()` in your theme manually.
+**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function `szgoogle_analytics_get_code()` in your theme manually.
 
 **Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
 
@@ -122,6 +124,13 @@ the configuration and synchronization of the key will be performed quickly and e
 * `szgoogle_authenticator_get_secret()`
 * `szgoogle_authenticator_get_login_field()`
 * `szgoogle_authenticator_verify_code()`
+
+= Google Calendar =
+**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+
+**Google Calendar Widgets:** In this plugin are available google calendar widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget google calendar`
 
 = Google Drive module =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
