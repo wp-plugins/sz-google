@@ -62,7 +62,7 @@ if (!class_exists('SZGoogleActionCalendar'))
 			// sono contenuti nei nomi di variabili corrispondenti alla chiave
 
 			extract(shortcode_atts(array(
-				'calendars'     => '', // valore predefinito
+				'calendar'      => '', // valore predefinito
 				'title'         => '', // valore predefinito
 				'mode'          => '', // valore predefinito
 				'weekstart'     => '', // valore predefinito
@@ -88,7 +88,7 @@ if (!class_exists('SZGoogleActionCalendar'))
 			// Elimino spazi aggiunti di troppo ed eseguo la trasformazione in
 			// stringa minuscolo per il controllo di valori speciali come "auto"
 
-			$calendars     = trim($calendars);
+			$calendar      = trim($calendar);
 			$title         = trim($title);
 			$action        = trim($action);
 			$language      = trim($language);
@@ -132,10 +132,10 @@ if (!class_exists('SZGoogleActionCalendar'))
 
 			if ($action == 'widget')
 			{
-				if ($calendars == '') $calendars = $options->calendar_w_calendars;
-				if ($title     == '') $title     = $options->calendar_w_title;
-				if ($width     == '') $width     = $options->calendar_w_width;
-				if ($height    == '') $height    = $options->calendar_w_height;
+				if ($calendar == '') $calendar = $options->calendar_w_calendars;
+				if ($title    == '') $title    = $options->calendar_w_title;
+				if ($width    == '') $width    = $options->calendar_w_width;
+				if ($height   == '') $height   = $options->calendar_w_height;
 	
 				if (!in_array($showtitle    ,$YESNO)) $showtitle     = $options->calendar_w_show_title;
 				if (!in_array($shownavs     ,$YESNO)) $shownavs      = $options->calendar_w_show_navs;
@@ -147,10 +147,10 @@ if (!class_exists('SZGoogleActionCalendar'))
 
 			} else {
 
-				if ($calendars == '') $calendars = $options->calendar_s_calendars;
-				if ($title     == '') $title     = $options->calendar_s_title;
-				if ($width     == '') $width     = $options->calendar_s_width;
-				if ($height    == '') $height    = $options->calendar_s_height;
+				if ($calendar == '') $calendar = $options->calendar_s_calendars;
+				if ($title    == '') $title    = $options->calendar_s_title;
+				if ($width    == '') $width    = $options->calendar_s_width;
+				if ($height   == '') $height   = $options->calendar_s_height;
 
 				if (!in_array($showtitle    ,$YESNO)) $showtitle     = $options->calendar_s_show_title;
 				if (!in_array($shownavs     ,$YESNO)) $shownavs      = $options->calendar_s_show_navs;
@@ -164,7 +164,7 @@ if (!class_exists('SZGoogleActionCalendar'))
 			// Controllo la variabile titolo se specificata nella opzione
 			// in caso contrario assegno il valore speciale con traduzione in lingua
 
-			if ($calendars == '') $calendars = $options->calendar_o_calendars;
+			if ($calendar  == '') $calendar  = $options->calendar_o_calendars;
 			if ($title     == '') $title     = $options->calendar_o_title;
 			if ($mode      == '') $mode      = $options->calendar_o_mode;
 			if ($weekstart == '') $weekstart = $options->calendar_o_weekstart;
@@ -225,7 +225,7 @@ if (!class_exists('SZGoogleActionCalendar'))
 			// Creazione array contenente i nomi dei calendari da visualizzare.
 			// I nomi devono essere divisi da una virgola nella variabile specifica.
 
-			$CALarray = explode(',',$calendars);
+			$CALarray = explode(',',$calendar);
 
 			foreach ($CALarray as $key=>$value) {
 				if (trim($value) != '') $URLarray[] = 'src='.urlencode(trim($value));
