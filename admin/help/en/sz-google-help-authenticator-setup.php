@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-authenticator-setup.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -42,14 +36,6 @@ goes wrong on the timing of your phone after you have login problems that must b
 root directory of wordpress. This feature can be useful if you have some big problems connecting or the administrator has more access 
 to its devices. In this case the owner of the site could do an FTP to an empty file, for example <b>google-authenticator-disable.php</b>
 in root directory and temporarily suspend code control, this is because he may not be able to login.</p>
-
-<h2>Screenshot</h2>
-
-<p>I am attaching a screen that shows some of the fields present sull'anagrafica user profile that are used to activate the 
-Google Authenticator associated with the profile. If you do not want to give this opportunity to any user, use the profile with 
-administrator rights and enabled on the profile concerned called "Hide google authenticator."</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Warnings</h2>
 

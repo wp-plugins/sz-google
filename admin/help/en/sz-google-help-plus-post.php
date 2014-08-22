@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-plus-post.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -88,14 +82,6 @@ if (function_exists('szgoogle_gplus_get_post')) {
   echo szgoogle_gplus_get_post(\$options);
 }
 </pre>
-
-<h2>Screenshot</h2>
-
-<p>In this picture you can see the component was added to a post wordpress, size, and some options related to the appearance can be 
-changed with the configuration parameters. The most suitable area to the publication of this information is the sidebar, but it can 
-sometimes be useful to include them in an article to sponsor a particular resource.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Warnings</h2>
 

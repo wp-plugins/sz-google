@@ -23,4 +23,5 @@ return array(
 	'ga_enable_subdomain'     => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'ga_enable_multiple'      => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'ga_enable_advertiser'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'ga_enable_features'      => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 );

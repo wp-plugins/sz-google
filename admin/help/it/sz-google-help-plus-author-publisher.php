@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-plus-authorship.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -78,13 +72,6 @@ if (function_exists('szgoogle_gplus_get_contact_page')) {
 
 echo '&lt;/div&gt;';
 </pre>
-
-<h2>Structured Data Testing Tool</h2>
-
-<p>Se volete fare dei test per verificare che il codice prodotto dal plugin sia corretto dovete andare sulla pagina ufficiale di google
-facente parte degli Webmaster Tools e chiamata <a href="http://www.google.com/webmasters/tools/richsnippets">Structured Data Testing Tool</a>.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

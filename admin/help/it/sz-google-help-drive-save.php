@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-drive-save-button.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -93,15 +87,6 @@ if (function_exists('szgoogle_drive_get_savebutton')) {
   echo szgoogle_drive_get_savebutton(\$options);
 }
 </pre>
-
-<h2>Schermata</h2>
-
-<p>In questa immagine potete vedere il risultato finale di questa funzionalità. Viene visualizzata una foto con una risoluzione media e
-vengono aggiunti sotto dei pulsanti per memorizzare su drive i file ad alta definizione che occupano molto spazio. Potete usare questa
-tecnica per qualsiasi tipo di file ad esempio ZIP,PDF,DOC ect. Ricordarsi che il file deve comunque essere disponibile su un'indirizzo
-URL che appartiene al sito stesso, non può funzionare utilizzando link esterni.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-authenticator-device.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -34,14 +28,6 @@ tutto è andato bene vedrete nel vostro smartphone un nuovo account con il codic
 <li><a target="_blank" href="https://support.google.com/accounts/answer/1066447">Google Authenticator su Blackberry</a></li>
 <li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2">Google Authenticator su Google Play</a></li>
 </ul>
-
-<h2>Schermata</h2>
-
-<p>Vi allego una schermata di uno smartphone android dove potete vedere che ogni account utilizzato in google authenticator
-ha il suo codice a tempo che deve essere usato durante un login. Potete usare codici diversi per ogni sito web che gestite senza
-nessun problema, basterà solamente configurare con il QR Code dei profili su differenti account.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

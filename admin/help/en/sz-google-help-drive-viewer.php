@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-drive-viewer.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -101,13 +95,6 @@ if (function_exists('szgoogle_drive_get_viewer')) {
   echo szgoogle_drive_get_viewer(\$options);
 }
 </pre>
-
-<h2>Screenshot</h2>
-
-<p>In this picture you can see the result of this feature. Is presented with a PDF document containing an example of financial data 
-on Euribor 2013. As you can see there are also some navigation functions.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Warnings</h2>
 

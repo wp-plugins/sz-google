@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 3.8
-Stable tag: 1.7.6
+Stable tag: 1.7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -15,7 +15,7 @@ Plugin to integrate Google's products in WordPress with particular attention for
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote.
 
-* <a href="https://otherplus.com/tech/sz-google/">(IT) - Documentazione in Italiano</a>
+* <a href="https://otherplus.com/tech/wordpress-plugin/sz-google/">(IT) - Documentazione in Italiano</a>
 
 = Modules available in plugin =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -295,7 +295,7 @@ If you have problems during the installation of this plugin please contact us di
 <a href="http://wordpress.org/plugins/sz-google/faq/">English</a> - <a href="http://goo.gl/2co5W">Italiano</a> - <a href="http://goo.gl/SJIhR">Español</a> - <a href="http://goo.gl/hDYgZ">Français</a> - <a href="http://goo.gl/wz6ZV">Deutsch</a>
 
 = You can see a demo before the installation? =
-Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://wpitalyplus.com/sz-google/">SZ-Google Demo</a> to display many components in live demo.
+Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://otherplus.com/tech/sz-google/">SZ-Google Demo</a> to display many components in live demo.
 
 = All these functions in a single plugin affect performance? =
 The plugin was written in separate modules that are activated only on request. This allows saving both memory of CPU, obviously if all functions are activated the plugin needs resources, however senpre less than installing a high number of different plugins.
@@ -322,6 +322,14 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.7.7 =
+* Fix: Reduce size of plugin.
+* Fix: Reduce size of screenshot.
+* Fix: Google Calendar shortcode bug.
+* Fix: Google Calendar widget bug.
+* Fix: Remove images for documentation.
+* Feature: Google Analytics display features.
 
 = Version 1.7.6 =
 * Fix: Widget Youtube playlist with autoplay.

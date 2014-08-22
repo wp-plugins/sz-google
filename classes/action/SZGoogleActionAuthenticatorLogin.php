@@ -84,7 +84,7 @@ if (!class_exists('SZGoogleActionAuthenticatorLogin'))
 			// calcolato dalla routine interna della classe authenticator
 
 			if ($this->checkAuthenticatorCode($secrets,$authenticator,$options['authenticator_discrepancy']) === true) return $userobj;
-				else return new WP_Error( 'invalid_google_authenticator_password', SZGoogleCommon::getTranslate( '<strong>ERROR</strong>: Authenticator code is incorrect.','szgoogleadmin'));
+				else return new WP_Error('invalid_google_authenticator_password',SZGoogleCommon::getTranslate('<strong>ERROR</strong>: Authenticator code is incorrect.','szgoogleadmin'));
 		}
 
 		/**

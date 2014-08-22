@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-analytics.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -59,13 +53,6 @@ cambiano il modo in cui i dati sono raccolti e organizzati nel tuo account di Go
 comprensione dei contenuti online. Per tutti i siti web che sono stati configurati nel vecchio metodo si necessità di una conversione
 che viene fatta direttamente dal pannello di amministrazione di GA. Solo dopo questa conversione potete attivare l'opzione di Universal
 Analytics sul plugin SZ-Google che in ogni caso gestisce automaticamente sia il vecchio codice che il nuovo.</p>
-
-<h2>Schermata</h2>
-
-<p>Vi allego una schermata che riporta alcuni grafici presenti su google analytics, uno strumento indispensabile per tutti i
-proprietari di siti web e ancora di più per i webmaster che li gestiscono.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

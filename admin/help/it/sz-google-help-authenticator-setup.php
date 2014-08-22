@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-authenticator-setup.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -45,14 +39,6 @@ eseguendo un FTP di un determinato file nella directory principale di wordpress.
 abbia grossi problemi di collegamento o l'amministratore non abbia più accesso al suo device. In questo caso il proprietario del sito
 potrebbe fare un FTP di un file vuoto ad esempio chiamato <b>google-authenticator-disable.php</b> nella directory root e sospendere
 temporaneamente il controllo del codice, questo perchè ovviamente anche lui potrebbe non riuscire a fare il login.</p>
-
-<h2>Schermata</h2>
-
-<p>Vi allego una schermata che riporta alcuni campi presenti sull'anagrafica profilo utente che servono per l'attivazione
-di Google Authenticator nel profilo associato. Se non volete dare questa possibilità a qualche utente, usate il profilo con diritti
-di amministratore e attivata l'opzione sul profilo interessato chiamata "nascondi google authenticator".</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

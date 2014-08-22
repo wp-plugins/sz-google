@@ -42,7 +42,7 @@ if (!class_exists('SZGoogleWidgetCalendar'))
 
 			$options = $this->common_empty(array(
 				'title'         => '', // valore predefinito
-				'calendars'     => '', // valore predefinito
+				'calendar'      => '', // valore predefinito
 				'mode'          => '', // valore predefinito
 				'weekstart'     => '', // valore predefinito
 				'language'      => '', // valore predefinito
@@ -102,7 +102,7 @@ if (!class_exists('SZGoogleWidgetCalendar'))
 			return $this->common_update(array(
 				'title'         => '0', // esecuzione strip_tags
 				'calendarT'     => '0', // esecuzione strip_tags
-				'calendars'     => '1', // esecuzione strip_tags
+				'calendar'      => '1', // esecuzione strip_tags
 				'mode'          => '1', // esecuzione strip_tags
 				'weekstart'     => '1', // esecuzione strip_tags
 				'language'      => '1', // esecuzione strip_tags
@@ -133,7 +133,7 @@ if (!class_exists('SZGoogleWidgetCalendar'))
 			$array = array(
 				'title'         => '', // valore predefinito
 				'calendarT'     => '', // valore predefinito
-				'calendars'     => '', // valore predefinito
+				'calendar'      => '', // valore predefinito
 				'mode'          => '', // valore predefinito
 				'weekstart'     => '', // valore predefinito
 				'language'      => '', // valore predefinito

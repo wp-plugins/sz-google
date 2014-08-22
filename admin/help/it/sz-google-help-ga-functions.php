@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-analytics.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -57,13 +51,6 @@ utilizzare la funzione PHP <b>szgoogle_analytics_get_code()</b> e inserirla nel 
   }
 &lt;/head&gt;
 </pre>
-
-<h2>Schermata</h2>
-
-<p>Vi allego una schermata che riporta alcuni grafici presenti su google analytics, uno strumento indispensabile per tutti i
-proprietari di siti web e ancora di più per i webmaster che li gestiscono.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

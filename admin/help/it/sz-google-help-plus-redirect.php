@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-plus-redirect.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -50,13 +44,6 @@ Plugin+ URL ==> https://skydrive.com/+
 Plugin+ URL ==> https://skydrive.com/plus
 Plugin+ URL ==> https://skydrive.com/community/+
 </pre>
-
-<h2>Schermata</h2>
-
-<p>In questa immagine potete vedere il risultato finale di questa funzionalità. Potete usare il vostrro domino con un segno di + 
-per creare un collegamento alla vostra business page presente su google plus.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

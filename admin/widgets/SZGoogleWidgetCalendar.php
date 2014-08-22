@@ -19,8 +19,8 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_calendars ?>"><?php echo ucfirst(__('calendars','szgoogleadmin')) ?>:</label></td>
-	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_calendars ?>" name="<?php echo $NAME_calendars ?>" type="text" value="<?php echo $VALUE_calendars ?>" placeholder="<?php echo __('configuration','szgoogleadmin') ?>"/></td>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_calendar ?>"><?php echo ucfirst(__('calendar','szgoogleadmin')) ?>:</label></td>
+	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_calendar ?>" name="<?php echo $NAME_calendar ?>" type="text" value="<?php echo $VALUE_calendar ?>" placeholder="<?php echo __('configuration','szgoogleadmin') ?>"/></td>
 </tr>
 
 <tr>

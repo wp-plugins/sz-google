@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-analytics.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -56,13 +50,6 @@ in which data are collected and organized in your Google Analytics account, so y
 For all the websites that have been configured in the old method is the need for a conversion that is made directly from the admin 
 panel of the GA. Only after this conversion can activate the option of Universal Analytics on plugin SZ-Google which in any case 
 automatically manages both the old and the new code.</p>
-
-<h2>Screenshot</h2>
-
-<p>I am attaching a screen that shows some graphs found on google analytics, an indispensable tool for all website owners and even 
-more to webmasters who run them. Visit official site <a target="_blank" href="http://www.google.com/analytics/">http://www.google.com/analytics/</a>.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Warnings</h2>
 

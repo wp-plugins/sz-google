@@ -62,14 +62,16 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 			// le sezioni devono essere passate come un array con nome => titolo
 
 			$this->sectionstabs = array(
-				'01' => array('anchor' => 'general','description' => __('general','szgoogleadmin')),
-				'02' => array('anchor' => 'classic','description' => __('classic','szgoogleadmin')),
+				'01' => array('anchor' => 'general'  ,'description' => __('general'  ,'szgoogleadmin')),
+				'02' => array('anchor' => 'classic'  ,'description' => __('classic'  ,'szgoogleadmin')),
+				'03' => array('anchor' => 'universal','description' => __('universal','szgoogleadmin')),
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-analytics.php'         ,'title' => ucwords(__('settings','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-analytics-enabled.php' ,'title' => ucwords(__('tracking','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-analytics-classic.php' ,'title' => ucwords(__('classic analytics','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-analytics.php'          ,'title' => ucwords(__('settings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-analytics-enabled.php'  ,'title' => ucwords(__('tracking','szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-analytics-classic.php'  ,'title' => ucwords(__('classic analytics','szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-analytics-universal.php','title' => ucwords(__('universal analytics','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -93,9 +95,10 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 			// Su ogni sezione bisogna definire un array per elenco campi
 
 			$this->sectionsmenu = array(
-				'01' => array('section' => 'sz_google_analytics_section','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics.php'),
-				'02' => array('section' => 'sz_google_analytics_enabled','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics-enabled.php'),
-				'03' => array('section' => 'sz_google_analytics_classic','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics-classic.php'),
+				'01' => array('section' => 'sz_google_analytics_section'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics.php'),
+				'02' => array('section' => 'sz_google_analytics_enabled'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics-enabled.php'),
+				'03' => array('section' => 'sz_google_analytics_classic'  ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics-classic.php'),
+				'04' => array('section' => 'sz_google_analytics_universal','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-analytics-universal.php'),
 			);
 
 			// Definizione array generale contenente elenco dei campi
@@ -126,6 +129,12 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 					array('field' => 'ga_enable_subdomains'         ,'title' => ucfirst(__('tracking subdomains' ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_subdomains')),
 					array('field' => 'ga_enable_multiple'           ,'title' => ucfirst(__('multiple top domains','szgoogleadmin')),'callback' => array($this,'get_analytics_enable_multiple')),
 					array('field' => 'ga_enable_advertiser'         ,'title' => ucfirst(__('advertiser'          ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_advertiser')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE ANALYTICS UNIVERSAL
+
+				'04' => array(
+					array('field' => 'ga_enable_features'           ,'title' => ucfirst(__('display features'    ,'szgoogleadmin')),'callback' => array($this,'get_analytics_enable_features')),
 				),
 			);
 
@@ -208,6 +217,12 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 		{ 
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_ga','ga_enable_advertiser');
 			$this->moduleCommonFormDescription(__('turn this option for enable display advertiser support. This change is compatible with both the synchronous and asynchronous versions of the tracking code. This modification does not impact any customizations you have previously made to your code.','szgoogleadmin'));
+		}
+
+		function get_analytics_enable_features() 
+		{ 
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_ga','ga_enable_features');
+			$this->moduleCommonFormDescription(__('Google Analytics Display Advertising is a collection of features that takes advantage of the DoubleClick cookie so you can do things like create remarketing lists, use demographic data and create segments based on demographic and interest data.','szgoogleadmin'));
 		}
 	}
 }

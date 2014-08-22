@@ -55,6 +55,7 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				'ga_enable_subdomain'     => $options->ga_enable_subdomain,
 				'ga_enable_multiple'      => $options->ga_enable_multiple,
 				'ga_enable_advertiser'    => $options->ga_enable_advertiser,
+				'ga_enable_features'      => $options->ga_enable_features,
 			),$atts));
 
 			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
@@ -70,25 +71,28 @@ if (!class_exists('SZGoogleActionAnalytics'))
 			$ga_enable_subdomain     = strtolower(trim($ga_enable_subdomain));
 			$ga_enable_multiple      = strtolower(trim($ga_enable_multiple));
 			$ga_enable_advertiser    = strtolower(trim($ga_enable_advertiser));
+			$ga_enable_features      = strtolower(trim($ga_enable_features));
 
 			// Conversione dei valori specificati direttamete nei parametri con
 			// i valori usati per la memorizzazione dei valori di default
 
-			if ($ga_enable_front         == 'yes' or $ga_enable_front         == 'y') $ga_enable_front         = '1'; 
-			if ($ga_enable_admin         == 'yes' or $ga_enable_admin         == 'y') $ga_enable_admin         = '1'; 
-			if ($ga_enable_administrator == 'yes' or $ga_enable_administrator == 'y') $ga_enable_administrator = '1'; 
-			if ($ga_enable_logged        == 'yes' or $ga_enable_logged        == 'y') $ga_enable_logged        = '1'; 
-			if ($ga_enable_subdomain     == 'yes' or $ga_enable_subdomain     == 'y') $ga_enable_subdomain     = '1'; 
-			if ($ga_enable_multiple      == 'yes' or $ga_enable_multiple      == 'y') $ga_enable_multiple      = '1'; 
-			if ($ga_enable_advertiser    == 'yes' or $ga_enable_advertiser    == 'y') $ga_enable_advertiser    = '1'; 
+			if ($ga_enable_front         == 'yes' or $ga_enable_front         == 'y') $ga_enable_front         = '1';
+			if ($ga_enable_admin         == 'yes' or $ga_enable_admin         == 'y') $ga_enable_admin         = '1';
+			if ($ga_enable_administrator == 'yes' or $ga_enable_administrator == 'y') $ga_enable_administrator = '1';
+			if ($ga_enable_logged        == 'yes' or $ga_enable_logged        == 'y') $ga_enable_logged        = '1';
+			if ($ga_enable_subdomain     == 'yes' or $ga_enable_subdomain     == 'y') $ga_enable_subdomain     = '1';
+			if ($ga_enable_multiple      == 'yes' or $ga_enable_multiple      == 'y') $ga_enable_multiple      = '1';
+			if ($ga_enable_advertiser    == 'yes' or $ga_enable_advertiser    == 'y') $ga_enable_advertiser    = '1';
+			if ($ga_enable_features      == 'yes' or $ga_enable_features      == 'y') $ga_enable_features      = '1';
 
-			if ($ga_enable_front         == 'no'  or $ga_enable_front         == 'n') $ga_enable_front         = '1'; 
-			if ($ga_enable_admin         == 'no'  or $ga_enable_admin         == 'n') $ga_enable_admin         = '1'; 
-			if ($ga_enable_administrator == 'no'  or $ga_enable_administrator == 'n') $ga_enable_administrator = '1'; 
-			if ($ga_enable_logged        == 'no'  or $ga_enable_logged        == 'n') $ga_enable_logged        = '1'; 
-			if ($ga_enable_subdomain     == 'no'  or $ga_enable_subdomain     == 'n') $ga_enable_subdomain     = '1'; 
-			if ($ga_enable_multiple      == 'no'  or $ga_enable_multiple      == 'n') $ga_enable_multiple      = '1'; 
-			if ($ga_enable_advertiser    == 'no'  or $ga_enable_advertiser    == 'n') $ga_enable_advertiser    = '1'; 
+			if ($ga_enable_front         == 'no'  or $ga_enable_front         == 'n') $ga_enable_front         = '1';
+			if ($ga_enable_admin         == 'no'  or $ga_enable_admin         == 'n') $ga_enable_admin         = '1';
+			if ($ga_enable_administrator == 'no'  or $ga_enable_administrator == 'n') $ga_enable_administrator = '1';
+			if ($ga_enable_logged        == 'no'  or $ga_enable_logged        == 'n') $ga_enable_logged        = '1';
+			if ($ga_enable_subdomain     == 'no'  or $ga_enable_subdomain     == 'n') $ga_enable_subdomain     = '1';
+			if ($ga_enable_multiple      == 'no'  or $ga_enable_multiple      == 'n') $ga_enable_multiple      = '1';
+			if ($ga_enable_advertiser    == 'no'  or $ga_enable_advertiser    == 'n') $ga_enable_advertiser    = '1';
+			if ($ga_enable_features      == 'no'  or $ga_enable_features      == 'n') $ga_enable_features      = '1';
 
 			// Controllo se sono loggato come amministratore o utente registrato
 			// e disattivo il caricamento del codice se le opzioni sono disattivate 
@@ -142,9 +146,17 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){"."\n";
 				$HTML .= "  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),"."\n";
 				$HTML .= "  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)"."\n";
-				$HTML .= "  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');"."\n\n";
-				$HTML .= "  ga('create', '".trim($ga_uacode)."', '".trim(SZGoogleCommon::getCurrentDomain())."');"."\n";
-				$HTML .= "  ga('send', 'pageview');"."\n";
+				$HTML .= "  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');"."\n";
+				$HTML .= "  ga('create','".trim($ga_uacode)."','".trim(SZGoogleCommon::getCurrentDomain())."');"."\n";
+
+				// Controllo opzione displayfeature da aggiungere
+				// al codice di google analytics universal standard
+
+				if ($ga_enable_features == '1') {
+					$HTML .= "  ga('require','displayfeatures');"."\n";
+				}
+
+				$HTML .= "  ga('send','pageview');"."\n";
 				$HTML .= "</script>"."\n";
 			}
 

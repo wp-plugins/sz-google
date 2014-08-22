@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-mobile-recommendations.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -48,15 +42,6 @@ della pagina direttamente su google plus. Per ulteriori informazioni leggete
 <li>Quando l'utente scorre ultimi un elemento con un ID specificato.</li>
 <li>Quando l'utente scorre passato un elemento che corrisponda un selettore di query DOM.</li>
 </ul>
-
-<h2>Schermata</h2>
-
-<p>In questa immagine potete vedere il risultato finale di questa funzionalità. Il widget delle raccomandazioni compare in fondo 
-alla pagina mentre si scrolla il contenuto e andando in overlay al layout del sito web, una volta selezionata la barra del widget
-viene visualizzata un'applicazione con tutti gli articoli raccomandati in base alle azioni sociali di google+. Attenzione che se 
-non ci sono abbastanza azioni sociali sui post questo widget potrebbe non essere visualizzato anche se tutto correttamente configurato.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Avvertenze</h2>
 

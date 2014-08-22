@@ -8,12 +8,6 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabili per calcolare percorsi, immagini
- * e qualsiasi risorsa che debba essere specificata in EOD
- */
-$IMAGE1 = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/images/others/sz-google-mobile-recommendations.jpg';
-
-/**
  * Definizione variabile HTML per la preparazione della stringa
  * che contiene la documentazione di questa funzionalità
  */
@@ -46,15 +40,6 @@ mode. So do not try to change these settings in the options but use the plugin c
 <li>When the user scrolls past an element with a specified ID.</li>
 <li>When the user scrolls past an element that matches a DOM query selector.</li>
 </ul>
-
-<h2>Screenshot</h2>
-
-<p>In this picture you can see the end result of this feature. The widget of the recommendations appears at the bottom of the page 
-while you scroll the content and going to overlay the layout of the website, once you have selected the widget bar displays an 
-application with all the articles recommended by the actions of social google+. Please note that if there are not enough social 
-actions on this post boxes may not be displayed even if everything is configured correctly.</p>
-
-<img class="screen" src="$IMAGE1" alt=""/>
 
 <h2>Warnings</h2>
 
