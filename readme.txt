@@ -329,6 +329,7 @@ Before you use the google translate module must register the site that you want 
 * Fix: Google Calendar shortcode bug.
 * Fix: Google Calendar widget bug.
 * Fix: Remove images for documentation.
+* Feature: Add icons for wordpress 4.0.
 * Feature: Google Analytics display features.
 
 = Version 1.7.6 =
