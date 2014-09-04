@@ -192,7 +192,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			if ($pagenow == 'widgets.php' or $pagenow == 'customize.php') 
 				$widgets = true; else $widgets = false;
 
-			if ($pagenow == 'admin.php' && preg_match('#^sz-google#',$adminpage) === 1) 
+			if ($pagenow == 'profile.php' or ($pagenow == 'admin.php' && preg_match('#^sz-google#',$adminpage) === 1))
 				$optionpage = true; else $optionpage = false;
 
 			// Controllo in che pagina di amministrazione mi trovo per 

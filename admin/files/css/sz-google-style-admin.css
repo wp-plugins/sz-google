@@ -4,10 +4,12 @@
 #sz-google-tab {
 	margin-bottom: 0.5em;
 }
+
 .sz-google-tab-div,
 .sz-google-row-tab {
 	display:none;
 }
+
 .sz-google-tab-div.sz-google-active {
 	display:block;
 }
@@ -19,10 +21,34 @@
 	display:none;
 }
 
+/* ----------------------------------------------- */
+/* CSS sulla pagine del profile utente campi INPUT */
+/* ----------------------------------------------- */
+.sz-google-input {
+	width:256px;
+	margin-bottom:5px !important;
+}
+
+table.sz-google-codes {
+	width:256px;
+	table-layout:fixed;
+}
+
+table.sz-google-codes td {
+	text-align:center;
+	border:1px solid #d1d1d1;
+}
 
 
 
 
+
+
+
+
+/* ----------------------------------------------- */
+/* DA DOCUMENTARE     */
+/* ----------------------------------------------- */
 
 #sz-google-admin-options {
 	width:77%;

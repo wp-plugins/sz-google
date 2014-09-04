@@ -73,15 +73,16 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 				// Definizione sezione per configurazione GOOGLE AUTHENTICATOR
 
 				'01' => array(
-					array('field' => 'authenticator_login_enable'  ,'title' => ucfirst(__('enable'          ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_login_enable')),
-					array('field' => 'authenticator_discrepancy'   ,'title' => ucfirst(__('discrepancy'     ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_discrepancy')),
+					array('field' => 'authenticator_login_enable'   ,'title' => ucfirst(__('enable'          ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_login_enable')),
+					array('field' => 'authenticator_discrepancy'    ,'title' => ucfirst(__('discrepancy'     ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_discrepancy')),
 				),
 
 				// Definizione sezione per configurazione GOOGLE EMERGENCY
 
 				'02' => array(
-					array('field' => 'authenticator_emergency'     ,'title' => ucfirst(__('emergency enable','szgoogleadmin')),'callback' => array($this,'get_authenticator_emergency_enable')),
-					array('field' => 'authenticator_emergency_file','title' => ucfirst(__('emergency file'  ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_emergency_file')),
+					array('field' => 'authenticator_emergency_codes','title' => ucfirst(__('emergency codes' ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_emergency_codes')),
+					array('field' => 'authenticator_emergency'      ,'title' => ucfirst(__('emergency enable','szgoogleadmin')),'callback' => array($this,'get_authenticator_emergency_enable')),
+					array('field' => 'authenticator_emergency_file' ,'title' => ucfirst(__('emergency file'  ,'szgoogleadmin')),'callback' => array($this,'get_authenticator_emergency_file')),
 				),
 			);
 
@@ -115,6 +116,11 @@ if (!class_exists('SZGoogleAdminAuthenticator'))
 			$this->moduleCommonFormSelect('sz_google_options_authenticator','authenticator_discrepancy',$values,'medium','');
 			$this->moduleCommonFormDescription(__('indicate time of discrepancy that should be used by the plugin. This value indicates the time of tolerance that is applied to the generation of the authenticator code with respect to time auto-generation. Default value is 30 seconds.','szgoogleadmin'));
 		}
+
+		function get_authenticator_emergency_codes() 
+		{ 
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_authenticator','authenticator_emergency_codes');
+			$this->moduleCommonFormDescription(__('Enable this option to manage the emergency codes. Are of backup codes that can be used in case of emergency, for example, when our smartphones is inoperable or have problems on-time password. Each code can be used only once.','szgoogleadmin'));		}
 
 		function get_authenticator_emergency_enable() 
 		{ 

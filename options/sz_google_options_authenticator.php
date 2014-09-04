@@ -13,9 +13,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 // dovranno essere richiamate tramite un include(setoptions)
 
 return array(
-	'authenticator_login_enable'   => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
-	'authenticator_login_type'     => array('N'=>'1','Y'=>'0','Z'=>'0','value' => '1'),
-	'authenticator_discrepancy'    => array('N'=>'1','Y'=>'0','Z'=>'0','value' => '1'),
-	'authenticator_emergency'      => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
-	'authenticator_emergency_file' => array('N'=>'0','Y'=>'0','Z'=>'0','value' => '' ),
+	'authenticator_login_enable'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
+	'authenticator_login_type'      => array('N'=>'1','Y'=>'0','Z'=>'0','value' => '1'),
+	'authenticator_discrepancy'     => array('N'=>'1','Y'=>'0','Z'=>'0','value' => '1'),
+	'authenticator_emergency_codes' => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'authenticator_emergency'       => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'authenticator_emergency_file'  => array('N'=>'0','Y'=>'0','Z'=>'0','value' => '' ),
 );

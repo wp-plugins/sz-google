@@ -80,6 +80,21 @@ if (!class_exists('SZGoogleActionAuthenticatorLogin'))
 			$options = $this->getModuleOptions('SZGoogleModuleAuthenticator');
 			$secrets = trim(get_user_option('sz_google_authenticator_secret',$userobj->ID));
 
+			// Controllo il codice inserito nel form di login con quelli
+			// presenti nella tabella dei codici segreti di emergenza
+
+			if ($options['authenticator_emergency_codes'] == '1') 
+			{
+				$em = unserialize(trim(get_user_option('sz_google_authenticator_codes',$userobj->ID)));
+
+				if (is_array($em) and isset($em[$authenticator]) and $em[$authenticator] == false ) 
+				{
+					$em[$authenticator] = time();
+					update_user_option($userobj->ID,'sz_google_authenticator_codes',serialize($em),true);
+					return $userobj;
+				}
+			}
+
 			// Controllo il codice inserito nel form di login con quello
 			// calcolato dalla routine interna della classe authenticator
 

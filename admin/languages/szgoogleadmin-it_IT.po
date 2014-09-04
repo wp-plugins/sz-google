@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogleadmin\n"
-"POT-Creation-Date: 2014-04-16 17:20-0500\n"
-"PO-Revision-Date: 2014-04-16 17:21-0500\n"
+"POT-Creation-Date: 2014-09-04 10:32+0100\n"
+"PO-Revision-Date: 2014-09-04 10:32+0100\n"
 "Last-Translator: Massimo <massimo@startbyzero.com>\n"
 "Language-Team: wpitalyplus <wpitalyplus@gmail.com>\n"
 "Language: it_IT\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ../..\n"
 
-#: ../../classes/module/SZGoogleModulePlus.php:1705
+#: ../../classes/module/SZGoogleModulePlus.php:1718
 msgid ""
 "Google+ Rewrite option is enable but wordpress permalink is disable. Please "
 "disable option for rewrite."
@@ -38,6 +38,14 @@ msgstr "SZ-Google - G+ Follow"
 #: ../../classes/widget/SZGoogleWidgetPlusFollow.php:30
 msgid "google+ follow."
 msgstr "google+ follow."
+
+#: ../../classes/widget/SZGoogleWidgetYoutubeBadge.php:28
+msgid "SZ-Google - Youtube badge"
+msgstr "SZ-Google - Youtube badge"
+
+#: ../../classes/widget/SZGoogleWidgetYoutubeBadge.php:30
+msgid "youtube badge."
+msgstr "youtube badge."
 
 #: ../../classes/widget/SZGoogleWidgetPlusShare.php:28
 msgid "SZ-Google - G+ Share"
@@ -178,6 +186,7 @@ msgstr "google translate."
 #: ../../classes/widget/SZGoogleWidgetTranslate.php:91
 #: ../../admin/classes/SZGoogleAdminPlus.php:223
 #: ../../admin/widgets/SZGoogleWidgetPlusFollow.php:17
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:17
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:17
 #: ../../admin/widgets/SZGoogleWidgetPanoramio.php:17
 #: ../../admin/widgets/SZGoogleWidgetPlusComments.php:17
@@ -208,73 +217,92 @@ msgstr "SZ-Google - Drive Viewer"
 msgid "google drive viewer."
 msgstr "google drive viewer."
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:84
-#: ../../admin/classes/SZGoogleAdminBase.php:137
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:102
+#: ../../admin/classes/SZGoogleAdminBase.php:146
 #: ../../admin/classes/SZGoogleAdminAuthenticator.php:28
 #: ../../admin/classes/SZGoogleAdminAuthenticator.php:29
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:48
 msgid "google authenticator"
 msgstr "google authenticator"
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:91
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:224
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:109
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:267
 msgid "active"
 msgstr "attivazione"
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:98
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:116
 msgid "description"
 msgstr "descrizione"
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:106
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:123
 msgid "secret"
 msgstr "codice segreto"
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:109
-msgid "create new secret code"
-msgstr "creazione nuovo codice segreto"
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:124
+msgid "create new code"
+msgstr "creazione nuovo codice"
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:114
-msgid "QR Code"
-msgstr "QR Code"
-
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:116
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:125
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:142
 msgid "SHOW/HIDE"
 msgstr "VISUALIZZA/NASCONDI"
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:125
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:131
+msgid "QR Code"
+msgstr "QR Code"
+
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:134
 msgid "scan this QR Code with<br/> the Google Authenticator App."
 msgstr "scansione questo QR Code con<br/>l'applicazione Google Authenticator."
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:216
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:140
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:83
+msgid "emergency codes"
+msgstr "codici di emergenza"
+
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:141
+msgid "create new codes"
+msgstr "creazione nuovi codici"
+
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:149
+msgid "table codes"
+msgstr "tabella dei codici"
+
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:259
 msgid "Google Authenticator Settings"
 msgstr "impostazioni di Google Authenticator "
 
-#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:220
+#: ../../classes/action/SZGoogleActionAuthenticatorProfile.php:263
 msgid "hide settings from user"
 msgstr "nascondi la configurazione"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:72
+#: ../../admin/classes/SZGoogleAdminBase.php:78
 #: ../../admin/classes/SZGoogleAdminTranslate.php:40
 #: ../../admin/classes/SZGoogleAdminYoutube.php:42
 #: ../../admin/classes/SZGoogleAdminCalendar.php:41
 #: ../../admin/classes/SZGoogleAdminAuthenticator.php:39
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:70
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:71
 #: ../../admin/classes/SZGoogleAdminDrive.php:41
 msgid "settings"
 msgstr "impostazioni"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:91
-#: ../../admin/classes/SZGoogleAdminBase.php:92
+#: ../../admin/classes/SZGoogleAdminBase.php:97
+#: ../../admin/classes/SZGoogleAdminBase.php:98
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:26
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:23
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:28
 msgid "configuration"
 msgstr "configurazione"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:98
+#: ../../admin/classes/SZGoogleAdminBase.php:104
 msgid "modules"
 msgstr "moduli"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:102
+#: ../../admin/classes/SZGoogleAdminBase.php:105
+msgid "request API"
+msgstr "request API"
+
+#: ../../admin/classes/SZGoogleAdminBase.php:109
 #: ../../admin/classes/SZGoogleAdminGroups.php:40
 #: ../../admin/classes/SZGoogleAdminTranslate.php:42
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:40
@@ -286,18 +314,22 @@ msgstr "moduli"
 msgid "activation"
 msgstr "attivazione"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:105
+#: ../../admin/classes/SZGoogleAdminBase.php:110
+msgid "google API"
+msgstr "google API"
+
+#: ../../admin/classes/SZGoogleAdminBase.php:113
 msgid "configuration version"
 msgstr "configurazione versione"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:135
+#: ../../admin/classes/SZGoogleAdminBase.php:144
 #: ../../admin/classes/SZGoogleAdminPlus.php:56
 #: ../../admin/classes/SZGoogleAdminPlus.php:57
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:46
 msgid "google+"
 msgstr "google+"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:136
+#: ../../admin/classes/SZGoogleAdminBase.php:145
 #: ../../admin/classes/SZGoogleAdminTranslate.php:103
 #: ../../admin/classes/SZGoogleAdminYoutube.php:97
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:47
@@ -306,68 +338,79 @@ msgstr "google+"
 msgid "google analytics"
 msgstr "google analytics"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:138
+#: ../../admin/classes/SZGoogleAdminBase.php:147
 #: ../../admin/classes/SZGoogleAdminCalendar.php:28
 #: ../../admin/classes/SZGoogleAdminCalendar.php:29
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:49
 msgid "google calendar"
 msgstr "google calendar"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:139
+#: ../../admin/classes/SZGoogleAdminBase.php:148
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:50
 #: ../../admin/classes/SZGoogleAdminDrive.php:28
 #: ../../admin/classes/SZGoogleAdminDrive.php:29
 msgid "google drive"
 msgstr "google drive"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:140
+#: ../../admin/classes/SZGoogleAdminBase.php:149
 #: ../../admin/classes/SZGoogleAdminFonts.php:34
 #: ../../admin/classes/SZGoogleAdminFonts.php:35
 msgid "google fonts"
 msgstr "google fonts"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:141
+#: ../../admin/classes/SZGoogleAdminBase.php:150
 #: ../../admin/classes/SZGoogleAdminGroups.php:28
 #: ../../admin/classes/SZGoogleAdminGroups.php:29
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:51
-#: ../../admin/help/en/sz-google-help-groups.php:98
-#: ../../admin/help/it/sz-google-help-groups.php:102
+#: ../../admin/help/en/sz-google-help-groups.php:84
+#: ../../admin/help/it/sz-google-help-groups.php:88
 msgid "google groups"
 msgstr "google gruppi"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:142
+#: ../../admin/classes/SZGoogleAdminBase.php:151
 #: ../../admin/classes/SZGoogleAdminHangouts.php:28
 #: ../../admin/classes/SZGoogleAdminHangouts.php:29
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:52
 msgid "google hangouts"
 msgstr "google hangouts"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:143
+#: ../../admin/classes/SZGoogleAdminBase.php:152
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:28
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:29
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:53
 msgid "google panoramio"
 msgstr "google panoramio"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:144
+#: ../../admin/classes/SZGoogleAdminBase.php:153
 #: ../../admin/classes/SZGoogleAdminTranslate.php:28
 #: ../../admin/classes/SZGoogleAdminTranslate.php:29
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:54
 msgid "google translate"
 msgstr "google translate"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:145
+#: ../../admin/classes/SZGoogleAdminBase.php:154
 #: ../../admin/classes/SZGoogleAdminYoutube.php:28
 #: ../../admin/classes/SZGoogleAdminYoutube.php:29
 msgid "google youtube"
 msgstr "google youtube"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:146
-#, fuzzy
+#: ../../admin/classes/SZGoogleAdminBase.php:155
 msgid "documentation "
 msgstr "documentazione"
 
-#: ../../admin/classes/SZGoogleAdminBase.php:244
+#: ../../admin/classes/SZGoogleAdminBase.php:159
+msgid "API enable"
+msgstr "abilitare API"
+
+#: ../../admin/classes/SZGoogleAdminBase.php:407
+msgid "google API configuration was successful."
+msgstr "configurazione google API eseguita con successo."
+
+#: ../../admin/classes/SZGoogleAdminBase.php:420
+msgid "google API configuration is terminated with error."
+msgstr "configurazione google API terminata con errore."
+
+#: ../../admin/classes/SZGoogleAdminBase.php:449
 msgid ""
 "with this module you can manage some widgets in the social network google+, "
 "for example, we can insert badge of the profiles, badge of the pages, badge "
@@ -379,7 +422,7 @@ msgstr ""
 "follow, quelli per la condivisione, il bottone +1, il sistema di commenti "
 "integrato e molte cose ancora."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:250
+#: ../../admin/classes/SZGoogleAdminBase.php:455
 msgid ""
 "activating this module can handle the tracking code present in google "
 "analytics, so as to store the access statistics related to our website. Once "
@@ -391,7 +434,7 @@ msgstr ""
 "volta integrato il codice nelle nostre pagine web possiamo analizzare "
 "centinaia di statistiche."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:256
+#: ../../admin/classes/SZGoogleAdminBase.php:461
 msgid ""
 "with this module you can enable two-factor authentication to be added to the "
 "standard wordpress. Before starting this option carefully read the "
@@ -403,7 +446,7 @@ msgstr ""
 "leggi la documentazione. Ogni autorizzazione deve essere sincronizzata con "
 "il tuo device mobile."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:262
+#: ../../admin/classes/SZGoogleAdminBase.php:467
 msgid ""
 "activating this module you can get a widget and shortcode to insert one of "
 "the components of google calendar on your wordpress. You will find several "
@@ -413,7 +456,7 @@ msgstr ""
 "inserire i componenti di google calendar nel tuo wordpress. Troverai anche "
 "molte opzioni di configurazione per una migliore personalizzazione."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:268
+#: ../../admin/classes/SZGoogleAdminBase.php:473
 msgid ""
 "through this module you can insert into wordpress some features of google "
 "drive, you will find widgets and shortcodes to help you with this task. "
@@ -425,7 +468,7 @@ msgstr ""
 "Ovviamente molte funzioni possono funzionare solo se si effettua il login su "
 "google."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:274
+#: ../../admin/classes/SZGoogleAdminBase.php:479
 msgid ""
 "with this module you can load into your wordpress theme fonts made ​​available "
 "on Google CDN. Simply select the desired font and HTML parts concerned. The "
@@ -436,7 +479,7 @@ msgstr ""
 "e la sezione HTML, il plugin aggiungerà automaticamente il codice "
 "necessario. "
 
-#: ../../admin/classes/SZGoogleAdminBase.php:280
+#: ../../admin/classes/SZGoogleAdminBase.php:485
 msgid ""
 "enabling this module you get a widget and a shortcode to perform embed on "
 "google groups. Then you can insert into a wordpress page or in a sidebar "
@@ -447,7 +490,7 @@ msgstr ""
 "wordpress o nella sidebar laterale. È possibile specificare varie opzioni di "
 "personalizzazione."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:286
+#: ../../admin/classes/SZGoogleAdminBase.php:491
 msgid ""
 "activating this module you can use the functions for the hangouts of google. "
 "For example, you can insert the buttons for the start of hangout directly in "
@@ -457,7 +500,7 @@ msgstr ""
 "dagli hangout di google. Ad esempio puoi inserire i bottoni per la partenza "
 "di hangout direttamente dalla pagina del tuo sito o nella tua sidebar."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:292
+#: ../../admin/classes/SZGoogleAdminBase.php:497
 msgid ""
 "through this module you can insert some features of photos panoramio, you "
 "will find widgets and shortcodes to help you with this task and use the "
@@ -469,7 +512,7 @@ msgstr ""
 "vostro tema preferito. È inoltre possibile specificare i parametri per la "
 "selezione di utenti, gruppi, tag ecc."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:298
+#: ../../admin/classes/SZGoogleAdminBase.php:503
 msgid ""
 "with this module you can place the widget for automatic content translate on "
 "your website made ​​available by google translate tools. The widget can be "
@@ -479,7 +522,7 @@ msgstr ""
 "automatica messo a disposizione da Google. Il widget può essere inserito nel "
 "contesto di un post o di una barra laterale definito nel tema."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:304
+#: ../../admin/classes/SZGoogleAdminBase.php:509
 msgid ""
 "with this module can be inserted in wordpress a video youtube, you can also "
 "use a widget to the inclusion of video in the sidebar on your theme. Through "
@@ -491,7 +534,7 @@ msgstr ""
 "personalizzare molti parametri con lo shortcode dedicato. Puoi scegliere tra "
 "modalità IFRAME o API."
 
-#: ../../admin/classes/SZGoogleAdminBase.php:310
+#: ../../admin/classes/SZGoogleAdminBase.php:515
 msgid ""
 "activating this option you can see the documentation in the main menu of "
 "this plugin with the parameters to be used in [shortcodes] or PHP functions "
@@ -502,88 +545,120 @@ msgstr ""
 "configurare nel plugin e i parametri usati dagli shortcodes o dalle funzioni "
 "PHP."
 
-#: ../../admin/classes/SZGoogleAdmin.php:209
-#: ../../admin/classes/SZGoogleAdmin.php:255
-#: ../../admin/classes/SZGoogleAdmin.php:275
-#: ../../admin/classes/SZGoogleAdmin.php:307
-#: ../../admin/classes/SZGoogleAdmin.php:321
-#: ../../admin/classes/SZGoogleAdmin.php:331
-#: ../../admin/classes/SZGoogleAdmin.php:344
-#: ../../admin/classes/SZGoogleAdmin.php:357
+#: ../../admin/classes/SZGoogleAdminBase.php:525
+msgid ""
+"enable this option if you want to use the features of the plugin that need a "
+"personal authorization code from google. If you do not enable this option "
+"and you do not configure the authentication phase, some functions of the "
+"plugin will be disabled."
+msgstr ""
+"abilitare questa opzione se si desidera utilizzare le funzioni del plugin "
+"che hanno bisogno di un codice di autorizzazione personale da google. Se non "
+"si attiva questa opzione e non si configura la fase di autenticazione, "
+"alcune funzioni del plugin saranno disabilitate."
+
+#: ../../admin/classes/SZGoogleAdminBase.php:529
+msgid "insert your client ID"
+msgstr "inserire il to client ID"
+
+#: ../../admin/classes/SZGoogleAdminBase.php:530
+msgid ""
+"enter the value (Client ID) that you can find in the project that you "
+"created in the official page of Google APIs console. If you are not familiar "
+"with this procedure, carefully read the guide written just for this "
+"operation."
+msgstr ""
+"immettere il valore (ID client) che potete trovare nel progetto che si è "
+"creato nella pagina ufficiale di Google console API. Se non si ha "
+"familiarità con questa procedura, leggere attentamente la guida scritta "
+"proprio per questa operazione."
+
+#: ../../admin/classes/SZGoogleAdminBase.php:534
+msgid "insert your client secret"
+msgstr "inserisci  chiave secret client "
+
+#: ../../admin/classes/SZGoogleAdmin.php:324
+#: ../../admin/classes/SZGoogleAdmin.php:370
+#: ../../admin/classes/SZGoogleAdmin.php:390
+#: ../../admin/classes/SZGoogleAdmin.php:422
+#: ../../admin/classes/SZGoogleAdmin.php:436
+#: ../../admin/classes/SZGoogleAdmin.php:446
+#: ../../admin/classes/SZGoogleAdmin.php:459
+#: ../../admin/classes/SZGoogleAdmin.php:472
 msgid "click to toggle"
 msgstr "clicca per chiudere/aprire"
 
-#: ../../admin/classes/SZGoogleAdmin.php:210
+#: ../../admin/classes/SZGoogleAdmin.php:325
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:34
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:35
 msgid "documentation"
 msgstr "documentazione"
 
-#: ../../admin/classes/SZGoogleAdmin.php:289
+#: ../../admin/classes/SZGoogleAdmin.php:404
 msgid "save changes"
 msgstr "salva modifiche"
 
-#: ../../admin/classes/SZGoogleAdmin.php:308
+#: ../../admin/classes/SZGoogleAdmin.php:423
 msgid "give us a little help"
 msgstr "Dacci un piccolo aiuto"
 
-#: ../../admin/classes/SZGoogleAdmin.php:311
+#: ../../admin/classes/SZGoogleAdmin.php:426
 msgid "rate the plugin"
 msgstr "Vota il plugin"
 
-#: ../../admin/classes/SZGoogleAdmin.php:312
+#: ../../admin/classes/SZGoogleAdmin.php:427
 msgid "join our community"
 msgstr "iscriviti alla community"
 
-#: ../../admin/classes/SZGoogleAdmin.php:313
+#: ../../admin/classes/SZGoogleAdmin.php:428
 msgid "join our google+ page"
 msgstr "iscriviti alla pagina google+"
 
-#: ../../admin/classes/SZGoogleAdmin.php:322
-#: ../../admin/classes/SZGoogleAdmin.php:361
+#: ../../admin/classes/SZGoogleAdmin.php:437
+#: ../../admin/classes/SZGoogleAdmin.php:476
 msgid "official page"
 msgstr "pagina ufficiale"
 
-#: ../../admin/classes/SZGoogleAdmin.php:332
+#: ../../admin/classes/SZGoogleAdmin.php:447
 msgid "support"
 msgstr "supporto"
 
-#: ../../admin/classes/SZGoogleAdmin.php:335
+#: ../../admin/classes/SZGoogleAdmin.php:450
 msgid "support for bugs and reports"
 msgstr "supporto per errori e report"
 
-#: ../../admin/classes/SZGoogleAdmin.php:336
+#: ../../admin/classes/SZGoogleAdmin.php:451
 msgid "support for new requests"
 msgstr "supporto per nuove richieste"
 
-#: ../../admin/classes/SZGoogleAdmin.php:345
+#: ../../admin/classes/SZGoogleAdmin.php:460
 msgid "authors"
 msgstr "autori"
 
-#: ../../admin/classes/SZGoogleAdmin.php:358
+#: ../../admin/classes/SZGoogleAdmin.php:473
 msgid "latest news"
 msgstr "Ultime notizie"
 
-#: ../../admin/classes/SZGoogleAdmin.php:361
-#: ../../admin/classes/SZGoogleAdmin.php:362
-#: ../../admin/classes/SZGoogleAdmin.php:363
-#: ../../admin/classes/SZGoogleAdmin.php:364
+#: ../../admin/classes/SZGoogleAdmin.php:476
+#: ../../admin/classes/SZGoogleAdmin.php:477
+#: ../../admin/classes/SZGoogleAdmin.php:478
+#: ../../admin/classes/SZGoogleAdmin.php:479
 msgid "news:"
 msgstr "notizie:"
 
-#: ../../admin/classes/SZGoogleAdmin.php:362
+#: ../../admin/classes/SZGoogleAdmin.php:477
 msgid "official website"
 msgstr "sito ufficiale"
 
-#: ../../admin/classes/SZGoogleAdmin.php:363
+#: ../../admin/classes/SZGoogleAdmin.php:478
 msgid "community WordPress"
 msgstr "community WordPress"
 
-#: ../../admin/classes/SZGoogleAdmin.php:364
+#: ../../admin/classes/SZGoogleAdmin.php:479
 msgid "youtube channel"
 msgstr "canale youtube"
 
-#: ../../admin/classes/SZGoogleAdmin.php:427
+#: ../../admin/classes/SZGoogleAdmin.php:560
 msgid "YES / NO"
 msgstr "SI / NO"
 
@@ -1237,7 +1312,7 @@ msgstr "commenti"
 
 #: ../../admin/classes/SZGoogleAdminPlus.php:67
 #: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:79
-#: ../../admin/templates/sz-google-template-reviews.php:37
+#: ../../admin/templates/sz-google-template-reviews.php:39
 msgid "author"
 msgstr "autore"
 
@@ -1247,7 +1322,7 @@ msgstr "identificazione"
 
 #: ../../admin/classes/SZGoogleAdminPlus.php:72
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:111
-#: ../../admin/templates/sz-google-template-reviews.php:36
+#: ../../admin/templates/sz-google-template-reviews.php:38
 msgid "language"
 msgstr "linguaggio"
 
@@ -1284,9 +1359,8 @@ msgstr "campi profilo"
 
 #: ../../admin/classes/SZGoogleAdminPlus.php:84
 #: ../../admin/classes/SZGoogleAdminPlus.php:246
-#, fuzzy
 msgid "author badge"
-msgstr "autore"
+msgstr "badge autore"
 
 #: ../../admin/classes/SZGoogleAdminPlus.php:132
 #: ../../admin/classes/SZGoogleAdminPlus.php:165
@@ -2044,6 +2118,7 @@ msgid "enable fullscreen"
 msgstr "schermo intero"
 
 #: ../../admin/classes/SZGoogleAdminYoutube.php:95
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:106
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:112
 msgid "disable keyboard"
 msgstr "disabilitare tastiera"
@@ -2057,6 +2132,7 @@ msgid "delayed loading"
 msgstr "caricamento ritardato"
 
 #: ../../admin/classes/SZGoogleAdminYoutube.php:99
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:112
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:118
 msgid "disable related"
 msgstr "disabilitare correlati"
@@ -2065,8 +2141,8 @@ msgstr "disabilitare correlati"
 #: ../../admin/classes/SZGoogleAdminYoutube.php:115
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:97
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:305
-#: ../../admin/help/en/sz-google-help-youtube-video.php:119
-#: ../../admin/help/it/sz-google-help-youtube-video.php:124
+#: ../../admin/help/en/sz-google-help-youtube-video.php:105
+#: ../../admin/help/it/sz-google-help-youtube-video.php:110
 msgid "youtube video"
 msgstr "youtube video"
 
@@ -2082,8 +2158,8 @@ msgstr "youtube button"
 #: ../../admin/classes/SZGoogleAdminYoutube.php:108
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:99
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:307
-#: ../../admin/help/en/sz-google-help-youtube-link.php:132
-#: ../../admin/help/it/sz-google-help-youtube-link.php:134
+#: ../../admin/help/en/sz-google-help-youtube-link.php:118
+#: ../../admin/help/it/sz-google-help-youtube-link.php:120
 msgid "youtube link"
 msgstr "youtube link"
 
@@ -2091,8 +2167,8 @@ msgstr "youtube link"
 #: ../../admin/classes/SZGoogleAdminYoutube.php:117
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:98
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:306
-#: ../../admin/help/en/sz-google-help-youtube-playlist.php:100
-#: ../../admin/help/it/sz-google-help-youtube-playlist.php:105
+#: ../../admin/help/en/sz-google-help-youtube-playlist.php:98
+#: ../../admin/help/it/sz-google-help-youtube-playlist.php:103
 msgid "youtube playlist"
 msgstr "youtube playlist"
 
@@ -2109,6 +2185,7 @@ msgid "video loop"
 msgstr "video loop"
 
 #: ../../admin/classes/SZGoogleAdminYoutube.php:128
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:77
 #: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:58
 #: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:58
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:83
@@ -2117,6 +2194,7 @@ msgid "theme"
 msgstr "tema"
 
 #: ../../admin/classes/SZGoogleAdminYoutube.php:129
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:87
 #: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:65
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:93
 #: ../../admin/widgets/SZGoogleWidgetPlusPage.php:65
@@ -2599,7 +2677,7 @@ msgstr ""
 "inserimento."
 
 #: ../../admin/classes/SZGoogleAdminAuthenticator.php:40
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:84
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:85
 msgid "emergency file"
 msgstr "file emergenza"
 
@@ -2611,11 +2689,11 @@ msgstr "abilitare"
 msgid "discrepancy"
 msgstr "tolleranza"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:83
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:84
 msgid "emergency enable"
 msgstr "abilitare emergenza"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:101
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:102
 msgid ""
 "enable this option to integrate the control of google authenticator in login "
 "panel. Deactivation is used to implement login with PHP functions in the "
@@ -2626,31 +2704,31 @@ msgstr ""
 "codice tramite delle funzioni PHP nel caso di una forte personalizzazione "
 "che riguarda il login."
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:107
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:108
 msgid "30 seconds"
 msgstr "30 secondi"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:108
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:109
 msgid "1 Minutes"
 msgstr "1 Minuto"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:109
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:110
 msgid "2 Minutes"
 msgstr "2 Minuti"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:110
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:111
 msgid "3 Minutes"
 msgstr "3 Minuti"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:111
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:112
 msgid "4 Minutes"
 msgstr "4 Minuti"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:112
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:113
 msgid "5 Minutes"
 msgstr "5 Minuti"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:116
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:117
 msgid ""
 "indicate time of discrepancy that should be used by the plugin. This value "
 "indicates the time of tolerance that is applied to the generation of the "
@@ -2662,7 +2740,19 @@ msgstr ""
 "del codice authenticator e il tempo di inserimento effettivo. Il valore di "
 "default è di 30 secondi."
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:122
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:123
+msgid ""
+"Enable this option to manage the emergency codes. Are of backup codes that "
+"can be used in case of emergency, for example, when our smartphones is "
+"inoperable or have problems on-time password. Each code can be used only "
+"once."
+msgstr ""
+"Abilitare questa opzione per gestire i codici di emergenza. Sono dei codici "
+"di backup che possono essere usati quando il nostro smartphone non è "
+"reperibile e quando abbiamo problemi con la password a tempo. I codici "
+"possono essere usati una sola volta."
+
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:128
 msgid ""
 "Enable this option to manage the files of an emergency. With this option "
 "enabled you can disable the authenticator will be sending in FTP a file in "
@@ -2674,11 +2764,11 @@ msgstr ""
 "determinato file nella directory principale di wordpress. Il nome del file è "
 "specificato nel campo successivo."
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:127
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:133
 msgid "google-authenticator-disable.php"
 msgstr "google-authenticator-disable.php"
 
-#: ../../admin/classes/SZGoogleAdminAuthenticator.php:128
+#: ../../admin/classes/SZGoogleAdminAuthenticator.php:134
 msgid ""
 "Indicates the name of the file to be used for the emergency function. If the "
 "file specified in this field is found on the root of the wordpress function "
@@ -2695,95 +2785,95 @@ msgid "reviews"
 msgstr "recensioni"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:71
-#: ../../admin/help/en/sz-google-help-plus-profile.php:116
-#: ../../admin/help/it/sz-google-help-plus-profile.php:123
+#: ../../admin/help/en/sz-google-help-plus-profile.php:102
+#: ../../admin/help/it/sz-google-help-plus-profile.php:109
 msgid "google+ badge profile"
 msgstr "google+ badge profilo"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:72
-#: ../../admin/help/en/sz-google-help-plus-page.php:110
-#: ../../admin/help/it/sz-google-help-plus-page.php:118
+#: ../../admin/help/en/sz-google-help-plus-page.php:100
+#: ../../admin/help/it/sz-google-help-plus-page.php:108
 msgid "google+ badge page"
 msgstr "google+ badge pagina"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:73
-#: ../../admin/help/en/sz-google-help-plus-community.php:96
-#: ../../admin/help/it/sz-google-help-plus-community.php:102
+#: ../../admin/help/en/sz-google-help-plus-community.php:82
+#: ../../admin/help/it/sz-google-help-plus-community.php:87
 msgid "google+ badge community"
 msgstr "google+ badge community"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:74
-#: ../../admin/help/en/sz-google-help-plus-plusone.php:110
-#: ../../admin/help/it/sz-google-help-plus-plusone.php:116
+#: ../../admin/help/en/sz-google-help-plus-plusone.php:100
+#: ../../admin/help/it/sz-google-help-plus-plusone.php:106
 msgid "google+ button +1"
 msgstr "google+ bottone +1"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:75
-#: ../../admin/help/en/sz-google-help-plus-share.php:114
-#: ../../admin/help/it/sz-google-help-plus-share.php:120
+#: ../../admin/help/en/sz-google-help-plus-share.php:100
+#: ../../admin/help/it/sz-google-help-plus-share.php:106
 msgid "google+ button share"
 msgstr "google+ bottone condivisione"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:76
-#: ../../admin/help/en/sz-google-help-plus-follow.php:114
-#: ../../admin/help/it/sz-google-help-plus-follow.php:121
+#: ../../admin/help/en/sz-google-help-plus-follow.php:100
+#: ../../admin/help/it/sz-google-help-plus-follow.php:107
 msgid "google+ button follow"
 msgstr "google+ bottone segui"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:77
-#: ../../admin/help/en/sz-google-help-plus-comments.php:104
-#: ../../admin/help/it/sz-google-help-plus-comments.php:108
+#: ../../admin/help/en/sz-google-help-plus-comments.php:90
+#: ../../admin/help/it/sz-google-help-plus-comments.php:94
 msgid "google+ widget comments"
 msgstr "google+ widget commenti"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:78
-#: ../../admin/help/en/sz-google-help-plus-post.php:108
-#: ../../admin/help/it/sz-google-help-plus-post.php:102
+#: ../../admin/help/en/sz-google-help-plus-post.php:98
+#: ../../admin/help/it/sz-google-help-plus-post.php:92
 msgid "google+ embedded post"
 msgstr "google+ embedded post"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:79
-#: ../../admin/help/en/sz-google-help-plus-followers.php:89
-#: ../../admin/help/it/sz-google-help-plus-followers.php:94
+#: ../../admin/help/en/sz-google-help-plus-followers.php:75
+#: ../../admin/help/it/sz-google-help-plus-followers.php:80
 msgid "google+ badge followers"
 msgstr "google+ badge followers"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:80
-#: ../../admin/help/en/sz-google-help-plus-author-publisher.php:99
-#: ../../admin/help/it/sz-google-help-plus-author-publisher.php:101
+#: ../../admin/help/en/sz-google-help-plus-author-publisher.php:86
+#: ../../admin/help/it/sz-google-help-plus-author-publisher.php:88
 msgid "google+ author & publisher"
 msgstr "google+ author & publisher"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:81
-#: ../../admin/help/en/sz-google-help-plus-redirect.php:70
-#: ../../admin/help/it/sz-google-help-plus-redirect.php:73
+#: ../../admin/help/en/sz-google-help-plus-redirect.php:58
+#: ../../admin/help/it/sz-google-help-plus-redirect.php:60
 msgid "google+ redirect"
 msgstr "google+ redirect"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:82
-#: ../../admin/help/en/sz-google-help-plus-recommendations.php:70
-#: ../../admin/help/it/sz-google-help-plus-recommendations.php:73
+#: ../../admin/help/en/sz-google-help-plus-recommendations.php:56
+#: ../../admin/help/it/sz-google-help-plus-recommendations.php:58
 msgid "google+ recommendations"
 msgstr "google+ raccomandazioni"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:83
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:211
-#: ../../admin/help/en/sz-google-help-ga-setup.php:79
-#: ../../admin/help/it/sz-google-help-ga-setup.php:82
+#: ../../admin/help/en/sz-google-help-ga-setup.php:66
+#: ../../admin/help/it/sz-google-help-ga-setup.php:69
 msgid "analytics setup"
 msgstr "configura analytics"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:84
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:212
-#: ../../admin/help/en/sz-google-help-ga-functions.php:80
-#: ../../admin/help/it/sz-google-help-ga-functions.php:80
+#: ../../admin/help/en/sz-google-help-ga-functions.php:67
+#: ../../admin/help/it/sz-google-help-ga-functions.php:67
 msgid "analytics PHP functions"
 msgstr "funzioni PHP analytics"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:85
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:223
-#: ../../admin/help/en/sz-google-help-authenticator-setup.php:66
-#: ../../admin/help/it/sz-google-help-authenticator-setup.php:69
+#: ../../admin/help/en/sz-google-help-authenticator-setup.php:52
+#: ../../admin/help/it/sz-google-help-authenticator-setup.php:55
 msgid "authenticator setup"
 msgstr "configura authenticator"
 
@@ -2796,36 +2886,36 @@ msgstr "authenticator PHP"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:87
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:225
-#: ../../admin/help/en/sz-google-help-authenticator-device.php:58
-#: ../../admin/help/it/sz-google-help-authenticator-device.php:58
+#: ../../admin/help/en/sz-google-help-authenticator-device.php:44
+#: ../../admin/help/it/sz-google-help-authenticator-device.php:44
 msgid "authenticator device"
 msgstr "authenticator device"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:88
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:236
-#: ../../admin/help/en/sz-google-help-calendar.php:107
-#: ../../admin/help/it/sz-google-help-calendar.php:111
+#: ../../admin/help/en/sz-google-help-calendar.php:93
+#: ../../admin/help/it/sz-google-help-calendar.php:97
 msgid "widget calendar"
 msgstr "widget calendario"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:89
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:247
-#: ../../admin/help/en/sz-google-help-drive-embed.php:124
-#: ../../admin/help/it/sz-google-help-drive-embed.php:128
+#: ../../admin/help/en/sz-google-help-drive-embed.php:113
+#: ../../admin/help/it/sz-google-help-drive-embed.php:117
 msgid "drive embed"
 msgstr "drive embed"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:90
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:248
-#: ../../admin/help/en/sz-google-help-drive-viewer.php:122
-#: ../../admin/help/it/sz-google-help-drive-viewer.php:126
+#: ../../admin/help/en/sz-google-help-drive-viewer.php:111
+#: ../../admin/help/it/sz-google-help-drive-viewer.php:115
 msgid "drive viewer"
 msgstr "drive viewer"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:91
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:249
-#: ../../admin/help/en/sz-google-help-drive-save.php:111
-#: ../../admin/help/it/sz-google-help-drive-save.php:118
+#: ../../admin/help/en/sz-google-help-drive-save.php:97
+#: ../../admin/help/it/sz-google-help-drive-save.php:103
 msgid "drive save button"
 msgstr "drive bottone salva"
 
@@ -2836,29 +2926,29 @@ msgstr "widget gruppi"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:93
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:271
-#: ../../admin/help/en/sz-google-help-hangout-start.php:107
-#: ../../admin/help/it/sz-google-help-hangout-start.php:112
+#: ../../admin/help/en/sz-google-help-hangout-start.php:97
+#: ../../admin/help/it/sz-google-help-hangout-start.php:102
 msgid "hangout start button"
 msgstr "bottone hangout"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:94
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:282
-#: ../../admin/help/en/sz-google-help-panoramio.php:104
-#: ../../admin/help/it/sz-google-help-panoramio.php:108
+#: ../../admin/help/en/sz-google-help-panoramio.php:94
+#: ../../admin/help/it/sz-google-help-panoramio.php:98
 msgid "widget panoramio"
 msgstr "widget panoramio"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:95
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:293
-#: ../../admin/help/en/sz-google-help-translate.php:103
-#: ../../admin/help/it/sz-google-help-translate.php:108
+#: ../../admin/help/en/sz-google-help-translate.php:89
+#: ../../admin/help/it/sz-google-help-translate.php:94
 msgid "translate setup"
 msgstr "configura translate"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:96
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:294
-#: ../../admin/help/en/sz-google-help-translate-functions.php:72
-#: ../../admin/help/it/sz-google-help-translate-functions.php:72
+#: ../../admin/help/en/sz-google-help-translate-functions.php:58
+#: ../../admin/help/it/sz-google-help-translate-functions.php:58
 msgid "translate PHP functions"
 msgstr "funzioni PHP translate"
 
@@ -2914,19 +3004,27 @@ msgstr "raccomandazioni"
 msgid "classic"
 msgstr "classic"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:71
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:67
+msgid "universal"
+msgstr "universal"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:72
 msgid "tracking"
 msgstr "monitoraggio"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:72
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:73
 msgid "classic analytics"
 msgstr "classic analytics"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:109
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:74
+msgid "universal analytics"
+msgstr "universal analytics"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:112
 msgid "UA code"
 msgstr "codice UA"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:110
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:113
 #: ../../admin/widgets/SZGoogleWidgetPlusFollow.php:65
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:64
 #: ../../admin/widgets/SZGoogleWidgetPanoramio.php:103
@@ -2936,43 +3034,47 @@ msgstr "codice UA"
 msgid "position"
 msgstr "posizione"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:111
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:114
 msgid "type code"
 msgstr "modalità"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:117
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:120
 msgid "frontend"
 msgstr "frontend"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:118
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:121
 msgid "backend"
 msgstr "backend"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:119
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:122
 msgid "administrator"
 msgstr "amministratore"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:120
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:123
 msgid "user logged"
 msgstr "utente loggato"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:126
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:129
 msgid "tracking subdomains"
 msgstr "tracking subdomains"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:127
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:130
 msgid "multiple top domains"
 msgstr "multiple top domains"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:128
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:131
 msgid "advertiser"
 msgstr "advertiser"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:144
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:137
+msgid "display features"
+msgstr "visualizzare features"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:153
 msgid "insert your UA code"
 msgstr "inserisci il tuo codice UA"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:145
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:154
 msgid ""
 "specify the code assigned to the profile of google analytics, to find enough "
 "to enter the admin panel google analytics and see the code assigned such as "
@@ -2984,19 +3086,19 @@ msgstr ""
 "UA-12345-12. Se in questo campo non viene specificato nessun valore il "
 "codice di monitoraggio non sarà generato."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:151
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:160
 msgid "header (default)"
 msgstr "header (default)"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:152
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:161
 msgid "footer"
 msgstr "footer"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:153
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:162
 msgid "insert manually"
 msgstr "inserisci manualmente"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:157
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:166
 msgid ""
 "specifies the location of the tracking code in the page HTML. The "
 "recommended position is the header that does not allow the loss of access "
@@ -3008,15 +3110,15 @@ msgstr ""
 "informazioni. Se vuoi selezionare l'inserimento manuale devi utilizzare la "
 "funzione PHP."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:163
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:172
 msgid "google analytics classic"
 msgstr "google analytics classic"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:164
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:173
 msgid "google analytics universal"
 msgstr "google analytics universal"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:168
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:177
 msgid ""
 "universal Analytics introduces a set of features that change the way data is "
 "collected and organized in your Google Analytics account, so you can get a "
@@ -3027,7 +3129,7 @@ msgstr ""
 "Analytics, in modo da poter ottenere una migliore comprensione dei contenuti "
 "online. "
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:174
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:183
 msgid ""
 "enable this option to activate the tracking code to the public pages of your "
 "website. This option can also be used to disable the code without disabling "
@@ -3038,7 +3140,7 @@ msgstr ""
 "pubbliche del tuo sito web. Questa opzione può essere utilizzata anche per "
 "disattivare momentaneamente il codice senza disattivare l'intero modulo."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:180
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:189
 msgid ""
 "this option allows you to insert the tracking code in the admin pages. "
 "Useful function for some tests but not recommended during normal operation. "
@@ -3050,7 +3152,7 @@ msgstr ""
 "durante le normali operazioni. Non confondere questa opzione con quella "
 "legata agli amministratori."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:186
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:195
 msgid ""
 "this option allows you to enter the tracking code when you browse the "
 "website as an administrator user. It is recommended to leave this option off "
@@ -3062,7 +3164,7 @@ msgstr ""
 "statistiche di accesso con le proprie visite. L'opzione viene controllata "
 "sia sul frontend che sul backend."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:192
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:201
 msgid ""
 "with this option, you can check the tracking code for users who are "
 "connected to the website. The behavior of this option is similar to option "
@@ -3074,7 +3176,7 @@ msgstr ""
 "simile a quella degli utenti amministratori e viene controllata sia per il "
 "frontend che per il backend."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:198
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:207
 msgid ""
 "turn this option for track your subdomains. This option adds the "
 "_setDomainName function to your code. Use this function if you manage "
@@ -3085,7 +3187,7 @@ msgstr ""
 "aggiunge la funzione _setDomainName al tuo codice. Ad esempio in questa "
 "situazione www.domain.com, apps.domain.com e store.domain.com"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:204
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:213
 msgid ""
 "turn this option on to track across multiple top-level domains. This option "
 "adds the _setDomainName and _setAllowLinker to tracking code. Use this "
@@ -3096,7 +3198,7 @@ msgstr ""
 "opzione aggiunge le funzioni _setDomainName e _setAllowLinker. Utilizzare ad "
 "esempio in questa situazione domain.uk, domain.cn e domain.fr"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:210
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:219
 msgid ""
 "turn this option for enable display advertiser support. This change is "
 "compatible with both the synchronous and asynchronous versions of the "
@@ -3107,6 +3209,18 @@ msgstr ""
 "compatibile sia con la versione sincrona sia con la versione asincrona del "
 "codice di monitoraggio. Questa modifica non ha ripercussioni su eventuali "
 "personalizzazioni precedenti."
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:225
+msgid ""
+"Google Analytics Display Advertising is a collection of features that takes "
+"advantage of the DoubleClick cookie so you can do things like create "
+"remarketing lists, use demographic data and create segments based on "
+"demographic and interest data."
+msgstr ""
+"Google Analytics Display Advertising è una raccolta di funzioni che sfrutta "
+"il cookie DoubleClick in modo da poter fare le cose come creare elenchi per "
+"il remarketing, utilizzare i dati demografici e creare segmenti basati su "
+"dati demografici e di interesse."
 
 #: ../../admin/classes/SZGoogleAdminDrive.php:36
 msgid "embed"
@@ -3121,24 +3235,20 @@ msgid "save to drive"
 msgstr "salva su drive"
 
 #: ../../admin/classes/SZGoogleAdminDrive.php:43
-#, fuzzy
 msgid "embed shortcode"
-msgstr "abilitare shortcodes"
+msgstr "embed shortcode"
 
 #: ../../admin/classes/SZGoogleAdminDrive.php:44
-#, fuzzy
 msgid "embed widget"
-msgstr "drive embed widget"
+msgstr "embed widget"
 
 #: ../../admin/classes/SZGoogleAdminDrive.php:45
-#, fuzzy
 msgid "viewer shortcode"
-msgstr "drive viewer shortcode"
+msgstr "viewer shortcode"
 
 #: ../../admin/classes/SZGoogleAdminDrive.php:46
-#, fuzzy
 msgid "viewer widget"
-msgstr "drive viewer widget"
+msgstr "viewer widget"
 
 #: ../../admin/classes/SZGoogleAdminDrive.php:86
 msgid "site name"
@@ -3264,6 +3374,7 @@ msgstr ""
 "Usare questo valore insieme alla a quello di posizione."
 
 #: ../../admin/widgets/SZGoogleWidgetPlusFollow.php:18
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:18
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:18
 #: ../../admin/widgets/SZGoogleWidgetPanoramio.php:18
 #: ../../admin/widgets/SZGoogleWidgetPlusComments.php:18
@@ -3305,6 +3416,7 @@ msgid "configuration profile"
 msgstr "configurazione profilo"
 
 #: ../../admin/widgets/SZGoogleWidgetPlusFollow.php:35
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:23
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:23
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:34
 #: ../../admin/widgets/SZGoogleWidgetPlusComments.php:23
@@ -3371,11 +3483,13 @@ msgstr "scegliere l'immagine per il badge"
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:59
 #: ../../admin/widgets/SZGoogleWidgetHangoutsStart.php:72
 #: ../../admin/widgets/SZGoogleWidgetPlusPlusone.php:59
+#: ../../admin/widgets/SZGoogleWidgetDriveSaveButton.php:23
 #: ../../admin/widgets/SZGoogleWidgetDriveSaveButton.php:25
 #: ../../admin/widgets/SZGoogleWidgetDriveSaveButton.php:49
+#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:23
 #: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:25
-msgid "select file"
-msgstr "seleziona un file"
+msgid "file"
+msgstr "file"
 
 #: ../../admin/widgets/SZGoogleWidgetPlusFollow.php:60
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:59
@@ -3499,6 +3613,69 @@ msgstr "annotazione inline"
 msgid "annotation bubble"
 msgstr "annotazione bubble"
 
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:27
+msgid "specific channel"
+msgstr "canale specifico"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:34
+msgid "channel"
+msgstr "canale"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:35
+msgid "insert channel"
+msgstr "inserisci canale"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:42
+#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:68
+#: ../../admin/widgets/SZGoogleWidgetPlusComments.php:42
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:64
+#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:42
+#: ../../admin/widgets/SZGoogleWidgetHangoutsStart.php:44
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:42
+#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:42
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:31
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:70
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:42
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:47
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:35
+#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:32
+msgid "width"
+msgstr "larghezza"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:44
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:50
+#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:70
+#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:76
+#: ../../admin/widgets/SZGoogleWidgetPlusComments.php:44
+#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:44
+#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:50
+#: ../../admin/widgets/SZGoogleWidgetHangoutsStart.php:46
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:44
+#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:44
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:33
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:39
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:44
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:49
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:55
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:37
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:43
+#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:34
+#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:40
+msgid "auto"
+msgstr "auto"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubeBadge.php:48
+#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:74
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:69
+#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:48
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:37
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:75
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:53
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:41
+#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:38
+msgid "height"
+msgstr "altezza"
+
 #: ../../admin/widgets/SZGoogleWidgetPlusShare.php:26
 #: ../../admin/widgets/SZGoogleWidgetPlusComments.php:26
 #: ../../admin/widgets/SZGoogleWidgetPlusPlusone.php:26
@@ -3588,55 +3765,6 @@ msgstr "public"
 msgid "recent"
 msgstr "recent"
 
-#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:68
-#: ../../admin/widgets/SZGoogleWidgetPlusComments.php:42
-#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:31
-#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:42
-#: ../../admin/widgets/SZGoogleWidgetHangoutsStart.php:44
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:42
-#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:42
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:31
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:70
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:42
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:47
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:35
-#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:32
-msgid "width"
-msgstr "larghezza"
-
-#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:70
-#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:76
-#: ../../admin/widgets/SZGoogleWidgetPlusComments.php:44
-#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:33
-#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:39
-#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:44
-#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:50
-#: ../../admin/widgets/SZGoogleWidgetHangoutsStart.php:46
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:44
-#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:44
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:33
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:39
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:44
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:49
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:55
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:37
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:43
-#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:34
-#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:40
-msgid "auto"
-msgstr "auto"
-
-#: ../../admin/widgets/SZGoogleWidgetPanoramio.php:74
-#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:37
-#: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:48
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:37
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:75
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:53
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:41
-#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:38
-msgid "height"
-msgstr "altezza"
-
 #: ../../admin/widgets/SZGoogleWidgetPanoramio.php:80
 msgid "columns"
 msgstr "colonne"
@@ -3675,6 +3803,133 @@ msgstr "titolo widget"
 #: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:24
 msgid "playlist ID"
 msgstr "playlist ID"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:31
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:31
+msgid "responsive"
+msgstr "responsive"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:32
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:38
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:44
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:50
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:56
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:101
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:107
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:113
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:66
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:73
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:80
+#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:66
+#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:73
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:47
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:54
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:61
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:68
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:32
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:38
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:44
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:50
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:56
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:62
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:107
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:113
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:119
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:66
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:73
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:80
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:51
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:57
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:63
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:69
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:75
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:81
+msgid "yes"
+msgstr "si"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:33
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:39
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:45
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:51
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:57
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:102
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:108
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:114
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:67
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:74
+#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:81
+#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:67
+#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:74
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:48
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:55
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:62
+#: ../../admin/widgets/SZGoogleWidgetGroups.php:69
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:33
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:39
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:45
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:51
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:57
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:63
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:108
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:114
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:120
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:67
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:74
+#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:81
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:52
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:58
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:64
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:70
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:76
+#: ../../admin/widgets/SZGoogleWidgetCalendar.php:82
+msgid "no"
+msgstr "no"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:37
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:37
+msgid "delayed"
+msgstr "ritardato"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:43
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:43
+msgid "autoplay"
+msgstr "autoplay"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:49
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:49
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:69
+msgid "loop"
+msgstr "loop"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:55
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:55
+msgid "fullscreen"
+msgstr "schermo intero "
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:80
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:86
+msgid "theme dark"
+msgstr "tema dark"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:81
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:87
+msgid "theme light"
+msgstr "tema light"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:90
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:96
+msgid "cover local"
+msgstr "copertina locale"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:91
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:97
+msgid "cover youtube"
+msgstr "copertina youtube"
+
+#: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:100
+#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:106
+msgid "disable iframe"
+msgstr "disabilitare iframe"
 
 #: ../../admin/widgets/SZGoogleWidgetPlusFollowers.php:23
 msgid "account"
@@ -3746,50 +4001,14 @@ msgstr "layout"
 #: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:52
 #: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:52
 #: ../../admin/widgets/SZGoogleWidgetPlusPage.php:52
-msgid "portrait"
-msgstr "verticale"
+msgid "V"
+msgstr "V"
 
 #: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:53
 #: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:53
 #: ../../admin/widgets/SZGoogleWidgetPlusPage.php:53
-msgid "landscape"
-msgstr "orizzontale"
-
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:66
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:73
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:80
-#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:66
-#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:73
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:47
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:54
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:61
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:68
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:66
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:73
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:80
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:64
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:70
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:99
-msgid "enabled"
-msgstr "abilita"
-
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:67
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:74
-#: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:81
-#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:67
-#: ../../admin/widgets/SZGoogleWidgetPlusCommunity.php:74
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:48
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:55
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:62
-#: ../../admin/widgets/SZGoogleWidgetGroups.php:69
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:67
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:74
-#: ../../admin/widgets/SZGoogleWidgetPlusPage.php:81
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:65
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:71
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:100
-msgid "disabled"
-msgstr "disabilita"
+msgid "H"
+msgstr "H"
 
 #: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:72
 #: ../../admin/widgets/SZGoogleWidgetPlusPage.php:72
@@ -3816,11 +4035,6 @@ msgstr "fotografia"
 msgid "owner"
 msgstr "proprietario"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveSaveButton.php:23
-#: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:23
-msgid "file"
-msgstr "file"
-
 #: ../../admin/widgets/SZGoogleWidgetDriveSaveButton.php:24
 msgid "insert URL file to save"
 msgstr "inserire URL del file da salvare"
@@ -3845,86 +4059,9 @@ msgstr "URL video"
 msgid "insert URL for youtube video"
 msgstr "inserire URL video youtube"
 
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:31
-msgid "responsive"
-msgstr "responsive"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:32
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:38
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:44
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:50
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:56
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:62
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:107
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:113
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:119
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:51
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:57
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:63
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:69
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:75
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:81
-msgid "yes"
-msgstr "si"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:33
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:39
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:45
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:51
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:57
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:63
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:108
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:114
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:120
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:52
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:58
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:64
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:70
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:76
-#: ../../admin/widgets/SZGoogleWidgetCalendar.php:82
-msgid "no"
-msgstr "no"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:37
-msgid "delayed"
-msgstr "ritardato"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:43
-msgid "autoplay"
-msgstr "autoplay"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:49
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:69
-msgid "loop"
-msgstr "loop"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:55
-msgid "fullscreen"
-msgstr "schermo intero "
-
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:61
 msgid "schemaorg"
 msgstr "schemaorg"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:86
-msgid "theme dark"
-msgstr "tema dark"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:87
-msgid "theme light"
-msgstr "tema light"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:96
-msgid "cover local"
-msgstr "copertina locale"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:97
-msgid "cover youtube"
-msgstr "copertina youtube"
-
-#: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:106
-msgid "disable iframe"
-msgstr "disabilitare iframe"
 
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:127
 msgid "start (secs)"
@@ -3991,6 +4128,18 @@ msgstr "inserire id  documento"
 msgid "start"
 msgstr "inizio"
 
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:64
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:70
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:99
+msgid "enabled"
+msgstr "abilita"
+
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:65
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:71
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:100
+msgid "disabled"
+msgstr "disabilita"
+
 #: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:77
 msgid "delay sec"
 msgstr "ritardo sec"
@@ -4025,7 +4174,7 @@ msgid "grid"
 msgstr "griglia"
 
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:22
-msgid "calendars"
+msgid "calendar"
 msgstr "calendari"
 
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:56
@@ -4090,40 +4239,54 @@ msgstr "olandese"
 
 #: ../../admin/templates/sz-google-template-reviews.php:15
 #: ../../admin/templates/sz-google-template-reviews.php:16
+#: ../../admin/templates/sz-google-template-reviews.php:17
 msgid "english"
 msgstr "inglese"
 
-#: ../../admin/templates/sz-google-template-reviews.php:17
+#: ../../admin/templates/sz-google-template-reviews.php:18
 msgid "german"
 msgstr "tedesco"
 
-#: ../../admin/templates/sz-google-template-reviews.php:18
 #: ../../admin/templates/sz-google-template-reviews.php:19
 #: ../../admin/templates/sz-google-template-reviews.php:20
 #: ../../admin/templates/sz-google-template-reviews.php:21
 #: ../../admin/templates/sz-google-template-reviews.php:22
+#: ../../admin/templates/sz-google-template-reviews.php:23
+#: ../../admin/templates/sz-google-template-reviews.php:24
 msgid "italian"
 msgstr "italiano"
 
-#: ../../admin/templates/sz-google-template-reviews.php:23
+#: ../../admin/templates/sz-google-template-reviews.php:25
+#: ../../admin/templates/sz-google-template-reviews.php:26
 msgid "spanish"
 msgstr "spagnolo"
 
-#: ../../admin/templates/sz-google-template-reviews.php:24
+#: ../../admin/templates/sz-google-template-reviews.php:27
 msgid "korean"
 msgstr "coreano"
 
-#: ../../admin/templates/sz-google-template-reviews.php:25
-msgid "japanese"
-msgstr "giapponese"
-
-#: ../../admin/templates/sz-google-template-reviews.php:26
+#: ../../admin/templates/sz-google-template-reviews.php:28
 msgid "russian"
 msgstr "russo"
 
-#: ../../admin/templates/sz-google-template-reviews.php:38
+#: ../../admin/templates/sz-google-template-reviews.php:40
 msgid "URL address"
 msgstr "indirizzo URL"
+
+#~ msgid "create new emergency codes"
+#~ msgstr "creazione di nuovi codici"
+
+#~ msgid "select file"
+#~ msgstr "seleziona un file"
+
+#~ msgid "portrait"
+#~ msgstr "verticale"
+
+#~ msgid "landscape"
+#~ msgstr "orizzontale"
+
+#~ msgid "japanese"
+#~ msgstr "giapponese"
 
 #~ msgid "Y/N"
 #~ msgstr "Y/N"
@@ -4329,9 +4492,6 @@ msgstr "indirizzo URL"
 #~ msgid "enable redirect URL"
 #~ msgstr "abilita redirect per URL"
 
-#~ msgid "google+ ID"
-#~ msgstr "google+ ID"
-
 #~ msgid "string HTML for comments title"
 #~ msgstr "stringa HTML per titolo commenti"
 
@@ -4466,9 +4626,6 @@ msgstr "indirizzo URL"
 #~ msgid "google panoramio configuration"
 #~ msgstr "configurazione google panoramio"
 
-#~ msgid "google+ configuration"
-#~ msgstr "configurazione google+"
-
 #~ msgid "google youtube configuration"
 #~ msgstr "configurazione google youtube"
 
@@ -4579,9 +4736,6 @@ msgstr "indirizzo URL"
 
 #~ msgid "name of groups"
 #~ msgstr "nome del gruppo"
-
-#~ msgid "display search"
-#~ msgstr "visualizzare ricerca"
 
 #~ msgid "display tabs"
 #~ msgstr "visualizzare tabs"
@@ -4857,17 +5011,17 @@ msgstr "indirizzo URL"
 #~ "page. Normally shortcodes can be specified in the options, to control "
 #~ "parameters given read the official documentation."
 #~ msgstr ""
-#~ "Se abiliti questa opzione potrai utilizzare lo shortcode <code>[sz-ytlink]"
-#~ "</code> ed inserire il componente corrispondente direttamente nel tuo "
-#~ "articolo o pagina. Normalmente negli shortcodes possono essere "
+#~ "Se abiliti questa opzione potrai utilizzare lo shortcode <code>[sz-"
+#~ "ytlink]</code> ed inserire il componente corrispondente direttamente nel "
+#~ "tuo articolo o pagina. Normalmente negli shortcodes possono essere "
 #~ "specificate delle opzioni, per controllare i parametri leggi la "
 #~ "documentazione."
 
 #~ msgid ""
-#~ "if you enable this option you can use the shortcode <code>[sz-ytplaylist]"
-#~ "</code> and enter the corresponding component directly in your article or "
-#~ "page. Normally shortcodes can be specified in the options, to control "
-#~ "parameters given read the official documentation."
+#~ "if you enable this option you can use the shortcode <code>[sz-"
+#~ "ytplaylist]</code> and enter the corresponding component directly in your "
+#~ "article or page. Normally shortcodes can be specified in the options, to "
+#~ "control parameters given read the official documentation."
 #~ msgstr ""
 #~ "se abiliti questa opzione potrai utilizzare lo shortcode <code>[sz-"
 #~ "ytplaylist]</code> ed inserire il componente corrispondente direttamente "
