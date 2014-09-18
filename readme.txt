@@ -330,7 +330,6 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add POPUP shortcode Groups.
 * Feature: Add POPUP shortcode Hangouts.
 * Feature: Add POPUP shortcode Panoramio.
-* Feature: Add POPUP shortcode Translate.
 * Feature: Add POPUP shortcode Youtube.
 * Feature: Add external resource help italiano.
 * Feature: Add TinyMCE fonts family and size.
