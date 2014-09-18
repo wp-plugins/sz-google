@@ -37,7 +37,7 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 
 <table>
 	<tr><th>Parametro</th>    <th>Descrizione</th>            <th>Valori ammessi</th>            <th>Default</th></tr>
-	<tr><td>url</td>          <td>URL pagina o profilo</td>   <td>stringa</td>                   <td>configurazione</td></tr>
+	<tr><td>url</td>          <td>URL pagina o profilo</td>   <td>stringa,page,profile</td>                   <td>configurazione</td></tr>
 	<tr><td>size</td>         <td>dimensione</td>             <td>small,medium,large</td>        <td>medium</td></tr>
 	<tr><td>width</td>        <td>larghezza</td>              <td>valore</td>                    <td>null</td></tr>
 	<tr><td>annotation</td>   <td>annotazione</td>            <td>inline,bubble,none</td>        <td>none</td></tr>

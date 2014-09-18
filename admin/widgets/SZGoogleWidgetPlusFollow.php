@@ -10,10 +10,10 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table id="SZGoogleWidgetPlusFollow" class="sz-google-table-widget">
+<table id="SZGoogleWidgetPlusFollow" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
-<tr>
+<tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
@@ -111,7 +111,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 </tr>
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
-</table></p>
+</table>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">

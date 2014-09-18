@@ -13,6 +13,8 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 // dovranno essere richiamate tramite un include(setoptions)
 
 return array(
+	'fonts_tinyMCE_family' => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'fonts_tinyMCE_size'   => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'fonts_family_L1_name' => array('N'=>'0','Y'=>'0','Z'=>'0','value' => ''),
 	'fonts_family_L2_name' => array('N'=>'0','Y'=>'0','Z'=>'0','value' => ''),
 	'fonts_family_L3_name' => array('N'=>'0','Y'=>'0','Z'=>'0','value' => ''),

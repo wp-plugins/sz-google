@@ -39,13 +39,6 @@ table.sz-google-codes td {
 	border:1px solid #d1d1d1;
 }
 
-
-
-
-
-
-
-
 /* ----------------------------------------------- */
 /* DA DOCUMENTARE     */
 /* ----------------------------------------------- */
@@ -175,6 +168,7 @@ table.sz-google-codes td {
 
 table.sz-google-table-widget {
 	width:100%;
+	margin:1em 0;
 }
 
 table.sz-google-table-widget td.sz-cell-keys,
@@ -184,6 +178,77 @@ table.sz-google-table-widget td.sz-cell-vals {
 
 table.sz-google-table-widget td.sz-cell-keys {
 	padding-right:1em;
+}
+
+body.SZMCE {
+	margin:0;
+	padding:0;
+}	
+
+body.SZMCE .only-widgets {
+	display:none !important;
+}	
+
+body.SZMCE #wpbody,
+body.SZMCE #wpbody-content,
+body.SZMCE #wpcontent {
+	padding:0 !important;
+}
+
+body.SZMCE table.sz-google-table-widget td.sz-cell-keys,
+body.SZMCE table.sz-google-table-widget td.sz-cell-vals {
+	padding:2px 0;
+}
+
+body.SZMCE table.sz-google-table-widget td.sz-cell-keys {
+	font-size:1.1em;
+	font-weight:bold;
+	text-align:right;
+	padding-right:1em;
+}
+
+body.SZMCE input[type=number], 
+body.SZMCE input[type=password], 
+body.SZMCE input[type=search], 
+body.SZMCE input[type=text] {
+	padding: 1px 10px;
+}
+
+body.SZMCE input[type=checkbox], 
+body.SZMCE input[type=radio] {
+	width: 24px;
+	height:24px;
+}
+
+body.SZMCE select,
+body.SZMCE #wpbody select {
+	height:28px;
+	padding: 1px 5px;
+	line-height: 28px;
+}
+
+body.SZMCE input[type=button] {
+	width:100%;
+	padding:3px 14px;
+	margin-bottom:2px;
+}
+
+
+
+
+
+
+
+
+
+
+#MCE {
+	padding:1em 2em 1em 1em;
+}
+
+#MCE table.sz-google-table-widget {
+	padding:0;
+	margin:0 0 2em 0;
 }
 
 /* ------------------------------ */

@@ -131,7 +131,10 @@ if (!class_exists('SZGoogleWidgetPlusFollowers'))
 			{
 				$options = (object) $object->getOptions();
 
-				if (!ctype_digit($width) and $width  != 'auto') $width = $options->plus_widget_size_portrait;
+				if (!ctype_digit($width) and $width != 'auto') {
+					if($layout == 'landscape') $width = $options->plus_widget_size_landscape;
+						else $width = $options->plus_widget_size_portrait;
+				}
 			}
 
 			// Impostazione eventuale di parametri di default per i
@@ -140,16 +143,21 @@ if (!class_exists('SZGoogleWidgetPlusFollowers'))
 			$DEFAULT = include(dirname(SZ_PLUGIN_GOOGLE_MAIN)."/options/sz_google_options_plus.php");
 
 			if (!ctype_digit($method) or $method == 0) { $method = '1'; }
-			if (!ctype_digit($width)  or $width  == 0) { $width  = $DEFAULT['plus_widget_size_portrait']['value']; $width_auto = '1'; }
+
+			if (!ctype_digit($width)  or $width  == 0) { 
+				if($layout == 'landscape') $width = $DEFAULT['plus_widget_size_landscape']['value'];  
+					else $width = $DEFAULT['plus_widget_size_portrait']['value'];
+				$width_auto = '1';
+			}
+
 			if (!ctype_digit($height) or $height == 0) { $height = 'auto'; $height_auto = '1'; }
-			
 			if (!ctype_digit($height) and $height != 'auto') $height = 'auto';
 
 			// Richiamo il template per la visualizzazione della
 			// parte che riguarda il pannello di amministrazione
 
-			@require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
-			@require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');
+			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
+			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');
 		}
 	}
 }

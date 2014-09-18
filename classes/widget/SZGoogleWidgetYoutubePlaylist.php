@@ -192,8 +192,8 @@ if (!class_exists('SZGoogleWidgetYoutubePlaylist'))
 			$disablekeyboard = str_replace(array('0','1'),array('n','y'),$disablekeyboard);
 			$disablerelated  = str_replace(array('0','1'),array('n','y'),$disablerelated);
 
-			@require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
-			@require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');
+			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
+			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');
 		}
 	}
 }

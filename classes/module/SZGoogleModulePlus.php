@@ -831,6 +831,9 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
 
+			if ($id == 'page')    { $id = $options['plus_page'];    }
+			if ($id == 'profile') { $id = $options['plus_profile']; }
+
 			if ($id == '') { $id = $options['plus_page']; }
 			if ($id == '') { $id = $options['plus_profile']; }
 

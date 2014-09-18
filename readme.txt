@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -236,7 +236,7 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `[sz-ytplaylist] .....: embed youtube playlist`
 * `[sz-ytbadge] ........: embed youtube badge`
 * `[sz-ytbutton] .......: embed youtube button`
-* `[sz-yttext] .........: embed youtube link`
+* `[sz-ytlink] .........: embed youtube link`
 
 **Google Youtube Widgets:** In this plugin are available to google youtube widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -322,6 +322,18 @@ Before you use the google translate module must register the site that you want 
 == Changelog ==
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.7.9 =
+* Feature: Add POPUP shortcode Google+.
+* Feature: Add POPUP shortcode Calendar.
+* Feature: Add POPUP shortcode Drive.
+* Feature: Add POPUP shortcode Groups.
+* Feature: Add POPUP shortcode Hangouts.
+* Feature: Add POPUP shortcode Panoramio.
+* Feature: Add POPUP shortcode Translate.
+* Feature: Add POPUP shortcode Youtube.
+* Feature: Add external resource help italiano.
+* Feature: Add TinyMCE fonts family and size.
 
 = Version 1.7.8 =
 * Fix: List of reviews.

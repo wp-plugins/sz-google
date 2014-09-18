@@ -37,8 +37,8 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 
 <table>
 	<tr><th>Parametro</th>    <th>Descrizione</th>            <th>Valori ammessi</th>             <th>Default</th></tr>
-	<tr><td>url</td>          <td>indirizzo URL del file</td> <td>string</td>                     <td>post corrente</td></tr>
-	<tr><td>filename</td>     <td>nome del file</td>          <td>small,medium,standard,tail</td> <td>standard</td></tr>
+	<tr><td>url</td>          <td>indirizzo URL del file</td> <td>stringa</td>                    <td>post corrente</td></tr>
+	<tr><td>filename</td>     <td>nome del file</td>          <td>valore</td>                     <td>null</td></tr>
 	<tr><td>sitename</td>     <td>nome del sito</td>          <td>valore</td>                     <td>null</td></tr>
 	<tr><td>text</td>         <td>testo</td>                  <td>stringa</td>                    <td>null</td></tr>
 	<tr><td>img</td>          <td>immagine</td>               <td>stringa</td>                    <td>null</td></tr>

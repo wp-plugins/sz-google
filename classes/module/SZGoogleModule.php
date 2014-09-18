@@ -26,6 +26,7 @@ if (!class_exists('SZGoogleModule'))
 		 * oggetto al modulo di riferimento se attivato
 		 */
 		static private $SZGoogleModulePlus          = false;
+		static private $SZGoogleModuleAjax          = false;
 		static private $SZGoogleModuleAuthenticator = false;
 		static private $SZGoogleModuleAnalytics     = false;
 		static private $SZGoogleModuleCalendar      = false;
@@ -77,6 +78,7 @@ if (!class_exists('SZGoogleModule'))
 			if (isset($this->moduleClassName)) 
 			{
 				if ($this->moduleClassName == 'SZGoogleModulePlus')          self::$SZGoogleModulePlus          = $this;
+				if ($this->moduleClassName == 'SZGoogleModuleAjax')          self::$SZGoogleModuleAjax          = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleAnalytics')     self::$SZGoogleModuleAnalytics     = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleAuthenticator') self::$SZGoogleModuleAuthenticator = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleCalendar')      self::$SZGoogleModuleCalendar      = $this;

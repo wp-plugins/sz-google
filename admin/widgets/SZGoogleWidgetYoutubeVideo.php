@@ -10,10 +10,10 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table id="SZGoogleWidgetYoutubeVideo" class="sz-google-table-widget">
+<table id="SZGoogleWidgetYoutubeVideo" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
-<tr>
+<tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
@@ -28,37 +28,37 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <!-- WIDGETS (Campo per specificare il parametro enable) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_responsive ?>"><?php echo ucfirst(__('responsive','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('responsive','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="y" onchange="szgoogle_switch_hidden_onchange(this);" data-switch="sz-google-switch-display" data-open="n" <?php if ($VALUE_responsive == 'y') echo ' checked '?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="n" onchange="szgoogle_switch_hidden_onchange(this);" data-switch="sz-google-switch-display" data-open="n" <?php if ($VALUE_responsive != 'y') echo ' checked  class="sz-google-switch-hidden"'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_delayed ?>"><?php echo ucfirst(__('delayed','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('delayed','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_delayed ?>" value="y" <?php if ($VALUE_delayed == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_delayed ?>" value="n" <?php if ($VALUE_delayed != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_autoplay ?>"><?php echo ucfirst(__('autoplay','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('autoplay','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_autoplay ?>" value="y" <?php if ($VALUE_autoplay == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_autoplay ?>" value="n" <?php if ($VALUE_autoplay != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_loop ?>"><?php echo ucfirst(__('loop','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('loop','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_loop ?>" value="y" <?php if ($VALUE_loop == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_loop ?>" value="n" <?php if ($VALUE_loop != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_fullscreen ?>"><?php echo ucfirst(__('fullscreen','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('fullscreen','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_fullscreen ?>" value="y" <?php if ($VALUE_fullscreen == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_fullscreen ?>" value="n" <?php if ($VALUE_fullscreen != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_schemaorg ?>"><?php echo ucfirst(__('schemaorg','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('schemaorg','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_schemaorg ?>" value="y" <?php if ($VALUE_schemaorg == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_schemaorg ?>" value="n" <?php if ($VALUE_schemaorg != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
@@ -103,19 +103,19 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <!-- WIDGETS (Campo per specificare il parametro disable) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_disableiframe ?>"><?php echo ucfirst(__('disable iframe','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('disable iframe','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disableiframe ?>" value="y" <?php if ($VALUE_disableiframe == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disableiframe ?>" value="n" <?php if ($VALUE_disableiframe != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_disablekeyboard ?>"><?php echo ucfirst(__('disable keyboard','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('disable keyboard','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disablekeyboard ?>" value="y" <?php if ($VALUE_disablekeyboard == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disablekeyboard ?>" value="n" <?php if ($VALUE_disablekeyboard != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_disablerelated ?>"><?php echo ucfirst(__('disable related','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('disable related','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disablerelated ?>" value="y" <?php if ($VALUE_disablerelated == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disablerelated ?>" value="n" <?php if ($VALUE_disablerelated != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
@@ -134,7 +134,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 </tr>
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
-</table></p>
+</table>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">

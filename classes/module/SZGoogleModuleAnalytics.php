@@ -1,6 +1,6 @@
 <?php
 /**
- * Modulo GOOGLE ANALYTICS per la definizione delle funzioni che riguardano
+ * Modulo GOOGLE AJAX per la definizione delle funzioni che riguardano
  * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
  * può integrare durante l'aggiunta di funzionalità particolari a wordpress
  *

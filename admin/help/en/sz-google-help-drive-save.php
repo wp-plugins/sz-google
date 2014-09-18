@@ -35,7 +35,7 @@ format option = "value". If you would like additional information you can visit 
 <table>
 	<tr><th>Parameter</th>    <th>Description</th>      <th>Allowed values</th>             <th>Default</th></tr>
 	<tr><td>url</td>          <td>file URL address</td> <td>string</td>                     <td>current post</td></tr>
-	<tr><td>filename</td>     <td>file name</td>        <td>small,medium,standard,tail</td> <td>standard</td></tr>
+	<tr><td>filename</td>     <td>file name</td>        <td>value</td>                      <td>null</td></tr>
 	<tr><td>sitename</td>     <td>site name</td>        <td>value</td>                      <td>null</td></tr>
 	<tr><td>text</td>         <td>text</td>             <td>string</td>                     <td>null</td></tr>
 	<tr><td>img</td>          <td>image</td>            <td>string</td>                     <td>null</td></tr>

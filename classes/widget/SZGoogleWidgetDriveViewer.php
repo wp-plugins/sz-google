@@ -147,8 +147,8 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 			// Richiamo il template per la visualizzazione della
 			// parte che riguarda il pannello di amministrazione
 
-			@require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
-			@require(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');
+			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
+			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');
 		}
 	}
 }

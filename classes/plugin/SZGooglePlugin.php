@@ -105,6 +105,13 @@ if (!class_exists('SZGooglePlugin'))
 			// viene aggiunto un menu dedicato al plugin con tutte le opzioni collegate ai moduli
 
 			if (is_admin()) new SZGoogleAdminBase();
+
+			// Controllo se viene eseguita una chiamata AJAX per attivare
+			// le funzioni collegate al codice azione corrispondente
+
+			if (defined('DOING_AJAX') && DOING_AJAX) {
+				new SZGoogleModuleAjax();
+			}
 		}
 
 		/**

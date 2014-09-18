@@ -34,7 +34,7 @@ format option = "value". If you would like additional information you can visit 
 
 <table>
 	<tr><th>Parameter</th>    <th>Description</th>         <th>Allowed values</th>            <th>Default</th></tr>
-	<tr><td>url</td>          <td>URL page or profile</td> <td>string</td>                    <td>configuration</td></tr>
+	<tr><td>url</td>          <td>URL page or profile</td> <td>string,page,profile</td>                    <td>configuration</td></tr>
 	<tr><td>size</td>         <td>size</td>                <td>small,medium,large</td>        <td>medium</td></tr>
 	<tr><td>width</td>        <td>width</td>               <td>value</td>                     <td>null</td></tr>
 	<tr><td>annotation</td>   <td>annotation</td>          <td>inline,bubble,none</td>        <td>none</td></tr>

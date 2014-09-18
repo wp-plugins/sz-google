@@ -25,6 +25,7 @@ return array(
 	'translate'         => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'youtube'           => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'documentation'     => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
+	'tinymce'           => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
 	'API_enable'        => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'API_client_ID'     => array('N'=>'0','Y'=>'0','Z'=>'0','value' => ''),
 	'API_client_secret' => array('N'=>'0','Y'=>'0','Z'=>'0','value' => ''),

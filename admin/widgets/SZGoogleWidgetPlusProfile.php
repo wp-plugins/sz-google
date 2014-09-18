@@ -10,10 +10,10 @@
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 ?>
 <!-- WIDGETS (Tabella per contenere il FORM del widget) -->
-<p><table id="SZGoogleWidgetPlusProfile" class="sz-google-table-widget">
+<table id="SZGoogleWidgetPlusProfile" class="sz-google-table-widget">
 
 <!-- WIDGETS (Campo con inserimento del titolo widget) -->
-<tr>
+<tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
@@ -40,43 +40,43 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 <!-- WIDGETS (Campo per specificare la dimensione) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
-	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
-	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width widefat" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
+	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-width" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_width_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_width_auto,true,false) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare il parametro layout) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_layout ?>"><?php echo ucfirst(__('layout','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('layout','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_layout ?>" value="portrait"  <?php if ($VALUE_layout == 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('V','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_layout ?>" value="landscape" <?php if ($VALUE_layout != 'portrait') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('H','szgoogleadmin')) ?></td>
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro theme) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_theme ?>"><?php echo ucfirst(__('theme','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('theme','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_theme ?>" value="light" <?php if ($VALUE_theme == 'light') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('light','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_theme ?>" value="dark"  <?php if ($VALUE_theme != 'light') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('dark','szgoogleadmin')) ?></td>
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro cover) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_cover ?>"><?php echo ucfirst(__('cover','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('cover','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_cover ?>" value="true"  <?php if ($VALUE_cover == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_cover ?>" value="false" <?php if ($VALUE_cover != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no','szgoogleadmin')) ?></td>
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro tagline) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_tagline ?>"><?php echo ucfirst(__('tagline','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('tagline','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_tagline ?>" value="true"  <?php if ($VALUE_tagline == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_tagline ?>" value="false" <?php if ($VALUE_tagline != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no','szgoogleadmin')) ?></td>
 </tr>
 
 <!-- WIDGETS (Campo per specificare il parametro autore) -->
 <tr>
-	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_author ?>"><?php echo ucfirst(__('author','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('author','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_author ?>" value="true"  <?php if ($VALUE_author == 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_author ?>" value="false" <?php if ($VALUE_author != 'true') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no','szgoogleadmin')) ?></td>
 </tr>
@@ -97,7 +97,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 </tr>
 
 <!-- WIDGETS (Chiusura tabella principale widget form) -->
-</table></p>
+</table>
 
 <!-- WIDGETS (Codice javascript per funzioni UI) -->
 <script type="text/javascript">

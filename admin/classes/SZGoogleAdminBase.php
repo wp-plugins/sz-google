@@ -65,6 +65,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			if ($options->translate     == '1') new SZGoogleAdminTranslate();
 			if ($options->youtube       == '1') new SZGoogleAdminYoutube();
 			if ($options->documentation == '1') new SZGoogleAdminDocumentation();
+			if ($options->tinymce       == '1') new SZGoogleAdminTinyMCE();
  		}
 
 		/**
@@ -152,7 +153,8 @@ if (!class_exists('SZGoogleAdminBase'))
 					array('field' => 'panoramio'    ,'title' => ucwords(__('google panoramio'    ,'szgoogleadmin')),'callback' => array($this,'get_base_panoramio')),
 					array('field' => 'translate'    ,'title' => ucwords(__('google translate'    ,'szgoogleadmin')),'callback' => array($this,'get_base_translate')),
 					array('field' => 'youtube'      ,'title' => ucwords(__('google youtube'      ,'szgoogleadmin')),'callback' => array($this,'get_base_youtube')),
-					array('field' => 'documentation','title' => ucwords(__('documentation '      ,'szgoogleadmin')),'callback' => array($this,'get_base_documentation')),
+					array('field' => 'documentation','title' => ucwords(__('documentation'       ,'szgoogleadmin')),'callback' => array($this,'get_base_documentation')),
+					array('field' => 'tinymce'      ,'title' => ucwords(__('tinyMCE shortcodes'  ,'szgoogleadmin')),'callback' => array($this,'get_base_tinymce')),
 				),
 
 				'02' => array(
@@ -183,8 +185,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			// essere caricati nella pagina in base alla funzione richiesta
 
 			$CSS = plugin_dir_url(SZ_PLUGIN_GOOGLE_MAIN).'admin/files/css/sz-google-style-admin.css';
-
-			wp_register_style ('sz-google-style-admin',$CSS,array(),SZ_PLUGIN_GOOGLE_VERSION);
+			wp_register_style('sz-google-style-admin',$CSS,array(),SZ_PLUGIN_GOOGLE_VERSION);
 
 			// Controllo le zone di caricamento file in base alle necessità
 			// del plugin durante la visualizzazione delle pagine di amministrazione
@@ -513,6 +514,12 @@ if (!class_exists('SZGoogleAdminBase'))
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_base','documentation');
 			$this->moduleCommonFormDescription(__('activating this option you can see the documentation in the main menu of this plugin with the parameters to be used in [shortcodes] or PHP functions provided. There is a series of boxes in alphabetical order.','szgoogleadmin'));
+		}
+
+		function get_base_tinymce() 
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_base','tinymce');
+			$this->moduleCommonFormDescription(__('activating this option all shortcodes plugin that are active will be present in the editor of wordpress when inserting a post or page. Using the drop-down menu that you will find in the editor you can specify all the options shortcode via a pop-up window.','szgoogleadmin'));
 		}
 
 		/**

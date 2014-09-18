@@ -39,28 +39,37 @@ if (!class_exists('SZGoogleModuleFonts'))
 		 */
 		function moduleAddActions()
 		{ 
-			$options = $this->getOptions();
+			$options = (object) $this->getOptions();
+
+			// Controllo se devo attivare un sistema per aggiungere dei
+			// componenti di selezione all'editor standard di TinyMCE
+
+			if ($options->fonts_tinyMCE_family == '1' or
+			    $options->fonts_tinyMCE_size   == '1') 
+			{
+				new SZGoogleActionFontsTinyMCE();
+			}
 
 			// Controllo se devo attivare il sistema di caricamento per i fonts
 			// indicati nel pannello di amministrazione (attivi e con nome)
 
 			$testvalue = array('','nofonts');
 
-			if (!in_array($options['fonts_family_L1_name'],$testvalue) or
-		    	!in_array($options['fonts_family_L2_name'],$testvalue) or
-		    	!in_array($options['fonts_family_L3_name'],$testvalue) or
-		    	!in_array($options['fonts_family_L4_name'],$testvalue) or
-		    	!in_array($options['fonts_family_L5_name'],$testvalue) or
-		    	!in_array($options['fonts_family_L6_name'],$testvalue) or
-		    	!in_array($options['fonts_family_B1_name'],$testvalue) or
-		    	!in_array($options['fonts_family_P1_name'],$testvalue) or
-		    	!in_array($options['fonts_family_B2_name'],$testvalue) or
-		    	!in_array($options['fonts_family_H1_name'],$testvalue) or
-		    	!in_array($options['fonts_family_H2_name'],$testvalue) or
-		    	!in_array($options['fonts_family_H3_name'],$testvalue) or
-		    	!in_array($options['fonts_family_H4_name'],$testvalue) or
-		    	!in_array($options['fonts_family_H5_name'],$testvalue) or
-		    	!in_array($options['fonts_family_H6_name'],$testvalue))
+			if (!in_array($options->fonts_family_L1_name,$testvalue) or
+			    !in_array($options->fonts_family_L2_name,$testvalue) or
+			    !in_array($options->fonts_family_L3_name,$testvalue) or
+			    !in_array($options->fonts_family_L4_name,$testvalue) or
+			    !in_array($options->fonts_family_L5_name,$testvalue) or
+			    !in_array($options->fonts_family_L6_name,$testvalue) or
+			    !in_array($options->fonts_family_B1_name,$testvalue) or
+			    !in_array($options->fonts_family_P1_name,$testvalue) or
+			    !in_array($options->fonts_family_B2_name,$testvalue) or
+			    !in_array($options->fonts_family_H1_name,$testvalue) or
+			    !in_array($options->fonts_family_H2_name,$testvalue) or
+			    !in_array($options->fonts_family_H3_name,$testvalue) or
+			    !in_array($options->fonts_family_H4_name,$testvalue) or
+			    !in_array($options->fonts_family_H5_name,$testvalue) or
+			    !in_array($options->fonts_family_H6_name,$testvalue))
 			{
 				add_action('SZ_HEAD',array($this,'moduleAddFonts'),20);
 			}
@@ -68,15 +77,15 @@ if (!class_exists('SZGoogleModuleFonts'))
 			// Controllo se è stato specificato un livello che necessita il
 			// codice CSS automatico per essere applicato all'elemento selezionato
 
-			if (!in_array($options['fonts_family_B1_name'],$testvalue) or
-			    !in_array($options['fonts_family_P1_name'],$testvalue) or
-			    !in_array($options['fonts_family_B2_name'],$testvalue) or
-			    !in_array($options['fonts_family_H1_name'],$testvalue) or
-			    !in_array($options['fonts_family_H2_name'],$testvalue) or
-		    	!in_array($options['fonts_family_H3_name'],$testvalue) or
-			    !in_array($options['fonts_family_H4_name'],$testvalue) or
-			    !in_array($options['fonts_family_H5_name'],$testvalue) or
-			    !in_array($options['fonts_family_H6_name'],$testvalue))
+			if (!in_array($options->fonts_family_B1_name,$testvalue) or
+			    !in_array($options->fonts_family_P1_name,$testvalue) or
+			    !in_array($options->fonts_family_B2_name,$testvalue) or
+			    !in_array($options->fonts_family_H1_name,$testvalue) or
+			    !in_array($options->fonts_family_H2_name,$testvalue) or
+			    !in_array($options->fonts_family_H3_name,$testvalue) or
+			    !in_array($options->fonts_family_H4_name,$testvalue) or
+			    !in_array($options->fonts_family_H5_name,$testvalue) or
+			    !in_array($options->fonts_family_H6_name,$testvalue))
 			{
 				add_action('SZ_CCSI',array($this,'moduleAddCSS'),20);
 			}

@@ -39,13 +39,15 @@ if (!class_exists('SZGoogleAdminFonts'))
 
 			$this->sectionstabs = array(
 				'01' => array('anchor' => 'general' ,'description' => __('general','szgoogleadmin')),
-				'02' => array('anchor' => 'header'  ,'description' => __('header' ,'szgoogleadmin')),
+				'02' => array('anchor' => 'HTML'    ,'description' => __('HTML'   ,'szgoogleadmin')),
+				'03' => array('anchor' => 'header'  ,'description' => __('header' ,'szgoogleadmin')),
 			);
 
 			$this->sections = array(
-				array('tab' => '01','section' => 'sz-google-admin-fonts.php'   ,'title' => ucwords(__('fonts loader','szgoogleadmin'))),
-				array('tab' => '01','section' => 'sz-google-admin-fonts-BX.php','title' => ucwords(__('fonts general','szgoogleadmin'))),
-				array('tab' => '02','section' => 'sz-google-admin-fonts-HX.php','title' => ucwords(__('fonts headings','szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-fonts.php'   ,'title' => ucwords(__('fonts tinyMCE' ,'szgoogleadmin'))),
+				array('tab' => '01','section' => 'sz-google-admin-fonts-LO.php','title' => ucwords(__('fonts loader'  ,'szgoogleadmin'))),
+				array('tab' => '02','section' => 'sz-google-admin-fonts-BX.php','title' => ucwords(__('fonts HTML'    ,'szgoogleadmin'))),
+				array('tab' => '03','section' => 'sz-google-admin-fonts-HX.php','title' => ucwords(__('fonts headings','szgoogleadmin'))),
 			);
 
 			$this->sectionstitle   = $this->menutitle;
@@ -69,9 +71,10 @@ if (!class_exists('SZGoogleAdminFonts'))
 			// Su ogni sezione bisogna definire un array per elenco campi
 
 			$this->sectionsmenu = array(
-				'01' => array('section' => 'sz_google_fonts_section'   ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts.php'),
-				'02' => array('section' => 'sz_google_fonts_section_BX','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts-BX.php'),
-				'03' => array('section' => 'sz_google_fonts_section_HX','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts-HX.php'),
+				'01' => array('section' => 'sz_google_fonts_tinymce'   ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts.php'),
+				'02' => array('section' => 'sz_google_fonts_section'   ,'title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts-LO.php'),
+				'03' => array('section' => 'sz_google_fonts_section_BX','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts-BX.php'),
+				'04' => array('section' => 'sz_google_fonts_section_HX','title' => $this->null,'callback' => $this->callbacksection,'slug' => 'sz-google-admin-fonts-HX.php'),
 			);
 
 			// Definizione array generale contenente elenco dei campi
@@ -79,9 +82,16 @@ if (!class_exists('SZGoogleAdminFonts'))
 
 			$this->sectionsfields = array
 			(
-				// Definizione sezione per configurazione GOOGLE FONTS BX
+				// Definizione sezione per configurazione TINYMCE
 
 				'01' => array(
+					array('field' => 'fonts_tinyMCE_F','title' => ucfirst(__('tinyMCE Font Family','szgoogleadmin')),'callback' => array($this,'get_fonts_tinymce_f')),
+					array('field' => 'fonts_tinyMCE_S','title' => ucfirst(__('tinyMCE Font Size'  ,'szgoogleadmin')),'callback' => array($this,'get_fonts_tinymce_s')),
+				),
+
+				// Definizione sezione per configurazione GOOGLE FONTS BX
+
+				'02' => array(
 					array('field' => 'fonts_family_L1','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L1')),
 					array('field' => 'fonts_family_L2','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L2')),
 					array('field' => 'fonts_family_L3','title' => ucfirst(__('font family','szgoogleadmin')),'callback' => array($this,'get_fonts_family_L3')),
@@ -92,7 +102,7 @@ if (!class_exists('SZGoogleAdminFonts'))
 
 				// Definizione sezione per configurazione GOOGLE FONTS BX
 
-				'02' => array(
+				'03' => array(
 					array('field' => 'fonts_family_B1','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <body>'))      ,'callback' => array($this,'get_fonts_family_B1')),
 					array('field' => 'fonts_family_P1','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <p>'))         ,'callback' => array($this,'get_fonts_family_P1')),
 					array('field' => 'fonts_family_B2','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <blockquote>')),'callback' => array($this,'get_fonts_family_B2')),
@@ -100,7 +110,7 @@ if (!class_exists('SZGoogleAdminFonts'))
 
 				// Definizione sezione per configurazione GOOGLE FONTS BX
 
-				'03' => array(
+				'04' => array(
 					array('field' => 'fonts_family_H1','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h1>')),'callback' => array($this,'get_fonts_family_H1')),
 					array('field' => 'fonts_family_H2','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h2>')),'callback' => array($this,'get_fonts_family_H2')),
 					array('field' => 'fonts_family_H3','title' => ucfirst(__('font family','szgoogleadmin').htmlspecialchars(' <h3>')),'callback' => array($this,'get_fonts_family_H3')),
@@ -152,6 +162,16 @@ if (!class_exists('SZGoogleAdminFonts'))
 		 * Definizione delle funzioni per la creazione delle singole opzioni che vanno
 		 * inserite nel form generale di configurazione e salvate sul database di wordpress
 		 */
+		function get_fonts_tinymce_f() {
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_fonts','fonts_tinyMCE_family');
+			$this->moduleCommonFormDescription(__('enabling this option will be added in the main menu of TinyMCE selector with a list of family fonts, which can be associated with the paragraphs of your article. The list addition is defined in the standard software of TinyMCE.','szgoogleadmin'));
+		}
+
+		function get_fonts_tinymce_s() {
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_fonts','fonts_tinyMCE_size');
+			$this->moduleCommonFormDescription(__('enabling this option will be added in the main menu of TinyMCE selector with a list of family size, which can be associated with the paragraphs of your article. The list addition is defined in the standard software of TinyMCE.','szgoogleadmin'));
+		}
+
 		function get_fonts_family_L1() 
 		{
 			$values = $this->getGoogleFontsList();
