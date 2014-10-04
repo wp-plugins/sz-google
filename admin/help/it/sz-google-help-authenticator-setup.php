@@ -25,8 +25,9 @@ eseguita in maniera veloce e semplice utilizzando un codice QR Code da visualizz
 
 <p>Per prima cosa dovete attivare il modulo di Google Authenticator dal pannello di amministrazione che riguarda il plugin, una volta
 attivato controllate che nella schermata di configurazione del modulo sia attiva la funzione di <b>"attivazione login"</b>. A questo punto
-nella pagina del profilo utente verranno aggiunte delle informazioni per attivare l'autenticazione con chiave a tempo. Quindi collegatevi
-con il vostro account e andate sulla pagina del vostro profilo, attivate la funzione di Google Authenticator, generate con
+nella pagina del profilo utente verranno aggiunte delle informazioni per attivare l'autenticazione con chiave a tempo.</p>
+
+<p>Quindi collegatevi con il vostro account e andate sulla pagina del vostro profilo, attivate la funzione di Google Authenticator, generate con
 il pulsante apposito un nuovo "<b>codice segreto</b>" e visualizzate il codice <b>QR Code</b>, una volta visualizzato aggiungete un 
 nuovo account sulla vostra applicazione mobile, se questa operazione termina correttamente aggiornate il profilo. Il fatto di 
 aggiornare il profilo solo dopo la configurazione dello smartphone è dettato solo dal fatto che se aggiornate prima il profilo e
@@ -39,6 +40,16 @@ eseguendo un FTP di un determinato file nella directory principale di wordpress.
 abbia grossi problemi di collegamento o l'amministratore non abbia più accesso al suo device. In questo caso il proprietario del sito
 potrebbe fare un FTP di un file vuoto ad esempio chiamato <b>google-authenticator-disable.php</b> nella directory root e sospendere
 temporaneamente il controllo del codice, questo perchè ovviamente anche lui potrebbe non riuscire a fare il login.</p>
+
+<h2>Codici di emergenza</h2>
+
+<p>Abbiamo già visto precedentemente che è possibile attivare un file di emergenza per la forzatura di un login nel caso in cui non si possa 
+ottenere la password a tempo. In realtà esiste un’altra maniera che ci permette di associare ad un profilo utente dei codici di emergenza che 
+possono essere utilizzati al posto del codice a tempo. Come lo stesso meccanismo che mette a disposizione google per i propri account.</p>
+
+<p>La creazione dei codici di emergenza è possibile eseguirla dal menu del profilo utente, nella stessa maniera del codice 
+segreto. Tutti i codici che verranno generati potranno essere utilizzati una sola volta ciascuno, infatti i codici di color rosso che trovate nella 
+tabella sono quelli già utilizzati e gli altri sono quelli ancora liberi. In ogni caso potete generare una nuova tabelle di 12 nuovi codici quando volete.</p>
 
 <h2>Avvertenze</h2>
 

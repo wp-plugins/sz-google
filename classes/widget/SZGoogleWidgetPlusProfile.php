@@ -94,6 +94,7 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 
 			return $this->common_update(array(
 				'title'      => '0', // esecuzione strip_tags
+				'type'       => '1', // esecuzione strip_tags
 				'method'     => '1', // esecuzione strip_tags
 				'specific'   => '1', // esecuzione strip_tags
 				'width'      => '1', // esecuzione strip_tags
@@ -104,6 +105,8 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 				'cover'      => '1', // esecuzione strip_tags
 				'tagline'    => '1', // esecuzione strip_tags
 				'author'     => '1', // esecuzione strip_tags
+				'text'       => '1', // esecuzione strip_tags
+				'image'      => '1', // esecuzione strip_tags
 			),$new_instance,$old_instance);
 		}
 
@@ -118,6 +121,7 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 
 			$array = array(
 				'title'      => '', // valore predefinito
+				'type'       => '', // valore predefinito
 				'method'     => '', // valore predefinito
 				'specific'   => '', // valore predefinito
 				'width'      => '', // valore predefinito
@@ -128,6 +132,8 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 				'cover'      => '', // valore predefinito
 				'tagline'    => '', // valore predefinito
 				'author'     => '', // valore predefinito
+				'text'       => '', // valore predefinito
+				'image'      => '', // valore predefinito
 			);
 
 			// Creazione array per elenco campi da recuperare su FORM e
@@ -158,6 +164,7 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 			if (!in_array($author ,array('true','false')))         $author  = 'false';
 			if (!in_array($theme  ,array('light','dark')))         $theme   = 'light';
 			if (!in_array($layout ,array('portrait','landscape'))) $layout  = 'portrait';
+			if (!in_array($type   ,array('standard','popup')))     $type    = 'standard';
 
 			if (!ctype_digit($method) or $method == 0) { $method = '1'; }
 

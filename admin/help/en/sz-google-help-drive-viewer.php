@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>Google Drive Viewer is a universal document viewer that can be embedded in a web page in wordpress, with this component, 
 we can view many file formats without having to install special plugins or flash. The use of the component is very simple,
@@ -74,7 +74,7 @@ information on the formats supported by google go to the page
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-drive-viewer url="http://domain.com/filename.pdf" title="titolo"/]</pre>
 

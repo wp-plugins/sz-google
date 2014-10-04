@@ -132,8 +132,7 @@ if (!class_exists('SZGoogleWidgetPlusFollowers'))
 				$options = (object) $object->getOptions();
 
 				if (!ctype_digit($width) and $width != 'auto') {
-					if($layout == 'landscape') $width = $options->plus_widget_size_landscape;
-						else $width = $options->plus_widget_size_portrait;
+					$width = $options->plus_widget_size_landscape;
 				}
 			}
 
@@ -145,8 +144,7 @@ if (!class_exists('SZGoogleWidgetPlusFollowers'))
 			if (!ctype_digit($method) or $method == 0) { $method = '1'; }
 
 			if (!ctype_digit($width)  or $width  == 0) { 
-				if($layout == 'landscape') $width = $DEFAULT['plus_widget_size_landscape']['value'];  
-					else $width = $DEFAULT['plus_widget_size_portrait']['value'];
+				$width = $DEFAULT['plus_widget_size_landscape']['value'];  
 				$width_auto = '1';
 			}
 

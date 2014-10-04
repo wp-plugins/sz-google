@@ -24,6 +24,12 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_name ?>" name="<?php echo $NAME_name ?>" type="text" value="<?php echo $VALUE_name ?>" placeholder="<?php echo __('insert group name','szgoogleadmin') ?>"/></td>
 </tr>
 
+<!-- WIDGETS (Campo con inserimento nome del dominio) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_domain ?>"><?php echo ucfirst(__('domain APPs','szgoogleadmin')) ?>:</label></td>
+	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_domain ?>" name="<?php echo $NAME_domain ?>" type="text" value="<?php echo $VALUE_domain ?>" placeholder="<?php echo __('insert domain name','szgoogleadmin') ?>"/></td>
+</tr>
+
 <tr><td colspan="3"><hr></td></tr>
 
 <!-- WIDGETS (Campo per specificare la dimensione) -->

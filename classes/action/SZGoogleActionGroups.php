@@ -30,6 +30,7 @@ if (!class_exists('SZGoogleActionGroups'))
 		{
 			return $this->getHTMLCode(shortcode_atts(array(
 				'name'           => '', // valore predefinito
+				'domain'         => '', // valore predefinito
 				'width'          => '', // valore predefinito
 				'height'         => '', // valore predefinito
 				'showsearch'     => '', // valore predefinito
@@ -72,6 +73,7 @@ if (!class_exists('SZGoogleActionGroups'))
 
 			extract(shortcode_atts(array(
 				'name'           => '', // valore predefinito
+				'domain'         => '', // valore predefinito
 				'width'          => '', // valore predefinito
 				'height'         => '', // valore predefinito
 				'showsearch'     => '', // valore predefinito
@@ -87,6 +89,8 @@ if (!class_exists('SZGoogleActionGroups'))
 
 			$hl             = trim($hl);
 			$name           = trim($name);
+			$domain         = trim($domain);
+
 			$showsearch     = strtolower(trim($showsearch));
 			$showtabs       = strtolower(trim($showtabs));
 			$hideforumtitle = strtolower(trim($hideforumtitle));
@@ -118,12 +122,14 @@ if (!class_exists('SZGoogleActionGroups'))
 			$HTML  = '<script type="text/javascript">';
 			$HTML .= "var h='<'+'";
 			$HTML .= 'iframe src="https://groups.google.com/forum/embed/?place='.urlencode('forum/'.$name);
-			$HTML .= '&amp;hl='.$hl;
-			$HTML .= '&amp;showsearch='.$showsearch;
-			$HTML .= '&amp;showtabs='.$showtabs;
-			$HTML .= '&amp;hideforumtitle='.$hideforumtitle;
-			$HTML .= '&amp;hidesubject='.$hidesubject;
+			$HTML .= '&amp;hl='.urlencode($hl);
+			$HTML .= '&amp;showsearch='.urlencode($showsearch);
+			$HTML .= '&amp;showtabs='.urlencode($showtabs);
+			$HTML .= '&amp;hideforumtitle='.urlencode($hideforumtitle);
+			$HTML .= '&amp;hidesubject='.urlencode($hidesubject);
 			$HTML .= '&amp;showpopout=true';
+
+			if ($domain != '') $HTML .= '&amp;domain='.urlencode($domain);
 
 			// Se sono in locahost non calcolo URL della pagina attuale, in caso
 			// contrario allego la funzione javascript per inserire il parametro in URL

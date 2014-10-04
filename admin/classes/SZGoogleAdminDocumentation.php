@@ -98,7 +98,9 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 					array('slug'=>'sz-google-help-translate-functions.php'    ,'title'=>__('translate PHP functions'   ,'szgoogleadmin')),
 					array('slug'=>'sz-google-help-youtube-video.php'          ,'title'=>__('youtube video'             ,'szgoogleadmin')),
 					array('slug'=>'sz-google-help-youtube-playlist.php'       ,'title'=>__('youtube playlist'          ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-youtube-badge.php'          ,'title'=>__('youtube badge'             ,'szgoogleadmin')),
 					array('slug'=>'sz-google-help-youtube-link.php'           ,'title'=>__('youtube link'              ,'szgoogleadmin')),
+					array('slug'=>'sz-google-help-youtube-button.php'         ,'title'=>__('youtube button'            ,'szgoogleadmin')),
 			);
  		}
 
@@ -307,7 +309,9 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			$this->moduleAddHelpLinks(array(
 				array('slug'=>'sz-google-help-youtube-video.php'   ,'title'=>__('youtube video'   ,'szgoogleadmin')),
 				array('slug'=>'sz-google-help-youtube-playlist.php','title'=>__('youtube playlist','szgoogleadmin')),
+				array('slug'=>'sz-google-help-youtube-badge.php'   ,'title'=>__('youtube badge'   ,'szgoogleadmin')),
 				array('slug'=>'sz-google-help-youtube-link.php'    ,'title'=>__('youtube link'    ,'szgoogleadmin')),
+				array('slug'=>'sz-google-help-youtube-button.php'  ,'title'=>__('youtube button'   ,'szgoogleadmin')),
 			));
 		}
 

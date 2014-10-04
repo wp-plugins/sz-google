@@ -42,6 +42,7 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 
 			$options = $this->common_empty(array(
 				'id'        => '', // valore predefinito
+				'type'      => '', // valore predefinito
 				'width'     => '', // valore predefinito
 				'align'     => '', // valore predefinito
 				'layout'    => '', // valore predefinito
@@ -49,6 +50,8 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 				'cover'     => '', // valore predefinito
 				'tagline'   => '', // valore predefinito
 				'publisher' => '', // valore predefinito
+				'text'      => '', // valore predefinito
+				'image'     => '', // valore predefinito
 			),$instance);
 
 			// Definizione delle variabili di controllo del widget, questi valori non
@@ -91,6 +94,7 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 
 			return $this->common_update(array(
 				'title'      => '0', // esecuzione strip_tags
+				'type'       => '1', // esecuzione strip_tags
 				'method'     => '1', // esecuzione strip_tags
 				'specific'   => '1', // esecuzione strip_tags
 				'width'      => '1', // esecuzione strip_tags
@@ -101,6 +105,8 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 				'cover'      => '1', // esecuzione strip_tags
 				'tagline'    => '1', // esecuzione strip_tags
 				'publisher'  => '1', // esecuzione strip_tags
+				'text'       => '1', // esecuzione strip_tags
+				'image'      => '1', // esecuzione strip_tags
 			),$new_instance,$old_instance);
 		}
 
@@ -115,6 +121,7 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 
 			$array = array(
 				'title'      => '', // valore predefinito
+				'type'       => '', // valore predefinito
 				'method'     => '', // valore predefinito
 				'specific'   => '', // valore predefinito
 				'width'      => '', // valore predefinito
@@ -125,6 +132,8 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 				'cover'      => '', // valore predefinito
 				'tagline'    => '', // valore predefinito
 				'publisher'  => '', // valore predefinito
+				'text'       => '', // valore predefinito
+				'image'      => '', // valore predefinito
 			);
 
 			// Creazione array per elenco campi da recuperare su FORM e
@@ -155,6 +164,7 @@ if (!class_exists('SZGoogleWidgetPlusPage'))
 			if (!in_array($publisher,array('true','false')))         $publisher = 'false';
 			if (!in_array($theme    ,array('light','dark')))         $theme     = 'light';
 			if (!in_array($layout   ,array('portrait','landscape'))) $layout    = 'portrait';
+			if (!in_array($type     ,array('standard','popup')))     $type      = 'standard';
 
 			if (!ctype_digit($method) or $method == 0) { $method = '1'; }
 

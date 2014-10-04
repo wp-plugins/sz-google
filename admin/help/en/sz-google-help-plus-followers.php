@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>With this feature you can put a badge on a web page containing the list of followers attached to a page or a profile on this 
 google+. The badge will display the thumbnails of the profiles that follow the resource on google+ and is also added a button to add 
@@ -38,7 +38,7 @@ in fact just use a PHP function provided by the plugin <b>szgoogle_gplus_get_bad
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-gplus-followers url="https://plus.google.com/+wpitalyplus"/]</pre>
 

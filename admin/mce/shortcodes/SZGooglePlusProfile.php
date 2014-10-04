@@ -14,6 +14,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 $array = array(
 	'title'      => '', // valore predefinito
+	'type'       => '', // valore predefinito
 	'method'     => '', // valore predefinito
 	'specific'   => '', // valore predefinito
 	'width'      => '', // valore predefinito
@@ -24,6 +25,8 @@ $array = array(
 	'cover'      => '', // valore predefinito
 	'tagline'    => '', // valore predefinito
 	'author'     => '', // valore predefinito
+	'text'       => '', // valore predefinito
+	'image'      => '', // valore predefinito
 );
 
 // Creazione array per elenco campi da recuperare su FORM e
@@ -54,6 +57,7 @@ if (!in_array($tagline,array('true','false')))         $tagline = 'true';
 if (!in_array($author ,array('true','false')))         $author  = 'false';
 if (!in_array($theme  ,array('light','dark')))         $theme   = 'light';
 if (!in_array($layout ,array('portrait','landscape'))) $layout  = 'portrait';
+if (!in_array($type   ,array('standard','popup')))     $type    = 'standard';
 
 if (!ctype_digit($method) or $method == 0) { $method = '1'; }
 

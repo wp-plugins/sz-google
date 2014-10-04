@@ -15,10 +15,10 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Con questa funzione del plugin <b>SZ-Google</b> è possibile inserire un post di google plus completamente funzionante in una 
+<p>Con questa funzione è possibile inserire un post di google plus completamente funzionante in una 
 pagina web. Infatti una volta inserito sarà possibile eseguire tutte le azioni sociali e inserire i commenti senza lasciare la 
-pagina e rimanendo nel post originale di wordpress. Praticamente come un video youtube in embed, solamente che questa volta viene
-inserito il post pubblicato su Google+ invece che un video e vengono attivate le azioni sociali su di esso.</p>
+pagina e rimanendo nel post originale. Praticamente come un video youtube in embed, solamente che questa volta viene
+inserito il post pubblicato su Google+ invece che un video.</p>
 
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-gplus-post]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
@@ -53,18 +53,17 @@ NON VALIDO => https://plus.google.com/u/0/106189723444098348646/posts/MtVcQaAi68
 <h2>Esempio shortcode</h2>
 
 <p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
-disposizione dai plugin, dai temi o direttamente dal core. Anche il plugin <b>SZ-Google</b> mette a disposizione parecchi shortcode che
-possono esseri utilizzati nella forma classica e con le opzioni di personalizzazione permesse. Per inserire uno shortcode nel nostro 
-post dobbiamo utilizzare il codice in questa forma:</p>
+disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
+utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
+in questa forma:</p>
 
 <pre>[sz-gplus-post url="https://plus.google.com/106567288702045182616/posts/9LHCj2ybzhn"/]</pre>
 
 <h2>Esempio codice PHP</h2>
 
-<p>Se volete utilizzare le funzioni PHP messe a disposizione dal plugin dovete accertarvi che il modulo corrispondente sia attivo, una 
-volta verificato inserite nel punto desiderato del vostro tema un codice simile al seguente esempio, quindi preparate un array con le
-opzioni desiderate e richiamate la funzione richiesta. É consigliabile utilizzare prima della funzione il controllo se questa esista,
-in questa maniera non si avranno errori PHP in caso di plugin disattivato o disinstallato.</p> 
+<p>Potete utilizzare le funzioni PHP messe a disposizione dal plugin in qualsiasi punto del vostro tema, basta preparate un array con le
+opzioni desiderate e richiamare la funzione richiesta. É consigliabile utilizzare prima della funzione un controllo di esistenza,
+in questa maniera non si riceveranno errori PHP nel caso in cui il plugin risulti disattivato o disinstallato.</p> 
 
 <pre>
 \$options = array(

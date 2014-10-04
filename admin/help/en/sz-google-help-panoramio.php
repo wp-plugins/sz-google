@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>This module of the <b>SZ-Google</b> plugin allows you to enter in our articles a photo gallery present in Panoramio, you must 
 specify the desired template and the required options. You can use four different templates, photo, list, slideshow and photo_list.
@@ -27,7 +27,7 @@ in fact just use a PHP function provided by the plugin <b>szgoogle_panoramio_get
 
 <p>The component can be customized in many ways, just use the parameters listed in the table provided below. Regarding the widget 
 parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify them manually in the 
-format option = "value". If you would like additional information you can visit the official page 
+format option = "value". If you would like additional information you can visit 
 <a target="_blank" href="http://www.panoramio.com/api/widget/api.html">Panoramio Widget API </a>.</p>
 
 <h2>Parameters and options</h2>
@@ -55,7 +55,7 @@ format option = "value". If you would like additional information you can visit 
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-panoramio template="list" columns="6" rows="3" height="300" bgcolor="#e1e1e1"/]</pre>
 

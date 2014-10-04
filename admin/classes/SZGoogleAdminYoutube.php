@@ -114,6 +114,8 @@ if (!class_exists('SZGoogleAdminYoutube'))
 				'04' => array(
 					array('field' => 'youtube_widget'            ,'title' => ucfirst(__('youtube video'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget')),
 					array('field' => 'youtube_widget_badge'      ,'title' => ucfirst(__('youtube badge'             ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget_badge')),
+					array('field' => 'youtube_widget_button'     ,'title' => ucfirst(__('youtube button'            ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget_button')),
+					array('field' => 'youtube_widget_link'       ,'title' => ucfirst(__('youtube link'              ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget_link')),
 					array('field' => 'youtube_widget_playlist'   ,'title' => ucfirst(__('youtube playlist'          ,'szgoogleadmin')),'callback' => array($this,'get_youtube_widget_playlist')),
 				),
 
@@ -154,7 +156,7 @@ if (!class_exists('SZGoogleAdminYoutube'))
 		function get_youtube_channel()
 		{
 			$this->moduleCommonFormText('sz_google_options_youtube','youtube_channel','large',__('insert your channel name or ID','szgoogleadmin'));
-			$this->moduleCommonFormDescription(__('enter in this field the default name of your youtube channel. You can change the channel name using the shortcode or functions. if you do not specify anything the default channel will be "startbyzero". The channel\'s name is located in the your string URL.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('enter in this field the default name of your youtube channel. You can change the channel name using the shortcode or functions. if you do not specify anything the default channel will be "wpitalyplus". The channel\'s name is located in the your string URL.','szgoogleadmin'));
 		}
 
 		function get_youtube_widget()
@@ -166,6 +168,18 @@ if (!class_exists('SZGoogleAdminYoutube'))
 		function get_youtube_widget_badge()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_widget_badge');
+			$this->moduleCommonFormDescription(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
+		}
+
+		function get_youtube_widget_button()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_widget_button');
+			$this->moduleCommonFormDescription(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
+		}
+
+		function get_youtube_widget_link()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_youtube','youtube_widget_link');
 			$this->moduleCommonFormDescription(__('if you enable this option you will find the widget required in the administration menu of your widget and you can plug it into any sidebar defined in your theme. If you disable this option, remember not to leave the widget connected to existing sidebar.','szgoogleadmin'));
 		}
 

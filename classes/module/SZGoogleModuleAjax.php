@@ -89,10 +89,10 @@ if (!class_exists('SZGoogleModuleAjax'))
 				'sz-panoramio'       => 'SZGooglePanoramio',
 				'sz-gtranslate'      => '',
 				'sz-ytvideo'         => 'SZGoogleYoutubeVideo',
-				'sz-ytbadge'         => 'SZGoogleYoutubeBadge',
-				'sz-ytbutton'        => '',
-				'sz-ytlink'          => '',
 				'sz-ytplaylist'      => 'SZGoogleYoutubePlaylist',
+				'sz-ytbadge'         => 'SZGoogleYoutubeBadge',
+				'sz-ytlink'          => 'SZGoogleYoutubeLink',
+				'sz-ytbutton'        => 'SZGoogleYoutubeButton',
 			);
 		}
 	}

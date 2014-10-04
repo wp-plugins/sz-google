@@ -16,10 +16,9 @@ $HTML = <<<EOD
 <h2>Descrizione</h2>
 
 <p>Questa funzione permette l'inserimento di un <b>video youtube</b> su una pagina web. Il modulo youtube ha molti parametri che servono per 
-aggiungere funzionalità o personalizzare alcuni aspetti che riguardano la modalità di inserimento, ad esempio possiamo decidere tra 
-una dimensione fissa del player o una di tipo responsive design, è possibile scegliere tra un tema “dark” e uno “light”, 
-agganciare automaticamente il codice di google analytics per tracciare le operazioni che vengono eseguite sul video, 
-impostare alcuni parametri come fullscreen, disablekeyboard, autoplay e loop e molto altro ancora.</p>
+aggiungere funzionalità o personalizzare alcuni aspetti che riguardano la modalità di inserimento, ad esempio possiamo decidere tra una dimensione 
+fissa del player o una di tipo responsive design, è possibile scegliere tra un tema “dark” e uno “light”, agganciare il codice di google analytics 
+per tracciare le operazioni, impostare alcuni parametri come fullscreen, disablekeyboard, autoplay e loop e molto altro ancora.</p>
 
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-ytvideo]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
@@ -69,18 +68,17 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 <h2>Esempio shortcode</h2>
 
 <p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
-disposizione dai plugin, dai temi o direttamente dal core. Anche il plugin <b>SZ-Google</b> mette a disposizione parecchi shortcode che
-possono esseri utilizzati nella forma classica e con le opzioni di personalizzazione permesse. Per inserire uno shortcode nel nostro 
-post dobbiamo utilizzare il codice in questa forma:</p>
+disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
+utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
+in questa forma:</p>
 
 <pre>[sz-ytvideo url="http://www.youtube.com/watch?v=gUdKmGASz3g"/]</pre>
 
 <h2>Esempio codice PHP</h2>
 
-<p>Se volete utilizzare le funzioni PHP messe a disposizione dal plugin dovete accertarvi che il modulo corrispondente sia attivo, una 
-volta verificato inserite nel punto desiderato del vostro tema un codice simile al seguente esempio, quindi preparate un array con le
-opzioni desiderate e richiamate la funzione richiesta. É consigliabile utilizzare prima della funzione il controllo se questa esista,
-in questa maniera non si avranno errori PHP in caso di plugin disattivato o disinstallato.</p> 
+<p>Potete utilizzare le funzioni PHP messe a disposizione dal plugin in qualsiasi punto del vostro tema, basta preparate un array con le
+opzioni desiderate e richiamare la funzione richiesta. É consigliabile utilizzare prima della funzione un controllo di esistenza,
+in questa maniera non si riceveranno errori PHP nel caso in cui il plugin risulti disattivato o disinstallato.</p> 
 
 <pre>
 \$options = array(

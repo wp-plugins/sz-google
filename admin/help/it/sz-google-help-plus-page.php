@@ -15,21 +15,21 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Se hai una pagina su Google+ e vuoi inserirla sul tuo sito web o integrarla con il tuo badge publisher allora questo è 
-lo strumento adatto. Il badge della pagina può essere inserito in differenti metodi in base all'ambiente specifico, 
-se ad esempio lo desideri inserire dentro un'articolo o nel contenuto di un qualsiasi post devi utilizzare lo shortcode
-messo a disposizione <b>[sz-gplus-page]</b>, se invece desideri utilizzarlo in una sidebar allora devi utilizzare il
-widget sviluppato per questa funzione che trovi nel menu aspetto -> widgets. Per i più esigenti esiste anche un'altra
-possibilità che permette l'inserimento del badge in qualsiasi parte del vostro tema, infatti basta utilizzare una
-funzione PHP messa a disposizione dal plugin <b>szgoogle_gplus_get_badge_page(\$options)</b>.</p>
+<p>Se hai una pagina su Google+ e vuoi inserirlo sul tuo sito web o integrarlo con il tuo badge publisher allora questo è 
+lo strumento adatto. Il badge può essere inserito in differenti metodi e personalizzato tramite diverse
+opzioni messe a disposzione dal plugin stesso. Il badge viene inserito tramite una tecnica iframe, in questa maniera vengono
+rispettate tutte le caratteristiche definite ed elaborate da google.</p>
+
+<p>Per inserire questo componente dovete usare lo shortcode <b>[sz-gplus-page]</b>, se invece desiderate utilizzarlo in una sidebar 
+allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più esigenti esiste 
+anche un'altra possibilità, infatti basta utilizzare una funzione PHP chiamata <b>szgoogle_gplus_get_badge_page(\$options)</b>.</p>
 
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
 messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
-formato opzione="valore". Se volete avere delle informazioni aggiuntive potete visitare la pagina ufficiale
-<a target="_blank" href="https://developers.google.com/+/web/badge/?hl=it">Google+ Badge</a>.</p>
+formato opzione="valore".</p>
 
 <h2>Publisher</h2>
 
@@ -61,23 +61,22 @@ Una volta eseguiti tutti i passagi necessari potete provare il funzionamento del
 <p>Come potete vedere dalla tabella delle opzioni è presente un parametro chiamato <b>type</b> con cui potete scegliere di
 visualizzare il badge in maniera standard e quindi disegnare subito il badge nella pagina HTML o richiedere la visualizzazione solo
 in modalità popup passando con il cursore sopra un testo o un'immagine. In questo caso dovete specificare i parametri dedicati alla
-funzione popup che sono <b>text</b> e <b>image</b>. Funzione molto utile nel caso di citazione di altre pagine google+.</p>
+funzione popup che sono <b>text</b> e <b>image</b>.</p>
 
 <h2>Esempio shortcode</h2>
 
 <p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
-disposizione dai plugin, dai temi o direttamente dal core. Anche il plugin <b>SZ-Google</b> mette a disposizione parecchi shortcode che
-possono esseri utilizzati nella forma classica e con le opzioni di personalizzazione permesse. Per inserire uno shortcode nel nostro 
-post dobbiamo utilizzare il codice in questa forma:</p>
+disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
+utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
+in questa forma:</p>
 
 <pre>[sz-gplus-page id="117259631219963935481" type="standard" width="auto"/]</pre>
 
 <h2>Esempio codice PHP</h2>
 
-<p>Se volete utilizzare le funzioni PHP messe a disposizione dal plugin dovete accertarvi che il modulo corrispondente sia attivo, una 
-volta verificato inserite nel punto desiderato del vostro tema un codice simile al seguente esempio, quindi preparate un array con le
-opzioni desiderate e richiamate la funzione richiesta. É consigliabile utilizzare prima della funzione il controllo se questa esista,
-in questa maniera non si avranno errori PHP in caso di plugin disattivato o disinstallato.</p> 
+<p>Potete utilizzare le funzioni PHP messe a disposizione dal plugin in qualsiasi punto del vostro tema, basta preparate un array con le
+opzioni desiderate e richiamare la funzione richiesta. É consigliabile utilizzare prima della funzione un controllo di esistenza,
+in questa maniera non si riceveranno errori PHP nel caso in cui il plugin risulti disattivato o disinstallato.</p> 
 
 <pre>
 \$options = array(

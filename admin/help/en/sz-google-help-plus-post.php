@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>With this plugin function <b>SZ-Google</b> you can enter a post from google plus fully functional in a web page. In fact, once 
 inserted will be able to perform all social actions and comment without leaving the page and remaining in the original post of 
@@ -62,7 +62,7 @@ NO CORRECT => https://plus.google.com/u/0/106189723444098348646/posts/MtVcQaAi68
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-gplus-post url="https://plus.google.com/106567288702045182616/posts/9LHCj2ybzhn"/]</pre>
 

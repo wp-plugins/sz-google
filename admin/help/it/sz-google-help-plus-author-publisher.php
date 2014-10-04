@@ -15,10 +15,8 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Per configurare una pagina web con l'attribuzione di autore o publisher basta utilizzare il badge del profilo e/o quello della
-pagina specificando l'attivazione delle relative opzioni con author="true" e/o publisher="true". Se per esigenze particolari non volete
-utilizzare i badge di google+ sul vostro sito, il plugin <b>SZ-Google</b> mette a disposizione un metodo alternativo per raggiungere
-lo stesso obiettivo. Infatti basta attivare le opzioni che trovate nel pannello di amministrazione chiamate HEAD Author e HEAD Publisher.</p>
+<p>Se per esigenze particolari non volete utilizzare i badge di google+ sul vostro sito, il plugin <b>SZ-Google</b> mette a disposizione 
+un metodo alternativo. Infatti basta attivare le opzioni che trovate nel pannello di amministrazione chiamate HEAD Author e HEAD Publisher.</p>
 
 <h2>Codice in HEAD</h2>
 
@@ -34,14 +32,6 @@ sul sito web in questione dovessero scrivere autori diversi non attivate la funz
 &lt;/head&gt;
 </pre>
 
-<h2>Codice verificato</h2>
-
-<p>Per completare l'operazione di verifica sia per il publisher che per l'autore non basta attivare le funzioni del plugin, ma bisogna
-specificare il nome del proprio dominio nella pagina e nel profilo corrispondente su google plus. Per l'autore esiste una sezione apposita nel 
-profilo chiamata "Informazioni" dove potete inserire tutti i siti web per cui scrivete, mentre il publisher viene verificato quando viene inserito 
-il proprio domino sul campo sito web della pagina stessa. Se dovessi riscontrare dei problemi che riguardano l'assegnazione Authorship 
-leggi con attenzione la pagina ufficiale <a target="_blank" href="https://plus.google.com/authorship">Collega il tuo profilo Google+</a>.</p>
-
 <h2>Funzioni PHP</h2>
 
 <table>
@@ -52,10 +42,9 @@ leggi con attenzione la pagina ufficiale <a target="_blank" href="https://plus.g
 
 <h2>Esempio codice PHP</h2>
 
-<p>Se volete utilizzare le funzioni PHP messe a disposizione dal plugin dovete accertarvi che il modulo corrispondente sia attivo, una 
-volta verificato inserite nel punto desiderato del vostro tema un codice simile al seguente esempio, quindi preparate un array con le
-opzioni desiderate e richiamate la funzione richiesta. É consigliabile utilizzare prima della funzione il controllo se questa esista,
-in questa maniera non si avranno errori PHP in caso di plugin disattivato o disinstallato.</p> 
+<p>Potete utilizzare le funzioni PHP messe a disposizione dal plugin in qualsiasi punto del vostro tema, basta preparate un array con le
+opzioni desiderate e richiamare la funzione richiesta. É consigliabile utilizzare prima della funzione un controllo di esistenza,
+in questa maniera non si riceveranno errori PHP nel caso in cui il plugin risulti disattivato o disinstallato.</p> 
 
 <pre>
 echo '&lt;div id="author"&gt;';

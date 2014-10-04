@@ -13,11 +13,11 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>The plugin provides functions to automatically insert the tracking code into your theme, but if you want to use for a particular 
 need to manually insert the code on your website but continuing to use the admin panel for the parameters related to a account, you 
-can use PHP functions available to the plugin and implement them with your code. The available functions are as follows:</p>
+can use PHP functions available to the plugin and implement them with your code. The available functions are:</p>
 
 <ul>
 <li><b>szgoogle_analytics_get_ID()</b></li>

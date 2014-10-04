@@ -42,6 +42,7 @@ if (!class_exists('SZGoogleWidgetGroups'))
 
 			$options = $this->common_empty(array(
 				'name'           => '', // valore predefinito
+				'domain'         => '', // valore predefinito
 				'width'          => '', // valore predefinito
 				'height'         => '', // valore predefinito
 				'showsearch'     => '', // valore predefinito
@@ -89,6 +90,7 @@ if (!class_exists('SZGoogleWidgetGroups'))
 			return $this->common_update(array(
 				'title'          => '0', // esecuzione strip_tags
 				'name'           => '1', // esecuzione strip_tags
+				'domain'         => '1', // esecuzione strip_tags
 				'width'          => '1', // esecuzione strip_tags
 				'width_auto'     => '1', // esecuzione strip_tags
 				'height'         => '1', // esecuzione strip_tags
@@ -113,6 +115,7 @@ if (!class_exists('SZGoogleWidgetGroups'))
 			$array = array(
 				'title'          => '', // valore predefinito
 				'name'           => '', // valore predefinito
+				'domain'         => '', // valore predefinito
 				'width'          => '', // valore predefinito
 				'width_auto'     => '', // valore predefinito
 				'height'         => '', // valore predefinito

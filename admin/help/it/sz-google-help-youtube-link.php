@@ -15,93 +15,55 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Con questa opzione potete inserire in una pagina web dei link ad un <b>canale youtube</b> in diverse maniere. Ad esempio potete inserire un 
-link di testo semplice o un'immagine, un bottone più elaborato o un'intero badge. Tutti i componenti prevedono un parametro o un'azione
-per effettuare la sottoscrizione al canale automaticamente o con la presentazione di un pop-up.</p>
+<p>Tramite questa funzionalità è possibile inserire un link testuale o una singola immagine con un link diretto al canale youtube. Il vantaggio 
+di utilizzare questo link è quello di poter indicare la sottoscrizione automatica una volta che l'utente raggiunge la pagina del canale.</p>
 
-<p>Per inserire questi componenti dovete usare gli <b>shortcode</b> disponibili, se invece desiderate utilizzare i componenti in una sidebar 
-allora dovete utilizzare i widget specifici che trovate nel menu aspetto -> widgets. Per i più esigenti esiste anche un'altra possibilità, 
-infatti basta utilizzare delle funzioni PHP messe a disposizione direttamente dal plugin. 
-
-<h2>Shortcode</h2>
-
-<ul>
-<li>[sz-ytlink] - Link di testo semplice.</li>
-<li>[sz-ytbutton] - Bottone con sottoscrizione.</li>
-<li>[sz-ytbadge] - Badge del canale.</li>
-</ul>
-
-<h2>Funzioni PHP</h2>
-
-<ul>
-<li>szgoogle_youtube_get_code_link()</li>
-<li>szgoogle_youtube_get_code_button()</li>
-<li>szgoogle_youtube_get_code_badge()</li>
-</ul>
+<p>Per inserire questo componente dovete usare lo shortcode <b>[sz-ytlink]</b>, se invece desiderate utilizzarlo in una sidebar allora dovete 
+utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più esigenti esiste anche un'altra 
+possibilità, infatti basta utilizzare una funzione PHP chiamata <b>szgoogle_youtube_get_code_link(\$options)</b>.</p>
 
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
 messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
-formato opzione="valore". Se volete avere delle informazioni aggiuntive potete visitare la pagina ufficiale
-<a target="_blank" href="https://developers.google.com/youtube/youtube_subscribe_button">YouTube Subscribe Button</a>.</p>
+formato opzione="valore".</p>
 
 <h2>Parametri e opzioni</h2>
 
 <table>
-
 	<tr><th>LINK</th>         <th>Descrizione</th>          <th>Valori ammessi</th> <th>Default</th></tr>
 	<tr><td>channel</td>      <td>nome del canale o ID</td> <td>stringa</td>        <td>configurazione</td></tr>
 	<tr><td>subscription</td> <td>sottoscrizione</td>       <td>y=yes,n=no</td>     <td>y=yes</td></tr>
 	<tr><td>text</td>         <td>testo per il link</td>    <td>stringa</td>        <td>configurazione</td></tr>
-
-	<tr class="space"><td colspan="4">&nbsp;</td></tr>
-
-	<tr><th>BOTTONE</th>      <th>Descrizione</th>          <th>Valori ammessi</th> <th>Default</th></tr>
-	<tr><td>channel</td>      <td>nome del canale o ID</td> <td>stringa</td>        <td>configurazione</td></tr>
-	<tr><td>layout</td>       <td>tipo layout</td>          <td>default,full</td>   <td>default</td></tr>
-	<tr><td>theme</td>        <td>tema del bottone</td>     <td>default,full</td>   <td>default</td></tr>
-
-	<tr class="space"><td colspan="4">&nbsp;</td></tr>
-
-	<tr><th>BADGE</th>        <th>Descrizione</th>          <th>Valori ammessi</th> <th>Default</th></tr>
-	<tr><td>channel</td>      <td>nome del canale o ID</td> <td>stringa</td>        <td>configurazione</td></tr>
-	<tr><td>width</td>        <td>dimensione pixel</td>     <td>valore</td>         <td>300</td></tr>
-	<tr><td>height</td>       <td>dimensione pixel</td>     <td>valore</td>         <td>150</td></tr>
-	<tr><td>widthunit</td>    <td>unità dimensione</td>     <td>px,em,%</td>        <td>px</td></tr>
-	<tr><td>heightunit</td>   <td>unità dimensione</td>     <td>px,em,%</td>        <td>px</td></tr>
+	<tr><td>image</td>        <td>immagine per link</td>    <td>stringa URL</td>    <td>nessuna</td></tr>
+	<tr><td>newtab</td>       <td>apertura link</td>        <td>y=yes,n=no</td>     <td>n=no</td></tr>
 </table>
 
 <h2>Esempio shortcode</h2>
 
 <p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
-disposizione dai plugin, dai temi o direttamente dal core. Anche il plugin <b>SZ-Google</b> mette a disposizione parecchi shortcode che
-possono esseri utilizzati nella forma classica e con le opzioni di personalizzazione permesse. Per inserire uno shortcode nel nostro 
-post dobbiamo utilizzare il codice in questa forma:</p>
+disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
+utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
+in questa forma:</p>
 
-<pre>
-[sz-ytlink   text="iscriviti al mio canale youtube"/]
-[sz-ytbutton layout="full" theme="default"/]
-[sz-ytbadge  channel="TuttosuYTChannel" width="100" widthunit="%"/]
-</pre>
+<pre>[sz-ytlink text="iscriviti al mio canale youtube"/]</pre>
 
 <h2>Esempio codice PHP</h2>
 
-<p>Se volete utilizzare le funzioni PHP messe a disposizione dal plugin dovete accertarvi che il modulo corrispondente sia attivo, una 
-volta verificato inserite nel punto desiderato del vostro tema un codice simile al seguente esempio, quindi preparate un array con le
-opzioni desiderate e richiamate la funzione richiesta. É consigliabile utilizzare prima della funzione il controllo se questa esista,
-in questa maniera non si avranno errori PHP in caso di plugin disattivato o disinstallato.</p> 
+<p>Potete utilizzare le funzioni PHP messe a disposizione dal plugin in qualsiasi punto del vostro tema, basta preparate un array con le
+opzioni desiderate e richiamare la funzione richiesta. É consigliabile utilizzare prima della funzione un controllo di esistenza,
+in questa maniera non si riceveranno errori PHP nel caso in cui il plugin risulti disattivato o disinstallato.</p> 
 
 <pre>
 \$options = array(
-  'channel'   => 'TuttosuYTChannel',
-  'width'     => 'yes',
-  'widthunit' => '%',
+  'channel'      => 'cloudaws',
+  'subscription' => 'yes',
+  'text'         => 'iscriviti al mio canale youtube',
 );
 
-if (function_exists('szgoogle_youtube_get_code_badge')) {
-  echo szgoogle_youtube_get_code_badge(\$options);
+if (function_exists('szgoogle_youtube_get_code_link')) {
+  echo szgoogle_youtube_get_code_link(\$options);
 }
 </pre>
 

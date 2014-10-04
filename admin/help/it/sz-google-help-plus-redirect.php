@@ -16,9 +16,10 @@ $HTML = <<<EOD
 <h2>Descrizione</h2>
 
 <p>Il formato degli URL utilizzato da Google+ per identificare le sue pagine non è sicuramente un friendly url, infatti vengono
-utilizzati degli id numerici molto lunghi che rendono la stringa URL impossibile da ricordare o memorizzare. Per questo motivo G+
-ha messo a disposizione per i profili e le pagine un URL personalizzato da associare al proprio profilo o pagina. Purtroppo però
-il sistema adottato non è sempre efficace, infatti specialmente nelle pagine vengono richiesti dei caratteri aggiuntivi che molti
+utilizzati degli id numerici molto lunghi che rendono la stringa URL impossibile da ricordare o memorizzare. Per questo motivo
+Google+ ha messo a disposizione per i profili e le pagine un URL personalizzato da associare al proprio profilo o pagina.</p> 
+
+<p>Purtroppo però il sistema adottato non è sempre efficace, infatti specialmente nelle pagine vengono richiesti dei caratteri aggiuntivi che molti
 siti web non apprezzano perchè non coerenti con il proprio nome originale. Ad esempio un'azienda che si chiama <b>skydrive</b> non
 accetta volentieri di stampare su un materiale pubblicitario un'indirizzo tipo <b>https://plus.google.com/+skydrive9876</b>.</p>
 

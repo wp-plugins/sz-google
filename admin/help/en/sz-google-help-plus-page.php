@@ -13,13 +13,15 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
-<p>If you have a Google+ page and your goal is to fully integrate it in your website, this is the rigth tool. Badge page could
-be embedded in two different ways. You can use the <b>[sz-gplus-page]</b> shortcode in order to place the badge into your 
-articles or pages. Use the specific widget, located into the widgets menu, in order to make it appear into your sidebars. 
-For the themes and plugin makers, we developed a specific function to recall the badge directly 
-from PHP: <b>szgoogle_gplus_get_badge_page(\$options)</b>.</p>
+<p>If you have a page on Google+ and want to add it on your website or integrate it with your badge publisher then this is
+the right tool . The badge can be added and customized via several different methods options put at our disposal by the plugin itself. 
+The badge is inserted through an iframe technique, in this manner are complied with all the features defined by google.</p>
+
+<p>To add this component you have to use the shortcode <b>[sz-gplus-page]</b>, but if you want to use it in a sidebar then you have to use 
+the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
+in fact just use a PHP function provided by the plugin <b>szgoogle_gplus_get_badge_page(\$options)</b>.</p>
 
 <h2>Customization</h2>
 
@@ -32,7 +34,7 @@ format option = "value". If you would like additional information you can visit 
 
 <p>This badge can also be used to activate the publisher. Just use the parameter id="page" and publisher="true" in the badge and 
 put it in the pages of the site. Remember to certify that this function must be included in its Google+ page the name of the 
-website with your own domain. Once all the necessary passages can try the procedure involved going to the page
+website with your own domain. Once all the necessary passages can try on the page
 <a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">Structured Data Testing Tool</a>.</p>
 
 <h2>Parameters and options</h2>
@@ -56,13 +58,14 @@ website with your own domain. Once all the necessary passages can try the proced
 
 <p>As you can see from the table of options is called a <b>type</b> parameter with which you can choose to display the badge in a 
 standard way and then immediately draw the badge in the HTML page or request a viewing mode only popup by passing the cursor over a 
-<b>text</b> or <b>image</b>. In this case you have to specify the parameters that are dedicated to the function pop-up text and image.</p>
+<b>text</b> or <b>image</b>. In this case you have to specify the parameters to the function pop-up text and image.</p>
 
 <h2>Shortcode example</h2>
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
+
 <pre>[sz-gplus-page id="117259631219963935481" type="standard" width="auto"/]</pre>
 
 <h2>PHP code example</h2>

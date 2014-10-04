@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.7.9
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -235,22 +235,24 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `[sz-ytvideo] ........: embed youtube video`
 * `[sz-ytplaylist] .....: embed youtube playlist`
 * `[sz-ytbadge] ........: embed youtube badge`
-* `[sz-ytbutton] .......: embed youtube button`
 * `[sz-ytlink] .........: embed youtube link`
+* `[sz-ytbutton] .......: embed youtube button`
 
 **Google Youtube Widgets:** In this plugin are available to google youtube widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget embed youtube video`
 * `Widget embed youtube playlist`
 * `Widget embed youtube badge`
+* `Widget embed youtube link`
+* `Widget embed youtube button`
 
 **Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_youtube_get_code_video()`
 * `szgoogle_youtube_get_code_playlist()`
 * `szgoogle_youtube_get_code_badge()`
-* `szgoogle_youtube_get_code_button()`
 * `szgoogle_youtube_get_code_link()`
+* `szgoogle_youtube_get_code_button()`
 
 = Plugin and general performance =
 **<a href="http://wordpress.org/plugins/sz-google/"> </a>**
@@ -304,7 +306,7 @@ The plugin was written in separate modules that are activated only on request. T
 We take into consideration qualsiaqsi request is made by the community, of course, if a product is requested several times by diffrenti people will do anything to aqggiungerlo to our plugins. Write request in the forum or in the <a href="https://plus.google.com/communities/109254048492234113886">community</a>.
 
 = You can use the functions of the plugin with PHP? =
-Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="http://startbyzero.com/webmaster/plugin-sz-google-per-wordpress-e-modulo-google/">official documentation</a>.
+Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="https://otherplus.com/tech/sz-google/">official documentation</a>.
 
 = How to find the code meta google translate? =
 Before you use the google translate module must register the site that you want to manage on their google account using the following official link <a href="https://translate.google.com/manager/website/">Google Translate Tools</a>. Once inserit your site to perform the action "get code", display meta code and insert this in the field.
@@ -323,6 +325,16 @@ Before you use the google translate module must register the site that you want 
 
 <a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
 
+= Version 1.8.0 =
+* Feature: Add POPUP G+ Badge Page.
+* Feature: Add POPUP G+ Badge Profile.
+* Feature: Add POPUP Youtube Link.
+* Feature: Add POPUP Youtube Button.
+* Feature: Add Documentation Youtube Badge.
+* Feature: Add Widget Youtube Link.
+* Feature: Add Widget Youtube Button.
+* Feature: Add Groups Domain APPs.
+
 = Version 1.7.9 =
 * Feature: Add POPUP shortcode Google+.
 * Feature: Add POPUP shortcode Calendar.
@@ -330,6 +342,7 @@ Before you use the google translate module must register the site that you want 
 * Feature: Add POPUP shortcode Groups.
 * Feature: Add POPUP shortcode Hangouts.
 * Feature: Add POPUP shortcode Panoramio.
+* Feature: Add POPUP shortcode Translate.
 * Feature: Add POPUP shortcode Youtube.
 * Feature: Add external resource help italiano.
 * Feature: Add TinyMCE fonts family and size.

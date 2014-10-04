@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>To use this feature, you must install the application on your smartphone made ​​available by google in a free environment both 
 in IOS Android and Blackberry. So first download the application and install it on your smartphone, as the first operation carried 

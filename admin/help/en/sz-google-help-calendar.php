@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>With this function you can put in on your site embed the google calendar. You can also specify different calendars, 
 just specify the parameter <b>"calendar"</b> a string with the calendar names separated by a comma. If you do not specify a calendar 
@@ -27,7 +27,7 @@ in fact just use a PHP function provided by the plugin <b>szgoogle_calendar_get_
 
 <p>The component can be customized in many ways, just use the parameters listed in the table provided below. Regarding the widget 
 parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify them manually in the 
-format option = "value". If you would like additional information you can visit the official page 
+format option = "value". If you would like additional information 
 <a target="_blank" href="https://www.google.com/calendar/embedhelper">Google Embeddable Calendar Helper</a>.</p>
 
 <h2>Parameters and options</h2>
@@ -54,7 +54,7 @@ format option = "value". If you would like additional information you can visit 
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-calendar showprint="no"/]</pre>
 

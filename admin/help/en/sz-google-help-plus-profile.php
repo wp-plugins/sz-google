@@ -13,13 +13,15 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
-<p>If you have a Google+ profile and your goal is to fully integrate it in your website, this is the rigth tool. Profile badge could
-be embedded in two different ways. You can use the <b>[sz-gplus-profile]</b> shortcode in order to place 
-the badge into your articles or pages. Use the specific widget, located into the widgets menu, in order to make it appear 
-into your sidebars. For the themes and plugin makers, we developed a specific function to recall the badge 
-directly from PHP: <b>szgoogle_gplus_get_badge_profile(\$options)</b>.</p>
+<p>If you have an account on Google+ and want to add it on your website or integrate it with your badge author then this is
+the right tool. The badge of the profile can be inserted in different ways and through different custom
+options put at our disposal by the plugin itself. The badge is inserted through an iframe with all features defined by google.</p>
+
+<p>To add this component you have to use the shortcode <b>[sz-gplus-profile]</b>, but if you want to use it in a sidebar then you have to use 
+the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
+in fact just use a PHP function provided by the plugin <b>szgoogle_gplus_get_badge_profile(\$options)</b>.</p>
 
 <h2>Customization</h2>
 
@@ -27,14 +29,6 @@ directly from PHP: <b>szgoogle_gplus_get_badge_profile(\$options)</b>.</p>
 parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify them manually in the 
 format option = "value". If you would like additional information you can visit the official page 
 <a target="_blank" href="https://developers.google.com/+/web/badge/?hl=it">Google+ Badge</a>.</p>
-
-<h2>Authorship</h2>
-
-<p>This badge can also be used to activate the Google Authorship and then associate an article of your site to an author so certified. 
-Just use the parameter id="profile" and author="true" in the badge and put it in the pages of the author. Remember to certify that 
-this function must include in your Google+ profile and Author Information in the link of the internet domain the pages of 
-the author. Once all the necessary passages can try the procedure works by going to the official page of google
-<a target="_blank" href="http://www.google.com/webmasters/tools/richsnippets">Structured Data Testing Tool</a>.</p>
 
 <h2>Parameters and options</h2>
 
@@ -57,13 +51,13 @@ the author. Once all the necessary passages can try the procedure works by going
 
 <p>As you can see from the table of options is called a <b>type</b> parameter with which you can choose to display the badge in a 
 standard way and then immediately draw the badge in the HTML page or request a viewing mode only popup by passing the cursor over a 
-<b>text</b> or <b>image</b>. In this case you have to specify the parameters that are dedicated to the function pop-up text and image.</p>
+<b>text</b> or <b>image</b>. In this case you have to specify the parameters for function pop-up text and image.</p>
 
 <h2>Shortcode example</h2>
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-gplus-profile id="106189723444098348646" type="standard" width="auto"/]</pre>
 

@@ -60,7 +60,7 @@ var SZGoogleDialog =
 
 		output += '/]';
 
-		// Una volta eseguita la composizione del comando shotcode
+		// Una volta eseguita la composizione del comando shortcode
 		// richiamo i metodi di tinyMCE per inserimento in editor		
 
 		tinyMCEPopup.execCommand('mceReplaceContent',false,output);

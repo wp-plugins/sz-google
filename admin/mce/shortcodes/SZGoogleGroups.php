@@ -15,6 +15,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 $array = array(
 	'title'          => '', // valore predefinito
 	'name'           => '', // valore predefinito
+	'domain'         => '', // valore predefinito
 	'width'          => '', // valore predefinito
 	'width_auto'     => '', // valore predefinito
 	'height'         => '', // valore predefinito

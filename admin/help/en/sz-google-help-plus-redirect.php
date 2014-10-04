@@ -13,13 +13,13 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>The format of the URL used by Google to identify its pages is definitely not a friendly url, it uses the numeric id of the very long 
 URL string that make it impossible to remember or store. For this reason, G+ has made available for profiles and pages a custom URL to 
 associate with your profile or page. Unfortunately, however, the system adopted is not always effective, in fact, especially in the pages 
 are requested of additional characters that many web sites do not appreciate why not consistent with its original name. For example, 
-a company called <b>skydrive</b> not agrees to print an address on an advertising material as <b>https://plus.google.com/+skydrive9876</b>.</p>
+a company called <b>skydrive</b> not agrees to print an address as <b>https://plus.google.com/+skydrive9876</b>.</p>
 
 <h2>Domain redirect</h2>
 

@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>With this feature you can place on its website a widget that displays the recommendations related to the pages of your website 
 based on social iterations. This feature will be displayed only on the mobile version of the web site and ignored on different 

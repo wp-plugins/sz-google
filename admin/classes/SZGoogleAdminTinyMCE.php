@@ -82,8 +82,8 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 		function register_tinymce_translate() 
 		{
 			return array(
-				'sz-gplus-profile'   => array('width'=>'430','height'=>'420','title'=>__('G+ Badge Profile'    ,'szgoogleadmin')),
-				'sz-gplus-page'      => array('width'=>'430','height'=>'420','title'=>__('G+ Badge Page'       ,'szgoogleadmin')),
+				'sz-gplus-profile'   => array('width'=>'430','height'=>'470','title'=>__('G+ Badge Profile'    ,'szgoogleadmin')),
+				'sz-gplus-page'      => array('width'=>'430','height'=>'470','title'=>__('G+ Badge Page'       ,'szgoogleadmin')),
 				'sz-gplus-community' => array('width'=>'430','height'=>'390','title'=>__('G+ Badge Community'  ,'szgoogleadmin')),
 				'sz-gplus-followers' => array('width'=>'430','height'=>'300','title'=>__('G+ Badge Followers'  ,'szgoogleadmin')),
 				'sz-gplus-one'       => array('width'=>'430','height'=>'450','title'=>__('G+ Button +1'        ,'szgoogleadmin')),
@@ -95,15 +95,15 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 				'sz-drive-embed'     => array('width'=>'430','height'=>'380','title'=>__('Drive Embed'         ,'szgoogleadmin')),
 				'sz-drive-viewer'    => array('width'=>'430','height'=>'270','title'=>__('Drive Viewer'        ,'szgoogleadmin')),
 				'sz-drive-save'      => array('width'=>'430','height'=>'350','title'=>__('Drive Save Button'   ,'szgoogleadmin')),
-				'sz-ggroups'         => array('width'=>'430','height'=>'340','title'=>__('Groups Widget'       ,'szgoogleadmin')),
+				'sz-ggroups'         => array('width'=>'430','height'=>'370','title'=>__('Groups Widget'       ,'szgoogleadmin')),
 				'sz-hangouts-start'  => array('width'=>'430','height'=>'450','title'=>__('Hangout Start Button','szgoogleadmin')),
 				'sz-panoramio'       => array('width'=>'430','height'=>'520','title'=>__('Panoramio Widget'    ,'szgoogleadmin')),
 //				'sz-gtranslate'      => array('width'=>'430','height'=>'470','title'=>__('Translate Widget'    ,'szgoogleadmin')),
 				'sz-ytvideo'         => array('width'=>'430','height'=>'580','title'=>__('Youtube Video'       ,'szgoogleadmin')),
-				'sz-ytbadge'         => array('width'=>'430','height'=>'250','title'=>__('Youtube Badge'       ,'szgoogleadmin')),
-//				'sz-ytbutton'        => array('width'=>'430','height'=>'470','title'=>__('Youtube Button'      ,'szgoogleadmin')),
-//				'sz-ytlink'          => array('width'=>'430','height'=>'470','title'=>__('Youtube Link'        ,'szgoogleadmin')),
 				'sz-ytplaylist'      => array('width'=>'430','height'=>'560','title'=>__('Youtube Playlist'    ,'szgoogleadmin')),
+				'sz-ytbadge'         => array('width'=>'430','height'=>'250','title'=>__('Youtube Badge'       ,'szgoogleadmin')),
+				'sz-ytlink'          => array('width'=>'430','height'=>'370','title'=>__('Youtube Link'        ,'szgoogleadmin')),
+				'sz-ytbutton'        => array('width'=>'430','height'=>'350','title'=>__('Youtube Button'      ,'szgoogleadmin')),
 			);
 		}
 	}

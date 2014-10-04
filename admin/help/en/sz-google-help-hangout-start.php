@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>Using this function in the <b>SZ-Google</b> plugin you can place button start hangout inside a wordpress post or in a sidebar.
 This button is used to start a video session with google hangout and the ability to launch a specific application. This feature can be 
@@ -27,7 +27,7 @@ in fact just use a PHP function provided by the plugin <b>szgoogle_hangouts_get_
 
 <p>The component can be customized in many ways, just use the parameters listed in the table provided below. Regarding the widget 
 parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify them manually in the 
-format option = "value". If you would like additional information you can visit the official page 
+format option = "value". If you would like additional information you can visit 
 <a target="_blank" href="https://developers.google.com/+/hangouts/button?hl=it">Hangouts with the button</a>.</p>
 
 <h2>Parameters and options</h2>
@@ -61,7 +61,7 @@ example, we can specify an image and place the button within it and specifying t
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-hangouts-start type="normal"/]</pre>
 

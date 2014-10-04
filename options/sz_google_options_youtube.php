@@ -13,9 +13,11 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 // dovranno essere richiamate tramite un include(setoptions)
 
 return array(
-	'youtube_channel'            => array('N'=>'1','Y'=>'0','Z'=>'0','value' => 'startbyzero'),
+	'youtube_channel'            => array('N'=>'1','Y'=>'0','Z'=>'0','value' => 'wpitalyplus'),
 	'youtube_widget'             => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
 	'youtube_widget_badge'       => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
+	'youtube_widget_button'      => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
+	'youtube_widget_link'        => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
 	'youtube_widget_playlist'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
 	'youtube_shortcode'          => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
 	'youtube_shortcode_badge'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),

@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>Google Analytics is a free service made ​​available by Google to control access statistics that relate to a website, this tool is 
 specially used by web marketers and webmasters who use the service by adding a small HTML code to your web pages, which allows 

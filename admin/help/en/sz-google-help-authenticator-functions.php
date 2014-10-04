@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>There may be cases where it is not possible to automatically fill in the fields and the control functions of the authenticator 
 code automatically, for example when changes have been made to the current theme of heavy customizations. In this case, the 

@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>Google+ give us the possibility to insert a follow button for pages and profiles. Clicking on the follow button will allow you to 
 put the page/profile into one or more of your circle instantly. Any Google+ page or profile can be pointed using the follow button 
@@ -27,7 +27,7 @@ in fact just use a PHP function provided by the plugin <b>szgoogle_gplus_get_but
 
 <p>The component can be customized in many ways, just use the parameters listed in the table provided below. Regarding the widget 
 parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify them manually in the 
-format option = "value". If you would like additional information you can visit the official page 
+format option = "value". If you would like additional information you can visit
 <a target="_blank" href="https://developers.google.com/+/web/follow/?hl=it">Google+ Follow Button</a>.</p>
 
 <h2>Parameters and options</h2>
@@ -63,7 +63,7 @@ example, we can specify an image and place the button within it and specifying t
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-gplus-follow url="https://plus.google.com/+wpitalyplus" size="medium"/]</pre>
 

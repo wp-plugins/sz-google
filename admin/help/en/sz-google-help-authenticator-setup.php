@@ -13,12 +13,12 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>The <b>SZ-Google</b> plugin provides the authorization process in two phases designed by google authenticator, it is possible to 
 strengthen the security of our login screen asking for a code-time in addition to the normal credentials. This is made ​​possible by 
-the Google Authenticator that you can install on our smartphones whether it's an iphone, android or blackberry. As we will see below 
-the configuration and synchronization of the key will be performed quickly and easily using a code QR Code to display on your device.</p>
+the Google Authenticator that you can install on our smartphones whether it is an iphone, android or blackberry. As we will see below 
+the configuration and synchronization of the key will be performed quickly and easily using a code QR Code.</p>
 
 <h2>Configuration</h2>
 
@@ -36,6 +36,16 @@ goes wrong on the timing of your phone after you have login problems that must b
 root directory of wordpress. This feature can be useful if you have some big problems connecting or the administrator has more access 
 to its devices. In this case the owner of the site could do an FTP to an empty file, for example <b>google-authenticator-disable.php</b>
 in root directory and temporarily suspend code control, this is because he may not be able to login.</p>
+
+<h2>Emergency codes</h2>
+
+<p>We have already seen that it is possible to activate a file of emergency for forcing a login in case you can not
+get the password at the time. In reality there is another way that allows us to associate a user profile of emergency codes that
+can be used in place of the code in time. As the same mechanism that provides google for their own account.</p>
+
+<p>The establishment of emergency codes you can run it from the menu of the user profile, in the same way as the code
+secret. All codes to be generated may be used once each, in fact, the codes you find in the color red table are those already used 
+and the others are those still free. In any case, you can create a new table of 12 new codes whenever you want.</p>
 
 <h2>Warnings</h2>
 

@@ -32,9 +32,10 @@ var SZGoogleDialog =
 
 		var output  = '';
 
-		var name            = jQuery('#ID_name'  ).val();
-		var width           = jQuery('#ID_width' ).val();
-		var height          = jQuery('#ID_height').val();
+		var name            = jQuery('#ID_name'   ).val();
+		var domain          = jQuery('#ID_domain' ).val();
+		var width           = jQuery('#ID_width'  ).val();
+		var height          = jQuery('#ID_height' ).val();
 
 		var showsearch      = jQuery("#MCE input[name='NAME_showsearch'    ]:checked").val();
 		var showtabs        = jQuery("#MCE input[name='NAME_showtabs'      ]:checked").val();
@@ -50,6 +51,7 @@ var SZGoogleDialog =
 		output = '[sz-ggroups ';
 
 		if (name           != '') output += 'name="'           + name           + '" ';
+		if (domain         != '') output += 'domain="'         + domain         + '" ';
 		if (width          != '') output += 'width="'          + width          + '" ';
 		if (height         != '') output += 'height="'         + height         + '" ';
 		if (showsearch     != '') output += 'showsearch="'     + showsearch     + '" ';
@@ -59,7 +61,7 @@ var SZGoogleDialog =
 
 		output += '/]';
 
-		// Una volta eseguita la composizione del comando shotcode
+		// Una volta eseguita la composizione del comando shortcode
 		// richiamo i metodi di tinyMCE per inserimento in editor		
 
 		tinyMCEPopup.execCommand('mceReplaceContent',false,output);

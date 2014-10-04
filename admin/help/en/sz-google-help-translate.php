@@ -13,7 +13,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
  */
 $HTML = <<<EOD
 
-<h2>Documentation</h2>
+<h2>Description</h2>
 
 <p>With this option we can put on our website a language selector that performs the automatic translation of the page without 
 leaving the site. Obviously, we can not expect a quality translation such as those performed manually. It is still a useful 
@@ -34,7 +34,7 @@ Take care to only enter the numeric code and not all of the HTML code.</p>
 
 <p>The component can be customized in many ways, just use the parameters listed in the table provided below. Regarding the widget 
 parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify them manually in the 
-format option = "value". If you would like additional information you can visit the official page 
+format option = "value". If you would like additional information you can visit 
 <a target="_blank" href="https://translate.google.com/manager‎">Google Translate Manager</a>.</p>
 
 <h2>Parameters and options</h2>
@@ -52,7 +52,7 @@ format option = "value". If you would like additional information you can visit 
 
 <p>The shortcodes are macros that are inserted in to post requires some additional processing that have been made ​​available by plugins,
 themes, or directly from the core. The plugin <b>SZ-Google</b> provides several shortcode beings that can be used in the classical 
-form and with the customization options allowed. To insert a shortcode in our post we have to use the code in this form:</p>
+form and with the customization options allowed. To insert a shortcode in our post we have to use the code:</p>
 
 <pre>[sz-gtranslate mode="V" language="it_IT" automatic="yes"/]</pre>
 
