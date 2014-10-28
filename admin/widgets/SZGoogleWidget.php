@@ -1,21 +1,24 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * HTML code of this widget in the administration section
+ * This code is on a separate file to exclude it from the frontend
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidgets
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Definizione e inizializzazione array che sarà
-// usato per la creazione di variabili automatiche
+// Defining and initializing arrays that will
+// be used for creating automatic variables
 
 $variables = array();
 
-// Lettura array e creazione identificativi nome
-// con il prefisso convenzionale ID_ NAME_ VALUE_
+// Reading array creation and identification of the 
+// name with the prefix conventional ID_ NAME_ VALUE_
 
 foreach($array as $item=>$value) 
 {
@@ -28,7 +31,7 @@ foreach($array as $item=>$value)
 	$variables[$PREFIX_V] = esc_attr(${$item});
 }
 
-// Estrazione array per la creazione di variabili
-// con nome indicato nella chiave e valore associato
+// Extraction array for creating variables
+// as indicated in the key and associated value
 
 extract($variables,EXTR_OVERWRITE);

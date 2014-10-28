@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -323,7 +323,18 @@ Before you use the google translate module must register the site that you want 
 
 == Changelog ==
 
-<a href="http://wordpress.org/plugins/sz-google/changelog/">English</a> - <a href="http://goo.gl/jMOcQ">Italiano</a> - <a href="http://goo.gl/6G8dH">Español</a> - <a href="http://goo.gl/WwtPs">Français</a> - <a href="http://goo.gl/VHbwt">Deutsch</a>
+<a href="http://goo.gl/WA4g2v">English</a> - 
+<a href="http://goo.gl/jMOcQ">Italiano</a> - 
+<a href="http://goo.gl/6G8dH">Español</a> - 
+<a href="http://goo.gl/WwtPs">Français</a> - 
+<a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.1 =
+* Feature: Translate plugin in espanol.
+* Feature: Use mb_strtoupper() per uppercase.
+* Feature: BETA test for use Google API.
+* Fix: Change some function for performance.
+* Fix: Google analytics add features.
 
 = Version 1.8.0 =
 * Feature: Add POPUP G+ Badge Page.

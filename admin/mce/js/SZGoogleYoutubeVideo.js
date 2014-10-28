@@ -1,34 +1,34 @@
-// Definizione variabile principale per contenere
-// le funzioni che verranno richiamate da popup
+// Defining the main variable to contain the 
+// functions that will be called from the popup
 
 var SZGoogleDialog = 
 {
 	local_ed:'ed',
 
-	// Funzione init per le operazioni iniziali del
-	// componente da eseguire in questo stesso file
+	// Init function for the initial operations of 
+	// the component to be executed in this file
 
 	init: function(ed) {
 		SZGoogleDialog.local_ed = ed;
 		tinyMCEPopup.resizeToInnerSize();
 	},
 
-	// Funzione cancel associata al bottone di fine
-	// schermata presente in ogni popup di shortcode
+	// Function associated with the cancel button at 
+	// the end of the screen in each popup shortcode
 
 	cancel: function(ed) {
 		tinyMCEPopup.close();
 	},
 
-	// Funzione insert per la creazione del codice
-	// shortcode con tutti le opzioni preimpostate
+	// Insert function for creating the code 
+	// shortcode with all the preset options
 
 	insert: function(ed) {
 
 		tinyMCEPopup.execCommand('mceRemoveNode',false,null);
- 
-		// Calcolo i valori delle variabili direttamente
-		// dai campi del form senza sottomissione standard
+
+		// Calculating the values ​​of variables directly 
+		// from the form fields without submission standards
 
 		var output  = '';
 
@@ -49,12 +49,12 @@ var SZGoogleDialog =
 		var disablerelated  = jQuery("#MCE input[name='NAME_disablerelated' ]:checked").val();
 		var delayed         = jQuery("#MCE input[name='NAME_delayed'        ]:checked").val();
 		var schemaorg       = jQuery("#MCE input[name='NAME_schemaorg'      ]:checked").val();
-	
+
 		if (responsive == 'y') width  = '';
 		if (responsive == 'y') height = '';	
 
-		// Composizione shortcode selezionato con elenco
-		// delle opzioni disponibili e valore associato
+		// Composition shortcode selected with list
+		// of available options and associated value
 
 		output = '[sz-ytvideo ';
 
@@ -77,15 +77,15 @@ var SZGoogleDialog =
 
 		output += '/]';
 
-		// Una volta eseguita la composizione del comando shortcode
-		// richiamo i metodi di tinyMCE per inserimento in editor		
-		
+		// Once the composition of the command shortcode 
+		// recall methods for inclusion in TinyMCE editor
+
 		tinyMCEPopup.execCommand('mceReplaceContent',false,output);
 		tinyMCEPopup.close();
 	}
 };
 
-// Inizializzo il dialogo tinyMCE e richiamo
-// anche la routine init per le operazioni iniziali
+// Initialize the dialog and TinyMCE also call 
+// the init routine for the initial operations
 
 tinyMCEPopup.onInit.add(SZGoogleDialog.init,SZGoogleDialog);

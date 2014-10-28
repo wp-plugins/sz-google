@@ -1,24 +1,28 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * HTML code of this widget in the administration section
+ * This code is on a separate file to exclude it from the frontend
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidgets 
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
+
 ?>
-<!-- WIDGETS (Tabella per contenere il FORM del widget) -->
+<!-- WIDGETS (Table for the FORM widget) -->
 <table id="SZGoogleWidgetDriveViewer" class="sz-google-table-widget">
 
-<!-- WIDGETS (Campo con inserimento del titolo widget) -->
+<!-- WIDGETS (Field with inclusion of the title widget) -->
 <tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
 
-<!-- WIDGETS (Campo per inserimento tipo di URL) -->
+<!-- WIDGETS (Field for entering URL type) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_url ?>"><?php echo ucfirst(__('file','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input class="sz-upload-image-url widefat" id="<?php echo $ID_url ?>" name="<?php echo $NAME_url ?>" type="text" value="<?php echo $VALUE_url ?>" placeholder="<?php echo __('insert URL file','szgoogleadmin') ?>"/></td>
@@ -27,7 +31,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare la dimensione) -->
+<!-- WIDGETS (Field to specify the size) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width ?>" class="sz-google-checks-width widefat" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
@@ -40,10 +44,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-height" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_height_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_height_auto,true,false) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
-<!-- WIDGETS (Chiusura tabella principale widget form) -->
+<!-- WIDGETS (Closing the main table form widget) -->
 </table>
 
-<!-- WIDGETS (Codice javascript per funzioni UI) -->
+<!-- WIDGETS (Javascript code for UI functions) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		if (typeof(szgoogle_checks_hidden_onload) == 'function') { szgoogle_checks_hidden_onload('SZGoogleWidgetDriveViewer'); }

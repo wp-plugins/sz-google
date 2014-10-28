@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Definizione array per le opzioni del plugin legate al modulo
  * corrispondente con cui sviluppare la funzione getOptions() e
@@ -7,6 +8,7 @@
  * @package SZGoogle
  * @subpackage SZGoogleOptions
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Definizione array() con tutte le opzioni collegate al modulo che
@@ -21,6 +23,7 @@ return array(
 	'fonts'             => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'groups'            => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'hangouts'          => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'maps'              => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'panoramio'         => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'translate'         => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'youtube'           => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),

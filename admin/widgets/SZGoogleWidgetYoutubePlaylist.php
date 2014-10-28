@@ -1,24 +1,28 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * HTML code of this widget in the administration section
+ * This code is on a separate file to exclude it from the frontend
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidgets 
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
+
 ?>
-<!-- WIDGETS (Tabella per contenere il FORM del widget) -->
+<!-- WIDGETS (Table for the FORM widget) -->
 <table id="SZGoogleWidgetYoutubePlaylist" class="sz-google-table-widget">
 
-<!-- WIDGETS (Campo con inserimento del titolo widget) -->
+<!-- WIDGETS (Field with inclusion of the title widget) -->
 <tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('widget title','szgoogleadmin') ?>"/></td>
 </tr>
 
-<!-- WIDGETS (Campo per inserimento ID playlist) -->
+<!-- WIDGETS (Entry ID field to playlist) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_id ?>"><?php echo ucfirst(__('playlist ID','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_id ?>" name="<?php echo $NAME_id ?>" type="text" value="<?php echo $VALUE_id ?>" placeholder="<?php echo __('playlist ID','szgoogleadmin') ?>"/></td>
@@ -26,7 +30,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare il parametro enable) -->
+<!-- WIDGETS (Field to specify the enable parameter) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('responsive','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_responsive ?>" value="y" onchange="szgoogle_switch_hidden_onchange(this);" data-switch="sz-google-switch-display" data-open="n" <?php if ($VALUE_responsive == 'y') echo ' checked '?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
@@ -59,7 +63,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare il parametro width & height) -->
+<!-- WIDGETS (Field parameter to specify the width & height) -->
 <tr class="sz-google-switch-display sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_width ?>" name="<?php echo $NAME_width ?>" class="widefat" type="text" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
@@ -72,7 +76,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr class="sz-google-switch-display sz-google-hidden"><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare il parametro theme & cover) -->
+<!-- WIDGETS (Field parameter to specify the theme & cover) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_theme ?>"><?php echo ucfirst(__('theme','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -95,7 +99,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare il parametro disable) -->
+<!-- WIDGETS (Field to specify the disable) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('disable iframe','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disableiframe ?>" value="y" <?php if ($VALUE_disableiframe == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
@@ -114,10 +118,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_disablerelated ?>" value="n" <?php if ($VALUE_disablerelated != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
 </tr>
 
-<!-- WIDGETS (Chiusura tabella principale widget form) -->
+<!-- WIDGETS (Closing the main table form widget) -->
 </table>
 
-<!-- WIDGETS (Codice javascript per funzioni UI) -->
+<!-- WIDGETS (Javascript code for UI functions) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		if (typeof(szgoogle_switch_hidden_onload) == 'function') { szgoogle_switch_hidden_onload('SZGoogleWidgetYoutubePlaylist'); }

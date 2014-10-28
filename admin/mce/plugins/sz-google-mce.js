@@ -1,7 +1,7 @@
 (function() {
 
-	// Definizione array per contenere i singoli
-	// elementi collegati ai vari moduli del plugin
+	// Definition array to hold the individual elements 
+	// connected to the various modules of the plugin
 
 	var menu = new Array(); // generale
 	var plus = new Array(); // google plus
@@ -15,8 +15,8 @@
 
 	var Wmax;
 
-	// Leggo tutte le divisioni dentro il wrapper nascosto e prendo il
-	// valore della classe come shotcode name e il contenuto come titolo
+	// I read all the divisions within the wrapper and take the hidden 
+	// value of the class as shotcode name as the title and content
 
 	jQuery("#sz-google-hidden-shortcodes div").each(function(index) {
 
@@ -46,8 +46,8 @@
 		if (shortcode.substr(0,5)  == 'sz-yt')         yout.push({ text: description, onclick: funzione });
 	});
 
-	// Controllo gli array che contengono almeno un elemento e creo 
-	// il menu principale corrispondente con la traduzione del titolo
+	// Control arrays that contain at least one element and create 
+	// the main menu with the corresponding translation of the title
 
 	var selected = false;
 
@@ -60,8 +60,8 @@
 	if (tran.length != 0) { menu[6] = { text: 'Google Translate', menu: tran }; selected = true; };
 	if (yout.length != 0) { menu[7] = { text: 'Google Youtube'  , menu: yout }; selected = true; };
 
-	// Aggiungo il bottone con i menu che sono stati creati solo se esiste
-	// almeno un elemento selezioniato, in caso contrario ignoro il menu
+	// Add the button with menus that are created only if there is at 
+	// least one element selected, otherwise I do not know the menu
 
 	if (selected == true) {
 		tinymce.PluginManager.add('sz_google_mce_button',function(editor,url) {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Definizione array per le opzioni del plugin legate al modulo
  * corrispondente con cui sviluppare la funzione getOptions() e
@@ -7,6 +8,7 @@
  * @package SZGoogle
  * @subpackage SZGoogleOptions
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Definizione array() con tutte le opzioni collegate al modulo che

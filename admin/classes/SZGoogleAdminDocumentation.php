@@ -1,41 +1,48 @@
 <?php
-/**
- * Modulo GOOGLE DOCUMENTATION per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche filtri e azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità a wordpress.
- *
- * @package SZGoogle
- */
-if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 /**
- * Prima della definizione della classe controllo se esiste
- * una definizione con lo stesso nome o già definita la stessa.
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
+ *
+ * @package SZGoogle
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
+
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
+
 if (!class_exists('SZGoogleAdminDocumentation'))
 {
 	class SZGoogleAdminDocumentation extends SZGoogleAdmin
 	{
 		/**
-		 * Definizione delle variabili che contengono le configurazioni
-		 * da applicare alle varie elaborazione della classe attuale
+		 * Definition of variables that contain the configurations
+		 * to be applied to various processing of the current class
 		 */
+
 		protected $HelpIndexItems = '';
 
 		/**
-		 * Creazione del menu sul pannello di amministrazione usando
-		 * come valori di configurazione le variabili object
-		 *
-		 * @return void
+		 * Creating the menu on the admin panel using values ​​
+		 * such as configuration variables object (parent function)
 		 */
+
 		function moduleAddMenu()
 		{
+			// Definition of general values ​​for the creation of a menu associated 
+			// with the module options. Example slug, page title and menu title
+
 			$this->menuslug   = 'sz-google-admin-documentation.php';
 			$this->pagetitle  = ucwords(__('documentation','szgoogleadmin'));
 			$this->menutitle  = ucwords(__('documentation','szgoogleadmin'));
 
-			// Definizione delle sezioni che devono essere composte in HTML
-			// le sezioni devono essere passate come un array con nome => titolo
+			// Definition of sections that need to be made ​​in HTML
+			// sections must be passed as an array of name = > title
 
 			$this->sectionstabs = array(
 				'01' => array('anchor' => 'general','description' => __('general','szgoogleadmin')),
@@ -62,12 +69,13 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			$this->sectionstitle   = $this->menutitle;
 			$this->sectionsoptions = array('sz_google_options_documentation');
 
-			// Richiamo la funzione della classe padre per elaborare le
-			// variabili contenenti i valori di configurazione sezione
+			// Calling up the function of the parent class to process the 
+			// variables that contain the values ​​of configuration section
 
 			parent::moduleAddMenu();
 
-			// Creazione indice di documentazione per la composizione del navigatore
+			// Definition array containing the main structure of the documentation
+			// Creating index of documentation for the composition of the navigator
 
 			$this->HelpIndexItems = array(
 					array('slug'=>'sz-google-help-plus-profile.php'           ,'title'=>__('google+ badge profile'     ,'szgoogleadmin')),
@@ -105,44 +113,14 @@ if (!class_exists('SZGoogleAdminDocumentation'))
  		}
 
 		/**
-		 * Chiamata alla funzione generale per la creazione del form generale
-		 * le sezioni devono essere passate come un array con nome => titolo
-		 *
-		 * @return void
+		 * Function to add sections and the corresponding options in the configuration
+		 * page, each option belongs to a section, which is linked to a general tab 
 		 */
-		function moduleCallback()
-		{
-			// Controllo se viene specificata una sezione di documentazione
-			// help presente nella directory dei file e se questa risulta esistente
 
-			if (isset($_GET['help'])) 
-			{
-				$LANGUAGE = get_bloginfo('language');
-				$FILENAM1 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/'.$LANGUAGE.'/'.trim($_GET['help']);
-				$FILENAM2 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/'.substr($LANGUAGE,0,2).'/'.trim($_GET['help']);
-				$FILENAM3 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/en/'.trim($_GET['help']);
-
-				if (is_readable($FILENAM1)) { @include($FILENAM1); return; }
-				if (is_readable($FILENAM2)) { @include($FILENAM2); return; }
-				if (is_readable($FILENAM3)) { @include($FILENAM3); return; }
-			}
-
-			// Se non trovo nessun file di documentazione specifico o 
-			// semplicemente viene richiamata la pagina principale
-
-			parent::moduleCallback();
-		}
-
-		/**
-		 * Funzione per aggiungere i campi del form con la corrispondenza
-		 * delle opzioni specificate nel modulo attualmente utilizzato
-		 *
-		 * @return void
-		 */
 		function moduleAddFields()
 		{
-			// Definizione array generale contenente elenco delle sezioni
-			// Su ogni sezione bisogna definire un array per elenco campi
+			// General definition array containing a list of sections
+			// On every section you have to define an array to list fields
 
 			$this->sectionsmenu = array(
 				'01' => array('section' => 'sz_google_documentation_gplus'        ,'title' => $this->null,'callback' => array($this,'moduleAddHelpPlus')         ,'slug' => 'sz-google-admin-documentation-gplus.php'),
@@ -159,16 +137,45 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 				'12' => array('section' => 'sz_google_documentation_modules'      ,'title' => $this->null,'callback' => array($this,'moduleAddHelpModules')      ,'slug' => 'sz-google-admin-documentation-modules.php'),
 			);
 
-			// Richiamo la funzione della classe padre per elaborare le
-			// variabili contenenti i valori di configurazione sezione
+			// Calling up the function of the parent class to process the 
+			// variables that contain the values ​​of configuration section
 
 			parent::moduleAddFields();
 		}
 
 		/**
-		 * Funzione per aggiungere le icone di sezione con array
-		 * contenete lo slug del link e il titolo della documentazione
+		 * Call the general function for the creation of the general form
+		 * sections must be passed as an array of name = > title
 		 */
+
+		function moduleCallback()
+		{
+			// Check if you specify a section of the help documentation
+			// in the directory of the file and if it is existing
+
+			if (isset($_GET['help'])) 
+			{
+				$LANGUAGE = get_bloginfo('language');
+				$FILENAM1 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/'.$LANGUAGE.'/'.trim($_GET['help']);
+				$FILENAM2 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/'.substr($LANGUAGE,0,2).'/'.trim($_GET['help']);
+				$FILENAM3 = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/help/en/'.trim($_GET['help']);
+
+				if (is_readable($FILENAM1)) { @include($FILENAM1); return; }
+				if (is_readable($FILENAM2)) { @include($FILENAM2); return; }
+				if (is_readable($FILENAM3)) { @include($FILENAM3); return; }
+			}
+
+			// If you can not find any specific
+			// documentation files is called the main page
+
+			parent::moduleCallback();
+		}
+
+		/**
+		 * Function to add the icons section with arrays containing
+		 * the slug of the link and the title of the document
+		 */
+
 		function moduleAddHelpLinks($options)
 		{
 			echo '<div class="help-index">';
@@ -185,9 +192,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE PLUS
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE PLUS
 		 */
+
 		function moduleAddHelpPlus()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -207,9 +215,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE ANALYTICS
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE ANALYTICS
 		 */
+
 		function moduleAddHelpAnalytics()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -219,9 +228,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE AUTHENTICATOR
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE AUTHENTICATOR
 		 */
+
 		function moduleAddHelpAuthenticator()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -232,9 +242,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE CALENDAR
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE CALENDAR
 		 */
+
 		function moduleAddHelpCalendar()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -243,9 +254,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE DRIVE
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE DRIVE
 		 */
+
 		function moduleAddHelpDriveSave()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -256,9 +268,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE GROUPS
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE GROUPS
 		 */
+
 		function moduleAddHelpGroups()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -267,9 +280,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE HANGOUTS
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE HANGOUTS
 		 */
+
 		function moduleAddHelpHangouts()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -278,9 +292,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE PANORAMIO
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE PANORAMIO
 		 */
+
 		function moduleAddHelpPanoramio()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -289,9 +304,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE TRANSLATE
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE TRANSLATE
 		 */
+
 		function moduleAddHelpTranslate()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -301,9 +317,10 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzioni per aggiungere le varie sezioni che riguardano
-		 * l'indice fatto ad icone della documentazione GOOGLE YOUTUBE
+		 * Functions to add the various sections with the index
+		 * for icons of the documents module GOOGLE YOUTUBE
 		 */
+
 		function moduleAddHelpYoutube()
 		{
 			$this->moduleAddHelpLinks(array(
@@ -316,31 +333,32 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		}
 
 		/**
-		 * Funzione per aggiungere le varie sezioni che riguardano
-		 * il tab delle reviews presente nella documentazione del plugin
+		 * Function to add the various sections on tabs reviews
+		 * present in the official documentation of the plugin
 		 */
+
 		function moduleAddHelpReviews() {
 			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/templates/sz-google-template-reviews.php');
 		}
 
 		/**
-		 * Funzione per aggiungere le varie sezioni che riguardano
-		 * il tab dei moduli presente nella documentazione del plugin
+		 * Function to add the various sections on tabs modules
+		 * present in the official documentation of the plugin
 		 */
+
 		function moduleAddHelpModules() {
 			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/templates/sz-google-template-modules.php');
 		}
 
 		/**
-		 * Chiamata alla funzione generale per la creazione del form generale
-		 * le sezioni devono essere passate come un array con nome => titolo
-		 *
-		 * @return void
+		 * Call the general function for the creation of the general form
+		 * sections must be passed as an array of name = > title
 		 */
+
 		function moduleAddNavs($name)
 		{
-			// Calcolo le chiavi per elementi presenti negli array che 
-			// corrispondono a quello attuale, precedente e successivo.
+			// Calculating the keys to elements in the array 
+			// that correspond to the current, previous and next
 
 			$KeyPrecedente = false;
 			$KeyAttuale    = false;
@@ -355,8 +373,8 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			if ($KeyAttuale > 0) $KeyPrecedente = $KeyAttuale - 1;
 			if ($KeyAttuale < (count($this->HelpIndexItems)-1)) $KeySeguente = $KeyAttuale + 1;
 
-			// Creazione dei link per successivo e seguente
-			// Creazione codice HTML per il navigatore di help
+			// Creating a link to the previous and next
+			// Create HTML for the browser to help index
 
 			$LINKPREV = ''; $LINKNEXT = '';
 
@@ -371,6 +389,11 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 
 			return $HTML;
 		}
+
+		/**
+		 * Call the general function for the creation of the general form
+		 * sections must be passed as an array of name = > title
+		 */
 
 		function moduleCommonFormHelp($title,$setting,$sections,$formsavebutton,$HTML,$slug)
 		{

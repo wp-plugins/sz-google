@@ -1,16 +1,19 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * Script to implement the HTML code shared with widgets 
+ * in the function pop-up insert shortcodes via GUI
  *
  * @package SZGoogle
- * @subpackage SZGoogleTinyMCE
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Chiusura del FORM per contenere i parametri che devono essere
-// indicati nello shortcode che andremmo a comporre con OK
+// Closing the FORM to contain the parameters that must be
+// specified in the shortcode that we would go to compose OK
 
 echo '<div style="text-align:right">';
 echo '<input type="submit" onclick="javascript:SZGoogleDialog.insert(SZGoogleDialog.local_ed)" style="margin-left:5px" class="button button-primary" value="'  .ucfirst(__('confirm','szgoogleadmin')).'"/>';
@@ -19,7 +22,7 @@ echo '</div>';
 
 echo "</form>\n";
 
-// Caricamento Footer comune della parte di amministrazione
-// in maniera tale da caricare i stili che servono per FORM
+// Loading Footer common part of the administration in a
+// manner such as to load the styles that are used to FORM
 
 require(ABSPATH.'/wp-admin/admin-footer.php');

@@ -1,13 +1,14 @@
 <?php
+
 /**
  * Classe SZGoogleWidget per la definizione di uno widget standard
  * da utilizzare nel plugin. Tutti gli widget definiti dovranno 
- * essere specificati come extended di questa classe, in questa maniera
- * si ottiene meno spreco di risorse e delle performance migliori
+ * essere specificati come extended di questa classe.
  *
  * @package SZGoogle
  * @subpackage SZGoogleWidget
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo

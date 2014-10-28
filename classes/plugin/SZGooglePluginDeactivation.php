@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Classe SZGooglePluginActivation per eseguire la funzione di 
  * disattivazione definita come hook principale di wordpress.
@@ -6,6 +7,7 @@
  * @package SZGoogle
  * @subpackage SZGooglePlugin
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo

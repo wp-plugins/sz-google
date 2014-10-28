@@ -1,23 +1,28 @@
 <?php
-/**
- * File richiamato in fase di disinstallazione plugin: In questa
- * fase bisogna eseguire la pulizia delle opzioni memorizzate sul
- * database wordpress e controllare se ambiente multisite. 
- *
- * @package SZGoogle
- */
-if(!defined('WP_UNINSTALL_PLUGIN')) die();
 
 /**
- * Prima della definizione della classe controllo se esiste
- * una definizione con lo stesso nome o già definita la stessa.
+ * File called at uninstall plugins: In this step you have to perform the cleaning 
+ * of the options stored in the database and see if wordpress multisite environment.
+ *
+ * @package SZGoogle
+ * @subpackage SZGooglePlugin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
+if(!defined('WP_UNINSTALL_PLUGIN')) die();
+
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
+
 if (!class_exists('SZGoogleUninstall'))
 {
 	class SZGoogleUninstall
 	{
-		// Funzione costruttore per controlli e operazioni iniziali.
-		// Il controllo principale di questa classe è legato ai controlli di versione.
+		/**
+		 * Definition the constructor function, which is called
+		 * at the time of the creation of an instance of this class
+		 */
 
 		function __construct()
 		{
@@ -25,8 +30,10 @@ if (!class_exists('SZGoogleUninstall'))
 				else $this->uninstall_delete_options_single();
 		}
 
-		// Cancellazione delle opzioni di configurazione per
-		// singolo blog durante la fase di disinstallazione
+		/**
+		 * Cancellation of the configuration options for 
+		 * individual blogs during the uninstallation
+		 */
 
 		function uninstall_delete_options_single()
 		{
@@ -40,21 +47,24 @@ if (!class_exists('SZGoogleUninstall'))
 			delete_option('sz_google_options_fonts');         // Google Fonts
 			delete_option('sz_google_options_groups');        // Google Groups
 			delete_option('sz_google_options_hangouts');      // Google Hangouts
+			delete_option('sz_google_options_maps');          // Google Maps
 			delete_option('sz_google_options_panoramio');     // Google Panoramio
 			delete_option('sz_google_options_translate');     // Google Translate
 			delete_option('sz_google_options_youtube');       // Google Youtube
 		}
 
-		// Cancellazione delle opzioni di configurazione per
-		// intero network durante la fase di disinstallazione
+		/**
+		 * Cancellation of the configuration options for 
+		 * the whole network during the uninstallation
+		 */
 
 		function uninstall_delete_options_multisite()
 		{
 			global $wpdb;
 			$blogs = $wpdb->get_results("SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A);
 
-			// Loop principale del network con tutti i blog configurati,
-			// per ognuno di essi esguo la cancellazione delle opzioni.
+			// Loop main network with all blogs configured, 
+			// for each run of the cancellation options.
 
 			if ($blogs) {
 				foreach($blogs as $blog) {
@@ -63,15 +73,15 @@ if (!class_exists('SZGoogleUninstall'))
 				}
 			}
 
-			// Ripristino il blog corrente dopo la lettura e il loop
-			// principale dei blog appartenenti al network completo
+			// Restoring the blog and after reading the main loop 
+			// of the blogs belonging to the complete network
 
 			restore_current_blog();
 		}
 	}
 
-	// Creazione oggetto per eseguire la funzione di disinstallazione
-	// del plugin con la pulizia delle opzioni ad esso legate
+	// Creating object to perform the uninstall feature of
+	// the plugin with the cleaning of the options related
 
 	new SZGoogleUninstall();
 }

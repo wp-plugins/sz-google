@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Classe SZGoogleCommon per esecuzione funzioni di uso generale o calcolo
  * di variabili da usare in qualsiasi modulo del plugin. Inserire in questa
@@ -7,6 +8,7 @@
  * @package SZGoogle
  * @subpackage SZGoogleCommon
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo

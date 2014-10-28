@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogle\n"
-"POT-Creation-Date: 2014-04-08 15:58-0500\n"
-"PO-Revision-Date: 2014-04-08 15:58-0500\n"
-"Last-Translator: Massimo <massimo@startbyzero.com>\n"
-"Language-Team: wpitalyplus <wpitalyplus@gmail.com>\n"
+"POT-Creation-Date: 2014-10-27 20:28+0100\n"
+"PO-Revision-Date: 2014-10-27 20:28+0100\n"
+"Last-Translator: Massimo <wordpress@otherplus.com>\n"
+"Language-Team: otherplus <wordpress@otherplus.com>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,1473 +15,1473 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ../..\n"
 
-#: ../../classes/module/SZGoogleModuleYoutube.php:441
-msgid "youtube URL string specified is not valid."
-msgstr "stringa specificata per URL youtube non è valida."
-
-#: ../../classes/module/SZGoogleModuleYoutube.php:514
-msgid "youtube video"
-msgstr "video youtube"
-
-#: ../../classes/module/SZGoogleModuleYoutube.php:991
-msgid "channel youtube"
-msgstr "canale youtube"
-
-#: ../../classes/module/SZGoogleModuleYoutube.php:1149
-msgid "youtube playlist ID is not valid."
-msgstr "codice specificato su ID playlist non è valido."
-
-#: ../../classes/module/SZGoogleModulePlus.php:1590
+#: ../../classes/module/SZGoogleModulePlus.php:1453
 msgid "leave a Reply"
 msgstr "lascia un commento"
 
-#: ../../classes/module/SZGoogleModuleAuthenticator.php:200
-msgid "<strong>ERROR</strong>: Authenticator code is incorrect."
-msgstr "<strong>ERROR</strong>: Codice Authenticator non corretto."
-
-#: ../../classes/module/SZGoogleModuleAuthenticator.php:337
-msgid "If you don't use Authenticator leave this field empty."
-msgstr "Lascia questo campo vuoto se non usi Authenticator"
-
-#: ../../classes/module/SZGoogleModuleAuthenticator.php:337
-msgid "google authenticator code"
-msgstr "codice google authenticator"
-
-#: ../../classes/common/SZGoogleCommon.php:72
+#: ../../classes/common/SZGoogleCommon.php:74
 msgid "same language theme"
 msgstr "stessa lingua del tema"
 
-#: ../../classes/common/SZGoogleCommon.php:73
+#: ../../classes/common/SZGoogleCommon.php:75
 msgid "afrikaans"
 msgstr "africano"
 
-#: ../../classes/common/SZGoogleCommon.php:74
+#: ../../classes/common/SZGoogleCommon.php:76
 msgid "amharic"
 msgstr "amarico"
 
-#: ../../classes/common/SZGoogleCommon.php:75
+#: ../../classes/common/SZGoogleCommon.php:77
 msgid "arabic"
 msgstr "arabo"
 
-#: ../../classes/common/SZGoogleCommon.php:76
+#: ../../classes/common/SZGoogleCommon.php:78
 msgid "basque"
 msgstr "basco"
 
-#: ../../classes/common/SZGoogleCommon.php:77
+#: ../../classes/common/SZGoogleCommon.php:79
 msgid "bengali"
 msgstr "bengali"
 
-#: ../../classes/common/SZGoogleCommon.php:78
+#: ../../classes/common/SZGoogleCommon.php:80
 msgid "bulgarian"
 msgstr "bulgaro"
 
-#: ../../classes/common/SZGoogleCommon.php:79
+#: ../../classes/common/SZGoogleCommon.php:81
 msgid "catalan"
 msgstr "catalano"
 
-#: ../../classes/common/SZGoogleCommon.php:80
+#: ../../classes/common/SZGoogleCommon.php:82
 msgid "chinese (Hong Kong)"
 msgstr "cinese (Hong Kong)"
 
-#: ../../classes/common/SZGoogleCommon.php:81
+#: ../../classes/common/SZGoogleCommon.php:83
 msgid "chinese (Simplified)"
 msgstr "cinese (Semplificato)"
 
-#: ../../classes/common/SZGoogleCommon.php:82
+#: ../../classes/common/SZGoogleCommon.php:84
 msgid "chinese (Traditional)"
 msgstr "cinese (Tradizionale)"
 
-#: ../../classes/common/SZGoogleCommon.php:83
+#: ../../classes/common/SZGoogleCommon.php:85
 msgid "croatian"
 msgstr "croato"
 
-#: ../../classes/common/SZGoogleCommon.php:84
+#: ../../classes/common/SZGoogleCommon.php:86
 msgid "czech"
 msgstr "ceco"
 
-#: ../../classes/common/SZGoogleCommon.php:85
+#: ../../classes/common/SZGoogleCommon.php:87
 msgid "danish"
 msgstr "danese"
 
-#: ../../classes/common/SZGoogleCommon.php:86
+#: ../../classes/common/SZGoogleCommon.php:88
 msgid "dutch"
 msgstr "olandese"
 
-#: ../../classes/common/SZGoogleCommon.php:87
+#: ../../classes/common/SZGoogleCommon.php:89
 msgid "english (UK)"
 msgstr "inglese (UK)"
 
-#: ../../classes/common/SZGoogleCommon.php:88
+#: ../../classes/common/SZGoogleCommon.php:90
 msgid "english (US)"
 msgstr "inglese (US)"
 
-#: ../../classes/common/SZGoogleCommon.php:89
+#: ../../classes/common/SZGoogleCommon.php:91
 msgid "estonian"
 msgstr "ettone"
 
-#: ../../classes/common/SZGoogleCommon.php:90
+#: ../../classes/common/SZGoogleCommon.php:92
 msgid "filipino"
 msgstr "filippino"
 
-#: ../../classes/common/SZGoogleCommon.php:91
+#: ../../classes/common/SZGoogleCommon.php:93
 msgid "finnish"
 msgstr "finlandese"
 
-#: ../../classes/common/SZGoogleCommon.php:92
+#: ../../classes/common/SZGoogleCommon.php:94
 msgid "french"
 msgstr "francese"
 
-#: ../../classes/common/SZGoogleCommon.php:93
+#: ../../classes/common/SZGoogleCommon.php:95
 msgid "french (Canadian)"
 msgstr "francese (Canada)"
 
-#: ../../classes/common/SZGoogleCommon.php:94
+#: ../../classes/common/SZGoogleCommon.php:96
 msgid "galician"
 msgstr "galiziano"
 
-#: ../../classes/common/SZGoogleCommon.php:95
+#: ../../classes/common/SZGoogleCommon.php:97
 msgid "german"
 msgstr "tedesco"
 
-#: ../../classes/common/SZGoogleCommon.php:96
+#: ../../classes/common/SZGoogleCommon.php:98
 msgid "greek"
 msgstr "greco"
 
-#: ../../classes/common/SZGoogleCommon.php:97
+#: ../../classes/common/SZGoogleCommon.php:99
 msgid "gujarati"
 msgstr "gujarati"
 
-#: ../../classes/common/SZGoogleCommon.php:98
+#: ../../classes/common/SZGoogleCommon.php:100
 msgid "hebrew"
 msgstr "ebraico"
 
-#: ../../classes/common/SZGoogleCommon.php:99
+#: ../../classes/common/SZGoogleCommon.php:101
 msgid "hindi"
 msgstr "hindi"
 
-#: ../../classes/common/SZGoogleCommon.php:100
+#: ../../classes/common/SZGoogleCommon.php:102
 msgid "hungarian"
 msgstr "ungherese"
 
-#: ../../classes/common/SZGoogleCommon.php:101
+#: ../../classes/common/SZGoogleCommon.php:103
 msgid "icelandic"
 msgstr "islandese"
 
-#: ../../classes/common/SZGoogleCommon.php:102
+#: ../../classes/common/SZGoogleCommon.php:104
 msgid "indonesian"
 msgstr "indonesiano"
 
-#: ../../classes/common/SZGoogleCommon.php:103
+#: ../../classes/common/SZGoogleCommon.php:105
 msgid "italian"
 msgstr "italiano"
 
-#: ../../classes/common/SZGoogleCommon.php:104
+#: ../../classes/common/SZGoogleCommon.php:106
 msgid "japanese"
 msgstr "giapponese"
 
-#: ../../classes/common/SZGoogleCommon.php:105
+#: ../../classes/common/SZGoogleCommon.php:107
 msgid "kannada"
 msgstr "kannada"
 
-#: ../../classes/common/SZGoogleCommon.php:106
+#: ../../classes/common/SZGoogleCommon.php:108
 msgid "korean"
 msgstr "coreano"
 
-#: ../../classes/common/SZGoogleCommon.php:107
+#: ../../classes/common/SZGoogleCommon.php:109
 msgid "latvian"
 msgstr "lettone"
 
-#: ../../classes/common/SZGoogleCommon.php:108
+#: ../../classes/common/SZGoogleCommon.php:110
 msgid "lithuanian"
 msgstr "lituano"
 
-#: ../../classes/common/SZGoogleCommon.php:109
+#: ../../classes/common/SZGoogleCommon.php:111
 msgid "malay"
 msgstr "malese"
 
-#: ../../classes/common/SZGoogleCommon.php:110
+#: ../../classes/common/SZGoogleCommon.php:112
 msgid "malayalam"
 msgstr "malayalam"
 
-#: ../../classes/common/SZGoogleCommon.php:111
+#: ../../classes/common/SZGoogleCommon.php:113
 msgid "marathi"
 msgstr "marathi"
 
-#: ../../classes/common/SZGoogleCommon.php:112
+#: ../../classes/common/SZGoogleCommon.php:114
 msgid "norwegian"
 msgstr "norvegese"
 
-#: ../../classes/common/SZGoogleCommon.php:113
+#: ../../classes/common/SZGoogleCommon.php:115
 msgid "persian"
 msgstr "persiano"
 
-#: ../../classes/common/SZGoogleCommon.php:114
+#: ../../classes/common/SZGoogleCommon.php:116
 msgid "polish"
 msgstr "polonia"
 
-#: ../../classes/common/SZGoogleCommon.php:115
+#: ../../classes/common/SZGoogleCommon.php:117
 msgid "portuguese (Brazil)"
 msgstr "portoghese (Brasile)"
 
-#: ../../classes/common/SZGoogleCommon.php:116
+#: ../../classes/common/SZGoogleCommon.php:118
 msgid "portuguese (Portugal)"
 msgstr "portoghese"
 
-#: ../../classes/common/SZGoogleCommon.php:117
+#: ../../classes/common/SZGoogleCommon.php:119
 msgid "romanian"
 msgstr "rumeno"
 
-#: ../../classes/common/SZGoogleCommon.php:118
+#: ../../classes/common/SZGoogleCommon.php:120
 msgid "russian"
 msgstr "russo"
 
-#: ../../classes/common/SZGoogleCommon.php:119
+#: ../../classes/common/SZGoogleCommon.php:121
 msgid "serbian"
 msgstr "serbo"
 
-#: ../../classes/common/SZGoogleCommon.php:120
+#: ../../classes/common/SZGoogleCommon.php:122
 msgid "slovak"
 msgstr "slovacco"
 
-#: ../../classes/common/SZGoogleCommon.php:121
+#: ../../classes/common/SZGoogleCommon.php:123
 msgid "slovenian"
 msgstr "sloveno"
 
-#: ../../classes/common/SZGoogleCommon.php:122
+#: ../../classes/common/SZGoogleCommon.php:124
 msgid "spanish"
 msgstr "spagnolo"
 
-#: ../../classes/common/SZGoogleCommon.php:123
+#: ../../classes/common/SZGoogleCommon.php:125
 msgid "spanish (Latin America)"
 msgstr "spagnolo (America latina)"
 
-#: ../../classes/common/SZGoogleCommon.php:124
+#: ../../classes/common/SZGoogleCommon.php:126
 msgid "swahili"
 msgstr "swahili"
 
-#: ../../classes/common/SZGoogleCommon.php:125
+#: ../../classes/common/SZGoogleCommon.php:127
 msgid "swedish"
 msgstr "svedese"
 
-#: ../../classes/common/SZGoogleCommon.php:126
+#: ../../classes/common/SZGoogleCommon.php:128
 msgid "tamil"
 msgstr "tamil"
 
-#: ../../classes/common/SZGoogleCommon.php:127
+#: ../../classes/common/SZGoogleCommon.php:129
 msgid "telugu"
 msgstr "telegu"
 
-#: ../../classes/common/SZGoogleCommon.php:128
+#: ../../classes/common/SZGoogleCommon.php:130
 msgid "thai"
 msgstr "thailandese"
 
-#: ../../classes/common/SZGoogleCommon.php:129
+#: ../../classes/common/SZGoogleCommon.php:131
 msgid "turkish"
 msgstr "turco"
 
-#: ../../classes/common/SZGoogleCommon.php:130
+#: ../../classes/common/SZGoogleCommon.php:132
 msgid "ukrainian"
 msgstr "ucraino"
 
-#: ../../classes/common/SZGoogleCommon.php:131
+#: ../../classes/common/SZGoogleCommon.php:133
 msgid "urdu"
 msgstr "urdu"
 
-#: ../../classes/common/SZGoogleCommon.php:132
+#: ../../classes/common/SZGoogleCommon.php:134
 msgid "vietnamese"
 msgstr "vietnamita"
 
-#: ../../classes/common/SZGoogleCommon.php:133
+#: ../../classes/common/SZGoogleCommon.php:135
 msgid "zulu"
 msgstr "zulu"
 
-#: ../../classes/common/SZGoogleCommon.php:155
+#: ../../classes/common/SZGoogleCommon.php:157
 msgid "default time zone"
 msgstr "zona oraria predefinita"
 
-#: ../../classes/common/SZGoogleCommon.php:156
-msgid "(GMT-11:00) Midway"
-msgstr ""
-
-#: ../../classes/common/SZGoogleCommon.php:157
-msgid "(GMT-11:00) Niue"
-msgstr ""
-
 #: ../../classes/common/SZGoogleCommon.php:158
-msgid "(GMT-11:00) Pago Pago"
-msgstr ""
+msgid "(GMT-11:00) Midway"
+msgstr "(GMT-11:00) Midway"
 
 #: ../../classes/common/SZGoogleCommon.php:159
-msgid "(GMT-10:00) Hawaii Time"
-msgstr ""
+msgid "(GMT-11:00) Niue"
+msgstr "(GMT-11:00) Niue"
 
 #: ../../classes/common/SZGoogleCommon.php:160
-msgid "(GMT-10:00) Rarotonga"
-msgstr ""
+msgid "(GMT-11:00) Pago Pago"
+msgstr "(GMT-11:00) Pago Pago"
 
 #: ../../classes/common/SZGoogleCommon.php:161
-msgid "(GMT-10:00) Tahiti"
-msgstr ""
+msgid "(GMT-10:00) Hawaii Time"
+msgstr "(GMT-10:00) Hawaii Time"
 
 #: ../../classes/common/SZGoogleCommon.php:162
-msgid "(GMT-09:30) Marquesas"
-msgstr ""
+msgid "(GMT-10:00) Rarotonga"
+msgstr "(GMT-10:00) Rarotonga"
 
 #: ../../classes/common/SZGoogleCommon.php:163
-msgid "(GMT-09:00) Alaska Time"
-msgstr ""
+msgid "(GMT-10:00) Tahiti"
+msgstr "(GMT-10:00) Tahiti"
 
 #: ../../classes/common/SZGoogleCommon.php:164
-msgid "(GMT-09:00) Gambier"
-msgstr ""
+msgid "(GMT-09:30) Marquesas"
+msgstr "(GMT-09:30) Marquesas"
 
 #: ../../classes/common/SZGoogleCommon.php:165
-msgid "(GMT-08:00) Pacific Time"
-msgstr ""
+msgid "(GMT-09:00) Alaska Time"
+msgstr "(GMT-09:00) Alaska Time"
 
 #: ../../classes/common/SZGoogleCommon.php:166
-msgid "(GMT-08:00) Pacific Time - Tijuana"
-msgstr ""
+msgid "(GMT-09:00) Gambier"
+msgstr "(GMT-09:00) Gambier"
 
 #: ../../classes/common/SZGoogleCommon.php:167
-msgid "(GMT-08:00) Pacific Time - Vancouver"
-msgstr ""
+msgid "(GMT-08:00) Pacific Time"
+msgstr "(GMT-08:00) Pacific Time"
 
 #: ../../classes/common/SZGoogleCommon.php:168
-msgid "(GMT-08:00) Pacific Time - Whitehorse"
-msgstr ""
+msgid "(GMT-08:00) Pacific Time - Tijuana"
+msgstr "(GMT-08:00) Pacific Time - Tijuana"
 
 #: ../../classes/common/SZGoogleCommon.php:169
-msgid "(GMT-08:00) Pitcairn"
-msgstr ""
+msgid "(GMT-08:00) Pacific Time - Vancouver"
+msgstr "(GMT-08:00) Pacific Time - Vancouver"
 
 #: ../../classes/common/SZGoogleCommon.php:170
-msgid "(GMT-07:00) Mountain Time - Dawson Creek"
-msgstr ""
+msgid "(GMT-08:00) Pacific Time - Whitehorse"
+msgstr "(GMT-08:00) Pacific Time - Whitehorse"
 
 #: ../../classes/common/SZGoogleCommon.php:171
-msgid "(GMT-07:00) Mountain Time"
-msgstr ""
+msgid "(GMT-08:00) Pitcairn"
+msgstr "(GMT-08:00) Pitcairn"
 
 #: ../../classes/common/SZGoogleCommon.php:172
-msgid "(GMT-07:00) Mountain Time - Edmonton"
-msgstr ""
+msgid "(GMT-07:00) Mountain Time - Dawson Creek"
+msgstr "(GMT-07:00) Mountain Time - Dawson Creek"
 
 #: ../../classes/common/SZGoogleCommon.php:173
-msgid "(GMT-07:00) Mountain Time - Hermosillo"
-msgstr ""
+msgid "(GMT-07:00) Mountain Time"
+msgstr "(GMT-07:00) Mountain Time"
 
 #: ../../classes/common/SZGoogleCommon.php:174
-msgid "(GMT-07:00) Mountain Time - Chihuahua, Mazatlan"
-msgstr ""
+msgid "(GMT-07:00) Mountain Time - Edmonton"
+msgstr "(GMT-07:00) Mountain Time - Edmonton"
 
 #: ../../classes/common/SZGoogleCommon.php:175
-msgid "(GMT-07:00) Mountain Time - Arizona"
-msgstr ""
+msgid "(GMT-07:00) Mountain Time - Hermosillo"
+msgstr "(GMT-07:00) Mountain Time - Hermosillo"
 
 #: ../../classes/common/SZGoogleCommon.php:176
-msgid "(GMT-07:00) Mountain Time - Yellowknife"
-msgstr ""
+msgid "(GMT-07:00) Mountain Time - Chihuahua, Mazatlan"
+msgstr "(GMT-07:00) Mountain Time - Chihuahua, Mazatlan"
 
 #: ../../classes/common/SZGoogleCommon.php:177
-msgid "(GMT-06:00) Belize"
-msgstr ""
+msgid "(GMT-07:00) Mountain Time - Arizona"
+msgstr "(GMT-07:00) Mountain Time - Arizona"
 
 #: ../../classes/common/SZGoogleCommon.php:178
-msgid "(GMT-06:00) Central Time"
-msgstr ""
+msgid "(GMT-07:00) Mountain Time - Yellowknife"
+msgstr "(GMT-07:00) Mountain Time - Yellowknife"
 
 #: ../../classes/common/SZGoogleCommon.php:179
-msgid "(GMT-06:00) Costa Rica"
-msgstr ""
+msgid "(GMT-06:00) Belize"
+msgstr "(GMT-06:00) Belize"
 
 #: ../../classes/common/SZGoogleCommon.php:180
-msgid "(GMT-06:00) El Salvador"
-msgstr ""
+msgid "(GMT-06:00) Central Time"
+msgstr "(GMT-06:00) Central Time"
 
 #: ../../classes/common/SZGoogleCommon.php:181
-msgid "(GMT-06:00) Guatemala"
-msgstr ""
+msgid "(GMT-06:00) Costa Rica"
+msgstr "(GMT-06:00) Costa Rica"
 
 #: ../../classes/common/SZGoogleCommon.php:182
-msgid "(GMT-06:00) Managua"
-msgstr ""
+msgid "(GMT-06:00) El Salvador"
+msgstr "(GMT-06:00) El Salvador"
 
 #: ../../classes/common/SZGoogleCommon.php:183
-msgid "(GMT-06:00) Central Time - Mexico City"
-msgstr ""
+msgid "(GMT-06:00) Guatemala"
+msgstr "(GMT-06:00) Guatemala"
 
 #: ../../classes/common/SZGoogleCommon.php:184
-msgid "(GMT-06:00) Central Time - Regina"
-msgstr ""
+msgid "(GMT-06:00) Managua"
+msgstr "(GMT-06:00) Managua"
 
 #: ../../classes/common/SZGoogleCommon.php:185
-msgid "(GMT-06:00) Central Time - Tegucigalpa"
-msgstr ""
+msgid "(GMT-06:00) Central Time - Mexico City"
+msgstr "(GMT-06:00) Central Time - Mexico City"
 
 #: ../../classes/common/SZGoogleCommon.php:186
-msgid "(GMT-06:00) Central Time - Winnipeg"
-msgstr ""
+msgid "(GMT-06:00) Central Time - Regina"
+msgstr "(GMT-06:00) Central Time - Regina"
 
 #: ../../classes/common/SZGoogleCommon.php:187
-msgid "(GMT-06:00) Easter Island"
-msgstr ""
+msgid "(GMT-06:00) Central Time - Tegucigalpa"
+msgstr "(GMT-06:00) Central Time - Tegucigalpa"
 
 #: ../../classes/common/SZGoogleCommon.php:188
-msgid "(GMT-06:00) Galapagos"
-msgstr ""
+msgid "(GMT-06:00) Central Time - Winnipeg"
+msgstr "(GMT-06:00) Central Time - Winnipeg"
 
 #: ../../classes/common/SZGoogleCommon.php:189
-msgid "(GMT-05:00) Bogota"
-msgstr ""
+msgid "(GMT-06:00) Easter Island"
+msgstr "(GMT-06:00) Easter Island"
 
 #: ../../classes/common/SZGoogleCommon.php:190
-msgid "(GMT-05:00) Cayman"
-msgstr ""
+msgid "(GMT-06:00) Galapagos"
+msgstr "(GMT-06:00) Galapagos"
 
 #: ../../classes/common/SZGoogleCommon.php:191
-msgid "(GMT-05:00) Grand Turk"
-msgstr ""
+msgid "(GMT-05:00) Bogota"
+msgstr "(GMT-05:00) Bogota"
 
 #: ../../classes/common/SZGoogleCommon.php:192
-msgid "(GMT-05:00) Guayaquil"
-msgstr ""
+msgid "(GMT-05:00) Cayman"
+msgstr "(GMT-05:00) Cayman"
 
 #: ../../classes/common/SZGoogleCommon.php:193
-msgid "(GMT-05:00) Havana"
-msgstr ""
+msgid "(GMT-05:00) Grand Turk"
+msgstr "(GMT-05:00) Grand Turk"
 
 #: ../../classes/common/SZGoogleCommon.php:194
-msgid "(GMT-05:00) Eastern Time - Iqaluit"
-msgstr ""
+msgid "(GMT-05:00) Guayaquil"
+msgstr "(GMT-05:00) Guayaquil"
 
 #: ../../classes/common/SZGoogleCommon.php:195
-msgid "(GMT-05:00) Jamaica"
-msgstr ""
+msgid "(GMT-05:00) Havana"
+msgstr "(GMT-05:00) Havana"
 
 #: ../../classes/common/SZGoogleCommon.php:196
-msgid "(GMT-05:00) Lima"
-msgstr ""
+msgid "(GMT-05:00) Eastern Time - Iqaluit"
+msgstr "(GMT-05:00) Eastern Time - Iqaluit"
 
 #: ../../classes/common/SZGoogleCommon.php:197
-msgid "(GMT-05:00) Eastern Time - Montreal"
-msgstr ""
+msgid "(GMT-05:00) Jamaica"
+msgstr "(GMT-05:00) Jamaica"
 
 #: ../../classes/common/SZGoogleCommon.php:198
-msgid "(GMT-05:00) Nassau"
-msgstr ""
+msgid "(GMT-05:00) Lima"
+msgstr "(GMT-05:00) Lima"
 
 #: ../../classes/common/SZGoogleCommon.php:199
-msgid "(GMT-05:00) Eastern Time"
-msgstr ""
+msgid "(GMT-05:00) Eastern Time - Montreal"
+msgstr "(GMT-05:00) Eastern Time - Montreal"
 
 #: ../../classes/common/SZGoogleCommon.php:200
-msgid "(GMT-05:00) Panama"
-msgstr ""
+msgid "(GMT-05:00) Nassau"
+msgstr "(GMT-05:00) Nassau"
 
 #: ../../classes/common/SZGoogleCommon.php:201
-msgid "(GMT-05:00) Port-au-Prince"
-msgstr ""
+msgid "(GMT-05:00) Eastern Time"
+msgstr "(GMT-05:00) Eastern Time"
 
 #: ../../classes/common/SZGoogleCommon.php:202
-msgid "(GMT-05:00) Rio Branco"
-msgstr ""
+msgid "(GMT-05:00) Panama"
+msgstr "(GMT-05:00) Panama"
 
 #: ../../classes/common/SZGoogleCommon.php:203
-msgid "(GMT-05:00) Eastern Time - Toronto"
-msgstr ""
+msgid "(GMT-05:00) Port-au-Prince"
+msgstr "(GMT-05:00) Port-au-Prince"
 
 #: ../../classes/common/SZGoogleCommon.php:204
-msgid "(GMT-04:30) Caracas"
-msgstr ""
+msgid "(GMT-05:00) Rio Branco"
+msgstr "(GMT-05:00) Rio Branco"
 
 #: ../../classes/common/SZGoogleCommon.php:205
-msgid "(GMT-04:00) Antigua"
-msgstr ""
+msgid "(GMT-05:00) Eastern Time - Toronto"
+msgstr "(GMT-05:00) Eastern Time - Toronto"
 
 #: ../../classes/common/SZGoogleCommon.php:206
-msgid "(GMT-04:00) Asuncion"
-msgstr ""
+msgid "(GMT-04:30) Caracas"
+msgstr "(GMT-04:30) Caracas"
 
 #: ../../classes/common/SZGoogleCommon.php:207
-msgid "(GMT-04:00) Barbados"
-msgstr ""
+msgid "(GMT-04:00) Antigua"
+msgstr "(GMT-04:00) Antigua"
 
 #: ../../classes/common/SZGoogleCommon.php:208
-msgid "(GMT-04:00) Boa Vista"
-msgstr ""
+msgid "(GMT-04:00) Asuncion"
+msgstr "(GMT-04:00) Asuncion"
 
 #: ../../classes/common/SZGoogleCommon.php:209
-msgid "(GMT-04:00) Campo Grande"
-msgstr ""
+msgid "(GMT-04:00) Barbados"
+msgstr "(GMT-04:00) Barbados"
 
 #: ../../classes/common/SZGoogleCommon.php:210
-msgid "(GMT-04:00) Cuiaba"
-msgstr ""
+msgid "(GMT-04:00) Boa Vista"
+msgstr "(GMT-04:00) Boa Vista"
 
 #: ../../classes/common/SZGoogleCommon.php:211
-msgid "(GMT-04:00) Curacao"
-msgstr ""
+msgid "(GMT-04:00) Campo Grande"
+msgstr "(GMT-04:00) Campo Grande"
 
 #: ../../classes/common/SZGoogleCommon.php:212
-msgid "(GMT-04:00) Guyana"
-msgstr ""
+msgid "(GMT-04:00) Cuiaba"
+msgstr "(GMT-04:00) Cuiaba"
 
 #: ../../classes/common/SZGoogleCommon.php:213
-msgid "(GMT-04:00) Atlantic Time - Halifax"
-msgstr ""
+msgid "(GMT-04:00) Curacao"
+msgstr "(GMT-04:00) Curacao"
 
 #: ../../classes/common/SZGoogleCommon.php:214
-msgid "(GMT-04:00) La Paz"
-msgstr ""
+msgid "(GMT-04:00) Guyana"
+msgstr "(GMT-04:00) Guyana"
 
 #: ../../classes/common/SZGoogleCommon.php:215
-msgid "(GMT-04:00) Manaus"
-msgstr ""
+msgid "(GMT-04:00) Atlantic Time - Halifax"
+msgstr "(GMT-04:00) Atlantic Time - Halifax"
 
 #: ../../classes/common/SZGoogleCommon.php:216
-msgid "(GMT-04:00) Martinique"
-msgstr ""
+msgid "(GMT-04:00) La Paz"
+msgstr "(GMT-04:00) La Paz"
 
 #: ../../classes/common/SZGoogleCommon.php:217
-msgid "(GMT-04:00) Port of Spain"
-msgstr ""
+msgid "(GMT-04:00) Manaus"
+msgstr "(GMT-04:00) Manaus"
 
 #: ../../classes/common/SZGoogleCommon.php:218
-msgid "(GMT-04:00) Porto Velho"
-msgstr ""
+msgid "(GMT-04:00) Martinique"
+msgstr "(GMT-04:00) Martinique"
 
 #: ../../classes/common/SZGoogleCommon.php:219
-msgid "(GMT-04:00) Puerto Rico"
-msgstr ""
+msgid "(GMT-04:00) Port of Spain"
+msgstr "(GMT-04:00) Port of Spain"
 
 #: ../../classes/common/SZGoogleCommon.php:220
-msgid "(GMT-04:00) Santiago"
-msgstr ""
+msgid "(GMT-04:00) Porto Velho"
+msgstr "(GMT-04:00) Porto Velho"
 
 #: ../../classes/common/SZGoogleCommon.php:221
-msgid "(GMT-04:00) Santo Domingo"
-msgstr ""
+msgid "(GMT-04:00) Puerto Rico"
+msgstr "(GMT-04:00) Puerto Rico"
 
 #: ../../classes/common/SZGoogleCommon.php:222
-msgid "(GMT-04:00) Thule"
-msgstr ""
+msgid "(GMT-04:00) Santiago"
+msgstr "(GMT-04:00) Santiago"
 
 #: ../../classes/common/SZGoogleCommon.php:223
-msgid "(GMT-04:00) Palmer"
-msgstr ""
+msgid "(GMT-04:00) Santo Domingo"
+msgstr "(GMT-04:00) Santo Domingo"
 
 #: ../../classes/common/SZGoogleCommon.php:224
-msgid "(GMT-04:00) Bermuda"
-msgstr ""
+msgid "(GMT-04:00) Thule"
+msgstr "(GMT-04:00) Thule"
 
 #: ../../classes/common/SZGoogleCommon.php:225
-msgid "(GMT-03:30) Newfoundland Time - St. Johns"
-msgstr ""
+msgid "(GMT-04:00) Palmer"
+msgstr "(GMT-04:00) Palmer"
 
 #: ../../classes/common/SZGoogleCommon.php:226
-msgid "(GMT-03:00) Araguaina"
-msgstr ""
+msgid "(GMT-04:00) Bermuda"
+msgstr "(GMT-04:00) Bermuda"
 
 #: ../../classes/common/SZGoogleCommon.php:227
-msgid "(GMT-03:00) Buenos Aires"
-msgstr ""
+msgid "(GMT-03:30) Newfoundland Time - St. Johns"
+msgstr "(GMT-03:30) Newfoundland Time - St. Johns"
 
 #: ../../classes/common/SZGoogleCommon.php:228
-msgid "(GMT-03:00) Salvador"
-msgstr ""
+msgid "(GMT-03:00) Araguaina"
+msgstr "(GMT-03:00) Araguaina"
 
 #: ../../classes/common/SZGoogleCommon.php:229
-msgid "(GMT-03:00) Belem"
-msgstr ""
+msgid "(GMT-03:00) Buenos Aires"
+msgstr "(GMT-03:00) Buenos Aires"
 
 #: ../../classes/common/SZGoogleCommon.php:230
-msgid "(GMT-03:00) Cayenne"
-msgstr ""
+msgid "(GMT-03:00) Salvador"
+msgstr "(GMT-03:00) Salvador"
 
 #: ../../classes/common/SZGoogleCommon.php:231
-msgid "(GMT-03:00) Fortaleza"
-msgstr ""
+msgid "(GMT-03:00) Belem"
+msgstr "(GMT-03:00) Belem"
 
 #: ../../classes/common/SZGoogleCommon.php:232
-msgid "(GMT-03:00) Godthab"
-msgstr ""
+msgid "(GMT-03:00) Cayenne"
+msgstr "(GMT-03:00) Cayenne"
 
 #: ../../classes/common/SZGoogleCommon.php:233
-msgid "(GMT-03:00) Maceio"
-msgstr ""
+msgid "(GMT-03:00) Fortaleza"
+msgstr "(GMT-03:00) Fortaleza"
 
 #: ../../classes/common/SZGoogleCommon.php:234
-msgid "(GMT-03:00) Miquelon"
-msgstr ""
+msgid "(GMT-03:00) Godthab"
+msgstr "(GMT-03:00) Godthab"
 
 #: ../../classes/common/SZGoogleCommon.php:235
-msgid "(GMT-03:00) Montevideo"
-msgstr ""
+msgid "(GMT-03:00) Maceio"
+msgstr "(GMT-03:00) Maceio"
 
 #: ../../classes/common/SZGoogleCommon.php:236
-msgid "(GMT-03:00) Paramaribo"
-msgstr ""
+msgid "(GMT-03:00) Miquelon"
+msgstr "(GMT-03:00) Miquelon"
 
 #: ../../classes/common/SZGoogleCommon.php:237
-msgid "(GMT-03:00) Recife"
-msgstr ""
+msgid "(GMT-03:00) Montevideo"
+msgstr "(GMT-03:00) Montevideo"
 
 #: ../../classes/common/SZGoogleCommon.php:238
-msgid "(GMT-03:00) Sao Paulo"
-msgstr ""
+msgid "(GMT-03:00) Paramaribo"
+msgstr "(GMT-03:00) Paramaribo"
 
 #: ../../classes/common/SZGoogleCommon.php:239
-msgid "(GMT-03:00) Rothera"
-msgstr ""
+msgid "(GMT-03:00) Recife"
+msgstr "(GMT-03:00) Recife"
 
 #: ../../classes/common/SZGoogleCommon.php:240
-msgid "(GMT-03:00) Stanley"
-msgstr ""
+msgid "(GMT-03:00) Sao Paulo"
+msgstr "(GMT-03:00) Sao Paulo"
 
 #: ../../classes/common/SZGoogleCommon.php:241
-msgid "(GMT-02:00) Noronha"
-msgstr ""
+msgid "(GMT-03:00) Rothera"
+msgstr "(GMT-03:00) Rothera"
 
 #: ../../classes/common/SZGoogleCommon.php:242
-msgid "(GMT-02:00) South Georgia"
-msgstr ""
+msgid "(GMT-03:00) Stanley"
+msgstr "(GMT-03:00) Stanley"
 
 #: ../../classes/common/SZGoogleCommon.php:243
-msgid "(GMT-01:00) Scoresbysund"
-msgstr ""
+msgid "(GMT-02:00) Noronha"
+msgstr "(GMT-02:00) Noronha"
 
 #: ../../classes/common/SZGoogleCommon.php:244
-msgid "(GMT-01:00) Azores"
-msgstr ""
+msgid "(GMT-02:00) South Georgia"
+msgstr "(GMT-02:00) South Georgia"
 
 #: ../../classes/common/SZGoogleCommon.php:245
-msgid "(GMT-01:00) Cape Verde"
-msgstr ""
+msgid "(GMT-01:00) Scoresbysund"
+msgstr "(GMT-01:00) Scoresbysund"
 
 #: ../../classes/common/SZGoogleCommon.php:246
-msgid "(GMT+00:00) Abidjan"
-msgstr ""
+msgid "(GMT-01:00) Azores"
+msgstr "(GMT-01:00) Azores"
 
 #: ../../classes/common/SZGoogleCommon.php:247
-msgid "(GMT+00:00) Accra"
-msgstr ""
+msgid "(GMT-01:00) Cape Verde"
+msgstr "(GMT-01:00) Cape Verde"
 
 #: ../../classes/common/SZGoogleCommon.php:248
-msgid "(GMT+00:00) Bamako"
-msgstr ""
+msgid "(GMT+00:00) Abidjan"
+msgstr "(GMT+00:00) Abidjan"
 
 #: ../../classes/common/SZGoogleCommon.php:249
-msgid "(GMT+00:00) Banjul"
-msgstr ""
+msgid "(GMT+00:00) Accra"
+msgstr "(GMT+00:00) Accra"
 
 #: ../../classes/common/SZGoogleCommon.php:250
-msgid "(GMT+00:00) Bissau"
-msgstr ""
+msgid "(GMT+00:00) Bamako"
+msgstr "(GMT+00:00) Bamako"
 
 #: ../../classes/common/SZGoogleCommon.php:251
-msgid "(GMT+00:00) Casablanca"
-msgstr ""
+msgid "(GMT+00:00) Banjul"
+msgstr "(GMT+00:00) Banjul"
 
 #: ../../classes/common/SZGoogleCommon.php:252
-msgid "(GMT+00:00) Conakry"
-msgstr ""
+msgid "(GMT+00:00) Bissau"
+msgstr "(GMT+00:00) Bissau"
 
 #: ../../classes/common/SZGoogleCommon.php:253
-msgid "(GMT+00:00) Dakar"
-msgstr ""
+msgid "(GMT+00:00) Casablanca"
+msgstr "(GMT+00:00) Casablanca"
 
 #: ../../classes/common/SZGoogleCommon.php:254
-msgid "(GMT+00:00) El Aaiun"
-msgstr ""
+msgid "(GMT+00:00) Conakry"
+msgstr "(GMT+00:00) Conakry"
 
 #: ../../classes/common/SZGoogleCommon.php:255
-msgid "(GMT+00:00) Freetown"
-msgstr ""
+msgid "(GMT+00:00) Dakar"
+msgstr "(GMT+00:00) Dakar"
 
 #: ../../classes/common/SZGoogleCommon.php:256
-msgid "(GMT+00:00) Lome"
-msgstr ""
+msgid "(GMT+00:00) El Aaiun"
+msgstr "(GMT+00:00) El Aaiun"
 
 #: ../../classes/common/SZGoogleCommon.php:257
-msgid "(GMT+00:00) Monrovia"
-msgstr ""
+msgid "(GMT+00:00) Freetown"
+msgstr "(GMT+00:00) Freetown"
 
 #: ../../classes/common/SZGoogleCommon.php:258
-msgid "(GMT+00:00) Nouakchott"
-msgstr ""
+msgid "(GMT+00:00) Lome"
+msgstr "(GMT+00:00) Lome"
 
 #: ../../classes/common/SZGoogleCommon.php:259
-msgid "(GMT+00:00) Ouagadougou"
-msgstr ""
+msgid "(GMT+00:00) Monrovia"
+msgstr "(GMT+00:00) Monrovia"
 
 #: ../../classes/common/SZGoogleCommon.php:260
-msgid "(GMT+00:00) Sao Tome"
-msgstr ""
+msgid "(GMT+00:00) Nouakchott"
+msgstr "(GMT+00:00) Nouakchott"
 
 #: ../../classes/common/SZGoogleCommon.php:261
-msgid "(GMT+00:00) Danmarkshavn"
-msgstr ""
+msgid "(GMT+00:00) Ouagadougou"
+msgstr "(GMT+00:00) Ouagadougou"
 
 #: ../../classes/common/SZGoogleCommon.php:262
-msgid "(GMT+00:00) Canary Islands"
-msgstr ""
+msgid "(GMT+00:00) Sao Tome"
+msgstr "(GMT+00:00) Sao Tome"
 
 #: ../../classes/common/SZGoogleCommon.php:263
-msgid "(GMT+00:00) Faeroe"
-msgstr ""
+msgid "(GMT+00:00) Danmarkshavn"
+msgstr "(GMT+00:00) Danmarkshavn"
 
 #: ../../classes/common/SZGoogleCommon.php:264
-msgid "(GMT+00:00) Reykjavik"
-msgstr ""
+msgid "(GMT+00:00) Canary Islands"
+msgstr "(GMT+00:00) Canary Islands"
 
 #: ../../classes/common/SZGoogleCommon.php:265
-msgid "(GMT+00:00) St Helena"
-msgstr ""
+msgid "(GMT+00:00) Faeroe"
+msgstr "(GMT+00:00) Faeroe"
 
 #: ../../classes/common/SZGoogleCommon.php:266
-msgid "(GMT+00:00) GMT (no daylight saving)"
-msgstr ""
+msgid "(GMT+00:00) Reykjavik"
+msgstr "(GMT+00:00) Reykjavik"
 
 #: ../../classes/common/SZGoogleCommon.php:267
-msgid "(GMT+00:00) Dublin"
-msgstr ""
+msgid "(GMT+00:00) St Helena"
+msgstr "(GMT+00:00) St Helena"
 
 #: ../../classes/common/SZGoogleCommon.php:268
-msgid "(GMT+00:00) Lisbon"
-msgstr ""
+msgid "(GMT+00:00) GMT (no daylight saving)"
+msgstr "(GMT+00:00) GMT (no daylight saving)"
 
 #: ../../classes/common/SZGoogleCommon.php:269
-msgid "(GMT+00:00) London"
-msgstr ""
+msgid "(GMT+00:00) Dublin"
+msgstr "(GMT+00:00) Dublin"
 
 #: ../../classes/common/SZGoogleCommon.php:270
-msgid "(GMT+01:00) Algiers"
-msgstr ""
+msgid "(GMT+00:00) Lisbon"
+msgstr "(GMT+00:00) Lisbon"
 
 #: ../../classes/common/SZGoogleCommon.php:271
-msgid "(GMT+01:00) Bangui"
-msgstr ""
+msgid "(GMT+00:00) London"
+msgstr "(GMT+00:00) London"
 
 #: ../../classes/common/SZGoogleCommon.php:272
-msgid "(GMT+01:00) Brazzaville"
-msgstr ""
+msgid "(GMT+01:00) Algiers"
+msgstr "(GMT+01:00) Algiers"
 
 #: ../../classes/common/SZGoogleCommon.php:273
-msgid "(GMT+01:00) Ceuta"
-msgstr ""
+msgid "(GMT+01:00) Bangui"
+msgstr "(GMT+01:00) Bangui"
 
 #: ../../classes/common/SZGoogleCommon.php:274
-msgid "(GMT+01:00) Douala"
-msgstr ""
+msgid "(GMT+01:00) Brazzaville"
+msgstr "(GMT+01:00) Brazzaville"
 
 #: ../../classes/common/SZGoogleCommon.php:275
-msgid "(GMT+01:00) Kinshasa"
-msgstr ""
+msgid "(GMT+01:00) Ceuta"
+msgstr "(GMT+01:00) Ceuta"
 
 #: ../../classes/common/SZGoogleCommon.php:276
-msgid "(GMT+01:00) Lagos"
-msgstr ""
+msgid "(GMT+01:00) Douala"
+msgstr "(GMT+01:00) Douala"
 
 #: ../../classes/common/SZGoogleCommon.php:277
-msgid "(GMT+01:00) Libreville"
-msgstr ""
+msgid "(GMT+01:00) Kinshasa"
+msgstr "(GMT+01:00) Kinshasa"
 
 #: ../../classes/common/SZGoogleCommon.php:278
-msgid "(GMT+01:00) Luanda"
-msgstr ""
+msgid "(GMT+01:00) Lagos"
+msgstr "(GMT+01:00) Lagos"
 
 #: ../../classes/common/SZGoogleCommon.php:279
-msgid "(GMT+01:00) Malabo"
-msgstr ""
+msgid "(GMT+01:00) Libreville"
+msgstr "(GMT+01:00) Libreville"
 
 #: ../../classes/common/SZGoogleCommon.php:280
-msgid "(GMT+01:00) Ndjamena"
-msgstr ""
+msgid "(GMT+01:00) Luanda"
+msgstr "(GMT+01:00) Luanda"
 
 #: ../../classes/common/SZGoogleCommon.php:281
-msgid "(GMT+01:00) Niamey"
-msgstr ""
+msgid "(GMT+01:00) Malabo"
+msgstr "(GMT+01:00) Malabo"
 
 #: ../../classes/common/SZGoogleCommon.php:282
-msgid "(GMT+01:00) Porto-Novo"
-msgstr ""
+msgid "(GMT+01:00) Ndjamena"
+msgstr "(GMT+01:00) Ndjamena"
 
 #: ../../classes/common/SZGoogleCommon.php:283
-msgid "(GMT+01:00) Tunis"
-msgstr ""
+msgid "(GMT+01:00) Niamey"
+msgstr "(GMT+01:00) Niamey"
 
 #: ../../classes/common/SZGoogleCommon.php:284
-msgid "(GMT+01:00) Windhoek"
-msgstr ""
+msgid "(GMT+01:00) Porto-Novo"
+msgstr "(GMT+01:00) Porto-Novo"
 
 #: ../../classes/common/SZGoogleCommon.php:285
-msgid "(GMT+01:00) Amsterdam"
-msgstr ""
+msgid "(GMT+01:00) Tunis"
+msgstr "(GMT+01:00) Tunis"
 
 #: ../../classes/common/SZGoogleCommon.php:286
-msgid "(GMT+01:00) Andorra"
-msgstr ""
+msgid "(GMT+01:00) Windhoek"
+msgstr "(GMT+01:00) Windhoek"
 
 #: ../../classes/common/SZGoogleCommon.php:287
-msgid "(GMT+01:00) Central European Time - Belgrade"
-msgstr ""
+msgid "(GMT+01:00) Amsterdam"
+msgstr "(GMT+01:00) Amsterdam"
 
 #: ../../classes/common/SZGoogleCommon.php:288
-msgid "(GMT+01:00) Berlin"
-msgstr ""
+msgid "(GMT+01:00) Andorra"
+msgstr "(GMT+01:00) Andorra"
 
 #: ../../classes/common/SZGoogleCommon.php:289
-msgid "(GMT+01:00) Brussels"
-msgstr ""
+msgid "(GMT+01:00) Central European Time - Belgrade"
+msgstr "(GMT+01:00) Central European Time - Belgrade"
 
 #: ../../classes/common/SZGoogleCommon.php:290
-msgid "(GMT+01:00) Budapest"
-msgstr ""
+msgid "(GMT+01:00) Berlin"
+msgstr "(GMT+01:00) Berlin"
 
 #: ../../classes/common/SZGoogleCommon.php:291
-msgid "(GMT+01:00) Copenhagen"
-msgstr ""
+msgid "(GMT+01:00) Brussels"
+msgstr "(GMT+01:00) Brussels"
 
 #: ../../classes/common/SZGoogleCommon.php:292
-msgid "(GMT+01:00) Gibraltar"
-msgstr ""
+msgid "(GMT+01:00) Budapest"
+msgstr "(GMT+01:00) Budapest"
 
 #: ../../classes/common/SZGoogleCommon.php:293
-msgid "(GMT+01:00) Luxembourg"
-msgstr ""
+msgid "(GMT+01:00) Copenhagen"
+msgstr "(GMT+01:00) Copenhagen"
 
 #: ../../classes/common/SZGoogleCommon.php:294
-msgid "(GMT+01:00) Madrid"
-msgstr ""
+msgid "(GMT+01:00) Gibraltar"
+msgstr "(GMT+01:00) Gibraltar"
 
 #: ../../classes/common/SZGoogleCommon.php:295
-msgid "(GMT+01:00) Malta"
-msgstr ""
+msgid "(GMT+01:00) Luxembourg"
+msgstr "(GMT+01:00) Luxembourg"
 
 #: ../../classes/common/SZGoogleCommon.php:296
-msgid "(GMT+01:00) Monaco"
-msgstr ""
+msgid "(GMT+01:00) Madrid"
+msgstr "(GMT+01:00) Madrid"
 
 #: ../../classes/common/SZGoogleCommon.php:297
-msgid "(GMT+01:00) Oslo"
-msgstr ""
+msgid "(GMT+01:00) Malta"
+msgstr "(GMT+01:00) Malta"
 
 #: ../../classes/common/SZGoogleCommon.php:298
-msgid "(GMT+01:00) Paris"
-msgstr ""
+msgid "(GMT+01:00) Monaco"
+msgstr "(GMT+01:00) Monaco"
 
 #: ../../classes/common/SZGoogleCommon.php:299
-msgid "(GMT+01:00) Central European Time - Prague"
-msgstr ""
+msgid "(GMT+01:00) Oslo"
+msgstr "(GMT+01:00) Oslo"
 
 #: ../../classes/common/SZGoogleCommon.php:300
-msgid "(GMT+01:00) Rome"
-msgstr ""
+msgid "(GMT+01:00) Paris"
+msgstr "(GMT+01:00) Paris"
 
 #: ../../classes/common/SZGoogleCommon.php:301
-msgid "(GMT+01:00) Stockholm"
-msgstr ""
+msgid "(GMT+01:00) Central European Time - Prague"
+msgstr "(GMT+01:00) Central European Time - Prague"
 
 #: ../../classes/common/SZGoogleCommon.php:302
-msgid "(GMT+01:00) Tirane"
-msgstr ""
+msgid "(GMT+01:00) Rome"
+msgstr "(GMT+01:00) Rome"
 
 #: ../../classes/common/SZGoogleCommon.php:303
-msgid "(GMT+01:00) Vienna"
-msgstr ""
+msgid "(GMT+01:00) Stockholm"
+msgstr "(GMT+01:00) Stockholm"
 
 #: ../../classes/common/SZGoogleCommon.php:304
-msgid "(GMT+01:00) Warsaw"
-msgstr ""
+msgid "(GMT+01:00) Tirane"
+msgstr "(GMT+01:00) Tirane"
 
 #: ../../classes/common/SZGoogleCommon.php:305
-msgid "(GMT+01:00) Zurich"
-msgstr ""
+msgid "(GMT+01:00) Vienna"
+msgstr "(GMT+01:00) Vienna"
 
 #: ../../classes/common/SZGoogleCommon.php:306
-msgid "(GMT+02:00) Blantyre"
-msgstr ""
+msgid "(GMT+01:00) Warsaw"
+msgstr "(GMT+01:00) Warsaw"
 
 #: ../../classes/common/SZGoogleCommon.php:307
-msgid "(GMT+02:00) Bujumbura"
-msgstr ""
+msgid "(GMT+01:00) Zurich"
+msgstr "(GMT+01:00) Zurich"
 
 #: ../../classes/common/SZGoogleCommon.php:308
-msgid "(GMT+02:00) Cairo"
-msgstr ""
+msgid "(GMT+02:00) Blantyre"
+msgstr "(GMT+02:00) Blantyre"
 
 #: ../../classes/common/SZGoogleCommon.php:309
-msgid "(GMT+02:00) Gaborone"
-msgstr ""
+msgid "(GMT+02:00) Bujumbura"
+msgstr "(GMT+02:00) Bujumbura"
 
 #: ../../classes/common/SZGoogleCommon.php:310
-msgid "(GMT+02:00) Harare"
-msgstr ""
+msgid "(GMT+02:00) Cairo"
+msgstr "(GMT+02:00) Cairo"
 
 #: ../../classes/common/SZGoogleCommon.php:311
-msgid "(GMT+02:00) Johannesburg"
-msgstr ""
+msgid "(GMT+02:00) Gaborone"
+msgstr "(GMT+02:00) Gaborone"
 
 #: ../../classes/common/SZGoogleCommon.php:312
-msgid "(GMT+02:00) Kigali"
-msgstr ""
+msgid "(GMT+02:00) Harare"
+msgstr "(GMT+02:00) Harare"
 
 #: ../../classes/common/SZGoogleCommon.php:313
-msgid "(GMT+02:00) Lubumbashi"
-msgstr ""
+msgid "(GMT+02:00) Johannesburg"
+msgstr "(GMT+02:00) Johannesburg"
 
 #: ../../classes/common/SZGoogleCommon.php:314
-msgid "(GMT+02:00) Lusaka"
-msgstr ""
+msgid "(GMT+02:00) Kigali"
+msgstr "(GMT+02:00) Kigali"
 
 #: ../../classes/common/SZGoogleCommon.php:315
-msgid "(GMT+02:00) Maputo"
-msgstr ""
+msgid "(GMT+02:00) Lubumbashi"
+msgstr "(GMT+02:00) Lubumbashi"
 
 #: ../../classes/common/SZGoogleCommon.php:316
-msgid "(GMT+02:00) Maseru"
-msgstr ""
+msgid "(GMT+02:00) Lusaka"
+msgstr "(GMT+02:00) Lusaka"
 
 #: ../../classes/common/SZGoogleCommon.php:317
-msgid "(GMT+02:00) Mbabane"
-msgstr ""
+msgid "(GMT+02:00) Maputo"
+msgstr "(GMT+02:00) Maputo"
 
 #: ../../classes/common/SZGoogleCommon.php:318
-msgid "(GMT+02:00) Tripoli"
-msgstr ""
+msgid "(GMT+02:00) Maseru"
+msgstr "(GMT+02:00) Maseru"
 
 #: ../../classes/common/SZGoogleCommon.php:319
-msgid "(GMT+02:00) Amman"
-msgstr ""
+msgid "(GMT+02:00) Mbabane"
+msgstr "(GMT+02:00) Mbabane"
 
 #: ../../classes/common/SZGoogleCommon.php:320
-msgid "(GMT+02:00) Beirut"
-msgstr ""
+msgid "(GMT+02:00) Tripoli"
+msgstr "(GMT+02:00) Tripoli"
 
 #: ../../classes/common/SZGoogleCommon.php:321
-msgid "(GMT+02:00) Damascus"
-msgstr ""
+msgid "(GMT+02:00) Amman"
+msgstr "(GMT+02:00) Amman"
 
 #: ../../classes/common/SZGoogleCommon.php:322
-msgid "(GMT+02:00) Gaza"
-msgstr ""
+msgid "(GMT+02:00) Beirut"
+msgstr "(GMT+02:00) Beirut"
 
 #: ../../classes/common/SZGoogleCommon.php:323
-msgid "(GMT+02:00) Jerusalem"
-msgstr ""
+msgid "(GMT+02:00) Damascus"
+msgstr "(GMT+02:00) Damascus"
 
 #: ../../classes/common/SZGoogleCommon.php:324
-msgid "(GMT+02:00) Nicosia"
-msgstr ""
+msgid "(GMT+02:00) Gaza"
+msgstr "(GMT+02:00) Gaza"
 
 #: ../../classes/common/SZGoogleCommon.php:325
-msgid "(GMT+02:00) Athens"
-msgstr ""
+msgid "(GMT+02:00) Jerusalem"
+msgstr "(GMT+02:00) Jerusalem"
 
 #: ../../classes/common/SZGoogleCommon.php:326
-msgid "(GMT+02:00) Bucharest"
-msgstr ""
+msgid "(GMT+02:00) Nicosia"
+msgstr "(GMT+02:00) Nicosia"
 
 #: ../../classes/common/SZGoogleCommon.php:327
-msgid "(GMT+02:00) Chisinau"
-msgstr ""
+msgid "(GMT+02:00) Athens"
+msgstr "(GMT+02:00) Athens"
 
 #: ../../classes/common/SZGoogleCommon.php:328
-msgid "(GMT+02:00) Helsinki"
-msgstr ""
+msgid "(GMT+02:00) Bucharest"
+msgstr "(GMT+02:00) Bucharest"
 
 #: ../../classes/common/SZGoogleCommon.php:329
-msgid "(GMT+02:00) Istanbul"
-msgstr ""
+msgid "(GMT+02:00) Chisinau"
+msgstr "(GMT+02:00) Chisinau"
 
 #: ../../classes/common/SZGoogleCommon.php:330
-msgid "(GMT+02:00) Kiev"
-msgstr ""
+msgid "(GMT+02:00) Helsinki"
+msgstr "(GMT+02:00) Helsinki"
 
 #: ../../classes/common/SZGoogleCommon.php:331
-msgid "(GMT+02:00) Riga"
-msgstr ""
+msgid "(GMT+02:00) Istanbul"
+msgstr "(GMT+02:00) Istanbul"
 
 #: ../../classes/common/SZGoogleCommon.php:332
-msgid "(GMT+02:00) Sofia"
-msgstr ""
+msgid "(GMT+02:00) Kiev"
+msgstr "(GMT+02:00) Kiev"
 
 #: ../../classes/common/SZGoogleCommon.php:333
-msgid "(GMT+02:00) Tallinn"
-msgstr ""
+msgid "(GMT+02:00) Riga"
+msgstr "(GMT+02:00) Riga"
 
 #: ../../classes/common/SZGoogleCommon.php:334
-msgid "(GMT+02:00) Vilnius"
-msgstr ""
+msgid "(GMT+02:00) Sofia"
+msgstr "(GMT+02:00) Sofia"
 
 #: ../../classes/common/SZGoogleCommon.php:335
-msgid "(GMT+03:00) Addis Ababa"
-msgstr ""
+msgid "(GMT+02:00) Tallinn"
+msgstr "(GMT+02:00) Tallinn"
 
 #: ../../classes/common/SZGoogleCommon.php:336
-msgid "(GMT+03:00) Asmera"
-msgstr ""
+msgid "(GMT+02:00) Vilnius"
+msgstr "(GMT+02:00) Vilnius"
 
 #: ../../classes/common/SZGoogleCommon.php:337
-msgid "(GMT+03:00) Dar es Salaam"
-msgstr ""
+msgid "(GMT+03:00) Addis Ababa"
+msgstr "(GMT+03:00) Addis Ababa"
 
 #: ../../classes/common/SZGoogleCommon.php:338
-msgid "(GMT+03:00) Djibouti"
-msgstr ""
+msgid "(GMT+03:00) Asmera"
+msgstr "(GMT+03:00) Asmera"
 
 #: ../../classes/common/SZGoogleCommon.php:339
-msgid "(GMT+03:00) Kampala"
-msgstr ""
+msgid "(GMT+03:00) Dar es Salaam"
+msgstr "(GMT+03:00) Dar es Salaam"
 
 #: ../../classes/common/SZGoogleCommon.php:340
-msgid "(GMT+03:00) Khartoum"
-msgstr ""
+msgid "(GMT+03:00) Djibouti"
+msgstr "(GMT+03:00) Djibouti"
 
 #: ../../classes/common/SZGoogleCommon.php:341
-msgid "(GMT+03:00) Mogadishu"
-msgstr ""
+msgid "(GMT+03:00) Kampala"
+msgstr "(GMT+03:00) Kampala"
 
 #: ../../classes/common/SZGoogleCommon.php:342
-msgid "(GMT+03:00) Nairobi"
-msgstr ""
+msgid "(GMT+03:00) Khartoum"
+msgstr "(GMT+03:00) Khartoum"
 
 #: ../../classes/common/SZGoogleCommon.php:343
-msgid "(GMT+03:00) Syowa"
-msgstr ""
+msgid "(GMT+03:00) Mogadishu"
+msgstr "(GMT+03:00) Mogadishu"
 
 #: ../../classes/common/SZGoogleCommon.php:344
-msgid "(GMT+03:00) Aden"
-msgstr ""
+msgid "(GMT+03:00) Nairobi"
+msgstr "(GMT+03:00) Nairobi"
 
 #: ../../classes/common/SZGoogleCommon.php:345
-msgid "(GMT+03:00) Baghdad"
-msgstr ""
+msgid "(GMT+03:00) Syowa"
+msgstr "(GMT+03:00) Syowa"
 
 #: ../../classes/common/SZGoogleCommon.php:346
-msgid "(GMT+03:00) Bahrain"
-msgstr ""
+msgid "(GMT+03:00) Aden"
+msgstr "(GMT+03:00) Aden"
 
 #: ../../classes/common/SZGoogleCommon.php:347
-msgid "(GMT+03:00) Kuwait"
-msgstr ""
+msgid "(GMT+03:00) Baghdad"
+msgstr "(GMT+03:00) Baghdad"
 
 #: ../../classes/common/SZGoogleCommon.php:348
-msgid "(GMT+03:00) Qatar"
-msgstr ""
+msgid "(GMT+03:00) Bahrain"
+msgstr "(GMT+03:00) Bahrain"
 
 #: ../../classes/common/SZGoogleCommon.php:349
-msgid "(GMT+03:00) Riyadh"
-msgstr ""
+msgid "(GMT+03:00) Kuwait"
+msgstr "(GMT+03:00) Kuwait"
 
 #: ../../classes/common/SZGoogleCommon.php:350
-msgid "(GMT+03:00) Moscow-01 - Kaliningrad"
-msgstr ""
+msgid "(GMT+03:00) Qatar"
+msgstr "(GMT+03:00) Qatar"
 
 #: ../../classes/common/SZGoogleCommon.php:351
-msgid "(GMT+03:00) Minsk"
-msgstr ""
+msgid "(GMT+03:00) Riyadh"
+msgstr "(GMT+03:00) Riyadh"
 
 #: ../../classes/common/SZGoogleCommon.php:352
-msgid "(GMT+03:00) Antananarivo"
-msgstr ""
+msgid "(GMT+03:00) Moscow-01 - Kaliningrad"
+msgstr "(GMT+03:00) Moscow-01 - Kaliningrad"
 
 #: ../../classes/common/SZGoogleCommon.php:353
-msgid "(GMT+03:00) Comoro"
-msgstr ""
+msgid "(GMT+03:00) Minsk"
+msgstr "(GMT+03:00) Minsk"
 
 #: ../../classes/common/SZGoogleCommon.php:354
-msgid "(GMT+03:00) Mayotte"
-msgstr ""
+msgid "(GMT+03:00) Antananarivo"
+msgstr "(GMT+03:00) Antananarivo"
 
 #: ../../classes/common/SZGoogleCommon.php:355
-msgid "(GMT+03:30) Tehran"
-msgstr ""
+msgid "(GMT+03:00) Comoro"
+msgstr "(GMT+03:00) Comoro"
 
 #: ../../classes/common/SZGoogleCommon.php:356
-msgid "(GMT+04:00) Baku"
-msgstr ""
+msgid "(GMT+03:00) Mayotte"
+msgstr "(GMT+03:00) Mayotte"
 
 #: ../../classes/common/SZGoogleCommon.php:357
-msgid "(GMT+04:00) Dubai"
-msgstr ""
+msgid "(GMT+03:30) Tehran"
+msgstr "(GMT+03:30) Tehran"
 
 #: ../../classes/common/SZGoogleCommon.php:358
-msgid "(GMT+04:00) Muscat"
-msgstr ""
+msgid "(GMT+04:00) Baku"
+msgstr "(GMT+04:00) Baku"
 
 #: ../../classes/common/SZGoogleCommon.php:359
-msgid "(GMT+04:00) Tbilisi"
-msgstr ""
+msgid "(GMT+04:00) Dubai"
+msgstr "(GMT+04:00) Dubai"
 
 #: ../../classes/common/SZGoogleCommon.php:360
-msgid "(GMT+04:00) Yerevan"
-msgstr ""
+msgid "(GMT+04:00) Muscat"
+msgstr "(GMT+04:00) Muscat"
 
 #: ../../classes/common/SZGoogleCommon.php:361
-msgid "(GMT+04:00) Moscow+00"
-msgstr ""
+msgid "(GMT+04:00) Tbilisi"
+msgstr "(GMT+04:00) Tbilisi"
 
 #: ../../classes/common/SZGoogleCommon.php:362
-msgid "(GMT+04:00) Moscow+00 - Samara"
-msgstr ""
+msgid "(GMT+04:00) Yerevan"
+msgstr "(GMT+04:00) Yerevan"
 
 #: ../../classes/common/SZGoogleCommon.php:363
-msgid "(GMT+04:00) Mahe"
-msgstr ""
+msgid "(GMT+04:00) Moscow+00"
+msgstr "(GMT+04:00) Moscow+00"
 
 #: ../../classes/common/SZGoogleCommon.php:364
-msgid "(GMT+04:00) Mauritius"
-msgstr ""
+msgid "(GMT+04:00) Moscow+00 - Samara"
+msgstr "(GMT+04:00) Moscow+00 - Samara"
 
 #: ../../classes/common/SZGoogleCommon.php:365
-msgid "(GMT+04:00) Reunion"
-msgstr ""
+msgid "(GMT+04:00) Mahe"
+msgstr "(GMT+04:00) Mahe"
 
 #: ../../classes/common/SZGoogleCommon.php:366
-msgid "(GMT+04:30) Kabul"
-msgstr ""
+msgid "(GMT+04:00) Mauritius"
+msgstr "(GMT+04:00) Mauritius"
 
 #: ../../classes/common/SZGoogleCommon.php:367
-msgid "(GMT+05:00) Mawson"
-msgstr ""
+msgid "(GMT+04:00) Reunion"
+msgstr "(GMT+04:00) Reunion"
 
 #: ../../classes/common/SZGoogleCommon.php:368
-msgid "(GMT+05:00) Aqtau"
-msgstr ""
+msgid "(GMT+04:30) Kabul"
+msgstr "(GMT+04:30) Kabul"
 
 #: ../../classes/common/SZGoogleCommon.php:369
-msgid "(GMT+05:00) Aqtobe"
-msgstr ""
+msgid "(GMT+05:00) Mawson"
+msgstr "(GMT+05:00) Mawson"
 
 #: ../../classes/common/SZGoogleCommon.php:370
-msgid "(GMT+05:00) Ashgabat"
-msgstr ""
+msgid "(GMT+05:00) Aqtau"
+msgstr "(GMT+05:00) Aqtau"
 
 #: ../../classes/common/SZGoogleCommon.php:371
-msgid "(GMT+05:00) Dushanbe"
-msgstr ""
+msgid "(GMT+05:00) Aqtobe"
+msgstr "(GMT+05:00) Aqtobe"
 
 #: ../../classes/common/SZGoogleCommon.php:372
-msgid "(GMT+05:00) Karachi"
-msgstr ""
+msgid "(GMT+05:00) Ashgabat"
+msgstr "(GMT+05:00) Ashgabat"
 
 #: ../../classes/common/SZGoogleCommon.php:373
-msgid "(GMT+05:00) Tashkent"
-msgstr ""
+msgid "(GMT+05:00) Dushanbe"
+msgstr "(GMT+05:00) Dushanbe"
 
 #: ../../classes/common/SZGoogleCommon.php:374
-msgid "(GMT+05:00) Kerguelen"
-msgstr ""
+msgid "(GMT+05:00) Karachi"
+msgstr "(GMT+05:00) Karachi"
 
 #: ../../classes/common/SZGoogleCommon.php:375
-msgid "(GMT+05:00) Maldives"
-msgstr ""
+msgid "(GMT+05:00) Tashkent"
+msgstr "(GMT+05:00) Tashkent"
 
 #: ../../classes/common/SZGoogleCommon.php:376
-msgid "(GMT+05:30) India Standard Time"
-msgstr ""
+msgid "(GMT+05:00) Kerguelen"
+msgstr "(GMT+05:00) Kerguelen"
 
 #: ../../classes/common/SZGoogleCommon.php:377
-msgid "(GMT+05:30) Colombo"
-msgstr ""
+msgid "(GMT+05:00) Maldives"
+msgstr "(GMT+05:00) Maldives"
 
 #: ../../classes/common/SZGoogleCommon.php:378
-msgid "(GMT+05:45) Katmandu"
-msgstr ""
+msgid "(GMT+05:30) India Standard Time"
+msgstr "(GMT+05:30) India Standard Time"
 
 #: ../../classes/common/SZGoogleCommon.php:379
-msgid "(GMT+06:00) Vostok"
-msgstr ""
+msgid "(GMT+05:30) Colombo"
+msgstr "(GMT+05:30) Colombo"
 
 #: ../../classes/common/SZGoogleCommon.php:380
-msgid "(GMT+06:00) Almaty"
-msgstr ""
+msgid "(GMT+05:45) Katmandu"
+msgstr "(GMT+05:45) Katmandu"
 
 #: ../../classes/common/SZGoogleCommon.php:381
-msgid "(GMT+06:00) Bishkek"
-msgstr ""
+msgid "(GMT+06:00) Vostok"
+msgstr "(GMT+06:00) Vostok"
 
 #: ../../classes/common/SZGoogleCommon.php:382
-msgid "(GMT+06:00) Dhaka"
-msgstr ""
+msgid "(GMT+06:00) Almaty"
+msgstr "(GMT+06:00) Almaty"
 
 #: ../../classes/common/SZGoogleCommon.php:383
-msgid "(GMT+06:00) Thimphu"
-msgstr ""
+msgid "(GMT+06:00) Bishkek"
+msgstr "(GMT+06:00) Bishkek"
 
 #: ../../classes/common/SZGoogleCommon.php:384
-msgid "(GMT+06:00) Moscow+02 - Yekaterinburg"
-msgstr ""
+msgid "(GMT+06:00) Dhaka"
+msgstr "(GMT+06:00) Dhaka"
 
 #: ../../classes/common/SZGoogleCommon.php:385
-msgid "(GMT+06:00) Chagos"
-msgstr ""
+msgid "(GMT+06:00) Thimphu"
+msgstr "(GMT+06:00) Thimphu"
 
 #: ../../classes/common/SZGoogleCommon.php:386
-msgid "(GMT+06:30) Rangoon"
-msgstr ""
+msgid "(GMT+06:00) Moscow+02 - Yekaterinburg"
+msgstr "(GMT+06:00) Moscow+02 - Yekaterinburg"
 
 #: ../../classes/common/SZGoogleCommon.php:387
-msgid "(GMT+06:30) Cocos"
-msgstr ""
+msgid "(GMT+06:00) Chagos"
+msgstr "(GMT+06:00) Chagos"
 
 #: ../../classes/common/SZGoogleCommon.php:388
-msgid "(GMT+07:00) Davis"
-msgstr ""
+msgid "(GMT+06:30) Rangoon"
+msgstr "(GMT+06:30) Rangoon"
 
 #: ../../classes/common/SZGoogleCommon.php:389
-msgid "(GMT+07:00) Bangkok"
-msgstr ""
+msgid "(GMT+06:30) Cocos"
+msgstr "(GMT+06:30) Cocos"
 
 #: ../../classes/common/SZGoogleCommon.php:390
-msgid "(GMT+07:00) Hovd"
-msgstr ""
+msgid "(GMT+07:00) Davis"
+msgstr "(GMT+07:00) Davis"
 
 #: ../../classes/common/SZGoogleCommon.php:391
-msgid "(GMT+07:00) Jakarta"
-msgstr ""
+msgid "(GMT+07:00) Bangkok"
+msgstr "(GMT+07:00) Bangkok"
 
 #: ../../classes/common/SZGoogleCommon.php:392
-msgid "(GMT+07:00) Moscow+03 - Omsk, Novosibirsk"
-msgstr ""
+msgid "(GMT+07:00) Hovd"
+msgstr "(GMT+07:00) Hovd"
 
 #: ../../classes/common/SZGoogleCommon.php:393
-msgid "(GMT+07:00) Phnom Penh"
-msgstr ""
+msgid "(GMT+07:00) Jakarta"
+msgstr "(GMT+07:00) Jakarta"
 
 #: ../../classes/common/SZGoogleCommon.php:394
-msgid "(GMT+07:00) Hanoi"
-msgstr ""
+msgid "(GMT+07:00) Moscow+03 - Omsk, Novosibirsk"
+msgstr "(GMT+07:00) Moscow+03 - Omsk, Novosibirsk"
 
 #: ../../classes/common/SZGoogleCommon.php:395
-msgid "(GMT+07:00) Vientiane"
-msgstr ""
+msgid "(GMT+07:00) Phnom Penh"
+msgstr "(GMT+07:00) Phnom Penh"
 
 #: ../../classes/common/SZGoogleCommon.php:396
-msgid "(GMT+07:00) Christmas"
-msgstr ""
+msgid "(GMT+07:00) Hanoi"
+msgstr "(GMT+07:00) Hanoi"
 
 #: ../../classes/common/SZGoogleCommon.php:397
-msgid "(GMT+08:00) Casey"
-msgstr ""
+msgid "(GMT+07:00) Vientiane"
+msgstr "(GMT+07:00) Vientiane"
 
 #: ../../classes/common/SZGoogleCommon.php:398
-msgid "(GMT+08:00) Brunei"
-msgstr ""
+msgid "(GMT+07:00) Christmas"
+msgstr "(GMT+07:00) Christmas"
 
 #: ../../classes/common/SZGoogleCommon.php:399
-msgid "(GMT+08:00) Choibalsan"
-msgstr ""
+msgid "(GMT+08:00) Casey"
+msgstr "(GMT+08:00) Casey"
 
 #: ../../classes/common/SZGoogleCommon.php:400
-msgid "(GMT+08:00) Hong Kong"
-msgstr ""
+msgid "(GMT+08:00) Brunei"
+msgstr "(GMT+08:00) Brunei"
 
 #: ../../classes/common/SZGoogleCommon.php:401
-msgid "(GMT+08:00) Moscow+04 - Krasnoyarsk"
-msgstr ""
+msgid "(GMT+08:00) Choibalsan"
+msgstr "(GMT+08:00) Choibalsan"
 
 #: ../../classes/common/SZGoogleCommon.php:402
-msgid "(GMT+08:00) Kuala Lumpur"
-msgstr ""
+msgid "(GMT+08:00) Hong Kong"
+msgstr "(GMT+08:00) Hong Kong"
 
 #: ../../classes/common/SZGoogleCommon.php:403
-msgid "(GMT+08:00) Macau"
-msgstr ""
+msgid "(GMT+08:00) Moscow+04 - Krasnoyarsk"
+msgstr "(GMT+08:00) Moscow+04 - Krasnoyarsk"
 
 #: ../../classes/common/SZGoogleCommon.php:404
-msgid "(GMT+08:00) Makassar"
-msgstr ""
+msgid "(GMT+08:00) Kuala Lumpur"
+msgstr "(GMT+08:00) Kuala Lumpur"
 
 #: ../../classes/common/SZGoogleCommon.php:405
-msgid "(GMT+08:00) Manila"
-msgstr ""
+msgid "(GMT+08:00) Macau"
+msgstr "(GMT+08:00) Macau"
 
 #: ../../classes/common/SZGoogleCommon.php:406
-msgid "(GMT+08:00) China Time - Beijing"
-msgstr ""
+msgid "(GMT+08:00) Makassar"
+msgstr "(GMT+08:00) Makassar"
 
 #: ../../classes/common/SZGoogleCommon.php:407
-msgid "(GMT+08:00) Singapore"
-msgstr ""
+msgid "(GMT+08:00) Manila"
+msgstr "(GMT+08:00) Manila"
 
 #: ../../classes/common/SZGoogleCommon.php:408
-msgid "(GMT+08:00) Taipei"
-msgstr ""
+msgid "(GMT+08:00) China Time - Beijing"
+msgstr "(GMT+08:00) China Time - Beijing"
 
 #: ../../classes/common/SZGoogleCommon.php:409
-msgid "(GMT+08:00) Ulaanbaatar"
-msgstr ""
+msgid "(GMT+08:00) Singapore"
+msgstr "(GMT+08:00) Singapore"
 
 #: ../../classes/common/SZGoogleCommon.php:410
-msgid "(GMT+08:00) Western Time - Perth"
-msgstr ""
+msgid "(GMT+08:00) Taipei"
+msgstr "(GMT+08:00) Taipei"
 
 #: ../../classes/common/SZGoogleCommon.php:411
-msgid "(GMT+09:00) Dili"
-msgstr ""
+msgid "(GMT+08:00) Ulaanbaatar"
+msgstr "(GMT+08:00) Ulaanbaatar"
 
 #: ../../classes/common/SZGoogleCommon.php:412
-msgid "(GMT+09:00) Moscow+05 - Irkutsk"
-msgstr ""
+msgid "(GMT+08:00) Western Time - Perth"
+msgstr "(GMT+08:00) Western Time - Perth"
 
 #: ../../classes/common/SZGoogleCommon.php:413
-msgid "(GMT+09:00) Jayapura"
-msgstr ""
+msgid "(GMT+09:00) Dili"
+msgstr "(GMT+09:00) Dili"
 
 #: ../../classes/common/SZGoogleCommon.php:414
-msgid "(GMT+09:00) Pyongyang"
-msgstr ""
+msgid "(GMT+09:00) Moscow+05 - Irkutsk"
+msgstr "(GMT+09:00) Moscow+05 - Irkutsk"
 
 #: ../../classes/common/SZGoogleCommon.php:415
-msgid "(GMT+09:00) Seoul"
-msgstr ""
+msgid "(GMT+09:00) Jayapura"
+msgstr "(GMT+09:00) Jayapura"
 
 #: ../../classes/common/SZGoogleCommon.php:416
-msgid "(GMT+09:00) Tokyo"
-msgstr ""
+msgid "(GMT+09:00) Pyongyang"
+msgstr "(GMT+09:00) Pyongyang"
 
 #: ../../classes/common/SZGoogleCommon.php:417
-msgid "(GMT+09:00) Palau"
-msgstr ""
+msgid "(GMT+09:00) Seoul"
+msgstr "(GMT+09:00) Seoul"
 
 #: ../../classes/common/SZGoogleCommon.php:418
-msgid "(GMT+09:30) Central Time - Adelaide"
-msgstr ""
+msgid "(GMT+09:00) Tokyo"
+msgstr "(GMT+09:00) Tokyo"
 
 #: ../../classes/common/SZGoogleCommon.php:419
-msgid "(GMT+09:30) Central Time - Darwin"
-msgstr ""
+msgid "(GMT+09:00) Palau"
+msgstr "(GMT+09:00) Palau"
 
 #: ../../classes/common/SZGoogleCommon.php:420
-msgid "(GMT+10:00) Dumont D&#39;Urville"
-msgstr ""
+msgid "(GMT+09:30) Central Time - Adelaide"
+msgstr "(GMT+09:30) Central Time - Adelaide"
 
 #: ../../classes/common/SZGoogleCommon.php:421
-msgid "(GMT+10:00) Moscow+06 - Yakutsk"
-msgstr ""
+msgid "(GMT+09:30) Central Time - Darwin"
+msgstr "(GMT+09:30) Central Time - Darwin"
 
 #: ../../classes/common/SZGoogleCommon.php:422
-msgid "(GMT+10:00) Eastern Time - Brisbane"
-msgstr ""
+msgid "(GMT+10:00) Dumont D&#39;Urville"
+msgstr "(GMT+10:00) Dumont D&#39;Urville"
 
 #: ../../classes/common/SZGoogleCommon.php:423
-msgid "(GMT+10:00) Eastern Time - Hobart"
-msgstr ""
+msgid "(GMT+10:00) Moscow+06 - Yakutsk"
+msgstr "(GMT+10:00) Moscow+06 - Yakutsk"
 
 #: ../../classes/common/SZGoogleCommon.php:424
-msgid "(GMT+10:00) Eastern Time - Melbourne, Sydney"
-msgstr ""
+msgid "(GMT+10:00) Eastern Time - Brisbane"
+msgstr "(GMT+10:00) Eastern Time - Brisbane"
 
 #: ../../classes/common/SZGoogleCommon.php:425
-msgid "(GMT+10:00) Truk"
-msgstr ""
+msgid "(GMT+10:00) Eastern Time - Hobart"
+msgstr "(GMT+10:00) Eastern Time - Hobart"
 
 #: ../../classes/common/SZGoogleCommon.php:426
-msgid "(GMT+10:00) Guam"
-msgstr ""
+msgid "(GMT+10:00) Eastern Time - Melbourne, Sydney"
+msgstr "(GMT+10:00) Eastern Time - Melbourne, Sydney"
 
 #: ../../classes/common/SZGoogleCommon.php:427
-msgid "(GMT+10:00) Port Moresby"
-msgstr ""
+msgid "(GMT+10:00) Truk"
+msgstr "(GMT+10:00) Truk"
 
 #: ../../classes/common/SZGoogleCommon.php:428
-msgid "(GMT+10:00) Saipan"
-msgstr ""
+msgid "(GMT+10:00) Guam"
+msgstr "(GMT+10:00) Guam"
 
 #: ../../classes/common/SZGoogleCommon.php:429
-msgid "(GMT+11:00) Moscow+07 - Yuzhno-Sakhalinsk"
-msgstr ""
+msgid "(GMT+10:00) Port Moresby"
+msgstr "(GMT+10:00) Port Moresby"
 
 #: ../../classes/common/SZGoogleCommon.php:430
-msgid "(GMT+11:00) Efate"
-msgstr ""
+msgid "(GMT+10:00) Saipan"
+msgstr "(GMT+10:00) Saipan"
 
 #: ../../classes/common/SZGoogleCommon.php:431
-msgid "(GMT+11:00) Guadalcanal"
-msgstr ""
+msgid "(GMT+11:00) Moscow+07 - Yuzhno-Sakhalinsk"
+msgstr "(GMT+11:00) Moscow+07 - Yuzhno-Sakhalinsk"
 
 #: ../../classes/common/SZGoogleCommon.php:432
-msgid "(GMT+11:00) Kosrae"
-msgstr ""
+msgid "(GMT+11:00) Efate"
+msgstr "(GMT+11:00) Efate"
 
 #: ../../classes/common/SZGoogleCommon.php:433
-msgid "(GMT+11:00) Noumea"
-msgstr ""
+msgid "(GMT+11:00) Guadalcanal"
+msgstr "(GMT+11:00) Guadalcanal"
 
 #: ../../classes/common/SZGoogleCommon.php:434
-msgid "(GMT+11:00) Ponape"
-msgstr ""
+msgid "(GMT+11:00) Kosrae"
+msgstr "(GMT+11:00) Kosrae"
 
 #: ../../classes/common/SZGoogleCommon.php:435
-msgid "(GMT+11:30) Norfolk"
-msgstr ""
+msgid "(GMT+11:00) Noumea"
+msgstr "(GMT+11:00) Noumea"
 
 #: ../../classes/common/SZGoogleCommon.php:436
-msgid "(GMT+12:00) Moscow+08 - Petropavlovsk-Kamchatskiy"
-msgstr ""
+msgid "(GMT+11:00) Ponape"
+msgstr "(GMT+11:00) Ponape"
 
 #: ../../classes/common/SZGoogleCommon.php:437
-msgid "(GMT+12:00) Moscow+08 - Magadan"
-msgstr ""
+msgid "(GMT+11:30) Norfolk"
+msgstr "(GMT+11:30) Norfolk"
 
 #: ../../classes/common/SZGoogleCommon.php:438
-msgid "(GMT+12:00) Auckland"
-msgstr ""
+msgid "(GMT+12:00) Moscow+08 - Petropavlovsk-Kamchatskiy"
+msgstr "(GMT+12:00) Moscow+08 - Petropavlovsk-Kamchatskiy"
 
 #: ../../classes/common/SZGoogleCommon.php:439
-msgid "(GMT+12:00) Fiji"
-msgstr ""
+msgid "(GMT+12:00) Moscow+08 - Magadan"
+msgstr "(GMT+12:00) Moscow+08 - Magadan"
 
 #: ../../classes/common/SZGoogleCommon.php:440
-msgid "(GMT+12:00) Funafuti"
-msgstr ""
+msgid "(GMT+12:00) Auckland"
+msgstr "(GMT+12:00) Auckland"
 
 #: ../../classes/common/SZGoogleCommon.php:441
-msgid "(GMT+12:00) Kwajalein"
-msgstr ""
+msgid "(GMT+12:00) Fiji"
+msgstr "(GMT+12:00) Fiji"
 
 #: ../../classes/common/SZGoogleCommon.php:442
-msgid "(GMT+12:00) Majuro"
-msgstr ""
+msgid "(GMT+12:00) Funafuti"
+msgstr "(GMT+12:00) Funafuti"
 
 #: ../../classes/common/SZGoogleCommon.php:443
-msgid "(GMT+12:00) Nauru"
-msgstr ""
+msgid "(GMT+12:00) Kwajalein"
+msgstr "(GMT+12:00) Kwajalein"
 
 #: ../../classes/common/SZGoogleCommon.php:444
-msgid "(GMT+12:00) Tarawa"
-msgstr ""
+msgid "(GMT+12:00) Majuro"
+msgstr "(GMT+12:00) Majuro"
 
 #: ../../classes/common/SZGoogleCommon.php:445
-msgid "(GMT+12:00) Wake"
-msgstr ""
+msgid "(GMT+12:00) Nauru"
+msgstr "(GMT+12:00) Nauru"
 
 #: ../../classes/common/SZGoogleCommon.php:446
-msgid "(GMT+12:00) Wallis"
-msgstr ""
+msgid "(GMT+12:00) Tarawa"
+msgstr "(GMT+12:00) Tarawa"
 
 #: ../../classes/common/SZGoogleCommon.php:447
-msgid "(GMT+13:00) Apia"
-msgstr ""
+msgid "(GMT+12:00) Wake"
+msgstr "(GMT+12:00) Wake"
 
 #: ../../classes/common/SZGoogleCommon.php:448
-msgid "(GMT+13:00) Enderbury"
-msgstr ""
+msgid "(GMT+12:00) Wallis"
+msgstr "(GMT+12:00) Wallis"
 
 #: ../../classes/common/SZGoogleCommon.php:449
-msgid "(GMT+13:00) Fakaofo"
-msgstr ""
+msgid "(GMT+13:00) Apia"
+msgstr "(GMT+13:00) Apia"
 
 #: ../../classes/common/SZGoogleCommon.php:450
-msgid "(GMT+13:00) Tongatapu"
-msgstr ""
+msgid "(GMT+13:00) Enderbury"
+msgstr "(GMT+13:00) Enderbury"
 
 #: ../../classes/common/SZGoogleCommon.php:451
+msgid "(GMT+13:00) Fakaofo"
+msgstr "(GMT+13:00) Fakaofo"
+
+#: ../../classes/common/SZGoogleCommon.php:452
+msgid "(GMT+13:00) Tongatapu"
+msgstr "(GMT+13:00) Tongatapu"
+
+#: ../../classes/common/SZGoogleCommon.php:453
 msgid "(GMT+14:00) Kiritimati"
-msgstr ""
+msgstr "(GMT+14:00) Kiritimati"
+
+#: ../../classes/action/SZGoogleActionYoutubeVideo.php:302
+msgid "youtube URL string specified is not valid."
+msgstr "stringa specificata per URL youtube non è valida."
+
+#: ../../classes/action/SZGoogleActionYoutubeVideo.php:377
+msgid "youtube video"
+msgstr "video youtube"
+
+#: ../../classes/action/SZGoogleActionYoutubeLink.php:83
+msgid "channel youtube"
+msgstr "canale youtube"
+
+#: ../../classes/action/SZGoogleActionAuthenticatorLogin.php:44
+msgid "If you don't use Authenticator leave this field empty."
+msgstr "Lascia questo campo vuoto se non usi Authenticator"
+
+#: ../../classes/action/SZGoogleActionAuthenticatorLogin.php:44
+msgid "google authenticator code"
+msgstr "codice google authenticator"
+
+#: ../../classes/action/SZGoogleActionAuthenticatorLogin.php:104
+msgid "<strong>ERROR</strong>: Authenticator code is incorrect."
+msgstr "<strong>ERROR</strong>: Codice Authenticator non corretto."
+
+#: ../../classes/action/SZGoogleActionYoutubePlaylist.php:238
+msgid "youtube playlist specified is not valid."
+msgstr "il codice ID playlist non è valido."
 
 #~ msgid "SZ-Google - Translate"
 #~ msgstr "SZ-Google - Translate"

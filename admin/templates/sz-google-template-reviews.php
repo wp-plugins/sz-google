@@ -1,16 +1,22 @@
 <?php
+
 /**
- * Controllo se il file viene richiamato direttamente senza
- * essere incluso dalla procedura standard del plugin.
+ * file containing the HTML structure of the templates 
+ * related to some sections of the admin panel
  *
  * @package SZGoogle
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
-// Generazione array con tutte le risorse internet in cui
-// viene menzionato o recensito il plugin SZ-Google for Wordpress
+// Generate array with all the internet resources where is
+// mentioned or reviewed the SZ-Google plugin for WordPress
 
 $reviewsLINK =  array(
+	array('language' => ucfirst(__('chinese','szgoogleadmin')),'author'=>'Simon'               ,'authorlink'=>'http://blog.dg-space.com/author/simon'          ,'url'=>'http://goo.gl/WTk7qX'),
 	array('language' => ucfirst(__('dutch'  ,'szgoogleadmin')),'author'=>'Mike Nicolaassen'    ,'authorlink'=>'https://plus.google.com/+MikeNicolaassen'       ,'url'=>'http://www.mikenicolaassen.nl/google-for-wordpress/'),
 	array('language' => ucfirst(__('english','szgoogleadmin')),'author'=>'Dhiraj Das'          ,'authorlink'=>'https://plus.google.com/+DhirajDas'             ,'url'=>'http://www.indexwp.com/integrate-googles-products-wordpress/'),
 	array('language' => ucfirst(__('english','szgoogleadmin')),'author'=>'Thomas Ewer'         ,'authorlink'=>'https://plus.google.com/+ThomasEwer'            ,'url'=>'https://managewp.com/free-wordpress-plugins-april-2014'),
@@ -28,8 +34,8 @@ $reviewsLINK =  array(
 	array('language' => ucfirst(__('russian','szgoogleadmin')),'author'=>'Tatyana Leskova'     ,'authorlink'=>'https://plus.google.com/116691044222072795783/' ,'url'=>'http://drago-fly.ru/plagin-sz-google/'),
 );
 
-// Creazione tabella per elenco delle risorse internet che
-// sono contenute nell'array creato precedentemente
+// Generate array with all the internet resources 
+// which are contained in the array created earlier
 
 echo '<div class="help">';
 echo '<table>';

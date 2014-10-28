@@ -1,14 +1,19 @@
 <?php
+
 /**
- * Controllo se il file viene richiamato direttamente senza
- * essere incluso dalla procedura standard del plugin.
+ * file containing the HTML structure of the templates 
+ * related to some sections of the admin panel
  *
  * @package SZGoogle
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
-// Generazione array con tutte le risorse internet in cui
-// viene menzionato o recensito il plugin SZ-Google for Wordpress
+// Generate array with all the internet resources where is
+// mentioned or reviewed the SZ-Google plugin for WordPress
 
 $reviewsLINK =  array(
 	array('language' => __('italian','szgoogleadmin'),'module'=>'google+'             ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-plus/'),
@@ -19,8 +24,8 @@ $reviewsLINK =  array(
 	array('language' => __('italian','szgoogleadmin'),'module'=>'google youtube'      ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-youtube/'),
 );
 
-// Creazione tabella per elenco delle risorse internet che
-// sono contenute nell'array creato precedentemente
+// Generate array with all the internet resources 
+// which are contained in the array created earlier
 
 echo '<div class="help">';
 echo '<table>';

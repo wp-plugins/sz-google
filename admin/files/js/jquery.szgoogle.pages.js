@@ -1,18 +1,18 @@
-// Definizione codice per la gestione dei tab presenti nelle
-// pagine di configurazione nel pannello di amministrazione
+// Definition of code to handle the tab on the 
+// pages of configuration in the admin panel
 
 jQuery(document).ready(function()
 {
 	jQuery('#sz-google-tab').find('a').click(function() 
 	{
-		// Tolgo da tutti i tab presenti la classe di identificazione
-		// elemento attivo e aggiungo questa classe solo a quello attivo
+		// I remove all tabs present the class identification 
+		// active element and add this class only to the active
 
 		jQuery('#sz-google-tab').find('a').removeClass('nav-tab-active');
 		jQuery(this).addClass('nav-tab-active');
 
-		// Tolgo su tutte le divisioni del contenuto di tab la classe
-		// di impostazionne "attivo" e aggiungo solo in quella selezionata
+		// I take on all divisions of the content tab of the class 
+		// impostazionne "active" and add only the selected
 
 		var id = jQuery(this).attr('id').replace('sz-google-tab-','');
 
@@ -21,13 +21,13 @@ jQuery(document).ready(function()
 
 	});
 
-	// Operazioni iniziali da eseguire subito dopo il caricamento
-	// della pagina con attivazione dei link che risultano "active"
+	// Initial steps to execute immediately after the page 
+	// loads with activation of the links that are "active"
 
 	var active_tab = window.location.hash.replace('#','');
 
-	// Se non specifico niente e il tab non viene trovato nel codice HTML
-	// utilizzo come tab predefinito il primo div che incontro nel codice
+	// If not anything special and the tab is not found in the HTML 
+	// code used as default tab that match the first div in the code
 
 	if (active_tab == '' || !jQuery('#sz-google-tab-'+ active_tab).length) 
 	{
@@ -38,8 +38,8 @@ jQuery(document).ready(function()
  		}
 	}
 
-	// Attivazione mediante aggiunta delle classi di "active" del link
-	// e della divisione che risultano attualmente visualizzate
+	// Activation by adding classes "active" link 
+	// and division that are currently displayed
 
 	jQuery('#sz-google-tab-'     + active_tab).addClass('nav-tab-active');
 	jQuery('#sz-google-tab-div-' + active_tab).addClass('sz-google-active');

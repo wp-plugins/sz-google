@@ -1,24 +1,28 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * HTML code of this widget in the administration section
+ * This code is on a separate file to exclude it from the frontend
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidgets 
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
+
 ?>
-<!-- WIDGETS (Tabella per contenere il FORM del widget) -->
+<!-- WIDGETS (Table for the FORM widget) -->
 <table id="SZGoogleWidgetPanoramio" class="sz-google-table-widget">
 
-<!-- WIDGETS (Campo con inserimento del titolo widget) -->
+<!-- WIDGETS (Field with inclusion of the title widget) -->
 <tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
 
-<!-- WIDGETS (Campo per selezione ID di configurazione o specifico) -->
+<!-- WIDGETS (Field selection for configuration ID or specific) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_template ?>"><?php echo ucfirst(__('template','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -33,7 +37,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per selezione campi di ricerca fotografie nel widget) -->
+<!-- WIDGETS (Field selection for lookup fields in the widget photographs) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_user ?>"><?php echo ucfirst(__('user','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_user ?>" name="<?php echo $NAME_user ?>" type="text" value="<?php echo $VALUE_user ?>" placeholder="<?php echo __('specify search user','szgoogleadmin') ?>"/></td>
@@ -49,7 +53,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_tag ?>" name="<?php echo $NAME_tag ?>" type="text" value="<?php echo $VALUE_tag ?>" placeholder="<?php echo __('specify search tag','szgoogleadmin') ?>"/></td>
 </tr>
 
-<!-- WIDGETS (Campo per selezione campo SET) -->
+<!-- WIDGETS (Field selection for SET field) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_set ?>"><?php echo ucfirst(__('set','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -63,7 +67,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare la dimensione) -->
+<!-- WIDGETS (Field to specify the size) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input id="<?php echo $ID_width ?>" class="sz-google-checks-width widefat" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
@@ -88,7 +92,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per selezione campi orientation e position) -->
+<!-- WIDGETS (Field selection fields for orientation and position) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_orientation ?>"><?php echo ucfirst(__('orientation','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -111,10 +115,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
-<!-- WIDGETS (Chiusura tabella principale widget form) -->
+<!-- WIDGETS (Closing the main table form widget) -->
 </table>
 
-<!-- WIDGETS (Codice javascript per funzioni UI) -->
+<!-- WIDGETS (Javascript code for UI functions) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		if (typeof(szgoogle_checks_hidden_onload) == 'function') { szgoogle_checks_hidden_onload('SZGoogleWidgetPanoramio'); }

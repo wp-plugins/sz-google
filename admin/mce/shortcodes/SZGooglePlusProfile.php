@@ -1,16 +1,19 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * Script to implement the HTML code shared with widgets 
+ * in the function pop-up insert shortcodes via GUI
  *
  * @package SZGoogle
- * @subpackage SZGoogleTinyMCE
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Creazione array per elenco campi che devono essere 
-// presenti nel form prima di richiamare wp_parse_args()
+// Creating array to list the fields that must be 
+// present in the form before calling wp_parse_args ()
 
 $array = array(
 	'title'      => '', // valore predefinito
@@ -29,13 +32,13 @@ $array = array(
 	'image'      => '', // valore predefinito
 );
 
-// Creazione array per elenco campi da recuperare su FORM e
-// caricamento del file con il template HTML da visualizzare
+// Creating arrays to list of fields to be retrieved FORM 
+// and loading the file with the HTML template to display
 
 extract(wp_parse_args($instance,$array),EXTR_OVERWRITE);
 
-// Lettura delle opzioni per il controllo dei valori di default
-// da assegnare al widget nel momento che viene inserito in sidebar
+// Read the options to control the default values ​​to be 
+// assigned to the widget when it is added to the sidebar
 
 if ($object = SZGoogleModule::getObject('SZGoogleModulePlus')) 
 {
@@ -47,8 +50,8 @@ if ($object = SZGoogleModule::getObject('SZGoogleModulePlus'))
 	}
 }
 
-// Impostazione eventuale di parametri di default per i
-// campi che contengono dei valori non validi o non coerenti 
+// Setting any of the default parameters for fields 
+// that contain invalid values ​​or inconsistent
 
 $DEFAULT = include(dirname(SZ_PLUGIN_GOOGLE_MAIN)."/options/sz_google_options_plus.php");
 
@@ -67,8 +70,8 @@ if (!ctype_digit($width)  or $width  == 0) {
 	$width_auto = '1';
 }
 
-// Caricamento template ADMIN per composizione shortcodes
-// utilizzando in molti casi lo stesso codice del Widget
+// Loading ADMIN template for composition using
+// shortcodes in many cases the same code Widget
 
 @include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/mce/shortcodes/SZGoogleBaseHeader.php');
 @include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidgetPlusProfile.php');

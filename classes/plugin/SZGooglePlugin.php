@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Classe SZGooglePlugin per inizializzazione del plugin e richiamo
  * di tutte le classi che compongono le parti principali. Vengono
@@ -7,6 +8,7 @@
  * @package SZGoogle
  * @subpackage SZGooglePlugin
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo

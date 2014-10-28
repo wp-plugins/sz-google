@@ -1,28 +1,40 @@
 <?php
+
 /**
- * Modulo GOOGLE TinyMCE per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche filtri e azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità a wordpress.
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima della definizione della classe controllo se esiste
-// una definizione con lo stesso nome o già definita la stessa.
- 
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
+
 if (!class_exists('SZGoogleAdminTinyMCE'))
 {
 	class SZGoogleAdminTinyMCE extends SZGoogleAdmin
 	{
+		/**
+		 * Definition the constructor function, which is called
+		 * at the time of the creation of an instance of this class
+		 */
+		
 		function __construct() {
 			if (version_compare($GLOBALS['wp_version'],'3.9','>=')) {
 				add_action('admin_head',array($this,'register_tinymce_init'));
  			}
  		}
 
- 		// Definizione filtri e azioni per integrazione dei componenti
- 		// presenti nel plugin con tinyMCE usato come editor standard
+		/**
+		 * Defining filters and actions for integration of the components
+		 * present in the plugin used as a standard editor with TinyMCE
+		 */
 
 		function register_tinymce_init() {
 			if (current_user_can('edit_posts') && current_user_can('edit_pages')) {
@@ -34,8 +46,10 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 			}
 		}
 
-		// Registrazione del plugin per TinyMCE in maniera da caricare il file
-		// javascript con la configurazione del componente solo quando necessario
+		/**
+		 * Registration plugin for TinyMCE in order to load the javascript
+		 * file with the configuration of the component only when necessary
+		 */
 
 		function register_tinymce_plugin($plugin_array) {
 			$plugin_array['sz_google_mce_button'] = 
@@ -43,23 +57,27 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 			return $plugin_array;
 		}
 
-		// Registrazione del pulsante per TinyMCE usando lo stesso nome con cui
-		// viene associata la risorsa javascript e con cui bisogna definire il plugin
+		/**
+		 * Registration button to TinyMCE using the same name which is associated
+		 * with the resource javascript and with which we need to define the plugin
+		 */
 
 		function register_tinymce_button($buttons) {
 			array_push($buttons,'sz_google_mce_button');
 			return $buttons;
 		}
 
-		// Utilizzo l'azione di fine elaborazione TinyMCE per eseguire il codice
-		// che mi permette di nascondere le traduzione da usare nel plugin
+		/**
+		 * Using the action of end processing TinyMCE to run the code
+		 * that allows me to hide the translation to use the plugin
+		 */
 
 		function register_tinymce_hidden() 
 		{
 			$translate = $this->register_tinymce_translate();
 
-			// Creazione divisione nascosta con un div per ogni shortcode del
-			// plugin che risulta attivo in questo momento nella sessione
+			// Creating division with a hidden div for each
+			// shortcode plugin that is active right now in session
 
 			echo '<div id="sz-google-hidden-shortcodes" style="display:none !important">';
 
@@ -76,8 +94,10 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 			echo '</div>';
 		}
 
-		// Definizione array per contenere le stringhe di traduzione da 
-		// utilizzare nel plugin definito nel file js collegato
+		/**
+		 * Definition array to hold the translation strings
+		 * to use the plugin defined in the js file attached
+		 */
 
 		function register_tinymce_translate() 
 		{

@@ -1,16 +1,20 @@
 <?php
-/**
- * Controllo se il file viene richiamato direttamente senza
- * essere incluso dalla procedura standard del plugin.
- *
- * @package SZGoogle
- */
-if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabile HTML per la preparazione della stringa
- * che contiene la documentazione di questa funzionalità
+ * This file contains information related to a help section 
+ * of the plugin. Each directory is a specific language
+ *
+ * @package SZGoogle
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
+
+// Variable definition HTML for the preparation of the
+// string which contains the documentation of this feature
+
 $HTML = <<<EOD
 
 <h2>Descrizione</h2>
@@ -51,7 +55,6 @@ formato opzione="valore".</p>
 	<tr><td>marginleft</td>   <td>margine sinistro</td>       <td>valore,none</td>                <td>none</td></tr>
 	<tr><td>marginunit</td>   <td>misura per margine</td>     <td>em,pt,px</td>                   <td>em</td></tr>
 </table>
-
 
 <h2>Contenitore bottone</h2>
 
@@ -97,8 +100,7 @@ attivata tramite il campo opzione dedicato che trovate nel pannello di amministr
 
 EOD;
 
-/**
- * Richiamo della funzione per la creazione della pagina di 
- * documentazione standard in base al contenuto della variabile HTML
- */
+// Call function for creating the page of standard
+// documentation based on the contents of the HTML variable
+
 $this->moduleCommonFormHelp(__('google+ button share','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

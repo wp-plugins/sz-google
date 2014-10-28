@@ -1,23 +1,28 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * HTML code of this widget in the administration section
+ * This code is on a separate file to exclude it from the frontend
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidgets
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
+
 ?>
-<!-- WIDGETS (Tabella per contenere il FORM del widget) -->
+<!-- WIDGETS (Table for the FORM widget) -->
 <table id="SZGoogleWidgetCalendar" class="sz-google-table-widget">
 
-<!-- WIDGETS (Campo con inserimento del titolo widget) -->
+<!-- WIDGETS (Field with inclusion of the title widget) -->
 <tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('widget title','szgoogleadmin') ?>"/></td>
 </tr>
 
+<!-- WIDGETS (Field with inclusion of the calendar) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_calendar ?>"><?php echo ucfirst(__('calendar','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_calendar ?>" name="<?php echo $NAME_calendar ?>" type="text" value="<?php echo $VALUE_calendar ?>" placeholder="<?php echo __('configuration','szgoogleadmin') ?>"/></td>
@@ -30,7 +35,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per specificare la dimensione) -->
+<!-- WIDGETS (Field to specify the size) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_width ?>"><?php echo ucfirst(__('width','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_width ?>" class="sz-google-checks-width widefat" name="<?php echo $NAME_width ?>" type="text" size="5" placeholder="auto" value="<?php echo $VALUE_width ?>"/></td>
@@ -45,7 +50,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo con inserimento dei valori SHOW) -->
+<!-- WIDGETS (Field with entering values ​​SHOW) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_showtitle ?>" value="y" <?php if ($VALUE_showtitle == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
@@ -84,7 +89,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per inserimento tipologia view) -->
+<!-- WIDGETS (Field for input type view) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_mode ?>"><?php echo ucfirst(__('mode','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -129,10 +134,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
-<!-- WIDGETS (Chiusura tabella principale widget form) -->
+<!-- WIDGETS (Closing the main table form widget) -->
 </table>
 
-<!-- WIDGETS (Codice javascript per funzioni UI) -->
+<!-- WIDGETS (Javascript code for UI functions) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		if (typeof(szgoogle_checks_hidden_onload) == 'function') { szgoogle_checks_hidden_onload('SZGoogleWidgetCalendar'); }

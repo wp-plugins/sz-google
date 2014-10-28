@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Definizione di una classe che identifica un'azione richiamata dal
  * modulo principale in base alle opzioni che sono state attivate
@@ -7,6 +8,7 @@
  * @package SZGoogle
  * @subpackage SZGoogleActions
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo

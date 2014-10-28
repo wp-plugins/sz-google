@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Modulo GOOGLE TRANSLATE per la definizione delle funzioni che riguardano
  * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
@@ -7,6 +8,7 @@
  * @package SZGoogle
  * @subpackage SZGoogleModule
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo

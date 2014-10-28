@@ -1,6 +1,3 @@
-/* ----------------------------------------------- */
-/* CSS per la gestione dei TABS tramite javascript */
-/* ----------------------------------------------- */
 #sz-google-tab {
 	margin-bottom: 0.5em;
 }
@@ -14,16 +11,10 @@
 	display:block;
 }
 
-/* ----------------------------------------------- */
-/* CSS per la classi da usare sui template W&S     */
-/* ----------------------------------------------- */
 .sz-google-hidden {
 	display:none;
 }
 
-/* ----------------------------------------------- */
-/* CSS sulla pagine del profile utente campi INPUT */
-/* ----------------------------------------------- */
 .sz-google-input {
 	width:256px;
 	margin-bottom:5px !important;
@@ -39,9 +30,6 @@ table.sz-google-codes td {
 	border:1px solid #d1d1d1;
 }
 
-/* ----------------------------------------------- */
-/* DA DOCUMENTARE     */
-/* ----------------------------------------------- */
 
 #sz-google-admin-options {
 	width:77%;
@@ -163,8 +151,6 @@ table.sz-google-codes td {
 	text-align:left;
 	background-color:#E7E7E7;
 }
-
-/* CSS for widget backend */
 
 table.sz-google-table-widget {
 	width:100%;
@@ -374,10 +360,6 @@ body.SZMCE input[type=button] {
 	font-weight:bold;
 	text-decoration:none;
 }
-
-/* ------------------------------ */
-/* CSS correzioni con media query */
-/* ------------------------------ */
 
 @media (min-width:0) and (max-width:760px)
 {

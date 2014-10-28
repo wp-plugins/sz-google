@@ -1,24 +1,28 @@
 <?php
+
 /**
- * Codice HTML per il form di impostazione collegato 
- * al widget presente nella parte di amministrazione, questo
- * codice è su file separato per escluderlo dal frontend
+ * HTML code of this widget in the administration section
+ * This code is on a separate file to exclude it from the frontend
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidgets
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
+
 ?>
-<!-- WIDGETS (Tabella per contenere il FORM del widget) -->
+<!-- WIDGETS (Table for the FORM widget) -->
 <table id="SZGoogleWidgetYoutubeButton" class="sz-google-table-widget">
 
-<!-- WIDGETS (Campo con inserimento del titolo widget) -->
+<!-- WIDGETS (Field with inclusion of the title widget) -->
 <tr class="only-widgets">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_title ?>"><?php echo ucfirst(__('title','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_title ?>" name="<?php echo $NAME_title ?>" type="text" value="<?php echo $VALUE_title ?>" placeholder="<?php echo __('insert title for widget','szgoogleadmin') ?>"/></td>
 </tr>
 
-<!-- WIDGETS (Campo per inserimento tipo di URL) -->
+<!-- WIDGETS (Field for entering URL type) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_method ?>"><?php echo ucfirst(__('URL','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -29,7 +33,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
-<!-- WIDGETS (Campo per inserimento URL specifico) -->
+<!-- WIDGETS (Field for entering specific URL) -->
 <tr class="sz-google-switch-url sz-google-hidden">
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_channel ?>"><?php echo ucfirst(__('channel','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals"><input class="sz-upload-image-url widefat" id="<?php echo $ID_channel ?>" name="<?php echo $NAME_channel ?>" type="text" value="<?php echo $VALUE_channel ?>" placeholder="<?php echo __('insert channel','szgoogleadmin') ?>"/></td>
@@ -37,7 +41,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per inserimento layout) -->
+<!-- WIDGETS (Field for entering layout) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_layout ?>"><?php echo ucfirst(__('layout','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -48,7 +52,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
-<!-- WIDGETS (Campo per inserimento theme) -->
+<!-- WIDGETS (Field for entering theme) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_theme ?>"><?php echo ucfirst(__('theme','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -61,7 +65,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per inserimento subscriber) -->
+<!-- WIDGETS (Field for entering subscriber) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('subscriber','szgoogleadmin')) ?>:</label></td>
 	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_subscriber ?>" value="y" <?php if ($VALUE_subscriber == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
@@ -70,7 +74,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 <tr><td colspan="3"><hr></td></tr>
 
-<!-- WIDGETS (Campo per inserimento allineamento) -->
+<!-- WIDGETS (Field for entering alignment) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_align ?>"><?php echo ucfirst(__('alignment','szgoogleadmin')) ?>:</label></td>
 	<td colspan="2" class="sz-cell-vals">
@@ -83,10 +87,10 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
-<!-- WIDGETS (Chiusura tabella principale widget form) -->
+<!-- WIDGETS (Closing the main table form widget) -->
 </table>
 
-<!-- WIDGETS (Codice javascript per funzioni UI) -->
+<!-- WIDGETS (Javascript code for UI functions) -->
 <script type="text/javascript">
 	jQuery(document).ready(function() {
 		if (typeof(szgoogle_checks_hidden_onload) == 'function') { szgoogle_checks_hidden_onload('SZGoogleWidgetYoutubeButton'); }

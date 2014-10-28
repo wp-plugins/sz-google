@@ -1,16 +1,20 @@
 <?php
-/**
- * Controllo se il file viene richiamato direttamente senza
- * essere incluso dalla procedura standard del plugin.
- *
- * @package SZGoogle
- */
-if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
 
 /**
- * Definizione variabile HTML per la preparazione della stringa
- * che contiene la documentazione di questa funzionalità
+ * This file contains information related to a help section 
+ * of the plugin. Each directory is a specific language
+ *
+ * @package SZGoogle
+ * @subpackage SZGoogleAdmin
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
+
+if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die(); 
+
+// Variable definition HTML for the preparation of the
+// string which contains the documentation of this feature
+
 $HTML = <<<EOD
 
 <h2>Description</h2>
@@ -49,8 +53,7 @@ enabled via the field dedicated option that you find in the admin panel.</p>
 
 EOD;
 
-/**
- * Richiamo della funzione per la creazione della pagina di 
- * documentazione standard in base al contenuto della variabile HTML
- */
+// Call function for creating the page of standard
+// documentation based on the contents of the HTML variable
+
 $this->moduleCommonFormHelp(__('google+ recommendations','szgoogleadmin'),NULL,NULL,false,$HTML,basename(__FILE__));

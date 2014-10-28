@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Classe per la definizione di uno widget che viene
  * richiamato dalla classe del modulo principale
@@ -6,6 +7,7 @@
  * @package SZGoogle
  * @subpackage SZGoogleWidget 
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo

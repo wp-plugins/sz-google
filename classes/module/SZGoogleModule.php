@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Classe SZGoogleModule per la creazione di istanze che controllino le
  * opzioni e le funzioni comuni che ogni modulo del plugin deve richiamare
@@ -7,6 +8,7 @@
  * @package SZGoogle
  * @subpackage SZGoogleModule
  */
+
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
 // Prima di eseguire il caricamento della classe controllo
