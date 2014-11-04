@@ -5,20 +5,24 @@ Tested up to: 4.0
 Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
+Donate link: http://goo.gl/LNgg9T
 Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
 == Description ==
-<a href="http://wordpress.org/extend/plugins/sz-google/">English</a> - <a href="http://goo.gl/czjnz">Italiano</a> - <a href="http://goo.gl/Jt0YN">Español</a> - <a href="http://goo.gl/jnxWm">Français</a> - <a href="http://goo.gl/eXk1j">Deutsch</a>
+<a href="http://goo.gl/ePm7Tw">English</a> - 
+<a href="http://goo.gl/czjnz">Italiano</a> - 
+<a href="http://goo.gl/Jt0YN">Español</a> - 
+<a href="http://goo.gl/jnxWm">Français</a> - 
+<a href="http://goo.gl/eXk1j">Deutsch</a>
 
 Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote.
 
-* <a href="https://otherplus.com/tech/wordpress-plugin/sz-google/">(IT) - Documentazione in Italiano</a>
+* <a href="http://goo.gl/vxNRF4">(IT) - Documentazione in Italiano</a>
 
 = Modules available in plugin =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 * `Module Google+`
 * `Module Google Analytics`
@@ -34,7 +38,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `Module Documentation`
 
 = Google+ social network module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google+ Badges:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These components can be used as a widget for use in or as a sidebar and as shortcode to use in the articles. You can also use the php functions to customize your own theme directly with programming code.
 
@@ -88,7 +92,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `szgoogle_gplus_get_post()`
 
 = Google Analytics module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website. You can choose to hide the code when using the administration panel, or when a user is connected.
 
@@ -109,7 +113,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `szgoogle_analytics_get_code()`
 
 = Google Authenticator module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Authenticator:** The plugin provides the authorization process in two phases designed by google authenticator, it is possible to 
 strengthen the security of our login screen asking for a code-time in addition to the normal credentials. This is made ​​possible by 
@@ -126,7 +130,7 @@ the configuration and synchronization of the key will be performed quickly and e
 * `szgoogle_authenticator_verify_code()`
 
 = Google Calendar =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Calendar Widgets:** In this plugin are available google calendar widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -141,7 +145,7 @@ the configuration and synchronization of the key will be performed quickly and e
 * `szgoogle_calendar_get_widget()`
 
 = Google Drive module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Drive Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -162,7 +166,7 @@ the configuration and synchronization of the key will be performed quickly and e
 * `szgoogle_drive_get_savebutton()`
 
 = Google Groups module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Groups Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -177,7 +181,7 @@ the configuration and synchronization of the key will be performed quickly and e
 * `szgoogle_groups_get_code()`
 
 = Google Hangouts module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Hangouts:** In this plugin are available google hangouts widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -192,7 +196,7 @@ the configuration and synchronization of the key will be performed quickly and e
 * `szgoogle_hangouts_get_code_start()`
 
 = Google Panoramio module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 With this module you can insert widgets with photo galleries present on panoramio. You can select photos by user, group or tag. You can choose between different display layouts as photo, slideshow, list and photo_list with navigation menu.
 
@@ -209,7 +213,7 @@ With this module you can insert widgets with photo galleries present on panorami
 * `szgoogle_panoramio_get_code()`
 
 = Google Translate module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Translate Widgets:** In this plugin are available to google translate widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
@@ -226,7 +230,7 @@ With this module you can insert widgets with photo galleries present on panorami
 * `szgoogle_translate_get_meta_ID()`
 
 = Google Youtube module =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
 
@@ -255,16 +259,20 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `szgoogle_youtube_get_code_button()`
 
 = Plugin and general performance =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly requested function. For this reason, activated only the functions you use.
 
 == Installation ==
 
-<a href="http://wordpress.org/plugins/sz-google/installation/">English</a> - <a href="http://goo.gl/dBkcS">Italiano</a> - <a href="http://goo.gl/BbxQa">Español</a> - <a href="http://goo.gl/K6yRB">Français</a> - <a href="http://goo.gl/uSoJ1">Deutsch</a>
+<a href="http://goo.gl/epQDRe">English</a> - 
+<a href="http://goo.gl/dBkcS">Italiano</a> - 
+<a href="http://goo.gl/BbxQa">Español</a> - 
+<a href="http://goo.gl/K6yRB">Français</a> - 
+<a href="http://goo.gl/uSoJ1">Deutsch</a>
 
 = Automatic installation =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 1. Administration Panel plugins and option `add new`.
 2. Search text box `sz-google`.
@@ -272,7 +280,7 @@ Given that in the plugin will be implemented different function that will not be
 4. Activate the plugin from the admin panel of WordPress.
 
 = Manually installing from ZIP file =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 1. Download the ZIP file from this screen.
 2. Select option add plugin from the admin panel.
@@ -280,7 +288,7 @@ Given that in the plugin will be implemented different function that will not be
 4. Confirm installation and activation plugin from the admin panel.
 
 = Manually installing from FTP =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 1. Download the ZIP file from this screen and unzip.
 2. Sign in to your FTP folder on the web server.
@@ -288,16 +296,20 @@ Given that in the plugin will be implemented different function that will not be
 4. Activate the plugin from the admin panel of WordPress.
 
 = Troubleshoot problems during installation =
-**<a href="http://wordpress.org/plugins/sz-google/"> </a>**
+**<a href="http://goo.gl/6bzDMO"> </a>**
 
 If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>. Remember to specify exactly the problem, the version of the plugin that use for installing or updating, the version of wordpress and uses the operating system that manages the site hosting. If you have problems of conflict with other plugins give as much information as possible so you can run a trace and find the problem.
 
 == Frequently Asked Questions ==
 
-<a href="http://wordpress.org/plugins/sz-google/faq/">English</a> - <a href="http://goo.gl/2co5W">Italiano</a> - <a href="http://goo.gl/SJIhR">Español</a> - <a href="http://goo.gl/hDYgZ">Français</a> - <a href="http://goo.gl/wz6ZV">Deutsch</a>
+<a href="http://goo.gl/9Ttqly">English</a> - 
+<a href="http://goo.gl/2co5W">Italiano</a> - 
+<a href="http://goo.gl/SJIhR">Español</a> - 
+<a href="http://goo.gl/hDYgZ">Français</a> - 
+<a href="http://goo.gl/wz6ZV">Deutsch</a>
 
 = You can see a demo before the installation? =
-Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="https://otherplus.com/tech/sz-google/">SZ-Google Demo</a> to display many components in live demo.
+Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="http://goo.gl/oRoahu">SZ-Google Demo</a> to display many components in live demo.
 
 = All these functions in a single plugin affect performance? =
 The plugin was written in separate modules that are activated only on request. This allows saving both memory of CPU, obviously if all functions are activated the plugin needs resources, however senpre less than installing a high number of different plugins.
@@ -306,7 +318,7 @@ The plugin was written in separate modules that are activated only on request. T
 We take into consideration qualsiaqsi request is made by the community, of course, if a product is requested several times by diffrenti people will do anything to aqggiungerlo to our plugins. Write request in the forum or in the <a href="https://plus.google.com/communities/109254048492234113886">community</a>.
 
 = You can use the functions of the plugin with PHP? =
-Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="https://otherplus.com/tech/sz-google/">official documentation</a>.
+Yes, many operations of the plugin are also accessible via the specific functions to be called in your PHP program, so you can customize a wordpress theme using only the code. To know the list of functions provided by the plugin read the <a href="http://goo.gl/oRoahu">official documentation</a>.
 
 = How to find the code meta google translate? =
 Before you use the google translate module must register the site that you want to manage on their google account using the following official link <a href="https://translate.google.com/manager/website/">Google Translate Tools</a>. Once inserit your site to perform the action "get code", display meta code and insert this in the field.
@@ -331,6 +343,7 @@ Before you use the google translate module must register the site that you want 
 
 = Version 1.8.2 =
 * Fix: Playlist bug with embed javascript.
+* Fix: Change links in README file.
 
 = Version 1.8.1 =
 * Feature: Translate plugin in espanol.
