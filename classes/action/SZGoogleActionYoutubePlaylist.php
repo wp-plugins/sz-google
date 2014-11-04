@@ -348,6 +348,7 @@ if (!class_exists('SZGoogleActionYoutubePlaylist'))
 				$HTML .= '</div>';
 
 				$object = $this->getModuleObject('SZGoogleModuleYoutube');
+
 				$object->addYoutubeVideoAPI(array(
 					'unique'          => $unique,
 					'keyID'           => $keyID,

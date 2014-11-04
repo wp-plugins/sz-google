@@ -105,6 +105,8 @@ if (!class_exists('SZGoogleModuleYoutube'))
 		 */
 		function addYoutubeScriptFooter()
 		{
+var_dump($this->SZ_GOOGLE_YOUTUBE_API);
+
 			if (isset($this->SZ_GOOGLE_YOUTUBE_API) and is_array($this->SZ_GOOGLE_YOUTUBE_API)) 
 			{
 				// Codice javascript per il rendering iframe tramite API
@@ -129,8 +131,15 @@ if (!class_exists('SZGoogleModuleYoutube'))
 
 				$HTML .= 'function onYouTubePlayerAPIReady() {';
 
-				foreach ($this->SZ_GOOGLE_YOUTUBE_API as $value) {
+				foreach ($this->SZ_GOOGLE_YOUTUBE_API as $value) 
+				{
 					if (is_array($value) and isset($value['video'])) { 
+						if (!isset($value['delayed']) or $value['delayed'] == '0') { 
+							$HTML .= 'onYouTubePlayerAPIReady_'.$value['unique'].'();';
+						}
+					}
+
+					if (is_array($value) and isset($value['playlist'])) { 
 						if (!isset($value['delayed']) or $value['delayed'] == '0') { 
 							$HTML .= 'onYouTubePlayerAPIReady_'.$value['unique'].'();';
 						}

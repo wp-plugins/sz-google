@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6K9EMHKWRFPL
@@ -328,6 +328,9 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.2 =
+* Fix: Playlist bug with embed javascript.
 
 = Version 1.8.1 =
 * Feature: Translate plugin in espanol.
