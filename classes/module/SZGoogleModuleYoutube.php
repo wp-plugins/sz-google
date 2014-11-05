@@ -105,8 +105,6 @@ if (!class_exists('SZGoogleModuleYoutube'))
 		 */
 		function addYoutubeScriptFooter()
 		{
-var_dump($this->SZ_GOOGLE_YOUTUBE_API);
-
 			if (isset($this->SZ_GOOGLE_YOUTUBE_API) and is_array($this->SZ_GOOGLE_YOUTUBE_API)) 
 			{
 				// Codice javascript per il rendering iframe tramite API
