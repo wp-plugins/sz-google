@@ -344,6 +344,8 @@ Before you use the google translate module must register the site that you want 
 = Version 1.8.2 =
 * Fix: Playlist bug with embed javascript.
 * Fix: Change links in README file.
+* Fix: Debug Code in footer for playlist.
+* Fix: Add file .pot for translate.
 
 = Version 1.8.1 =
 * Feature: Translate plugin in espanol.
