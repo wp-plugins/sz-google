@@ -22,6 +22,7 @@ $array = array(
 	'width_auto'  => '', // valore predefinito
 	'height'      => '', // valore predefinito
 	'height_auto' => '', // valore predefinito
+	'pre'         => '', // valore predefinito
 );
 
 // Creating arrays to list of fields to be retrieved FORM 
@@ -38,6 +39,13 @@ if ($object = SZGoogleModule::getObject('SZGoogleModuleDrive'))
 
 	if (!ctype_digit($width)  and $width  != 'auto') $width  = $options->drive_viewer_s_width;
 	if (!ctype_digit($height) and $height != 'auto') $height = $options->drive_viewer_s_height;
+
+	// Checking if the string contains a value consistent with the
+	// selection of the parameter as a numeric value that is character
+
+	$YESNO = array('1','0','n','y');
+
+	if (!in_array($pre,$YESNO)) $pre = $options->drive_viewer_w_wrap_pre;
 }
 
 // Setting any of the default parameters for fields 
@@ -47,6 +55,11 @@ $DEFAULT = include(dirname(SZ_PLUGIN_GOOGLE_MAIN)."/options/sz_google_options_dr
 
 if (!ctype_digit($width)  or $width  == 0) { $width  = $DEFAULT['drive_viewer_s_width']['value'];  $width_auto  = '1'; }
 if (!ctype_digit($height) or $height == 0) { $height = $DEFAULT['drive_viewer_s_height']['value']; $height_auto = '1'; }
+
+// If the values are taken from the default options, you can
+// create the problems caused to the difference in the storage state
+
+$pre = str_replace(array('0','1'),array('n','y'),$pre);
 
 // Loading ADMIN template for composition using
 // shortcodes in many cases the same code Widget

@@ -44,6 +44,7 @@ format option = "value". If you would like additional information you can visit 
 	<tr><td>title</td>         <td>title</td>            <td>cadena</td>            <td>null</td></tr>
 	<tr><td>titleposition</td> <td>title position</td>   <td>top,bottom</td>        <td>configuración</td></tr>
 	<tr><td>titlealign</td>    <td>title alignment</td>  <td>left,right,center</td> <td>configuración</td></tr>
+	<tr><td>pre</td>           <td>wrapper PRE</td>      <td>y=yes,n=no</td>        <td>no</td></tr>
 	<tr><td>margintop</td>     <td>margin top</td>       <td>valor,none</td>        <td>none</td></tr>
 	<tr><td>marginrigh</td>    <td>margin right</td>     <td>valor,none</td>        <td>none</td></tr>
 	<tr><td>marginbottom</td>  <td>margin bottom</td>    <td>valor,none</td>        <td>1</td></tr>

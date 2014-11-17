@@ -44,6 +44,15 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	<td colspan="1" class="sz-cell-vals"><input  id="<?php echo $ID_height_auto ?>" class="sz-google-checks-hidden checkbox" data-switch="sz-google-checks-height" onchange="szgoogle_checks_hidden_onchange(this);" name="<?php echo $NAME_height_auto ?>" type="checkbox" value="1" <?php echo checked($VALUE_height_auto,true,false) ?>>&nbsp;<?php echo ucfirst(__('auto','szgoogleadmin')) ?></td>
 </tr>
 
+<tr><td colspan="3"><hr></td></tr>
+
+<!-- WIDGETS (Field for wrapper PRE) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('wrap PRE','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_pre ?>" value="y" <?php if ($VALUE_pre == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_pre ?>" value="n" <?php if ($VALUE_pre != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
+</tr>
+
 <!-- WIDGETS (Closing the main table form widget) -->
 </table>
 

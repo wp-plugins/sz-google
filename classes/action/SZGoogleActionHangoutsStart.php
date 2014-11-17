@@ -39,6 +39,10 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 				'text'         => '', // valore predefinito
 				'img'          => '', // valore predefinito
 				'position'     => '', // valore predefinito
+				'profile'      => '', // valore predefinito
+				'email'        => '', // valore predefinito
+				'logged'       => '', // valore predefinito
+				'guest'        => '', // valore predefinito
 				'margintop'    => '', // valore predefinito
 				'marginright'  => '', // valore predefinito
 				'marginbottom' => '', // valore predefinito
@@ -71,6 +75,10 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 				'text'         => '', // valore predefinito
 				'img'          => '', // valore predefinito
 				'position'     => '', // valore predefinito
+				'profile'      => '', // valore predefinito
+				'email'        => '', // valore predefinito
+				'logged'       => '', // valore predefinito
+				'guest'        => '', // valore predefinito
 				'margintop'    => '', // valore predefinito
 				'marginright'  => '', // valore predefinito
 				'marginbottom' => '', // valore predefinito
@@ -79,6 +87,11 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 				'class'        => '', // valore predefinito
 				'action'       => '', // valore predefinito
 			),$atts));
+
+			// Caricamento opzioni per le variabili di configurazione che 
+			// contengono i valori di default per shortcode e widgets
+
+			$options = (object) $this->getModuleOptions('SZGoogleModuleHangouts');
 
 			// Elimino spazi aggiunti di troppo ed eseguo la trasformazione in
 			// stringa minuscolo per il controllo di valori speciali come "auto"
@@ -93,11 +106,43 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 			$align        = strtolower(trim($align));
 			$float        = strtolower(trim($float));
 			$position     = strtolower(trim($position));
+			$profile      = strtolower(trim($profile));
+			$email        = strtolower(trim($email));
+			$logged       = strtolower(trim($logged));
+			$guest        = strtolower(trim($guest));
 			$margintop    = strtolower(trim($margintop));
 			$marginright  = strtolower(trim($marginright));
 			$marginbottom = strtolower(trim($marginbottom));
 			$marginleft   = strtolower(trim($marginleft));
 			$marginunit   = strtolower(trim($marginunit));
+
+			// Conversione dei valori specificati direttamete nei parametri con
+			// i valori usati per la memorizzazione dei valori di default
+
+			if ($logged == 'yes' or $logged == 'y') $logged = '1'; 
+			if ($guest  == 'yes' or $guest  == 'y') $guest  = '1'; 
+
+			if ($logged == 'no'  or $logged == 'n') $logged = '0'; 
+			if ($guest  == 'no'  or $guest  == 'n') $guest  = '0'; 
+
+			// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+			// precedenti metto dei default assoluti che possono essere cambiati
+
+			$YESNO = array('1','0');
+
+			if ($logged == '') $logged = $options->hangouts_start_logged;
+			if ($guest  == '') $guest  = $options->hangouts_start_guest;
+
+			if (!in_array($logged,$YESNO)) $logged = $options->hangouts_start_logged;
+			if (!in_array($guest ,$YESNO)) $guest  = $options->hangouts_start_guest;
+
+			// Controllo se devo saltare elaborazione per opzioni che riguardano
+			// il controllo su utente loggato o utente guest. Ritorno NULL.
+
+			if (!current_user_can('manage_options')) {
+				if ( is_user_logged_in() and $logged != '1') return NULL;
+				if (!is_user_logged_in() and $guest  != '1') return NULL;
+			}
 
 			// Imposto i valori di default nel caso siano specificati dei valori
 			// che non appartengono al range dei valori accettati
@@ -131,6 +176,33 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 			$HTML .= ' data-widget_size="' .$width.'"';
 
 			if ($topic != '') $HTML .= ' data-topic="'.$topic.'"';
+
+			// Check field for email or profile to prepare the html 
+			// code and allow invitations specified in options
+
+			$invite    = array();
+			$profili   = explode(',',$profile);
+			$indirizzi = explode(',',$email);
+
+			if (is_array($profili) and !empty($profili)) {
+				foreach ($profili as $key => $value) {
+					$invite[] = "{id:\'".$value."\',invite_type:\'PROFILE\'}";
+				}
+			}
+
+			// Check field for email or profile to prepare the html 
+			// code and allow invitations specified in options
+
+			if (is_array($indirizzi) and !empty($indirizzi)) {
+				foreach ($indirizzi as $key => $value) {
+					$invite[] = "{id:\'".$value."\',invite_type:\'EMAIL\'}";
+				}
+			}
+
+			if (!empty($invite)) $HTML .= ' data-invites="['.implode(',',$invite).']"';
+
+			// Close code javascript for the creation of the 
+			// required component. In this way the load is delayed
 
 			$HTML .= "></'+'div'+'>';";
 			$HTML .= "document.write(h);";

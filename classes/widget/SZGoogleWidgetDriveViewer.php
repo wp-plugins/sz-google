@@ -47,6 +47,7 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 				'url'          => '',  // valore predefinito
 				'width'        => '',  // valore predefinito
 				'height'       => '',  // valore predefinito
+				'pre'          => '',  // valore predefinito
 				'margintop'    => '0', // valore predefinito
 				'marginright'  => '0', // valore predefinito
 				'marginbottom' => '0', // valore predefinito
@@ -101,6 +102,7 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 				'width_auto'  => '1', // esecuzione strip_tags
 				'height'      => '1', // esecuzione strip_tags
 				'height_auto' => '1', // esecuzione strip_tags
+				'pre'         => '1', // esecuzione strip_tags
 			),$new_instance,$old_instance);
 		}
 
@@ -120,6 +122,7 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 				'width_auto'  => '', // valore predefinito
 				'height'      => '', // valore predefinito
 				'height_auto' => '', // valore predefinito
+				'pre'         => '', // valore predefinito
 			);
 
 			// Creazione array per elenco campi da recuperare su FORM e
@@ -136,6 +139,13 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 
 				if (!ctype_digit($width)  and $width  != 'auto') $width  = $options->drive_viewer_w_width;
 				if (!ctype_digit($height) and $height != 'auto') $height = $options->drive_viewer_w_height;
+
+				// Controllo se la stringa contiene un valore coerente con la
+				// selezione del parametro sia come valore numerico che carattere
+
+				$YESNO = array('1','0','n','y');
+
+				if (!in_array($pre,$YESNO)) $pre = $options->drive_viewer_w_wrap_pre;
 			}
 
 			// Impostazione eventuale di parametri di default per i
@@ -145,6 +155,11 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 
 			if (!ctype_digit($width)  or $width  == 0) { $width  = $DEFAULT['drive_viewer_w_width']['value'];  $width_auto  = '1'; }
 			if (!ctype_digit($height) or $height == 0) { $height = $DEFAULT['drive_viewer_w_height']['value']; $height_auto = '1'; }
+
+			// Se i valori vengono presi dalle opzioni di default si possono creare
+			// dei problemi dovuti alla differenza nella memorizzazione dello stato
+
+			$pre = str_replace(array('0','1'),array('n','y'),$pre);
 
 			// Richiamo il template per la visualizzazione della
 			// parte che riguarda il pannello di amministrazione

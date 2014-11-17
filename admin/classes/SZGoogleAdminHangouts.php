@@ -72,8 +72,11 @@ if (!class_exists('SZGoogleAdminHangouts'))
 			// All fields are added to the previously defined sections
 
 			$this->sectionsfields = array(
-				'01' => array(array('field' => 'hangouts_start_shortcode','title' => ucfirst(__('shortcode','szgoogleadmin')),'callback' => array($this,'callback_hangouts_start_shortcode')),
-				              array('field' => 'hangouts_start_widget'   ,'title' => ucfirst(__('widget'   ,'szgoogleadmin')),'callback' => array($this,'callback_hangouts_start_widget')),),
+				'01' => array(array('field' => 'hangouts_start_shortcode','title' => ucfirst(__('shortcode'  ,'szgoogleadmin')),'callback' => array($this,'callback_hangouts_start_shortcode')),
+				              array('field' => 'hangouts_start_widget'   ,'title' => ucfirst(__('widget'     ,'szgoogleadmin')),'callback' => array($this,'callback_hangouts_start_widget')),
+				              array('field' => 'hangouts_start_logged'   ,'title' => ucfirst(__('user logged','szgoogleadmin')),'callback' => array($this,'callback_hangouts_start_logged')),
+				              array('field' => 'hangouts_start_guest'    ,'title' => ucfirst(__('user guest' ,'szgoogleadmin')),'callback' => array($this,'callback_hangouts_start_guest')),
+				),
 			);
 
 			// Calling up the function of the parent class to process the 
@@ -97,6 +100,18 @@ if (!class_exists('SZGoogleAdminHangouts'))
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_hangouts','hangouts_start_shortcode');
 			$this->moduleCommonFormDescription(__('if you enable this option you can use this shortcode and enter the corresponding components directly in your article or page. Normally in the shortcodes can be specified the options for customizations. See the documentation section.','szgoogleadmin'));
+		}
+
+		function callback_hangouts_start_logged()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_hangouts','hangouts_start_logged');
+			$this->moduleCommonFormDescription(__('this option controls whether the selected component to be displayed when a user is logged. If you uncheck the option for the user logged and for the guest user, only the site administrator can see this component present in a web page.','szgoogleadmin'));
+		}
+
+		function callback_hangouts_start_guest()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_hangouts','hangouts_start_guest');
+			$this->moduleCommonFormDescription(__('this option controls whether the selected component to be displayed when a guest user is connected. If you uncheck the option for the user logged and for the guest user, only the site administrator can see this component present in a web page.','szgoogleadmin'));
 		}
 	}
 }

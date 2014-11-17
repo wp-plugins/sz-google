@@ -37,20 +37,24 @@ format option = "value". If you would like additional information you can visit
 <h2>Parámetros y opciones</h2>
 
 <table>
-	<tr><th>Parámetro</th>    <th>Descripción</th>   <th>Valores</th>                      <th>Defecto</th></tr>
-	<tr><td>type</td>         <td>type</td>          <td>normal,onair,party,moderated</td> <td>normal</td></tr>
-	<tr><td>topic</td>        <td>topic</td>         <td>cadena</td>                       <td>null</td></tr>
-	<tr><td>width</td>        <td>width</td>         <td>valor,auto</td>                   <td>auto</td></tr>
-	<tr><td>float</td>        <td>float</td>         <td>left,right,none</td>              <td>none</td></tr>
-	<tr><td>align</td>        <td>alignment</td>     <td>left,center,right,none</td>       <td>none</td></tr>
-	<tr><td>text</td>         <td>text</td>          <td>cadena</td>                       <td>null</td></tr>
-	<tr><td>img</td>          <td>image</td>         <td>cadena</td>                       <td>null</td></tr>
-	<tr><td>position</td>     <td>position</td>      <td>top,center,bottom,outside</td>    <td>outside</td></tr>
-	<tr><td>margintop</td>    <td>margin top</td>    <td>valor,none</td>                   <td>none</td></tr>
-	<tr><td>marginrigh</td>   <td>margin righ</td>   <td>valor,none</td>                   <td>none</td></tr>
-	<tr><td>marginbottom</td> <td>margin bottom</td> <td>valor,none</td>                   <td>1</td></tr>
-	<tr><td>marginleft</td>   <td>margin left</td>   <td>valor,none</td>                   <td>none</td></tr>
-	<tr><td>marginunit</td>   <td>margin unit</td>   <td>em,pt,px</td>                     <td>em</td></tr>
+	<tr><th>Parámetro</th>    <th>Descripción</th>         <th>Valores</th>                          <th>Defecto</th></tr>
+	<tr><td>type</td>         <td>type</td>                <td>normal,onair,party,moderated</td>     <td>normal</td></tr>
+	<tr><td>topic</td>        <td>topic</td>               <td>cadena</td>                           <td>null</td></tr>
+	<tr><td>width</td>        <td>width</td>               <td>valor,auto</td>                       <td>auto</td></tr>
+	<tr><td>float</td>        <td>float</td>               <td>left,right,none</td>                  <td>none</td></tr>
+	<tr><td>align</td>        <td>alignment</td>           <td>left,center,right,none</td>           <td>none</td></tr>
+	<tr><td>text</td>         <td>text</td>                <td>cadena</td>                           <td>null</td></tr>
+	<tr><td>img</td>          <td>image</td>               <td>cadena</td>                           <td>null</td></tr>
+	<tr><td>position</td>     <td>position</td>            <td>top,center,bottom,outside</td>        <td>outside</td></tr>
+	<tr><td>profile</td>      <td>invitación perfiles</td> <td>id (separados por comas)</td>         <td>null</td></tr>
+	<tr><td>email</td>        <td>invitación email</td>    <td>direcciones (separados por comas)</td><td>null</td></tr>
+	<tr><td>logged</td>       <td>usuario registrado</td>  <td>y=yes,n=no</td>                       <td>configuración</td></tr>
+	<tr><td>guest</td>        <td>usuario guest</td>       <td>y=yes,n=no</td>                       <td>configuración</td></tr>
+	<tr><td>margintop</td>    <td>margin top</td>          <td>valor,none</td>                       <td>none</td></tr>
+	<tr><td>marginrigh</td>   <td>margin righ</td>         <td>valor,none</td>                       <td>none</td></tr>
+	<tr><td>marginbottom</td> <td>margin bottom</td>       <td>valor,none</td>                       <td>1</td></tr>
+	<tr><td>marginleft</td>   <td>margin left</td>         <td>valor,none</td>                       <td>none</td></tr>
+	<tr><td>marginunit</td>   <td>margin unit</td>         <td>em,pt,px</td>                         <td>em</td></tr>
 </table>
 
 <h2>Button wrapper</h2>

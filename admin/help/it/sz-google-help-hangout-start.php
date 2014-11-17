@@ -39,20 +39,24 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 <h2>Parametri e opzioni</h2>
 
 <table>
-	<tr><th>Parametro</th>    <th>Descrizione</th>        <th>Valori ammessi</th>               <th>Default</th></tr>
-	<tr><td>type</td>         <td>tipo</td>               <td>normal,onair,party,moderated</td> <td>normal</td></tr>
-	<tr><td>topic</td>        <td>argomento</td>          <td>stringa</td>                      <td>null</td></tr>
-	<tr><td>width</td>        <td>larghezza</td>          <td>valore,auto</td>                  <td>auto</td></tr>
-	<tr><td>float</td>        <td>float</td>              <td>left,right,none</td>              <td>none</td></tr>
-	<tr><td>align</td>        <td>allineamento</td>       <td>left,center,right,none</td>       <td>none</td></tr>
-	<tr><td>text</td>         <td>testo</td>              <td>stringa</td>                      <td>null</td></tr>
-	<tr><td>img</td>          <td>immagine</td>           <td>stringa</td>                      <td>null</td></tr>
-	<tr><td>position</td>     <td>posizione</td>          <td>top,center,bottom,outside</td>    <td>outside</td></tr>
-	<tr><td>margintop</td>    <td>margine alto</td>       <td>valore,none</td>                  <td>none</td></tr>
-	<tr><td>marginrigh</td>   <td>margine destro</td>     <td>valore,none</td>                  <td>none</td></tr>
-	<tr><td>marginbottom</td> <td>margine basso</td>      <td>valore,none</td>                  <td>1</td></tr>
-	<tr><td>marginleft</td>   <td>margine sinistro</td>   <td>valore,none</td>                  <td>none</td></tr>
-	<tr><td>marginunit</td>   <td>misura per margine</td> <td>em,pt,px</td>                     <td>em</td></tr>
+	<tr><th>Parametro</th>    <th>Descrizione</th>        <th>Valori ammessi</th>                 <th>Default</th></tr>
+	<tr><td>type</td>         <td>tipo</td>               <td>normal,onair,party,moderated</td>   <td>normal</td></tr>
+	<tr><td>topic</td>        <td>argomento</td>          <td>stringa</td>                        <td>null</td></tr>
+	<tr><td>width</td>        <td>larghezza</td>          <td>valore,auto</td>                    <td>auto</td></tr>
+	<tr><td>float</td>        <td>float</td>              <td>left,right,none</td>                <td>none</td></tr>
+	<tr><td>align</td>        <td>allineamento</td>       <td>left,center,right,none</td>         <td>none</td></tr>
+	<tr><td>text</td>         <td>testo</td>              <td>stringa</td>                        <td>null</td></tr>
+	<tr><td>img</td>          <td>immagine</td>           <td>stringa</td>                        <td>null</td></tr>
+	<tr><td>position</td>     <td>posizione</td>          <td>top,center,bottom,outside</td>      <td>outside</td></tr>
+	<tr><td>profile</td>      <td>invito per profili</td> <td>id (separati da virgola)</td>       <td>null</td></tr>
+	<tr><td>email</td>        <td>invito per email</td>   <td>indirizzi (separati da virgola)</td><td>null</td></tr>
+	<tr><td>logged</td>       <td>utente loggato</td>     <td>y=yes,n=no</td>                     <td>configurazione</td></tr>
+	<tr><td>guest</td>        <td>utente guest</td>       <td>y=yes,n=no</td>                     <td>configurazione</td></tr>
+	<tr><td>margintop</td>    <td>margine alto</td>       <td>valore,none</td>                    <td>none</td></tr>
+	<tr><td>marginrigh</td>   <td>margine destro</td>     <td>valore,none</td>                    <td>none</td></tr>
+	<tr><td>marginbottom</td> <td>margine basso</td>      <td>valore,none</td>                    <td>1</td></tr>
+	<tr><td>marginleft</td>   <td>margine sinistro</td>   <td>valore,none</td>                    <td>none</td></tr>
+	<tr><td>marginunit</td>   <td>misura per margine</td> <td>em,pt,px</td>                       <td>em</td></tr>
 </table>
 
 <h2>Contenitore bottone</h2>

@@ -36,6 +36,8 @@ var SZGoogleDialog =
 		var width  = jQuery('#ID_width' ).val();
 		var height = jQuery('#ID_height').val();
 
+		var pre    = jQuery("#MCE input[name='NAME_pre']:checked").val();
+
 		if (jQuery('#ID_width_auto' ).is(':checked')) width  = 'auto';
 		if (jQuery('#ID_height_auto').is(':checked')) height = 'auto';
 
@@ -47,6 +49,7 @@ var SZGoogleDialog =
 		if (url    != '') output += 'url="'   + url    + '" ';
 		if (width  != '') output += 'width="' + width  + '" ';
 		if (height != '') output += 'height="'+ height + '" ';
+		if (pre    != '') output += 'pre="'   + pre    + '" ';
 
 		output += '/]';
 

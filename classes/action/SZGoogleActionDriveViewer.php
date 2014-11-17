@@ -37,6 +37,7 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 				'titlealign'    => '', // valore predefinito
 				'width'         => '', // valore predefinito
 				'height'        => '', // valore predefinito
+				'pre'           => '', // valore predefinito
 				'margintop'     => '', // valore predefinito
 				'marginright'   => '', // valore predefinito
 				'marginbottom'  => '', // valore predefinito
@@ -66,6 +67,7 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 				'titlealign'    => '', // valore predefinito
 				'width'         => '', // valore predefinito
 				'height'        => '', // valore predefinito
+				'pre'           => '', // valore predefinito
 				'margintop'     => '', // valore predefinito
 				'marginright'   => '', // valore predefinito
 				'marginbottom'  => '', // valore predefinito
@@ -85,6 +87,7 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 			$url           = trim($url);
 			$title         = esc_html(trim($title));
 
+			$pre           = strtolower(trim($pre));
 			$titleposition = strtolower(trim($titleposition));
 			$titlealign    = strtolower(trim($titlealign));
 			$width         = strtolower(trim($width));
@@ -113,15 +116,30 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 				if ($height        == '') $height        = $options['drive_viewer_w_height'];
 				if ($titleposition == '') $titleposition = $options['drive_viewer_w_t_position'];
 				if ($titlealign    == '') $titlealign    = $options['drive_viewer_w_t_align'];
+				if ($pre           == '') $pre           = $options['drive_viewer_w_wrap_pre'];
 			} else {
 				if ($width         == '') $width         = $options['drive_viewer_s_width'];
 				if ($height        == '') $height        = $options['drive_viewer_s_height'];
 				if ($titleposition == '') $titleposition = $options['drive_viewer_s_t_position'];
 				if ($titlealign    == '') $titlealign    = $options['drive_viewer_s_t_align'];
+				if ($pre           == '') $pre           = $options['drive_viewer_s_wrap_pre'];
 			}
 
 			if (!in_array($titleposition,array('top','bottom'))) $titleposition = 'top'; 
 			if (!in_array($titlealign,array('none','left','right','center'))) $titlealign = 'none'; 
+
+			// Conversione dei valori specificati direttamete nei parametri con
+			// i valori usati per la memorizzazione dei valori di default
+
+			if ($pre == 'yes' or $pre == 'y') $pre = '1'; 
+			if ($pre == 'no'  or $pre == 'n') $pre = '0'; 
+
+			// Se non sono riuscito ad assegnare nessun valore con le istruzioni
+			// precedenti metto dei default assoluti che possono essere cambiati
+
+			$YESNO = array('1','0');
+
+			if (!in_array($pre,$YESNO)) $pre = '0';
 
 			// Controllo la dimensione del widget e controllo formale dei valori numerici
 			// se trovo qualche incongruenza applico i valori di default prestabiliti
@@ -148,6 +166,7 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 			$HTML  = '<div class="sz-google-drive">';
 			$HTML .= '<div class="sz-google-drive-viewer" style="'.$marginCSS.'">';
 
+			if ($pre   == '1') $HTML .= '<pre>';
 			if ($title != "" and $titleposition == 'top') $HTML .= $TITLE;
 
 			$HTML .= '<div class="sz-google-drive-viewer-embed">';
@@ -168,6 +187,7 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 			// Chiusura delle divisioni che rappresentano il wrapper
 
 			if ($title != "" and $titleposition == 'bottom') $HTML .= $TITLE;
+			if ($pre   == '1') $HTML .= '</pre>';
 
 			$HTML .= '</div>';
 			$HTML .= '</div>';

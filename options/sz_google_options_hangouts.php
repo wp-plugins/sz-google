@@ -17,4 +17,6 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 return array(
 	'hangouts_start_widget'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
 	'hangouts_start_shortcode' => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
+	'hangouts_start_logged'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
+	'hangouts_start_guest'     => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),
 );

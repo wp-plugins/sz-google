@@ -39,6 +39,11 @@ var SZGoogleDialog =
 		var text     = jQuery('#ID_text'    ).val();
 		var img      = jQuery('#ID_img'     ).val();
 		var position = jQuery('#ID_position').val();
+		var profile  = jQuery('#ID_profile' ).val();
+		var email    = jQuery('#ID_email'   ).val();
+
+		var logged   = jQuery("#MCE input[name='NAME_logged']:checked").val();
+		var guest    = jQuery("#MCE input[name='NAME_guest' ]:checked").val();
 
 		if (jQuery('#ID_badge'  ).val() == '0') text     = '';
 		if (jQuery('#ID_badge'  ).val() == '0') img      = '';
@@ -58,6 +63,10 @@ var SZGoogleDialog =
 		if (text     != '') output += 'text="'     + text     + '" ';
 		if (img      != '') output += 'img="'      + img      + '" ';
 		if (position != '') output += 'position="' + position + '" ';
+		if (profile  != '') output += 'profile="'  + profile  + '" ';
+		if (email    != '') output += 'email="'    + email    + '" ';
+		if (logged   != '') output += 'logged="'   + logged   + '" ';
+		if (guest    != '') output += 'guest="'    + guest    + '" ';
 
 		output += '/]';
 

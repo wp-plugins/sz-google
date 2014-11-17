@@ -102,6 +102,36 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
+<tr><td colspan="3"><hr></td></tr>
+
+<!-- WIDGETS (Field for display control with user logged) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('logged','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_logged ?>" value="y" <?php if ($VALUE_logged == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_logged ?>" value="n" <?php if ($VALUE_logged != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
+</tr>
+
+<!-- WIDGETS (Field for display control with user guest) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label><?php echo ucfirst(__('guest','szgoogleadmin')) ?>:</label></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_guest ?>" value="y" <?php if ($VALUE_guest == 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('yes','szgoogleadmin')) ?></td>
+	<td colspan="1" class="sz-cell-vals"><input type="radio" name="<?php echo $NAME_guest ?>" value="n" <?php if ($VALUE_guest != 'y') echo ' checked'?>>&nbsp;<?php echo ucfirst(__('no' ,'szgoogleadmin')) ?></td>
+</tr>
+
+<tr><td colspan="3"><hr></td></tr>
+
+<!-- WIDGETS (Field for invite profile) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_profile ?>"><?php echo ucfirst(__('invite profile','szgoogleadmin')) ?>:</label></td>
+	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_profile ?>" name="<?php echo $NAME_profile ?>" type="text" value="<?php echo $VALUE_profile ?>" placeholder="<?php echo __('insert profiles with comma','szgoogleadmin') ?>"/></td>
+</tr>
+
+<!-- WIDGETS (Field for invite email) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_email ?>"><?php echo ucfirst(__('invite email','szgoogleadmin')) ?>:</label></td>
+	<td colspan="2" class="sz-cell-vals"><input class="widefat" id="<?php echo $ID_email ?>" name="<?php echo $NAME_email ?>" type="text" value="<?php echo $VALUE_email ?>" placeholder="<?php echo __('insert emails with comma','szgoogleadmin') ?>"/></td>
+</tr>
+
 <!-- WIDGETS (Closing the main table form widget) -->
 </table>
 

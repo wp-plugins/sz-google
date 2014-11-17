@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
@@ -340,6 +340,14 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.3 =
+* Feature: Add options start hangout "guest".
+* Feature: Add options start hangout "logged".
+* Feature: Add options start hangout "profile".
+* Feature: Add options start hangout "email".
+* Feature: Add options wrap PRE viewer docs.
+* Feature: Add documentation for new options.
 
 = Version 1.8.2 =
 * Fix: Playlist bug with embed javascript.

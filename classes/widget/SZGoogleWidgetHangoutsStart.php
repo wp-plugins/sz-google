@@ -51,6 +51,10 @@ if (!class_exists('SZGoogleWidgetHangoutsStart'))
 				'text'         => '', // valore predefinito
 				'img'          => '', // valore predefinito
 				'position'     => '', // valore predefinito
+				'profile'      => '', // valore predefinito
+				'email'        => '', // valore predefinito
+				'logged'       => '', // valore predefinito
+				'guest'        => '', // valore predefinito
 				'margintop'    => '', // valore predefinito
 				'marginright'  => '', // valore predefinito
 				'marginbottom' => '', // valore predefinito
@@ -112,6 +116,10 @@ if (!class_exists('SZGoogleWidgetHangoutsStart'))
 				'img'        => '1', // esecuzione strip_tags
 				'align'      => '1', // esecuzione strip_tags
 				'position'   => '1', // esecuzione strip_tags
+				'profile'    => '0', // esecuzione strip_tags
+				'email'      => '0', // esecuzione strip_tags
+				'logged'     => '1', // esecuzione strip_tags
+				'guest'      => '1', // esecuzione strip_tags
 				'width'      => '1', // esecuzione strip_tags
 				'width_auto' => '1', // esecuzione strip_tags
 			),$new_instance,$old_instance);
@@ -135,6 +143,10 @@ if (!class_exists('SZGoogleWidgetHangoutsStart'))
 				'img'        => '', // valore predefinito
 				'align'      => '', // valore predefinito
 				'position'   => '', // valore predefinito
+				'profile'    => '', // valore predefinito
+				'email'      => '', // valore predefinito
+				'logged'     => '', // valore predefinito
+				'guest'      => '', // valore predefinito
 				'width'      => '', // valore predefinito
 				'width_auto' => '', // valore predefinito
 			);
@@ -148,6 +160,28 @@ if (!class_exists('SZGoogleWidgetHangoutsStart'))
 			// campi che contengono dei valori non validi o non coerenti 
 
 			if (!ctype_digit($width) or $width == 0) { $width = 'auto'; $width_auto = '1'; }
+
+			// Lettura delle opzioni per il controllo dei valori di default
+			// da assegnare al widget nel momento che viene inserito in sidebar
+
+			if ($object = SZGoogleModule::getObject('SZGoogleModuleHangouts')) 
+			{
+				$options = (object) $object->getOptions();
+
+				// Controllo se la stringa contiene un valore coerente con la
+				// selezione del parametro sia come valore numerico che carattere
+
+				$YESNO = array('1','0','n','y');
+
+				if (!in_array($logged,$YESNO)) $logged = $options->hangouts_start_logged;
+				if (!in_array($guest ,$YESNO)) $guest  = $options->hangouts_start_guest;
+			}
+
+			// Se i valori vengono presi dalle opzioni di default si possono creare
+			// dei problemi dovuti alla differenza nella memorizzazione dello stato
+
+			$logged = str_replace(array('0','1'),array('n','y'),$logged);
+			$guest  = str_replace(array('0','1'),array('n','y'),$guest);
 
 			// Richiamo il template per la visualizzazione della
 			// parte che riguarda il pannello di amministrazione

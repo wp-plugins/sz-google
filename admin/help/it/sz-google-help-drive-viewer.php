@@ -46,6 +46,7 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 	<tr><td>title</td>         <td>aggiungere un titolo</td>    <td>stringa</td>           <td>nessuno</td></tr>
 	<tr><td>titleposition</td> <td>posizione del titolo</td>    <td>top,bottom</td>        <td>configurazione</td></tr>
 	<tr><td>titlealign</td>    <td>allineamento del titolo</td> <td>left,right,center</td> <td>configurazione</td></tr>
+	<tr><td>pre</td>           <td>wrapper con PRE</td>         <td>y=yes,n=no</td>        <td>no</td></tr>
 	<tr><td>margintop</td>     <td>margine alto</td>            <td>valore,none</td>       <td>none</td></tr>
 	<tr><td>marginrigh</td>    <td>margine destro</td>          <td>valore,none</td>       <td>none</td></tr>
 	<tr><td>marginbottom</td>  <td>margine basso</td>           <td>valore,none</td>       <td>1</td></tr>

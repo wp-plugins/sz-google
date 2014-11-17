@@ -46,6 +46,10 @@ format option = "value". If you would like additional information you can visit
 	<tr><td>text</td>         <td>text</td>          <td>string</td>                       <td>null</td></tr>
 	<tr><td>img</td>          <td>image</td>         <td>string</td>                       <td>null</td></tr>
 	<tr><td>position</td>     <td>position</td>      <td>top,center,bottom,outside</td>    <td>outside</td></tr>
+	<tr><td>profile</td>      <td>call profile</td>  <td>id (separated by commas)</td>     <td>null</td></tr>
+	<tr><td>email</td>        <td>call email</td>    <td>address (separated by commas)</td><td>null</td></tr>
+	<tr><td>logged</td>       <td>user logged</td>   <td>y=yes,n=no</td>                   <td>configuration</td></tr>
+	<tr><td>guest</td>        <td>user guest</td>    <td>y=yes,n=no</td>                   <td>configuration</td></tr>
 	<tr><td>margintop</td>    <td>margin top</td>    <td>value,none</td>                   <td>none</td></tr>
 	<tr><td>marginrigh</td>   <td>margin righ</td>   <td>value,none</td>                   <td>none</td></tr>
 	<tr><td>marginbottom</td> <td>margin bottom</td> <td>value,none</td>                   <td>1</td></tr>

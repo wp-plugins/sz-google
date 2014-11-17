@@ -116,7 +116,7 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 				'sz-drive-viewer'    => array('width'=>'430','height'=>'270','title'=>__('Drive Viewer'        ,'szgoogleadmin')),
 				'sz-drive-save'      => array('width'=>'430','height'=>'350','title'=>__('Drive Save Button'   ,'szgoogleadmin')),
 				'sz-ggroups'         => array('width'=>'430','height'=>'370','title'=>__('Groups Widget'       ,'szgoogleadmin')),
-				'sz-hangouts-start'  => array('width'=>'430','height'=>'450','title'=>__('Hangout Start Button','szgoogleadmin')),
+				'sz-hangouts-start'  => array('width'=>'430','height'=>'610','title'=>__('Hangout Start Button','szgoogleadmin')),
 				'sz-panoramio'       => array('width'=>'430','height'=>'520','title'=>__('Panoramio Widget'    ,'szgoogleadmin')),
 //				'sz-gtranslate'      => array('width'=>'430','height'=>'470','title'=>__('Translate Widget'    ,'szgoogleadmin')),
 				'sz-ytvideo'         => array('width'=>'430','height'=>'580','title'=>__('Youtube Video'       ,'szgoogleadmin')),
