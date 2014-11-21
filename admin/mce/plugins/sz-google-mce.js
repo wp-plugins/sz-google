@@ -8,7 +8,8 @@
 	var cale = new Array(); // google calendar
 	var driv = new Array(); // google drive
 	var grou = new Array(); // google groups
-	var hang = new Array(); // gogole hangouts
+	var hang = new Array(); // google hangouts
+	var maps = new Array(); // google maps
 	var pano = new Array(); // google panoramio
 	var tran = new Array(); // google translate
 	var yout = new Array(); // google youtube
@@ -41,6 +42,7 @@
 		if (shortcode.substr(0,8)  == 'sz-drive')      driv.push({ text: description, onclick: funzione });
 		if (shortcode.substr(0,10) == 'sz-ggroups')    grou.push({ text: description, onclick: funzione });
 		if (shortcode.substr(0,11) == 'sz-hangouts')   hang.push({ text: description, onclick: funzione });
+		if (shortcode.substr(0,7)  == 'sz-maps')       maps.push({ text: description, onclick: funzione });
 		if (shortcode.substr(0,12) == 'sz-panoramio')  pano.push({ text: description, onclick: funzione });
 		if (shortcode.substr(0,13) == 'sz-gtranslate') tran.push({ text: description, onclick: funzione });
 		if (shortcode.substr(0,5)  == 'sz-yt')         yout.push({ text: description, onclick: funzione });
@@ -56,9 +58,10 @@
 	if (driv.length != 0) { menu[2] = { text: 'Google Drive'    , menu: driv }; selected = true; };
 	if (grou.length != 0) { menu[3] = { text: 'Google Groups'   , menu: grou }; selected = true; };
 	if (hang.length != 0) { menu[4] = { text: 'Google Hangouts' , menu: hang }; selected = true; };
-	if (pano.length != 0) { menu[5] = { text: 'Google Panoramio', menu: pano }; selected = true; };
-	if (tran.length != 0) { menu[6] = { text: 'Google Translate', menu: tran }; selected = true; };
-	if (yout.length != 0) { menu[7] = { text: 'Google Youtube'  , menu: yout }; selected = true; };
+	if (maps.length != 0) { menu[5] = { text: 'Google Maps'     , menu: maps }; selected = true; };
+	if (pano.length != 0) { menu[6] = { text: 'Google Panoramio', menu: pano }; selected = true; };
+	if (tran.length != 0) { menu[7] = { text: 'Google Translate', menu: tran }; selected = true; };
+	if (yout.length != 0) { menu[8] = { text: 'Google Youtube'  , menu: yout }; selected = true; };
 
 	// Add the button with menus that are created only if there is at 
 	// least one element selected, otherwise I do not know the menu

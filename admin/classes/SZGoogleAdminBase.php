@@ -66,7 +66,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			if ($options->fonts         == '1') new SZGoogleAdminFonts();
 			if ($options->groups        == '1') new SZGoogleAdminGroups();
 			if ($options->hangouts      == '1') new SZGoogleAdminHangouts();
-//			if ($options->maps          == '1') new SZGoogleAdminMaps();
+			if ($options->maps          == '1') new SZGoogleAdminMaps();
 			if ($options->panoramio     == '1') new SZGoogleAdminPanoramio();
 			if ($options->translate     == '1') new SZGoogleAdminTranslate();
 			if ($options->youtube       == '1') new SZGoogleAdminYoutube();
@@ -143,7 +143,7 @@ if (!class_exists('SZGoogleAdminBase'))
 				              array('field' => 'fonts'            ,'title' => ucwords(__('google fonts'        ,'szgoogleadmin')),'callback' => array($this,'callback_base_fonts')),
 				              array('field' => 'groups'           ,'title' => ucwords(__('google groups'       ,'szgoogleadmin')),'callback' => array($this,'callback_base_groups')),
 				              array('field' => 'hangouts'         ,'title' => ucwords(__('google hangouts'     ,'szgoogleadmin')),'callback' => array($this,'callback_base_hangouts')),
-//				              array('field' => 'maps'             ,'title' => ucwords(__('google maps'         ,'szgoogleadmin')),'callback' => array($this,'callback_base_maps')),
+				              array('field' => 'maps'             ,'title' => ucwords(__('google maps'         ,'szgoogleadmin')),'callback' => array($this,'callback_base_maps')),
 				              array('field' => 'panoramio'        ,'title' => ucwords(__('google panoramio'    ,'szgoogleadmin')),'callback' => array($this,'callback_base_panoramio')),
 				              array('field' => 'translate'        ,'title' => ucwords(__('google translate'    ,'szgoogleadmin')),'callback' => array($this,'callback_base_translate')),
 				              array('field' => 'youtube'          ,'title' => ucwords(__('google youtube'      ,'szgoogleadmin')),'callback' => array($this,'callback_base_youtube')),

@@ -1,31 +1,30 @@
 <?php
 
 /**
- * Modulo GOOGLE AJAX per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità particolari a wordpress
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModuleAnalytics'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleModule
-	 */
 	class SZGoogleModuleAnalytics extends SZGoogleModule
 	{
 		/**
-		 * Definizione delle variabili iniziali su array che servono
-		 * ad indentificare il modulo e le opzioni ad esso collegate
+		 * Definition of the initial variable array which are
+		 * used to identify the module and options related to it
 		 */
+
 		function moduleAddSetup()
 		{
 			$this->moduleSetClassName(__CLASS__);
@@ -33,17 +32,16 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 		}
 
 		/**
-		 * Aggiungo le azioni del modulo corrente, questa funzione deve essere
-		 * implementata nel caso di una personalizzazione non standard tramite array
-		 *
-		 * @return void
+		 * Add the actions of the current module, this function must be
+		 * implemented in the case of a non-standard customization via array
 		 */
+
 		function moduleAddActions()
 		{
 			$options = (object) $this->getOptions();
 
-			// Se sono sul frontend aggiungo azione header o footer in
-			// base a quello che è stato specificato in configurazione 
+			// If you are on the frontend add action header or footer 
+			// based on what was specified in the configuration
 
 			if (!is_admin() and $options->ga_enable_front == '1') {
 				if ($options->ga_position == 'H') add_action('wp_head',array(new SZGoogleActionAnalytics($this),'action'));
@@ -52,11 +50,10 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 		}
 
 		/**
-		 * Funzione per calcolare il codice di Google Analytics
-		 * da utilizzare nel codice di monitoraggio inserito manualmente.
-		 *
-		 * @return string
+		 * Function to calculate the Google Analytics code
+		 * to be used in the tracking code entered manually
 		 */
+
 		function getGAId($atts=array()) {
 			$options = $this->getOptions();
 			return trim($options['ga_uacode']);   
@@ -64,9 +61,8 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 	}
 
 	/**
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * Loading function for PHP allows developers to implement modules in this plugin.
+	 * The functions have the same parameters of shortcodes, see the documentation.
 	 */
 
 	@require_once(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/functions/SZGoogleFunctionsAnalytics.php');

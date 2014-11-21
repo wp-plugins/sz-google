@@ -1,55 +1,52 @@
 <?php
 
 /**
- * Modulo GOOGLE AJAX per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità particolari a wordpress
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModuleAjax'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleModule
-	 */
 	class SZGoogleModuleAjax extends SZGoogleModule
 	{
 		/**
-		 * Definizione delle variabili iniziali su array che servono
-		 * ad indentificare il modulo e le opzioni ad esso collegate
+		 * Definition of the initial variable array which are
+		 * used to identify the module and options related to it
 		 */
+
 		function moduleAddSetup()
 		{
 			$this->moduleSetClassName(__CLASS__);
-
 			add_action('wp_ajax_sz_google_shortcodes',array($this,'moduleAddAjaxShortcodes'));
 		}
 		
 		/**
-		 * Funzione per la chiamata Ajax che riguarda la chiamata
-		 * dei template sui shortcodes corrispondenti 
-		 *
-		 * @return void
+		 * Function for the Ajax call regarding the
+		 * calling of template matching of shortcodes
 		 */
+
 		function moduleAddAjaxShortcodes() 
 		{
-			// Se la chiamata contiene i parametri che la chiamata
-			// si attende di ricevere dal form con il metodo POST
+			// Check if the call to this function contains the
+			// parameters expected in form with the POST method
 
 			if (!isset($_GET['action']))    return null;
 			if (!isset($_GET['shortcode'])) return null;
 			if (!isset($_GET['title']))     return null;
 
-			// Controllo esistenza shortcode specificato e
-			// caricamento template che riguarda lo shortcode
+			// Checking existence specified shortcode and
+			// loading template that covers the shortcode
 
 			$shortcode  = $_GET['shortcode'];
 			$shortcodes = $this->moduleGetAjaxShortcodes();
@@ -61,14 +58,14 @@ if (!class_exists('SZGoogleModuleAjax'))
 				if (is_file($filename)) @include($filename);
 			}
 
-			// La chiamata AJAX deve essere chiusa correttamente con
-			// l'istruzione exit() o die() il processo non deve continuare
+			// The AJAX call must be properly closed with the 
+			// command exit() or die() and the process should continue
 
 			die();
 		}
 
-		// Definizione array per contenere le stringhe di traduzione da 
-		// utilizzare nel plugin definito nel file js collegato
+		// Definition array to hold the shortcodes strings  
+		// to use the plugin defined in the js file attached
 
 		function moduleGetAjaxShortcodes() 
 		{
@@ -88,6 +85,7 @@ if (!class_exists('SZGoogleModuleAjax'))
 				'sz-drive-save'      => 'SZGoogleDriveSaveButton',
 				'sz-ggroups'         => 'SZGoogleGroups',
 				'sz-hangouts-start'  => 'SZGoogleHangoutsStart',
+				'sz-maps'            => 'SZGoogleMaps',
 				'sz-panoramio'       => 'SZGooglePanoramio',
 				'sz-gtranslate'      => '',
 				'sz-ytvideo'         => 'SZGoogleYoutubeVideo',

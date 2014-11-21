@@ -1,25 +1,23 @@
 <?php
 
 /**
- * Modulo GOOGLE PLUS per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità particolari a wordpress
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModulePlus'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleModule
-	 */
 	class SZGoogleModulePlus extends SZGoogleModule
 	{
 		protected $setMetaAuthor        = false;
@@ -27,9 +25,10 @@ if (!class_exists('SZGoogleModulePlus'))
 		protected $setJavascriptPlusone = false;
 
 		/**
-		 * Definizione delle variabili iniziali su array che servono
-		 * ad indentificare il modulo e le opzioni ad esso collegate
+		 * Definition of the initial variable array which are
+		 * used to identify the module and options related to it
 		 */
+
 		function moduleAddSetup()
 		{
 			$this->moduleSetClassName(__CLASS__);
@@ -40,8 +39,8 @@ if (!class_exists('SZGoogleModulePlus'))
 				'plus_comments_gp_enable' => 'SZGoogleActionPlusComments',
 			);
 
-			// Definizione degli shortcode collegati al modulo con un array in cui bisogna
-			// specificare l'opzione di attivazione il nome dello shortcode e la funzione da eseguire
+			// Definition shortcode connected to the module with an array where you
+			// have to specify the name activation option with the shortcode and function
 
 			$this->moduleSetShortcodes(array(
 				'plus_shortcode_pr_enable'          => array('sz-gplus-profile'  ,array($this,'getPlusProfileShortcode')),
@@ -55,8 +54,8 @@ if (!class_exists('SZGoogleModulePlus'))
 				'plus_post_enable_shortcode'        => array('sz-gplus-post'     ,array($this,'getPlusPostShortcode')),
 			));
 
-			// Definizione widget collegati al modulo con un array in cui bisogna
-			// specificare il nome opzione di attivazione e la classe da caricare
+			// Definition widgets connected to the module with an array where you
+			// have to specify the name option of activating and class to be loaded
 
 			$this->moduleSetWidgets(array(
 				'plus_widget_pr_enable'             => 'SZGoogleWidgetPlusProfile',
@@ -72,11 +71,10 @@ if (!class_exists('SZGoogleModulePlus'))
 		}
 
 		/**
-		 * Aggiungo le azioni necessarie al modulo corrente, questa funzione deve
-		 * essere implementata non è possibile creare una standardizzazione
-		 *
-		 * @return void
+		 * Add the actions of the current module, this function must be
+		 * implemented in the case of a non-standard customization via array
 		 */
+
 		function moduleAddActions()
 		{
 			$options = (object) $this->getOptions();
@@ -1747,9 +1745,8 @@ if (!class_exists('SZGoogleModulePlus'))
 	}
 
 	/**
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * Loading function for PHP allows developers to implement modules in this plugin.
+	 * The functions have the same parameters of shortcodes, see the documentation.
 	 */
 
 	@require_once(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/functions/SZGoogleFunctionsPlus.php');

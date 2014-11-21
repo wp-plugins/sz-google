@@ -1,45 +1,44 @@
 <?php
 
 /**
- * Modulo GOOGLE PANORAMIO per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità particolari a wordpress
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModulePanoramio'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleModule
-	 */
 	class SZGoogleModulePanoramio extends SZGoogleModule
 	{
 		/**
-		 * Definizione delle variabili iniziali su array che servono
-		 * ad indentificare il modulo e le opzioni ad esso collegate
+		 * Definition of the initial variable array which are
+		 * used to identify the module and options related to it
 		 */
+
 		function moduleAddSetup()
 		{
 			$this->moduleSetClassName(__CLASS__);
 			$this->moduleSetOptionSet('sz_google_options_panoramio');
 			
-			// Definizione degli shortcode collegati al modulo con un array in cui bisogna
-			// specificare l'opzione di attivazione il nome dello shortcode e la funzione da eseguire
+			// Definition shortcode connected to the module with an array where you
+			// have to specify the name activation option with the shortcode and function
 
 			$this->moduleSetShortcodes(array(
 				'panoramio_shortcode' => array('sz-panoramio',array(new SZGoogleActionPanoramio(),'getShortcode')),
 			));
 
-			// Definizione widget collegati al modulo con un array in cui bisogna
-			// specificare il nome opzione di attivazione e la classe da caricare
+			// Definition widgets connected to the module with an array where you
+			// have to specify the name option of activating and class to be loaded
 
 			$this->moduleSetWidgets(array(
 				'panoramio_widget'    => 'SZGoogleWidgetPanoramio',
@@ -48,9 +47,8 @@ if (!class_exists('SZGoogleModulePanoramio'))
 	}
 
 	/**
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * Loading function for PHP allows developers to implement modules in this plugin.
+	 * The functions have the same parameters of shortcodes, see the documentation.
 	 */
 
 	@require_once(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/functions/SZGoogleFunctionsPanoramio.php');

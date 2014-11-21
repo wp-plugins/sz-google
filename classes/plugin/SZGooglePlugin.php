@@ -99,6 +99,7 @@ if (!class_exists('SZGooglePlugin'))
 			if ($options->fonts         == '1') new SZGoogleModuleFonts();
 			if ($options->groups        == '1') new SZGoogleModuleGroups();
 			if ($options->hangouts      == '1') new SZGoogleModuleHangouts();
+			if ($options->maps          == '1') new SZGoogleModuleMaps();
 			if ($options->panoramio     == '1') new SZGoogleModulePanoramio();
 			if ($options->translate     == '1') new SZGoogleModuleTranslate();
 			if ($options->youtube       == '1') new SZGoogleModuleYoutube();

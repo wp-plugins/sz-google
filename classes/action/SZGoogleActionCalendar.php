@@ -138,7 +138,7 @@ if (!class_exists('SZGoogleActionCalendar'))
 				if ($title    == '') $title    = $options->calendar_w_title;
 				if ($width    == '') $width    = $options->calendar_w_width;
 				if ($height   == '') $height   = $options->calendar_w_height;
-	
+
 				if (!in_array($showtitle    ,$YESNO)) $showtitle     = $options->calendar_w_show_title;
 				if (!in_array($shownavs     ,$YESNO)) $shownavs      = $options->calendar_w_show_navs;
 				if (!in_array($showdate     ,$YESNO)) $showdate      = $options->calendar_w_show_date;

@@ -2,11 +2,11 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 1.8.3
+Stable tag: 1.8.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
-Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
+Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google maps, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -32,6 +32,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `Module Google Fonts`
 * `Module Google Groups`
 * `Module Google Hangouts`
+* `Module Google Maps`
 * `Module Google Panoramio`
 * `Module Google Translate`
 * `Module Google Youtube`
@@ -340,6 +341,12 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.4 =
+* Feature: Google Maps module.
+* Feature: Google Maps shortcode.
+* Feature: Google Maps widget.
+* Feature: Translate source comments.
 
 = Version 1.8.3 =
 * Feature: Add options start hangout "guest".

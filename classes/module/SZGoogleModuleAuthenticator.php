@@ -1,31 +1,30 @@
 <?php
 
 /**
- * Modulo GOOGLE AUTHENTICATOR per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità particolari a wordpress
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModuleAuthenticator'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleModule
-	 */
 	class SZGoogleModuleAuthenticator extends SZGoogleModule
 	{
 		/**
-		 * Definizione delle variabili iniziali su array che servono
-		 * ad indentificare il modulo e le opzioni ad esso collegate
+		 * Definition of the initial variable array which are
+		 * used to identify the module and options related to it
 		 */
+
 		function moduleAddSetup()
 		{
 			$this->moduleSetClassName(__CLASS__);
@@ -33,35 +32,33 @@ if (!class_exists('SZGoogleModuleAuthenticator'))
 		}
 
 		/**
-		 * Aggiungo le azioni del modulo corrente, questa funzione deve essere
-		 * implementata nel caso di una personalizzazione non standard tramite array
-		 *
-		 * @return void
+		 * Add the actions of the current module, this function must be
+		 * implemented in the case of a non-standard customization via array
 		 */
+
 		function moduleAddActions()
 		{
 			$options = $this->getOptions();
 
-			// Controllo se opzione autenticazione di login risulta attiva.
-			// In questo caso aggiungo filtri e azioni su fase di login.
+			// Check whether login authentication option is active.
+			// In this case, add filters and actions on login phase.
 
 			if ($options['authenticator_login_enable']) {
 				if (!$this->checkEmergencyFile()) new SZGoogleActionAuthenticatorLogin();
 					else if (is_admin()) add_action('admin_notices',array($this,'addAdminAuthenticatorNotices'));
 			}
 
-			// Aggiungo le opzioni al profilo che vengono viste solo se user=current nelle
-			// opzioni verranno inseriti i bottone per creare una configurazione di sincronizzazione
+			// Add to profile options that are only seen if user=current, are to be
+			// included in the options button to create a configuration synchronization
 
 			new SZGoogleActionAuthenticatorProfile();
 		}
 
 		/**
-		 * Funzione per indicare il messaggio di sospensione modulo
-		 * sulla bacheca principale del pannello di amministrazione.
-		 *
-		 * @return void
+		 * Function to indicate the message suspension module
+		 * on the bulletin board in the main admin panel.
 		 */
+
 		function addAdminAuthenticatorNotices() 
 		{
 			echo '<div class="error"><p>(<b>sz-google</b>) - ';
@@ -70,29 +67,29 @@ if (!class_exists('SZGoogleModuleAuthenticator'))
 		}
 
 		/**
-		 * Funzione per il controllo del file di emergenza, se viene
-		 * trovato questo file il processo viene temporaneamente sospeso.
-		 *
-		 * @return void
+		 * Function for the control of the file emergency, If
+		 * such file is found, the process is temporarily suspended.
 		 */
+
 		function checkEmergencyFile() 
 		{
 			$options = $this->getOptions();
 
-			// Se opzione di emergenza risulta non attiva esco dalla funzione
-			// altrimenti controllo esistenza del file in directory root
+			// If an emergency option is not active I leave the function
+			// otherwise check file exists in the root directory
 
 			if (!isset($options['authenticator_emergency']) or $options['authenticator_emergency'] != '1') {
 				return false;
 			} 
 
-			// Calcolo il nome del file da controllare prendendo il valore di default o
-			// il valore specificato nella configurazione generale di google authenticator
+			// Calculate the name of the file to be checked by taking the default 
+			// or the value specified in the general configuration of google authenticator
 
 			if (trim($options['authenticator_emergency_file']) == '') $filename = ABSPATH.'google-authenticator-disable.php';
 				else $filename = ABSPATH.trim($options['authenticator_emergency_file']);
 
-			// Controllo esistenza del file google-authenticator-emergency.php
+			// Checking file exists google-authenticator-emergency.php
+			// If the file does not exist off the authentication feature
 
 			if (file_exists($filename)) return true;
 				else return false;
@@ -100,9 +97,8 @@ if (!class_exists('SZGoogleModuleAuthenticator'))
 	}
 
 	/**
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * Loading function for PHP allows developers to implement modules in this plugin.
+	 * The functions have the same parameters of shortcodes, see the documentation.
 	 */
 
 	@require_once(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/functions/SZGoogleFunctionsAuthenticator.php');

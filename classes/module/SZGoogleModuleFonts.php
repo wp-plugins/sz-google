@@ -1,31 +1,30 @@
 <?php
 
 /**
- * Modulo GOOGLE FONTS per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità particolari a wordpress
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModuleFonts'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleModule
-	 */
 	class SZGoogleModuleFonts extends SZGoogleModule
 	{
 		/**
-		 * Definizione delle variabili iniziali su array che servono
-		 * ad indentificare il modulo e le opzioni ad esso collegate
+		 * Definition of the initial variable array which are
+		 * used to identify the module and options related to it
 		 */
+
 		function moduleAddSetup()
 		{
 			$this->moduleSetClassName(__CLASS__);
@@ -33,18 +32,16 @@ if (!class_exists('SZGoogleModuleFonts'))
 		}
 		
 		/**
-		 * Aggiungo le azioni del modulo corrente, questa funzione deve
-		 * essere implementate per ogni modulo in maniera personalizzata
-		 * non è possibile creare una funzione di standardizzazione
-		 *
-		 * @return void
+		 * Add the actions of the current module, this function must be
+		 * implemented in the case of a non-standard customization via array
 		 */
+
 		function moduleAddActions()
 		{ 
 			$options = (object) $this->getOptions();
 
-			// Controllo se devo attivare un sistema per aggiungere dei
-			// componenti di selezione all'editor standard di TinyMCE
+			// Checking if I have to activate a system to add the 
+			// components of selection standard TinyMCE editor
 
 			if ($options->fonts_tinyMCE_family == '1' or
 			    $options->fonts_tinyMCE_size   == '1') 
@@ -52,8 +49,8 @@ if (!class_exists('SZGoogleModuleFonts'))
 				new SZGoogleActionFontsTinyMCE();
 			}
 
-			// Controllo se devo attivare il sistema di caricamento per i fonts
-			// indicati nel pannello di amministrazione (attivi e con nome)
+			// Checking if I have to activate the charging system for
+			// fonts specified in the admin panel (active and with name)
 
 			$testvalue = array('','nofonts');
 
@@ -76,8 +73,8 @@ if (!class_exists('SZGoogleModuleFonts'))
 				add_action('SZ_HEAD',array($this,'moduleAddFonts'),20);
 			}
 
-			// Controllo se è stato specificato un livello che necessita il
-			// codice CSS automatico per essere applicato all'elemento selezionato
+			// Check if you have specified a level that requires
+			// the CSS automatic to be applied to the selected element
 
 			if (!in_array($options->fonts_family_B1_name,$testvalue) or
 			    !in_array($options->fonts_family_P1_name,$testvalue) or
@@ -94,17 +91,16 @@ if (!class_exists('SZGoogleModuleFonts'))
 		}
 
 		/**
-		 * Aggiungo informazione in <head> per il caricamento dei fonts
-		 * necessari all'assegnazione in body manuale o automatica
-		 *
-		 * @return void
+		 * Add information in <head> for loading fonts necessary
+		 * in section <body> with method manual or automatic
 		 */
+
 		function moduleAddFonts()
 		{
 			$options = $this->getOptions();
 
-			// Preparazione array di lavoro e controllo i livelli disponibili
-			// per poter indicare il font da caricare che è stato specificato
+			// Preparation work array and control levels available to
+			// specify the font to be downloaded that has been specified
 
 			$fontslist = array();
 			$fontsload = array();
@@ -126,15 +122,15 @@ if (!class_exists('SZGoogleModuleFonts'))
 			if (!in_array($options['fonts_family_H5_name'],$testvalue)) $fontslist[] = $options['fonts_family_H5_name'];
 			if (!in_array($options['fonts_family_H6_name'],$testvalue)) $fontslist[] = $options['fonts_family_H6_name'];
 
-			// Leggo tutti i font elencati e preparo un array senza ulteriori doppioni
-			// in quanto è possibile indicare lo stesso font su diversi livelli
+			// I read all of the fonts listed and prepare an array without further 
+			// duplication as it is possible to specify the same font on different levels
 
 			foreach ($fontslist as $key=>$value) {
 				if (!isset($fontsload[$value])) $fontsload[$value] = $value;
 			}
 
-			// Se array dei fonts da caricare contiene qualche elemento provvedo al caricamento
-			// multiplo usando però una sola istruzione di stylesheet come da sintassi google
+			// If array of fonts to be loaded contains some element provider and the multiple
+			// loading, but using only one statement stylesheet syntax like to google
 
 			if (!empty($fontsload)) 
 			{
@@ -144,11 +140,10 @@ if (!class_exists('SZGoogleModuleFonts'))
 		}
 
 		/**
-		 * Aggiungo informazione in <head> per il caricamento dei fonts
-		 * necessari all'assegnazione in body manuale o automatica
-		 *
-		 * @return void
+		 * Add information in <head> for loading fonts necessary
+		 * in section <body> with method manual or automatic
 		 */
+
 		function moduleAddCSS()
 		{
 			$options = $this->getOptions();
@@ -171,9 +166,8 @@ if (!class_exists('SZGoogleModuleFonts'))
 	}
 
 	/**
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * Loading function for PHP allows developers to implement modules in this plugin.
+	 * The functions have the same parameters of shortcodes, see the documentation.
 	 */
 
 	@require_once(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/functions/SZGoogleFunctionsFonts.php');

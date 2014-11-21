@@ -1,38 +1,40 @@
 <?php
 
 /**
- * Modulo YOUTUBE per la definizione delle funzioni che riguardano
- * sia i widget che i shortcode ma anche i filtri e le azioni che il modulo
- * può integrare durante l'aggiunta di funzionalità particolari a wordpress
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModuleYoutube'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleModule
-	 */
 	class SZGoogleModuleYoutube extends SZGoogleModule
 	{
 		protected $setJavascriptPlusone  = false;
 		protected $SZ_GOOGLE_YOUTUBE_API = array();
-	
+
 		/**
-		 * Definizione delle variabili iniziali su array che servono
-		 * ad indentificare il modulo e le opzioni ad esso collegate
+		 * Definition of the initial variable array which are
+		 * used to identify the module and options related to it
 		 */
+
 		function moduleAddSetup()
 		{
 			$this->moduleSetClassName(__CLASS__);
 			$this->moduleSetOptionSet('sz_google_options_youtube');
+
+			// Definition shortcode connected to the module with an array where you
+			// have to specify the name activation option with the shortcode and function
 
 			$this->moduleSetShortcodes(array(
 				'youtube_shortcode'          => array('sz-ytvideo'   ,array(new SZGoogleActionYoutubeVideo()   ,'getShortcode')),
@@ -41,6 +43,9 @@ if (!class_exists('SZGoogleModuleYoutube'))
 				'youtube_shortcode_link'     => array('sz-ytlink'    ,array(new SZGoogleActionYoutubeLink()    ,'getShortcode')),
 				'youtube_shortcode_button'   => array('sz-ytbutton'  ,array(new SZGoogleActionYoutubeButton()  ,'getShortcode')),
 			));
+
+			// Definition widgets connected to the module with an array where you
+			// have to specify the name option of activating and class to be loaded
 
 			$this->moduleSetWidgets(array(
 				'youtube_widget'             => 'SZGoogleWidgetYoutubeVideo',
@@ -276,9 +281,8 @@ if (!class_exists('SZGoogleModuleYoutube'))
 	}
 
 	/**
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
-	 * DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE - DEVELOPER PHP CODE
+	 * Loading function for PHP allows developers to implement modules in this plugin.
+	 * The functions have the same parameters of shortcodes, see the documentation.
 	 */
 
 	@require_once(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/functions/SZGoogleFunctionsYoutube.php');

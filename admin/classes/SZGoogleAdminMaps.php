@@ -84,21 +84,27 @@ if (!class_exists('SZGoogleAdminMaps'))
 			// All fields are added to the previously defined sections
 
 			$this->sectionsfields = array(
-				'01' => array(array('field' => 'maps_language'  ,'title' => ucfirst(__('select language','szgoogleadmin')),'callback' => array($this,'callback_maps_language')),),
-				'02' => array(array('field' => 'maps_accesskey' ,'title' => ucwords(__('maps key'       ,'szgoogleadmin')),'callback' => array($this,'callback_maps_key')),
-				              array('field' => 'maps_sensor'    ,'title' => ucwords(__('maps sensor'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_sensor')),
-				              array('field' => 'maps_javascript','title' => ucfirst(__('maps javascript','szgoogleadmin')),'callback' => array($this,'callback_maps_javascript')),),
-				'03' => array(array('field' => 'maps_s_enable'  ,'title' => ucfirst(__('shortcode'      ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_enable')),),
-				'04' => array(array('field' => 'maps_s_width'   ,'title' => ucfirst(__('default width'  ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_width')),
-				              array('field' => 'maps_s_height'  ,'title' => ucfirst(__('default height' ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_height')),
-				              array('field' => 'maps_s_zoom'    ,'title' => ucfirst(__('default zoom'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_zoom')),
-				              array('field' => 'maps_s_view'    ,'title' => ucfirst(__('default view'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_view')),
+				'01' => array(array('field' => 'maps_language'  ,'title' => ucfirst(__('select language'  ,'szgoogleadmin')),'callback' => array($this,'callback_maps_language')),),
+				'02' => array(array('field' => 'maps_accesskey' ,'title' => ucwords(__('maps key'         ,'szgoogleadmin')),'callback' => array($this,'callback_maps_key')),
+				              array('field' => 'maps_sensor'    ,'title' => ucwords(__('maps sensor'      ,'szgoogleadmin')),'callback' => array($this,'callback_maps_sensor')),
+				              array('field' => 'maps_signin'    ,'title' => ucwords(__('maps signin'      ,'szgoogleadmin')),'callback' => array($this,'callback_maps_signin')),),
+				'03' => array(array('field' => 'maps_s_enable'  ,'title' => ucfirst(__('shortcode'        ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_enable')),),
+				'04' => array(array('field' => 'maps_s_width'   ,'title' => ucfirst(__('default width'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_width')),
+				              array('field' => 'maps_s_height'  ,'title' => ucfirst(__('default height'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_height')),
+				              array('field' => 'maps_s_lat'     ,'title' => ucfirst(__('default latitude' ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_lat')),
+				              array('field' => 'maps_s_lng'     ,'title' => ucfirst(__('default longitude','szgoogleadmin')),'callback' => array($this,'callback_maps_s_lng')),
+				              array('field' => 'maps_s_zoom'    ,'title' => ucfirst(__('default zoom'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_zoom')),
+				              array('field' => 'maps_s_view'    ,'title' => ucfirst(__('default view'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_view')),
+				              array('field' => 'maps_s_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_layer')),
 				),
-				'05' => array(array('field' => 'maps_w_enable'  ,'title' => ucfirst(__('widget'         ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_enable')),),
-				'06' => array(array('field' => 'maps_w_width'   ,'title' => ucfirst(__('default width'  ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_width')),
-				              array('field' => 'maps_w_height'  ,'title' => ucfirst(__('default height' ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_height')),
-				              array('field' => 'maps_w_zoom'    ,'title' => ucfirst(__('default zoom'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_zoom')),
-				              array('field' => 'maps_w_view'    ,'title' => ucfirst(__('default view'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_view')),
+				'05' => array(array('field' => 'maps_w_enable'  ,'title' => ucfirst(__('widget'           ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_enable')),),
+				'06' => array(array('field' => 'maps_w_width'   ,'title' => ucfirst(__('default width'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_width')),
+				              array('field' => 'maps_w_height'  ,'title' => ucfirst(__('default height'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_height')),
+				              array('field' => 'maps_w_lat'     ,'title' => ucfirst(__('default latitude' ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_lat')),
+				              array('field' => 'maps_w_lng'     ,'title' => ucfirst(__('default longitude','szgoogleadmin')),'callback' => array($this,'callback_maps_w_lng')),
+				              array('field' => 'maps_w_zoom'    ,'title' => ucfirst(__('default zoom'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_zoom')),
+				              array('field' => 'maps_w_view'    ,'title' => ucfirst(__('default view'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_view')),
+				              array('field' => 'maps_w_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_layer')),
 				),
 			);
 
@@ -132,11 +138,10 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('this parameter indicates whether you have to use the sensor location in order to obtain the correct position of the visitor. Enable this option only if you really need. User will be notified of the option is activated and will have to grant permission.','szgoogleadmin'));
 		}
 
-		function callback_maps_javascript() 
+		function callback_maps_signin() 
 		{
-			$values = array('F'=>__('footer (default)','szgoogleadmin'),'H'=>__('header','szgoogleadmin'),'M'=>__('insert manually','szgoogleadmin'));
-			$this->moduleCommonFormSelect('sz_google_options_maps','maps_javascript',$values,'medium','');
-			$this->moduleCommonFormDescription(__('indicate the position at which to load the javascript code that is made available by Google to manage maps. The position can affect the overall performance, read the official documentation for more information.','szgoogleadmin'));
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_signin');
+			$this->moduleCommonFormDescription(__('when you enable sign-in with the Google Maps JavaScript API, the maps on your site will be tailored to your users. Users who are signed-in to their Google account will be able to save places for later viewing on the web or mobile devices.','szgoogleadmin'));
 		}
 
 		/**
@@ -162,6 +167,23 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
+		/**
+		 * Definition functions for the creation of the various options that should be included 
+		 * in the general form of configuration and saved on a database of wordpress (options)
+		 */
+
+		function callback_maps_s_lat()
+		{
+			$this->moduleCommonFormText('sz_google_options_maps','maps_s_lat','medium',__('enter the latitude','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('specify the default value for the latitude of the map. This value will be used if no value is specified on the option dedicated. Make sure that the value is exactly and with (.) as a separator. (english mode)','szgoogleadmin'));
+		}
+
+		function callback_maps_s_lng()
+		{
+			$this->moduleCommonFormText('sz_google_options_maps','maps_s_lng','medium',__('enter the longitude','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('specify the default value for longitude of the map. This value will be used if no value is specified on the option dedicated. Make sure that the value is exactly and with (.) as a separator. (english mode)','szgoogleadmin'));
+		}
+
 		function callback_maps_s_zoom()
 		{
 			$values = array('01'=>'1','02'=>'2','03'=>'3','04'=>'4','05'=>'5','06'=>'6','07'=>'7','08'=>'8','09'=>'9','10'=>'10','11'=>'11','12'=>'12','13'=>'13','14'=>'14','15'=>'15','16'=>'16','17'=>'17','18'=>'18','19'=>'19','20'=>'20');
@@ -169,11 +191,23 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('specify the value of ZOOM default to be applied to the component when you do not specify any value. This value controls the magnification of the map when it appears. The allowed value is a number from 1 to 20.','szgoogleadmin'));
 		}
 
+		/**
+		 * Definition functions for the creation of the various options that should be included 
+		 * in the general form of configuration and saved on a database of wordpress (options)
+		 */
+
 		function callback_maps_s_view()
 		{
 			$values = array('ROADMAP'=>SZGOOGLE_UPPER(__('roadmap','szgoogleadmin')),'SATELLITE'=>SZGOOGLE_UPPER(__('satellite','szgoogleadmin')),'HYBRID'=>SZGOOGLE_UPPER(__('hybrid','szgoogleadmin')),'TERRAIN'=>SZGOOGLE_UPPER(__('terrain','szgoogleadmin')));
 			$this->moduleCommonFormSelect('sz_google_options_maps','maps_s_view',$values,'medium','');
 			$this->moduleCommonFormDescription(__('the google map can be displayed in different ways. Specify the default map to be submitted in case you missed a more specific option. The possible values ​​are: ROADMAP, SATELLITE, HYBRID, TERRAIN. See documentation for more informations.','szgoogleadmin'));
+		}
+
+		function callback_maps_s_layer()
+		{
+			$values = array('NOTHING'=>SZGOOGLE_UPPER(__('nothing','szgoogleadmin')),'TRAFFIC'=>SZGOOGLE_UPPER(__('traffic','szgoogleadmin')),'TRANSIT'=>SZGOOGLE_UPPER(__('transit','szgoogleadmin')),'BICYCLE'=>SZGOOGLE_UPPER(__('bicycle','szgoogleadmin')));
+			$this->moduleCommonFormSelect('sz_google_options_maps','maps_s_layer',$values,'medium','');
+			$this->moduleCommonFormDescription(__('if you use the maps with a specific layer, you can set this value by default. In this way it will be automatically added to your maps. The possible values ​​are NOTHING, TRAFFIC, TRANSIT and BICYCLE.','szgoogleadmin'));
 		}
 
 		/**
@@ -199,6 +233,23 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('with this field you can set the height in pixels of the container iframe that will be used by defaul, when not specified as a parameter of the shortcode, if you see a value equal "auto", will be used the default size of the plugin.','szgoogleadmin'));
 		}
 
+		/**
+		 * Definition functions for the creation of the various options that should be included 
+		 * in the general form of configuration and saved on a database of wordpress (options)
+		 */
+
+		function callback_maps_w_lat()
+		{
+			$this->moduleCommonFormText('sz_google_options_maps','maps_w_lat','medium',__('enter the latitude','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('specify the default value for the latitude of the map. This value will be used if no value is specified on the option dedicated. Make sure that the value is exactly and with (.) as a separator. (english mode)','szgoogleadmin'));
+		}
+
+		function callback_maps_w_lng()
+		{
+			$this->moduleCommonFormText('sz_google_options_maps','maps_w_lng','medium',__('enter the longitude','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('specify the default value for longitude of the map. This value will be used if no value is specified on the option dedicated. Make sure that the value is exactly and with (.) as a separator. (english mode)','szgoogleadmin'));
+		}
+
 		function callback_maps_w_zoom()
 		{
 			$values = array('01'=>'1','02'=>'2','03'=>'3','04'=>'4','05'=>'5','06'=>'6','07'=>'7','08'=>'8','09'=>'9','10'=>'10','11'=>'11','12'=>'12','13'=>'13','14'=>'14','15'=>'15','16'=>'16','17'=>'17','18'=>'18','19'=>'19','20'=>'20');
@@ -206,11 +257,24 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('specify the value of ZOOM default to be applied to the component when you do not specify any value. This value controls the magnification of the map when it appears. The allowed value is a number from 1 to 20.','szgoogleadmin'));
 		}
 
+		/**
+		 * Definition functions for the creation of the various options that should be included 
+		 * in the general form of configuration and saved on a database of wordpress (options)
+		 */
+
 		function callback_maps_w_view()
 		{
 			$values = array('ROADMAP'=>SZGOOGLE_UPPER(__('roadmap','szgoogleadmin')),'SATELLITE'=>SZGOOGLE_UPPER(__('satellite','szgoogleadmin')),'HYBRID'=>SZGOOGLE_UPPER(__('hybrid','szgoogleadmin')),'TERRAIN'=>SZGOOGLE_UPPER(__('terrain','szgoogleadmin')));
 			$this->moduleCommonFormSelect('sz_google_options_maps','maps_w_view',$values,'medium','');
 			$this->moduleCommonFormDescription(__('the google map can be displayed in different ways. Specify the default map to be submitted in case you missed a more specific option. The possible values ​​are: ROADMAP, SATELLITE, HYBRID, TERRAIN. See documentation for more informations.','szgoogleadmin'));
 		}
+
+		function callback_maps_w_layer()
+		{
+			$values = array('NOTHING'=>SZGOOGLE_UPPER(__('nothing','szgoogleadmin')),'TRAFFIC'=>SZGOOGLE_UPPER(__('traffic','szgoogleadmin')),'TRANSIT'=>SZGOOGLE_UPPER(__('transit','szgoogleadmin')),'BICYCLE'=>SZGOOGLE_UPPER(__('bicycle','szgoogleadmin')));
+			$this->moduleCommonFormSelect('sz_google_options_maps','maps_w_layer',$values,'medium','');
+			$this->moduleCommonFormDescription(__('if you use the maps with a specific layer, you can set this value by default. In this way it will be automatically added to your maps. The possible values ​​are NOTHING, TRAFFIC, TRANSIT and BICYCLE.','szgoogleadmin'));
+		}
+
 	}
 }

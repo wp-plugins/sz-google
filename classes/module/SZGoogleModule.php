@@ -1,32 +1,28 @@
 <?php
 
 /**
- * Classe SZGoogleModule per la creazione di istanze che controllino le
- * opzioni e le funzioni comuni che ogni modulo del plugin deve richiamare
- * o elaborare. Tutti i moduli devo fare riferimento a questa classe. 
+ * Module to the definition of the functions that relate to both the
+ * widgets that shortcode, but also filters and actions that the module
+ * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
  * @subpackage SZGoogleModule
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleModule'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare come oggetto
-	 * padre della definizione dei singoli moduli. Vedere il costruttore
-	 * per le funzioni che devono essere implementate nel nuovo modulo
-	 */
 	class SZGoogleModule
 	{
-		/**
-		 * Definizione delle variabili che contengono il puntatore
-		 * oggetto al modulo di riferimento se attivato
-		 */
+		// Definition of the variables that contain the pointer to
+		// the object of the reference module if this is activated
+
 		static private $SZGoogleModulePlus          = false;
 		static private $SZGoogleModuleAjax          = false;
 		static private $SZGoogleModuleAuthenticator = false;
@@ -36,46 +32,46 @@ if (!class_exists('SZGoogleModule'))
 		static private $SZGoogleModuleGroups        = false;
 		static private $SZGoogleModuleFonts         = false;
 		static private $SZGoogleModuleHangouts      = false;
+		static private $SZGoogleModuleMaps          = false;
 		static private $SZGoogleModulePanoramio     = false;
 		static private $SZGoogleModuleTranslate     = false;
 		static private $SZGoogleModuleYoutube       = false;
 
-		/**
-		 * Definizione delle variabili per controllare se
-		 * javascript in footer con script è già stato caricato
-		 */
-		static private $JavascriptPlusone  = false;
-		static private $JavascriptPlatform = false;
+		// Definition of variables to see if the javascript 
+		// code has already been loaded previously
 
-		/**
-		 * Definizione delle variabili che contengono le impostazioni
-		 * fatte durante la chiamata alla funzione moduleAddSetup()
-		 */
+		static $JavascriptMaps     = false;
+		static $JavascriptPlusone  = false;
+		static $JavascriptPlatform = false;
+
+		// Definition of variables that contain settings
+		// created during the function call moduleAddSetup()
+
 		private $moduleClassName  = false;
 		private $moduleOptions    = false;
 		private $moduleOptionSet  = false;
 
-		/**
-		 * Definizione delle variabili che contengono le configurazioni
-		 * degli oggetti collegati al modulo attuale come widgets e shortcodes
-		 */
+		// Definition of variables containing the configurations
+		// objects related to the current module as widgets and shortcodes
+
 		private $moduleActions    = array();
 		private $moduleShortcodes = array();
 		private $moduleWidgets    = array();
 
 		/**
-		 * Definizione della funzione costruttore che viene richiamata
-		 * nel momento della creazione di un'istanza con questa classe
+		 * Definition the constructor function, which is called
+		 * at the time of the creation of an instance of this class
 		 */
+
 		function __construct()
 		{
-			// Quando la classe viene utilizzata da una definizione di un modulo questa
-			// funzione deve essere implementata per la configurazione delle opzioni
+			// When the class is used by a definition of a module, this 
+			// function must be implemented by configuring the options
 
 			$this->moduleAddSetup();
 
-			// Se viene definito un nome di classe memorizzo il riferimento oggetto
-			// in una variabile statica da utilizzare nelle funzioni esterne
+			// If you define a class name memorize the reference object
+			// in a static variable for use in external functions
 
 			if (isset($this->moduleClassName)) 
 			{
@@ -88,13 +84,14 @@ if (!class_exists('SZGoogleModule'))
 				if ($this->moduleClassName == 'SZGoogleModuleFonts')         self::$SZGoogleModuleFonts         = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleGroups')        self::$SZGoogleModuleGroups        = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleHangouts')      self::$SZGoogleModuleHangouts      = $this;
+				if ($this->moduleClassName == 'SZGoogleModuleMaps')          self::$SZGoogleModuleMaps          = $this;
 				if ($this->moduleClassName == 'SZGoogleModulePanoramio')     self::$SZGoogleModulePanoramio     = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleTranslate')     self::$SZGoogleModuleTranslate     = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleYoutube')       self::$SZGoogleModuleYoutube       = $this;
 			}
 
-			// Esecuzione dei componenti esistenti legati al modulo come
-			// le azioni generali e la generazione di shortcode e widget
+			// Implementation of existing components related to the module as
+			// the general operations and the generation of shortcodes and widgets
 
 			if ($this->moduleOptionSet) 
 			{
@@ -105,11 +102,10 @@ if (!class_exists('SZGoogleModule'))
  		}
 
 		/**
-		 * Calcolo le opzioni legate al modulo con esecuzione dei 
-		 * controlli formali di coerenza e impostazione dei default
-		 *
-		 * @return array
+		 * Calculation options related to the module with execution 
+		 * of formal checks of consistency and setting the default
 		 */
+
 		function getOptions()
 		{ 
 			if ($this->moduleOptions) return $this->moduleOptions;
@@ -122,42 +118,41 @@ if (!class_exists('SZGoogleModule'))
 		}
 
 		/**
-		 * Calcolo le opzioni legate al modulo con esecuzione dei 
-		 * controlli formali di coerenza e impostazione dei default
-		 *
-		 * @return array
+		 * Calculation options related to the module with execution 
+		 * of formal checks of consistency and setting the default
 		 */
+
 		function getOptionsSet($nameset)
 		{
 			$optionsDB   = get_option($nameset);
 			$optionsList = include(dirname(SZ_PLUGIN_GOOGLE_MAIN)."/options/{$nameset}.php");
 
-			// Controllo delle opzioni in caso di valori non esistenti
-			// richiamo della funzione per il controllo isset()
+			// if options do not exist control these with
+			// the function isset() and create an array
 
 			foreach($optionsList as $key => $item) 
 			{
-				// Controllo esistenza campo in elenco opzioni wordpress
-				// in caso contrario aggiungo il campo in array orginale
+				// Checking existence field in the options list
+				// wordpress otherwise add the field original file array
 
 				if (!isset($optionsDB[$key])) $optionsDB[$key] = $item['value'];
 
-				// Controllo se il campo opzione contiene un valore di NULL
-				// in questo caso assegno al valore opzione quello di default
+				// Check if the option field contains a value of NULL
+				// In this case check the value of the default option
 
 				if (isset($item['N']) and $item['N'] == '1') {
 					if ($optionsDB[$key] == '') $optionsDB[$key] = $item['value'];
 				}
 
-				// Controllo se il campo opzione contiene un valore di ZERO
-				// in questo caso assegno al valore opzione quello di default
+				// Check if the option field contains a value of zero
+				// In this case check the value of the default option
 
 				if (isset($item['Z']) and $item['Z'] == '1') {
 					if ($optionsDB[$key] == '0') $optionsDB[$key] = $item['value'];
 				}
 
-				// Controllo se il campo opzione contiene un valore di YES/NO
-				// in questo caso assegno al valore opzione quello di default
+				// Check if the option field contains a value of YES/NO
+				// In this case check the value of the default option
 
 				if (isset($item['Y']) and $item['Y'] == '1') {
 					if (!in_array($optionsDB[$key],array('1','0'))) $optionsDB[$key] = '0';
@@ -168,27 +163,24 @@ if (!class_exists('SZGoogleModule'))
 		}
 
 		/**
-		 * Funzione per aggiungere le variabili di configurazione che
-		 * permettono alle funzioni successivi di caricare i moduli
-		 *
-		 * @return void
+		 * Function to add configuration variables 
+		 * that allow you to upload subsequent modules
 		 */
+
 		function moduleAddSetup() {}
 
 		/**
-		 * Funzione per aggiungere le azioni da eseguire in base 
-		 * alle opzioni peresenti sul pannello di amministrazione
-		 *
-		 * @return void
+		 * Function to add the actions to be performed  
+		 * according to the options on the admin panel
 		 */
+
 		function moduleAddActions() {}
 
 		/**
-		 * Aggiungo tutti gli shortcodes che sono presenti nella variabile 
-		 * protetta di configurazione del modulo $moduleShortcodes
-		 *
-		 * @return void
+		 * Add all the shortcodes that are present in the protected
+		 * variable configuration of module $moduleShortcodes
 		 */
+
 		function moduleAddShortcodes()
 		{
 			$options = $this->getOptions();
@@ -201,11 +193,10 @@ if (!class_exists('SZGoogleModule'))
 		}
 
 		/**
-		 * Aggiungo tutti i widgets che sono presenti nella variabile 
-		 * protetta di configurazione del modulo $moduleWidgets
-		 *
-		 * @return void
+		 * Add all the widgets that are present in the protected
+		 * variable configuration of module $moduleWidgets
 		 */
+
 		function moduleAddWidgets()
 		{
 			$options = $this->getOptions();
@@ -218,45 +209,47 @@ if (!class_exists('SZGoogleModule'))
 		}
 
 		/**
-		 * Funzioni per assegnazione valori che servono alla configurazione
-		 * inziale del modulo come il nome della classe e il set di opzioni
+		 * Functions that are used to assign values to the initial 
+		 * configuration of the module as the class name and the set of options
 		 */
+
 		function moduleSetClassName($classname) { $this->moduleClassName = $classname; }
 		function moduleSetOptionSet($nameset)   { $this->moduleOptionSet = $nameset;   }
 
 		/**
-		 * Aggiungo tutti gli shortcode che dovranno essere caricati
-		 * tramite la memorizzazione nella variabile privata della classe
+		 * Add all the shortcodes to be loaded by
+		 * storing the private variable of the class
 		 */
+
 		function moduleSetShortcodes($items) {
 			if (is_array($items)) $this->moduleShortcodes = $items;
 		}
 
 		/**
-		 * Aggiungo tutti i widget che dovranno essere caricati
-		 * tramite la memorizzazione nella variabile privata della classe
+		 * Add all the widgets to be loaded by
+		 * storing the private variable of the class
 		 */
+
 		function moduleSetWidgets($items) {
 			if (is_array($items)) $this->moduleWidgets = $items;
 		}
 
 		/**
-		 * Funzione per aggiungere codice javascript nel footer di 
-		 * wordpress con caricamento asincrono seguendo metodo google
-		 *
-		 * @return void
+		 * Function to add javascript code in the footer of wordpress
+		 * with asynchronous loading method according to google
 		 */
+
 		function setJavascriptPlatform()
 		{
-			// Se ho già inserito il codice javascript nella sezione footer
-			// esco dalla funzione altrimenti setto la variabile e continuo
+			// If you've already entered the Javascript code in the footer section
+			// leave the partition function otherwise the variable and constant
 
 			if (self::$JavascriptPlatform) return; 
 				else self::$JavascriptPlatform = true;
 
-			// Codice javascript per il rendering dei componenti google platform
-			// ad esempio richiamare questo script per i bottoni di hangouts
-	
+			// Javascript code to render the google platform components
+			// for example call this script for the buttons hangouts
+
 			$javascript  = '<script type="text/javascript">';
 			$javascript .= "(function(){";
 			$javascript .= "var po=document.createElement('script');po.type='text/javascript';po.async=true;";
@@ -264,22 +257,22 @@ if (!class_exists('SZGoogleModule'))
 			$javascript .=  "var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);";
 			$javascript .=  "})();";
 			$javascript .=	"</script>"."\n";
-	
-			// Esecuzione echo su footer del codice javascript generato
+
+			// Running echo on the footer of the javascript code generated
+			// This code is added to a single block together with other functions
 
 			echo $javascript;
 		}
 
 		/**
-		 * Funzione per aggiungere codice javascript nel footer di 
-		 * wordpress con caricamento asincrono seguendo metodo google
-		 *
-		 * @return void
+		 * Function to add javascript code in the footer of wordpress
+		 * with asynchronous loading method according to google
 		 */
+
 		function setJavascriptPlusOne()
 		{
-			// Se ho già inserito il codice javascript nella sezione footer
-			// esco dalla funzione altrimenti setto la variabile e continuo
+			// If you've already entered the Javascript code in the footer section
+			// leave the partition function otherwise the variable and constant
 
 			if (self::$JavascriptPlusone) return;
 				else self::$JavascriptPlusone = true;
@@ -287,34 +280,35 @@ if (!class_exists('SZGoogleModule'))
 			$addLanguage     = '';
 			$addURLforScript = '';
 	
-			// Controllo se istanza di google plus è attiva altrimenti
-			// inserisco il codice senza parametri di personalizzazione
+			// Check if instance of google plus is active otherwise
+			// insert the code without customization parameters
 
 			if ($object = self::getObject('SZGoogleModulePlus')) 
 			{
 				$options = (object) $object->getOptions();
 
-				// Se nel modulo di google+ è stato indicato di non caricare
-				// il framework javascript di google esco dalla funzione
+				// If in the form of Google+ has been shown not to load 
+				// the javascript framework of google leave the function
 
 				if ($options->plus_system_javascript == '1') return;
 
-				// Controllo il codice lingua da associare al framework javascript
-				// se viene indicato "99" prendo il codice lingua di wordpress
+				// Check the language code to associate with the javascript
+				// framework, if you see "99" I take the language code of wordpress
 
 				if ($options->plus_language == '99') $addLanguage = substr(get_bloginfo('language'),0,2);	
 					else $addLanguage = $options->plus_language;
 
-				// Controllo se devo attivare raccomandazioni mobile e quindi aggiungere publisher id
-				// in mancanza del plublisher di defaul o funzione disattivata non aggiungo niente
+				// Checking if I have to turn the recommendations of the mobile, then add publisher id
+				// without the publisher's default function turned off or do not add anything
 
 				if ($options->plus_enable_recommendations == '1' and $options->plus_page != '') {
 					$addURLforScript = "?publisherid=".trim($options->plus_page);
 				}
 			}
 
-			// Codice javascript per il rendering dei componenti google plus
-	
+			// Javascript code to render the component google+
+			// this method is used for asynchronous loading
+
 			$javascript  = '<script type="text/javascript">';
 
 			if ($addLanguage != '') $javascript .= "window.___gcfg = {lang:'".trim($addLanguage)."'};";
@@ -325,22 +319,22 @@ if (!class_exists('SZGoogleModule'))
 			$javascript .=  "var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);";
 			$javascript .=  "})();";
 			$javascript .=	"</script>"."\n";
-	
-			// Esecuzione echo su footer del codice javascript generato
+
+			// Running echo on the footer of the javascript code generated
+			// This code is added to a single block together with other functions
 
 			echo $javascript;
 		}
 
 		/**
-		 * Creazione del codice CSS per la composizione dei margini
-		 * usando le opzioni specificate negli shortcode o nelle funzioni PHP
-		 *
-		 * @return string
+		 * Creating the CSS code for the composition of the margins
+		 * using the options specified in the shortcode or PHP functions
 		 */
+
 		function getStyleCSSfromAlign($align)
 		{
-			// Se non viene specificata una valori di allineamento valido
-			// viene impostato il valore speciale "left" e sara applicato al testo.
+			// If you do not specify a valid alignment values is set to
+			// the special value "left" and will be applied to the text
 
 			if (!in_array(strtolower($align),array('left','right','center'))) $align = 'none'; 
 				else $align = strtolower($align);
@@ -350,29 +344,28 @@ if (!class_exists('SZGoogleModule'))
 		}
 
 		/**
-		 * Creazione del codice CSS per la composizione dei margini
-		 * usando le opzioni specificate negli shortcode o nelle funzioni PHP
-		 *
-		 * @return string
+		 * Creating the CSS code for the composition of the margins
+		 * using the options specified in the shortcode or PHP functions
 		 */
+
 		function getStyleCSSfromMargins($margintop,$marginright,$marginbottom,$marginleft,$marginunit)
 		{
-			// Se non viene specificata una unità di misura corretta verrà
-			// impostato il valore speciale "em" e sara applicato ai margini.
+			// If you do not specify a correct unit of measure will be
+			// set to the special value "em" and will be applied at the edge
 
 			if (!in_array(strtolower($marginunit),array('pt','px','em'))) $marginunit = 'em'; 
 				else $marginunit = strtolower($marginunit);
 
-			// Imposto i valori di default nel caso siano specificati dei valori
-			// che non appartengono al range dei valori accettati
+			// Enforced default values if they are specified values
+			// that do not belong to the range of acceptable values
 
 			if (!ctype_digit($margintop)    and $margintop    != 'none') $margintop    = ''; 
 			if (!ctype_digit($marginright)  and $marginright  != 'none') $marginright  = ''; 
 			if (!ctype_digit($marginbottom) and $marginbottom != 'none') $marginbottom = '1';
 			if (!ctype_digit($marginleft)   and $marginleft   != 'none') $marginleft   = ''; 
 
-			// Creazione del codice CSS per la composizione dei margini
-			// usando le opzioni specificate negli shortcode o nelle funzioni PHP
+			// Creating the CSS code for the composition of the margins
+			// using the options specified in the shortcode or PHP functions
 
 			$HTML = '';
 
@@ -385,9 +378,10 @@ if (!class_exists('SZGoogleModule'))
 		}
 
 		/**
-		 * Funzione statica per reperire il puntatore oggetto di uno 
-		 * specifico modulo in modo da richiamare si suo metodi dall'esterno
+		 * Static function to retrieve the pointer object of a
+		 * specific module in order to call methods from the outside
 		 */
+
 		static function getObject($object) {
 			if (is_a(self::${$object},$object)) return self::${$object};
 				else return false;
