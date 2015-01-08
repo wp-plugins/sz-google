@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -26,7 +26,7 @@ trovate del pannello di amministrazione ma dovete anche eseguire delle operazion
 
 <h2>Configurazione</h2>
 
-<p>Nella sezione delle impostazioni della pagina Google+ è possibile controllare il comportamento del widget che riguarda i consigli 
+<p>Nella sezione delle impostazioni della pagina G+ è possibile controllare il comportamento del widget che riguarda i consigli 
 e la modalità di visualizzazione. Quindi per cambiare queste impostazioni non cercate le opzioni nel plugin ma usate la configurazione
 della pagina direttamente su google plus. Per ulteriori informazioni leggete 
 <a target="_blank" href="https://developers.google.com/+/web/recommendations/?hl=it">Content recommendations for mobile websites</a>.</p>

@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -27,24 +27,13 @@ if (!class_exists('SZGoogleAdminPlus'))
 
 		function __construct()
 		{
-			// Controllo le opzioni del modulo che riguardano i campi
-			// da aggiungere sul profilo utente standard di wordpress
+			// Add the filter of user contacts to change array
+			// containing the default fields of wordpress on profile
 
-			if ($options = $this->getOptions()) {
-				if ($options['plus_usercontact_page']      == '1') $contacts = true;
-				if ($options['plus_usercontact_community'] == '1') $contacts = true;
-				if ($options['plus_usercontact_bestpost']  == '1') $contacts = true;
-			}
-
-			// Aggiungo il filtro su user contacts per modificare array
-			// contenente i campi predefiniti di wordpress presenti sul profilo
-
-			if (isset($contacts) && $contacts == true) {
-				add_filter('user_contactmethods',array($this,'AddContactMethods'),90,1);
-			}
+			add_filter('user_contactmethods',array($this,'AddContactMethods'),90,1);
 			
-			// Richiamo la funzione della classe padre per elaborare le
-			// variabili contenenti i valori di configurazione sezione
+			// Calling the function of the parent class to process
+			// variables containing the configuration values ​​section
 
 			parent::__construct();
  		}
@@ -196,7 +185,7 @@ if (!class_exists('SZGoogleAdminPlus'))
 
 		function getOptions() {
 			if (!$object = SZGoogleModule::getObject('SZGoogleModulePlus')) return false;
-				else return $object->getOptions();			
+				else return $object->getOptions();
 		}
 
 		/**
@@ -232,11 +221,19 @@ if (!class_exists('SZGoogleAdminPlus'))
 
 		function AddContactMethodsPlus($usercontacts) 
 		{
+			if (!isset($usercontacts['googleplus'])) $usercontacts['googleplus'] = __('Google+','szgoogleadmin');
+
 			if ($options = $this->getOptions()) {
-				if (!isset($usercontacts['googlepluspage'])      && $options['plus_usercontact_page']      == '1') $usercontacts['googlepluspage']      = __('Google+ Page','szgoogleadmin');
-				if (!isset($usercontacts['googlepluscommunity']) && $options['plus_usercontact_community'] == '1') $usercontacts['googlepluscommunity'] = __('Google+ Community','szgoogleadmin');
-				if (!isset($usercontacts['googleplusbestpost'])  && $options['plus_usercontact_bestpost']  == '1') $usercontacts['googleplusbestpost']  = __('Google+ Best post','szgoogleadmin');
+				if (!isset($usercontacts['googlepluspage'])           && $options['plus_usercontact_page']      == '1') $usercontacts['googlepluspage']           = SZGOOGLE_UWORDS(__('google+ page'          ,'szgoogleadmin'));
+				if (!isset($usercontacts['googlepluscommunity'])      && $options['plus_usercontact_community'] == '1') $usercontacts['googlepluscommunity']      = SZGOOGLE_UWORDS(__('google+ community'     ,'szgoogleadmin'));
+				if (!isset($usercontacts['googleplusbestpost'])       && $options['plus_usercontact_bestpost']  == '1') $usercontacts['googleplusbestpost']       = SZGOOGLE_UWORDS(__('google+ best post'     ,'szgoogleadmin'));
+				if (!isset($usercontacts['googleplusprofilephoto'])   && $options['plus_author_badge']          == '1') $usercontacts['googleplusprofilephoto']   = SZGOOGLE_UWORDS(__('google+ author photo'  ,'szgoogleadmin'));
+				if (!isset($usercontacts['googleplusprofilecover'])   && $options['plus_author_badge']          == '1') $usercontacts['googleplusprofilecover']   = SZGOOGLE_UWORDS(__('google+ author cover'  ,'szgoogleadmin'));
+				if (!isset($usercontacts['googleplusprofiletagline']) && $options['plus_author_badge']          == '1') $usercontacts['googleplusprofiletagline'] = SZGOOGLE_UWORDS(__('google+ author tagline','szgoogleadmin'));
 			}
+
+			// Return new array to be added to the original
+			// with the new fields that affect google plus
 
 			return $usercontacts;
 		}
@@ -252,44 +249,44 @@ if (!class_exists('SZGoogleAdminPlus'))
 			$this->moduleCommonFormDescription(__('enter the code that identifies the profile on google+, get to know the code of a profile just look at the profile link and copy the 21 digit number located on the URL string. For example a profile ID is 106189723444098348646.','szgoogleadmin'));
 		}
 
-		function callback_plus_page() 
+		function callback_plus_page()
 		{
 			$this->moduleCommonFormText('sz_google_options_plus','plus_page','medium',__('insert ID your page','szgoogleadmin'));
 			$this->moduleCommonFormDescription(__('enter the code that identifies the page on google+, get to know the code of a profile just look at the page link and copy the 21 digit number located on the URL string. For example a page ID is 117259631219963935481.','szgoogleadmin'));
 		}
 
-		function callback_plus_community() 
+		function callback_plus_community()
 		{
 			$this->moduleCommonFormText('sz_google_options_plus','plus_community','medium',__('insert ID your community','szgoogleadmin'));
 			$this->moduleCommonFormDescription(__('enter the code that identifies the community, get to know the code of a community just look at the link and copy the 21 digit number located on the URL string. For example a community ID is 109254048492234113886.','szgoogleadmin'));
 		}
 
-		function callback_plus_language() 
+		function callback_plus_language()
 		{
 			$values = SZGoogleCommon::getLanguages();
 			$this->moduleCommonFormSelect('sz_google_options_plus','plus_language',$values,'medium','');
 			$this->moduleCommonFormDescription(__('specify the language code associated with your website, if you do not specify any value will be called the get_bloginfo(\'language\') and set the same language related to the theme of wordpress.','szgoogleadmin'));
 		}
 
-		function callback_plus_post_widget() 
+		function callback_plus_post_widget()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_post_enable_widget');
 			$this->moduleCommonFormDescription(__('if you need to insert the component for embedded post to google+ in a sidebar you can activate this option and use the new widget that you will find in your admin panel, you specify the size or the way you use responsive design for automatic resize.','szgoogleadmin'));
 		}
 
-		function callback_plus_post_shortcode() 
+		function callback_plus_post_shortcode()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_post_enable_shortcode');
 			$this->moduleCommonFormDescription(__('enabling this option will allow you to use the shortcode [sz-gplus-post] that will allow you to insert a box for embedded post to google plus in any part of your post or page standard wordpress.','szgoogleadmin'));
 		}
 
-		function callback_plus_enable_recommendations() 
+		function callback_plus_enable_recommendations()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_enable_recommendations');
 			$this->moduleCommonFormDescription(__('google+ content recommendations combines search with social data to greet mobile visitors with additional relevant recommended content on your site. You will add markup to link your web page to your Google+ Page and to load a JavaScript file.','szgoogleadmin'));
 		}
 
-		function callback_plus_system_javascript() 
+		function callback_plus_system_javascript()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_system_javascript');
 			$this->moduleCommonFormDescription(__('if you use some plugin that performs functions similar to sz-google for wordpress is possible that we might create a conflict retrieving files javascript google, enabling this option will be disabled loadings code javascript from our plugin.','szgoogleadmin'));
@@ -300,25 +297,25 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_widget_profile() 
+		function callback_plus_widget_profile()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_widget_pr_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the user profiles present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 		}
 
-		function callback_plus_widget_page() 
+		function callback_plus_widget_page()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_widget_pa_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the pages present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 		}
 
-		function callback_plus_widget_community() 
+		function callback_plus_widget_community()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_widget_co_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
 		}
 
-		function callback_plus_widget_followers() 
+		function callback_plus_widget_followers()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_widget_fl_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new widget that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges provided by google read the official documentation.','szgoogleadmin'));
@@ -330,7 +327,7 @@ if (!class_exists('SZGoogleAdminPlus'))
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 180px and height will be calculated.','szgoogleadmin'));
 		}
 
-		function callback_plus_widget_size_landscape() 
+		function callback_plus_widget_size_landscape()
 		{
 			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_widget_size_landscape','medium','275');
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 275px and height will be automatically.','szgoogleadmin'));
@@ -341,37 +338,37 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_shortcode_profile() 
+		function callback_plus_shortcode_profile()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_shortcode_pr_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the user profiles present on google+. If you want to see the graphic result of badges read the official documentation.','szgoogleadmin'));
 		}
 
-		function callback_plus_shortcode_page() 
+		function callback_plus_shortcode_page()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_shortcode_pa_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the pages present on google+. If you want to see the graphic result of badges read the official documentation.','szgoogleadmin'));
 		}
 
-		function callback_plus_shortcode_community() 
+		function callback_plus_shortcode_community()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_shortcode_co_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the community present on google+. If you want to see the graphic result of badges read the official documentation.','szgoogleadmin'));
 		}
 
-		function callback_plus_shortcode_followers() 
+		function callback_plus_shortcode_followers()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_shortcode_fl_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will be included in the admin panel a new shortcode that will allow the insertion of a badge for the followers present on google+. If you want to see the graphic result of badges read the official documentation.','szgoogleadmin'));
 		}
 
-		function callback_plus_shortcode_size_portrait() 
+		function callback_plus_shortcode_size_portrait()
 		{
 			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_shortcode_size_portrait','medium','350');
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode portrait. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated.','szgoogleadmin'));
 		}
 
-		function callback_plus_shortcode_size_landscape() 
+		function callback_plus_shortcode_size_landscape()
 		{
 			$this->moduleCommonFormNumberStep1('sz_google_options_plus','plus_shortcode_size_landscape','medium','350');
 			$this->moduleCommonFormDescription(__('this option is used to set a default width for use in widget when no size is set manually and is selected as the display mode landscape. If you do not specify a value for this field will be used the standard width of 350px and height will be calculated.','szgoogleadmin'));
@@ -382,19 +379,19 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_widget_button_plusone() 
+		function callback_plus_widget_button_plusone()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_button_enable_widget_plusone');
 			$this->moduleCommonFormDescription(__('with this option is activated widget that allows the insertion of a +1 button in our article or web page. The +1 button has the same function as the button like this on facebook. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 		}
 
-		function callback_plus_widget_button_sharing() 
+		function callback_plus_widget_button_sharing()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_button_enable_widget_sharing');
 			$this->moduleCommonFormDescription(__('this option allows the activation of widget for sharing a link on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 		}
 
-		function callback_plus_widget_button_follow() 
+		function callback_plus_widget_button_follow()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_button_enable_widget_follow');
 			$this->moduleCommonFormDescription(__('this option allows the activation of widget for follow on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
@@ -405,19 +402,19 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_button_plusone() 
+		function callback_plus_button_plusone()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_button_enable_plusone');
 			$this->moduleCommonFormDescription(__('with this option is activated shortcode that allows the insertion of a +1 button in our article or web page. The +1 button has the same function as the button like this on facebook. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 		}
 
-		function callback_plus_button_sharing() 
+		function callback_plus_button_sharing()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_button_enable_sharing');
 			$this->moduleCommonFormDescription(__('this option allows the activation of shortcode for sharing a link on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
 		}
 
-		function callback_plus_button_follow() 
+		function callback_plus_button_follow()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_button_enable_follow');
 			$this->moduleCommonFormDescription(__('this option allows the activation of shortcode for follow on social network google+. Using this function you can insert the button in an article or a page wordpress. If you want to customize the position in the theme use the function PHP.','szgoogleadmin'));
@@ -428,37 +425,37 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_comments_gp() 
+		function callback_plus_comments_gp()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_comments_gp_enable');
 			$this->moduleCommonFormDescription(__('if you enable this feature will be added to the new commenting system made ​​available on the social network google+. The widget will be placed in the standard location for comments to wordpress. For customizations use the function PHP.','szgoogleadmin'));
 		}
 
-		function callback_plus_comments_wp() 
+		function callback_plus_comments_wp()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_comments_wp_enable');
 			$this->moduleCommonFormDescription(__('activating this option you can activate the system\'s comments Wodpress same time as those of google+. To decide the position of the comments you have to set the fields to follow. You can choose whether to place comments after the content or last.','szgoogleadmin'));
 		}
 
-		function callback_plus_comments_ac() 
+		function callback_plus_comments_ac()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_comments_ac_enable');
 			$this->moduleCommonFormDescription(__('enabling this option, the comment system is generated immediately after the post content or web page, otherwise it is inserted at the point that the standard function is called of the comments of wordpress in the file of the active theme.','szgoogleadmin'));
 		}
 
-		function callback_plus_comments_aw() 
+		function callback_plus_comments_aw()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_comments_aw_enable');
 			$this->moduleCommonFormDescription(__('enabling this option, the comment system is generated immediately after standard comments, otherwise it is inserted at the point that the standard function is called of the comments of wordpress in the file of the active theme.','szgoogleadmin'));
 		}
 
-		function callback_plus_comments_wd() 
+		function callback_plus_comments_wd()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_comments_wd_enable');
 			$this->moduleCommonFormDescription(__('if you need to insert the component for comments to google+ in a sidebar you can activate this option and use the new widget that you will find in your admin panel, you specify the size or the way you use responsive design for automatic resize.','szgoogleadmin'));
 		}
 
-		function callback_plus_comments_sh() 
+		function callback_plus_comments_sh()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_comments_sh_enable');
 			$this->moduleCommonFormDescription(__('enabling this option will allow you to use the shortcode [sz-gplus-comments] that will allow you to insert a box for comments to google plus in any part of your post or page standard wordpress. For greater customization uses function PHP.','szgoogleadmin'));
@@ -493,7 +490,7 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_comments_dt() 
+		function callback_plus_comments_dt()
 		{
 			$this->moduleCommonFormCheckboxYesNo(
 				'sz_google_options_plus','plus_comments_dt_enable'
@@ -534,7 +531,7 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_comments_dt_day() 
+		function callback_plus_comments_dt_day()
 		{
 			$options = get_option('sz_google_options_plus');
 
@@ -557,7 +554,7 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_comments_dt_month() 
+		function callback_plus_comments_dt_month()
 		{
 			$options = get_option('sz_google_options_plus');
 
@@ -580,7 +577,7 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_comments_dt_year() 
+		function callback_plus_comments_dt_year()
 		{
 			$options = get_option('sz_google_options_plus');
 
@@ -603,31 +600,31 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_enable_author() 
+		function callback_plus_enable_author()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_enable_author');
 			$this->moduleCommonFormDescription(__('enabling this option will be placed in the HEAD section of the code necessary indication of the author connected to the current website and is generated string rel=author with the attribute href=author address.','szgoogleadmin'));
 		}
 
-		function callback_plus_enable_publisher() 
+		function callback_plus_enable_publisher()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_enable_publisher');
 			$this->moduleCommonFormDescription(__('enabling this option will be placed in the HEAD section of the code necessary indication of the publisher connected to the current website and is generated string rel=publisher with the attribute href=publisher address.','szgoogleadmin'));
 		}
 
-		function callback_plus_usercontact_page() 
+		function callback_plus_usercontact_page()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_usercontact_page');
 			$this->moduleCommonFormDescription(__('in the standard user profile wordpress is already a field that identifies the URL of your Google+ profile. By enabling this option you can add additional information that relates to Google+ and use it in your badges author present in your current theme.','szgoogleadmin'));
 		}
 
-		function callback_plus_usercontact_community() 
+		function callback_plus_usercontact_community()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_usercontact_community');
 			$this->moduleCommonFormDescription(__('in the standard user profile wordpress is already a field that identifies the URL of your Google+ profile. By enabling this option you can add additional information that relates to Google+ and use it in your badges author present in your current theme.','szgoogleadmin'));
 		}
 
-		function callback_plus_usercontact_bestpost() 
+		function callback_plus_usercontact_bestpost()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_usercontact_bestpost');
 			$this->moduleCommonFormDescription(__('in the standard user profile wordpress is already a field that identifies the URL of your Google+ profile. By enabling this option you can add additional information that relates to Google+ and use it in your badges author present in your current theme.','szgoogleadmin'));
@@ -638,42 +635,43 @@ if (!class_exists('SZGoogleAdminPlus'))
 		 * in the general form of configuration and saved on a database of wordpress (options)		
 		 */
 
-		function callback_plus_redirect_sign() 
+		function callback_plus_redirect_sign()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_redirect_sign');
 			$this->moduleCommonFormDescription(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as mydomain.com/+. Activate this option and enter the complete link of the destination.','szgoogleadmin'));
 		} 
 
-		function callback_plus_redirect_sign_url() 
+		function callback_plus_redirect_sign_url()
 		{
 			$this->moduleCommonFormText('sz_google_options_plus','plus_redirect_sign_url','large',__('destination URL','szgoogleadmin'));
 			$this->moduleCommonFormDescription(__('in this field you must enter the full URL for the landing page that describes the connection on google plus. In fact you can enter any URL even if the rewrite is designed for integration with google plus. Please make use of the most useful for your needs.','szgoogleadmin'));
 		} 
 
-		function callback_plus_redirect_plus() 
+		function callback_plus_redirect_plus()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_redirect_plus');
 			$this->moduleCommonFormDescription(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as mydomain.com/plus. Activate this option and enter the complete link of the destination.','szgoogleadmin'));
 		} 
 
-		function callback_plus_redirect_plus_url() 
+		function callback_plus_redirect_plus_url()
 		{
 			$this->moduleCommonFormText('sz_google_options_plus','plus_redirect_plus_url','large',__('destination URL','szgoogleadmin'));
 			$this->moduleCommonFormDescription(__('in this field you must enter the full URL for the landing page that describes the connection on google plus. In fact you can enter any URL even if the rewrite is designed for integration with google plus. Please make use of the most useful for your needs.','szgoogleadmin'));
 		} 
 
-		function callback_plus_redirect_curl() {
+		function callback_plus_redirect_curl()
+		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_redirect_curl');
 			$this->moduleCommonFormDescription(__('with this option you can enable a rewrite rules that allows you to get a web address personalized pointing to the corresponding page on google plus such as mydomain.com/origin. Activate this option and enter source and destination page.','szgoogleadmin'));
 		} 
 
-		function callback_plus_redirect_curl_source() 
+		function callback_plus_redirect_curl_source()
 		{
 			$this->moduleCommonFormText('sz_google_options_plus','plus_redirect_curl_dir','large',__('source path URL for redirect','szgoogleadmin'));
 			$this->moduleCommonFormDescription(__('in this field you must enter the source partial URL of your domain on which to perform the rewrite rule. For example you can use as a value source URL string community/+ and associate the destination on a community present on google+.','szgoogleadmin'));
 		}
 
-		function callback_plus_redirect_curl_target() 
+		function callback_plus_redirect_curl_target()
 		{
 			$this->moduleCommonFormText('sz_google_options_plus','plus_redirect_curl_url','large',__('destination URL','szgoogleadmin'));
 			$this->moduleCommonFormDescription(__('in this field you must enter the full URL for the landing page that describes the connection on google plus. In fact you can enter any URL even if the rewrite is designed for integration with google plus. Please make use of the most useful for your needs.','szgoogleadmin'));
@@ -681,13 +679,13 @@ if (!class_exists('SZGoogleAdminPlus'))
 
 		/**
 		 * Definition functions for the creation of the various options that should be included 
-		 * in the general form of configuration and saved on a database of wordpress (options)		
+		 * in the general form of configuration and saved on a database of wordpress (options)
 		 */
 
-		function callback_plus_author_badge() 
+		function callback_plus_author_badge()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_plus','plus_author_badge');
-			$this->moduleCommonFormDescription(__('a.','szgoogleadmin'));
+			$this->moduleCommonFormDescription(__('activating this option are generated widget and shortcode one that can generate a badge linked to the author of the post currently displayed. You can specify various customization options, see the documentation for the plugin.','szgoogleadmin'));
 		}
 	}
 }

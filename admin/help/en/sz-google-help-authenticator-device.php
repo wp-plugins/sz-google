@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,7 +19,7 @@ $HTML = <<<EOD
 
 <h2>Description</h2>
 
-<p>To use this feature, you must install the application on your smartphone made ​​available by google in a free environment both 
+<p>To use this feature, you must install the application on your smartphone made ​​available by google both 
 in IOS Android and Blackberry. So first download the application and install it on your smartphone, as the first operation carried 
 out the operation "set up account" and select the mode that is referred to as "read bar code" at this point you configure your 
 profile on wordpress framed QR Code generated, if all went well you'll see on your phone a new account with the time code 

@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Eugenio Petullà
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */

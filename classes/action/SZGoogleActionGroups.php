@@ -1,57 +1,54 @@
 <?php
 
 /**
- * Definizione di una classe che identifica un'azione richiamata dal
- * modulo principale in base alle opzioni che sono state attivate
- * nel pannello di amministrazione o nella configurazione del plugin
+ * Define a class that identifies an action called by the
+ * main module based on the options that have been activated
  *
  * @package SZGoogle
- * @subpackage SZGoogleActions
+ * @subpackage Actions
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleActionGroups'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questa
-	 * azione. La classe deve essere una extends di SZGoogleAction
-	 */
 	class SZGoogleActionGroups extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode per widget gruppo che permette di
-		 * eseguire un codice embed per il prodotto google groups
-		 *
-		 * @return string
+		 * Function to create the HTML code of the
+		 * module connected to the shortcode required
 		 */
+
 		function getShortcode($atts,$content=null) 
 		{
 			return $this->getHTMLCode(shortcode_atts(array(
-				'name'           => '', // valore predefinito
-				'domain'         => '', // valore predefinito
-				'width'          => '', // valore predefinito
-				'height'         => '', // valore predefinito
-				'showsearch'     => '', // valore predefinito
-				'showtabs'       => '', // valore predefinito
-				'hideforumtitle' => '', // valore predefinito
-				'hidesubject'    => '', // valore predefinito
-				'hl'             => '', // valore predefinito
+				'name'           => '', // default value
+				'domain'         => '', // default value
+				'width'          => '', // default value
+				'height'         => '', // default value
+				'showsearch'     => '', // default value
+				'showtabs'       => '', // default value
+				'hideforumtitle' => '', // default value
+				'hidesubject'    => '', // default value
+				'hl'             => '', // default value
 				'action'         => 'shortcode',
 			),$atts),$content);
 		}
 
 		/**
-		 * Creazione codice HTML per il componente richiamato che
-		 * deve essere usato in comune sia per widget che shortcode
-		 *
-		 * @return string
+		 * Creating HTML code for the component called to
+		 * be used in common for both widgets and shortcode
 		 */
+
 		function getHTMLCode($atts=array(),$content=null)
 		{
+			if (!is_array($atts)) $atts = array();
+
 			// Caricamento opzioni per le variabili di configurazione che 
 			// contengono i valori di default per shortcode e widgets
 
@@ -68,26 +65,24 @@ if (!class_exists('SZGoogleActionGroups'))
 			if ($options['groups_language'] == '99') $language = substr(get_bloginfo('language'),0,2);	
 				else $language = trim($options['groups_language']);
 
-			// Estrazione dei valori specificati nello shortcode, i valori ritornati
-			// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
-			if (!is_array($atts)) $atts = array();
+			// Extraction of the values ​​specified in shortcode, returned values
+			// ​​are contained in the variable names corresponding to the key
 
 			extract(shortcode_atts(array(
-				'name'           => '', // valore predefinito
-				'domain'         => '', // valore predefinito
-				'width'          => '', // valore predefinito
-				'height'         => '', // valore predefinito
-				'showsearch'     => '', // valore predefinito
-				'showtabs'       => '', // valore predefinito
-				'hideforumtitle' => '', // valore predefinito
-				'hidesubject'    => '', // valore predefinito
-				'hl'             => '', // valore predefinito
-				'action'         => '', // valore predefinito
+				'name'           => '', // default value
+				'domain'         => '', // default value
+				'width'          => '', // default value
+				'height'         => '', // default value
+				'showsearch'     => '', // default value
+				'showtabs'       => '', // default value
+				'hideforumtitle' => '', // default value
+				'hidesubject'    => '', // default value
+				'hl'             => '', // default value
+				'action'         => '', // default value
 			),$atts));
 
-			// Controllo le variabili che devono avere obbligatorio il valore 
-			// di true o false, in caso diverso prendo il valore di default specificato 
+			// I delete spaces added and execute the transformation in string
+			// lowercase for the control of special values ​​such as "auto"
 
 			$hl             = trim($hl);
 			$name           = trim($name);
@@ -154,8 +149,8 @@ if (!class_exists('SZGoogleActionGroups'))
 			$HTML .= "document.write(h);";
 			$HTML .= '</script>';
 
-			// Ritorno per la funzione con tutta la stringa contenente
-			// il codice HTML per l'inserimento del codice nella pagina
+			// Return from the function with the whole string containing 
+			// the HTML code for inserting the code in the page
 
 			return $HTML;
 		}

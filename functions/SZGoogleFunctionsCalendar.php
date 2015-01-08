@@ -5,7 +5,7 @@
  * by a theme or a plugin for customizations without use shortcode
  *
  * @package SZGoogle
- * @subpackage SZGoogleFunctions
+ * @subpackage Functions
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */

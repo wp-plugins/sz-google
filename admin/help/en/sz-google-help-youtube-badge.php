@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */

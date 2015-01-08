@@ -1,18 +1,19 @@
 <?php
 
 /**
- * Classe SZGooglePluginActivation per eseguire la funzione di attivazione
- * definita come hook principale di wordpress, in questa fase vengono
- * controllate le opzioni e memorizzate nel database principale.
+ * Class to initialize the plugin and recall
+ * of all classes that make up the main parts
  *
  * @package SZGoogle
- * @subpackage SZGooglePlugin
+ * @subpackage Classes
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome.
+// Before the definition of the class, check if there is a definition
+// with the same name or the same as previously defined in other script
 
 if (!class_exists('SZGooglePluginActivation'))
 {

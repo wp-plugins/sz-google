@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -24,7 +24,7 @@ pagina web visualizzata senza abbandonare il sito di origine. Ovviamente non pos
 quelle eseguite manualmente, però è comunque uno strumento che ritorna utile a chi pubblica articoli che possono interessare
 a persone che parlano altre lingue e non si ha la possibilità di eseguire delle traduzioni accurate.</p>
 
-<p>Per inserire questo componente dovete usare lo shortcode <b>[sz-gtranslate]</b>, se invece desiderate utilizzarlo
+<p>Per inserire questo componente dovete usare lo shortcode <b>[sz-gtranslate]</b>, se invece volete utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin 
 <b>szgoogle_translate_get_code(\$options)</b>.</p>
@@ -57,7 +57,7 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleModule
+ * @subpackage Modules
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -35,7 +35,6 @@ if (!class_exists('SZGoogleModulePlus'))
 			$this->moduleSetOptionSet('sz_google_options_plus');
 
 			$this->moduleActions = array(
-				'plus_author_badge'       => 'SZGoogleActionPlusAuthorBadge',
 				'plus_comments_gp_enable' => 'SZGoogleActionPlusComments',
 			);
 
@@ -52,6 +51,7 @@ if (!class_exists('SZGoogleModulePlus'))
 				'plus_button_enable_follow'         => array('sz-gplus-follow'   ,array($this,'getPlusFollowShortcode')),
 				'plus_comments_sh_enable'           => array('sz-gplus-comments' ,array($this,'getPlusCommentsShortcode')),
 				'plus_post_enable_shortcode'        => array('sz-gplus-post'     ,array($this,'getPlusPostShortcode')),
+				'plus_author_badge'                 => array('sz-gplus-author'   ,array(new SZGoogleActionPlusAuthorBadge(),'getShortcode')),
 			));
 
 			// Definition widgets connected to the module with an array where you
@@ -67,6 +67,7 @@ if (!class_exists('SZGoogleModulePlus'))
 				'plus_button_enable_widget_follow'  => 'SZGoogleWidgetPlusFollow',
 				'plus_comments_wd_enable'           => 'SZGoogleWidgetPlusComments',
 				'plus_post_enable_widget'           => 'SZGoogleWidgetPlusPost',
+				'plus_author_badge'                 => 'SZGoogleWidgetPlusAuthorBadge',
 			));
 		}
 

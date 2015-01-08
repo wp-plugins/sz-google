@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -78,6 +78,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 			// Creating index of documentation for the composition of the navigator
 
 			$this->HelpIndexItems = array(
+					array('slug'=>'sz-google-help-plus-author.php'            ,'title'=>__('google+ badge author'      ,'szgoogleadmin')),
 					array('slug'=>'sz-google-help-plus-profile.php'           ,'title'=>__('google+ badge profile'     ,'szgoogleadmin')),
 					array('slug'=>'sz-google-help-plus-page.php'              ,'title'=>__('google+ badge page'        ,'szgoogleadmin')),
 					array('slug'=>'sz-google-help-plus-community.php'         ,'title'=>__('google+ badge community'   ,'szgoogleadmin')),
@@ -199,6 +200,7 @@ if (!class_exists('SZGoogleAdminDocumentation'))
 		function moduleAddHelpPlus()
 		{
 			$this->moduleAddHelpLinks(array(
+				array('slug'=>'sz-google-help-plus-author.php'           ,'title'=>__('badge author','szgoogleadmin')),
 				array('slug'=>'sz-google-help-plus-profile.php'          ,'title'=>__('badge profile','szgoogleadmin')),
 				array('slug'=>'sz-google-help-plus-page.php'             ,'title'=>__('badge page','szgoogleadmin')),
 				array('slug'=>'sz-google-help-plus-community.php'        ,'title'=>__('badge community','szgoogleadmin')),

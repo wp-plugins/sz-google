@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleModule
+ * @subpackage Modules
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -56,7 +56,7 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 
 		function getGAId($atts=array()) {
 			$options = $this->getOptions();
-			return trim($options['ga_uacode']);   
+			return trim($options['ga_uacode']);
 		}
 	}
 

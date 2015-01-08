@@ -2,11 +2,10 @@
 
 /**
  * Define a class that identifies an action called by the
- * module based on the options that have been activated
- * in the admin panel or in the configuration of the plugin
+ * main module based on the options that have been activated
  *
  * @package SZGoogle
- * @subpackage SZGoogleAction
+ * @subpackage Actions
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -23,8 +22,8 @@ if (!class_exists('SZGoogleActionMaps'))
 		static private $sequenceMaps = 0;
 
 		/**
-		 * Function for executing the shortcode defined in
-		 * the module of plugins and creating the embed code
+		 * Function to create the HTML code of the
+		 * module connected to the shortcode required
 		 */
 
 		function getShortcode($atts,$content=null) 

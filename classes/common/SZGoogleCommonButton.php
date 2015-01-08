@@ -1,51 +1,50 @@
 <?php
 
 /**
- * Classe SZGoogleCommon per esecuzione funzioni di uso generale o calcolo
- * di variabili da usare in qualsiasi modulo del plugin. Inserire in questa
- * classe le funzioni che vengono richiamate da moduli differenti.
+ * Class for executing functions of general use or 
+ * calculation of variables to be used in plugin
  *
  * @package SZGoogle
- * @subpackage SZGoogleCommon
+ * @subpackage Classes
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome.
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleCommonButton'))
 {
 	class SZGoogleCommonButton
 	{
 		/**
-		 * Funzione per disegno wrapper legato ad un bottone di uso
-		 * comune a più moduli del plugin e con le stesse opzioni.
-		 *
-		 * @param  array $atts
-		 * @return string
+		 * Function to design wrapper tied to a button commonly used
+		 * in most of the plugins and modules with the same options
 		 */
+
 		static function getButton($atts) 
 		{
 			extract(shortcode_atts(array(
-				'html'         => '',
-				'text'         => '',
-				'image'        => '',
-				'content'      => '',
-				'float'        => '',
-				'align'        => '',
-				'position'     => '',
-				'class'        => '',
-				'margintop'    => '',
-				'marginright'  => '',
-				'marginbottom' => '',
-				'marginleft'   => '',
-				'marginunit'   => '',
-				'uniqueID'     => '',
+				'html'         => '', // default value
+				'text'         => '', // default value
+				'image'        => '', // default value
+				'content'      => '', // default value
+				'float'        => '', // default value
+				'align'        => '', // default value
+				'position'     => '', // default value
+				'class'        => '', // default value
+				'margintop'    => '', // default value
+				'marginright'  => '', // default value
+				'marginbottom' => '', // default value
+				'marginleft'   => '', // default value
+				'marginunit'   => '', // default value
+				'uniqueID'     => '', // default value
 			),$atts));
 
-			// Imposto i valori di default nel caso siano specificati dei valori
-			// che non appartengono al range dei valori accettati
+			// Imposed the default values ​​are specified in the case of
+			// the values ​​that do not belong to the range of accepted values
 
 			if (!ctype_digit($margintop)    and $margintop    != 'none') $margintop    = ''; 
 			if (!ctype_digit($marginright)  and $marginright  != 'none') $marginright  = ''; 
@@ -54,17 +53,17 @@ if (!class_exists('SZGoogleCommonButton'))
 
 			if (!in_array($marginunit,array('px','pt','em'))) $marginunit = 'em';
 
-			// Calcolo il codice CSS da inserire nel primo wrapper
-			// del bottone su cui si sta elaborando il rendering
+			// Calculating the CSS code to be entered in the first wrapper
+			// of the button on which you are working on the rendering
 
 			$CSS = '';
 
 			if (!empty($float) and $float != 'none') $CSS .= 'float:'.$float.';';
 			if (!empty($align) and $align != 'none') $CSS .= 'text-align:'.$align.';';
 
-			// Calcolo il codice HTML per eseguire un WRAP sul
-			// codice del bottone preparato in precedenza dal chiamante
-	
+			// Calculating the HTML code to perform a WRAP on the
+			// code of the button prepared earlier by the caller
+
 			$HTML  = '<div class="'.$class.'"';
 				if ($CSS      != '') $HTML .= ' style="'.$CSS.'"';
 				if ($uniqueID != '') $HTML .= ' id="'.$uniqueID.'"';
@@ -82,8 +81,8 @@ if (!class_exists('SZGoogleCommonButton'))
 			$HTML .= '<div class="sz-google-button-wrap" style="position:relative;">';
 			$HTML .= '<div class="sz-google-button-body">';
 
-			// Se trovo contenuto per il parametro "text" dello shortcode
-			// lo aggiungo prima del codice embed originale di google
+			// If I find content for the parameter "text" of the shortcod
+			// I add it before the original embed code google
 
 			if ($text != '') {
 				$HTML .= '<div class="sz-google-button-text">';
@@ -91,8 +90,8 @@ if (!class_exists('SZGoogleCommonButton'))
 				$HTML .= '</div>';
 			}
 
-			// Se trovo contenuto per il parametro "image" dello shortcode
-			// lo aggiungo prima del codice embed originale di google
+			// If I find content for the parameter "image" of the shortcod
+			// I add it before the original embed code google
 
 			if ($image != '') {
 				$HTML .= '<div class="sz-google-button-imgs">';
@@ -100,8 +99,8 @@ if (!class_exists('SZGoogleCommonButton'))
 				$HTML .= '</div>';
 			}
 
-			// Se trovo contenuto tra inizio e fine dello shortcode
-			// lo aggiungo prima del codice embed originale di google
+			// If I find content between the start and end of shortcode
+			// I add it before the original embed code google
 
 			if ($content != '') {
 				$HTML .= '<div class="sz-google-button-cont">';
@@ -111,20 +110,20 @@ if (!class_exists('SZGoogleCommonButton'))
 
 			$HTML .= '</div>';
 
-			// Aggiunta del codice per inserimento iframe originale
-			// di google con allineamento e posizionamento
+			// Adding the code to insert iframe original
+			// google with alignment and positioning
 
 			$HTML .= '<div class="sz-google-button-code">';
 			$HTML .= '<div class="sz-google-button-side"';
 			$HTML .= ' style="display:block;';
 
-			if ($position == 'top')    $HTML .= 'position:absolute;width:100%;padding:0;top:1em;';		
-			if ($position == 'center') $HTML .= 'position:absolute;width:100%;padding:0;top:40%;';		
-			if ($position == 'bottom') $HTML .= 'position:absolute;width:100%;padding:0;bottom:1em;';		
+			if ($position == 'top')    $HTML .= 'position:absolute;width:100%;padding:0;top:1em;';
+			if ($position == 'center') $HTML .= 'position:absolute;width:100%;padding:0;top:40%;';
+			if ($position == 'bottom') $HTML .= 'position:absolute;width:100%;padding:0;bottom:1em;';
 
-			if ($align    == 'left')   $HTML .= 'left:1em;text-align:left';		
-			if ($align    == 'center') $HTML .= 'left:0;text-align:center';		
-			if ($align    == 'right')  $HTML .= 'right:1em;text-align:right';		
+			if ($align    == 'left')   $HTML .= 'left:1em;text-align:left';
+			if ($align    == 'center') $HTML .= 'left:0;text-align:center';
+			if ($align    == 'right')  $HTML .= 'right:1em;text-align:right';
 
 			$HTML .= '">';
 			$HTML .= $html;
@@ -135,8 +134,8 @@ if (!class_exists('SZGoogleCommonButton'))
 			$HTML .= '</div>';
 			$HTML .= '</div>';
 
-			// Ritorno per la funzione con tutta la stringa contenente
-			// il codice HTML per l'inserimento del codice nella pagina
+			// Return to the function with the whole string containing
+			// the HTML code for inserting the code in the page
 
 			return $HTML;
 		}

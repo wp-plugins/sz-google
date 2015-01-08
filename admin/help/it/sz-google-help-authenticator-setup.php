@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -47,12 +47,12 @@ temporaneamente il controllo del codice, questo perchè ovviamente anche lui pot
 
 <h2>Codici di emergenza</h2>
 
-<p>Abbiamo già visto precedentemente che è possibile attivare un file di emergenza per la forzatura di un login nel caso in cui non si possa 
-ottenere la password a tempo. In realtà esiste un’altra maniera che ci permette di associare ad un profilo utente dei codici di emergenza che 
+<p>Abbiamo già visto che è possibile attivare un file di emergenza per la forzatura di un login nel caso in cui non si possa 
+ottenere la password a tempo. In realtà esiste un’altra maniera che ci permette di associare ad un profilo dei codici di emergenza che 
 possono essere utilizzati al posto del codice a tempo. Come lo stesso meccanismo che mette a disposizione google per i propri account.</p>
 
-<p>La creazione dei codici di emergenza è possibile eseguirla dal menu del profilo utente, nella stessa maniera del codice 
-segreto. Tutti i codici che verranno generati potranno essere utilizzati una sola volta ciascuno, infatti i codici di color rosso che trovate nella 
+<p>La creazione dei codici di emergenza è possibile eseguirla dal menu del profilo, nella stessa maniera del codice 
+segreto. Tutti i codici che verranno generati potranno essere usati una sola volta, infatti i codici di color rosso che trovate nella 
 tabella sono quelli già utilizzati e gli altri sono quelli ancora liberi. In ogni caso potete generare una nuova tabelle di 12 nuovi codici quando volete.</p>
 
 <h2>Avvertenze</h2>

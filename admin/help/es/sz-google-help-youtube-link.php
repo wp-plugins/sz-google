@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -22,14 +22,15 @@ $HTML = <<<EOD
 <p>Through this feature you can place a text link or a single image with a direct link to the youtube channel . The advantage of using this link 
 is to be able to indicate the subscription automatic once the user reaches the channel page.</p>
 
-<p>To add this module you have to use the shortcode <b>[sz-ytlink]</b>, but if you want to use it in a sidebar then you have to use 
-the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
-in fact just use a PHP function provided by the plugin <b>szgoogle_youtube_get_code_link(\$options)</b>.</p>
+<p>Para insertar este componente debe utilizar el código corto <b>[sz-ytlink]</b>, si desea utilizarlo en una barra lateral,
+usted tiene que utilizar el widget desarrollado para esta función que se encuentran en el menú apariencia => widgets. Para los más 
+exigentes hay otra posibilidad, tiene que utilizar una función llamada PHP <b>szgoogle_youtube_get_code_link(\$options)</b>.</p>
 
-<h2>Customization</h2>
+<h2>Personalización</h2>
 
-<p>The component can be customized in many ways, just use the parameters listed in the table provided below. Regarding the widget 
-parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify option = "value".</p>
+<p>Independientemente de la forma que va a utilizar, el componente se puede personalizar de diferentes maneras, sólo tiene que 
+utilizar los parámetros puesto a disposición y listada en la tabla. En cuanto el widgets, se requieren los parámetros directamente
+desde la interfaz gráfica de usuario, mientras que si se utiliza la función PHP o shortcode tiene que especificar manualmente.</p>
 
 <h2>Parámetros y opciones</h2>
 

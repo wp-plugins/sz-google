@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,7 +19,7 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Se per esigenze particolari non volete utilizzare i badge di google+ sul vostro sito, il plugin <b>SZ-Google</b> mette a disposizione 
+<p>Se per esigenze particolari non volete utilizzare i badge di g+ sul vostro sito, il plugin <b>SZ-Google</b> mette a disposizione 
 un metodo alternativo. Infatti basta attivare le opzioni che trovate nel pannello di amministrazione chiamate HEAD Author e HEAD Publisher.</p>
 
 <h2>Codice in HEAD</h2>

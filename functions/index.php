@@ -5,7 +5,7 @@
  * from the web server, I send a message 404 page not found
  *
  * @package SZGoogle
- * @subpackage SZGoogleFunctions
+ * @subpackage Functions
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */

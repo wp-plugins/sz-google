@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -23,9 +23,9 @@ $HTML = <<<EOD
 got your widget on line it will look as simple as a traditional comment system, except for the necessary login to a Google+ profile 
 in order to comment a post. When in use this widget automatically links the URL of the current page.</p>
 
-<p>To add this button you have to use the shortcode <b>[sz-gplus-comments]</b>, but if you want to use it in a sidebar then you have to use 
-the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
-in fact just use a PHP function provided by the plugin <b>szgoogle_gplus_get_comments(\$options)</b>.</p>
+<p>Para insertar este componente debe utilizar el código corto <b>[sz-gplus-comments]</b>, si desea utilizarlo en una barra lateral,
+usted tiene que utilizar el widget desarrollado para esta función que se encuentran en el menú apariencia => widgets. Para los más 
+exigentes hay otra posibilidad, tiene que utilizar una función llamada PHP <b>szgoogle_gplus_get_comments(\$options)</b>.</p>
 
 <h2>Comments configuration</h2>
 
@@ -37,6 +37,12 @@ standard comments override feature, choosing to completely substitute standard c
 <p>You can choose to put Google+ comments right after the post content or after the standard wordpress comments. You can insert a starting 
 date after which Google+ comment system will be activated, useful if you need to keep alive older posts’ standard comments and you 
 want to start using Google+ comments from a precise date on.</p>
+
+<h2>Personalización</h2>
+
+<p>Independientemente de la forma que va a utilizar, el componente se puede personalizar de diferentes maneras, sólo tiene que 
+utilizar los parámetros puesto a disposición y listada en la tabla. En cuanto el widgets, se requieren los parámetros directamente
+desde la interfaz gráfica de usuario, mientras que si se utiliza la función PHP o shortcode tiene que especificar manualmente.</p>
 
 <h2>Parámetros y opciones</h2>
 

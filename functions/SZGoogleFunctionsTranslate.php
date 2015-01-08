@@ -5,7 +5,7 @@
  * by a theme or a plugin for customizations without use shortcode
  *
  * @package SZGoogle
- * @subpackage SZGoogleFunctions
+ * @subpackage Functions
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -22,6 +22,9 @@ if (!function_exists('szgoogle_translate_get_object')) {
 	}
 }
 
+// Function to retrieve the HTML code for monitoring
+// connected to the basic functions as shotcodes and widgets
+
 if (!function_exists('szgoogle_translate_get_code')) {
 	function szgoogle_translate_get_code($options=array()) {
 		if (!$object = szgoogle_translate_get_object()) return false;
@@ -29,12 +32,18 @@ if (!function_exists('szgoogle_translate_get_code')) {
 	}
 }
 
+// Function to retrieve the HTML code for section META
+// connected to the basic functions as shotcodes and widgets
+
 if (!function_exists('szgoogle_translate_get_meta')) {
 	function szgoogle_translate_get_meta() {
 		if (!$object = szgoogle_translate_get_object()) return false;
 			else return $object->getTranslateMeta();
 	}
 }
+
+// Function to retrieve the HTML code for section META ID
+// connected to the basic functions as shotcodes and widgets
 
 if (!function_exists('szgoogle_translate_get_meta_ID')) {
 	function szgoogle_translate_get_meta_ID() {

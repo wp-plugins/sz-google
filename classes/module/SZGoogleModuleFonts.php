@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleModule
+ * @subpackage Modules
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -86,7 +86,7 @@ if (!class_exists('SZGoogleModuleFonts'))
 			    !in_array($options->fonts_family_H5_name,$testvalue) or
 			    !in_array($options->fonts_family_H6_name,$testvalue))
 			{
-				add_action('SZ_CCSI',array($this,'moduleAddCSS'),20);
+				add_action('SZ_CSSH',array($this,'moduleAddCSS'),20);
 			}
 		}
 

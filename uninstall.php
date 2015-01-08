@@ -5,7 +5,7 @@
  * of the options stored in the database and see if wordpress multisite environment.
  *
  * @package SZGoogle
- * @subpackage SZGooglePlugin
+ * @subpackage Plugin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */

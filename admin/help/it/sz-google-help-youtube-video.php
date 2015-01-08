@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -21,8 +21,7 @@ $HTML = <<<EOD
 
 <p>Questa funzione permette l'inserimento di un <b>video youtube</b> su una pagina web. Il modulo youtube ha molti parametri che servono per 
 aggiungere funzionalità o personalizzare alcuni aspetti che riguardano la modalità di inserimento, ad esempio possiamo decidere tra una dimensione 
-fissa del player o una di tipo responsive design, è possibile scegliere tra un tema “dark” e uno “light”, agganciare il codice di google analytics 
-per tracciare le operazioni, impostare alcuni parametri come fullscreen, disablekeyboard, autoplay e loop e molto altro ancora.</p>
+fissa o responsive, è possibile scegliere tra un tema “dark” e uno “light”, agganciare il codice di google analytics, impostare alcuni parametri come fullscreen, disablekeyboard, autoplay e loop e molto altro ancora.</p>
 
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-ytvideo]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
@@ -71,7 +70,7 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

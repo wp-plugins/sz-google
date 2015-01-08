@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -109,6 +109,7 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 				'sz-gplus-one'       => array('width'=>'430','height'=>'450','title'=>__('G+ Button +1'        ,'szgoogleadmin')),
 				'sz-gplus-share'     => array('width'=>'430','height'=>'450','title'=>__('G+ Button Share'     ,'szgoogleadmin')),
 				'sz-gplus-follow'    => array('width'=>'430','height'=>'450','title'=>__('G+ Button Follow'    ,'szgoogleadmin')),
+				'sz-gplus-author'    => array('width'=>'430','height'=>'290','title'=>__('G+ Widget Author'    ,'szgoogleadmin')),
 				'sz-gplus-comments'  => array('width'=>'430','height'=>'270','title'=>__('G+ Widget Comments'  ,'szgoogleadmin')),
 				'sz-gplus-post'      => array('width'=>'430','height'=>'170','title'=>__('G+ Widget Post'      ,'szgoogleadmin')),
 				'sz-calendar'        => array('width'=>'430','height'=>'580','title'=>__('Calendar Widget'     ,'szgoogleadmin')),
@@ -119,7 +120,6 @@ if (!class_exists('SZGoogleAdminTinyMCE'))
 				'sz-hangouts-start'  => array('width'=>'430','height'=>'610','title'=>__('Hangout Start Button','szgoogleadmin')),
 				'sz-maps'            => array('width'=>'430','height'=>'610','title'=>__('Embed Maps'          ,'szgoogleadmin')),
 				'sz-panoramio'       => array('width'=>'430','height'=>'520','title'=>__('Panoramio Widget'    ,'szgoogleadmin')),
-//				'sz-gtranslate'      => array('width'=>'430','height'=>'470','title'=>__('Translate Widget'    ,'szgoogleadmin')),
 				'sz-ytvideo'         => array('width'=>'430','height'=>'580','title'=>__('Youtube Video'       ,'szgoogleadmin')),
 				'sz-ytplaylist'      => array('width'=>'430','height'=>'560','title'=>__('Youtube Playlist'    ,'szgoogleadmin')),
 				'sz-ytbadge'         => array('width'=>'430','height'=>'250','title'=>__('Youtube Badge'       ,'szgoogleadmin')),

@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,16 +19,16 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Tramite questa feature è possibile inserire in una pagina web un badge contenente la lista dei followers collegati ad una pagina
-o ad un profilo presente su google+. Nel badge verranno visualizzate le miniature dei profili che seguono la risorsa su google+ e viene
+<p>Tramite questa feature è possibile inserire in una pagina un badge contenente la lista dei followers collegati ad una pagina
+o ad un profilo presente su g+. Nel badge verranno visualizzate le miniature dei profili che seguono la risorsa su google+ e viene
 anche inserito un bottone per aggiungere la pagina o il profilo direttamente ad una cerchia. In questo momento il badge rilasciato
 da google non è responsive, però il plugin <b>SZ-Google</b> aggiunge un parametro di width="auto" che tramite javascript 
-cercherà di calcolare la larghezza del contenitore e passarla al codice di google+. Ovviamente non funzionerà in caso di
+cercherà di calcolare la larghezza e passarla al codice di google+. Ovviamente non funzionerà in caso di
 ridimensionamento finestra.</p>
 
-<p>Per inserire questo badge dovete usare lo shortcode <b>[sz-gplus-followers]</b>, se invece desiderate utilizzarlo
+<p>Per inserire il badge dovete usare lo shortcode <b>[sz-gplus-followers]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
-esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin 
+esigenti esiste anche un'altra possibilità, basta utilizzare una funzione PHP messa a disposizione dal plugin 
 <b>szgoogle_gplus_get_badge_followers(\$options)</b>.</p>
 
 <h2>Parametri e opzioni</h2>
@@ -43,7 +43,7 @@ esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzio
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

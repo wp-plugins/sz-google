@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -24,9 +24,15 @@ google+. The badge will display the thumbnails of the profiles that follow the r
 your profile page or directly to a circle. At this time the badge issued by google is not responsive, however, the plugin adds a 
 parameter width="auto" means that javascript will try to calculate the width of the container and pass it to the code of google+.</p>
 
-<p>To add this button you have to use the shortcode <b>[sz-gplus-followers]</b>, but if you want to use it in a sidebar then you have to use 
-the widget developed for this function in menu appearance -> widgets. For the most demanding there is also another possibility, 
-in fact just use a PHP function provided by the plugin <b>szgoogle_gplus_get_badge_followers(\$options)</b>.</p>
+<p>Para insertar este componente debe utilizar el código corto <b>[sz-gplus-followers]</b>, si desea utilizarlo en una barra lateral,
+usted tiene que utilizar el widget desarrollado para esta función que se encuentran en el menú apariencia => widgets. Para los más 
+exigentes hay otra posibilidad, tiene que utilizar una función llamada PHP <b>szgoogle_gplus_get_badge_followers(\$options)</b>.</p>
+
+<h2>Personalización</h2>
+
+<p>Independientemente de la forma que va a utilizar, el componente se puede personalizar de diferentes maneras, sólo tiene que 
+utilizar los parámetros puesto a disposición y listada en la tabla. En cuanto el widgets, se requieren los parámetros directamente
+desde la interfaz gráfica de usuario, mientras que si se utiliza la función PHP o shortcode tiene que especificar manualmente.</p>
 
 <h2>Parámetros y opciones</h2>
 

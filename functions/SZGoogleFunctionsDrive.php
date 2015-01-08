@@ -5,7 +5,7 @@
  * by a theme or a plugin for customizations without use shortcode
  *
  * @package SZGoogle
- * @subpackage SZGoogleFunctions
+ * @subpackage Functions
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -22,12 +22,18 @@ if (!function_exists('szgoogle_drive_get_embed')) {
 	}
 }
 
+// Function to retrieve the HTML code of google viewer
+// connected to the basic functions as shotcodes and widgets
+
 if (!function_exists('szgoogle_drive_get_viewer')) {
 	function szgoogle_drive_get_viewer($options=array()) {
 		if (!$object = new SZGoogleActionDriveViewer()) return false;
 			else return $object->getHTMLCode($options);
 	}
 }
+
+// Function to retrieve the HTML code of drive save button
+// connected to the basic functions as shotcodes and widgets
 
 if (!function_exists('szgoogle_drive_get_savebutton')) {
 	function szgoogle_drive_get_savebutton($options=array()) {

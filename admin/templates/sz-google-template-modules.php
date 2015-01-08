@@ -5,7 +5,7 @@
  * related to some sections of the admin panel
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -21,6 +21,7 @@ $reviewsLINK =  array(
 	array('language' => __('italian','szgoogleadmin'),'module'=>'google authenticator','author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-authenticator/'),
 	array('language' => __('italian','szgoogleadmin'),'module'=>'google calendar'     ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-calendar/'),
 	array('language' => __('italian','szgoogleadmin'),'module'=>'google drive'        ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-drive/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google maps'         ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-maps/'),
 	array('language' => __('italian','szgoogleadmin'),'module'=>'google youtube'      ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-youtube/'),
 );
 

@@ -1,94 +1,89 @@
 <?php
 
 /**
- * Definizione di una classe che identifica un'azione richiamata dal
- * modulo principale in base alle opzioni che sono state attivate
- * nel pannello di amministrazione o nella configurazione del plugin
+ * Define a class that identifies an action called by the
+ * main module based on the options that have been activated
  *
  * @package SZGoogle
- * @subpackage SZGoogleActions
+ * @subpackage Actions
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleActionCalendar'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questa
-	 * azione. La classe deve essere una extends di SZGoogleAction
-	 */
 	class SZGoogleActionCalendar extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode widget calendario che permette di
-		 * eseguire un codice embed per il prodotto google calendar
-		 *
-		 * @return string
+		 * Function to create the HTML code of the
+		 * module connected to the shortcode required
 		 */
+
 		function getShortcode($atts,$content=null) 
 		{
 			return $this->getHTMLCode(shortcode_atts(array(
-				'calendar'      => '', // valore predefinito
-				'title'         => '', // valore predefinito
-				'mode'          => '', // valore predefinito
-				'weekstart'     => '', // valore predefinito
-				'language'      => '', // valore predefinito
-				'timezone'      => '', // valore predefinito
-				'width'         => '', // valore predefinito
-				'height'        => '', // valore predefinito
-				'showtitle'     => '', // valore predefinito
-				'shownavs'      => '', // valore predefinito
-				'showdate'      => '', // valore predefinito
-				'showprint'     => '', // valore predefinito
-				'showtabs'      => '', // valore predefinito
-				'showcalendars' => '', // valore predefinito
-				'showtimezone'  => '', // valore predefinito
+				'calendar'      => '', // default value
+				'title'         => '', // default value
+				'mode'          => '', // default value
+				'weekstart'     => '', // default value
+				'language'      => '', // default value
+				'timezone'      => '', // default value
+				'width'         => '', // default value
+				'height'        => '', // default value
+				'showtitle'     => '', // default value
+				'shownavs'      => '', // default value
+				'showdate'      => '', // default value
+				'showprint'     => '', // default value
+				'showtabs'      => '', // default value
+				'showcalendars' => '', // default value
+				'showtimezone'  => '', // default value
 				'action'        => 'shortcode',
 			),$atts),$content);
 		}
 
 		/**
-		 * Creazione codice HTML per il componente richiamato che
-		 * deve essere usato in comune sia per widget che shortcode
-		 *
-		 * @return string
+		 * Creating HTML code for the component called to
+		 * be used in common for both widgets and shortcode
 		 */
+
 		function getHTMLCode($atts=array(),$content=null)
 		{
 			if (!is_array($atts)) $atts = array();
 
-			// Estrazione dei valori specificati nello shortcode, i valori ritornati
-			// sono contenuti nei nomi di variabili corrispondenti alla chiave
+			// Extraction of the values ​​specified in shortcode, returned values
+			// ​​are contained in the variable names corresponding to the key
 
 			extract(shortcode_atts(array(
-				'calendar'      => '', // valore predefinito
-				'title'         => '', // valore predefinito
-				'mode'          => '', // valore predefinito
-				'weekstart'     => '', // valore predefinito
-				'language'      => '', // valore predefinito
-				'timezone'      => '', // valore predefinito
-				'width'         => '', // valore predefinito
-				'height'        => '', // valore predefinito
-				'showtitle'     => '', // valore predefinito
-				'shownavs'      => '', // valore predefinito
-				'showdate'      => '', // valore predefinito
-				'showprint'     => '', // valore predefinito
-				'showtabs'      => '', // valore predefinito
-				'showcalendars' => '', // valore predefinito
-				'showtimezone'  => '', // valore predefinito
-				'action'        => '', // valore predefinito
+				'calendar'      => '', // default value
+				'title'         => '', // default value
+				'mode'          => '', // default value
+				'weekstart'     => '', // default value
+				'language'      => '', // default value
+				'timezone'      => '', // default value
+				'width'         => '', // default value
+				'height'        => '', // default value
+				'showtitle'     => '', // default value
+				'shownavs'      => '', // default value
+				'showdate'      => '', // default value
+				'showprint'     => '', // default value
+				'showtabs'      => '', // default value
+				'showcalendars' => '', // default value
+				'showtimezone'  => '', // default value
+				'action'        => '', // default value
 			),$atts));
 
-			// Caricamento opzioni per le variabili di configurazione che 
-			// contengono i valori di default per shortcode e widgets
+			// Loading options for the configuration variables 
+			// containing the default values ​​for shortcodes and widgets
 
 			$options = (object) $this->getModuleOptions('SZGoogleModuleCalendar');
 
-			// Elimino spazi aggiunti di troppo ed eseguo la trasformazione in
-			// stringa minuscolo per il controllo di valori speciali come "auto"
+			// I delete spaces added and execute the transformation in string
+			// lowercase for the control of special values ​​such as "auto"
 
 			$calendar      = trim($calendar);
 			$title         = trim($title);
@@ -108,8 +103,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 			$showcalendars = strtolower(trim($showcalendars));
 			$showtimezone  = strtolower(trim($showtimezone));
 
-			// Conversione dei valori specificati direttamete nei parametri con
-			// i valori usati per la memorizzazione dei valori di default
+			// Conversion of the values ​​specified directly covered in the
+			// parameters with the values ​​used for storing default values
 
 			if ($showtitle     == 'yes' or $showtitle     == 'y') $showtitle     = '1'; 
 			if ($shownavs      == 'yes' or $shownavs      == 'y') $shownavs      = '1'; 
@@ -127,8 +122,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 			if ($showcalendars == 'no'  or $showcalendars == 'n') $showcalendars = '0'; 
 			if ($showtimezone  == 'no'  or $showtimezone  == 'n') $showtimezone  = '0'; 
 
-			// Se non sono riuscito ad assegnare nessun valore con le istruzioni
-			// precedenti metto dei default assoluti che possono essere cambiati
+			// If I could not assign any value to the instructions
+			// above, put the default absolute and can be changed
 
 			$YESNO = array('1','0');
 
@@ -163,8 +158,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 				if (!in_array($showtimezone ,$YESNO)) $showtimezone  = $options->calendar_s_show_timezone;
 			}
 
-			// Controllo la variabile titolo se specificata nella opzione
-			// in caso contrario assegno il valore speciale con traduzione in lingua
+			// Control the variable title if specified in the option
+			// otherwise check the special value with language translation
 
 			if ($calendar  == '') $calendar  = $options->calendar_o_calendars;
 			if ($title     == '') $title     = $options->calendar_o_title;
@@ -175,8 +170,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 
 			if (!in_array($weekstart,array('1','2','7')))  $weekstart = '1';
 
-			// Calcolo la variabile della lingua di traduzione da applicare al codice
-			// embed del calendario di google. Valore speciale 99 per quella wordpress.
+			// Calculating the variable of language translation to be applied
+			// to embed the google calendar. Special value 99 for that wordpress
 
 			if (!array_key_exists($language,SZGoogleCommon::getLanguages())) $language = $options->calendar_o_language;
 			if (!array_key_exists($language,SZGoogleCommon::getLanguages())) $language = '99';
@@ -186,14 +181,14 @@ if (!class_exists('SZGoogleActionCalendar'))
 			if (!array_key_exists($timezone,SZGoogleCommon::getTimeZone())) $timezone = $options->calendar_o_timezone;
 			if (!array_key_exists($timezone,SZGoogleCommon::getTimeZone())) $timezone = 'none';
 
-			// Controllo i valori passati in array che specificano la dimensione del widget
-			// in caso contrario imposto il valore su quello specificato nelle opzioni
+			// Checking the values ​​passed in arrays that specify the size of the widget
+			// otherwise imposed on the value of the one specified in the options
 
 			if (!ctype_digit($width)  and $width  != 'auto') $width  = 'auto';
 			if (!ctype_digit($height) and $height != 'auto') $height = 'auto';
 
-			// Controllo la dimensione del widget e controllo formale dei valori numerici
-			// se trovo qualche incongruenza applico i valori di default prestabiliti
+			// Control the size of the widget and formal control of the numerical
+			// values, if I find some inconsistency apply the default preset
 
 			if ($width  == '')     $width  = "100%";
 			if ($width  == 'auto') $width  = "100%";
@@ -201,8 +196,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 			if ($height == '')     $height = '400';
 			if ($height == 'auto') $height = '400';
 
-			// Creazione array contenente le variabili che devono essere usate
-			// nella stringa URL di riferimento al codice embed su iframe
+			// Create array containing variables that are used
+			// in the URL string reference to embed on iframe
 
 			$URLarray = array();
 
@@ -224,8 +219,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 			if ($showcalendars != '1') $URLarray[] = "showCalendars=0";
 			if ($showtimezone  != '1') $URLarray[] = "showTz=0";
 
-			// Creazione array contenente i nomi dei calendari da visualizzare.
-			// I nomi devono essere divisi da una virgola nella variabile specifica.
+			// Creating array containing the names of the calendars to display
+			// The names must be separated by a comma in the specific variable
 
 			$CALarray = explode(',',$calendar);
 
@@ -233,8 +228,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 				if (trim($value) != '') $URLarray[] = 'src='.urlencode(trim($value));
 			}
 
-			// Creazione codice HTML per embed code da inserire nella pagina wordpress
-			// prima praparo il codice del bottone singolo e poi chiamo funzione di wrapping
+			// Creating HTML embed code to add to the page wordpress
+			// First prepare the code of a single button, and then call wrapping function
 
 			$HTML  = '<script type="text/javascript">';
 			$HTML .= "var h='<'+'";
@@ -247,8 +242,8 @@ if (!class_exists('SZGoogleActionCalendar'))
 			$HTML .= "document.write(h);";
 			$HTML .= '</script>';
 
-			// Ritorno per la funzione con tutta la stringa contenente
-			// il codice HTML per l'inserimento del codice nella pagina
+			// Return from the function with the whole string containing 
+			// the HTML code for inserting the code in the page
 
 			return $HTML;
 		}

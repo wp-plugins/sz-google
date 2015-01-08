@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,7 +19,7 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Se utilizzate Google+ sicuramente conoscete la funzione del pulsante +1 che serve ad indicare una preferenza circa un post
+<p>Se utilizzate Google+ sicuramente conoscete la funzione del +1 che serve ad indicare una preferenza circa un post
 pubblicato su google plus. Tramite questo plugin è possibile aggiungere un pulsante +1 riferito a qualsiasi URL del vostro sito.
 Normalmente l'insertimento di questo pulsante si collega automaticamente alla stringa URL della pagina visualizzata, però è 
 possibile cambiare questo comportamento tramite l'opzione url="URL". Potete inserire anche più bottoni con URL diversi
@@ -33,7 +33,7 @@ esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzio
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
-messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
+messi a disposizione elencati nella tabella. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
 formato opzione="valore".</p>
 
@@ -68,7 +68,7 @@ bottone all'interno di essa in overlay e nella posizione che vogliamo. Qui di se
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

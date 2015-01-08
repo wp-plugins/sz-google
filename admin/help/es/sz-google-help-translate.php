@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -34,12 +34,11 @@ official page <a target="_blank" href="https://translate.google.com/manager‎">
 Once you have configured your site perform the action "get code" and copy the specified "meta".
 Take care to only enter the numeric code and not all of the HTML code.</p>
 
-<h2>Customization</h2>
+<h2>Personalización</h2>
 
-<p>The component can be customized in many ways, just use the parameters listed in the table provided below. Regarding the widget 
-parameters are obtained directly from the GUI, but if you use the shortcode or PHP function you must specify them manually in the 
-format option = "value". If you would like additional information you can visit 
-<a target="_blank" href="https://translate.google.com/manager‎">Google Translate Manager</a>.</p>
+<p>Independientemente de la forma que va a utilizar, el componente se puede personalizar de diferentes maneras, sólo tiene que 
+utilizar los parámetros puesto a disposición y listada en la tabla. En cuanto el widgets, se requieren los parámetros directamente
+desde la interfaz gráfica de usuario, mientras que si se utiliza la función PHP o shortcode tiene que especificar manualmente.</p>
 
 <h2>Parámetros y opciones</h2>
 

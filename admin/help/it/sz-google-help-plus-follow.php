@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -24,7 +24,7 @@ degli altri social network però il bottone follow di G+ presenterà l'elenco de
 desiderate e inserire il profilo o la pagina da seguire. Tramite questo plugin il bottone può essere inserito in un sito web e fare 
 riferimento a qualsiasi profilo o pagina presente su G+. É possibile anche inserire più bottoni sulla stessa pagina.</p>
 
-<p>Per inserire questo bottone dovete usare lo shortcode <b>[sz-gplus-follow]</b>, se invece desiderate utilizzarlo
+<p>Per inserire questo bottone dovete usare lo shortcode <b>[sz-gplus-follow]</b>, se invece volete utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin 
 <b>szgoogle_gplus_get_button_follow(\$options)</b>.</p>
@@ -32,7 +32,7 @@ esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzio
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
-messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
+messi a disposizione elencati nella tabella. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
 formato opzione="valore".</p>
 
@@ -69,7 +69,7 @@ bottone all'interno di essa in overlay e nella posizione che vogliamo. Qui di se
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

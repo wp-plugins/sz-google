@@ -1,29 +1,29 @@
 <?php
 
 /**
- * Classe SZGoogleCommon per esecuzione funzioni di uso generale o calcolo
- * di variabili da usare in qualsiasi modulo del plugin. Inserire in questa
- * classe le funzioni che vengono richiamate da moduli differenti.
+ * Class for executing functions of general use or 
+ * calculation of variables to be used in plugin
  *
  * @package SZGoogle
- * @subpackage SZGoogleCommon
+ * @subpackage Classes
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome.
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleCommon'))
 {
 	class SZGoogleCommon
 	{
 		/**
-		 * Calcolo il nome del domnio corrente utilizzato dalla
-		 * pagina visualizzata. Utilizzo della funzione get_site_url()
-		 *
-		 * @return string|false
+		 * Calculating the name of Domnio current used 
+		 * by the page displayed. Using the get_site_url()
 		 */
+
 		static function getCurrentDomain()
 		{
 			$pieces = parse_url(get_site_url());
@@ -37,12 +37,10 @@ if (!class_exists('SZGoogleCommon'))
 		}
 
 		/**
-		 * Esecuzione del flush per le regole di rewrite definite, questa funzione
-		 * non va richiamate sempre ma solo quando vengono attivate le funzioni
-		 * collegate in qualche maniera al rewite rules, per questioni di performance.
-		 *
-		 * @return string
+		 * Execution flush for actual rewrite rules. This function should
+		 * not be called always but only when functions are activated
 		 */
+
 		static function rewriteFlushRules() 
 		{
 			global $wp_rewrite;
@@ -50,25 +48,23 @@ if (!class_exists('SZGoogleCommon'))
 		}
 
 		/**
-		 * Traduzione delle stringe che riguarda il frontend, infatti i domini tra
-		 * admin e frontend sono diversi e rispettivamento szgoogle e szgoogleadmin
-		 *
-		 * @return string
+		 * Translation of the strings that relate to the frontend, in fact domains
+		 * between admin and frontend are different (szgoogle and szgoogleadmin)
 		 */
+
 		static function getTranslate($string) {
 			return __($string,'szgooglefront');
 		}
 
 		/**
-		 * Elenco delle lingue presenti in google da utilizzare
-		 * in molti moduli presenti nel plugin come un'elenco standard.
-		 *
-		 * @return array
+		 * List of languages ​​present in google to be used
+		 * in many forms in the plugin as a list standard
 		 */
+
 		static function getLanguages()
 		{
-			// Preparazione array con i codice lingua supportati da google,
-			// questo array può essere ulizzato per diversi moduli 
+			// Preparation array with the code language supported by google,
+			// this array can be used for different modules
 
 			$languages = array(
 				'99'     => ' '.self::getTranslate('same language theme'),
@@ -135,23 +131,22 @@ if (!class_exists('SZGoogleCommon'))
 				'zu'     => ucfirst(self::getTranslate('zulu')),
 			);
 
-			// Eseguo ordinamento array in base alla nazione e alla
-			// stringa di traduzione eseguita dopo il rendering
+			// I execute sorting array according to the nation and
+			// to the string translation performed after rendering
 
 			asort($languages);
 			return $languages;
 		}
 
 		/**
-		 * Elenco dei fusi oriari da utilizzare nei componenti di google.
-		 * Questo elenco è stato preso dalla funzione di creazione calendario.
-		 *
-		 * @return array
+		 * List of time zones to be used in the components of google
+		 * This list was taken from creation function calendar
 		 */
+
 		static function getTimeZone()
 		{
-			// Preparazione array con i codice lingua supportati da google,
-			// questo array può essere ulizzato per diversi moduli 
+			// Preparation array with the code language supported by google,
+			// this array can be used for different modules
 
 			$timezone = array(
 				'none'                           => self::getTranslate('default time zone'),

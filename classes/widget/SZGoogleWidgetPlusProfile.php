@@ -1,30 +1,29 @@
 <?php
 
 /**
- * Classe per la definizione di uno widget che viene
- * richiamato dalla classe del modulo principale
+ * Class for the definition of a widget that is
+ * called by the class of the main module
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidget 
+ * @subpackage Widgets
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition
+// with the same name or the same as previously defined in other script
 
 if (!class_exists('SZGoogleWidgetPlusProfile'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleWidget
-	 */
 	class SZGoogleWidgetPlusProfile extends SZGoogleWidget
 	{
 		/**
-		 * Costruttore principale della classe widget, definizione
-		 * delle opzioni legate al widget e al controllo dello stesso
+		 * Definition the constructor function, which is called
+		 * at the time of the creation of an instance of this class
 		 */
+
 		function __construct() 
 		{
 			parent::__construct('SZ-Google-Profile',__('SZ-Google - G+ Profile','szgoogleadmin'),array(
@@ -34,117 +33,120 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 		}
 
 		/**
-		 * Generazione del codice HTML del widget per la 
-		 * visualizzazione completa nella sidebar di appartenenza
+		 * Generation of the HTML code of the widget
+		 * for the full display in the sidebar associated
 		 */
+
 		function widget($args,$instance) 
 		{
-			// Controllo se esistono le variabili che servono durante l'elaborazione
-			// dello script e assegno dei valori di default nel caso non fossero specificati
+			// Checking whether there are the variables that are used during the processing
+			// the script and check the default values ​​in case they were not specified
 
 			$options = $this->common_empty(array(
-				'id'      => '', // valore predefinito
-				'type'    => '', // valore predefinito
-				'width'   => '', // valore predefinito
-				'align'   => '', // valore predefinito
-				'layout'  => '', // valore predefinito
-				'theme'   => '', // valore predefinito
-				'cover'   => '', // valore predefinito
-				'tagline' => '', // valore predefinito
-				'author'  => '', // valore predefinito
-				'text'    => '', // valore predefinito
-				'image'   => '', // valore predefinito
+				'id'      => '', // default value
+				'type'    => '', // default value
+				'width'   => '', // default value
+				'align'   => '', // default value
+				'layout'  => '', // default value
+				'theme'   => '', // default value
+				'cover'   => '', // default value
+				'tagline' => '', // default value
+				'author'  => '', // default value
+				'text'    => '', // default value
+				'image'   => '', // default value
 			),$instance);
 
-			// Definizione delle variabili di controllo del widget, questi valori non
-			// interessano le opzioni della funzione base ma incidono su alcuni aspetti
+			// Definition of the control variables of the widget, these values​
+			// do not affect the items of basic but affect some aspects
 
 			$controls = $this->common_empty(array(
-				'method'     => '', // valore predefinito
-				'specific'   => '', // valore predefinito
-				'width_auto' => '', // valore predefinito
+				'method'     => '', // default value
+				'specific'   => '', // default value
+				'width_auto' => '', // default value
 			),$instance);
 
-			// Correzione del valore di dimensione nel caso venga
-			// specificata la maniera automatica e quindi usare javascript
+			// Correction of the value of size is specified in
+			// the case the automatically and then use javascript
 
 			if ($controls['method']     != '1') $options['id']    = $controls['specific']; 
 			if ($controls['method']     == '1') $options['id']    = ''; 
 			if ($controls['width_auto'] == '1') $options['width'] = 'auto';
 
-			// Creazione del codice HTML per il widget attuale richiamando la
-			// funzione base che viene richiamata anche dallo shortcode corrispondente
+			// Create the HTML code for the current widget recalling the basic
+			// function which is also invoked by the corresponding shortcode
 
 			if ($object = SZGoogleModule::getObject('SZGoogleModulePlus')) {
 				$HTML = $object->getPlusProfileShortcode($options);
 			}
 
-			// Output del codice HTML legato al widget da visualizzare
-			// chiamata alla funzione generale per wrap standard
+			// Output HTML code linked to the widget to
+			// display call to the general standard for wrap
 
 			echo $this->common_widget($args,$instance,$HTML);
 		}
 
 		/**
-		 * Modifica parametri collegati al FORM del widget con la
-		 * memorizzazione dei valori direttamente nel database wordpress
+		 * Changing parameters related to the widget FORM 
+		 * with storing the values ​​directly in the database
 		 */
+
 		function update($new_instance,$old_instance) 
 		{
-			// Esecuzione operazioni aggiuntive sui campi presenti
-			// nel form widget prima della memorizzazione database
+			// Performing additional operations on fields of the
+			// form widget before it is stored in the database
 
 			return $this->common_update(array(
-				'title'      => '0', // esecuzione strip_tags
-				'type'       => '1', // esecuzione strip_tags
-				'method'     => '1', // esecuzione strip_tags
-				'specific'   => '1', // esecuzione strip_tags
-				'width'      => '1', // esecuzione strip_tags
-				'width_auto' => '1', // esecuzione strip_tags
-				'align'      => '1', // esecuzione strip_tags
-				'layout'     => '1', // esecuzione strip_tags
-				'theme'      => '1', // esecuzione strip_tags
-				'cover'      => '1', // esecuzione strip_tags
-				'tagline'    => '1', // esecuzione strip_tags
-				'author'     => '1', // esecuzione strip_tags
-				'text'       => '1', // esecuzione strip_tags
-				'image'      => '1', // esecuzione strip_tags
+				'title'      => '0', // strip_tags
+				'type'       => '1', // strip_tags
+				'method'     => '1', // strip_tags
+				'specific'   => '1', // strip_tags
+				'width'      => '1', // strip_tags
+				'width_auto' => '1', // strip_tags
+				'align'      => '1', // strip_tags
+				'layout'     => '1', // strip_tags
+				'theme'      => '1', // strip_tags
+				'cover'      => '1', // strip_tags
+				'tagline'    => '1', // strip_tags
+				'author'     => '1', // strip_tags
+				'text'       => '1', // strip_tags
+				'image'      => '1', // strip_tags
 			),$new_instance,$old_instance);
 		}
 
 		/**
-		 * Visualizzazione FORM del widget presente nella gestione 
-		 * delle sidebar nel pannello di amministrazione di wordpress
-		 */	
+		 * FORM display the widget in the management of 
+		 * sidebar in the administration panel of wordpress
+		 */
+
 		function form($instance) 
 		{
-			// Creazione array per elenco campi che devono essere 
-			// presenti nel form prima di richiamare wp_parse_args()
+			// Creating arrays for list fields that must be
+			// present in the form before calling wp_parse_args()
 
 			$array = array(
-				'title'      => '', // valore predefinito
-				'type'       => '', // valore predefinito
-				'method'     => '', // valore predefinito
-				'specific'   => '', // valore predefinito
-				'width'      => '', // valore predefinito
-				'width_auto' => '', // valore predefinito
-				'align'      => '', // valore predefinito
-				'layout'     => '', // valore predefinito
-				'theme'      => '', // valore predefinito
-				'cover'      => '', // valore predefinito
-				'tagline'    => '', // valore predefinito
-				'author'     => '', // valore predefinito
-				'text'       => '', // valore predefinito
-				'image'      => '', // valore predefinito
+				'title'      => '', // default value
+				'type'       => '', // default value
+				'method'     => '', // default value
+				'specific'   => '', // default value
+				'width'      => '', // default value
+				'width_auto' => '', // default value
+				'align'      => '', // default value
+				'layout'     => '', // default value
+				'theme'      => '', // default value
+				'cover'      => '', // default value
+				'tagline'    => '', // default value
+				'author'     => '', // default value
+				'text'       => '', // default value
+				'image'      => '', // default value
 			);
 
-			// Creazione array per elenco campi da recuperare su FORM e
-			// caricamento del file con il template HTML da visualizzare
+			// Creating arrays for list of fields to be retrieved FORM
+			// and loading the file with the HTML template to display
 
 			extract(wp_parse_args($instance,$array),EXTR_OVERWRITE);
 
-			// Lettura delle opzioni per il controllo dei valori di default
-			// da assegnare al widget nel momento che viene inserito in sidebar
+			// Reading of the options for the control of default values
+			// be assigned to the widget when it is placed in the sidebar
 
 			if ($object = SZGoogleModule::getObject('SZGoogleModulePlus')) 
 			{
@@ -156,8 +158,8 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 				}
 			}
 
-			// Impostazione eventuale di parametri di default per i
-			// campi che contengono dei valori non validi o non coerenti 
+			// Setting any of the default parameters for the
+			// fields that contain invalid values ​​or inconsistent
 
 			$DEFAULT = include(dirname(SZ_PLUGIN_GOOGLE_MAIN)."/options/sz_google_options_plus.php");
 
@@ -176,8 +178,8 @@ if (!class_exists('SZGoogleWidgetPlusProfile'))
 				$width_auto = '1';
 			}
 
-			// Richiamo il template per la visualizzazione della
-			// parte che riguarda il pannello di amministrazione
+			// Calling the template for displaying the part 
+			// that concerns the administration panel (admin)
 
 			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
 			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');

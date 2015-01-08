@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -40,7 +40,7 @@ falsare le medie che dobbiamo analizzare e ci potrebbero far sbagliare le nostre
 <p>Il codice per default viene inserito nella sezione &lt;head&gt; della pagina HTML, esattamente dove google raccomanda di 
 inserirlo, in ogni caso è possibile modificare questo comportamento e specificare di inserirlo in fondo alla pagina o manualmente 
 utilizzando una funzione PHP che potete inserire in qualsiasi punto della vostra pagina HTML, magari aggiungendo anche dei controlli 
-personalizzati per includere o escludere il monitoraggio. La funzione da usare per l’inserimento manuale è chiamata 
+per includere o escludere il monitoraggio. La funzione da usare per l’inserimento manuale è chiamata 
 <b>szgoogle_analytics_get_code()</b> e non necessita di nessun parametro particolare, basta richiamarla con il comando “echo” 
 in qualsiasi parte del vostro tema.</p>
 

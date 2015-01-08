@@ -1,85 +1,82 @@
 <?php
 
 /**
- * Definizione di una classe che identifica un'azione richiamata dal
- * modulo principale in base alle opzioni che sono state attivate
- * nel pannello di amministrazione o nella configurazione del plugin
+ * Define a class that identifies an action called by the
+ * main module based on the options that have been activated
  *
  * @package SZGoogle
- * @subpackage SZGoogleActions
+ * @subpackage Actions
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleActionAuthenticatorProfile'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questa
-	 * azione. La classe deve essere una extends di SZGoogleAction
-	 */
 	class SZGoogleActionAuthenticatorProfile extends SZGoogleAction
 	{
 		/**
-		 * Aggiungo nella fase del costruttore i filtri e le azioni
-		 * necessarie a controllare il login con codice a tempo
+		 * Add in the builder phase filters and 
+		 * actions necessary to control login coded time
 		 */
+
 		function __construct() 
 		{
-			// Aggiungo le opzioni al profilo che vengono viste solo se user=current nelle
-			// opzioni verranno inseriti i bottone per creare una configurazione di sincronizzazione
+			// Add to profile options that are seen only if user=current
+			// will be inserted button to create a configuration synchronization
 
 			add_action('profile_personal_options',array($this,'addAuthenticatorProfileField'));
-		    add_action('personal_options_update' ,array($this,'addAuthenticatorProfileFieldUpdate'));
+			add_action('personal_options_update' ,array($this,'addAuthenticatorProfileFieldUpdate'));
 			add_action('edit_user_profile'       ,array($this,'addAuthenticatorEditProfileField'));
 			add_action('edit_user_profile_update',array($this,'addAuthenticatorEditProfileFieldUpdate'));
 
-			// Se sto eseguendo una richiesta AJAX aggiungo un'azione per eseguire
-			// la funzione di generazione codice secret tramite bottone e javascript
+			// If I'm running an AJAX request I add an action to perform
+			// the function of secret code generation via button and javascript
 
 			if (defined('DOING_AJAX') && DOING_AJAX) {
 				add_action('wp_ajax_SZGoogleAuthenticatorCodes' ,array($this,'getAuthenticatorCreateCodesAjax'));
 				add_action('wp_ajax_SZGoogleAuthenticatorSecret',array($this,'getAuthenticatorCreateSecretAjax'));
 			}
 
-			// Aggiungo il file javascript per la creazione di un codice QR Code 
-			// rispetto ad un contenitore <div> usando il nome hook per un caricamento mirato
+			// I add the javascript file for creating a code QR Code compared
+			// to a containere <div> using the name for a hook load targeted
 
 			add_action('admin_enqueue_scripts', array($this,'addAuthenticatorQRCodeScript'));
 		}
 
 		/**
-		 * Funzione per aggiungere i campi di attivazione di google authenticator
-		 * a livello utente, queste opzioni sono visibili dall'utente corrente.
-		 *
-		 * @return void
+		 * Feature to add fields to activate google authenticator
+		 * user level, these options are visible from the current user
 		 */
+
 		function addAuthenticatorProfileField($user) 
 		{
-			// Se amministratore nasconde le informazioni di google authenticator
-			// per questo profilo utente non eseguo nessun aggiornamento database
+			// If administrator hides information from google authenticator
+			// for this user profile does not run any updates database
 
 			if (trim(get_user_option('sz_google_authenticator_hidden',$user->ID)) == '1') {
 				return;
 			}
 
-			// Caricamento opzioni per le variabili di configurazione che
-			// contengono le opzioni che devono essere attivate o disattivate
+			// Loading options for the configuration variables that
+			// contain options that need to be turned on or off
 
 			$options = (object) $this->getModuleOptions('SZGoogleModuleAuthenticator');
 
-			// Lettura delle opzioni utente per caricare i valori del form
-			// Dopo il caricamento eseguo alcuni controlli di coerenza sui dati
+			// Reading user options to load the form values
+			// After loading run some consistency checks on the data
 
 			$sz_google_authenticator_codes       = trim(get_user_option('sz_google_authenticator_codes'      ,$user->ID));
 			$sz_google_authenticator_enabled     = trim(get_user_option('sz_google_authenticator_enabled'    ,$user->ID));
 			$sz_google_authenticator_description = trim(get_user_option('sz_google_authenticator_description',$user->ID));
 			$sz_google_authenticator_secret      = trim(get_user_option('sz_google_authenticator_secret'     ,$user->ID));
 
-			// Controllo valori di default nel caso non venga specificato niente il valore
-			// secret viene rigenerato mentre la descrizione viene presa dalla configurazione
+			// Control defaults if nothing is specified, secret value is
+			// regenerated while the description is taken from the configuration
 
 			if ($sz_google_authenticator_secret == '') {
 				$sz_google_authenticator_secret = $this->getAuthenticatorCreateSecret();
@@ -89,8 +86,8 @@ if (!class_exists('SZGoogleActionAuthenticatorProfile'))
 				$sz_google_authenticator_description = ucfirst($user->display_name);
 			}
 
-			// Controllo i codici di emergenza. Se non è specificato niente o il valore
-			// ritornato non contiene un'array chiamo la funzione per una nuova generazione
+			// Control codes emergency. If not specified at all or the value returned
+			// does not contain an array call the function for a new generation
 
 			if ($sz_google_authenticator_codes == '') {
 				$sz_google_authenticator_codes = serialize($this->getAuthenticatorCreateCodes());
@@ -100,41 +97,42 @@ if (!class_exists('SZGoogleActionAuthenticatorProfile'))
 				$sz_google_authenticator_codes = serialize($this->getAuthenticatorCreateCodes());
 			}
 
-			// Deserializzo il contenuto dei codici di emergenza per associare
-			// alla tabella i valori iniziali e definire quelli utilizzati
+			// Deserialize the contents of the emergency codes to 
+			// associate the table the initial values ​​and define those used
 
 			$em = unserialize($sz_google_authenticator_codes);
 			$ec = array_keys($em);
 
-			// Creazione codic e HTML per la creazione della sezione profile
+			// Creating HTML code for creating the profile section
+			// Add option to enable authenticator of current user
 
 			echo '<h3>'.ucwords(__( 'google authenticator','szgoogleadmin' )).'</h3>';
 			echo '<table class="form-table">';
 			echo '<tbody>';
-
-			// Aggiungo opzione per abilitare authenticator su utente attuale
 
 			echo '<tr>';
 			echo '<th scope="row">'.ucfirst(__('active','szgoogleadmin')).'</th>';
 			echo '<td><input name="sz_google_authenticator_enabled" id="sz_google_authenticator_enabled" class="tog" type="checkbox" value="1" '.checked($sz_google_authenticator_enabled,'1',false ).'/>'; echo '</td>';
 			echo '</tr>';
 
-			// Aggiungo opzione per la descrizione da utilizzare su applicazione device
+			// Add option to be used for the description of the application device
+			// This value is used as a title by authenticator for smartphone
 
 			echo '<tr>';
 			echo '<th><label for="sz_google_authenticator_description">'.ucfirst(__('description','szgoogleadmin')).'</label></th>';
 			echo '<td><input name="sz_google_authenticator_description" id="sz_google_authenticator_description" value="'.$sz_google_authenticator_description.'" type="text" size="25" class="sz-google-input"/></td>';
 			echo '</tr>';
 
-			// Aggiungo opzione per la stringa de codice segreto da utilizzare in sincronizzazione
-			// Vicino il campo inserisco i due bottone per azioni di generazione codice
+			// Add option for de secret code string to be used in synchronization
+			// Near the field I enter the two buttons for the actions of code generation
 
 			echo '<tr><th><label for="sz_google_authenticator_secret">'.ucfirst(__('secret','szgoogleadmin')).'</label></th><td>';
 			echo '<input name="sz_google_authenticator_generate" id="sz_google_authenticator_generate" value="'.ucfirst(__('create new code','szgoogleadmin')).'" type="button" class="sz-google-input button"/><br/>';
 			echo '<input name="sz_google_authenticator_shqrcode" id="sz_google_authenticator_shqrcode" value="'.__('SHOW/HIDE','szgoogleadmin').'" type="button" class="sz-google-input button" onclick="SZGoogleSwitchQRCode();"/>';
 			echo '</td></tr>';
 
-			// Aggiungo la sessione nascosta per la visualizzazione del QR Code
+			// Add the session hidden for displaying the QR Code
+			// Must press the appropriate buttons in to view
 
 			echo '<tr id="sz_google_authenticator_wrap" style="display:none">';
 			echo '<th>'.__('QR Code','szgoogleadmin').'</th><td>';
@@ -143,8 +141,8 @@ if (!class_exists('SZGoogleActionAuthenticatorProfile'))
 			echo '<span class="description"><br/> '.ucfirst(__( 'scan this QR Code with<br/> the Google Authenticator App.','szgoogleadmin')).'</span></td>';
 			echo '</tr>';
 
-			// Aggiungo opzione per la generazione e la visualizzazione dei codici di
-			// emergenza da utilizzare al posto della password a tempo generata dal device
+			// Add option for the generation and display of the emergency codes
+			// to be used instead of the password -time generated by the device
 
 			if ($options->authenticator_emergency_codes == '1') {
 
@@ -153,8 +151,8 @@ if (!class_exists('SZGoogleActionAuthenticatorProfile'))
 				echo '<input name="sz_google_authenticator_coded" id="sz_google_authenticator_coded" value="'.__('SHOW/HIDE','szgoogleadmin').'" type="button" class="sz-google-input button" onclick="SZGoogleSwitchTableCode();"/>';
 				echo '</td></tr>';
 
-				// Controllo array dei codici di emergenza se contengono il valore false o
-				// la data di utilizzo. In base al controllo imposto il colore rosso per usato.
+				// Control array of emergency codes if they contain false or the
+				// date of use. Under the control imposed by the red color used
 
 				if ($em[$ec[0]]  == false) $style01 = ''; else $style01 = ' style="color:red;"';
 				if ($em[$ec[1]]  == false) $style02 = ''; else $style02 = ' style="color:red;"';
@@ -169,8 +167,8 @@ if (!class_exists('SZGoogleActionAuthenticatorProfile'))
 				if ($em[$ec[10]] == false) $style11 = ''; else $style11 = ' style="color:red;"';
 				if ($em[$ec[11]] == false) $style12 = ''; else $style12 = ' style="color:red;"';
 
-				// Aggiungo la tabella nascosta da visualizzare sotto richiesta che contiene
-				// tutti i codici di emergenza generati manualmente o caricati dal profilo
+				// Add the table hidden from view under request containing all 
+				// emergency codes generated manually or loaded from profile
 
 				echo '<tr id="sz_google_authenticator_table" style="display:none">';
 				echo '<th>'.ucfirst(__('table codes','szgoogleadmin')).'</th><td>';
@@ -192,8 +190,8 @@ if (!class_exists('SZGoogleActionAuthenticatorProfile'))
 
 			echo '</tbody></table>'."\n";
 
-			// Inizio codice javascript per eseguire le azioni sui bottoni aggiunti
-			// nel profilo utente che riguardano la generazione del codice e il QR Code.
+			// Start javascript code to perform actions on the buttons added
+			// in the user profile that affect code generation and the QR Code
 
 			echo '<script type="text/javascript">'."\n";
 			echo "var SZGAction='SZGoogleAuthenticatorSecret';\n";
@@ -277,22 +275,21 @@ ENDOFJS;
 		}
 
 		/**
-		 * Funzione per aggiornare i campi di google authenticator
-		 * sul database wordpress per il record dell'utente modificato.
-		 *
-		 * @return void
+		 * Function to update the fields of google authenticator
+		 * in wordpress database for the user record modified
 		 */
+
 		function addAuthenticatorProfileFieldUpdate($user) 
 		{
-			// Se amministratore nasconde le informazioni di google authenticator
-			// per questo profilo utente non eseguo nessun aggiornamento database
+			// If administrator hides information from google authenticator
+			// for this user profile does not run any updates database
 
 			if (trim(get_user_option('sz_google_authenticator_hidden',$user)) == '1') {
 				return;
 			}
 
-			// Se utente corrente può modificare il profilo eseguo update
-			// che riguardano le opzioni del profilo utente modificato.
+			// If current user can change the profile run update
+			// concerning the modified user profile options
 
 			if (current_user_can('edit_user',$user))
 			{
@@ -313,11 +310,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Funzione per aggiungere i campi di attivazione di google authenticator
-		 * a livello utente, queste opzioni sono visibili dall'utente amministratore.
-		 *
-		 * @return void
+		 * Feature to add fields to activate google authenticator user
+		 * level, these options are visible by the user administrator
 		 */
+
 		function addAuthenticatorEditProfileField($user) 
 		{
 			$sz_google_authenticator_hidden  = trim(get_user_option('sz_google_authenticator_hidden' ,$user->ID));
@@ -339,11 +335,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Funzione per aggiornare i campi di google authenticator
-		 * sul database wordpress per il record dell'utente modificato.
-		 *
-		 * @return void
+		 * Function to update the fields of google authenticator
+		 * in wordpress database for the user record modified
 		 */
+
 		function addAuthenticatorEditProfileFieldUpdate($user) 
 		{
 			if (current_user_can('edit_user',$user)) 
@@ -360,9 +355,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Funzione per la creazione di una chiave secret in maniera random
-		 * utilizzando 16 caratteri e la funzione nativa di wordpress
-		 */ 
+		 * Function for the creation of a secret key randomly
+		 * using 16 characters and the native function of wordpress
+		 */
+
 		function getAuthenticatorCreateSecret($secretLength=16) 
 		{
 			$validChars = $this->_getBase32LookupTable();
@@ -376,9 +372,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Funzione per la creazione di una chiave secret in maniera random
-		 * tramite una chiamata AJAX per la richiesta di rigenerazione.
-		 */ 
+		 * Function for the creation of a secret key randomly
+		 * with an AJAX call to the regeneration request
+		 */
+
 		function getAuthenticatorCreateSecretAjax() 
 		{
 			check_ajax_referer('SZGoogleAuthenticatorSecret','nonce');
@@ -390,23 +387,24 @@ ENDOFJS;
 		}
 
 		/**
-		 * Funzione per la creazione dei codici di emergenza da utilizzare
-		 * nel caso di problemi con il device che genera la password a tempo
-		 */ 
+		 * Function for the creation of emergency codes to be used in case
+		 * of problems with the device that generates the password time
+		 */
+
 		function getAuthenticatorCreateCodes() 
 		{
 			$codes = array();
 
-			// Creazione di dieci codici di emergenza
-			// e memorizzazione in array da serializzare
+			// Creation of ten codes and emergency
+			// storage array to be serialized
 
 			while (count($codes) < 12) {
 				$random = rand(100000,999999);
 				$codes[$random] = false;
 			}
 
-			// Ordinamento array per chiave in cui sono
-			// memorizzati i codici di emergenza per il login
+			// Sorting array key that stores
+			// codes for Emergency login
 
 			ksort($codes);
 
@@ -414,9 +412,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Funzione per la creazione di una chiave secret in maniera random
-		 * tramite una chiamata AJAX per la richiesta di rigenerazione.
-		 */ 
+		 * Function for the creation of a secret key randomly
+		 * with an AJAX call to the regeneration request
+		 */
+
 		function getAuthenticatorCreateCodesAjax() 
 		{
 			check_ajax_referer('SZGoogleAuthenticatorCodes','nonce');
@@ -430,12 +429,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Aggiungo libreria jquery per la creazione di un codice QR Code.
-		 * La libreria viene utilizzata per il bottone presente sulla scheda
-		 * profilo che visualizza il QR Code di sincronizzazione.
-		 *
-		 * @return void
+		 * Add jquery library for creating a code QR Code
+		 * The library is used for the button present on profile
 		 */
+
 		function addAuthenticatorQRCodeScript($hook)
 		{
 			if ($hook == 'profile.php' or $hook == 'user-edit.php') {
@@ -446,12 +443,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Helper class to encode base32
-		 *
-		 * @param string $secret
-		 * @param bool $padding
-		 * @return string
+		 * Helper class to decode base32
+		 * is used to decrypt the string that must be verified
 		 */
+
 		private function _base32Encode($secret,$padding=true)
 		{
 			if (empty($secret)) return '';
@@ -485,11 +480,10 @@ ENDOFJS;
 		}
 
 		/**
-		 * Tabella di 32 caratteri con il set che deve essere utilizzato
-		 * durante la funzione di codifica o decodifica in base32()
-		 *
-		 * @return array
+		 * Table 32 characters with the set that is to be used
+		 * during the encoding or decoding function in base32()
 		 */
+
 		private function _getBase32LookupTable()
 		{
 			return array(
@@ -499,6 +493,6 @@ ENDOFJS;
 				'Y', 'Z', '2', '3', '4', '5', '6', '7', // 31
 				'='  // padding char
 			);
-		}		
+		}
 	}
 }

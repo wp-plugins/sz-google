@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -20,9 +20,9 @@ $HTML = <<<EOD
 <h2>Descrizione</h2>
 
 <p>Google+ mette a disposizione oltre ai badge e ai bottoni anche un widget per gestire un sistema di commenti completo che
-viene collegato con il valore URL di una pagina web. Una volta che il widget viene visualizzato sarà possibile eseguire tutte
-le funzioni interattive di un sistema di commenti tradizionale, ovviamente può essere utilizzato solo se l'utente ha effettuato
-il login sul social network di google+.</p> 
+viene collegato al valore URL di una pagina web. Una volta che il widget viene visualizzato sarà possibile eseguire tutte
+le funzioni interattive di un sistema di commenti tradizionale, può essere utilizzato solo se l'utente ha effettuato
+il login su google+.</p> 
 
 <p>Per inserire un widget di commenti dovete usare lo shortcode <b>[sz-gplus-comments]</b>, se invece desiderate utilizzarlo
 in una sidebar dovete utilizzare il widget che trovate nel menu aspetto -> widgets. Per i più esigenti esiste anche un'altra 
@@ -30,14 +30,14 @@ possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal
 
 <h2>Configurazione commenti</h2>
 
-<p>Il sistema di commenti di google+ può essere inserito anche automaticamente dal plugin, utilizzando
+<p>Il sistema di commenti di google+ può essere inserito anche dal plugin, utilizzando
 la posizione standard di wordpress e sostituendo il sistema di commenti standard. Nel menu di configurazione presente sul pannello di 
-amministrazione chiamato <b>Google+</b> potete trovare una sezione chiamata <b>"Commenti"</b> con diverse opzioni che possono 
+amministrazione chiamato <b>Google+</b> potete trovare una sezione <b>"Commenti"</b> con diverse opzioni che possono 
 essere impostate secondo le vostre esigenze.</p>
 
-<p>Ad esempio troverete la possibilità di attivare o disattivare questo automatismo, decidere se
-sostituire il sistema standard di commenti o aggiungere quello di G+ ad esso, decidere la posizione dei commenti dopo il contenuto del
-post o dopo il sistema standard e infine la possibilità di inserire una data di riferimento dopo la quale il sistema di commenti deve
+<p>Ad esempio troverete la possibilità di attivare o disattivare l'automatismo, decidere se
+sostituire il sistema standard o aggiungere quello di G+ ad esso, decidere la posizione dei commenti dopo il contenuto del
+post o dopo il sistema standard e infine la possibilità di inserire una data dopo la quale il sistema di commenti deve
 essere attivato. Quest'ultima opzione può essere utile se si vuole tenere un vecchio sistema di commenti
 per i post passati e usare quello di google+ partendo da una data precisa.</p>
 
@@ -58,7 +58,7 @@ valore width="larghezza", se invece specificate width="auto" il plugin utilizzer
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

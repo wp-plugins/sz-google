@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,8 +19,8 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Ci possono essere dei casi dove non sia possibile inserire automaticamente i campi e le funzioni di controllo del codice authenticator
-automaticamente, ad esempio quando sono state apportate al tema corrente delle forti personalizzazioni. In questo caso lo sviluppatore
+<p>Ci possono essere dei casi dove non sia possibile inserire automaticamente i campi e le funzioni di controllo del codice authenticator, 
+ad esempio quando sono state apportate al tema corrente delle forti personalizzazioni. In questo caso lo sviluppatore
 può continuare ad utilizzare il plugin ma deve implementare le funzioni PHP direttamente nel suo tema o plugin.</p>
 
 <p>Quando utilizzate le funzioni PHP messe a disposizione del plugin usate sempre prima un controllo per vedere se la funzione esiste,

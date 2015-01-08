@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,7 +19,7 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Con questo componente è possibile inserire un badge legato al vostro canale youtube ed eseguire l'azione di iscrizione direttamente dal componente 
+<p>Con questo componente è possibile inserire un badge legato al canale youtube ed eseguire l'azione di iscrizione direttamente dal componente 
 senza andare nella pagina ufficiale presente su youtube. Potete indicare il nome del canale o il canale ID, quando specificate le dimensioni potete 
 utilizzare i valori speciali "auto" e ottenere un dimensionamento automatico del contenitore.</p>
 
@@ -30,7 +30,7 @@ possibilità, infatti basta utilizzare una funzione PHP chiamata <b>szgoogle_you
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
-messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
+messi a disposizione elencati nella tabella. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
 formato opzione="valore".</p>
 

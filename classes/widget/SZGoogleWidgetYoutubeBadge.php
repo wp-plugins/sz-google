@@ -1,30 +1,29 @@
 <?php
 
 /**
- * Classe per la definizione di uno widget che viene
- * richiamato dalla classe del modulo principale
+ * Class for the definition of a widget that is
+ * called by the class of the main module
  *
  * @package SZGoogle
- * @subpackage SZGoogleWidget 
+ * @subpackage Widgets
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition
+// with the same name or the same as previously defined in other script
 
 if (!class_exists('SZGoogleWidgetYoutubeBadge'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questo
-	 * modulo. La classe deve essere una extends di SZGoogleWidget
-	 */
 	class SZGoogleWidgetYoutubeBadge extends SZGoogleWidget
 	{
 		/**
-		 * Costruttore principale della classe widget, definizione
-		 * delle opzioni legate al widget e al controllo dello stesso
+		 * Definition the constructor function, which is called
+		 * at the time of the creation of an instance of this class
 		 */
+
 		function __construct() 
 		{
 			parent::__construct('SZ-Google-Youtube-Badge',__('SZ-Google - Youtube badge','szgoogleadmin'),array(
@@ -34,33 +33,34 @@ if (!class_exists('SZGoogleWidgetYoutubeBadge'))
 		}
 
 		/**
-		 * Generazione del codice HTML del widget per la 
-		 * visualizzazione completa nella sidebar di appartenenza
+		 * Generation of the HTML code of the widget
+		 * for the full display in the sidebar associated
 		 */
+
 		function widget($args,$instance) 
 		{
-			// Controllo se esistono le variabili che servono durante l'elaborazione
-			// dello script e assegno dei valori di default nel caso non fossero specificati
+			// Checking whether there are the variables that are used during the processing
+			// the script and check the default values ​​in case they were not specified
 
 			$options = $this->common_empty(array(
-				'channel'    => '', // valore predefinito
-				'width'      => '', // valore predefinito
-				'widthunit'  => '', // valore predefinito
-				'height'     => '', // valore predefinito
-				'heightunit' => '', // valore predefinito
+				'channel'    => '', // default value
+				'width'      => '', // default value
+				'widthunit'  => '', // default value
+				'height'     => '', // default value
+				'heightunit' => '', // default value
 			),$instance);
 
-			// Definizione delle variabili di controllo del widget, questi valori non
-			// interessano le opzioni della funzione base ma incidono su alcuni aspetti
+			// Definition of the control variables of the widget, these values​
+			// do not affect the items of basic but affect some aspects
 
 			$controls = $this->common_empty(array(
-				'method'      => '', // valore predefinito
-				'width_auto'  => '', // valore predefinito
-				'height_auto' => '', // valore predefinito
+				'method'      => '', // default value
+				'width_auto'  => '', // default value
+				'height_auto' => '', // default value
 			),$instance);
 
-			// Se sul widget ho escluso il badge dal pulsante azzero anche
-			// le variabili del badge eventualmente impostate e memorizzate 
+			// Correction of the value of size is specified in
+			// the case the automatically and then use javascript
 
 			if ($controls['method']      == '1') $options['channel']    = '';
 			if ($controls['width_auto']  == '1') $options['width']      = '100';
@@ -68,71 +68,73 @@ if (!class_exists('SZGoogleWidgetYoutubeBadge'))
 			if ($controls['height_auto'] == '1') $options['height']     = '100';
 			if ($controls['height_auto'] == '1') $options['heightunit'] = 'px';
 
-			// Creazione del codice HTML per il widget attuale richiamando la
-			// funzione base che viene richiamata anche dallo shortcode corrispondente
+			// Create the HTML code for the current widget recalling the basic
+			// function which is also invoked by the corresponding shortcode
 
 			$OBJC = new SZGoogleActionYoutubeBadge();
 			$HTML = $OBJC->getHTMLCode($options);
 
-			// Output del codice HTML legato al widget da visualizzare
-			// chiamata alla funzione generale per wrap standard
+			// Output HTML code linked to the widget to
+			// display call to the general standard for wrap
 
 			echo $this->common_widget($args,$instance,$HTML);
 		}
 
 		/**
-		 * Modifica parametri collegati al FORM del widget con la
-		 * memorizzazione dei valori direttamente nel database wordpress
+		 * Changing parameters related to the widget FORM 
+		 * with storing the values ​​directly in the database
 		 */
+
 		function update($new_instance,$old_instance) 
 		{
-			// Esecuzione operazioni aggiuntive sui campi presenti
-			// nel form widget prima della memorizzazione database
+			// Performing additional operations on fields of the
+			// form widget before it is stored in the database
 
 			return $this->common_update(array(
-				'title'       => '0', // esecuzione strip_tags
-				'channel'     => '1', // esecuzione strip_tags
-				'method'      => '1', // esecuzione strip_tags
-				'width'       => '1', // esecuzione strip_tags
-				'width_auto'  => '1', // esecuzione strip_tags
-				'height'      => '1', // esecuzione strip_tags
-				'height_auto' => '1', // esecuzione strip_tags
+				'title'       => '0', // strip_tags
+				'channel'     => '1', // strip_tags
+				'method'      => '1', // strip_tags
+				'width'       => '1', // strip_tags
+				'width_auto'  => '1', // strip_tags
+				'height'      => '1', // strip_tags
+				'height_auto' => '1', // strip_tags
 			),$new_instance,$old_instance);
 		}
 
 		/**
-		 * Visualizzazione FORM del widget presente nella gestione 
-		 * delle sidebar nel pannello di amministrazione di wordpress
-		 */	
+		 * FORM display the widget in the management of 
+		 * sidebar in the administration panel of wordpress
+		 */
+
 		function form($instance) 
 		{
-			// Creazione array per elenco campi che devono essere 
-			// presenti nel form prima di richiamare wp_parse_args()
+			// Creating arrays for list fields that must be
+			// present in the form before calling wp_parse_args()
 
 			$array = array(
-				'title'       => '', // valore predefinito
-				'channel'     => '', // valore predefinito
-				'method'      => '', // valore predefinito
-				'width'       => '', // valore predefinito
-				'width_auto'  => '', // valore predefinito
-				'height'      => '', // valore predefinito
-				'height_auto' => '', // valore predefinito
+				'title'       => '', // default value
+				'channel'     => '', // default value
+				'method'      => '', // default value
+				'width'       => '', // default value
+				'width_auto'  => '', // default value
+				'height'      => '', // default value
+				'height_auto' => '', // default value
 			);
 
-			// Creazione array per elenco campi da recuperare su FORM e
-			// caricamento del file con il template HTML da visualizzare
+			// Creating arrays for list of fields to be retrieved FORM
+			// and loading the file with the HTML template to display
 
 			extract(wp_parse_args($instance,$array),EXTR_OVERWRITE);
 
-			// Impostazione eventuale di parametri di default per i
-			// campi che contengono dei valori non validi o non coerenti 
+			// Setting any of the default parameters for the
+			// fields that contain invalid values ​​or inconsistent
 
 			if (!ctype_digit($method) or $method == 0) { $method = '1'; }
 			if (!ctype_digit($width)  or $width  == 0) { $width  = 'auto'; $width_auto  = '1'; }
 			if (!ctype_digit($height) or $height == 0) { $height = 'auto'; $height_auto = '1'; }
 
-			// Richiamo il template per la visualizzazione della
-			// parte che riguarda il pannello di amministrazione
+			// Calling the template for displaying the part 
+			// that concerns the administration panel (admin)
 
 			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/SZGoogleWidget.php');
 			@include(dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/widgets/' .__CLASS__.'.php');

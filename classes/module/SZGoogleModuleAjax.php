@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleModule
+ * @subpackage Modules
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -51,9 +51,8 @@ if (!class_exists('SZGoogleModuleAjax'))
 			$shortcode  = $_GET['shortcode'];
 			$shortcodes = $this->moduleGetAjaxShortcodes();
 
-			define('SZGOOGLE_AJAX_NAME',$shortcodes[$shortcode]);
-
 			if (isset($shortcodes[$shortcode])) {
+				define('SZGOOGLE_AJAX_NAME',$shortcodes[$shortcode]);
 				$filename = dirname(SZ_PLUGIN_GOOGLE_MAIN).'/admin/mce/shortcodes/'.$shortcodes[$shortcode].'.php';
 				if (is_file($filename)) @include($filename);
 			}
@@ -70,29 +69,29 @@ if (!class_exists('SZGoogleModuleAjax'))
 		function moduleGetAjaxShortcodes() 
 		{
 			return array(
-				'sz-gplus-profile'   => 'SZGooglePlusProfile',
-				'sz-gplus-page'      => 'SZGooglePlusPage',
+				'sz-gplus-author'    => 'SZGooglePlusAuthorBadge',
+				'sz-gplus-comments'  => 'SZGooglePlusComments',
 				'sz-gplus-community' => 'SZGooglePlusCommunity',
+				'sz-gplus-follow'    => 'SZGooglePlusFollow',
 				'sz-gplus-followers' => 'SZGooglePlusFollowers',
+				'sz-gplus-page'      => 'SZGooglePlusPage',
+				'sz-gplus-post'      => 'SZGooglePlusPost',
+				'sz-gplus-profile'   => 'SZGooglePlusProfile',
 				'sz-gplus-one'       => 'SZGooglePlusPlusone',
 				'sz-gplus-share'     => 'SZGooglePlusShare',
-				'sz-gplus-follow'    => 'SZGooglePlusFollow',
-				'sz-gplus-comments'  => 'SZGooglePlusComments',
-				'sz-gplus-post'      => 'SZGooglePlusPost',
 				'sz-calendar'        => 'SZGoogleCalendar',
 				'sz-drive-embed'     => 'SZGoogleDriveEmbed',
-				'sz-drive-viewer'    => 'SZGoogleDriveViewer',
 				'sz-drive-save'      => 'SZGoogleDriveSaveButton',
+				'sz-drive-viewer'    => 'SZGoogleDriveViewer',
 				'sz-ggroups'         => 'SZGoogleGroups',
 				'sz-hangouts-start'  => 'SZGoogleHangoutsStart',
 				'sz-maps'            => 'SZGoogleMaps',
 				'sz-panoramio'       => 'SZGooglePanoramio',
-				'sz-gtranslate'      => '',
-				'sz-ytvideo'         => 'SZGoogleYoutubeVideo',
-				'sz-ytplaylist'      => 'SZGoogleYoutubePlaylist',
 				'sz-ytbadge'         => 'SZGoogleYoutubeBadge',
-				'sz-ytlink'          => 'SZGoogleYoutubeLink',
 				'sz-ytbutton'        => 'SZGoogleYoutubeButton',
+				'sz-ytlink'          => 'SZGoogleYoutubeLink',
+				'sz-ytplaylist'      => 'SZGoogleYoutubePlaylist',
+				'sz-ytvideo'         => 'SZGoogleYoutubeVideo',
 			);
 		}
 	}

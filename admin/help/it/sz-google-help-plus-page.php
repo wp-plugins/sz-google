@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,10 +19,10 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Se hai una pagina su Google+ e vuoi inserirlo sul tuo sito web o integrarlo con il tuo badge publisher allora questo è 
+<p>Se hai una pagina su Google+ e vuoi inserirlo sul tuo sito o integrarlo con un badge publisher allora questo è 
 lo strumento adatto. Il badge può essere inserito in differenti metodi e personalizzato tramite diverse
-opzioni messe a disposzione dal plugin stesso. Il badge viene inserito tramite una tecnica iframe, in questa maniera vengono
-rispettate tutte le caratteristiche definite ed elaborate da google.</p>
+opzioni messe a disposizione dal plugin stesso. Il badge viene inserito tramite una tecnica iframe, in questa maniera vengono
+rispettate tutte le caratteristiche definite da google.</p>
 
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-gplus-page]</b>, se invece desiderate utilizzarlo in una sidebar 
 allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più esigenti esiste 
@@ -31,7 +31,7 @@ anche un'altra possibilità, infatti basta utilizzare una funzione PHP chiamata 
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
-messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
+messi a disposizione elencati nella tabella. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
 formato opzione="valore".</p>
 
@@ -69,7 +69,7 @@ funzione popup che sono <b>text</b> e <b>image</b>.</p>
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleModule
+ * @subpackage Modules
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -178,7 +178,6 @@ if (!class_exists('SZGoogleModuleMaps'))
 			$javascript .= 	"script.src = 'https://maps.googleapis.com/maps/api/js?".$parameters."';";
 			$javascript .= 	"document.body.appendChild(script);";
 			$javascript .= '}';
-//			$javascript .= 'window.onload = szgooglemapsload;';
 			$javascript .= 'szgooglemapsload();';
 			$javascript .= '</script>'."\n";
 

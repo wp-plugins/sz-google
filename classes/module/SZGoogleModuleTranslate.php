@@ -6,7 +6,7 @@
  * can integrating with adding functionality into wordpress.
  *
  * @package SZGoogle
- * @subpackage SZGoogleModule
+ * @subpackage Modules
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -65,10 +65,10 @@ if (!class_exists('SZGoogleModuleTranslate'))
 			// specificato nel modulo corrispondente se risulta attivo.
 
 			if ($object = self::getObject('SZGoogleModuleAnalytics') and
-				$this->options['translate_analytics_ua'] == '') 
+				$this->options['translate_analytics_ua'] == '')
 			{
 				$options_ga = $object->getOptions();
-				$this->options['translate_analytics_ua'] = $options_ga['ga_uacode'];   
+				$this->options['translate_analytics_ua'] = $options_ga['ga_uacode'];
 			}
 
 			// Ritorno indietro il gruppo di opzioni corretto dai
@@ -88,7 +88,7 @@ if (!class_exists('SZGoogleModuleTranslate'))
 		}
 
 		/**
-		 * Funzione per generazione codice HTML da inserire nella     
+		 * Funzione per generazione codice HTML da inserire nella
 		 * sezione HEAD come <meta name="google-translate-customization">
 		 *
 		 * @return string
@@ -104,13 +104,22 @@ if (!class_exists('SZGoogleModuleTranslate'))
 		 *
 		 * @return void
 		 */
-		function getTranslateMetaID() {
-			$options = $this->getOptions();
-			return trim($options['translate_meta']);
+		function getTranslateMetaID() 
+		{
+			$options = (object) $this->getOptions();
+
+			// Check if user insert all meta code con html tags
+			// or insert value for only identification meta ID
+
+			if (preg_match('/content=\"(.*)\"/',$options->translate_meta,$matches)) {
+				if (isset($matches[1])) return $matches[1];
+			}
+
+			return trim($options->translate_meta);
 		}
 
 		/**
-		 * Funzione per generazione codice HTML da inserire nella     
+		 * Funzione per generazione codice HTML da inserire nella
 		 * sezione HEAD come <meta name="google-translate-customization">
 		 *
 		 * @return void
@@ -125,7 +134,7 @@ if (!class_exists('SZGoogleModuleTranslate'))
 		 *
 		 * @return string
 		 */
-		function getTranslateShortcode($atts,$content=null) 
+		function getTranslateShortcode($atts,$content=null)
 		{
 			return $this->getTranslateCode(shortcode_atts(array(
 				'language'  => '',

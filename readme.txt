@@ -1,8 +1,8 @@
 === SZ - Google for WordPress ===
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 1.8.4
+Tested up to: 4.1
+Stable tag: 1.8.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
@@ -32,7 +32,6 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `Module Google Fonts`
 * `Module Google Groups`
 * `Module Google Hangouts`
-* `Module Google Maps`
 * `Module Google Panoramio`
 * `Module Google Translate`
 * `Module Google Youtube`
@@ -55,30 +54,33 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 **Google+ Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
-* `Widget google+ profile`
-* `Widget google+ page`
+* `Widget google+ author`
+* `Widget google+ comments system`
 * `Widget google+ community`
+* `Widget google+ follow`
 * `Widget google+ followers`
+* `Widget google+ page`
+* `Widget google+ embedded posts`
+* `Widget google+ profile`
 * `Widget google+ plus one`
 * `Widget google+ share`
-* `Widget google+ follow`
-* `Widget google+ comments system`
-* `Widget google+ embedded posts`
 
 **Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
-* `[sz-gplus-profile] ..: g+ profile`
-* `[sz-gplus-page] .....: g+ page`
+* `[sz-gplus-author] . .: g+ author`
+* `[sz-gplus-comments] .: g+ comments system`
 * `[sz-gplus-community] : g+ community`
+* `[sz-gplus-follow] ...: g+ follow`
 * `[sz-gplus-followers] : g+ followers`
+* `[sz-gplus-page] .....: g+ page`
+* `[sz-gplus-post]......: g+ embedded posts`
+* `[sz-gplus-profile] ..: g+ profile`
 * `[sz-gplus-one] ......: g+ plus one`
 * `[sz-gplus-share] ....: g+ share`
-* `[sz-gplus-follow] ...: g+ follow`
-* `[sz-gplus-comments] .: g+ comments system`
-* `[sz-gplus-post]......: g+ embedded posts`
 
 **Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
+* `szgoogle_gplus_get_badge_author()`
 * `szgoogle_gplus_get_badge_profile()`
 * `szgoogle_gplus_get_badge_page()`
 * `szgoogle_gplus_get_badge_community()`
@@ -341,6 +343,14 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.5 =
+* Feature: Google Author Badge.
+* Feature: Translate comments PHP code.
+* Feature: Add profile G+ Badge Photo.
+* Feature: Add profile G+ Badge Cover.
+* Feature: Add documentation Google Maps.
+* Fix: Field for input Meta ID translate.
 
 = Version 1.8.4 =
 * Feature: Google Maps module.

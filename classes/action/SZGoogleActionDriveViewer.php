@@ -1,88 +1,83 @@
 <?php
 
 /**
- * Definizione di una classe che identifica un'azione richiamata dal
- * modulo principale in base alle opzioni che sono state attivate
- * nel pannello di amministrazione o nella configurazione del plugin
+ * Define a class that identifies an action called by the
+ * main module based on the options that have been activated
  *
  * @package SZGoogle
- * @subpackage SZGoogleActions
+ * @subpackage Actions
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleActionDriveViewer'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questa
-	 * azione. La classe deve essere una extends di SZGoogleAction
-	 */
 	class SZGoogleActionDriveViewer extends SZGoogleAction
 	{
 		/**
-		 * Funzione per shortcode per drive viewer che permette di
-		 * eseguire un codice embed per il prodotto google drive
-		 *
-		 * @return string
+		 * Function to create the HTML code of the
+		 * module connected to the shortcode required
 		 */
+
 		function getShortcode($atts,$content=null) 
 		{
 			return $this->getHTMLCode(shortcode_atts(array(
-				'url'           => '', // valore predefinito
-				'title'         => '', // valore predefinito
-				'titleposition' => '', // valore predefinito
-				'titlealign'    => '', // valore predefinito
-				'width'         => '', // valore predefinito
-				'height'        => '', // valore predefinito
-				'pre'           => '', // valore predefinito
-				'margintop'     => '', // valore predefinito
-				'marginright'   => '', // valore predefinito
-				'marginbottom'  => '', // valore predefinito
-				'marginleft'    => '', // valore predefinito
-				'marginunit'    => '', // valore predefinito
+				'url'           => '', // default value
+				'title'         => '', // default value
+				'titleposition' => '', // default value
+				'titlealign'    => '', // default value
+				'width'         => '', // default value
+				'height'        => '', // default value
+				'pre'           => '', // default value
+				'margintop'     => '', // default value
+				'marginright'   => '', // default value
+				'marginbottom'  => '', // default value
+				'marginleft'    => '', // default value
+				'marginunit'    => '', // default value
 				'action'        => 'shortcode',
 			),$atts),$content);
 		}
 
 		/**
-		 * Creazione codice HTML per il componente richiamato che
-		 * deve essere usato in comune sia per widget che shortcode
-		 *
-		 * @return string
+		 * Creating HTML code for the component called to
+		 * be used in common for both widgets and shortcode
 		 */
+
 		function getHTMLCode($atts=array(),$content=null)
 		{
 			if (!is_array($atts)) $atts = array();
 
-			// Estrazione dei valori specificati nello shortcode, i valori ritornati
-			// sono contenuti nei nomi di variabili corrispondenti alla chiave
+			// Extraction of the values ​​specified in shortcode, returned values
+			// ​​are contained in the variable names corresponding to the key
 
 			extract(shortcode_atts(array(
-				'url'           => '', // valore predefinito
-				'title'         => '', // valore predefinito
-				'titleposition' => '', // valore predefinito
-				'titlealign'    => '', // valore predefinito
-				'width'         => '', // valore predefinito
-				'height'        => '', // valore predefinito
-				'pre'           => '', // valore predefinito
-				'margintop'     => '', // valore predefinito
-				'marginright'   => '', // valore predefinito
-				'marginbottom'  => '', // valore predefinito
-				'marginleft'    => '', // valore predefinito
-				'marginunit'    => '', // valore predefinito
-				'action'        => '', // valore predefinito
+				'url'           => '', // default value
+				'title'         => '', // default value
+				'titleposition' => '', // default value
+				'titlealign'    => '', // default value
+				'width'         => '', // default value
+				'height'        => '', // default value
+				'pre'           => '', // default value
+				'margintop'     => '', // default value
+				'marginright'   => '', // default value
+				'marginbottom'  => '', // default value
+				'marginleft'    => '', // default value
+				'marginunit'    => '', // default value
+				'action'        => '', // default value
 			),$atts));
 
-			// Caricamento opzioni per le variabili di configurazione che 
-			// contengono i valori di default per shortcode e widgets
+			// Loading options for the configuration variables 
+			// containing the default values ​​for shortcodes and widgets
 
 			$options = $this->getModuleOptions('SZGoogleModuleDrive');
 
-			// Elimino spazi aggiunti di troppo ed eseguo la trasformazione in
-			// stringa minuscolo per il controllo di valori speciali come "auto"
+			// I delete spaces added and execute the transformation in string
+			// lowercase for the control of special values ​​such as "auto"
 
 			$url           = trim($url);
 			$title         = esc_html(trim($title));
@@ -192,8 +187,8 @@ if (!class_exists('SZGoogleActionDriveViewer'))
 			$HTML .= '</div>';
 			$HTML .= '</div>';
 
-			// Ritorno per la funzione con tutta la stringa contenente
-			// il codice HTML per l'inserimento del codice nella pagina
+			// Return from the function with the whole string containing 
+			// the HTML code for inserting the code in the page
 
 			return $HTML;
 		}

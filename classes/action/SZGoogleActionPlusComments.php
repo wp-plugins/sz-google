@@ -1,25 +1,22 @@
 <?php
 
 /**
- * Definizione di una classe che identifica un'azione richiamata dal
- * modulo principale in base alle opzioni che sono state attivate
- * nel pannello di amministrazione o nella configurazione del plugin
+ * Define a class that identifies an action called by the
+ * main module based on the options that have been activated
  *
  * @package SZGoogle
- * @subpackage SZGoogleActions
+ * @subpackage Actions
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleActionPlusComments'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questa
-	 * azione. La classe deve essere una extends di SZGoogleAction
-	 */
 	class SZGoogleActionPlusComments extends SZGoogleAction
 	{
 		private $Module = false;

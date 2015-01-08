@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -19,7 +19,7 @@ $HTML = <<<EOD
 
 <h2>Descrizione</h2>
 
-<p>Tramite questa funzionalità è possibile inserire un link testuale o una singola immagine con un link diretto al canale youtube. Il vantaggio 
+<p>Tramite questa funzionalità è possibile inserire un link testuale o una singola immagine con un link diretto al canale. Il vantaggio 
 di utilizzare questo link è quello di poter indicare la sottoscrizione automatica una volta che l'utente raggiunge la pagina del canale.</p>
 
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-ytlink]</b>, se invece desiderate utilizzarlo in una sidebar allora dovete 
@@ -29,7 +29,7 @@ possibilità, infatti basta utilizzare una funzione PHP chiamata <b>szgoogle_you
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
-messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
+messi a disposizione elencati nella tabella. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
 formato opzione="valore".</p>
 
@@ -46,7 +46,7 @@ formato opzione="valore".</p>
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

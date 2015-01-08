@@ -1,50 +1,49 @@
 <?php
 
 /**
- * Definizione di una classe che identifica un'azione richiamata dal
- * modulo principale in base alle opzioni che sono state attivate
- * nel pannello di amministrazione o nella configurazione del plugin
+ * Define a class that identifies an action called by the
+ * main module based on the options that have been activated
  *
  * @package SZGoogle
- * @subpackage SZGoogleActions
+ * @subpackage Actions
+ * @author Massimo Della Rovere
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
 if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 
-// Prima di eseguire il caricamento della classe controllo
-// se per caso esiste già una definizione con lo stesso nome
+// Before the definition of the class, check if there is a definition 
+// with the same name or the same as previously defined in other script.
 
 if (!class_exists('SZGoogleActionAnalytics'))
 {
-	/**
-	 * Definizione della classe principale da utilizzare per questa
-	 * azione. La classe deve essere una extends di SZGoogleAction
-	 */
 	class SZGoogleActionAnalytics extends SZGoogleAction
 	{
 		/**
-		 * Definizione della funzione che viene normalmente richiamata
-		 * dagli hook presenti in add_action e add_filter di wordpress
+		 * The function that is normally invoked by hook
+		 * presents in add_action e add_filter in wordpress
 		 */
+
 		function action() {
 			echo $this->getMonitorCode(array());
 		}
 
 		/**
-		 * Definizione della funzione che viene normalmente richiamata
-		 * dagli hook presenti in add_action e add_filter di wordpress
+		 * The function that is normally invoked by hook
+		 * presents in add_action e add_filter in wordpress
 		 */
+
 		function getMonitorCode($atts=array())
 		{
-			// Calcolo per opzioni di configurazione collegate al modulo
-			// richiesto e specificate nel pannello di amministrazione
+			if (!is_array($atts)) $atts = array();
+
+			// Loading options for the configuration variables 
+			// containing the default values ​​for shortcodes and widgets
 			
 			$options = (object) $this->getModuleOptions('SZGoogleModuleAnalytics');
 
-			// Estrazione dei valori specificati nello shortcode, i valori ritornati
-			// sono contenuti nei nomi di variabili corrispondenti alla chiave
-
-			if (!is_array($atts)) $atts = array();
+			// Extraction of the values ​​specified in shortcode, returned values
+			// ​​are contained in the variable names corresponding to the key
 
 			extract(shortcode_atts(array(
 				'ga_type'                 => $options->ga_type,
@@ -60,8 +59,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				'ga_enable_features'      => $options->ga_enable_features,
 			),$atts));
 
-			// Elimino spazi aggiunti di troppo ed esegui la trasformazione in
-			// stringa minuscolo per il controllo di valori speciali come "auto"
+			// I delete spaces added and execute the transformation in string
+			// lowercase for the control of special values ​​such as "auto"
 
 			$ga_uacode               = trim($ga_uacode);
 			$ga_type                 = strtolower(trim($ga_type));
@@ -75,8 +74,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 			$ga_enable_advertiser    = strtolower(trim($ga_enable_advertiser));
 			$ga_enable_features      = strtolower(trim($ga_enable_features));
 
-			// Conversione dei valori specificati direttamete nei parametri con
-			// i valori usati per la memorizzazione dei valori di default
+			// Conversion of the values ​​specified directly covered in the
+			// parameters with the values ​​used for storing the default values
 
 			if ($ga_enable_front         == 'yes' or $ga_enable_front         == 'y') $ga_enable_front         = '1';
 			if ($ga_enable_admin         == 'yes' or $ga_enable_admin         == 'y') $ga_enable_admin         = '1';
@@ -96,8 +95,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 			if ($ga_enable_advertiser    == 'no'  or $ga_enable_advertiser    == 'n') $ga_enable_advertiser    = '1';
 			if ($ga_enable_features      == 'no'  or $ga_enable_features      == 'n') $ga_enable_features      = '1';
 
-			// Controllo se sono loggato come amministratore o utente registrato
-			// e disattivo il caricamento del codice se le opzioni sono disattivate 
+			// Check if they are logged in as an administrator or registered
+			// user and off loading the code if the options are disabled
 
 			$useract = true;
 
@@ -107,29 +106,29 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				if (is_user_logged_in() and $ga_enable_logged == '0') $useract = false;   
 			}
 
-			// Controllo se sono in backend o frontend e abilito l'esecuzione del codice
-			// solo se le opzioni corrispondenti sono state attivate in configurazione
+			// Check if they are in the backend or frontend and I enable code execution
+			// only if the corresponding options have been activated in the configuration
 
 			if ( is_admin() and $ga_enable_admin == '0') $useract = false;
 			if (!is_admin() and $ga_enable_front == '0') $useract = false;
 
-			// Se il codice non deve essere attivato in base alle opzioni passate
-			// ritorno un valore di false e non elaboro la creazione del monitoraggio
+			// If the code does not have to be activated based on the options passed
+			// return a value of false and not elaborate the creation of monitoring
 
 			if (!$useract or strlen($ga_uacode) <= 0) {
 				return false;
 			}
 
-			// Conversione dei valori specificati direttamete nei parametri con
-			// i valori usati per la memorizzazione dei valori di default
+			// Conversion of the values ​​specified directly covered in the
+			// parameters with the values ​​used for storing the default values
 
 			if ($ga_position == '') $ga_position = 'H';
 			if ($ga_uacode   == '') $ga_uacode   = $this->getGAId();   
 
 			if (!in_array($ga_type,array('classic','universal'))) $ga_type = 'classic';
 
-			// Creazione codice per i commenti di blocco nel caso
-			// risultasse attiva la generazione del codice GA
+			// Creating code for comments to be blocked 
+			// if proves active code generation GA
 
 			$HTML = '';
 
@@ -139,8 +138,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "<!-- ===================================================================== -->\n";
 			}
 
-			// Creazione codice di google analytics UNIVERSAL da inserire su pagina HTML
-			// che può essere differente in base a google classic o universal analytics
+			// Creating code google analytics UNIVERSAL be inserted on HTML page
+			// which can be different according to google analytics classic or universal
 
 			if ($ga_type == 'universal') 
 			{
@@ -151,8 +150,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');"."\n";
 				$HTML .= "  ga('create','".trim($ga_uacode)."','".trim(SZGoogleCommon::getCurrentDomain())."');"."\n";
 
-				// Controllo opzione displayfeature da aggiungere
-				// al codice di google analytics universal standard
+				// Displayfeature control option to add to the 
+				// code of google analytics universal standard
 
 				if ($ga_enable_features == '1') {
 					$HTML .= "  ga('require','displayfeatures');"."\n";
@@ -162,8 +161,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "</script>"."\n";
 			}
 
-			// Creazione codice di google analytics CLASSIC da inserire su pagina HTML
-			// che può essere differente in base a google classic o universal analytics
+			// Creating code google analytics CLASSIC be inserted on HTML page which
+			// can be different according to google analytics classic or universal
 
 			if ($ga_type == 'classic') 
 			{
@@ -171,15 +170,15 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "var _gaq = _gaq || [];"."\n";
 				$HTML .= "_gaq.push(['_setAccount','".$ga_uacode."']);"."\n";
 
-				// Se opzione subdomains o multiple risulta attivata aggiungo una nuova riga
-				// di codice contenente il _setDomainName del domino corrente visualizzato
+				// If option is activated multiple subdomains or add a new row
+				// code containing the current displayed _setDomainName domino
 
 				if ($ga_enable_subdomain == '1' or $ga_enable_multiple  == '1') {
 					$HTML .= "_gaq.push(['_setDomainName','".trim(SZGoogleCommon::getCurrentDomain())."']);"."\n";
 				}
 
-				// Se opzione multiple risulta attivata aggiungo una nuova riga con il codice
-				// javascript di google analytics con l'impostazione di _setAllowLinker
+				// If multiple option is enabled add a new row with the code
+				// javascript for google analytics with setup for _setAllowLinker
 
 				if ($ga_enable_multiple == '1') {
 					$HTML .= "_gaq.push(['_setAllowLinker',true]);"."\n";
@@ -201,8 +200,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "//]]></script>"."\n";
 			}
 
-			// Creazione codice per i commenti di blocco nel caso
-			// risultasse attiva la generazione del codice GA
+			// Creating code for comments to be blocked 
+			// if proves active code generation GA
 
 			if ($ga_position != 'F' and ($ga_type == 'universal' or $ga_type == 'classic')) {
 				$HTML .= "<!-- ===================================================================== -->\n\n";

@@ -5,7 +5,7 @@
  * by a theme or a plugin for customizations without use shortcode
  *
  * @package SZGoogle
- * @subpackage SZGoogleFunctions
+ * @subpackage Functions
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -21,6 +21,9 @@ if (!function_exists('szgoogle_analytics_get_code')) {
 			else return $object->getHTMLCode($options);
 	}
 }
+
+// Function to retrieve the unique code linked to
+// your google account and create the tracking code
 
 if (!function_exists('szgoogle_analytics_get_ID')) {
 	function szgoogle_analytics_get_ID() { 

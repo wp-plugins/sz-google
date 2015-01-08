@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -23,7 +23,7 @@ $HTML = <<<EOD
 calendari, basta specificare nel parametro <b>"calendar"</b> una stringa con il nomi dei calendari separati da una virgola. Se non
 viene specificato nessun calendario sarà utilizzato quello memorizzato nella configurazione generale.</p>
 
-<p>Per inserire questo componente dovete usare lo shortcode <b>[sz-calendar]</b>, se invece desiderate utilizzarlo in una sidebar 
+<p>Per inserire questo componente dovete usare lo shortcode <b>[sz-calendar]</b>, se invece volete utilizzarlo in una sidebar 
 allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
 esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzione PHP messa a disposizione dal plugin 
 <b>szgoogle_calendar_get_widget(\$options)</b>.</p>
@@ -31,7 +31,7 @@ esigenti esiste anche un'altra possibilità, infatti basta utilizzare una funzio
 <h2>Personalizzazione</h2>
 
 <p>A prescindere dalla forma che utilizzerete, il componente potrà essere personalizzato in diverse maniere, basterà usare i parametri
-messi a disposizione elencati nella tabella a seguire. Per quanto riguarda il widget i parametri vengono richiesti
+messi a disposizione elencati nella tabella. Per quanto riguarda il widget i parametri vengono richiesti
 direttamente dall'interfaccia grafica, mentre se utilizzate lo shortcode o la funzione PHP dovete specificarli manualmente nel 
 formato opzione="valore". Se volete avere delle informazioni aggiuntive potete visitare la pagina ufficiale
 <a target="_blank" href="https://www.google.com/calendar/embedhelper">Google Embeddable Calendar Helper</a>.</p>
@@ -58,7 +58,7 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

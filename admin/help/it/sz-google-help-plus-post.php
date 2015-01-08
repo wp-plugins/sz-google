@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -20,9 +20,9 @@ $HTML = <<<EOD
 <h2>Descrizione</h2>
 
 <p>Con questa funzione è possibile inserire un post di google plus completamente funzionante in una 
-pagina web. Infatti una volta inserito sarà possibile eseguire tutte le azioni sociali e inserire i commenti senza lasciare la 
-pagina e rimanendo nel post originale. Praticamente come un video youtube in embed, solamente che questa volta viene
-inserito il post pubblicato su Google+ invece che un video.</p>
+pagina web. Infatti una volta inserito sarà possibile eseguire tutte le azioni e inserire i commenti senza lasciare la 
+pagina e rimanendo nel post. Praticamente come un video youtube in embed, solamente che questa volta viene
+inserito il post pubblicato su G+ invece che un video.</p>
 
 <p>Per inserire questo componente dovete usare lo shortcode <b>[sz-gplus-post]</b>, se invece desiderate utilizzarlo
 in una sidebar allora dovete utilizzare il widget sviluppato per questa funzione che trovate nel menu aspetto -> widgets. Per i più 
@@ -56,7 +56,7 @@ NON VALIDO => https://plus.google.com/u/0/106189723444098348646/posts/MtVcQaAi68
 
 <h2>Esempio shortcode</h2>
 
-<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni aggiuntive che sono state messe a 
+<p>Gli shortcode sono delle macro che vengono inserite nei post per richiede alcune elaborazioni che sono state messe a 
 disposizione dai plugin, dai temi o direttamente dal core. <b>SZ-Google</b> mette a disposizione diversi shortcode che possono esseri 
 utilizzati nella forma classica e con delle opzioni di personalizzazione. Per inserire uno shortcode dobbiamo utilizzare il codice 
 in questa forma:</p>

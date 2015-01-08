@@ -5,7 +5,7 @@
  * of the plugin. Each directory is a specific language
  *
  * @package SZGoogle
- * @subpackage SZGoogleAdmin
+ * @subpackage Admin
  * @author Massimo Della Rovere
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
@@ -23,7 +23,7 @@ $HTML = <<<EOD
 utilizzati degli id numerici molto lunghi che rendono la stringa URL impossibile da ricordare o memorizzare. Per questo motivo
 Google+ ha messo a disposizione per i profili e le pagine un URL personalizzato da associare al proprio profilo o pagina.</p> 
 
-<p>Purtroppo però il sistema adottato non è sempre efficace, infatti specialmente nelle pagine vengono richiesti dei caratteri aggiuntivi che molti
+<p>Purtroppo il sistema adottato non è sempre efficace, infatti specialmente nelle pagine vengono richiesti dei caratteri aggiuntivi che molti
 siti web non apprezzano perchè non coerenti con il proprio nome originale. Ad esempio un'azienda che si chiama <b>skydrive</b> non
 accetta volentieri di stampare su un materiale pubblicitario un'indirizzo tipo <b>https://plus.google.com/+skydrive9876</b>.</p>
 
