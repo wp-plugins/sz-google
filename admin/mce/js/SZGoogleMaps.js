@@ -39,6 +39,7 @@ var SZGoogleDialog =
 		var zoom   = jQuery('#ID_zoom'  ).val();
 		var view   = jQuery('#ID_view'  ).val();
 		var layer  = jQuery('#ID_layer' ).val();
+		var marker = jQuery('#ID_marker').val();
 
 		if (jQuery('#ID_width_auto' ).is(':checked')) width  = 'auto';
 		if (jQuery('#ID_height_auto').is(':checked')) height = 'auto';
@@ -55,6 +56,7 @@ var SZGoogleDialog =
 		if (zoom   != '') output += 'zoom="'   + zoom   + '" ';
 		if (view   != '') output += 'view="'   + view   + '" ';
 		if (layer  != '') output += 'layer="'  + layer  + '" ';
+		if (marker != '') output += 'marker="' + marker + '" ';
 
 		output += '/]';
 

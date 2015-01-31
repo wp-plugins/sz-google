@@ -24,12 +24,23 @@ function SZGOOGLE_UPPER($string)
 }
 
 /**
+ * Definition function to convert a string to lowercase also 
+ * configured with different languages​​. Using if possible mb_()
+ */
+
+function SZGOOGLE_LOWER($string) 
+{
+	if (!function_exists('mb_strtolower')) return strtolower($string); 
+		else return mb_strtolower($string,'UTF-8');
+}
+
+/**
  * Definition function to convert a string to uppercase also 
  * configured with different languages​​. Using if possible mb_()
  */
 
 function SZGOOGLE_UWORDS($string) 
 {
-	if (!function_exists('mb_convert_case')) return strtoupper($string); 
+	if (!function_exists('mb_convert_case')) return ucwords($string); 
 		else return mb_convert_case($string,MB_CASE_TITLE,'UTF-8');
 }

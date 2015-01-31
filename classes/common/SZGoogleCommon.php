@@ -82,7 +82,7 @@ if (!class_exists('SZGoogleCommon'))
 				'cs'     => ucfirst(self::getTranslate('czech')),
 				'da'     => ucfirst(self::getTranslate('danish')),
 				'nl'     => ucfirst(self::getTranslate('dutch')),
-				'en-GB'  => ucfirst(self::getTranslate('english (UK)')), 	
+				'en-GB'  => ucfirst(self::getTranslate('english (UK)')),
 				'en-US'  => ucfirst(self::getTranslate('english (US)')),
 				'et'     => ucfirst(self::getTranslate('estonian')),
 				'fil'    => ucfirst(self::getTranslate('filipino')),

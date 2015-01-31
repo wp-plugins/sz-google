@@ -36,6 +36,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				'zoom'      => '',  // default value
 				'view'      => '',  // default value
 				'layer'     => '',  // default value
+				'marker'    => '',  // default value
 				'action'    => 'S', // default value
 			),$atts),$content);
 		}
@@ -60,6 +61,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				'zoom'    => '', // default value
 				'view'    => '', // default value
 				'layer'   => '', // default value
+				'marker'  => '', // default value
 				'action'  => '', // default value
 			),$atts);
 
@@ -85,20 +87,24 @@ if (!class_exists('SZGoogleActionMaps'))
 
 			if ($keyatts->height == 'auto') 
 			{
-	 			$HTML  = '<div class="sz-google-maps" style="';
+	 			$HTML  = '<div class="sz-google-maps">';
+	 			$HTML .= '<div class="sz-google-maps-wrap" style="';
 				$HTML .= 'width:' .$keyatts->width .';';
 				$HTML .= 'position:relative;padding-bottom:75%;height:0;overflow:hidden;';
 				$HTML .= '">';
 				$HTML .= '<div id="'.$keyatts->idHTML.'" style="width:100%;height:100%;position:absolute;top:0;left:0;"></div>';
 				$HTML .= '</div>';
+				$HTML .= '</div>';
 
 			} else {
 
-	 			$HTML  = '<div class="sz-google-maps" style="';
+	 			$HTML  = '<div class="sz-google-maps">';
+	 			$HTML .= '<div class="sz-google-maps-wrap" style="';
 				$HTML .= 'width:' .$keyatts->width .';';
 				$HTML .= 'height:'.$keyatts->height.';';
 				$HTML .= '">';
 				$HTML .= '<div id="'.$keyatts->idHTML.'" style="width:100%;height:100%"></div>';
+				$HTML .= '</div>';
 				$HTML .= '</div>';
 			}
 
@@ -115,6 +121,7 @@ if (!class_exists('SZGoogleActionMaps'))
 					'lng'    => $keyatts->lng,
 					'zoom'   => $keyatts->zoom,
 					'view'   => $keyatts->view,
+					'marker' => $keyatts->marker,
 					'layer'  => $keyatts->layer,
 				)
 			);
@@ -148,6 +155,7 @@ if (!class_exists('SZGoogleActionMaps'))
 			$check->view   = strtoupper(trim($check->view));
 			$check->width  = strtolower(trim($check->width));
 			$check->height = strtolower(trim($check->height));
+			$check->marker = strtolower(trim($check->marker));
 
 			// Control the default values related to the shortcode
 			// Replace the values if these were not specified
@@ -160,6 +168,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				if ($check->zoom   == '') $check->zoom   = $admin->maps_s_zoom;
 				if ($check->view   == '') $check->view   = $admin->maps_s_view;
 				if ($check->layer  == '') $check->layer  = $admin->maps_s_layer;
+				if ($check->marker == '') $check->marker = $admin->maps_s_marker;
 			}
 
 			// Control the default values related to the widget
@@ -173,6 +182,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				if ($check->zoom   == '') $check->zoom   = $admin->maps_w_zoom;
 				if ($check->view   == '') $check->view   = $admin->maps_w_view;
 				if ($check->layer  == '') $check->layer  = $admin->maps_w_layer;
+				if ($check->marker == '') $check->marker = $admin->maps_w_marker;
 			}
 
 			// Check the values passed in arrays that specify the size
@@ -191,8 +201,9 @@ if (!class_exists('SZGoogleActionMaps'))
 			// Must be ROADMAP, SATELLITE, HYBRID and TERRAIN
 
 			if ($check->action == 'S' or $check->action == 'W') {
-				if (!in_array($check->view ,array('ROADMAP','SATELLITE','HYBRID','TERRAIN'))) $check->view  = 'ROADMAP';
-				if (!in_array($check->layer,array('NOTHING','TRAFFIC','TRANSIT','BICYCLE')))  $check->layer = 'NOTHING';
+				if (!in_array($check->marker,array('0','1',''))) $check->marker  = '0';
+				if (!in_array($check->view  ,array('ROADMAP','SATELLITE','HYBRID','TERRAIN'))) $check->view  = 'ROADMAP';
+				if (!in_array($check->layer ,array('NOTHING','TRAFFIC','TRANSIT','BICYCLE')))  $check->layer = 'NOTHING';
 			}
 
 			// Setting any of the default parameters for

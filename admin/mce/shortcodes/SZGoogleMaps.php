@@ -26,6 +26,7 @@ $array = array(
 	'zoom'        => '',  // default value
 	'view'        => '',  // default value
 	'layer'       => '',  // default value
+	'marker'      => '',  // default value
 	'action'      => 'A', // default value
 );
 

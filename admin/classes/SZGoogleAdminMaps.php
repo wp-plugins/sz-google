@@ -96,6 +96,7 @@ if (!class_exists('SZGoogleAdminMaps'))
 				              array('field' => 'maps_s_zoom'    ,'title' => ucfirst(__('default zoom'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_zoom')),
 				              array('field' => 'maps_s_view'    ,'title' => ucfirst(__('default view'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_view')),
 				              array('field' => 'maps_s_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_layer')),
+				              array('field' => 'maps_s_marker'  ,'title' => ucfirst(__('default marker'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_marker')),
 				),
 				'05' => array(array('field' => 'maps_w_enable'  ,'title' => ucfirst(__('widget'           ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_enable')),),
 				'06' => array(array('field' => 'maps_w_width'   ,'title' => ucfirst(__('default width'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_width')),
@@ -105,6 +106,7 @@ if (!class_exists('SZGoogleAdminMaps'))
 				              array('field' => 'maps_w_zoom'    ,'title' => ucfirst(__('default zoom'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_zoom')),
 				              array('field' => 'maps_w_view'    ,'title' => ucfirst(__('default view'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_view')),
 				              array('field' => 'maps_w_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_layer')),
+				              array('field' => 'maps_w_marker'  ,'title' => ucfirst(__('default marker'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_marker')),
 				),
 			);
 
@@ -210,6 +212,12 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('if you use the maps with a specific layer, you can set this value by default. In this way it will be automatically added to your maps. The possible values ​​are NOTHING, TRAFFIC, TRANSIT and BICYCLE.','szgoogleadmin'));
 		}
 
+		function callback_maps_s_marker()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_s_marker');
+			$this->moduleCommonFormDescription(__('if this option is enabled will be added to the marker on the map, which corresponds to the specified coordinates. Will still be possible to change this behavior with the options in the shortcode or widget map.','szgoogleadmin'));
+		}
+
 		/**
 		 * Definition functions for the creation of the various options that should be included 
 		 * in the general form of configuration and saved on a database of wordpress (options)
@@ -274,6 +282,12 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$values = array('NOTHING'=>SZGOOGLE_UPPER(__('nothing','szgoogleadmin')),'TRAFFIC'=>SZGOOGLE_UPPER(__('traffic','szgoogleadmin')),'TRANSIT'=>SZGOOGLE_UPPER(__('transit','szgoogleadmin')),'BICYCLE'=>SZGOOGLE_UPPER(__('bicycle','szgoogleadmin')));
 			$this->moduleCommonFormSelect('sz_google_options_maps','maps_w_layer',$values,'medium','');
 			$this->moduleCommonFormDescription(__('if you use the maps with a specific layer, you can set this value by default. In this way it will be automatically added to your maps. The possible values ​​are NOTHING, TRAFFIC, TRANSIT and BICYCLE.','szgoogleadmin'));
+		}
+
+		function callback_maps_w_marker()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_w_marker');
+			$this->moduleCommonFormDescription(__('if this option is enabled will be added to the marker on the map, which corresponds to the specified coordinates. Will still be possible to change this behavior with the options in the shortcode or widget map.','szgoogleadmin'));
 		}
 
 	}

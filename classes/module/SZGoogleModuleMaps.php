@@ -161,6 +161,16 @@ if (!class_exists('SZGoogleModuleMaps'))
 							$javascript .= 'var layer_transit_'.$value->unique.' = new google.maps.TransitLayer();';
 							$javascript .= 'layer_transit_'.$value->unique.'.setMap(map_key_'.$value->unique.');';
 						}
+
+						// Add marker to MAP if option is set = 1. Use same value for
+						// position in center map and option specified in LAT and LNG
+
+						if ($value->marker == '1') {
+							$javascript .= 'var marker_'.$value->unique.' = new google.maps.Marker({';
+							$javascript .= 'position:new google.maps.LatLng('.$value->lat.','.$value->lng.'),';
+							$javascript .= 'map: map_key_'.$value->unique;
+							$javascript .= '});';
+						}
 					}
 				}
 			}

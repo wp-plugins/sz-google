@@ -38,17 +38,17 @@ if (!class_exists('SZGoogleUninstall'))
 		function uninstall_delete_options_single()
 		{
 			delete_option('sz_google_options_api');           // Google API
-			delete_option('sz_google_options_base');          // Google Setup
-			delete_option('sz_google_options_plus');          // Google Plus
-			delete_option('sz_google_options_ga');            // Google Analytics
 			delete_option('sz_google_options_authenticator'); // Google Authenticator
+			delete_option('sz_google_options_base');          // Google Setup
 			delete_option('sz_google_options_calendar');      // Google Calendar
 			delete_option('sz_google_options_drive');         // Google Drive
 			delete_option('sz_google_options_fonts');         // Google Fonts
+			delete_option('sz_google_options_ga');            // Google Analytics
 			delete_option('sz_google_options_groups');        // Google Groups
 			delete_option('sz_google_options_hangouts');      // Google Hangouts
 			delete_option('sz_google_options_maps');          // Google Maps
 			delete_option('sz_google_options_panoramio');     // Google Panoramio
+			delete_option('sz_google_options_plus');          // Google Plus
 			delete_option('sz_google_options_translate');     // Google Translate
 			delete_option('sz_google_options_youtube');       // Google Youtube
 		}
