@@ -2,7 +2,7 @@
 Contributors: massimodellarovere,iGenius
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.8.6
+Stable tag: 1.8.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
@@ -344,6 +344,12 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.7 =
+* Feature: Google reCAPTCHA module.
+* Feature: Google reCAPTCHA login.
+* Fix: TinyMCE Popup with ACF plugin.
+* Fix: TinyMCE Popup with Shortcodes Ultimate.
 
 = Version 1.8.6 =
 * Feature: Google Maps Marker.

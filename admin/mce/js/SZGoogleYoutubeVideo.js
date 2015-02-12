@@ -25,7 +25,12 @@ var SZGoogleDialog =
 
 	insert: function(ed) {
 
-		tinyMCEPopup.execCommand('mceRemoveNode',false,null);
+		var SZGoogleEditor = tinyMCE.get("content");
+
+		// Execution command after calculating the variable 
+		// editor currently displayed and stored in SZGoogleEditor
+
+		SZGoogleEditor.execCommand('mceRemoveNode',false,null);
 
 		// Calculating the values ​​of variables directly 
 		// from the form fields without submission standards
@@ -80,7 +85,7 @@ var SZGoogleDialog =
 		// Once the composition of the command shortcode 
 		// recall methods for inclusion in TinyMCE editor
 
-		tinyMCEPopup.execCommand('mceReplaceContent',false,output);
+		SZGoogleEditor.execCommand('mceReplaceContent',false,output);
 		tinyMCEPopup.close();
 	}
 };

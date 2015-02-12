@@ -81,8 +81,8 @@ if (!class_exists('SZGoogleWidgetYoutubeButton'))
 
 		function update($new_instance,$old_instance) 
 		{
-			// Esecuzione operazioni aggiuntive sui campi presenti
-			// nel form widget prima della memorizzazione database
+			// Performing additional operations on fields
+			// in the form widget before storage database
 
 			return $this->common_update(array(
 				'title'      => '0', // strip_tags

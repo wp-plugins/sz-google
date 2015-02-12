@@ -94,6 +94,7 @@ if (!class_exists('SZGooglePlugin'))
 			if ($options->hangouts      == '1') new SZGoogleModuleHangouts();
 			if ($options->maps          == '1') new SZGoogleModuleMaps();
 			if ($options->panoramio     == '1') new SZGoogleModulePanoramio();
+			if ($options->recaptcha     == '1') new SZGoogleModuleRecaptcha();
 			if ($options->translate     == '1') new SZGoogleModuleTranslate();
 			if ($options->youtube       == '1') new SZGoogleModuleYoutube();
 		

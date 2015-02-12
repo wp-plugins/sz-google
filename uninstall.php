@@ -49,6 +49,7 @@ if (!class_exists('SZGoogleUninstall'))
 			delete_option('sz_google_options_maps');          // Google Maps
 			delete_option('sz_google_options_panoramio');     // Google Panoramio
 			delete_option('sz_google_options_plus');          // Google Plus
+			delete_option('sz_google_options_recaptcha');     // Google reCAPTCHA
 			delete_option('sz_google_options_translate');     // Google Translate
 			delete_option('sz_google_options_youtube');       // Google Youtube
 		}

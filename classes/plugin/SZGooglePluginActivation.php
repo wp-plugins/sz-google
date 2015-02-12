@@ -21,8 +21,8 @@ if (!class_exists('SZGooglePluginActivation'))
 	{
 		function action()
 		{
-			// Controllo formale delle opzioni e memorizzazione sul database
-			// in base ad una prima installazione o update del plugin.
+			// Formal control options and storage on the database
+			// according to a first install or update the plugin
 
 			$this->checkOptions('sz_google_options_api'); 
 			$this->checkOptions('sz_google_options_base'); 
@@ -35,32 +35,31 @@ if (!class_exists('SZGooglePluginActivation'))
 			$this->checkOptions('sz_google_options_groups');
 			$this->checkOptions('sz_google_options_hangouts');
 			$this->checkOptions('sz_google_options_panoramio');
+			$this->checkOptions('sz_google_options_recaptcha');
 			$this->checkOptions('sz_google_options_translate');
 			$this->checkOptions('sz_google_options_youtube');
 
-			// Esecuzione flush rules per regole di rewrite personalizzate nel
-			// caso in cui il plugin aggiunga delle nuove opzioni di rewrite.
+			// Execution flush rules for rewriting customized
+			// only if the plugin adds new options rewrite
 
 			add_action('wp_loaded',array('SZGoogleCommon','rewriteFlushRules'));
 		}
 
 		/**
-		 * Funzione per il caricamento dei file contenenti le opzioni collegate
-		 * ai diversi moduli del plugin che si trovano nella cartella /options 
-		 *
-		 * @param  string,array $nameset
-		 * @return void
+		 * Function for loading files containing options 
+		 * linked to the various modules of the plugin
 		 */
+
 		private function checkOptions($nameset)
 		{
-			// Caricamento file delle opzioni con array() contenente i nomi delle
-			// opzioni che devono essere memorizzate nel database di wordpress.
+			// Loading options file with array() containing the names of the
+			// options that need to be stored in the database of wordpress
 
 			$values = array();
 			$fields = include(dirname(SZ_PLUGIN_GOOGLE_MAIN)."/options/{$nameset}.php");
 
-			// Controllo se ho ricevuto un array dal file delle opzioni
-			// in caso contrario ignoro la richiesta di controllo opzioni.
+			// Check if I have received an array from the file options
+			// otherwise ignore the request of control options
 
 			if (is_array($fields)) 
 			{
@@ -73,32 +72,30 @@ if (!class_exists('SZGooglePluginActivation'))
 		}
 
 		/**
-		 * Controllo il singolo nameset di opzione per verificare se il valore
-		 * indicato deve essere aggiunto al database in fase di attivazione.
-		 *
-		 * @param  string,array $name,$values
-		 * @return void
+		 * Checking the option of single nameset to check if the indicated
+		 * value must be added to the database in the activation phase.
 		 */
+
 		private function checkOptionSet($name,$values) 
 		{
 			if (is_array($values)) {
 
-				// Controllo se esistono le opzioni richieste, in caso
-				// affermativo passo al controllo di ogni singola opzione 
+				// Check if there are the options required
+				// and pitch control of each option
 
 				if ($options = get_option($name)) 
 				{
 					if (!is_array($options)) $options=array(); 
 
-					// Controllo se nelle opzioni ci sono degli indici che non
-					// vengono più utilizzati li tolgo da array generale
+					// Control in the options if there are indices that are
+					// no longer used and take them out from the general array
 
 					foreach ($options as $key=>$item) {
 						if (!isset($values[$key])) unset($options[$key]);
 					}
 
-					// Controllo le opzioni che sono state inserite nel nuovo
-					// release e le aggiungo al contenitore array generale
+					// Control options that were included in the new
+					// release and add to the container array general
 
 					foreach ($values as $key=>$item) {
 						if (!isset($options[$key])) $options[$key]=$item;
@@ -108,8 +105,8 @@ if (!class_exists('SZGooglePluginActivation'))
 
 				} else {
 
-					// Se le opzioni non esistono in quanto il plugin potrebbe
-					// essere la prima volta che viene installato -> aggiungo array 
+					// If the options do not exist as the plugin may
+					// be the first time it is installed -> add array 
 
 					add_option($name,$values);
 				}

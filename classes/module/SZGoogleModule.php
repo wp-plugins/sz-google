@@ -34,6 +34,7 @@ if (!class_exists('SZGoogleModule'))
 		static private $SZGoogleModuleHangouts      = false;
 		static private $SZGoogleModuleMaps          = false;
 		static private $SZGoogleModulePanoramio     = false;
+		static private $SZGoogleModuleRecaptcha     = false;
 		static private $SZGoogleModuleTranslate     = false;
 		static private $SZGoogleModuleYoutube       = false;
 
@@ -86,6 +87,7 @@ if (!class_exists('SZGoogleModule'))
 				if ($this->moduleClassName == 'SZGoogleModuleHangouts')      self::$SZGoogleModuleHangouts      = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleMaps')          self::$SZGoogleModuleMaps          = $this;
 				if ($this->moduleClassName == 'SZGoogleModulePanoramio')     self::$SZGoogleModulePanoramio     = $this;
+				if ($this->moduleClassName == 'SZGoogleModuleRecaptcha')     self::$SZGoogleModuleRecaptcha     = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleTranslate')     self::$SZGoogleModuleTranslate     = $this;
 				if ($this->moduleClassName == 'SZGoogleModuleYoutube')       self::$SZGoogleModuleYoutube       = $this;
 			}

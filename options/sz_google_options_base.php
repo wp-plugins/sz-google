@@ -26,6 +26,7 @@ return array(
 	'hangouts'          => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'maps'              => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'panoramio'         => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'recaptcha'         => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'translate'         => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'youtube'           => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'documentation'     => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '1'),

@@ -142,8 +142,8 @@ if (!class_exists('SZGoogleWidgetDriveViewer'))
 				if (!ctype_digit($width)  and $width  != 'auto') $width  = $options->drive_viewer_w_width;
 				if (!ctype_digit($height) and $height != 'auto') $height = $options->drive_viewer_w_height;
 
-				// Controllo se la stringa contiene un valore coerente con la
-				// selezione del parametro sia come valore numerico che carattere
+				// Check if the string contains a value consistent with the
+				// selection of the parameter both as a numerical value that character
 
 				$YESNO = array('1','0','n','y');
 

@@ -69,6 +69,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			if ($options->maps          == '1') new SZGoogleAdminMaps();
 			if ($options->panoramio     == '1') new SZGoogleAdminPanoramio();
 			if ($options->translate     == '1') new SZGoogleAdminTranslate();
+			if ($options->recaptcha     == '1') new SZGoogleAdminRecaptcha();
 			if ($options->youtube       == '1') new SZGoogleAdminYoutube();
 			if ($options->documentation == '1') new SZGoogleAdminDocumentation();
 			if ($options->tinymce       == '1') new SZGoogleAdminTinyMCE();
@@ -145,6 +146,7 @@ if (!class_exists('SZGoogleAdminBase'))
 				              array('field' => 'hangouts'         ,'title' => ucwords(__('google hangouts'     ,'szgoogleadmin')),'callback' => array($this,'callback_base_hangouts')),
 				              array('field' => 'maps'             ,'title' => ucwords(__('google maps'         ,'szgoogleadmin')),'callback' => array($this,'callback_base_maps')),
 				              array('field' => 'panoramio'        ,'title' => ucwords(__('google panoramio'    ,'szgoogleadmin')),'callback' => array($this,'callback_base_panoramio')),
+				              array('field' => 'reCAPTCHA'        ,'title' => ucwords(__('google reCAPTCHA'    ,'szgoogleadmin')),'callback' => array($this,'callback_base_recaptcha')),
 				              array('field' => 'translate'        ,'title' => ucwords(__('google translate'    ,'szgoogleadmin')),'callback' => array($this,'callback_base_translate')),
 				              array('field' => 'youtube'          ,'title' => ucwords(__('google youtube'      ,'szgoogleadmin')),'callback' => array($this,'callback_base_youtube')),
 				              array('field' => 'documentation'    ,'title' => ucwords(__('documentation'       ,'szgoogleadmin')),'callback' => array($this,'callback_base_documentation')),
@@ -397,7 +399,7 @@ if (!class_exists('SZGoogleAdminBase'))
 
 		/**
 		 * Function to indicate the message after the authentication 
-		 * request oAuth2 terms of the services of google		
+		 * request oAuth2 terms of the services of google
 		 */
 
 		function addAdminMessageSuccess()
@@ -409,7 +411,7 @@ if (!class_exists('SZGoogleAdminBase'))
 
 		/**
 		 * Function to indicate the message after the authentication 
-		 * request oAuth2 terms of the services of google		
+		 * request oAuth2 terms of the services of google
 		 */
 
 		function addAdminMessageError()
@@ -443,7 +445,7 @@ if (!class_exists('SZGoogleAdminBase'))
 
 		/**
 		 * Definition functions for the creation of the various options that should be included 
-		 * in the general form of configuration and saved on a database of wordpress (options)		
+		 * in the general form of configuration and saved on a database of wordpress (options)
 		 */
 
 		function callback_base_plus() 
@@ -478,7 +480,7 @@ if (!class_exists('SZGoogleAdminBase'))
 
 		/**
 		 * Definition functions for the creation of the various options that should be included 
-		 * in the general form of configuration and saved on a database of wordpress (options)		
+		 * in the general form of configuration and saved on a database of wordpress (options)
 		 */
 
 		function callback_base_fonts()
@@ -511,9 +513,15 @@ if (!class_exists('SZGoogleAdminBase'))
 			$this->moduleCommonFormDescription(__('through this module you can insert some features of photos panoramio, you will find widgets and shortcodes to help you with this task and use the functions in your favorite theme. You can also specify parameters for selecting user, group, tag etc.','szgoogleadmin'));
 		}
 
+		function callback_base_recaptcha() 
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_base','recaptcha');
+			$this->moduleCommonFormDescription(__('with this form you can activate the functions of reCAPTCHA on some components present in wordpress. Just ask for the activation keys to google and configure the module in the configuration panel.','szgoogleadmin'));
+		}
+
 		/**
 		 * Definition functions for the creation of the various options that should be included 
-		 * in the general form of configuration and saved on a database of wordpress (options)		
+		 * in the general form of configuration and saved on a database of wordpress (options)
 		 */
 
 		function callback_base_translate() 
@@ -542,7 +550,7 @@ if (!class_exists('SZGoogleAdminBase'))
 
 		/**
 		 * Definition functions for the creation of the various options that should be included 
-		 * in the general form of configuration and saved on a database of wordpress (options)		
+		 * in the general form of configuration and saved on a database of wordpress (options)
 		 */
 
 		function callback_base_api_enable() 
