@@ -36,6 +36,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				'zoom'      => '',  // default value
 				'view'      => '',  // default value
 				'layer'     => '',  // default value
+				'wheel'     => '',  // default value
 				'marker'    => '',  // default value
 				'action'    => 'S', // default value
 			),$atts),$content);
@@ -61,6 +62,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				'zoom'    => '', // default value
 				'view'    => '', // default value
 				'layer'   => '', // default value
+				'wheel'   => '', // default value
 				'marker'  => '', // default value
 				'action'  => '', // default value
 			),$atts);
@@ -80,7 +82,7 @@ if (!class_exists('SZGoogleActionMaps'))
 			// case where the function is called multiple times in the same page
 
 			$keyatts->unique = ++self::$sequenceMaps;
-			$keyatts->idHTML = 'sz-google-maps-'.$keyatts->unique;
+			$keyatts->idHTML = 'sz-google-maps-id-'.$keyatts->unique;
 
 			// Creating HTML for embed code add to the page wordpress
 			// To read infrormazioni parameters see the documentation
@@ -121,6 +123,7 @@ if (!class_exists('SZGoogleActionMaps'))
 					'lng'    => $keyatts->lng,
 					'zoom'   => $keyatts->zoom,
 					'view'   => $keyatts->view,
+					'wheel'  => $keyatts->wheel,
 					'marker' => $keyatts->marker,
 					'layer'  => $keyatts->layer,
 				)
@@ -155,6 +158,7 @@ if (!class_exists('SZGoogleActionMaps'))
 			$check->view   = strtoupper(trim($check->view));
 			$check->width  = strtolower(trim($check->width));
 			$check->height = strtolower(trim($check->height));
+			$check->wheel  = strtolower(trim($check->wheel));
 			$check->marker = strtolower(trim($check->marker));
 
 			// Control the default values related to the shortcode
@@ -168,6 +172,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				if ($check->zoom   == '') $check->zoom   = $admin->maps_s_zoom;
 				if ($check->view   == '') $check->view   = $admin->maps_s_view;
 				if ($check->layer  == '') $check->layer  = $admin->maps_s_layer;
+				if ($check->wheel  == '') $check->wheel  = $admin->maps_s_wheel;
 				if ($check->marker == '') $check->marker = $admin->maps_s_marker;
 			}
 
@@ -182,6 +187,7 @@ if (!class_exists('SZGoogleActionMaps'))
 				if ($check->zoom   == '') $check->zoom   = $admin->maps_w_zoom;
 				if ($check->view   == '') $check->view   = $admin->maps_w_view;
 				if ($check->layer  == '') $check->layer  = $admin->maps_w_layer;
+				if ($check->wheel  == '') $check->wheel  = $admin->maps_w_wheel;
 				if ($check->marker == '') $check->marker = $admin->maps_w_marker;
 			}
 
@@ -201,7 +207,8 @@ if (!class_exists('SZGoogleActionMaps'))
 			// Must be ROADMAP, SATELLITE, HYBRID and TERRAIN
 
 			if ($check->action == 'S' or $check->action == 'W') {
-				if (!in_array($check->marker,array('0','1',''))) $check->marker  = '0';
+				if (!in_array($check->wheel ,array('0','1',''))) $check->wheel  = '0';
+				if (!in_array($check->marker,array('0','1',''))) $check->marker = '0';
 				if (!in_array($check->view  ,array('ROADMAP','SATELLITE','HYBRID','TERRAIN'))) $check->view  = 'ROADMAP';
 				if (!in_array($check->layer ,array('NOTHING','TRAFFIC','TRANSIT','BICYCLE')))  $check->layer = 'NOTHING';
 			}

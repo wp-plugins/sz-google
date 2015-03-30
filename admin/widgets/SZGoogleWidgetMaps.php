@@ -110,6 +110,18 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
+<!-- WIDGETS (Field to specify wheel) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_wheel ?>"><?php echo ucfirst(__('wheel','szgoogleadmin')) ?>:</label></td>
+	<td colspan="2" class="sz-cell-vals">
+		<select class="widefat" id="<?php echo $ID_wheel ?>" name="<?php echo $NAME_wheel ?>">
+			<option value=""  <?php echo selected("" ,$VALUE_wheel) ?>><?php echo SZGOOGLE_UPPER(__('default' ,'szgoogleadmin')) ?></option>
+			<option value="0" <?php echo selected("0",$VALUE_wheel) ?>><?php echo SZGOOGLE_UPPER(__('disabled','szgoogleadmin')) ?></option>
+			<option value="1" <?php echo selected("1",$VALUE_wheel) ?>><?php echo SZGOOGLE_UPPER(__('enabled' ,'szgoogleadmin')) ?></option>
+		</select>
+	</td>
+</tr>
+
 <!-- WIDGETS (Field to specify marker) -->
 <tr>
 	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_marker ?>"><?php echo ucfirst(__('marker','szgoogleadmin')) ?>:</label></td>

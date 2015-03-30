@@ -51,6 +51,7 @@ if (!class_exists('SZGoogleWidgetMaps'))
 				'zoom'    => '',  // default value
 				'view'    => '',  // default value
 				'layer'   => '',  // default value
+				'wheel'   => '',  // default value
 				'marker'  => '',  // default value
 				'action'  => 'W', // default value
 			),$instance);
@@ -102,6 +103,7 @@ if (!class_exists('SZGoogleWidgetMaps'))
 				'zoom'        => '1', // strip_tags
 				'view'        => '1', // strip_tags
 				'layer'       => '1', // strip_tags
+				'wheel'       => '1', // strip_tags
 				'marker'      => '1', // strip_tags
 			),$new_instance,$old_instance);
 		}
@@ -127,6 +129,7 @@ if (!class_exists('SZGoogleWidgetMaps'))
 				'zoom'        => '',  // default value
 				'view'        => '',  // default value
 				'layer'       => '',  // default value
+				'wheel'       => '',  // default value
 				'marker'      => '',  // default value
 				'action'      => 'A', // default value
 			);

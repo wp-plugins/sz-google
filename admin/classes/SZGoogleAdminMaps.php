@@ -96,6 +96,7 @@ if (!class_exists('SZGoogleAdminMaps'))
 				              array('field' => 'maps_s_zoom'    ,'title' => ucfirst(__('default zoom'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_zoom')),
 				              array('field' => 'maps_s_view'    ,'title' => ucfirst(__('default view'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_view')),
 				              array('field' => 'maps_s_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_layer')),
+				              array('field' => 'maps_s_wheel'   ,'title' => ucfirst(__('default wheel'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_wheel')),
 				              array('field' => 'maps_s_marker'  ,'title' => ucfirst(__('default marker'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_marker')),
 				),
 				'05' => array(array('field' => 'maps_w_enable'  ,'title' => ucfirst(__('widget'           ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_enable')),),
@@ -106,6 +107,7 @@ if (!class_exists('SZGoogleAdminMaps'))
 				              array('field' => 'maps_w_zoom'    ,'title' => ucfirst(__('default zoom'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_zoom')),
 				              array('field' => 'maps_w_view'    ,'title' => ucfirst(__('default view'     ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_view')),
 				              array('field' => 'maps_w_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_layer')),
+				              array('field' => 'maps_w_wheel'   ,'title' => ucfirst(__('default wheel'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_wheel')),
 				              array('field' => 'maps_w_marker'  ,'title' => ucfirst(__('default marker'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_marker')),
 				),
 			);
@@ -212,6 +214,12 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('if you use the maps with a specific layer, you can set this value by default. In this way it will be automatically added to your maps. The possible values ​​are NOTHING, TRAFFIC, TRANSIT and BICYCLE.','szgoogleadmin'));
 		}
 
+		function callback_maps_s_wheel()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_s_wheel');
+			$this->moduleCommonFormDescription(__('with this option you can enable or disable the zoom function using the mouse wheel. In fact, many times the central maps can prevent the natural flow of a web page and agrees to disable the function.','szgoogleadmin'));
+		}
+
 		function callback_maps_s_marker()
 		{
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_s_marker');
@@ -282,6 +290,12 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$values = array('NOTHING'=>SZGOOGLE_UPPER(__('nothing','szgoogleadmin')),'TRAFFIC'=>SZGOOGLE_UPPER(__('traffic','szgoogleadmin')),'TRANSIT'=>SZGOOGLE_UPPER(__('transit','szgoogleadmin')),'BICYCLE'=>SZGOOGLE_UPPER(__('bicycle','szgoogleadmin')));
 			$this->moduleCommonFormSelect('sz_google_options_maps','maps_w_layer',$values,'medium','');
 			$this->moduleCommonFormDescription(__('if you use the maps with a specific layer, you can set this value by default. In this way it will be automatically added to your maps. The possible values ​​are NOTHING, TRAFFIC, TRANSIT and BICYCLE.','szgoogleadmin'));
+		}
+
+		function callback_maps_w_wheel()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_w_wheel');
+			$this->moduleCommonFormDescription(__('with this option you can enable or disable the zoom function using the mouse wheel. In fact, many times the central maps can prevent the natural flow of a web page and agrees to disable the function.','szgoogleadmin'));
 		}
 
 		function callback_maps_w_marker()

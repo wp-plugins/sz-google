@@ -28,6 +28,7 @@ return array(
 	'maps_s_zoom'   => array('N'=>'1','Y'=>'0','Z'=>'1','value' => '8'),
 	'maps_s_view'   => array('N'=>'0','Y'=>'0','Z'=>'0','value' => 'ROADMAP'),
 	'maps_s_layer'  => array('N'=>'0','Y'=>'0','Z'=>'0','value' => 'NOTHING'),
+	'maps_s_wheel'  => array('N'=>'1','Y'=>'1','Z'=>'0','value' => '1'),
 	'maps_s_marker' => array('N'=>'1','Y'=>'1','Z'=>'0','value' => '0'),
 	'maps_w_enable' => array('N'=>'1','Y'=>'1','Z'=>'0','value' => '1'),
 	'maps_w_lat'    => array('N'=>'1','Y'=>'0','Z'=>'1','value' => '41.9100711'),
@@ -37,5 +38,6 @@ return array(
 	'maps_w_zoom'   => array('N'=>'1','Y'=>'0','Z'=>'1','value' => '8'),
 	'maps_w_view'   => array('N'=>'0','Y'=>'0','Z'=>'0','value' => 'ROADMAP'),
 	'maps_w_layer'  => array('N'=>'0','Y'=>'0','Z'=>'0','value' => 'NOTHING'),
+	'maps_w_wheel'  => array('N'=>'1','Y'=>'1','Z'=>'0','value' => '1'),
 	'maps_w_marker' => array('N'=>'1','Y'=>'1','Z'=>'0','value' => '0'),
 );

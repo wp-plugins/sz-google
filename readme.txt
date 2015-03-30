@@ -1,12 +1,12 @@
 === SZ - Google for WordPress ===
-Contributors: massimodellarovere,iGenius
+Contributors: massimodellarovere
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.8.7
+Stable tag: 1.8.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
-Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google maps, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
+Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google maps, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recaptcha, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
 
 Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
 
@@ -34,6 +34,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `Module Google Hangouts`
 * `Module Google Maps`
 * `Module Google Panoramio`
+* `Module Google reCAPTCHA`
 * `Module Google Translate`
 * `Module Google Youtube`
 * `Module Documentation`
@@ -344,6 +345,11 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.8 =
+* Feature: Google Maps conflict with Jetpack.
+* Feature: Google Maps disable scrollwheel.
+* Feature: Add new strings translate plugin.
 
 = Version 1.8.7 =
 * Feature: Google reCAPTCHA module.

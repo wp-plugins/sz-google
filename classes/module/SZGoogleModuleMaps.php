@@ -112,7 +112,7 @@ if (!class_exists('SZGoogleModuleMaps'))
 			$javascript .= '.sz-google-maps label { width:auto; display:inline }';
 			$javascript .= '</style>'."\n";
 
-			// Javascript code to render the component google+
+			// Javascript code to render the component google
 			// this method is used for asynchronous loading
 
 			$javascript .= '<script>';
@@ -127,15 +127,25 @@ if (!class_exists('SZGoogleModuleMaps'))
 				{
 					if (is_object($value) and isset($value->idHTML)) 
 					{
+						// Check field for options map and convert value
+						// for javascript syntax in options array 
+
+						if ($value->wheel == '1') $value->wheel = 'true';
+							else $value->wheel = 'false';
+
+						// Javascript code to render the component google
+						// maps with multiple division maps in the page
+
 						$javascript .= 	'var map_opt_'.$value->unique.' = {';
 						$javascript .= 	'zoom:'.$value->zoom.',';
+						$javascript .= 	'scrollwheel:'.$value->wheel.',';
 						$javascript .= 	'panControl:true,';
 						$javascript .= 	'zoomControl:true,';
 						$javascript .= 	'mapTypeControl:true,';
 						$javascript .= 	'scaleControl:true,';
 						$javascript .= 	'streetViewControl:true,';
 						$javascript .= 	'overviewMapControl:true,';
-						$javascript .= 	'center:new google.maps.LatLng('.$value->lat.','.$value->lng.'),';
+						$javascript .= 	"center:new google.maps.LatLng('".$value->lat."','".$value->lng."'),";
 						$javascript .= 	'mapTypeId:google.maps.MapTypeId.'.$value->view;
 						$javascript .= '};';
 
@@ -167,8 +177,8 @@ if (!class_exists('SZGoogleModuleMaps'))
 
 						if ($value->marker == '1') {
 							$javascript .= 'var marker_'.$value->unique.' = new google.maps.Marker({';
-							$javascript .= 'position:new google.maps.LatLng('.$value->lat.','.$value->lng.'),';
-							$javascript .= 'map: map_key_'.$value->unique;
+							$javascript .= "position:new google.maps.LatLng('".$value->lat."','".$value->lng."'),";
+							$javascript .= 'map:map_key_'.$value->unique;
 							$javascript .= '});';
 						}
 					}
@@ -178,18 +188,29 @@ if (!class_exists('SZGoogleModuleMaps'))
 			$javascript .= '}';
 			$javascript .= '</script>'."\n";
 
-			// Procedure Asynchronous loading of javascript code
-			// and the function is called for initial operations
+			// If exists JetPack and load google maps disable load
+			// the sz-google and add javascript for load my maps
 
-			$javascript .= '<script>';
-			$javascript .= 'function szgooglemapsload() {';
-			$javascript .= 	"var script = document.createElement('script');";
-			$javascript .= 	"script.type = 'text/javascript';";
-			$javascript .= 	"script.src = 'https://maps.googleapis.com/maps/api/js?".$parameters."';";
-			$javascript .= 	"document.body.appendChild(script);";
-			$javascript .= '}';
-			$javascript .= 'szgooglemapsload();';
-			$javascript .= '</script>'."\n";
+			if (wp_script_is('google-maps','enqueued')) 
+			{
+				wp_enqueue_script("sz-google-maps-js",
+					plugins_url('frontend/files/js/sz-google-maps.js',SZ_PLUGIN_GOOGLE_MAIN),array('google-maps'));
+
+			} else {
+
+				// Procedure Asynchronous loading of javascript code
+				// and the function is called for initial operations
+
+				$javascript .= '<script>';
+				$javascript .= 'function szgooglemapsload() {';
+				$javascript .= 	"var script = document.createElement('script');";
+				$javascript .= 	"script.type = 'text/javascript';";
+				$javascript .= 	"script.src = 'https://maps.googleapis.com/maps/api/js?".$parameters."';";
+				$javascript .= 	"document.body.appendChild(script);";
+				$javascript .= '}';
+				$javascript .= 'szgooglemapsload();';
+				$javascript .= '</script>'."\n";
+			}
 
 			// Running echo on the footer of the javascript code generated
 			// This code is added to a single block together with other functions
