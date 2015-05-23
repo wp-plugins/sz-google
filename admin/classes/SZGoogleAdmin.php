@@ -463,7 +463,6 @@ if (!class_exists('SZGoogleAdmin'))
 			echo '<h3 class="hndle"><span><strong>'.ucwords(__('authors','szgoogleadmin')).'</strong></span></h3>';
 			echo '<div class="inside">';
 			echo '<ul>';
-			echo '<li><a target="_blank" href="https://plus.google.com/+EugenioPetullà">Eugenio Petullà</a></li>';
 			echo '<li><a target="_blank" href="https://plus.google.com/+MassimoDellaRovere">Massimo Della Rovere</a></li>';
 			echo '</ul>';
 			echo '</div>';

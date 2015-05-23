@@ -120,8 +120,10 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 				              array('field' => 'ga_enable_admin_logged'       ,'title' => ucfirst(__('user logged'         ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_logged')),),
 				'03' => array(array('field' => 'ga_enable_subdomains'         ,'title' => ucfirst(__('tracking subdomains' ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_subdomains')),
 				              array('field' => 'ga_enable_multiple'           ,'title' => ucfirst(__('multiple top domains','szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_multiple')),
-				              array('field' => 'ga_enable_advertiser'         ,'title' => ucfirst(__('advertiser'          ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_advertiser')),),
-				'04' => array(array('field' => 'ga_enable_features'           ,'title' => ucfirst(__('display features'    ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_features')),),
+				              array('field' => 'ga_enable_advertiser'         ,'title' => ucfirst(__('advertiser'          ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_advertiser')),
+				              array('field' => 'ga_enable_ip_none_cl'         ,'title' => ucfirst(__('IP Anonymization'    ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_ip_none_cl')),),
+				'04' => array(array('field' => 'ga_enable_ip_none_ad'         ,'title' => ucfirst(__('IP Anonymization'    ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_ip_none_ad')),
+				              array('field' => 'ga_enable_features'           ,'title' => ucfirst(__('display features'    ,'szgoogleadmin')),'callback' => array($this,'callback_analytics_enable_features')),),
 			);
 
 			// Calling up the function of the parent class to process the 
@@ -219,6 +221,23 @@ if (!class_exists('SZGoogleAdminAnalytics'))
 		{ 
 			$this->moduleCommonFormCheckboxYesNo('sz_google_options_ga','ga_enable_advertiser');
 			$this->moduleCommonFormDescription(__('turn this option for enable display advertiser support. This change is compatible with both the synchronous and asynchronous versions of the tracking code. This modification does not impact any customizations you have previously made to your code.','szgoogleadmin'));
+		}
+
+		function callback_analytics_enable_ip_none_cl() 
+		{ 
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_ga','ga_enable_ip_none_cl');
+			$this->moduleCommonFormDescription(__('in some cases, you might need to anonymize the IP address of the hit (http request) sent to Google Analytics. This function can also be useful for the new European legislation on cookies.','szgoogleadmin'));
+		}
+
+		/**
+		 * Definition functions for the creation of the various options that should be included 
+		 * in the general form of configuration and saved on a database of wordpress (options)		
+		 */
+
+		function callback_analytics_enable_ip_none_ad() 
+		{ 
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_ga','ga_enable_ip_none_ad');
+			$this->moduleCommonFormDescription(__('in some cases, you might need to anonymize the IP address of the hit (http request) sent to Google Analytics. This function can also be useful for the new European legislation on cookies.','szgoogleadmin'));
 		}
 
 		function callback_analytics_enable_features() 

@@ -57,6 +57,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				'ga_enable_multiple'      => $options->ga_enable_multiple,
 				'ga_enable_advertiser'    => $options->ga_enable_advertiser,
 				'ga_enable_features'      => $options->ga_enable_features,
+				'ga_enable_ip_none_cl'    => $options->ga_enable_ip_none_cl,
+				'ga_enable_ip_none_ad'    => $options->ga_enable_ip_none_ad,
 			),$atts));
 
 			// I delete spaces added and execute the transformation in string
@@ -73,6 +75,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 			$ga_enable_multiple      = strtolower(trim($ga_enable_multiple));
 			$ga_enable_advertiser    = strtolower(trim($ga_enable_advertiser));
 			$ga_enable_features      = strtolower(trim($ga_enable_features));
+			$ga_enable_ip_none_cl    = strtolower(trim($ga_enable_ip_none_cl));
+			$ga_enable_ip_none_ad    = strtolower(trim($ga_enable_ip_none_ad));
 
 			// Conversion of the values ​​specified directly covered in the
 			// parameters with the values ​​used for storing the default values
@@ -85,15 +89,19 @@ if (!class_exists('SZGoogleActionAnalytics'))
 			if ($ga_enable_multiple      == 'yes' or $ga_enable_multiple      == 'y') $ga_enable_multiple      = '1';
 			if ($ga_enable_advertiser    == 'yes' or $ga_enable_advertiser    == 'y') $ga_enable_advertiser    = '1';
 			if ($ga_enable_features      == 'yes' or $ga_enable_features      == 'y') $ga_enable_features      = '1';
+			if ($ga_enable_ip_none_cl    == 'yes' or $ga_enable_ip_none_cl    == 'y') $ga_enable_ip_none_cl    = '1';
+			if ($ga_enable_ip_none_ad    == 'yes' or $ga_enable_ip_none_ad    == 'y') $ga_enable_ip_none_ad    = '1';
 
-			if ($ga_enable_front         == 'no'  or $ga_enable_front         == 'n') $ga_enable_front         = '1';
-			if ($ga_enable_admin         == 'no'  or $ga_enable_admin         == 'n') $ga_enable_admin         = '1';
-			if ($ga_enable_administrator == 'no'  or $ga_enable_administrator == 'n') $ga_enable_administrator = '1';
-			if ($ga_enable_logged        == 'no'  or $ga_enable_logged        == 'n') $ga_enable_logged        = '1';
-			if ($ga_enable_subdomain     == 'no'  or $ga_enable_subdomain     == 'n') $ga_enable_subdomain     = '1';
-			if ($ga_enable_multiple      == 'no'  or $ga_enable_multiple      == 'n') $ga_enable_multiple      = '1';
-			if ($ga_enable_advertiser    == 'no'  or $ga_enable_advertiser    == 'n') $ga_enable_advertiser    = '1';
-			if ($ga_enable_features      == 'no'  or $ga_enable_features      == 'n') $ga_enable_features      = '1';
+			if ($ga_enable_front         == 'no'  or $ga_enable_front         == 'n') $ga_enable_front         = '0';
+			if ($ga_enable_admin         == 'no'  or $ga_enable_admin         == 'n') $ga_enable_admin         = '0';
+			if ($ga_enable_administrator == 'no'  or $ga_enable_administrator == 'n') $ga_enable_administrator = '0';
+			if ($ga_enable_logged        == 'no'  or $ga_enable_logged        == 'n') $ga_enable_logged        = '0';
+			if ($ga_enable_subdomain     == 'no'  or $ga_enable_subdomain     == 'n') $ga_enable_subdomain     = '0';
+			if ($ga_enable_multiple      == 'no'  or $ga_enable_multiple      == 'n') $ga_enable_multiple      = '0';
+			if ($ga_enable_advertiser    == 'no'  or $ga_enable_advertiser    == 'n') $ga_enable_advertiser    = '0';
+			if ($ga_enable_features      == 'no'  or $ga_enable_features      == 'n') $ga_enable_features      = '0';
+			if ($ga_enable_ip_none_cl    == 'no'  or $ga_enable_ip_none_cl    == 'n') $ga_enable_ip_none_cl    = '0';
+			if ($ga_enable_ip_none_ad    == 'no'  or $ga_enable_ip_none_ad    == 'n') $ga_enable_ip_none_ad    = '0';
 
 			// Check if they are logged in as an administrator or registered
 			// user and off loading the code if the options are disabled
@@ -123,7 +131,7 @@ if (!class_exists('SZGoogleActionAnalytics'))
 			// parameters with the values ​​used for storing the default values
 
 			if ($ga_position == '') $ga_position = 'H';
-			if ($ga_uacode   == '') $ga_uacode   = $this->getGAId();   
+			if ($ga_uacode   == '') $ga_uacode   = $this->getGAId();
 
 			if (!in_array($ga_type,array('classic','universal'))) $ga_type = 'classic';
 
@@ -150,12 +158,8 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');"."\n";
 				$HTML .= "  ga('create','".trim($ga_uacode)."','".trim(SZGoogleCommon::getCurrentDomain())."');"."\n";
 
-				// Displayfeature control option to add to the 
-				// code of google analytics universal standard
-
-				if ($ga_enable_features == '1') {
-					$HTML .= "  ga('require','displayfeatures');"."\n";
-				}
+				if ($ga_enable_features   == '1') $HTML .= "  ga('require','displayfeatures');"."\n";
+				if ($ga_enable_ip_none_ad == '1') $HTML .= "  ga('set','anonymizeIp',true);"."\n";
 
 				$HTML .= "  ga('send','pageview');"."\n";
 				$HTML .= "</script>"."\n";
@@ -182,6 +186,10 @@ if (!class_exists('SZGoogleActionAnalytics'))
 
 				if ($ga_enable_multiple == '1') {
 					$HTML .= "_gaq.push(['_setAllowLinker',true]);"."\n";
+				}
+
+				if ($ga_enable_ip_none_cl == '1') {
+					$HTML .= "_gaq.push(['_gat._anonymizeIp']);"."\n";
 				}
 
 				$HTML .= "_gaq.push(['_trackPageview']);"."\n";

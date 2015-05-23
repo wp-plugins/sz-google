@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogleadmin\n"
-"POT-Creation-Date: 2015-03-30 01:01-0500\n"
-"PO-Revision-Date: 2015-03-30 01:04-0500\n"
+"POT-Creation-Date: 2015-05-23 13:41-0500\n"
+"PO-Revision-Date: 2015-05-23 13:43-0500\n"
 "Last-Translator: Massimo <wordpress@otherplus.com>\n"
 "Language-Team: otherplus <wordpress@otherplus.com>\n"
 "Language: es_ES\n"
@@ -830,7 +830,7 @@ msgstr "su ID de client secreto"
 #: ../../admin/classes/SZGoogleAdmin.php:437
 #: ../../admin/classes/SZGoogleAdmin.php:448
 #: ../../admin/classes/SZGoogleAdmin.php:462
-#: ../../admin/classes/SZGoogleAdmin.php:476
+#: ../../admin/classes/SZGoogleAdmin.php:475
 msgid "click to toggle"
 msgstr "clic para activar"
 
@@ -855,7 +855,7 @@ msgid "join our google+ page"
 msgstr "unase a nuestra página"
 
 #: ../../admin/classes/SZGoogleAdmin.php:438
-#: ../../admin/classes/SZGoogleAdmin.php:480
+#: ../../admin/classes/SZGoogleAdmin.php:479
 msgid "official page"
 msgstr "página oficial"
 
@@ -875,30 +875,30 @@ msgstr "asistencia nuevas peticiones"
 msgid "authors"
 msgstr "autores"
 
-#: ../../admin/classes/SZGoogleAdmin.php:477
+#: ../../admin/classes/SZGoogleAdmin.php:476
 msgid "latest news"
 msgstr "ultimas noticias"
 
+#: ../../admin/classes/SZGoogleAdmin.php:479
 #: ../../admin/classes/SZGoogleAdmin.php:480
 #: ../../admin/classes/SZGoogleAdmin.php:481
 #: ../../admin/classes/SZGoogleAdmin.php:482
-#: ../../admin/classes/SZGoogleAdmin.php:483
 msgid "news:"
 msgstr "noticia:"
 
-#: ../../admin/classes/SZGoogleAdmin.php:481
+#: ../../admin/classes/SZGoogleAdmin.php:480
 msgid "official website"
 msgstr "sitio web oficial"
 
-#: ../../admin/classes/SZGoogleAdmin.php:482
+#: ../../admin/classes/SZGoogleAdmin.php:481
 msgid "community WordPress"
 msgstr "comunidad WordPress"
 
-#: ../../admin/classes/SZGoogleAdmin.php:483
+#: ../../admin/classes/SZGoogleAdmin.php:482
 msgid "youtube channel"
 msgstr "canal de youtube"
 
-#: ../../admin/classes/SZGoogleAdmin.php:561
+#: ../../admin/classes/SZGoogleAdmin.php:560
 msgid "YES / NO"
 msgstr "SI/NO"
 
@@ -2742,7 +2742,7 @@ msgstr ""
 #: ../../admin/classes/SZGoogleAdminMaps.php:212
 #: ../../admin/classes/SZGoogleAdminMaps.php:290
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:105
-#: ../../admin/widgets/SZGoogleWidgetMaps.php:119
+#: ../../admin/widgets/SZGoogleWidgetMaps.php:131
 msgid "nothing"
 msgstr "nada"
 
@@ -2802,7 +2802,7 @@ msgid "setup"
 msgstr "configuración"
 
 #: ../../admin/classes/SZGoogleAdminYoutube.php:52
-#: ../../admin/widgets/SZGoogleWidgetMaps.php:120
+#: ../../admin/widgets/SZGoogleWidgetMaps.php:132
 #: ../../admin/widgets/SZGoogleWidgetPlusAuthorBadge.php:27
 msgid "display"
 msgstr "visualización"
@@ -3860,14 +3860,19 @@ msgid "advertiser"
 msgstr "anunciante"
 
 #: ../../admin/classes/SZGoogleAdminAnalytics.php:124
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:125
+msgid "IP Anonymization"
+msgstr "IP Anonimización"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:126
 msgid "display features"
 msgstr "características"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:140
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:142
 msgid "insert your UA code"
 msgstr "ingresar el código de UA"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:141
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:143
 msgid ""
 "specify the code assigned to the profile of google analytics, to find enough "
 "to enter the admin panel google analytics and see the code assigned such as "
@@ -3879,19 +3884,19 @@ msgstr ""
 "como UA- 12345-12. Si este código no se especifica, no se generará el código "
 "de seguimiento."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:152
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:154
 msgid "header (default)"
 msgstr "encabezado (por defecto)"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:153
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:155
 msgid "footer"
 msgstr "pie de página"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:154
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:156
 msgid "insert manually"
 msgstr "insertar manualmente"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:158
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:160
 msgid ""
 "specifies the location of the tracking code in the page HTML. The "
 "recommended position is the header that does not allow the loss of access "
@@ -3903,15 +3908,15 @@ msgstr ""
 "acceso. Si especifica el modo manual usted tiene que utilizar "
 "szgoogle_analytics_get_code ( )."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:164
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:166
 msgid "google analytics classic"
 msgstr "google analytics classic"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:165
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:167
 msgid "google analytics universal"
 msgstr "google analytics universal"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:169
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:171
 msgid ""
 "universal Analytics introduces a set of features that change the way data is "
 "collected and organized in your Google Analytics account, so you can get a "
@@ -3922,7 +3927,7 @@ msgstr ""
 "mejor comprensión de cómo los visitantes interactúan con su contenido en "
 "línea."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:180
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:182
 msgid ""
 "enable this option to activate the tracking code to the public pages of your "
 "website. This option can also be used to disable the code without disabling "
@@ -3934,7 +3939,7 @@ msgstr ""
 "deshabilitar el módulo. Para comprobar el código sobre los usuarios "
 "conectados utilizar a los demás opciones."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:186
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:188
 msgid ""
 "this option allows you to insert the tracking code in the admin pages. "
 "Useful function for some tests but not recommended during normal operation. "
@@ -3946,7 +3951,7 @@ msgstr ""
 "funcionamiento normal. No hay que confundir esta opción con usuario "
 "administrador."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:192
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:194
 msgid ""
 "this option allows you to enter the tracking code when you browse the "
 "website as an administrator user. It is recommended to leave this option off "
@@ -3957,7 +3962,7 @@ msgstr ""
 "Se recomienda dejar esta opción de no afectar a las estadísticas de acceso. "
 "Esta opción se utiliza tanto para el frontend y backend entorno."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:198
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:200
 msgid ""
 "with this option, you can check the tracking code for users who are "
 "connected to the website. The behavior of this option is similar to option "
@@ -3969,7 +3974,7 @@ msgstr ""
 "opción administrador. Esta opción se utiliza tanto para el frontend y "
 "backend entorno."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:209
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:211
 msgid ""
 "turn this option for track your subdomains. This option adds the "
 "_setDomainName function to your code. Use this function if you manage "
@@ -3980,7 +3985,7 @@ msgstr ""
 "_setDomainName a su código. Utilice esta función si te las arreglas varios "
 "dominios como ejemplo www.domain.com, apps.domain.com y store.domain.com"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:215
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:217
 msgid ""
 "turn this option on to track across multiple top-level domains. This option "
 "adds the _setDomainName and _setAllowLinker to tracking code. Use this "
@@ -3991,7 +3996,7 @@ msgstr ""
 "añade la _setDomainName y _setAllowLinker de código. Utilice esta función si "
 "te las arreglas varios dominios como ejemplo domain.uk, domain.cn y domain.fr"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:221
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:223
 msgid ""
 "turn this option for enable display advertiser support. This change is "
 "compatible with both the synchronous and asynchronous versions of the "
@@ -4003,7 +4008,18 @@ msgstr ""
 "afecta a las personalizaciones que haya realizado con anterioridad a su "
 "código."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:227
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:229
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:240
+msgid ""
+"in some cases, you might need to anonymize the IP address of the hit (http "
+"request) sent to Google Analytics. This function can also be useful for the "
+"new European legislation on cookies."
+msgstr ""
+"en algunos casos, puede ser necesario para anonimizar la dirección IP  "
+"(http) enviado a Google Analytics. Esta función también puede ser útil para "
+"la nueva legislación europea sobre las cookies."
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:246
 msgid ""
 "Google Analytics Display Advertising is a collection of features that takes "
 "advantage of the DoubleClick cookie so you can do things like create "
@@ -4950,6 +4966,7 @@ msgstr "zoom"
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:90
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:104
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:118
+#: ../../admin/widgets/SZGoogleWidgetMaps.php:130
 msgid "default"
 msgstr "defecto"
 
@@ -4962,6 +4979,24 @@ msgid "layer"
 msgstr "capa"
 
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:115
+msgid "wheel"
+msgstr "rueda"
+
+#: ../../admin/widgets/SZGoogleWidgetMaps.php:119
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:68
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:74
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:102
+msgid "disabled"
+msgstr "discapacitados"
+
+#: ../../admin/widgets/SZGoogleWidgetMaps.php:120
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:67
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:73
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:101
+msgid "enabled"
+msgstr "habilitado"
+
+#: ../../admin/widgets/SZGoogleWidgetMaps.php:127
 msgid "marker"
 msgstr "marcador"
 
@@ -5113,18 +5148,6 @@ msgstr "document ID"
 #: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:66
 msgid "start"
 msgstr "inicio"
-
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:67
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:73
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:101
-msgid "enabled"
-msgstr "habilitado"
-
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:68
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:74
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:102
-msgid "disabled"
-msgstr "discapacitados"
 
 #: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:80
 msgid "delay sec"

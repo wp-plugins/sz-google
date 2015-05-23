@@ -1,8 +1,8 @@
 === SZ - Google for WordPress ===
 Contributors: massimodellarovere
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 1.8.8
+Tested up to: 4.2
+Stable tag: 1.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
@@ -345,6 +345,10 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.8.9 =
+* Feature: GA IP Anonymization (classic).
+* Feature: GA IP Anonymization (advanced).
 
 = Version 1.8.8 =
 * Feature: Google Maps conflict with Jetpack.

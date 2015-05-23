@@ -27,4 +27,6 @@ return array(
 	'ga_enable_multiple'      => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'ga_enable_advertiser'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 	'ga_enable_features'      => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'ga_enable_ip_none_cl'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
+	'ga_enable_ip_none_ad'    => array('N'=>'0','Y'=>'1','Z'=>'0','value' => '0'),
 );
