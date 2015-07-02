@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogleadmin\n"
-"POT-Creation-Date: 2015-05-23 13:41-0500\n"
-"PO-Revision-Date: 2015-05-23 13:46-0500\n"
+"POT-Creation-Date: 2015-07-02 03:33-0500\n"
+"PO-Revision-Date: 2015-07-02 03:34-0500\n"
 "Last-Translator: Massimo <wordpress@otherplus.com>\n"
 "Language-Team: otherplus <wordpress@otherplus.com>\n"
 "Language: it_IT\n"
@@ -15,23 +15,23 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ../..\n"
 
-#: ../../sz-google.php:217
+#: ../../sz-google.php:208
 msgid "SZ - Google"
 msgstr "SZ - Google"
 
-#: ../../sz-google.php:218
+#: ../../sz-google.php:209
 msgid "https://otherplus.com/tech/sz-google/"
 msgstr "https://otherplus.com/tech/sz-google/"
 
-#: ../../sz-google.php:219
+#: ../../sz-google.php:210
 msgid "Massimo Della Rovere"
 msgstr "Massimo Della Rovere"
 
-#: ../../sz-google.php:220
+#: ../../sz-google.php:211
 msgid "https://plus.google.com/+MassimoDellaRovere"
 msgstr "https://plus.google.com/+MassimoDellaRovere"
 
-#: ../../sz-google.php:221
+#: ../../sz-google.php:212
 msgid ""
 "Plugin to integrate <a href=\"http://google.com\" target=\"_blank"
 "\">Google's</a> products in <a href=\"http://wordpress.org\" target=\"_blank"
@@ -3221,7 +3221,7 @@ msgid "start hangout"
 msgstr "avvio hangout"
 
 #: ../../admin/classes/SZGoogleAdminHangouts.php:77
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:120
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:121
 msgid "user logged"
 msgstr "utente loggato"
 
@@ -3845,43 +3845,61 @@ msgid "type code"
 msgstr "modalità"
 
 #: ../../admin/classes/SZGoogleAdminAnalytics.php:117
+msgid "compression"
+msgstr "compressione"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:118
 msgid "frontend"
 msgstr "frontend"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:118
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:119
 msgid "backend"
 msgstr "backend"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:119
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:120
 msgid "administrator"
 msgstr "amministratore"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:121
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:122
 msgid "tracking subdomains"
 msgstr "tracking subdomains"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:122
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:123
 msgid "multiple top domains"
 msgstr "multiple top domains"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:123
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:124
 msgid "advertiser"
 msgstr "advertiser"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:124
 #: ../../admin/classes/SZGoogleAdminAnalytics.php:125
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:129
 msgid "IP Anonymization"
 msgstr "IP Anonimo"
 
 #: ../../admin/classes/SZGoogleAdminAnalytics.php:126
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:131
+msgid "Proxy HTTP"
+msgstr "Proxy HTTP"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:127
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:132
+msgid "Proxy HTTP URL"
+msgstr "Proxy HTTP URL"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:128
+msgid "Proxy HTTP URL adv"
+msgstr "Proxy HTTP URL adv"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:130
 msgid "display features"
 msgstr "visualizzare features"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:142
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:148
 msgid "insert your UA code"
 msgstr "inserisci il tuo codice UA"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:143
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:149
 msgid ""
 "specify the code assigned to the profile of google analytics, to find enough "
 "to enter the admin panel google analytics and see the code assigned such as "
@@ -3893,19 +3911,19 @@ msgstr ""
 "UA-12345-12. Se in questo campo non viene specificato nessun valore il "
 "codice di monitoraggio non sarà generato."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:154
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:160
 msgid "header (default)"
 msgstr "header (default)"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:155
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:161
 msgid "footer"
 msgstr "footer"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:156
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:162
 msgid "insert manually"
 msgstr "inserisci manualmente"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:160
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:166
 msgid ""
 "specifies the location of the tracking code in the page HTML. The "
 "recommended position is the header that does not allow the loss of access "
@@ -3917,15 +3935,15 @@ msgstr ""
 "informazioni. Se vuoi selezionare l'inserimento manuale devi utilizzare la "
 "funzione PHP."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:166
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:172
 msgid "google analytics classic"
 msgstr "google analytics classic"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:167
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:173
 msgid "google analytics universal"
 msgstr "google analytics universal"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:171
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:177
 msgid ""
 "universal Analytics introduces a set of features that change the way data is "
 "collected and organized in your Google Analytics account, so you can get a "
@@ -3936,7 +3954,19 @@ msgstr ""
 "Analytics, in modo da poter ottenere una migliore comprensione dei contenuti "
 "online. "
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:182
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:183
+msgid ""
+"enable this option to compress the HTML code that is placed in the WEB page "
+"by the plugin. This option need to be current with those using an HTML "
+"minimized to create their own web pages. It works both for the header that "
+"footer."
+msgstr ""
+"abilitare questa opzione per comprimere il codice HTML che sarà inserito "
+"nella pagina web dal plugin. Questa opzione può essere utile agli "
+"sviluppatori che vogliono minimizzare il codice HTML della pagina. L'opzione "
+"funziona sia in HEAD che FOOTER."
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:194
 msgid ""
 "enable this option to activate the tracking code to the public pages of your "
 "website. This option can also be used to disable the code without disabling "
@@ -3947,7 +3977,7 @@ msgstr ""
 "pubbliche del tuo sito web. Questa opzione può essere utilizzata anche per "
 "disattivare momentaneamente il codice senza disattivare l'intero modulo."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:188
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:200
 msgid ""
 "this option allows you to insert the tracking code in the admin pages. "
 "Useful function for some tests but not recommended during normal operation. "
@@ -3959,7 +3989,7 @@ msgstr ""
 "durante le normali operazioni. Non confondere questa opzione con quella "
 "legata agli amministratori."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:194
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:206
 msgid ""
 "this option allows you to enter the tracking code when you browse the "
 "website as an administrator user. It is recommended to leave this option off "
@@ -3971,7 +4001,7 @@ msgstr ""
 "statistiche di accesso con le proprie visite. L'opzione viene controllata "
 "sia sul frontend che sul backend."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:200
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:212
 msgid ""
 "with this option, you can check the tracking code for users who are "
 "connected to the website. The behavior of this option is similar to option "
@@ -3983,7 +4013,7 @@ msgstr ""
 "simile a quella degli utenti amministratori e viene controllata sia per il "
 "frontend che per il backend."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:211
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:223
 msgid ""
 "turn this option for track your subdomains. This option adds the "
 "_setDomainName function to your code. Use this function if you manage "
@@ -3994,7 +4024,7 @@ msgstr ""
 "aggiunge la funzione _setDomainName al tuo codice. Ad esempio in questa "
 "situazione www.domain.com, apps.domain.com e store.domain.com"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:217
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:229
 msgid ""
 "turn this option on to track across multiple top-level domains. This option "
 "adds the _setDomainName and _setAllowLinker to tracking code. Use this "
@@ -4005,7 +4035,7 @@ msgstr ""
 "opzione aggiunge le funzioni _setDomainName e _setAllowLinker. Utilizzare ad "
 "esempio in questa situazione domain.uk, domain.cn e domain.fr"
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:223
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:235
 msgid ""
 "turn this option for enable display advertiser support. This change is "
 "compatible with both the synchronous and asynchronous versions of the "
@@ -4017,8 +4047,8 @@ msgstr ""
 "codice di monitoraggio. Questa modifica non ha ripercussioni su eventuali "
 "personalizzazioni precedenti."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:229
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:240
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:241
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:270
 msgid ""
 "in some cases, you might need to anonymize the IP address of the hit (http "
 "request) sent to Google Analytics. This function can also be useful for the "
@@ -4029,7 +4059,50 @@ msgstr ""
 "utile anche per la nuova legge Europea che regolarizza l'utilizzo dei "
 "cookies."
 
-#: ../../admin/classes/SZGoogleAdminAnalytics.php:246
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:247
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:282
+msgid ""
+"there may be situations where you want to make a proxy on request script "
+"google GA. For example, useful when you want to change the values ​​of Cache. "
+"Obviously the proxy configuration should be performed at the webserver like "
+"Apache."
+msgstr ""
+"ci possono essere delle situazioni in cui si voglia fare un proxy tra una "
+"richiesta HTTP locale e lo script originale di google. Ad esempio può essere "
+"utile per impostare i valori di cache personalizzati. Ovviamente bisogna "
+"configurare prima il server web."
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:252
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:258
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:287
+msgid "insert URL as domain.com/URL dont'use (http://)"
+msgstr "inserire un URL come domain.com/URL non usare (http://)"
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:253
+msgid ""
+"if you have enabled the HTTP Proxy can indicate the URL address on which to "
+"run the local operation PROXY. For example you can use domain.com/cache/ga."
+"js to run the proxy on www.google-analytics.com/ga.js. Dont'use prefix "
+"(http://)."
+msgstr ""
+"se è stata abilitata la funzione di PROXY HTTP è possibile indicare "
+"l'indirizzo URL locale sui cui eseguire l'operazione. Ad esempio potete "
+"usare domain.com/cache/ga.js per eseguire un proxy su www.google-analytics."
+"com/ga.js. Non usate (http://)."
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:259
+msgid ""
+"if you have enabled the HTTP Proxy can indicate the URL address on which to "
+"run the local operation PROXY. For example you can use domain.com/cache/"
+"advertiser.js to run the proxy on stats.g.doubleclick.net/dc.js. Dont'use "
+"prefix (http://)."
+msgstr ""
+"se è stata abilitata la funzione di PROXY HTTP è possibile indicare "
+"l'indirizzo URL locale sui cui eseguire l'operazione. Ad esempio potete "
+"usare domain.com/cache/advertiser.js per eseguire un proxy su stats.g."
+"doubleclick.net/dc.js. Non usate (http://)."
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:276
 msgid ""
 "Google Analytics Display Advertising is a collection of features that takes "
 "advantage of the DoubleClick cookie so you can do things like create "
@@ -4040,6 +4113,18 @@ msgstr ""
 "il cookie DoubleClick in modo da poter fare le cose come creare elenchi per "
 "il remarketing, utilizzare i dati demografici e creare segmenti basati su "
 "dati demografici e di interesse."
+
+#: ../../admin/classes/SZGoogleAdminAnalytics.php:288
+msgid ""
+"if you have enabled the HTTP Proxy can indicate the URL address on which to "
+"run the local operation PROXY. For example you can use domain.com/cache/ga."
+"js to run the proxy on www.google-analytics.com/analytics.js. Dont'use "
+"prefix (http://)."
+msgstr ""
+"Se è stata abilitata la funzione di PROXY HTTP è possibile indicare "
+"l'indirizzo URL locale sui cui eseguire l'operazione. Ad esempio potete "
+"usare domain.com/cache/ga.js per eseguire un proxy su www.google-analytics."
+"com/analytics.js. Non usate (http://)."
 
 #: ../../admin/classes/SZGoogleAdminDrive.php:42
 msgid "embed"

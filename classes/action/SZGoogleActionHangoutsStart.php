@@ -135,8 +135,8 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 			// il controllo su utente loggato o utente guest. Ritorno NULL.
 
 			if (!current_user_can('manage_options')) {
-				if ( is_user_logged_in() and $logged != '1') return NULL;
-				if (!is_user_logged_in() and $guest  != '1') return NULL;
+				if ( current_user_can('read') and $logged != '1') return NULL;
+				if (!current_user_can('read') and $guest  != '1') return NULL;
 			}
 
 			// Imposto i valori di default nel caso siano specificati dei valori
