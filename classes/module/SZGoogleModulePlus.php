@@ -102,21 +102,21 @@ if (!class_exists('SZGoogleModulePlus'))
 			// quindi aggiungere author ID nella configurazione generale
 
 			if ($options->plus_enable_author == '1') {
-				add_action('SZ_HEAD',array($this,'moduleAddMetaAuthor'),20);
+				add_action('SZ_HEAD_HEAD',array($this,'moduleAddMetaAuthor'),20);
 			}
 
 			// Controllo se devo attivare la sezione HEAD per publisher
 			// quindi aggiungere publisher ID nella configurazione generale
 
 			if ($options->plus_enable_publisher == '1') {
-				add_action('SZ_HEAD',array($this,'moduleAddMetaPublisher'),20);
+				add_action('SZ_HEAD_HEAD',array($this,'moduleAddMetaPublisher'),20);
 			}
 
 			// Controllo se devo attivare le raccomandazioni per mobile,
 			// quindi aggiungere publisher ID su codice javascript e sezione HEAD
 
 			if ($options->plus_enable_recommendations == '1') {
-				add_action('SZ_HEAD',array($this,'moduleAddMetaPublisher'),20);
+				add_action('SZ_HEAD_HEAD',array($this,'moduleAddMetaPublisher'),20);
 				$this->addCodeJavascriptFooter();
 			}
 		}
@@ -1741,7 +1741,7 @@ if (!class_exists('SZGoogleModulePlus'))
 			// Caricamento azione nel footer del plugin per il caricamento
 			// del framework javascript messo a disposizione da google
 
-			add_action('SZ_FOOT',array($this,'setJavascriptPlusOne'));
+			add_action('SZ_FOOT_BODY',array($this,'setJavascriptPlusOne'));
 		}
 	}
 

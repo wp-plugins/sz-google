@@ -41,7 +41,7 @@ formato opzione="valore". Se volete avere delle informazioni aggiuntive potete v
 
 <table>
 	<tr><th>Parametro</th>    <th>Descrizione</th>              <th>Valori ammessi</th>         <th>Default</th></tr>
-	<tr><td>type</td>         <td>tipo documento</td>           <td>document,folder,spreadsheet,<br/>presentation,forms,pdf,video</td> <td>document</td></tr>
+	<tr><td>type</td>         <td>tipo documento</td>           <td>document,folder,spreadsheet,<br/>presentation,forms,pdf,video,image</td> <td>document</td></tr>
 	<tr><td>id</td>           <td>id univoco documento</td>     <td>stringa</td>                <td>nessuno</td></tr>
 	<tr><td>width</td>        <td>larghezza</td>                <td>valore</td>                 <td>configurazione</td></tr>
 	<tr><td>height</td>       <td>altezza</td>                  <td>valore</td>                 <td>configurazione</td></tr>
@@ -103,6 +103,7 @@ qui di seguito alcuni shortcode che potete provare per controllare il corretto f
 [sz-drive-embed type="pdf" id="0B8B1V5PwB8NjTDhMckQ5MlVENjQ"/]
 [sz-drive-embed type="video" id="0B8B1V5PwB8NjZFpNNG0tS3dmNTQ" height="300"/]
 [sz-drive-embed type="folder" id="0B8B1V5PwB8NjdHpXR0dhck1EaW8" folderview="list"/]
+[sz-drive-embed type="image" id="0B8B1V5PwB8NjQ0ZYbVozWTVEbjA"/]
 </pre>
 
 <h2>Avvertenze</h2>

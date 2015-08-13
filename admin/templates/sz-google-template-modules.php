@@ -16,13 +16,13 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 // mentioned or reviewed the SZ-Google plugin for WordPress
 
 $reviewsLINK =  array(
-	array('language' => __('italian','szgoogleadmin'),'module'=>'google+'             ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-plus/'),
-	array('language' => __('italian','szgoogleadmin'),'module'=>'google analytics'    ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-analytics/'),
-	array('language' => __('italian','szgoogleadmin'),'module'=>'google authenticator','author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-authenticator/'),
-	array('language' => __('italian','szgoogleadmin'),'module'=>'google calendar'     ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-calendar/'),
-	array('language' => __('italian','szgoogleadmin'),'module'=>'google drive'        ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-drive/'),
-	array('language' => __('italian','szgoogleadmin'),'module'=>'google maps'         ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-maps/'),
-	array('language' => __('italian','szgoogleadmin'),'module'=>'google youtube'      ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/sz-google-youtube/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google+'             ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/wordpress-google-plus/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google analytics'    ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/wordpress-google-analytics/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google authenticator','author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/wordpress-google-authenticator/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google calendar'     ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/wordpress-google-calendar/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google drive'        ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/wordpress-google-drive/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google maps'         ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/wordpress-google-maps/'),
+	array('language' => __('italian','szgoogleadmin'),'module'=>'google youtube'      ,'author'=>'Massimo Della Rovere','authorlink'=>'https://plus.google.com/+MassimoDellaRovere','url'=>'https://otherplus.com/tech/wordpress-google-youtube/'),
 );
 
 // Generate array with all the internet resources 

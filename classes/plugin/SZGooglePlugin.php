@@ -22,6 +22,9 @@ if (!class_exists('SZGooglePlugin'))
 		private $module  = false;
 		private $options = false;
 
+		private $addCommentHeader = false;
+		private $addCommentFooter = false;
+
 		/**
 		 * Definition the constructor function, which is called
 		 * at the time of the creation of an instance of this class
@@ -62,8 +65,10 @@ if (!class_exists('SZGooglePlugin'))
 		 */
 
 		function includeHead() {
-			add_action('wp_head',array($this,'addSectionHead'),1);
-			add_action('wp_head',array($this,'addSectionCSSInline'),99);
+			add_action('wp_head',array($this,'addSectionHeaderOpen'),1);
+			add_action('wp_head',array($this,'addSectionHeaderHead'),1);
+			add_action('wp_head',array($this,'addSectionHeaderEnds'),1);
+			add_action('wp_head',array($this,'addSectionHeaderFoot'),99);
 		}
 
 		/**
@@ -72,7 +77,11 @@ if (!class_exists('SZGooglePlugin'))
 		 */
 
 		function includeFooter() {
-			add_action('wp_footer',array($this,'addSectionFooter'));
+			add_action('wp_footer',array($this,'addSectionFooterOpen'));
+			add_action('wp_footer',array($this,'addSectionFooterHead'));
+			add_action('wp_footer',array($this,'addSectionFooterBase'));
+			add_action('wp_footer',array($this,'addSectionFooterBody'));
+			add_action('wp_footer',array($this,'addSectionFooterEnds'));
 		}
 
 		/**
@@ -130,24 +139,56 @@ if (!class_exists('SZGooglePlugin'))
 		 * be included in the various sections of the page WEB Head & Footer
 		 */
 
-		function addSectionHead()      { $this->addSectionCommon('SZ_HEAD'); }
-		function addSectionCSSInline() { $this->addSectionCommon('SZ_CSSH'); }
-		function addSectionFooter()    { $this->addSectionCommon('SZ_FOOT'); }
+		function addSectionHeaderOpen() { $this->addCodeHeaderHTML('SZ_COMM_OPEN'); }
+		function addSectionHeaderHead() { $this->addCodeHeaderBody('SZ_HEAD_HEAD'); }
+		function addSectionHeaderEnds() { $this->addCodeHeaderHTML('SZ_COMM_ENDS'); }
+		function addSectionHeaderFoot() { $this->addCodeHeaderBody('SZ_HEAD_FOOT'); }
+
+		function addSectionFooterOpen() { $this->addCodeFooterHTML('SZ_COMM_OPEN'); }
+		function addSectionFooterHead() { $this->addCodeFooterBody('SZ_FOOT_HEAD'); }
+		function addSectionFooterBase() { $this->addCodeFooterBody('SZ_FOOT_BASE'); }
+		function addSectionFooterBody() { $this->addCodeFooterBody('SZ_FOOT_BODY'); }
+		function addSectionFooterEnds() { $this->addCodeFooterHTML('SZ_COMM_ENDS'); }
 
 		/**
 		 * Functions for the creation of "action" and processing HTML to
 		 * be included in the various sections of the page WEB Head & Footer
 		 */
 
-		function addSectionCommon($action) 
-		{
-			if(has_action($action)) {
-				echo "\n";
-				echo "<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." -->\n";
-				echo "<!-- ===================================================================== -->\n";
-				do_action($action); 
-				echo "<!-- ===================================================================== -->\n";
+		function addCodeHeaderBody($action) { if(has_action($action)) do_action($action); }
+		function addCodeFooterBody($action) { if(has_action($action)) do_action($action); }
+
+		/**
+		 * Functions for the creation of "action" and processing HTML to
+		 * be included in the various sections of the page WEB Head & Footer
+		 */
+
+		function addCodeHeaderHTML($section) {
+			if (has_action('SZ_FOOT_HEAD') or has_action('SZ_FOOT_BASE') or has_action('SZ_FOOT_BODY')) {
+				if ($section == 'SZ_COMM_OPEN') echo $this->getCodeCommentOpen();
+				if ($section == 'SZ_COMM_ENDS') echo $this->getCodeCommentEnds();
 			}
+		}
+
+		function addCodeFooterHTML($section) {
+			if (has_action('SZ_HEAD_HEAD') or has_action('SZ_HEAD_FOOT')) {
+				if ($section == 'SZ_COMM_OPEN') echo $this->getCodeCommentOpen();
+				if ($section == 'SZ_COMM_ENDS') echo $this->getCodeCommentEnds();
+			}
+		}
+
+		/**
+		 * Function for the creation of HTML comments to
+		 * be inserted before and after the javascript code
+		 */
+
+		function getCodeCommentOpen() {
+			return "\n<!-- This section is created with the SZ-Google for WordPress plugin ".SZ_PLUGIN_GOOGLE_VERSION." -->\n"
+			        ."<!-- ===================================================================== -->\n";
+		}
+
+		function getCodeCommentEnds() {
+			return "<!-- ===================================================================== -->\n";
 		}
 
 		/**

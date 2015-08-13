@@ -194,7 +194,7 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				if ($ga_enable_ip_none_ad == '1') $HTML .= "ga('set','anonymizeIp',true);".$ENDLINE;
 
 				$HTML .= "ga('send','pageview');".$ENDLINE;
-				$HTML .= "</script>"."\n";
+				$HTML .= "</script>".$ENDLINE;
 			}
 
 			// Creating code google analytics CLASSIC be inserted on HTML page which
@@ -254,7 +254,7 @@ if (!class_exists('SZGoogleActionAnalytics'))
 				$HTML .= "var s = document.getElementsByTagName('script')[0];".$ENDLINE;
 				$HTML .= "s.parentNode.insertBefore(ga, s);".$ENDLINE;
 				$HTML .= "})();".$ENDLINE;
-				$HTML .= "</script>"."\n";
+				$HTML .= "</script>".$ENDLINE;
 			}
 
 			// Creating code for comments to be blocked 

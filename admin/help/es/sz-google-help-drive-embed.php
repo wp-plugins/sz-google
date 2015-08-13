@@ -38,7 +38,7 @@ desde la interfaz gráfica de usuario, mientras que si se utiliza la función PH
 
 <table>
 	<tr><th>Parámetro</th>    <th>Descripción</th>            <th>Valores</th>                <th>Defecto</th></tr>
-	<tr><td>type</td>         <td>document type</td>          <td>document,folder,spreadsheet,<br/>presentation,forms,pdf,video</td> <td>document</td></tr>
+	<tr><td>type</td>         <td>document type</td>          <td>document,folder,spreadsheet,<br/>presentation,forms,pdf,video,image</td> <td>document</td></tr>
 	<tr><td>id</td>           <td>document id</td>            <td>cadena</td>                 <td>null</td></tr>
 	<tr><td>width</td>        <td>width</td>                  <td>valor</td>                  <td>configuración</td></tr>
 	<tr><td>height</td>       <td>height</td>                 <td>valor</td>                  <td>configuración</td></tr>
@@ -99,6 +99,7 @@ some shortcode that you can try to control the correct functioning.</p>
 [sz-drive-embed type="pdf" id="0B8B1V5PwB8NjTDhMckQ5MlVENjQ"/]
 [sz-drive-embed type="video" id="0B8B1V5PwB8NjZFpNNG0tS3dmNTQ" height="300"/]
 [sz-drive-embed type="folder" id="0B8B1V5PwB8NjdHpXR0dhck1EaW8" folderview="list"/]
+[sz-drive-embed type="image" id="0B8B1V5PwB8NjQ0ZYbVozWTVEbjA"/]
 </pre>
 
 <h2>Advertencias</h2>

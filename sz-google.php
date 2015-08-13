@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: SZ - Google
-Plugin URI: https://otherplus.com/tech/sz-google/
-Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.
+Plugin Name: Google for WordPress
+Plugin URI: https://otherplus.com/tech/wordpress-google/
+Description: Plugin to integrate <a href="http://google.com" target="_blank">Google's</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>google for wordpress</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/wordpress-google/">google for wordpress</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.
 Author: Massimo Della Rovere
-Version: 1.9.0
+Version: 1.9.1
 Author URI: https://plus.google.com/+MassimoDellaRovere
 License: GPLv2 or later
 Copyright 2012-2014 otherplus (email: wordpress@otherplus.com)
@@ -38,7 +38,7 @@ if (!defined('ABSPATH')) die("Accesso diretto al file non permesso");
 
 define('SZ_PLUGIN_GOOGLE',true);
 define('SZ_PLUGIN_GOOGLE_MAIN',__FILE__);
-define('SZ_PLUGIN_GOOGLE_VERSION','1.9.0');
+define('SZ_PLUGIN_GOOGLE_VERSION','1.9.1');
 
 // Definition of some basic functions to be used in the plugin 
 // for calling special functions php which depend on the version
@@ -77,7 +77,7 @@ if (!class_exists('SZGoogleCheck'))
 		{
 			if (!$this->is_compatible_version()) 
 			{
-				$HTML  = '<div>Activation plugin SZ-Google in not possible:</div>';
+				$HTML  = '<div>Activation plugin Google for WordPress in not possible:</div>';
 				$HTML .= '<ul>';
 
 				if (!$this->is_compatible_PHP())       $HTML .= '<li>'.$this->get_admin_notices_PHP(false).'</li>';
@@ -85,7 +85,7 @@ if (!class_exists('SZGoogleCheck'))
 
 				$HTML .= '</ul>';
 
-				wp_die($HTML,'Activation (sz-google) is not possible',array('back_link' => true));
+				wp_die($HTML,'Activation (Google for WordPress) is not possible',array('back_link' => true));
 			};
 		}
 
@@ -117,7 +117,7 @@ if (!class_exists('SZGoogleCheck'))
 			$HTML = 'Your server is running %s version %s but this plugin requires at least %s';
 
 			if ($wrap === false) $HTML = "<div>{$HTML}</div>";
-				else $HTML = "<div class=\"error\"><p>(<b>sz-google</b>) - {$HTML}</p></div>";
+				else $HTML = "<div class=\"error\"><p>(<b>Google for Wordpress</b>) - {$HTML}</p></div>";
 
 			return sprintf($HTML,$s1,$s2,$s3);
 		}
@@ -167,7 +167,7 @@ if (!class_exists('SZGoogleCheck'))
 			// Creating object class that runs the full loading of 
 			// the plugin with the modules enabled, filters etc, etc.
 
-			new SZGooglePlugin();			
+			new SZGooglePlugin();
 		}
 
 		/**
@@ -205,11 +205,11 @@ if (!class_exists('SZGoogleCheck'))
 
 		function dummy_plugin_description() 
 		{
-			$plugin      = __('SZ - Google');
-			$pluginURL   = __('https://otherplus.com/tech/sz-google/');
+			$plugin      = __('Google for WordPress');
+			$pluginURL   = __('https://otherplus.com/tech/wordpress-google/');
 			$author      = __('Massimo Della Rovere');
 			$authorURL   = __('https://plus.google.com/+MassimoDellaRovere');
-			$description = __('Plugin to integrate <a href="http://google.com" target="_blank">Google\'s</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>sz-google</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/sz-google/">sz-google</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.');
+			$description = __('Plugin to integrate <a href="http://google.com" target="_blank">Google\'s</a> products in <a href="http://wordpress.org" target="_blank">WordPress</a> with particular attention to the widgets provided by the social network Google+. Before using the plug-in <em>google for wordpress</em> pay attention to the options to be specified in the admin panel and enter all the parameters necessary for the proper functioning of the plugin. If you want to know the latest news and releases from the plug-in <a href="http://wordpress.org/plugins/wordpress-google/">google for wordpress</a> follow the <a href="https://plus.google.com/+wpitalyplus" target="_blank">official page</a> present in Google+ or subscribe to our community <a href="https://plus.google.com/communities/109254048492234113886" target="_blank">WP Italyplus</a> always present on Google+.');
 		}
 	}
 

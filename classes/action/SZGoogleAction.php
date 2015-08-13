@@ -75,7 +75,7 @@ if (!class_exists('SZGoogleAction'))
 			if (self::$setCSSCodeInlineHead) return;
 				else self::$setCSSCodeInlineHead = true;
 
-			add_action('SZ_HEAD',array($this,'getCodeCSSInlineHead'),99);
+			add_action('SZ_HEAD_HEAD',array($this,'getCodeCSSInlineHead'),99);
 		}
 
 		/**
@@ -88,7 +88,7 @@ if (!class_exists('SZGoogleAction'))
 			if (self::$setCSSCodeInlineFoot) return;
 				else self::$setCSSCodeInlineFoot = true;
 
-			add_action('SZ_FOOT',array($this,'getCodeCSSInlineFoot'));
+			add_action('SZ_FOOT_BODY',array($this,'getCodeCSSInlineFoot'));
 		}
 
 		/**

@@ -70,7 +70,7 @@ if (!class_exists('SZGoogleModuleFonts'))
 			    !in_array($options->fonts_family_H5_name,$testvalue) or
 			    !in_array($options->fonts_family_H6_name,$testvalue))
 			{
-				add_action('SZ_HEAD',array($this,'moduleAddFonts'),20);
+				add_action('SZ_HEAD_HEAD',array($this,'moduleAddFonts'),20);
 			}
 
 			// Check if you have specified a level that requires
@@ -86,7 +86,7 @@ if (!class_exists('SZGoogleModuleFonts'))
 			    !in_array($options->fonts_family_H5_name,$testvalue) or
 			    !in_array($options->fonts_family_H6_name,$testvalue))
 			{
-				add_action('SZ_CSSH',array($this,'moduleAddCSS'),20);
+				add_action('SZ_HEAD_FOOT',array($this,'moduleAddCSS'),20);
 			}
 		}
 
@@ -149,17 +149,17 @@ if (!class_exists('SZGoogleModuleFonts'))
 			$options = $this->getOptions();
 			$testvalue = array('','nofonts');
 
-			echo "<style>\n";
+			echo "<style>";
 
-			if (!in_array($options['fonts_family_B1_name'],$testvalue)) echo "  body { font-family:'".$options['fonts_family_B1_name']."' }\n";
-			if (!in_array($options['fonts_family_P1_name'],$testvalue)) echo "  p { font-family:'".$options['fonts_family_P1_name']."' }\n";
-			if (!in_array($options['fonts_family_B2_name'],$testvalue)) echo "  blockquote { font-family:'".$options['fonts_family_B2_name']."' }\n";
-			if (!in_array($options['fonts_family_H1_name'],$testvalue)) echo "  h1 { font-family:'".$options['fonts_family_H1_name']."' }\n";
-			if (!in_array($options['fonts_family_H2_name'],$testvalue)) echo "  h2 { font-family:'".$options['fonts_family_H2_name']."' }\n";
-			if (!in_array($options['fonts_family_H3_name'],$testvalue)) echo "  h3 { font-family:'".$options['fonts_family_H3_name']."' }\n";
-			if (!in_array($options['fonts_family_H4_name'],$testvalue)) echo "  h4 { font-family:'".$options['fonts_family_H4_name']."' }\n";
-			if (!in_array($options['fonts_family_H5_name'],$testvalue)) echo "  h5 { font-family:'".$options['fonts_family_H5_name']."' }\n";
-			if (!in_array($options['fonts_family_H6_name'],$testvalue)) echo "  h6 { font-family:'".$options['fonts_family_H6_name']."' }\n";
+			if (!in_array($options['fonts_family_B1_name'],$testvalue)) echo "body{font-family:'".$options['fonts_family_B1_name']."'}";
+			if (!in_array($options['fonts_family_P1_name'],$testvalue)) echo "p{font-family:'".$options['fonts_family_P1_name']."'}";
+			if (!in_array($options['fonts_family_B2_name'],$testvalue)) echo "blockquote { font-family:'".$options['fonts_family_B2_name']."'}";
+			if (!in_array($options['fonts_family_H1_name'],$testvalue)) echo "h1{font-family:'".$options['fonts_family_H1_name']."'}";
+			if (!in_array($options['fonts_family_H2_name'],$testvalue)) echo "h2{font-family:'".$options['fonts_family_H2_name']."'}";
+			if (!in_array($options['fonts_family_H3_name'],$testvalue)) echo "h3{font-family:'".$options['fonts_family_H3_name']."'}";
+			if (!in_array($options['fonts_family_H4_name'],$testvalue)) echo "h4{font-family:'".$options['fonts_family_H4_name']."'}";
+			if (!in_array($options['fonts_family_H5_name'],$testvalue)) echo "h5{font-family:'".$options['fonts_family_H5_name']."'}";
+			if (!in_array($options['fonts_family_H6_name'],$testvalue)) echo "h6{font-family:'".$options['fonts_family_H6_name']."'}";
 
 			echo "</style>\n";
 		}

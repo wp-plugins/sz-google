@@ -104,13 +104,13 @@ if (!class_exists('SZGoogleActionDriveEmbed'))
 			$marginleft    = strtolower(trim($marginleft));
 			$marginunit    = strtolower(trim($marginunit));
 
-			// Se non specifico un URL valido per la creazione del bottone
-			// esco dalla funzione e ritorno una stringa vuota
+			// if not specifically a valid URL for the creation of the
+			// button. I leave the function and return an empty string
 
 			if (empty($id)) { return ''; }
 
-			// Controllo le impostazioni che riguardano la dimensione del componente
-			// in quanto alcuni documenti hanno una dimensione di default specifica
+			// Control settings that affect the size of the component
+			// because some documents have a default size specification
 
 			if ($action == 'widget') 
 			{
@@ -126,8 +126,8 @@ if (!class_exists('SZGoogleActionDriveEmbed'))
 					if ($type == 'video')        $height = $options['drive_embed_w_height_v'];
 				}
 
-			// Controllo le impostazioni che riguardano la dimensione del componente
-			// in quanto alcuni documenti hanno una dimensione di default specifica
+			// Control settings that affect the size of the component
+			// because some documents have a default size specification
 
 			} else {
 
@@ -144,99 +144,173 @@ if (!class_exists('SZGoogleActionDriveEmbed'))
 				}
 			}
 
-			// Controllo le variabili usate come opzioni da utilizzare nel caso
-			// non esistano valori specificati o valori non coerenti con quelli ammessi
+			// Control variables used as options to use if there
+			// are no values ​​that are inconsistent with those permitted
 
 			if (!in_array($start ,array('true','false'))) $start  = 'false'; 
 			if (!in_array($loop  ,array('true','false'))) $loop   = 'false'; 
 			if (!in_array($single,array('true','false'))) $single = 'false'; 
 
-			if (!in_array($type,array('folder','document','presentation','spreadsheet','forms','pdf','video'))) $type = 'document'; 
+			if (!in_array($type,array('document','folder','forms','image','pdf','presentation','spreadsheet','video'))) $type = 'document'; 
 			if (!in_array($folderview,array('list','grid'))) $folderview = 'list'; 
 
-			// Controllo dei campi numerici e verifica che non contengano
-			// caratteri non numerici, nel caso applico i valori di default
+			// Checking the numeric fields and make sure they do not contain
+			// non-numeric characters, in this case apply the default values
 
 			if (!ctype_digit($delay)) $delay  = '3';
 			if (!ctype_digit($width)) $width  = '';
 			if (!ctype_digit($height))$height = '';
 			if (!ctype_digit($gid))   $gid    = '0';
 
-			// Configurazione delle variabili per la creazione del codice
-			// HTML da utilizzare rispettando le opzioni richieste
+			// Configuration variables to create the HTML
+			// code to use respecting the required options
 
-			if ($type == 'folder')       $optionSRC = 'https://docs.google.com/embeddedfolderview?id=%s#%s';
 			if ($type == 'document')     $optionSRC = 'https://docs.google.com/document/d/%s/pub?embedded=true';
+			if ($type == 'folder')       $optionSRC = 'https://docs.google.com/embeddedfolderview?id=%s#%s';
+			if ($type == 'forms')        $optionSRC = 'https://docs.google.com/forms/d/%s/viewform?embedded=true';
+			if ($type == 'image')        $optionSRC = 'https://drive.google.com/uc?export=view&id=%s';
+			if ($type == 'pdf')          $optionSRC = 'https://docs.google.com/file/d/%s/preview';
 			if ($type == 'presentation') $optionSRC = 'https://docs.google.com/presentation/d/%s/embed?start=%s&amp;loop=%s&amp;delayms=%s';
 			if ($type == 'spreadsheet')  $optionSRC = 'https://docs.google.com/spreadsheet/pub?key=%s&amp;output=html&amp;widget=true&amp;single=%s&amp;gid=%s';
-			if ($type == 'forms')        $optionSRC = 'https://docs.google.com/forms/d/%s/viewform?embedded=true';
-			if ($type == 'pdf')          $optionSRC = 'https://docs.google.com/file/d/%s/preview';
 			if ($type == 'video')        $optionSRC = 'https://docs.google.com/file/d/%s/preview';
 
-			// Controllo la dimensione del widget e controllo formale dei valori numerici
-			// se trovo qualche incongruenza applico i valori di default prestabiliti
+			// Control the size of the widget and formal control of the numerical
+			// values, if I find some inconsistency apply the default preset
 
 			if ($width  == '')     $width = "100%";
 			if ($width  == 'auto') $width = "100%";
 
+			if (in_array($type,array('image'))) {
+				if ($height == '')        $height = 'auto';
+				if (ctype_digit($width))  $width  = $width.'px';
+				if (ctype_digit($height)) $height = $height.'px';
+			}
+
 			if (in_array($type,array('presentation','video'))) {
 				if ($height == '')     $height = '250';
 				if ($height == 'auto') $height = '250';
-			} else {
+			}
+
+			if (in_array($type,array('document','folder','forms','pdf','spreadsheet'))) {
 				if ($height == '')     $height = '400';
 				if ($height == 'auto') $height = '400';
-			} 
+			}
 
-			// Creazione del codice CSS per la composizione dei margini
-			// usando le opzioni specificate negli shortcode o nelle funzioni PHP
+			// Creating CSS code for the composition of the margins
+			// using the specified options in shortcode or PHP functions
 
 			$marginCSS = $this->getModuleObject('SZGoogleModuleDrive')->getStyleCSSfromMargins(
 				$margintop,$marginright,$marginbottom,$marginleft,$marginunit);
 
-			// Creazione URL iframe in base alla tipologia rchiesta e i vari formati
-			// che differiscono dal numero e dal nome delle opzioni permesse.
+			// Creating URL iframe according to the type required and the various
+			// formats which differ by the number and name of the allowed options
 
-			if ($type == 'folder')       $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($folderview));
 			if ($type == 'document')     $optionSRC = sprintf($optionSRC,urlencode($id));
-			if ($type == 'spreadsheet')  $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($single),urlencode($gid),urlencode($range));
-			if ($type == 'presentation') $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($start),urlencode($loop),urlencode($delay.'000'));
+			if ($type == 'folder')       $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($folderview));
 			if ($type == 'forms')        $optionSRC = sprintf($optionSRC,urlencode($id));
+			if ($type == 'image')        $optionSRC = sprintf($optionSRC,urlencode($id));
 			if ($type == 'pdf')          $optionSRC = sprintf($optionSRC,urlencode($id));
+			if ($type == 'presentation') $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($start),urlencode($loop),urlencode($delay.'000'));
+			if ($type == 'spreadsheet')  $optionSRC = sprintf($optionSRC,urlencode($id),urlencode($single),urlencode($gid),urlencode($range));
 			if ($type == 'video')        $optionSRC = sprintf($optionSRC,urlencode($id));
 
 			if ($type == 'spreadsheet' && $range != '') $optionSRC .= "&amp;range=".urlencode($range);
 
-			// Apertura delle divisioni che rappresentano il wrapper
-			// comune per eventuali personalizzazioni di visualizzazione
+			// Opening of the divisions that represent the
+			// common wrapper on any customizations display
 
 			$HTML  = '<div class="sz-google-drive">';
 			$HTML .= '<div class="sz-google-drive-embed" style="'.$marginCSS.'">';
 
-			$HTML .= '<div class="sz-google-drive-embed-embed">';
+			if ($type == 'document')     $HTML .= $this->getHTMLFile($optionSRC,$width,$height);
+			if ($type == 'folder')       $HTML .= $this->getHTMLFile($optionSRC,$width,$height);
+			if ($type == 'forms')        $HTML .= $this->getHTMLFile($optionSRC,$width,$height);
+			if ($type == 'image')        $HTML .= $this->getHTMLImage($optionSRC,$width,$height);
+			if ($type == 'pdf')          $HTML .= $this->getHTMLFile($optionSRC,$width,$height);
+			if ($type == 'presentation') $HTML .= $this->getHTMLPresentation($optionSRC,$width,$height);
+			if ($type == 'spreadsheet')  $HTML .= $this->getHTMLFile($optionSRC,$width,$height);
+			if ($type == 'video')        $HTML .= $this->getHTMLFile($optionSRC,$width,$height);
+
+			// Closing of the divisions that represent the
+			// common wrapper on any customizations display
+
+			$HTML .= '</div>';
+			$HTML .= '</div>';
+
+			// Return from the function with the whole string containing 
+			// the HTML code for inserting the code in the page
+
+			return $HTML;
+		}
+
+		/**
+		 * Creating HTML code for the component called to
+		 * be used in common for both widgets and shortcode
+		 */
+
+		function getHTMLFile($optionSRC,$width,$height)
+		{
+			$HTML  = '<div class="sz-google-drive-embed-embed">';
 			$HTML .= '<script type="text/javascript">';
 			$HTML .= "var h='<'+'";
-
-			$HTML .= 'iframe src="'.$optionSRC.'"';
-			$HTML .= ' width="' .$width .'"';
-			$HTML .= ' height="'.$height.'"';
+			$HTML .= 'iframe src="%s" width="%s" height="%s"';
 			$HTML .= ' frameborder="0"';
 			$HTML .= ' style="border:none;"';
-
-			if ($type == 'presentation') {
-				$HTML .= ' allowfullscreen="true"';
-				$HTML .= ' mozallowfullscreen="true"';
-				$HTML .= ' webkitallowfullscreen="true"';
-			}
-
 			$HTML .= "></'+'iframe'+'>';";
 			$HTML .= "document.write(h);";
 			$HTML .= '</script>';
 			$HTML .= '</div>';
 
-			// Chiusura delle divisioni che rappresentano il wrapper
+			$HTML  = sprintf($HTML,$optionSRC,$width,$height);
 
+			// Return from the function with the whole string containing 
+			// the HTML code for inserting the code in the page
+
+			return $HTML;
+		}
+
+		/**
+		 * Creating HTML code for the component called to
+		 * be used in common for both widgets and shortcode
+		 */
+
+		function getHTMLPresentation($optionSRC,$width,$height)
+		{
+			$HTML  = '<div class="sz-google-drive-embed-embed">';
+			$HTML .= '<script type="text/javascript">';
+			$HTML .= "var h='<'+'";
+			$HTML .= 'iframe src="%s" width="%s" height="%s"';
+			$HTML .= ' frameborder="0"';
+			$HTML .= ' style="border:none;"';
+			$HTML .= ' allowfullscreen="true"';
+			$HTML .= ' mozallowfullscreen="true"';
+			$HTML .= ' webkitallowfullscreen="true"';
+			$HTML .= "></'+'iframe'+'>';";
+			$HTML .= "document.write(h);";
+			$HTML .= '</script>';
 			$HTML .= '</div>';
+
+			$HTML  = sprintf($HTML,$optionSRC,$width,$height);
+
+			// Return from the function with the whole string containing 
+			// the HTML code for inserting the code in the page
+
+			return $HTML;
+		}
+
+		/**
+		 * Creating HTML code for the component called to
+		 * be used in common for both widgets and shortcode
+		 */
+
+		function getHTMLImage($optionSRC,$width,$height)
+		{
+			$HTML  = '<div class="sz-google-drive-embed-embed" ';
+			$HTML .= 'style="width:%s;height:%s">';
+			$HTML .= '<img src="%s" style="width:100%%;height:auto"/>';
 			$HTML .= '</div>';
+
+			$HTML  = sprintf($HTML,$width,$height,$optionSRC);
 
 			// Return from the function with the whole string containing 
 			// the HTML code for inserting the code in the page

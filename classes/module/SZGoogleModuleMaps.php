@@ -68,7 +68,9 @@ if (!class_exists('SZGoogleModuleMaps'))
 			// Loading action in the footer of the plugin to load
 			// the javascript framework made available by google
 
-			add_action('SZ_FOOT',array($this,'setJavascriptMaps'));
+			add_action('SZ_FOOT_HEAD',array($this,'setJavascriptMapsCSS'));
+			add_action('SZ_FOOT_BASE',array($this,'setJavascriptLazyLoad'));
+			add_action('SZ_FOOT_BODY',array($this,'setJavascriptMapsCode'));
 		}
 
 		/**
@@ -76,13 +78,40 @@ if (!class_exists('SZGoogleModuleMaps'))
 		 * with asynchronous loading method according to google
 		 */
 
-		function setJavascriptMaps()
+		function setJavascriptMapsCSS()
 		{
 			// If you've already entered the Javascript code in the footer section
 			// leave the partition function otherwise the variable and constant
 
-			if (self::$JavascriptMaps) return;
-				else self::$JavascriptMaps = true;
+			if (self::$JavascriptMapsCSS) return;
+				else self::$JavascriptMapsCSS = true;
+
+			// Correct image for google maps when img present in
+			// webiste and have a CSS width max-image=100% (hack)
+
+			$javascript  = '<style>';
+			$javascript .= '.sz-google-maps img { max-width:none } ';
+			$javascript .= '.sz-google-maps label { width:auto; display:inline }';
+			$javascript .= '</style>'."\n";
+
+			// Running echo on the footer of the javascript code generated
+			// This code is added to a single block together with other functions
+
+			echo $javascript;
+		}
+
+		/**
+		 * Function to add javascript code in the footer of wordpress
+		 * with asynchronous loading method according to google
+		 */
+
+		function setJavascriptMapsCode()
+		{
+			// If you've already entered the Javascript code in the footer section
+			// leave the partition function otherwise the variable and constant
+
+			if (self::$JavascriptMapsCode) return;
+				else self::$JavascriptMapsCode = true;
 
 			// Definition of parameters to be passed to 
 			// the javascript framework of google maps
@@ -104,25 +133,19 @@ if (!class_exists('SZGoogleModuleMaps'))
 					else $parameters .= '&language='.$options->maps_language;
 			}
 
-			// Correct image for google maps when img present in
-			// webiste and have a CSS width max-image=100% (hack)
-
-			$javascript  = '<style>';
-			$javascript .= '.sz-google-maps img { max-width:none } ';
-			$javascript .= '.sz-google-maps label { width:auto; display:inline }';
-			$javascript .= '</style>'."\n";
-
 			// Javascript code to render the component google
 			// this method is used for asynchronous loading
 
-			$javascript .= '<script>';
-			$javascript .= 'function szgooglemapsinit() {';
+			$javascript = '';
 
-			// Creating Javascript code dynamically based on the number of available maps
-			// For each map is created by a unique key identification to allow more maps
+			// Creating Javascript code dynamically based on the number of maps
+			// For each map is created by a unique function to allow more maps
 
 			if (isset($this->setJavascriptOptions) and is_array($this->setJavascriptOptions)) 
 			{
+				// LOOP-1 : Create function for each defined maps
+				// LOOP-1 : Each function set option and coordinates
+
 				foreach ($this->setJavascriptOptions as $key => $value) 
 				{
 					if (is_object($value) and isset($value->idHTML)) 
@@ -136,7 +159,10 @@ if (!class_exists('SZGoogleModuleMaps'))
 						// Javascript code to render the component google
 						// maps with multiple division maps in the page
 
-						$javascript .= 	'var map_opt_'.$value->unique.' = {';
+						$javascript .= '<script type="text/javascript">';
+						$javascript .= 'function szgooglemapsinit_'.$value->unique.'() {';
+
+						$javascript .= 	'var options={';
 						$javascript .= 	'zoom:'.$value->zoom.',';
 						$javascript .= 	'scrollwheel:'.$value->wheel.',';
 						$javascript .= 	'panControl:true,';
@@ -150,43 +176,50 @@ if (!class_exists('SZGoogleModuleMaps'))
 						$javascript .= '};';
 
 						$javascript .= "if(document.getElementById('".$value->idHTML."') != null && document.getElementById('".$value->idHTML."') != undefined) {";
-						$javascript .= "var map_key_".$value->unique." = ";
-						$javascript .= "new google.maps.Map(document.getElementById('".$value->idHTML."'),map_opt_".$value->unique.");";
-						$javascript .= "}";
+						$javascript .= "var mappa=new google.maps.Map(document.getElementById('".$value->idHTML."'),options);";
 
 						// Add the layer BICYCLE/TRAFFIC/TRANSIT to the map display
 						// Each map has a unique code that the layer must be associated
 
-						if ($value->layer == 'BICYCLE') {
-							$javascript .= 'var layer_bicycle_'.$value->unique.' = new google.maps.BicyclingLayer();';
-							$javascript .= 'layer_bicycle_'.$value->unique.'.setMap(map_key_'.$value->unique.');';
-						}
+						if ($value->layer == 'BICYCLE') { $javascript .= 'var layer_bicycle=new google.maps.BicyclingLayer();'; }
+						if ($value->layer == 'TRAFFIC') { $javascript .= 'var layer_traffic=new google.maps.TrafficLayer();'; }
+						if ($value->layer == 'TRANSIT') { $javascript .= 'var layer_transit=new google.maps.TransitLayer();'; }
 
-						if ($value->layer == 'TRAFFIC') {
-							$javascript .= 'var layer_traffic_'.$value->unique.' = new google.maps.TrafficLayer();';
-							$javascript .= 'layer_traffic_'.$value->unique.'.setMap(map_key_'.$value->unique.');';
-						}
-
-						if ($value->layer == 'TRANSIT') {
-							$javascript .= 'var layer_transit_'.$value->unique.' = new google.maps.TransitLayer();';
-							$javascript .= 'layer_transit_'.$value->unique.'.setMap(map_key_'.$value->unique.');';
-						}
+						if ($value->layer == 'BICYCLE') { $javascript .= 'layer_bicycle.setMap(mappa);'; }
+						if ($value->layer == 'TRAFFIC') { $javascript .= 'layer_traffic.setMap(mappa);'; }
+						if ($value->layer == 'TRANSIT') { $javascript .= 'layer_transit.setMap(mappa);'; }
 
 						// Add marker to MAP if option is set = 1. Use same value for
 						// position in center map and option specified in LAT and LNG
 
 						if ($value->marker == '1') {
-							$javascript .= 'var marker_'.$value->unique.' = new google.maps.Marker({';
+							$javascript .= 'var marker=new google.maps.Marker({';
 							$javascript .= "position:new google.maps.LatLng('".$value->lat."','".$value->lng."'),";
-							$javascript .= 'map:map_key_'.$value->unique;
+							$javascript .= 'map:mappa';
 							$javascript .= '});';
 						}
+
+						$javascript .= "}";
+						$javascript .= "}";
+						$javascript .= '</script>'."\n";
 					}
 				}
-			}
 
-			$javascript .= '}';
-			$javascript .= '</script>'."\n";
+				// LOOP-2 : Create function CALLBACK for load maps
+				// LOOP-2 : Loading functions maps previously defined
+
+				$javascript .= '<script type="text/javascript">';
+				$javascript .= 'function szgooglemapsinit() {';
+
+				foreach ($this->setJavascriptOptions as $key => $value) {
+					if (is_object($value) and isset($value->idHTML)) {
+						$javascript .= 'szgooglemapsinit_'.$value->unique.'();';
+					}
+				}
+
+				$javascript .= '}';
+				$javascript .= '</script>'."\n";
+			}
 
 			// If exists JetPack and load google maps disable load
 			// the sz-google and add javascript for load my maps
@@ -201,11 +234,11 @@ if (!class_exists('SZGoogleModuleMaps'))
 				// Procedure Asynchronous loading of javascript code
 				// and the function is called for initial operations
 
-				$javascript .= '<script>';
+				$javascript .= '<script type="text/javascript">';
 				$javascript .= 'function szgooglemapsload() {';
-				$javascript .= 	"var script = document.createElement('script');";
-				$javascript .= 	"script.type = 'text/javascript';";
-				$javascript .= 	"script.src = 'https://maps.googleapis.com/maps/api/js?".$parameters."';";
+				$javascript .= 	"var script=document.createElement('script');";
+				$javascript .= 	"script.type='text/javascript';";
+				$javascript .= 	"script.src='https://maps.googleapis.com/maps/api/js?".$parameters."';";
 				$javascript .= 	"document.body.appendChild(script);";
 				$javascript .= '}';
 				$javascript .= 'szgooglemapsload();';

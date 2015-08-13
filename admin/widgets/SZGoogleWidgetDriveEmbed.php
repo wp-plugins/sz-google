@@ -34,6 +34,7 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 			<option data-open="5" value="pdf"          <?php echo selected("pdf"         ,$VALUE_type) ?>><?php echo __('pdf'         ,'szgoogleadmin') ?></option>
 			<option data-open="6" value="video"        <?php echo selected("video"       ,$VALUE_type) ?>><?php echo __('video'       ,'szgoogleadmin') ?></option>
 			<option data-open="7" value="folder"       <?php echo selected("folder"      ,$VALUE_type) ?>><?php echo __('folder'      ,'szgoogleadmin') ?></option>
+			<option data-open="8" value="image"        <?php echo selected("image"       ,$VALUE_type) ?>><?php echo __('image'       ,'szgoogleadmin') ?></option>
 		</select>
 	</td>
 </tr>

@@ -19,7 +19,7 @@ msgid "SZ - Google"
 msgstr ""
 
 #: ../../sz-google.php:218
-msgid "https://otherplus.com/tech/sz-google/"
+msgid "https://otherplus.com/tech/wordpress-google/"
 msgstr ""
 
 #: ../../sz-google.php:219

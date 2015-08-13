@@ -73,7 +73,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			if ($options->youtube       == '1') new SZGoogleAdminYoutube();
 			if ($options->documentation == '1') new SZGoogleAdminDocumentation();
 			if ($options->tinymce       == '1') new SZGoogleAdminTinyMCE();
- 		}
+		}
 
 		/**
 		 * Creating the menu on the admin panel using values ​​
@@ -84,8 +84,8 @@ if (!class_exists('SZGoogleAdminBase'))
 		{
 			// Aggiungo il menu principale dove verranno aggiunti tutti i moduli
 			// del plugin aggiuntivi con la funzione add_submenu_page()
-	
-			add_menu_page('SZ Google','SZ Google','manage_options',
+
+			add_menu_page('Google for WordPress','WP & Google','manage_options',
 				'sz-google-admin.php',array($this,'moduleCallbackStart'));
 
 			// Definition of general values ​​for the creation of a menu associated 
@@ -115,7 +115,7 @@ if (!class_exists('SZGoogleAdminBase'))
 			// variables that contain the values ​​of configuration section
 
 			parent::moduleAddMenu();
- 		}
+		}
 
 		/**
 		 * Function to add sections and the corresponding options in the configuration
@@ -172,7 +172,7 @@ if (!class_exists('SZGoogleAdminBase'))
 		{
 			$links[] = '<a href="'.menu_page_url('sz-google-admin.php',false).'">'.ucfirst(__('settings','szgoogleadmin')).'</a>'; 
 			return $links; 
- 		}
+		}
 
 		/**
 		 * Add the style sheet and javascript in the 

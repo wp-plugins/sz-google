@@ -226,7 +226,7 @@ if (!class_exists('SZGoogleActionHangoutsStart'))
 			// Aggiunta del codice javascript per il rendering dei widget, questo codice		 
 			// viene aggiungo anche dalla sidebar però viene inserito una sola volta
 			
-			add_action('SZ_FOOT',array($this->getModuleObject('SZGoogleModuleHangouts'),'setJavascriptPlatform'));
+			add_action('SZ_FOOT_BODY',array($this->getModuleObject('SZGoogleModuleHangouts'),'setJavascriptPlatform'));
 
 			// Return from the function with the whole string containing 
 			// the HTML code for inserting the code in the page

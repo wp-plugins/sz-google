@@ -89,9 +89,9 @@ if (!class_exists('SZGoogleActionMaps'))
 
 			if ($keyatts->height == 'auto') 
 			{
-	 			$HTML  = '<div class="sz-google-maps">';
-	 			$HTML .= '<div class="sz-google-maps-wrap" style="';
-				$HTML .= 'width:' .$keyatts->width .';';
+				$HTML  = '<div class="sz-google-maps">';
+				$HTML .= '<div class="sz-google-maps-wrap" style="';
+				$HTML .= 'width:'.$keyatts->width.';';
 				$HTML .= 'position:relative;padding-bottom:75%;height:0;overflow:hidden;';
 				$HTML .= '">';
 				$HTML .= '<div id="'.$keyatts->idHTML.'" style="width:100%;height:100%;position:absolute;top:0;left:0;"></div>';
@@ -100,8 +100,8 @@ if (!class_exists('SZGoogleActionMaps'))
 
 			} else {
 
-	 			$HTML  = '<div class="sz-google-maps">';
-	 			$HTML .= '<div class="sz-google-maps-wrap" style="';
+				$HTML  = '<div class="sz-google-maps">';
+				$HTML .= '<div class="sz-google-maps-wrap" style="';
 				$HTML .= 'width:' .$keyatts->width .';';
 				$HTML .= 'height:'.$keyatts->height.';';
 				$HTML .= '">';
@@ -113,21 +113,19 @@ if (!class_exists('SZGoogleActionMaps'))
 			// Adding the JavaScript code for rendering widget, 
 			// This code also add the sidebar, but is entered only once
 
-			$this->getModuleObject('SZGoogleModuleMaps')->addCodeJavascriptFooter(
-				array(
-					'idHTML' => $keyatts->idHTML,
-					'unique' => $keyatts->unique,
-					'width'  => $keyatts->width,
-					'height' => $keyatts->height,
-					'lat'    => $keyatts->lat,
-					'lng'    => $keyatts->lng,
-					'zoom'   => $keyatts->zoom,
-					'view'   => $keyatts->view,
-					'wheel'  => $keyatts->wheel,
-					'marker' => $keyatts->marker,
-					'layer'  => $keyatts->layer,
-				)
-			);
+			$this->getModuleObject('SZGoogleModuleMaps')->addCodeJavascriptFooter(array(
+				'idHTML' => $keyatts->idHTML,
+				'unique' => $keyatts->unique,
+				'width'  => $keyatts->width,
+				'height' => $keyatts->height,
+				'lat'    => $keyatts->lat,
+				'lng'    => $keyatts->lng,
+				'zoom'   => $keyatts->zoom,
+				'view'   => $keyatts->view,
+				'wheel'  => $keyatts->wheel,
+				'marker' => $keyatts->marker,
+				'layer'  => $keyatts->layer,
+			));
 
 			// Return the whole string containing
 			// HTML to insert the code in the page

@@ -85,7 +85,7 @@ if (!class_exists('SZGoogleModuleYoutube'))
 			// Caricamento azione nel footer del plugin per il caricamento
 			// del framework javascript messo a disposizione da google
 
-			add_action('SZ_FOOT',array($this,'setJavascriptPlusOne'));
+			add_action('SZ_FOOT_BODY',array($this,'setJavascriptPlusOne'));
 		}
 
 		/**
@@ -98,7 +98,7 @@ if (!class_exists('SZGoogleModuleYoutube'))
 		{
 			if (is_array($opts)) {
 				$this->SZ_GOOGLE_YOUTUBE_API[] = $opts;
-				add_action('SZ_FOOT',array($this,'addYoutubeScriptFooter'));
+				add_action('SZ_FOOT_BODY',array($this,'addYoutubeScriptFooter'));
 			}
 		}
 

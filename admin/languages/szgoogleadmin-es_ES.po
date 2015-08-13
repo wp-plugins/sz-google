@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogleadmin\n"
-"POT-Creation-Date: 2015-07-02 03:40-0500\n"
-"PO-Revision-Date: 2015-07-02 03:40-0500\n"
+"POT-Creation-Date: 2015-07-02 20:52-0500\n"
+"PO-Revision-Date: 2015-07-02 20:55-0500\n"
 "Last-Translator: Massimo <wordpress@otherplus.com>\n"
 "Language-Team: otherplus <wordpress@otherplus.com>\n"
 "Language: es_ES\n"
@@ -16,12 +16,12 @@ msgstr ""
 "X-Poedit-SearchPath-0: ../..\n"
 
 #: ../../sz-google.php:208
-msgid "SZ - Google"
-msgstr "SZ - Google"
+msgid "Google for WordPress"
+msgstr "Google para WordPress"
 
 #: ../../sz-google.php:209
-msgid "https://otherplus.com/tech/sz-google/"
-msgstr "https://otherplus.com/tech/sz-google/"
+msgid "https://otherplus.com/tech/wordpress-google/"
+msgstr "https://otherplus.com/tech/wordpress-google/"
 
 #: ../../sz-google.php:210
 msgid "Massimo Della Rovere"
@@ -36,26 +36,25 @@ msgid ""
 "Plugin to integrate <a href=\"http://google.com\" target=\"_blank"
 "\">Google's</a> products in <a href=\"http://wordpress.org\" target=\"_blank"
 "\">WordPress</a> with particular attention to the widgets provided by the "
-"social network Google+. Before using the plug-in <em>sz-google</em> pay "
-"attention to the options to be specified in the admin panel and enter all "
-"the parameters necessary for the proper functioning of the plugin. If you "
-"want to know the latest news and releases from the plug-in <a href=\"http://"
-"wordpress.org/plugins/sz-google/\">sz-google</a> follow the <a href="
-"\"https://plus.google.com/+wpitalyplus\" target=\"_blank\">official page</a> "
-"present in Google+ or subscribe to our community <a href=\"https://plus."
-"google.com/communities/109254048492234113886\" target=\"_blank\">WP "
-"Italyplus</a> always present on Google+."
+"social network Google+. Before using the plug-in <em>google for wordpress</"
+"em> pay attention to the options to be specified in the admin panel and "
+"enter all the parameters necessary for the proper functioning of the plugin. "
+"If you want to know the latest news and releases from the plug-in <a href="
+"\"http://wordpress.org/plugins/wordpress-google/\">google for wordpress</a> "
+"follow the <a href=\"https://plus.google.com/+wpitalyplus\" target=\"_blank"
+"\">official page</a> present in Google+ or subscribe to our community <a "
+"href=\"https://plus.google.com/communities/109254048492234113886\" target="
+"\"_blank\">WP Italyplus</a> always present on Google+."
 msgstr ""
 "Este plugin integra varios productos de Google en <a href=\"http://wordpress."
-"org\" target=\"_blank\">WordPress</a>, con especial atención a la red social "
-"Google+. Antes de utilizar el plugin <em>sz-google</em> ten cuidado de las "
-"opciones que se deben especificar en el panel de administración y entran "
-"todos los parámetros necesarios para el correcto funcionamiento del plugin. "
-"Si desea conocer las últimas noticias sobre el plugin <em>sz-google</em> "
-"siga <a href=\"https://plus.google.com/+wpitalyplus\" target=\"_blank"
-"\">nuestra página oficial</a> en Google+ o suscribirse a nuestra comunidad "
-"<a href=\"https://plus.google.com/communities/109254048492234113886\" target="
-"\"_blank\">WP Italyplus</a>."
+"org\" target=\"_blank\">WordPress</a>. Antes de utilizar el plugin ten "
+"cuidado de las opciones que se deben especificar en el panel de "
+"administración y entran todos los parámetros necesarios para el correcto "
+"funcionamiento. Si desea conocer las últimas noticias sobre el plugin siga "
+"la <a href=\"https://plus.google.com/+wpitalyplus\" target=\"_blank\">página "
+"oficial</a> en Google+ o suscribirse a nuestra comunidad <a href=\"https://"
+"plus.google.com/communities/109254048492234113886\" target=\"_blank\">WP "
+"Italyplus</a>."
 
 #: ../../classes/module/SZGoogleModulePlus.php:1722
 msgid ""
@@ -1757,7 +1756,7 @@ msgstr "comentarios"
 
 #: ../../admin/classes/SZGoogleAdminPlus.php:63
 #: ../../admin/widgets/SZGoogleWidgetPlusProfile.php:96
-#: ../../admin/templates/sz-google-template-reviews.php:45
+#: ../../admin/templates/sz-google-template-reviews.php:44
 #: ../../admin/templates/sz-google-template-modules.php:37
 msgid "author"
 msgstr "autor"
@@ -1769,7 +1768,7 @@ msgstr "identificación"
 #: ../../admin/classes/SZGoogleAdminPlus.php:68
 #: ../../admin/classes/SZGoogleAdminMaps.php:47
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:116
-#: ../../admin/templates/sz-google-template-reviews.php:44
+#: ../../admin/templates/sz-google-template-reviews.php:43
 #: ../../admin/templates/sz-google-template-modules.php:35
 msgid "language"
 msgstr "idioma"
@@ -5312,25 +5311,21 @@ msgid "chinese"
 msgstr "chino"
 
 #: ../../admin/templates/sz-google-template-reviews.php:20
-msgid "dutch"
-msgstr "holandés"
-
 #: ../../admin/templates/sz-google-template-reviews.php:21
 #: ../../admin/templates/sz-google-template-reviews.php:22
-#: ../../admin/templates/sz-google-template-reviews.php:23
 msgid "english"
 msgstr "Inglés"
 
-#: ../../admin/templates/sz-google-template-reviews.php:24
+#: ../../admin/templates/sz-google-template-reviews.php:23
 msgid "german"
 msgstr "alemán"
 
+#: ../../admin/templates/sz-google-template-reviews.php:24
 #: ../../admin/templates/sz-google-template-reviews.php:25
 #: ../../admin/templates/sz-google-template-reviews.php:26
 #: ../../admin/templates/sz-google-template-reviews.php:27
 #: ../../admin/templates/sz-google-template-reviews.php:28
 #: ../../admin/templates/sz-google-template-reviews.php:29
-#: ../../admin/templates/sz-google-template-reviews.php:30
 #: ../../admin/templates/sz-google-template-modules.php:19
 #: ../../admin/templates/sz-google-template-modules.php:20
 #: ../../admin/templates/sz-google-template-modules.php:21
@@ -5341,20 +5336,20 @@ msgstr "alemán"
 msgid "italian"
 msgstr "italiano"
 
+#: ../../admin/templates/sz-google-template-reviews.php:30
 #: ../../admin/templates/sz-google-template-reviews.php:31
-#: ../../admin/templates/sz-google-template-reviews.php:32
 msgid "spanish"
 msgstr "español"
 
-#: ../../admin/templates/sz-google-template-reviews.php:33
+#: ../../admin/templates/sz-google-template-reviews.php:32
 msgid "korean"
 msgstr "coreano"
 
-#: ../../admin/templates/sz-google-template-reviews.php:34
+#: ../../admin/templates/sz-google-template-reviews.php:33
 msgid "russian"
 msgstr "ruso"
 
-#: ../../admin/templates/sz-google-template-reviews.php:46
+#: ../../admin/templates/sz-google-template-reviews.php:45
 #: ../../admin/templates/sz-google-template-modules.php:38
 msgid "URL address"
 msgstr "dirección URL"
@@ -5362,6 +5357,12 @@ msgstr "dirección URL"
 #: ../../admin/templates/sz-google-template-modules.php:36
 msgid "module"
 msgstr "módulo"
+
+#~ msgid "SZ - Google"
+#~ msgstr "SZ - Google"
+
+#~ msgid "dutch"
+#~ msgstr "holandés"
 
 #~ msgid "."
 #~ msgstr "."

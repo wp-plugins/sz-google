@@ -41,7 +41,9 @@ if (!class_exists('SZGoogleModule'))
 		// Definition of variables to see if the javascript 
 		// code has already been loaded previously
 
-		static $JavascriptMaps     = false;
+		static $JavascriptLazyLoad = false;
+		static $JavascriptMapsCSS  = false;
+		static $JavascriptMapsCode = false;
 		static $JavascriptPlusone  = false;
 		static $JavascriptPlatform = false;
 
@@ -320,6 +322,54 @@ if (!class_exists('SZGoogleModule'))
 			$javascript .= "po.src = 'https://apis.google.com/js/plusone.js".$addURLforScript."';";
 			$javascript .=  "var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);";
 			$javascript .=  "})();";
+			$javascript .=	"</script>"."\n";
+
+			// Running echo on the footer of the javascript code generated
+			// This code is added to a single block together with other functions
+
+			echo $javascript;
+		}
+
+		/**
+		 * Function to add javascript code in the footer
+		 * to add a function that controls the lazy load
+		 */
+
+		function setJavascriptLazyLoad()
+		{
+			// If you've already entered the Javascript code in the footer section
+			// leave the partition function otherwise the variable and constant
+
+			if (self::$JavascriptLazyLoad) return;
+				else self::$JavascriptLazyLoad = true;
+
+			// Javascript code to render the component google+
+			// this method is used for asynchronous loading
+
+			$javascript  = '<script type="text/javascript">';
+
+			$javascript .= 'function szgooglecheckviewport(el) {';
+
+			$javascript .=   'var top=el.offsetTop;';
+			$javascript .=   'var left=el.offsetLeft;';
+			$javascript .=   'var width=el.offsetWidth;';
+			$javascript .=   'var height=el.offsetHeight;';
+
+			$javascript .=   'while(el.offsetParent) {';
+			$javascript .=     'el=el.offsetParent;';
+			$javascript .=     'top+=el.offsetTop;';
+			$javascript .=     'left+=el.offsetLeft;';
+			$javascript .=   '}';
+
+			$javascript .=   'return (';
+			$javascript .=     'top<(window.pageYOffset+window.innerHeight) && ';
+			$javascript .=     'left<(window.pageXOffset+window.innerWidth) && ';
+			$javascript .=     '(top+height)>window.pageYOffset && ';
+			$javascript .=     '(left+width)>window.pageXOffset';
+			$javascript .=   ');';
+
+			$javascript .= '}';
+
 			$javascript .=	"</script>"."\n";
 
 			// Running echo on the footer of the javascript code generated

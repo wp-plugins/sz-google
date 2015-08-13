@@ -83,8 +83,8 @@ if (!class_exists('SZGoogleModuleTranslate'))
 		 */
 
 		function moduleAddActions() {
-			add_action('SZ_HEAD',array($this,'getTranslateMetaHead'));
-			add_action('SZ_FOOT',array($this,'addJavascriptToFooter'));
+			add_action('SZ_HEAD_HEAD',array($this,'getTranslateMetaHead'));
+			add_action('SZ_FOOT_BODY',array($this,'addJavascriptToFooter'));
 		}
 
 		/**

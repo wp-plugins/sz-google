@@ -67,7 +67,7 @@ if (!class_exists('SZGoogleModuleDrive'))
 			// Loading action in the footer of the plugin to load
 			// the javascript framework made available by google
 
-			add_action('SZ_FOOT',array($this,'setJavascriptPlusOne'));
+			add_action('SZ_FOOT_BODY',array($this,'setJavascriptPlusOne'));
 		}
 	}
 

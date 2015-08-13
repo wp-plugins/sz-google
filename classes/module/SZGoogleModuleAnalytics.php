@@ -45,7 +45,7 @@ if (!class_exists('SZGoogleModuleAnalytics'))
 
 			if (!is_admin() and $options->ga_enable_front == '1') {
 				if ($options->ga_position == 'H') add_action('wp_head',array(new SZGoogleActionAnalytics($this),'action'));
-				if ($options->ga_position == 'F') add_action('SZ_FOOT',array(new SZGoogleActionAnalytics($this),'action'));
+				if ($options->ga_position == 'F') add_action('SZ_FOOT_BODY',array(new SZGoogleActionAnalytics($this),'action'));
 			}
 		}
 

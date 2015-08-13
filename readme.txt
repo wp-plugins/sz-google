@@ -1,8 +1,8 @@
-=== SZ - Google for WordPress ===
+=== Google for WordPress ===
 Contributors: massimodellarovere
 Requires at least: 3.5
 Tested up to: 4.2
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
@@ -48,7 +48,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 **Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the widget.
 
-**Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin-google sz we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
+**Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin "google for wordpress" we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
 
 **Google+ Embedded Posts:** With this function we can put in our post a simple widget that shows in full a post this on google plus, as well as the contents will be inserted also the buttons to perform social actions, all of this while remaining on its website, and without leaving the web page.Through its widget you can use to insert also a sidebar.
 
@@ -280,7 +280,7 @@ Given that in the plugin will be implemented different function that will not be
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 1. Administration Panel plugins and option `add new`.
-2. Search text box `sz-google`.
+2. Search text box `google for wordpress`.
 3. Placed on the description of this plugin and select install.
 4. Activate the plugin from the admin panel of WordPress.
 
@@ -314,7 +314,7 @@ If you have problems during the installation of this plugin please contact us di
 <a href="http://goo.gl/wz6ZV">Deutsch</a>
 
 = You can see a demo before the installation? =
-Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="http://goo.gl/oRoahu">SZ-Google Demo</a> to display many components in live demo.
+Yes, we have made available demonstration of the pages where the plugin installed to view the latest version of WordPress available at the moment. You can visit the specific web page <a href="http://goo.gl/oRoahu">Google for WordPress Demo</a> to display many components in live demo.
 
 = All these functions in a single plugin affect performance? =
 The plugin was written in separate modules that are activated only on request. This allows saving both memory of CPU, obviously if all functions are activated the plugin needs resources, however senpre less than installing a high number of different plugins.
@@ -330,13 +330,13 @@ Before you use the google translate module must register the site that you want 
 
 == Screenshots ==
 
-1. SZ-Google and administration panel
-2. SZ-Google and module Google+
-3. SZ-Google and module Google+ example
-4. SZ-Google and module Youtube
-5. SZ-Google and documentation
-6. SZ-Google and module Google Drive
-7. SZ-Google and module Panoramio
+1. Google for WordPress and administration panel
+2. Google for WordPress and module Google+
+3. Google for WordPress and module Google+ example
+4. Google for WordPress and module Youtube
+5. Google for WordPress and documentation
+6. Google for WordPress and module Google Drive
+7. Google for WordPress and module Panoramio
 
 == Changelog ==
 
@@ -345,6 +345,13 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.9.1 =
+* New: Change name "Google for WordPress".
+* Feature: Google Drive embed images.
+* Fix: Change Google Drive documentation.
+* Fix: Add type="text/javascript" script.
+* Fix: Better performance HEAD/FOOT Code.
 
 = Version 1.9.0 =
 * Feature: GA Option for compression code.
