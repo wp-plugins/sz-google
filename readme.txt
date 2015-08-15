@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
 Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google maps, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recaptcha, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
 
-Plugin to integrate Google's products in WordPress as Google+, Authenticator, Calendar,Drive, Groups, Hangouts, Maps, Panoramio, reCAPTCHA, Youtube and more.
+Plugin to integrate Google's products in WordPress as Google+, Authenticator, Calendar, Drive, Groups, Hangouts, Maps, Panoramio, Youtube and more.
 
 == Description ==
 <a href="http://goo.gl/ePm7Tw">English</a> - 
@@ -39,7 +39,7 @@ Plugin to integrate Google's products in WordPress. The Google products are many
 * `Module Google Youtube`
 * `Module Documentation`
 
-= Google+ social network module =
+= GOOGLE+ SOCIAL NETWORK =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 In this module you can find many components that allow integration of your website with the social network google+.
@@ -99,7 +99,7 @@ predefined standard details.
 * `szgoogle_gplus_get_contact_bestpost()`
 * `szgoogle_gplus_get_post()`
 
-= Google Analytics module =
+= GOOGLE ANALYTICS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website.
@@ -120,7 +120,7 @@ predefined standard details.
 * `szgoogle_analytics_get_ID()`
 * `szgoogle_analytics_get_code()`
 
-= Google Authenticator module =
+= GOOGLE AUTHENTICATOR =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 The plugin provides the authorization process in two phases designed by google authenticator, it is possible to strengthen the security of our login screen asking for a code-time.
@@ -134,7 +134,7 @@ The plugin provides the authorization process in two phases designed by google a
 * `szgoogle_authenticator_get_login_field()`
 * `szgoogle_authenticator_verify_code()`
 
-= Google Calendar =
+= GOOGLE CALENDAR =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Calendar Widgets:** In this plugin are available google calendar widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
@@ -149,7 +149,7 @@ The plugin provides the authorization process in two phases designed by google a
 
 * `szgoogle_calendar_get_widget()`
 
-= Google Drive module =
+= GOOGLE DRIVE =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Drive Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
@@ -170,7 +170,7 @@ The plugin provides the authorization process in two phases designed by google a
 * `szgoogle_drive_get_viewer()`
 * `szgoogle_drive_get_savebutton()`
 
-= Google Groups module =
+= GOOGLE GROUPS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Groups Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
@@ -185,7 +185,7 @@ The plugin provides the authorization process in two phases designed by google a
 
 * `szgoogle_groups_get_code()`
 
-= Google Hangouts module =
+= GOOGLE HANGOUTS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Hangouts:** In this plugin are available google hangouts widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
@@ -200,7 +200,7 @@ The plugin provides the authorization process in two phases designed by google a
 
 * `szgoogle_hangouts_get_code_start()`
 
-= Google Panoramio module =
+= GOOGLE PANORAMIO =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 With this module you can insert widgets with photo galleries present on panoramio. You can select photos by user, group or tag. You can choose between different display layouts as photo, slideshow, list and photo_list with navigation menu.
@@ -217,7 +217,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 * `szgoogle_panoramio_get_code()`
 
-= Google Translate module =
+= GOOGLE TRANSLATE =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 **Google Translate Widgets:** In this plugin are available to google translate widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
@@ -234,7 +234,7 @@ With this module you can insert widgets with photo galleries present on panorami
 * `szgoogle_translate_get_meta()`
 * `szgoogle_translate_get_meta_ID()`
 
-= Google Youtube module =
+= GOOGLE YOUTUBE =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can activate google Analytis for the actions that are performed on the video.
@@ -263,7 +263,7 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `szgoogle_youtube_get_code_link()`
 * `szgoogle_youtube_get_code_button()`
 
-= Plugin and general performance =
+= PLUGIN AND GENERAL PERFORMANCE =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly request. For this reason, activated only the functions you use.
