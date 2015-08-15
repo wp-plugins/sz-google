@@ -82,7 +82,7 @@ In this module you can find many components that allow integration of your websi
 * `[sz-gplus-one] ......: g+ plus one`
 * `[sz-gplus-share] ....: g+ share`
 
-**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Google+ Functions:** The functions of Google+ unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_gplus_get_badge_author()`
 * `szgoogle_gplus_get_badge_profile()`
@@ -116,7 +116,7 @@ In this module you can find many components that allow integration of your websi
 
 **Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position use function as manual entry.
 
-**Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Analytics Functions:** The functions of Analytics unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_analytics_get_ID()`
 * `szgoogle_analytics_get_code()`
@@ -126,7 +126,7 @@ In this module you can find many components that allow integration of your websi
 
 The plugin provides the authorization process in two phases designed by google authenticator, it is possible to strengthen the security of our login screen asking for a code-time.
 
-**Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Authenticator Functions:** The functions of Authenticator unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_authenticator_check_emergency()`
 * `szgoogle_authenticator_create_secret()`
@@ -140,7 +140,7 @@ The plugin provides the authorization process in two phases designed by google a
 
 In this module you can find many components that allow integration of your website with the Google Calendar.
 
-**Calendar Widgets:** In this plugin are available google calendar widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Calendar Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google calendar`
 
@@ -148,7 +148,7 @@ In this module you can find many components that allow integration of your websi
 
 * `[sz-calendar].....: googe calendar embed`
 
-**Calendar Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Calendar Functions:** The functions of Calendar unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_calendar_get_widget()`
 
@@ -157,7 +157,7 @@ In this module you can find many components that allow integration of your websi
 
 In this module you can find many components that allow integration of your website with the Google Drive.
 
-**Drive Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Drive Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google drive embed`
 * `Widget google drive viewer`
@@ -169,7 +169,7 @@ In this module you can find many components that allow integration of your websi
 * `[sz-drive-viewer]....: googe drive viewer`
 * `[sz-drive-save]......: googe drive save button`
 
-**Drive Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Drive Functions:** The functions of Drive unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_drive_get_embed()`
 * `szgoogle_drive_get_viewer()`
@@ -185,7 +185,7 @@ In this module you can find many components that allow integration of your websi
 
 In this module you can find many components that allow integration of your website with the Google Groups.
 
-**Groups Widgets:** In this plugin are available google groups widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Groups Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google groups embed`
 
@@ -193,7 +193,7 @@ In this module you can find many components that allow integration of your websi
 
 * `[sz-ggroups] ........: google translate widget`
 
-**Groups Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Groups Functions:** The functions of Groups unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_groups_get_code()`
 
@@ -202,7 +202,7 @@ In this module you can find many components that allow integration of your websi
 
 In this module you can find many components that allow integration of your website with the Google Hangouts.
 
-**Hangouts Widgets:** In this plugin are available google hangouts widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar.
+**Hangouts Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar.
 
 * `Widget hangouts with starter button`
 
@@ -210,7 +210,7 @@ In this module you can find many components that allow integration of your websi
 
 * `[sz-hangouts-start] .: google hangouts starter button`
 
-**Hangouts Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Hangouts Functions:** The functions of Hangouts unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_hangouts_get_code_start()`
 
@@ -219,12 +219,24 @@ In this module you can find many components that allow integration of your websi
 
 In this module you can find many components that allow integration of your website with the Google Maps and embed different maps on the same page. The embed can also be done in lazy load.
 
+**Maps Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+
+* `Widget google maps`
+
+**Maps Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
+
+* `[sz-maps] ......: google maps widget`
+
+**Maps Functions:** The functions of Maps unlike the other components can be used for programming in PHP and allow customization of themes and and some default options.
+
+* `szgoogle_maps_get_widget()`
+
 = GOOGLE PANORAMIO =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
 With this module you can insert widgets with photo galleries present on panoramio. You can select photos by user, group or tag. You can choose between different display layouts as photo, slideshow, list and photo_list with navigation menu.
 
-**Panoramio Widgets:** In this plugin are available to google panoramio widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Panoramio Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google panoramio`
 
@@ -232,7 +244,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 * `[sz-panoramio] ......: google panoramio photo widget`
 
-**Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Panoramio Functions:** The functions of Panoramio unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_panoramio_get_code()`
 
@@ -248,7 +260,7 @@ With this module you can integrate the reCAPTCHA product and increase easily the
 
 In this module you can find many components that allow integration of your website with the Google Translate.
 
-**Translate Widgets:** In this plugin are available to google translate widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Translate Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google translate tools`
 
@@ -256,7 +268,7 @@ In this module you can find many components that allow integration of your websi
 
 * `[sz-gtranslate] .....: google translate widget`
 
-**Translate Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
+**Translate Functions:** The functions of Translate unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_translate_get_code()`
 * `szgoogle_translate_get_meta()`
@@ -267,7 +279,7 @@ In this module you can find many components that allow integration of your websi
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can activate google Analytis for the actions that are performed on the video.
 
-**Youtube Widgets:** In this plugin are available to google youtube widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Youtube Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget embed youtube video`
 * `Widget embed youtube playlist`
@@ -283,7 +295,7 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `[sz-ytlink] .........: embed youtube link`
 * `[sz-ytbutton] .......: embed youtube button`
 
-**Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and and some default options.
+**Youtube Functions:** The functions of Youtube unlike the other components can be used for programming in PHP and allow customization of themes and and some default options.
 
 * `szgoogle_youtube_get_code_video()`
 * `szgoogle_youtube_get_code_playlist()`
