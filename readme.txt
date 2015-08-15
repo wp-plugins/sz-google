@@ -56,7 +56,7 @@ In this module you can find many components that allow integration of your websi
 
 **Google+ HEAD section:** With this function you can insert in the HEAD section of your web page the code necessary for parameters rel=author and rel=publisher. The code about publisher is added automatically by the function of recommendation mobile.
 
-**Google+ Widgets:** In this plugin are available to google+ widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Google+ Widgets:** These can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget google+ author`
 * `Widget google+ comments system`
@@ -144,7 +144,7 @@ In this module you can find many components that allow integration of your websi
 
 * `Widget google calendar`
 
-**Calendar Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress with a set of customizable parameters.
+**Calendar Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google calendar in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-calendar].....: googe calendar embed`
 
@@ -163,7 +163,7 @@ In this module you can find many components that allow integration of your websi
 * `Widget google drive viewer`
 * `Widget google drive for button save`
 
-**Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress with a set of customizable parameters.
+**Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google drive in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-drive-embed].....: googe drive embed`
 * `[sz-drive-viewer]....: googe drive viewer`
@@ -189,7 +189,7 @@ In this module you can find many components that allow integration of your websi
 
 * `Widget google groups embed`
 
-**Groups Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+**Groups Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-ggroups] ........: google translate widget`
 
@@ -223,7 +223,7 @@ In this module you can find many components that allow integration of your websi
 
 * `Widget google maps`
 
-**Maps Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
+**Maps Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google maps in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-maps] ......: google maps widget`
 
@@ -240,7 +240,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 * `Widget google panoramio`
 
-**Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
+**Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google panoramio in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-panoramio] ......: google panoramio photo widget`
 
@@ -287,7 +287,7 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `Widget embed youtube link`
 * `Widget embed youtube button`
 
-**Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
+**Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google youtube in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-ytvideo] ........: embed youtube video`
 * `[sz-ytplaylist] .....: embed youtube playlist`
