@@ -146,7 +146,7 @@ In this module you can find many components that allow integration of your websi
 
 **Calendar Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google calendar in a post or on a page in wordpress with a set of customizable parameters.
 
-* `[sz-calendar].....: googe calendar embed`
+* `[sz-calendar]..: googe calendar embed`
 
 **Calendar Functions:** The functions of Calendar unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
@@ -165,9 +165,9 @@ In this module you can find many components that allow integration of your websi
 
 **Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google drive in a post or on a page in wordpress with a set of customizable parameters.
 
-* `[sz-drive-embed].....: googe drive embed`
-* `[sz-drive-viewer]....: googe drive viewer`
-* `[sz-drive-save]......: googe drive save button`
+* `[sz-drive-embed]..: googe drive embed`
+* `[sz-drive-viewer].: googe drive viewer`
+* `[sz-drive-save]...: googe drive save button`
 
 **Drive Functions:** The functions of Drive unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
@@ -178,7 +178,7 @@ In this module you can find many components that allow integration of your websi
 = GOOGLE FONTS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-In this module you can find many components that allow integration of your website with the Google Fonts and easily load your favorite fonts inside your head section.
+In this module you can find many components that allow integration of your website with the Google Fonts and easily load your favorite fonts inside your head section and association with the HTML tags.
 
 = GOOGLE GROUPS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
@@ -191,7 +191,7 @@ In this module you can find many components that allow integration of your websi
 
 **Groups Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress with a set of customizable parameters.
 
-* `[sz-ggroups] ........: google translate widget`
+* `[sz-ggroups] ..: google translate widget`
 
 **Groups Functions:** The functions of Groups unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
@@ -225,7 +225,7 @@ In this module you can find many components that allow integration of your websi
 
 **Maps Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google maps in a post or on a page in wordpress with a set of customizable parameters.
 
-* `[sz-maps] ......: google maps widget`
+* `[sz-maps] ..: google maps widget`
 
 **Maps Functions:** The functions of Maps unlike the other components can be used for programming in PHP and allow customization of themes and and some default options.
 
@@ -242,7 +242,7 @@ With this module you can insert widgets with photo galleries present on panorami
 
 **Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google panoramio in a post or on a page in wordpress with a set of customizable parameters.
 
-* `[sz-panoramio] ......: google panoramio photo widget`
+* `[sz-panoramio] ..: google panoramio photo widget`
 
 **Panoramio Functions:** The functions of Panoramio unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
@@ -251,9 +251,7 @@ With this module you can insert widgets with photo galleries present on panorami
 = GOOGLE reCAPTCHA =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-With this module you can integrate the reCAPTCHA product and increase easily the security of your site. To use this feature you have to ask for the keys with the personal profile of google and insert them into the pages of the plugin options.
-
-* `szgoogle_translate_get_code()`
+With this module you can integrate the reCAPTCHA product and increase easily the security of your site. To use this feature you have to ask for the keys with the personal profile of google.
 
 = GOOGLE TRANSLATE =
 **<a href="http://goo.gl/6bzDMO"> </a>**
@@ -266,7 +264,7 @@ In this module you can find many components that allow integration of your websi
 
 **Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
 
-* `[sz-gtranslate] .....: google translate widget`
+* `[sz-gtranslate] ..: google translate widget`
 
 **Translate Functions:** The functions of Translate unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
@@ -289,11 +287,11 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 
 **Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google youtube in a post or on a page in wordpress with a set of customizable parameters.
 
-* `[sz-ytvideo] ........: embed youtube video`
-* `[sz-ytplaylist] .....: embed youtube playlist`
-* `[sz-ytbadge] ........: embed youtube badge`
-* `[sz-ytlink] .........: embed youtube link`
-* `[sz-ytbutton] .......: embed youtube button`
+* `[sz-ytvideo] ...: embed youtube video`
+* `[sz-ytplaylist] : embed youtube playlist`
+* `[sz-ytbadge] ...: embed youtube badge`
+* `[sz-ytlink] ....: embed youtube link`
+* `[sz-ytbutton] ..: embed youtube button`
 
 **Youtube Functions:** The functions of Youtube unlike the other components can be used for programming in PHP and allow customization of themes and and some default options.
 
