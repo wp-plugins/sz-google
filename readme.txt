@@ -69,7 +69,7 @@ In this module you can find many components that allow integration of your websi
 * `Widget google+ plus one`
 * `Widget google+ share`
 
-**Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+**Google+ Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google+ in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-gplus-author] . .: g+ author`
 * `[sz-gplus-comments] .: g+ comments system`
@@ -82,8 +82,7 @@ In this module you can find many components that allow integration of your websi
 * `[sz-gplus-one] ......: g+ plus one`
 * `[sz-gplus-share] ....: g+ share`
 
-**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements 
-predefined standard details.
+**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_gplus_get_badge_author()`
 * `szgoogle_gplus_get_badge_profile()`
@@ -127,7 +126,7 @@ In this module you can find many components that allow integration of your websi
 
 The plugin provides the authorization process in two phases designed by google authenticator, it is possible to strengthen the security of our login screen asking for a code-time.
 
-**Google Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_authenticator_check_emergency()`
 * `szgoogle_authenticator_create_secret()`
@@ -145,11 +144,11 @@ In this module you can find many components that allow integration of your websi
 
 * `Widget google calendar`
 
-**Google Calendar Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+**Google Calendar Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-calendar].....: googe calendar embed`
 
-**Google Calendar Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Calendar Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_calendar_get_widget()`
 
@@ -164,13 +163,13 @@ In this module you can find many components that allow integration of your websi
 * `Widget google drive viewer`
 * `Widget google drive for button save`
 
-**Google Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+**Google Drive Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google groups in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-drive-embed].....: googe drive embed`
 * `[sz-drive-viewer]....: googe drive viewer`
 * `[sz-drive-save]......: googe drive save button`
 
-**Google Drive Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Drive Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_drive_get_embed()`
 * `szgoogle_drive_get_viewer()`
@@ -194,7 +193,7 @@ In this module you can find many components that allow integration of your websi
 
 * `[sz-ggroups] ........: google translate widget`
 
-**Google Groups Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Groups Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_groups_get_code()`
 
@@ -207,11 +206,11 @@ In this module you can find many components that allow integration of your websi
 
 * `Widget hangouts with starter button`
 
-**Google Hangouts Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google hangouts in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+**Google Hangouts Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google hangouts in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-hangouts-start] .: google hangouts starter button`
 
-**Google Hangouts Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Hangouts Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_hangouts_get_code_start()`
 
@@ -229,11 +228,11 @@ With this module you can insert widgets with photo galleries present on panorami
 
 * `Widget google panoramio`
 
-**Google Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+**Google Panoramio Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-panoramio] ......: google panoramio photo widget`
 
-**Google Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Panoramio Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_panoramio_get_code()`
 
@@ -251,11 +250,11 @@ In this module you can find many components that allow integration of your websi
 
 * `Widget google translate tools`
 
-**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
+**Google Translate Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
 
 * `[sz-gtranslate] .....: google translate widget`
 
-**Google Translate Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Translate Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and some default options.
 
 * `szgoogle_translate_get_code()`
 * `szgoogle_translate_get_meta()`
@@ -266,14 +265,6 @@ In this module you can find many components that allow integration of your websi
 
 With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can activate google Analytis for the actions that are performed on the video.
 
-**Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
-
-* `[sz-ytvideo] ........: embed youtube video`
-* `[sz-ytplaylist] .....: embed youtube playlist`
-* `[sz-ytbadge] ........: embed youtube badge`
-* `[sz-ytlink] .........: embed youtube link`
-* `[sz-ytbutton] .......: embed youtube button`
-
 **Google Youtube Widgets:** In this plugin are available to google youtube widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
 
 * `Widget embed youtube video`
@@ -282,7 +273,15 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 * `Widget embed youtube link`
 * `Widget embed youtube button`
 
-**Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress with a set of customizable parameters.
+
+* `[sz-ytvideo] ........: embed youtube video`
+* `[sz-ytplaylist] .....: embed youtube playlist`
+* `[sz-ytbadge] ........: embed youtube badge`
+* `[sz-ytlink] .........: embed youtube link`
+* `[sz-ytbutton] .......: embed youtube button`
+
+**Google Youtube Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and and some default options.
 
 * `szgoogle_youtube_get_code_video()`
 * `szgoogle_youtube_get_code_playlist()`
