@@ -8,7 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
 Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google maps, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recaptcha, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
 
-Plugin to integrate Google's products in WordPress as Google+, Authenticator, Calendar, Drive, Groups, Hangouts, Maps, Panoramio, Youtube & more.
+Plugin to integrate Google's products in WordPress as Google+, Calendar, Drive, Hangouts, Maps, Panoramio, Youtube & more.
 
 == Description ==
 <a href="http://goo.gl/ePm7Tw">English</a> - 
@@ -179,6 +179,8 @@ In this module you can find many components that allow integration of your websi
 = GOOGLE FONTS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
+In this module you can find many components that allow integration of your website with the Google Fonts and easily upload your favorite fonts.
+
 = GOOGLE GROUPS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
@@ -201,7 +203,7 @@ In this module you can find many components that allow integration of your websi
 
 In this module you can find many components that allow integration of your website with the Google Hangouts.
 
-**Google Hangouts:** In this plugin are available google hangouts widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar that interests you.
+**Google Hangouts Widgets:** In this plugin are available google hangouts widgets that can be directly inserted on the sidebar of your website. All the configuration parameters can be found on the widget itself after you dragged to the sidebar.
 
 * `Widget hangouts with starter button`
 
@@ -215,6 +217,8 @@ In this module you can find many components that allow integration of your websi
 
 = GOOGLE MAPS =
 **<a href="http://goo.gl/6bzDMO"> </a>**
+
+In this module you can find many components that allow integration of your website with the Google Maps and embed different maps on the same page.
 
 = GOOGLE PANORAMIO =
 **<a href="http://goo.gl/6bzDMO"> </a>**
@@ -235,6 +239,8 @@ With this module you can insert widgets with photo galleries present on panorami
 
 = GOOGLE reCAPTCHA =
 **<a href="http://goo.gl/6bzDMO"> </a>**
+
+With this module you can integrate the reCAPTCHA product and increase easily the security of your site.
 
 = GOOGLE TRANSLATE =
 **<a href="http://goo.gl/6bzDMO"> </a>**
