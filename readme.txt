@@ -8,8 +8,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
 Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google maps, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recaptcha, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
 
-Plugin to integrate Google's products in WordPress as Google+, Calendar, Drive, Groups, 
-Hangouts, Maps, Panoramio, reCAPTCHA, Youtube and more.
+Plugin to integrate Google's products in WordPress as Google+, Authenticator, Calendar,Drive, Groups, Hangouts, Maps, Panoramio, reCAPTCHA, Youtube and more.
 
 == Description ==
 <a href="http://goo.gl/ePm7Tw">English</a> - 
@@ -18,7 +17,7 @@ Hangouts, Maps, Panoramio, reCAPTCHA, Youtube and more.
 <a href="http://goo.gl/jnxWm">Français</a> - 
 <a href="http://goo.gl/eXk1j">Deutsch</a>
 
-Plugin to integrate Google's products in WordPress with particular attention to the widgets provided by the social network Google+. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote.
+Plugin to integrate Google's products in WordPress. The Google products are many and so this plugin will be a kind of development "step to step" which will be developed a little bit at a time depending on the availability of time that we can devote.
 
 * <a href="http://goo.gl/vxNRF4">(IT) - Documentazione in Italiano</a>
 
@@ -42,6 +41,8 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 = Google+ social network module =
 **<a href="http://goo.gl/6bzDMO"> </a>**
+
+In this module you can find many components that allow integration of your website with the social network google+.
 
 **Google+ Badges:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These can be used as widgets for use in or as a sidebar and as shortcodes to use in the articles. 
 
@@ -101,7 +102,7 @@ predefined standard details.
 = Google Analytics module =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-**Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website. You can choose to hide the code when using the administration panel, or when a user is connected.
+**Generate code:** Once activated the module from the admin panel and entered your code UA, plugin will insert on your web page code needed to google analytics to generate statistics access your website.
 
 * `Google analytics classic and universal.`
 * `Google analytics enable frontend.`
@@ -112,7 +113,7 @@ predefined standard details.
 * `Google analytics enable multiple top domains.`
 * `Google analytics enable advertiser.`
 
-**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function `szgoogle_analytics_get_code()` in your theme manually.
+**Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position use function as manual entry.
 
 **Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
@@ -122,8 +123,7 @@ predefined standard details.
 = Google Authenticator module =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-The plugin provides the authorization process in two phases designed by google authenticator, it is possible to strengthen the security of our login screen asking for a code-time in addition to the normal credentials. This is made ​​possible by 
-the Google Authenticator that you can install on our smartphones whether it's an iphone, android or blackberry. As we will see below the configuration and synchronization of the key will be performed quickly and easily using a code QR Code to display on your device.
+The plugin provides the authorization process in two phases designed by google authenticator, it is possible to strengthen the security of our login screen asking for a code-time.
 
 **Google Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
@@ -297,13 +297,13 @@ Given that in the plugin will be implemented different function that will not be
 
 1. Download the ZIP file from this screen and unzip.
 2. Sign in to your FTP folder on the web server.
-3. Copy the entire folder `sz-google` in directory `/wp-content/plugins/`
+3. Copy folder `sz-google` in directory `/wp-content/plugins/`
 4. Activate the plugin from the admin panel of WordPress.
 
 = Troubleshoot problems during installation =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>. Remember to specify exactly the problem, the version of the plugin that use for installing or updating, the version of wordpress and uses the operating system that manages the site hosting. If you have problems of conflict with other plugins give as much information as possible so you can run a trace and find the problem.
+If you have problems during the installation of this plugin please contact us directly in the support forum on wordpress or post your problem on our community <a href="https://plus.google.com/communities/109254048492234113886">WordPress Italy+</a>. Remember to specify exactly the problem, the version of the plugin that use for installing or updating, the version of wordpress and uses the operating system that manages the site hosting. If you have problems of conflict with other plugins give as much information as possible.
 
 == Frequently Asked Questions ==
 
