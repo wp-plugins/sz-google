@@ -134,6 +134,18 @@ if (!defined('SZ_PLUGIN_GOOGLE') or !SZ_PLUGIN_GOOGLE) die();
 	</td>
 </tr>
 
+<!-- WIDGETS (Field to lazy load) -->
+<tr>
+	<td colspan="1" class="sz-cell-keys"><label for="<?php echo $ID_lazyload ?>"><?php echo ucfirst(__('lazy load','szgoogleadmin')) ?>:</label></td>
+	<td colspan="2" class="sz-cell-vals">
+		<select class="widefat" id="<?php echo $ID_lazyload ?>" name="<?php echo $NAME_lazyload ?>">
+			<option value=""  <?php echo selected("" ,$VALUE_lazyload) ?>><?php echo SZGOOGLE_UPPER(__('default' ,'szgoogleadmin')) ?></option>
+			<option value="0" <?php echo selected("0",$VALUE_lazyload) ?>><?php echo SZGOOGLE_UPPER(__('disabled','szgoogleadmin')) ?></option>
+			<option value="1" <?php echo selected("1",$VALUE_lazyload) ?>><?php echo SZGOOGLE_UPPER(__('enabled' ,'szgoogleadmin')) ?></option>
+		</select>
+	</td>
+</tr>
+
 <!-- WIDGETS (Closing the main table form widget) -->
 </table>
 

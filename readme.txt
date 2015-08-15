@@ -2,13 +2,14 @@
 Contributors: massimodellarovere
 Requires at least: 3.5
 Tested up to: 4.2
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://goo.gl/LNgg9T
 Tags: analytics, authenticator, badge, buttons, calendar, comments, comments system, custom url, drive, embed video, embed playlist, embedded posts, follow, google, google+, google analytics, google authenticator, google analytics universal, google author, google calendar, google drive, google maps, google publisher, google translate, google+ badge, google+ buttons, google+ comments, google+ community, google+ custom url, google+ embedded posts, google+ follow, google groups, google hangouts, google+ page, google plus, google+ profile, google+ share, groups, groups embed, hangouts, HOA, playlist, post sharing, post comments, widgets, widgets google+, widget translate, recaptcha, recommendations mobile, redirect, save to drive, sidebar, share, social network, shortcodes, translate, universal analytics, youtube, youtube embed, youtube playlist, video, video youtube
 
-Plugin to integrate Google's products in WordPress with particular attention for the social network Google+. 
+Plugin to integrate Google's products in WordPress as Google+, Calendar, Drive, Groups, 
+Hangouts, Maps, Panoramio, reCAPTCHA, Youtube and more.
 
 == Description ==
 <a href="http://goo.gl/ePm7Tw">English</a> - 
@@ -42,11 +43,11 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 = Google+ social network module =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-**Google+ Badges:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These components can be used as a widget for use in or as a sidebar and as shortcode to use in the articles. You can also use the php functions to customize your own theme directly with programming code.
+**Google+ Badges:** With this plugin can be inserted in your blog most of the badges available to google for its social network, for example, we can use the badge for profiles, one for the pages or the one dedicated to the community. These can be used as widgets for use in or as a sidebar and as shortcodes to use in the articles. 
 
 **Google+ Buttons:** The plugin also provides many social buttons, such as +1 button, share button and follow. You can also use the input buttons as simple badge and  associated with a text or an image. as for the other components you can use these functions with the shortcodes that with widgets in the admin panel.
 
-**Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments, wishing you can also insert into a sidebar using the widget.
+**Google+ Comments System:** The comment system must be explicitly enabled from the admin panel after installing the plugin. You can replace the current commenting system or integrate it with the existing getting a double system. You can choose the position of the new widget comments or use the widget for sidebar.
 
 **Google+ Custom URL:** It is already some time that Google has released the function of custom URLs for pages and profiles, however, the majority of profiles and pages can not yet take advantage of this possibility. So in the plugin "google for wordpress" we added this feature to be able to generate custom links such as domino.com/+ or dominio.com/plus.
 
@@ -80,7 +81,8 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 * `[sz-gplus-one] ......: g+ plus one`
 * `[sz-gplus-share] ....: g+ share`
 
-**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
+**Google+ Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements 
+predefined standard details.
 
 * `szgoogle_gplus_get_badge_author()`
 * `szgoogle_gplus_get_badge_profile()`
@@ -112,7 +114,7 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 
 **Position code:** To insert the code you can choose the header of the web page (the recommended one) or footer, but if you want to customize the position used manual entry and enter the function `szgoogle_analytics_get_code()` in your theme manually.
 
-**Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard. Code is disabled by default for users connected.
+**Google Analytics Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
 * `szgoogle_analytics_get_ID()`
 * `szgoogle_analytics_get_code()`
@@ -120,10 +122,8 @@ Plugin to integrate Google's products in WordPress with particular attention to 
 = Google Authenticator module =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-**Google Authenticator:** The plugin provides the authorization process in two phases designed by google authenticator, it is possible to 
-strengthen the security of our login screen asking for a code-time in addition to the normal credentials. This is made ​​possible by 
-the Google Authenticator that you can install on our smartphones whether it's an iphone, android or blackberry. As we will see below 
-the configuration and synchronization of the key will be performed quickly and easily using a code QR Code to display on your device.
+The plugin provides the authorization process in two phases designed by google authenticator, it is possible to strengthen the security of our login screen asking for a code-time in addition to the normal credentials. This is made ​​possible by 
+the Google Authenticator that you can install on our smartphones whether it's an iphone, android or blackberry. As we will see below the configuration and synchronization of the key will be performed quickly and easily using a code QR Code to display on your device.
 
 **Google Authenticator Functions:** The functions unlike the other components can be used for programming in PHP and allow customization of themes and decide the placements details that do not perform a predefined standard.
 
@@ -237,7 +237,7 @@ With this module you can insert widgets with photo galleries present on panorami
 = Google Youtube module =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can attivae the beneficiaries of google Analytis for the actions that are performed on the video embed.
+With this module you can insert into a wordpress page a video on youtube. you can customize many parameters and integrating different modes of insertion, you can choose the theme, set parameters such as autoplay, loop and fullscreen, you can activate google Analytis for the actions that are performed on the video.
 
 **Google Youtube Shortcodes:** The shortcode made ​​available to allow the insertion of the components of google translate in a post or on a page in wordpress. Each has shortcode of customization parameters that can be specified in the code itself.
 
@@ -266,7 +266,7 @@ With this module you can insert into a wordpress page a video on youtube. you ca
 = Plugin and general performance =
 **<a href="http://goo.gl/6bzDMO"> </a>**
 
-Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly requested function. For this reason, activated only the functions you use.
+Given that in the plugin will be implemented different function that will not be used in most of the times all together, the plugin has been written with a technique of "separate modules" in such a way to load the code only if the administration panel is activated explicitly request. For this reason, activated only the functions you use.
 
 == Installation ==
 
@@ -345,6 +345,13 @@ Before you use the google translate module must register the site that you want 
 <a href="http://goo.gl/6G8dH">Español</a> - 
 <a href="http://goo.gl/WwtPs">Français</a> - 
 <a href="http://goo.gl/VHbwt">Deutsch</a>
+
+= Version 1.9.2 =
+* Fix: Option wheel for google maps.
+* Fix: Bad translate string google drive.
+* Fix: General documentation text.
+* Feature: Lazy load google maps widget.
+* Feature: Lazy load google maps shortcode.
 
 = Version 1.9.1 =
 * New: Change name "Google for WordPress".

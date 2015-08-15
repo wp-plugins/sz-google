@@ -98,6 +98,7 @@ if (!class_exists('SZGoogleAdminMaps'))
 				              array('field' => 'maps_s_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_layer')),
 				              array('field' => 'maps_s_wheel'   ,'title' => ucfirst(__('default wheel'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_wheel')),
 				              array('field' => 'maps_s_marker'  ,'title' => ucfirst(__('default marker'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_marker')),
+				              array('field' => 'maps_s_lazy'    ,'title' => ucfirst(__('lazy load'        ,'szgoogleadmin')),'callback' => array($this,'callback_maps_s_lazy')),
 				),
 				'05' => array(array('field' => 'maps_w_enable'  ,'title' => ucfirst(__('widget'           ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_enable')),),
 				'06' => array(array('field' => 'maps_w_width'   ,'title' => ucfirst(__('default width'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_width')),
@@ -109,6 +110,7 @@ if (!class_exists('SZGoogleAdminMaps'))
 				              array('field' => 'maps_w_layer'   ,'title' => ucfirst(__('default layer'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_layer')),
 				              array('field' => 'maps_w_wheel'   ,'title' => ucfirst(__('default wheel'    ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_wheel')),
 				              array('field' => 'maps_w_marker'  ,'title' => ucfirst(__('default marker'   ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_marker')),
+				              array('field' => 'maps_w_lazy'    ,'title' => ucfirst(__('lazy load'        ,'szgoogleadmin')),'callback' => array($this,'callback_maps_w_lazy')),
 				),
 			);
 
@@ -226,6 +228,12 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('if this option is enabled will be added to the marker on the map, which corresponds to the specified coordinates. Will still be possible to change this behavior with the options in the shortcode or widget map.','szgoogleadmin'));
 		}
 
+		function callback_maps_s_lazy()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_s_lazy');
+			$this->moduleCommonFormDescription(__('if you enable this option, the loading the map will be in a "lazy load", the code will be executed only when the map will be displayed on the page. This option improves performance but may have problems with some browsers.','szgoogleadmin'));
+		}
+
 		/**
 		 * Definition functions for the creation of the various options that should be included 
 		 * in the general form of configuration and saved on a database of wordpress (options)
@@ -304,5 +312,10 @@ if (!class_exists('SZGoogleAdminMaps'))
 			$this->moduleCommonFormDescription(__('if this option is enabled will be added to the marker on the map, which corresponds to the specified coordinates. Will still be possible to change this behavior with the options in the shortcode or widget map.','szgoogleadmin'));
 		}
 
+		function callback_maps_w_lazy()
+		{
+			$this->moduleCommonFormCheckboxYesNo('sz_google_options_maps','maps_w_lazy');
+			$this->moduleCommonFormDescription(__('if you enable this option, the loading the map will be in a "lazy load", the code will be executed only when the map will be displayed on the page. This option improves performance but may have problems with some browsers.','szgoogleadmin'));
+		}
 	}
 }

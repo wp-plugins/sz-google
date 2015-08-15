@@ -44,7 +44,7 @@ if (!class_exists('SZGoogleModuleMaps'))
 			// have to specify the name option of activating and class to be loaded
 
 			$this->moduleSetWidgets(array(
-				'maps_w_enable'    => 'SZGoogleWidgetMaps',
+				'maps_w_enable' => 'SZGoogleWidgetMaps',
 			));
 		}
 
@@ -146,7 +146,7 @@ if (!class_exists('SZGoogleModuleMaps'))
 				// LOOP-1 : Create function for each defined maps
 				// LOOP-1 : Each function set option and coordinates
 
-				foreach ($this->setJavascriptOptions as $key => $value) 
+				foreach ($this->setJavascriptOptions as $key=>$value) 
 				{
 					if (is_object($value) and isset($value->idHTML)) 
 					{
@@ -211,13 +211,34 @@ if (!class_exists('SZGoogleModuleMaps'))
 				$javascript .= '<script type="text/javascript">';
 				$javascript .= 'function szgooglemapsinit() {';
 
-				foreach ($this->setJavascriptOptions as $key => $value) {
-					if (is_object($value) and isset($value->idHTML)) {
-						$javascript .= 'szgooglemapsinit_'.$value->unique.'();';
+				foreach ($this->setJavascriptOptions as $key=>$value) {
+					if (is_object($value) and isset($value->idHTML)) 
+					{
+						if ($value->lazyload == '1') 
+						{
+							// Prepare code for execute lazy load map if request
+							// The code is used in addEventListener "load","scroll"
+
+							$LAZYLOADER  = sprintf('element_%s = document.getElementById("%s");',$value->unique,$value->idHTML);
+							$LAZYLOADER .= sprintf('eledata_%s = element_%s.getAttribute("data-load");',$value->unique,$value->unique);
+							$LAZYLOADER .= sprintf('if (eledata_%s != "load") {',$value->unique);
+							$LAZYLOADER .= sprintf('if (szgooglecheckviewport(element_%s)) {',$value->unique);
+							$LAZYLOADER .= sprintf('element_%s.setAttribute("data-load","load");',$value->unique);
+							$LAZYLOADER .= sprintf('szgooglemapsinit_%s();',$value->unique);
+							$LAZYLOADER .= '}}';
+
+							$javascript .= sprintf('if (window.addEventListener) { window.addEventListener("load",function(){%s},false);}',$LAZYLOADER);
+							$javascript .= sprintf('else if (window.attachEvent) { window.attachEvent("onload",function(){%s});}',$LAZYLOADER);
+							$javascript .= sprintf('window.addEventListener("scroll",function(){%s});',$LAZYLOADER);
+
+						} else {
+
+							$javascript .= 'szgooglemapsinit_'.$value->unique.'();';
+						}
 					}
 				}
 
-				$javascript .= '}';
+				$javascript .= '};';
 				$javascript .= '</script>'."\n";
 			}
 

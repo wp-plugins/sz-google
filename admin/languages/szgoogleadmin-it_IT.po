@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: szgoogleadmin\n"
-"POT-Creation-Date: 2015-07-02 20:46-0500\n"
-"PO-Revision-Date: 2015-07-02 20:49-0500\n"
+"POT-Creation-Date: 2015-08-15 01:57-0500\n"
+"PO-Revision-Date: 2015-08-15 01:57-0500\n"
 "Last-Translator: Massimo <wordpress@otherplus.com>\n"
 "Language-Team: otherplus <wordpress@otherplus.com>\n"
 "Language: it_IT\n"
@@ -948,7 +948,7 @@ msgstr "shortcode"
 #: ../../admin/classes/SZGoogleAdminTranslate.php:86
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:90
 #: ../../admin/classes/SZGoogleAdminPlus.php:160
-#: ../../admin/classes/SZGoogleAdminMaps.php:102
+#: ../../admin/classes/SZGoogleAdminMaps.php:103
 #: ../../admin/classes/SZGoogleAdminHangouts.php:76
 #: ../../admin/classes/SZGoogleAdminCalendar.php:103
 #: ../../admin/classes/SZGoogleAdminDrive.php:89
@@ -985,7 +985,7 @@ msgstr "nascondi soggetto"
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:84
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:92
 #: ../../admin/classes/SZGoogleAdminMaps.php:92
-#: ../../admin/classes/SZGoogleAdminMaps.php:103
+#: ../../admin/classes/SZGoogleAdminMaps.php:104
 #: ../../admin/classes/SZGoogleAdminYoutube.php:107
 #: ../../admin/classes/SZGoogleAdminCalendar.php:94
 #: ../../admin/classes/SZGoogleAdminCalendar.php:106
@@ -1000,7 +1000,7 @@ msgstr "larghezza di default "
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:85
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:93
 #: ../../admin/classes/SZGoogleAdminMaps.php:93
-#: ../../admin/classes/SZGoogleAdminMaps.php:104
+#: ../../admin/classes/SZGoogleAdminMaps.php:105
 #: ../../admin/classes/SZGoogleAdminYoutube.php:108
 #: ../../admin/classes/SZGoogleAdminCalendar.php:95
 #: ../../admin/classes/SZGoogleAdminCalendar.php:107
@@ -1014,7 +1014,7 @@ msgstr "altezza di default"
 #: ../../admin/classes/SZGoogleAdminGroups.php:105
 #: ../../admin/classes/SZGoogleAdminTranslate.php:137
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:119
-#: ../../admin/classes/SZGoogleAdminMaps.php:237
+#: ../../admin/classes/SZGoogleAdminMaps.php:245
 #: ../../admin/classes/SZGoogleAdminYoutube.php:141
 #: ../../admin/classes/SZGoogleAdminYoutube.php:147
 #: ../../admin/classes/SZGoogleAdminYoutube.php:153
@@ -1039,7 +1039,7 @@ msgstr ""
 #: ../../admin/classes/SZGoogleAdminGroups.php:111
 #: ../../admin/classes/SZGoogleAdminTranslate.php:143
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:113
-#: ../../admin/classes/SZGoogleAdminMaps.php:159
+#: ../../admin/classes/SZGoogleAdminMaps.php:161
 #: ../../admin/classes/SZGoogleAdminYoutube.php:176
 #: ../../admin/classes/SZGoogleAdminYoutube.php:182
 #: ../../admin/classes/SZGoogleAdminYoutube.php:188
@@ -1466,8 +1466,8 @@ msgstr ""
 "widget e photo-list widget."
 
 #: ../../admin/classes/SZGoogleAdminPanoramio.php:137
-#: ../../admin/classes/SZGoogleAdminMaps.php:165
-#: ../../admin/classes/SZGoogleAdminMaps.php:243
+#: ../../admin/classes/SZGoogleAdminMaps.php:167
+#: ../../admin/classes/SZGoogleAdminMaps.php:251
 #: ../../admin/classes/SZGoogleAdminCalendar.php:194
 #: ../../admin/classes/SZGoogleAdminCalendar.php:271
 #: ../../admin/classes/SZGoogleAdminDrive.php:143
@@ -2015,7 +2015,7 @@ msgstr ""
 "109254048492234113886."
 
 #: ../../admin/classes/SZGoogleAdminPlus.php:268
-#: ../../admin/classes/SZGoogleAdminMaps.php:130
+#: ../../admin/classes/SZGoogleAdminMaps.php:132
 #: ../../admin/classes/SZGoogleAdminCalendar.php:158
 msgid ""
 "specify the language code associated with your website, if you do not "
@@ -2570,45 +2570,51 @@ msgid "maps signin"
 msgstr "mappa signin"
 
 #: ../../admin/classes/SZGoogleAdminMaps.php:94
-#: ../../admin/classes/SZGoogleAdminMaps.php:105
+#: ../../admin/classes/SZGoogleAdminMaps.php:106
 msgid "default latitude"
 msgstr "latitudine di default "
 
 #: ../../admin/classes/SZGoogleAdminMaps.php:95
-#: ../../admin/classes/SZGoogleAdminMaps.php:106
+#: ../../admin/classes/SZGoogleAdminMaps.php:107
 msgid "default longitude"
 msgstr "longitudine di default"
 
 #: ../../admin/classes/SZGoogleAdminMaps.php:96
-#: ../../admin/classes/SZGoogleAdminMaps.php:107
+#: ../../admin/classes/SZGoogleAdminMaps.php:108
 msgid "default zoom"
 msgstr "default zoom"
 
 #: ../../admin/classes/SZGoogleAdminMaps.php:97
-#: ../../admin/classes/SZGoogleAdminMaps.php:108
+#: ../../admin/classes/SZGoogleAdminMaps.php:109
 msgid "default view"
 msgstr "default view"
 
 #: ../../admin/classes/SZGoogleAdminMaps.php:98
-#: ../../admin/classes/SZGoogleAdminMaps.php:109
+#: ../../admin/classes/SZGoogleAdminMaps.php:110
 msgid "default layer"
 msgstr "strato di default "
 
 #: ../../admin/classes/SZGoogleAdminMaps.php:99
-#: ../../admin/classes/SZGoogleAdminMaps.php:110
+#: ../../admin/classes/SZGoogleAdminMaps.php:111
 msgid "default wheel"
 msgstr "default wheel"
 
 #: ../../admin/classes/SZGoogleAdminMaps.php:100
-#: ../../admin/classes/SZGoogleAdminMaps.php:111
+#: ../../admin/classes/SZGoogleAdminMaps.php:112
 msgid "default marker"
 msgstr "default marker"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:135
+#: ../../admin/classes/SZGoogleAdminMaps.php:101
+#: ../../admin/classes/SZGoogleAdminMaps.php:113
+#, fuzzy
+msgid "lazy load"
+msgstr "caricamento ritardato"
+
+#: ../../admin/classes/SZGoogleAdminMaps.php:137
 msgid "insert API Key"
 msgstr "inserire API Key"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:136
+#: ../../admin/classes/SZGoogleAdminMaps.php:138
 msgid ""
 "the key associated with the API call is not mandatory in an usage normal, "
 "but if it surpassed the 25,000 request per day or you want to keep track "
@@ -2620,7 +2626,7 @@ msgstr ""
 "statististche particolari sulle mappe, in questo caso bisogna richiedere la "
 "chiave a Google."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:142
+#: ../../admin/classes/SZGoogleAdminMaps.php:144
 msgid ""
 "this parameter indicates whether you have to use the sensor location in "
 "order to obtain the correct position of the visitor. Enable this option only "
@@ -2632,7 +2638,7 @@ msgstr ""
 "necessario. L'utente sarà avvisato di questa opzione attivata e dovrà "
 "concedere l'autorizzazione."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:148
+#: ../../admin/classes/SZGoogleAdminMaps.php:150
 msgid ""
 "when you enable sign-in with the Google Maps JavaScript API, the maps on "
 "your site will be tailored to your users. Users who are signed-in to their "
@@ -2644,8 +2650,8 @@ msgstr ""
 "proprio account Google saranno in grado di salvare i luoghi per una "
 "successiva visualizzazione."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:171
-#: ../../admin/classes/SZGoogleAdminMaps.php:249
+#: ../../admin/classes/SZGoogleAdminMaps.php:173
+#: ../../admin/classes/SZGoogleAdminMaps.php:257
 #: ../../admin/classes/SZGoogleAdminCalendar.php:200
 #: ../../admin/classes/SZGoogleAdminCalendar.php:277
 #: ../../admin/classes/SZGoogleAdminDrive.php:149
@@ -2667,13 +2673,13 @@ msgstr ""
 "del shortcode, se si vede un valore uguale ad \"auto\" verrà utilizzata la "
 "dimensione predefinita."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:181
-#: ../../admin/classes/SZGoogleAdminMaps.php:259
+#: ../../admin/classes/SZGoogleAdminMaps.php:183
+#: ../../admin/classes/SZGoogleAdminMaps.php:267
 msgid "enter the latitude"
 msgstr "inserisci la latitudine"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:182
-#: ../../admin/classes/SZGoogleAdminMaps.php:260
+#: ../../admin/classes/SZGoogleAdminMaps.php:184
+#: ../../admin/classes/SZGoogleAdminMaps.php:268
 msgid ""
 "specify the default value for the latitude of the map. This value will be "
 "used if no value is specified on the option dedicated. Make sure that the "
@@ -2683,13 +2689,13 @@ msgstr ""
 "valore sarà utilizzato nel caso non venga specificata l'opzione interessata. "
 "Controllare di inserire correttamente il valore con il (.) come separatore."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:187
-#: ../../admin/classes/SZGoogleAdminMaps.php:265
+#: ../../admin/classes/SZGoogleAdminMaps.php:189
+#: ../../admin/classes/SZGoogleAdminMaps.php:273
 msgid "enter the longitude"
 msgstr "inserisci la longitudine"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:188
-#: ../../admin/classes/SZGoogleAdminMaps.php:266
+#: ../../admin/classes/SZGoogleAdminMaps.php:190
+#: ../../admin/classes/SZGoogleAdminMaps.php:274
 msgid ""
 "specify the default value for longitude of the map. This value will be used "
 "if no value is specified on the option dedicated. Make sure that the value "
@@ -2699,8 +2705,8 @@ msgstr ""
 "valore sarà utilizzato nel caso non venga specificata l'opzione interessata. "
 "Controllare di inserire correttamente il valore con il (.) come separatore."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:195
-#: ../../admin/classes/SZGoogleAdminMaps.php:273
+#: ../../admin/classes/SZGoogleAdminMaps.php:197
+#: ../../admin/classes/SZGoogleAdminMaps.php:281
 msgid ""
 "specify the value of ZOOM default to be applied to the component when you do "
 "not specify any value. This value controls the magnification of the map when "
@@ -2711,32 +2717,32 @@ msgstr ""
 "di dettaglio con cui sarà visualizzata la mappa, è possibile indicare un "
 "valore da 1 a 20."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:205
-#: ../../admin/classes/SZGoogleAdminMaps.php:283
+#: ../../admin/classes/SZGoogleAdminMaps.php:207
+#: ../../admin/classes/SZGoogleAdminMaps.php:291
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:91
 msgid "roadmap"
 msgstr "percorso"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:205
-#: ../../admin/classes/SZGoogleAdminMaps.php:283
+#: ../../admin/classes/SZGoogleAdminMaps.php:207
+#: ../../admin/classes/SZGoogleAdminMaps.php:291
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:92
 msgid "satellite"
 msgstr "satellite"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:205
-#: ../../admin/classes/SZGoogleAdminMaps.php:283
+#: ../../admin/classes/SZGoogleAdminMaps.php:207
+#: ../../admin/classes/SZGoogleAdminMaps.php:291
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:93
 msgid "hybrid"
 msgstr "ibrida"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:205
-#: ../../admin/classes/SZGoogleAdminMaps.php:283
+#: ../../admin/classes/SZGoogleAdminMaps.php:207
+#: ../../admin/classes/SZGoogleAdminMaps.php:291
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:94
 msgid "terrain"
 msgstr "terreno"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:207
-#: ../../admin/classes/SZGoogleAdminMaps.php:285
+#: ../../admin/classes/SZGoogleAdminMaps.php:209
+#: ../../admin/classes/SZGoogleAdminMaps.php:293
 msgid ""
 "the google map can be displayed in different ways. Specify the default map "
 "to be submitted in case you missed a more specific option. The possible "
@@ -2748,33 +2754,33 @@ msgstr ""
 "possibili sono: PERCORSO, SATELLITE, IBRIDA, TERRENO. Vedere la "
 "documentazione ufficiale."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:212
-#: ../../admin/classes/SZGoogleAdminMaps.php:290
+#: ../../admin/classes/SZGoogleAdminMaps.php:214
+#: ../../admin/classes/SZGoogleAdminMaps.php:298
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:105
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:131
 msgid "nothing"
 msgstr "nessuno"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:212
-#: ../../admin/classes/SZGoogleAdminMaps.php:290
+#: ../../admin/classes/SZGoogleAdminMaps.php:214
+#: ../../admin/classes/SZGoogleAdminMaps.php:298
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:106
 msgid "traffic"
 msgstr "traffico"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:212
-#: ../../admin/classes/SZGoogleAdminMaps.php:290
+#: ../../admin/classes/SZGoogleAdminMaps.php:214
+#: ../../admin/classes/SZGoogleAdminMaps.php:298
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:107
 msgid "transit"
 msgstr "transito"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:212
-#: ../../admin/classes/SZGoogleAdminMaps.php:290
+#: ../../admin/classes/SZGoogleAdminMaps.php:214
+#: ../../admin/classes/SZGoogleAdminMaps.php:298
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:108
 msgid "bicycle"
 msgstr "bicicletta"
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:214
-#: ../../admin/classes/SZGoogleAdminMaps.php:292
+#: ../../admin/classes/SZGoogleAdminMaps.php:216
+#: ../../admin/classes/SZGoogleAdminMaps.php:300
 msgid ""
 "if you use the maps with a specific layer, you can set this value by "
 "default. In this way it will be automatically added to your maps. The "
@@ -2784,8 +2790,8 @@ msgstr ""
 "default. In questa maniera sarà aggiunto automaticamente alle tue mappe. I "
 "valori possibili sono NESSSUNO, TRAFFICO, TRANSITO e BICICLETTA."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:220
-#: ../../admin/classes/SZGoogleAdminMaps.php:298
+#: ../../admin/classes/SZGoogleAdminMaps.php:222
+#: ../../admin/classes/SZGoogleAdminMaps.php:306
 msgid ""
 "with this option you can enable or disable the zoom function using the mouse "
 "wheel. In fact, many times the central maps can prevent the natural flow of "
@@ -2795,8 +2801,8 @@ msgstr ""
 "sulla mappa tramite l'utilizzo della rotellina del mouse. In quanto alcune "
 "mappe possono impedire lo scorrimento naturale di una pagina."
 
-#: ../../admin/classes/SZGoogleAdminMaps.php:226
-#: ../../admin/classes/SZGoogleAdminMaps.php:304
+#: ../../admin/classes/SZGoogleAdminMaps.php:228
+#: ../../admin/classes/SZGoogleAdminMaps.php:312
 msgid ""
 "if this option is enabled will be added to the marker on the map, which "
 "corresponds to the specified coordinates. Will still be possible to change "
@@ -2805,6 +2811,18 @@ msgstr ""
 "se questa opzione è abilitata sarà aggiunto il marcatore sulla mappa, che "
 "corrisponde alle coordinate specificate. Sarà ancora possibile modificare "
 "questo comportamento con le opzioni della shortcode o widget di mappa."
+
+#: ../../admin/classes/SZGoogleAdminMaps.php:234
+#: ../../admin/classes/SZGoogleAdminMaps.php:318
+msgid ""
+"if you enable this option, the loading the map will be in a \"lazy load\", "
+"the code will be executed only when the map will be displayed on the page. "
+"This option improves performance but may have problems with some browsers."
+msgstr ""
+"se si attiva questa opzione, il caricamento della mappa avverrà in modalità "
+"\"lazy load\", il codice sarà eseguito solo quando la mappa sarà "
+"visualizzata nella pagina. Questa opzione migliora le performance ma "
+"potrebbe avere dei problemi con alcuni browser."
 
 #: ../../admin/classes/SZGoogleAdminYoutube.php:44
 msgid "setup"
@@ -3695,9 +3713,9 @@ msgstr "widget calendario"
 
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:100
 #: ../../admin/classes/SZGoogleAdminDocumentation.php:266
-#: ../../admin/help/es/sz-google-help-drive-embed.php:115
-#: ../../admin/help/en/sz-google-help-drive-embed.php:116
-#: ../../admin/help/it/sz-google-help-drive-embed.php:119
+#: ../../admin/help/es/sz-google-help-drive-embed.php:116
+#: ../../admin/help/en/sz-google-help-drive-embed.php:117
+#: ../../admin/help/it/sz-google-help-drive-embed.php:120
 msgid "drive embed"
 msgstr "drive embed"
 
@@ -4398,6 +4416,7 @@ msgstr "inserire un testo per il badge"
 #: ../../admin/widgets/SZGoogleWidgetDriveSaveButton.php:51
 #: ../../admin/widgets/SZGoogleWidgetPlusPage.php:124
 #: ../../admin/widgets/SZGoogleWidgetYoutubeLink.php:71
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:37
 msgid "image"
 msgstr "immagine"
 
@@ -4591,7 +4610,7 @@ msgstr "inserire il canale"
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:74
 #: ../../admin/widgets/SZGoogleWidgetPlusAuthorBadge.php:40
 #: ../../admin/widgets/SZGoogleWidgetPlusPage.php:59
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:51
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:52
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:40
 #: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:36
 msgid "width"
@@ -4613,8 +4632,8 @@ msgstr "larghezza"
 #: ../../admin/widgets/SZGoogleWidgetGroups.php:49
 #: ../../admin/widgets/SZGoogleWidgetPlusAuthorBadge.php:42
 #: ../../admin/widgets/SZGoogleWidgetPlusPage.php:61
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:53
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:59
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:54
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:60
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:42
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:48
 #: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:38
@@ -4629,7 +4648,7 @@ msgstr "auto"
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:48
 #: ../../admin/widgets/SZGoogleWidgetGroups.php:47
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:79
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:57
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:58
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:46
 #: ../../admin/widgets/SZGoogleWidgetDriveViewer.php:42
 msgid "height"
@@ -4869,7 +4888,7 @@ msgstr "autoplay"
 
 #: ../../admin/widgets/SZGoogleWidgetYoutubePlaylist.php:53
 #: ../../admin/widgets/SZGoogleWidgetYoutubeVideo.php:53
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:72
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:73
 msgid "loop"
 msgstr "loop"
 
@@ -5079,16 +5098,16 @@ msgid "wheel"
 msgstr "wheel"
 
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:119
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:68
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:74
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:102
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:69
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:75
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:103
 msgid "disabled"
 msgstr "disabilita"
 
 #: ../../admin/widgets/SZGoogleWidgetMaps.php:120
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:67
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:73
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:101
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:68
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:74
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:102
 msgid "enabled"
 msgstr "abilita"
 
@@ -5233,48 +5252,48 @@ msgstr "video"
 msgid "folder"
 msgstr "folder"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:43
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:44
 msgid "ID"
 msgstr "ID"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:44
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:45
 msgid "insert document ID"
 msgstr "inserire id  documento"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:66
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:67
 msgid "start"
 msgstr "inizio"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:80
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:81
 msgid "delay sec"
 msgstr "ritardo sec"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:100
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:101
 msgid "single"
 msgstr "singolo"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:108
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:109
 msgid "sheet"
 msgstr "sheet"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:125
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:126
 msgid "range"
 msgstr "range"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:126
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:127
 msgid "range of cells"
 msgstr "range di celle"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:133
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:134
 msgid "folder view"
 msgstr "folder view"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:136
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:137
 #: ../../admin/widgets/SZGoogleWidgetCalendar.php:79
 msgid "list"
 msgstr "lista"
 
-#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:137
+#: ../../admin/widgets/SZGoogleWidgetDriveEmbed.php:138
 msgid "grid"
 msgstr "griglia"
 

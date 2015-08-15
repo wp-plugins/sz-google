@@ -29,16 +29,17 @@ if (!class_exists('SZGoogleActionMaps'))
 		function getShortcode($atts,$content=null) 
 		{
 			return $this->getHTMLCode(shortcode_atts(array(
-				'width'     => '',  // default value
-				'height'    => '',  // default value
-				'lat'       => '',  // default value
-				'lng'       => '',  // default value
-				'zoom'      => '',  // default value
-				'view'      => '',  // default value
-				'layer'     => '',  // default value
-				'wheel'     => '',  // default value
-				'marker'    => '',  // default value
-				'action'    => 'S', // default value
+				'width'    => '',  // default value
+				'height'   => '',  // default value
+				'lat'      => '',  // default value
+				'lng'      => '',  // default value
+				'zoom'     => '',  // default value
+				'view'     => '',  // default value
+				'layer'    => '',  // default value
+				'wheel'    => '',  // default value
+				'marker'   => '',  // default value
+				'lazyload' => '',  // default value
+				'action'   => 'S', // default value
 			),$atts),$content);
 		}
 
@@ -55,16 +56,17 @@ if (!class_exists('SZGoogleActionMaps'))
 			// ​​are contained in the variable names corresponding to the key
 
 			$options = shortcode_atts(array(
-				'width'   => '', // default value
-				'height'  => '', // default value
-				'lat'     => '', // default value
-				'lng'     => '', // default value
-				'zoom'    => '', // default value
-				'view'    => '', // default value
-				'layer'   => '', // default value
-				'wheel'   => '', // default value
-				'marker'  => '', // default value
-				'action'  => '', // default value
+				'width'    => '', // default value
+				'height'   => '', // default value
+				'lat'      => '', // default value
+				'lng'      => '', // default value
+				'zoom'     => '', // default value
+				'view'     => '', // default value
+				'layer'    => '', // default value
+				'wheel'    => '', // default value
+				'marker'   => '', // default value
+				'lazyload' => '', // default value
+				'action'   => '', // default value
 			),$atts);
 
 			$keyatts = $this->checkOptions($options);
@@ -114,17 +116,18 @@ if (!class_exists('SZGoogleActionMaps'))
 			// This code also add the sidebar, but is entered only once
 
 			$this->getModuleObject('SZGoogleModuleMaps')->addCodeJavascriptFooter(array(
-				'idHTML' => $keyatts->idHTML,
-				'unique' => $keyatts->unique,
-				'width'  => $keyatts->width,
-				'height' => $keyatts->height,
-				'lat'    => $keyatts->lat,
-				'lng'    => $keyatts->lng,
-				'zoom'   => $keyatts->zoom,
-				'view'   => $keyatts->view,
-				'wheel'  => $keyatts->wheel,
-				'marker' => $keyatts->marker,
-				'layer'  => $keyatts->layer,
+				'idHTML'   => $keyatts->idHTML,
+				'unique'   => $keyatts->unique,
+				'width'    => $keyatts->width,
+				'height'   => $keyatts->height,
+				'lat'      => $keyatts->lat,
+				'lng'      => $keyatts->lng,
+				'zoom'     => $keyatts->zoom,
+				'view'     => $keyatts->view,
+				'wheel'    => $keyatts->wheel,
+				'marker'   => $keyatts->marker,
+				'lazyload' => $keyatts->lazyload,
+				'layer'    => $keyatts->layer,
 			));
 
 			// Return the whole string containing
@@ -149,44 +152,58 @@ if (!class_exists('SZGoogleActionMaps'))
 			// Deleting spaces added too and execute the transformation to a
 			// string lowercase for the control of special values ​​such as "auto"
 
-			$check->lat    = trim($check->lat);
-			$check->lng    = trim($check->lng);
-			$check->zoom   = trim($check->zoom);
+			$check->lat      = trim($check->lat);
+			$check->lng      = trim($check->lng);
+			$check->zoom     = trim($check->zoom);
 
-			$check->view   = strtoupper(trim($check->view));
-			$check->width  = strtolower(trim($check->width));
-			$check->height = strtolower(trim($check->height));
-			$check->wheel  = strtolower(trim($check->wheel));
-			$check->marker = strtolower(trim($check->marker));
+			$check->view     = strtoupper(trim($check->view));
+			$check->width    = strtolower(trim($check->width));
+			$check->height   = strtolower(trim($check->height));
+			$check->wheel    = strtolower(trim($check->wheel));
+			$check->marker   = strtolower(trim($check->marker));
+			$check->lazyload = strtolower(trim($check->lazyload));
+
+			// Control the default values related to the shortcode
+			// Replace the values if these were not specified
+
+			if ($check->wheel    == 'true' ) $check->wheel    = '1';
+			if ($check->marker   == 'true' ) $check->marker   = '1';
+			if ($check->lazyload == 'true' ) $check->lazyload = '1';
+
+			if ($check->wheel    == 'false') $check->wheel    = '0';
+			if ($check->marker   == 'false') $check->marker   = '0';
+			if ($check->lazyload == 'false') $check->lazyload = '0';
 
 			// Control the default values related to the shortcode
 			// Replace the values if these were not specified
 
 			if ($check->action == 'S') {
-				if ($check->width  == '') $check->width  = $admin->maps_s_width;
-				if ($check->height == '') $check->height = $admin->maps_s_height;
-				if ($check->lat    == '') $check->lat    = $admin->maps_s_lat;
-				if ($check->lng    == '') $check->lng    = $admin->maps_s_lng;
-				if ($check->zoom   == '') $check->zoom   = $admin->maps_s_zoom;
-				if ($check->view   == '') $check->view   = $admin->maps_s_view;
-				if ($check->layer  == '') $check->layer  = $admin->maps_s_layer;
-				if ($check->wheel  == '') $check->wheel  = $admin->maps_s_wheel;
-				if ($check->marker == '') $check->marker = $admin->maps_s_marker;
+				if ($check->width    == '') $check->width    = $admin->maps_s_width;
+				if ($check->height   == '') $check->height   = $admin->maps_s_height;
+				if ($check->lat      == '') $check->lat      = $admin->maps_s_lat;
+				if ($check->lng      == '') $check->lng      = $admin->maps_s_lng;
+				if ($check->zoom     == '') $check->zoom     = $admin->maps_s_zoom;
+				if ($check->view     == '') $check->view     = $admin->maps_s_view;
+				if ($check->layer    == '') $check->layer    = $admin->maps_s_layer;
+				if ($check->wheel    == '') $check->wheel    = $admin->maps_s_wheel;
+				if ($check->marker   == '') $check->marker   = $admin->maps_s_marker;
+				if ($check->lazyload == '') $check->lazyload = $admin->maps_s_lazy;
 			}
 
 			// Control the default values related to the widget
 			// Replace the values if these were not specified
 
 			if ($check->action == 'W') {
-				if ($check->width  == '') $check->width  = $admin->maps_w_width;
-				if ($check->height == '') $check->height = $admin->maps_w_height;
-				if ($check->lat    == '') $check->lat    = $admin->maps_w_lat;
-				if ($check->lng    == '') $check->lng    = $admin->maps_w_lng;
-				if ($check->zoom   == '') $check->zoom   = $admin->maps_w_zoom;
-				if ($check->view   == '') $check->view   = $admin->maps_w_view;
-				if ($check->layer  == '') $check->layer  = $admin->maps_w_layer;
-				if ($check->wheel  == '') $check->wheel  = $admin->maps_w_wheel;
-				if ($check->marker == '') $check->marker = $admin->maps_w_marker;
+				if ($check->width    == '') $check->width    = $admin->maps_w_width;
+				if ($check->height   == '') $check->height   = $admin->maps_w_height;
+				if ($check->lat      == '') $check->lat      = $admin->maps_w_lat;
+				if ($check->lng      == '') $check->lng      = $admin->maps_w_lng;
+				if ($check->zoom     == '') $check->zoom     = $admin->maps_w_zoom;
+				if ($check->view     == '') $check->view     = $admin->maps_w_view;
+				if ($check->layer    == '') $check->layer    = $admin->maps_w_layer;
+				if ($check->wheel    == '') $check->wheel    = $admin->maps_w_wheel;
+				if ($check->marker   == '') $check->marker   = $admin->maps_w_marker;
+				if ($check->lazyload == '') $check->lazyload = $admin->maps_w_lazy;
 			}
 
 			// Check the values passed in arrays that specify the size
@@ -205,10 +222,11 @@ if (!class_exists('SZGoogleActionMaps'))
 			// Must be ROADMAP, SATELLITE, HYBRID and TERRAIN
 
 			if ($check->action == 'S' or $check->action == 'W') {
-				if (!in_array($check->wheel ,array('0','1',''))) $check->wheel  = '0';
-				if (!in_array($check->marker,array('0','1',''))) $check->marker = '0';
-				if (!in_array($check->view  ,array('ROADMAP','SATELLITE','HYBRID','TERRAIN'))) $check->view  = 'ROADMAP';
-				if (!in_array($check->layer ,array('NOTHING','TRAFFIC','TRANSIT','BICYCLE')))  $check->layer = 'NOTHING';
+				if (!in_array($check->wheel    ,array('0','1',''))) $check->wheel    = '0';
+				if (!in_array($check->marker   ,array('0','1',''))) $check->marker   = '0';
+				if (!in_array($check->lazyload ,array('0','1',''))) $check->lazyload = '0';
+				if (!in_array($check->view     ,array('ROADMAP','SATELLITE','HYBRID','TERRAIN'))) $check->view  = 'ROADMAP';
+				if (!in_array($check->layer    ,array('NOTHING','TRAFFIC','TRANSIT','BICYCLE')))  $check->layer = 'NOTHING';
 			}
 
 			// Setting any of the default parameters for

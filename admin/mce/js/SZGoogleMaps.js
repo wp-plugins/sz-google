@@ -35,16 +35,18 @@ var SZGoogleDialog =
 		// Calculating the values ​​of variables directly 
 		// from the form fields without submission standards
 
-		var output  = '';
+		var output   = '';
 
-		var width  = jQuery('#ID_width' ).val();
-		var height = jQuery('#ID_height').val();
-		var lat    = jQuery('#ID_lat'   ).val();
-		var lng    = jQuery('#ID_lng'   ).val();
-		var zoom   = jQuery('#ID_zoom'  ).val();
-		var view   = jQuery('#ID_view'  ).val();
-		var layer  = jQuery('#ID_layer' ).val();
-		var marker = jQuery('#ID_marker').val();
+		var width    = jQuery('#ID_width'   ).val();
+		var height   = jQuery('#ID_height'  ).val();
+		var lat      = jQuery('#ID_lat'     ).val();
+		var lng      = jQuery('#ID_lng'     ).val();
+		var zoom     = jQuery('#ID_zoom'    ).val();
+		var view     = jQuery('#ID_view'    ).val();
+		var layer    = jQuery('#ID_layer'   ).val();
+		var wheel    = jQuery('#ID_wheel'   ).val();
+		var marker   = jQuery('#ID_marker'  ).val();
+		var lazyload = jQuery('#ID_lazyload').val();
 
 		if (jQuery('#ID_width_auto' ).is(':checked')) width  = 'auto';
 		if (jQuery('#ID_height_auto').is(':checked')) height = 'auto';
@@ -54,14 +56,16 @@ var SZGoogleDialog =
 
 		output = '[sz-maps ';
 
-		if (width  != '') output += 'width="'  + width  + '" ';
-		if (height != '') output += 'height="' + height + '" ';
-		if (lat    != '') output += 'lat="'    + lat    + '" ';
-		if (lng    != '') output += 'lng="'    + lng    + '" ';
-		if (zoom   != '') output += 'zoom="'   + zoom   + '" ';
-		if (view   != '') output += 'view="'   + view   + '" ';
-		if (layer  != '') output += 'layer="'  + layer  + '" ';
-		if (marker != '') output += 'marker="' + marker + '" ';
+		if (width    != '') output += 'width="'    + width    + '" ';
+		if (height   != '') output += 'height="'   + height   + '" ';
+		if (lat      != '') output += 'lat="'      + lat      + '" ';
+		if (lng      != '') output += 'lng="'      + lng      + '" ';
+		if (zoom     != '') output += 'zoom="'     + zoom     + '" ';
+		if (view     != '') output += 'view="'     + view     + '" ';
+		if (layer    != '') output += 'layer="'    + layer    + '" ';
+		if (wheel    != '') output += 'wheel="'    + wheel    + '" ';
+		if (marker   != '') output += 'marker="'   + marker   + '" ';
+		if (lazyload != '') output += 'lazyload="' + lazyload + '" ';
 
 		output += '/]';
 

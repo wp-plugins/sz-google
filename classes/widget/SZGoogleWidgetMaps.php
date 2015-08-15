@@ -43,17 +43,18 @@ if (!class_exists('SZGoogleWidgetMaps'))
 			// the script and check the default values ​​in case they were not specified
 
 			$options = $this->common_empty(array(
-				'title'   => '',  // default value
-				'width'   => '',  // default value
-				'height'  => '',  // default value
-				'lat'     => '',  // default value
-				'lng'     => '',  // default value
-				'zoom'    => '',  // default value
-				'view'    => '',  // default value
-				'layer'   => '',  // default value
-				'wheel'   => '',  // default value
-				'marker'  => '',  // default value
-				'action'  => 'W', // default value
+				'title'    => '',  // default value
+				'width'    => '',  // default value
+				'height'   => '',  // default value
+				'lat'      => '',  // default value
+				'lng'      => '',  // default value
+				'zoom'     => '',  // default value
+				'view'     => '',  // default value
+				'layer'    => '',  // default value
+				'wheel'    => '',  // default value
+				'marker'   => '',  // default value
+				'lazyload' => '',  // default value
+				'action'   => 'W', // default value
 			),$instance);
 
 			// Definition of the control variables of the widget, these values​
@@ -105,6 +106,7 @@ if (!class_exists('SZGoogleWidgetMaps'))
 				'layer'       => '1', // strip_tags
 				'wheel'       => '1', // strip_tags
 				'marker'      => '1', // strip_tags
+				'lazyload'    => '1', // strip_tags
 			),$new_instance,$old_instance);
 		}
 
@@ -131,6 +133,7 @@ if (!class_exists('SZGoogleWidgetMaps'))
 				'layer'       => '',  // default value
 				'wheel'       => '',  // default value
 				'marker'      => '',  // default value
+				'lazyload'    => '',  // default value
 				'action'      => 'A', // default value
 			);
 
